@@ -98,159 +98,158 @@ The following Azure Resource Manager template defines a new Azure virtual machin
             }
         }
     },
-        "variables": {
-            "addressPrefix": "10.0.0.0/16",
-            "subnet1Name": "Subnet-1",
-            "subnet2Name": "Subnet-2",
-            "subnet1Prefix": "10.0.0.0/24",
-            "subnet2Prefix": "10.0.1.0/24",
-            "publicIPAddressType": "Dynamic",
-            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-            "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
-            "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
+    "variables": {
+        "addressPrefix": "10.0.0.0/16",
+        "subnet1Name": "Subnet-1",
+        "subnet2Name": "Subnet-2",
+        "subnet1Prefix": "10.0.0.0/24",
+        "subnet2Prefix": "10.0.1.0/24",
+        "publicIPAddressType": "Dynamic",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+        "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
+        "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddressName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+                }
+            }
         },
-        "resources": [
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/publicIPAddresses",
-                "name": "[parameters('publicIPAddressName')]",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                    "dnsSettings": {
-                        "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworkName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('subnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('subnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet2Prefix')]"
+                        }
                     }
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/virtualNetworks",
-                "name": "[parameters('virtualNetworkName')]",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "addressSpace": {
-                        "addressPrefixes": [
-                            "[variables('addressPrefix')]"
-                        ]
-                    },
-                    "subnets": [
-                        {
-                            "name": "[variables('subnet1Name')]",
-                            "properties": {
-                                "addressPrefix": "[variables('subnet1Prefix')]"
-                            }
-                        },
-                        {
-                            "name": "[variables('subnet2Name')]",
-                            "properties": {
-                                "addressPrefix": "[variables('subnet2Prefix')]"
+                ]
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('nicName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                            },
+                            "subnet": {
+                                "id": "[variables('subnet1Ref')]"
                             }
                         }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/networkInterfaces",
-                "name": "[parameters('nicName')]",
-                "location": "[parameters('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
-                    "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-                ],
-                "properties": {
-                    "ipConfigurations": [
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2015-06-15",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('vmName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[parameters('vmSize')]"
+                },
+                "osProfile": {
+                    "computername": "[parameters('vmName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]",
+                    "secrets": [
                         {
-                            "name": "ipconfig1",
-                            "properties": {
-                                "privateIPAllocationMethod": "Dynamic",
-                                "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
-                                },
-                                "subnet": {
-                                    "id": "[variables('subnet1Ref')]"
+                            "sourceVault": {
+                                "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                            },
+                            "vaultCertificates": [
+                                {
+                                    "certificateUrl": "[parameters('certificateUrl')]",
+                                    "certificateStore": "My"
                                 }
-                            }
+                            ]
+                        }
+                    ],
+                    "windowsConfiguration": {
+                        "provisionVMAgent": "true",
+                        "winRM": {
+                            "listeners": [
+                                {
+                                    "protocol": "http"
+                                },
+                                {
+                                    "protocol": "https",
+                                    "certificateUrl": "[parameters('certificateUrl')]"
+                                }
+                            ]
+                        },
+                        "enableAutomaticUpdates": "true"
+                    }
+                },
+                "storageProfile": {
+                    "osDisk": {
+                        "name": "[concat(parameters('vmName'),'-osDisk')]",
+                        "osType": "[parameters('osType')]",
+                        "caching": "ReadWrite",
+                        "image": {
+                            "uri": "[parameters('vhdUrl')]"
+                        },
+                        "vhd": {
+                            "uri": "[variables('osDiskVhdName')]"
+                        },
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
                         }
                     ]
-                }
-            },
-            {
-                "apiVersion": "2015-06-15",
-                "type": "Microsoft.Compute/virtualMachines",
-                "name": "[parameters('vmName')]",
-                "location": "[parameters('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
-                ],
-                "properties": {
-                    "hardwareProfile": {
-                        "vmSize": "[parameters('vmSize')]"
-                    },
-                    "osProfile": {
-                        "computername": "[parameters('vmName')]",
-                        "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]",
-                        "secrets": [
-                            {
-                                "sourceVault": {
-                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-                                },
-                                "vaultCertificates": [
-                                    {
-                                        "certificateUrl": "[parameters('certificateUrl')]",
-                                        "certificateStore": "My"
-                                    }
-                                ]
-                            }
-                        ],
-                        "windowsConfiguration": {
-                            "provisionVMAgent": "true",
-                            "winRM": {
-                                "listeners": [
-                                    {
-                                        "protocol": "http"
-                                    },
-                                    {
-                                        "protocol": "https",
-                                        "certificateUrl": "[parameters('certificateUrl')]"
-                                    }
-                                ]
-                            },
-                            "enableAutomaticUpdates": "true"
-                        }
-                    },
-                    "storageProfile": {
-                        "osDisk": {
-                            "name": "[concat(parameters('vmName'),'-osDisk')]",
-                            "osType": "[parameters('osType')]",
-                            "caching": "ReadWrite",
-                            "image": {
-                                "uri": "[parameters('vhdUrl')]"
-                            },
-                            "vhd": {
-                                "uri": "[variables('osDiskVhdName')]"
-                            },
-                            "createOption": "FromImage"
-                        }
-                    },
-                    "networkProfile": {
-                        "networkInterfaces": [
-                            {
-                                "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-                            }
-                        ]
-                    },
+                },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
                         "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
                     }
                 }
-
-                }
             }
-        ]
-    }
+        }
+    ]
+}
 
 ```
