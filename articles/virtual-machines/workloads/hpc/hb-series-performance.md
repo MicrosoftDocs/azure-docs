@@ -21,18 +21,18 @@ ms.author: msalias
 Several performance tests have been run on HB-series sizes. The following are some of the results of this performance testing.
 
 
-| Workload​                                        | HB​                    |
+| Workload                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| STREAM Triad​                                    | ~260 GB/s (32-33 GB/s per CCX)​  |
-| High-Performance Linpack (HPL)​                  | ~1,000 GigaFLOPS (Rpeak), ~860 GigaFLOPS (Rmax)​ |
-| RDMA latency & bandwidth​                        | 2.35usec, 96.5 Gb/s​   |
-| FIO on local NVMe SSD​                           | ~1.7 GB/s reads, ~1.0 GB/s writes​      |  
-| IOR on 4 * Azure Premium SSD (P30 Managed Disks, RAID0)**​  | ~725 MB/s reads,  ~780 MB/writes​   |
+| STREAM Triad                                    | ~260 GB/s (32-33 GB/s per CCX)  |
+| High-Performance Linpack (HPL)                  | ~1,000 GigaFLOPS (Rpeak), ~860 GigaFLOPS (Rmax) |
+| RDMA latency & bandwidth                        | 2.35usec, 96.5 Gb/s   |
+| FIO on local NVMe SSD                           | ~1.7 GB/s reads, ~1.0 GB/s writes      |  
+| IOR on 4 * Azure Premium SSD (P30 Managed Disks, RAID0)**  | ~725 MB/s reads,  ~780 MB/writes   |
 
 
 
 ## InfiniBand send latency
-Mellanox Perftest​.
+Mellanox Perftest.
 
 ```azure-cli
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
@@ -57,7 +57,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## OSU MPI Latency Test
 
-OSU MPI Latency Test v5.4.3​.
+OSU MPI Latency Test v5.4.3.
 
 ```azure-cli
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
@@ -80,12 +80,12 @@ OSU MPI Latency Test v5.4.3​.
 | 4096 | 4.79     | 5.28     | 6.33     | 4.91     |
 
 
-## MPI bandwidth​
+## MPI bandwidth
 
-OSU MPI Bandwidth Test v5.4.3​.
+OSU MPI Bandwidth Test v5.4.3.
 
 ```azure-cli
-./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw​
+./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
 | #Size            | Bandwidth (MB/s) | Bandwidth (Gb/s) |
