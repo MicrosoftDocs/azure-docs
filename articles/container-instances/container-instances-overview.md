@@ -2,13 +2,13 @@
 title: What is Azure Container Instances?
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
