@@ -89,7 +89,7 @@ pip install azure-cognitiveservices-vision-computervision
 
 Once you create your Computer Vision resource, you need its **region**, and one of its **account keys** to instantiate the client object.
 
-Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
+Use these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient] client object. 
 
 For example, use the Bash terminal to set the environment variables:
 
@@ -124,10 +124,10 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### Create client
 
-Get the region and key from environment variables then create the [ComputerVisionAPI][ref_computervisionclient] client object.  
+Get the region and key from environment variables then create the [ComputerVisionClient][ref_computervisionclient] client object.  
 
 ```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
@@ -140,12 +140,12 @@ key = os.environ['ACCOUNT_KEY']
 credentials = CognitiveServicesCredentials(key)
 
 # Create client
-client = ComputerVisionAPI(region, credentials)
+client = ComputerVisionClient(region, credentials)
 ```
 
 ## Examples
 
-You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
+You need a [ComputerVisionClient][ref_computervisionclient] client object before using any of the following tasks.
 
 ### Analyze an image
 
@@ -280,7 +280,7 @@ image.save('thumbnail.jpg')
 
 ### General
 
-When you interact with the [ComputerVisionAPI][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] class is used to return errors. Errors returned by the service correspond to the same HTTP status codes returned for REST API requests.
+When you interact with the [ComputerVisionClient][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] class is used to return errors. Errors returned by the service correspond to the same HTTP status codes returned for REST API requests.
 
 For example, if you try to analyze an image with an invalid key, a `401` error is returned. In the following snippet, the [error][ref_httpfailure] is handled gracefully by catching the exception and displaying additional information about the error.
 
@@ -306,7 +306,7 @@ except HTTPFailure as e:
 
 ### Handle transient errors with retries
 
-While working with the [ComputerVisionAPI][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
+While working with the [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
 
 ### More sample code
 
