@@ -58,7 +58,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 2. Open the `appsettings.json` file.
 3. Add an `Authentication` section and fill out the properties with your Azure AD tenant information.
 	
-    ```cs
+    ```json
     //ClientId: Azure AD -> App registrations -> Application ID
     //Domain: <tenantname>.onmicrosoft.com
     //TenantId: Azure AD -> Properties -> Directory ID
