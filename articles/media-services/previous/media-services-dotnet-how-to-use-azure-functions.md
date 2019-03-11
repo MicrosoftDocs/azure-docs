@@ -156,16 +156,16 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.Azure.WebJobs;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-  
+
 // Read values from the App.config file.
 
 static readonly string _AADTenantDomain = Environment.GetEnvironmentVariable("AMSAADTenantDomain");
 static readonly string _RESTAPIEndpoint = Environment.GetEnvironmentVariable("AMSRESTAPIEndpoint");
- 
+
 static readonly string _mediaservicesClientId = Environment.GetEnvironmentVariable("AMSClientId");
 static readonly string _mediaservicesClientSecret = Environment.GetEnvironmentVariable("AMSClientSecret");
 
-static readonly string _connectionString = Environment.GetEnvironmentVariable("ConnectionString");  
+static readonly string _connectionString = Environment.GetEnvironmentVariable("ConnectionString");
 
 private static CloudMediaContext _context = null;
 private static CloudStorageAccount _destinationStorageAccount = null;
@@ -174,9 +174,9 @@ public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
 {
     // NOTE that the variables {fileName} here come from the path setting in function.json
     // and are passed into the  Run method signature above. We can use this to make decisions on what type of file
-    // was dropped into the input container for the function. 
+    // was dropped into the input container for the function.
 
-    // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a 
+    // No need to do any Retry strategy in this function, By default, the SDK calls a function up to 5 times for a
     // given blob. If the fifth try fails, the SDK adds a message to a queue named webjobs-blobtrigger-poison.
 
     log.Info($"C# Blob trigger function processed: {fileName}.mp4");
@@ -187,9 +187,9 @@ public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
         AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain,
                             new AzureAdClientSymmetricKey(_mediaservicesClientId, _mediaservicesClientSecret),
                             AzureEnvironments.AzureCloudEnvironment);
- 
+
         AzureAdTokenProvider tokenProvider = new AzureAdTokenProvider(tokenCredentials);
- 
+
         _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
         IAsset newAsset = CreateAssetFromBlob(myBlob, fileName, log).GetAwaiter().GetResult();
@@ -199,7 +199,7 @@ public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
         // Declare a new encoding job with the Standard encoder
         IJob job = _context.Jobs.Create("Azure Function - MES Job");
 
-        // Get a media processor reference, and pass to it the name of the 
+        // Get a media processor reference, and pass to it the name of the
         // processor to use for the specific task.
         IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -207,14 +207,14 @@ public static void Run(CloudBlockBlob myBlob, string fileName, TraceWriter log)
         ITask task = job.Tasks.AddNew("Encode with Adaptive Streaming",
             processor,
             "Adaptive Streaming",
-            TaskOptions.None); 
+            TaskOptions.None);
 
         // Specify the input asset to be encoded.
         task.InputAssets.Add(newAsset);
 
-        // Add an output asset to contain the results of the job. 
-        // This output is specified as AssetCreationOptions.None, which 
-        // means the output asset is not encrypted. 
+        // Add an output asset to contain the results of the job.
+        // This output is specified as AssetCreationOptions.None, which
+        // means the output asset is not encrypted.
         task.OutputAssets.AddNew(fileName, AssetCreationOptions.None);
 
         job.Submit();
@@ -264,10 +264,10 @@ public static async Task<IAsset> CreateAssetFromBlob(CloudBlockBlob blob, string
 /// <returns>The new asset.</returns>
 public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, string assetName, TraceWriter log)
 {
-     //Get a reference to the storage account that is associated with the Media Services account. 
+     //Get a reference to the storage account that is associated with the Media Services account.
     _destinationStorageAccount = CloudStorageAccount.Parse(_connectionString);
 
-    // Create a new asset. 
+    // Create a new asset.
     var asset = _context.Assets.Create(blob.Name, AssetCreationOptions.None);
     log.Info($"Created new asset {asset.Name}");
 
@@ -296,9 +296,9 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
     // Copy Blob
     try
     {
-    using (var stream = await blob.OpenReadAsync()) 
-    {            
-        await destinationBlob.UploadFromStreamAsync(stream);          
+    using (var stream = await blob.OpenReadAsync())
+    {
+        await destinationBlob.UploadFromStreamAsync(stream);
     }
 
     log.Info("Copy Complete.");
