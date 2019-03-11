@@ -267,7 +267,7 @@ There are two required installers for password protection for Azure Active Direc
 
    You can automate the software installation by using standard MSI procedures. For example:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn` 
 
    > [!WARNING]
    > The example msiexec command here causes an immediate reboot. To avoid that, use the `/norestart` flag.
