@@ -183,7 +183,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             NotificationMessage msg = JsonConvert.DeserializeObject<NotificationMessage>(requestMessageContents);
 
             if (VerifyHeaders(req, msg, log))
-            { 
+            {
                 string newJobStateStr = (string)msg.Properties.Where(j => j.Key == "NewState").FirstOrDefault().Value;
                 if (newJobStateStr == "Finished")
                 {
@@ -195,8 +195,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 
                     _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                    if(_context!=null)   
-                    {                        
+                    if(_context!=null)
+                    {
                         string urlForClientStreaming = PublishAndBuildStreamingURLs(msg.Properties["JobId"]);
                         log.Info($"URL to the manifest for client streaming using HLS protocol: {urlForClientStreaming}");
                     }
@@ -225,25 +225,25 @@ private static string PublishAndBuildStreamingURLs(String jobID)
     IJob job = _context.Jobs.Where(j => j.Id == jobID).FirstOrDefault();
     IAsset asset = job.OutputMediaAssets.FirstOrDefault();
 
-    // Create a 30-day readonly access policy. 
+    // Create a 30-day readonly access policy.
     // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
     IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
     TimeSpan.FromDays(30),
     AccessPermissions.Read);
 
-    // Create a locator to the streaming content on an origin. 
+    // Create a locator to the streaming content on an origin.
     ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
     policy,
     DateTime.UtcNow.AddMinutes(-5));
 
-    // Get a reference to the streaming manifest file from the  
-    // collection of files in the asset. 
+    // Get a reference to the streaming manifest file from the
+    // collection of files in the asset.
     var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 
     // Create a full URL to the manifest file. Use this for playback
-    // in streaming media clients. 
+    // in streaming media clients.
     string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest" +  "(format=m3u8-aapl)";
     return urlForClientStreaming;
 
@@ -348,7 +348,7 @@ Save and run your function.
 Once the webhook is triggered, the example above produces the following output, your values will vary.
 
 	C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
-	Request Body = 
+	Request Body =
     {
 	  "MessageVersion": "1.1",
 	  "ETag": "b8977308f48858a8f224708bc963e1a09ff917ce730316b4e7ae9137f78f3b20",
@@ -457,7 +457,7 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
                     // Declare a new encoding job with the Standard encoder
                     IJob job = _context.Jobs.Create("MES Job");
 
-                    // Get a media processor reference, and pass to it the name of the 
+                    // Get a media processor reference, and pass to it the name of the
                     // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
@@ -469,14 +469,14 @@ In this section, the code that adds a webhook notification to a Task is shown. Y
                     // Specify the input asset to be encoded.
                     task.InputAssets.Add(newAsset);
 
-                    // Add an output asset to contain the results of the job. 
-                    // This output is specified as AssetCreationOptions.None, which 
-                    // means the output asset is not encrypted. 
+                    // Add an output asset to contain the results of the job.
+                    // This output is specified as AssetCreationOptions.None, which
+                    // means the output asset is not encrypted.
                     task.OutputAssets.AddNew(newAsset.Name, AssetCreationOptions.None);
 
                     // Add the WebHook notification to this Task and request all notification state changes.
                     // Note that you can also add a job level notification
-                    // which would be more useful for a job with chained tasks.  
+                    // which would be more useful for a job with chained tasks.
                     if (endpoint != null)
                     {
                     task.TaskNotificationSubscriptions.AddNew(NotificationJobState.All, endpoint, true);
