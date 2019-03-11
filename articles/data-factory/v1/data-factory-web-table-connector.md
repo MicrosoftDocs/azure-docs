@@ -118,7 +118,7 @@ The **typeProperties** section is different for each type of dataset and provide
         "external": true,
         "availability": {
             "frequency": "Hour",
-            "interval":  1
+            "interval": 1
         }
     }
 }
@@ -199,7 +199,7 @@ Setting **external** to **true** informs the Data Factory service that the datas
         "external": true,
         "availability": {
             "frequency": "Hour",
-            "interval":  1
+            "interval": 1
         }
     }
 }
@@ -268,7 +268,7 @@ See WebSource type properties for the list of properties supported by the WebSou
             "type": "BlobSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -279,8 +279,8 @@ See WebSource type properties for the list of properties supported by the WebSou
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 
