@@ -26,6 +26,14 @@ In this article, learn about the Azure Machine Learning service releases.  For a
  + **Changes**
    + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
 
+### Azure Machine Learning Data Prep SDK v1.0.17
+
++ **New features**
+  + Now supports adding two numeric columns to generate a resultant column using the expression language.
+
++ **Bug fixes and improvements**
+  + Improved the documentation and parameter checking for random_split.
+  
 ## 2019-02-27
 
 ### Azure Machine Learning Data Prep SDK v1.0.16
@@ -50,11 +58,9 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 ### Azure portal
 
 + **New features**
-	+ New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
-	+ New Logs file viewer
-	+ Links to experiment runs, compute, models, images and deployments from the activities tab
-
-## 2019-02-11
+  + New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
+  + New Logs file viewer
+  + Links to experiment runs, compute, models, images and deployments from the activities tab
 
 ### Azure Machine Learning Data Prep SDK v1.0.15
 
@@ -67,6 +73,8 @@ In this article, learn about the Azure Machine Learning service releases.  For a
   + Data Prep now supports reading data from a DataPath.
   + One hot encoding now works on boolean and numeric columns.
   + Other miscellaneous bug fixes.
+
+## 2019-02-11
 
 ### Azure Machine Learning SDK for Python v1.0.15
 
