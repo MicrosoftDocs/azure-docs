@@ -56,19 +56,19 @@ The following example shows a module twin JSON document:
 {
     "deviceId": "devA",
     "moduleId": "moduleA",
-    "etag": "AAAAAAAAAAc=", 
+    "etag": "AAAAAAAAAAc=",
     "status": "enabled",
     "statusReason": "provisioned",
     "statusUpdateTime": "0001-01-01T00:00:00",
     "connectionState": "connected",
     "lastActivityTime": "2015-02-30T16:24:48.789Z",
-    "cloudToDeviceMessageCount": 0, 
+    "cloudToDeviceMessageCount": 0,
     "authenticationType": "sas",
-    "x509Thumbprint": {     
-        "primaryThumbprint": null, 
-        "secondaryThumbprint": null 
-    }, 
-    "version": 2, 
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "$etag": "123",
         "deploymentLocation": {
