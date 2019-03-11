@@ -45,7 +45,7 @@ In some cases, applications require a local certificate file generated from a tr
 The certificate needed to communicate over SSL with your Azure Database for PostgreSQL server is located [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt). Download the certificate file locally.
 
 ### Install a cert decoder on your machine 
-You can use [OpenSSL](https://github.com/openssl/openssl) to decode the certificate file needed for your application to connect securely to your database server. To learn how to install OpenSSL, see the [OpenSSL GitHub repository](https://github.com/openssl/openssl/blob/master/INSTALL). 
+You can use [OpenSSL](https://github.com/openssl/openssl) to decode the certificate file needed for your application to connect securely to your database server. To learn how to install OpenSSL, see the [OpenSSL installation instructions](https://github.com/openssl/openssl/blob/master/INSTALL). 
 
 
 ### Decode your certificate file
