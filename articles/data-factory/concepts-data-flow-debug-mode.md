@@ -15,7 +15,7 @@ ms.date: 10/04/2018
 
 Azure Data Factory Mapping Data Flow has a debug mode, which can be switched on with the Data Flow Debug button at the top of the design surface. When designing data flows, setting debug mode on will allow you to interactively watch the data shape transform while you build and debug your data flows. The Debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows.
 
-<img src="media/data-flow/debugbutton.png" width="400">
+![Debug button](media/data-flow/debugbutton.png "Debug button")
 
 ## Overview
 When Debug mode is on, you will interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
