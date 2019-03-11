@@ -6,24 +6,24 @@
   items:
   - name: What is Data Catalog?
     href: data-catalog-what-is-data-catalog.md
-  - name: Common scenarios
-    href: data-catalog-common-scenarios.md
-  - name: Supported data sources
-    href: data-catalog-dsr.md
 - name: Quickstart
   items:
   - name: Get started with Azure Data Catalog
     href: data-catalog-get-started.md
+- name: Tutorials
+  items:
+- name: Concepts
+  items:
+  - name: Common scenarios
+    href: data-catalog-common-scenarios.md
+  - name: Supported data sources
+    href: data-catalog-dsr.md
   - name: Adopting Azure Data Catalog
     href: data-catalog-adopting-data-catalog.md
   - name: Prerequisites
     href: data-catalog-prerequisites.md
   - name: FAQ
     href: data-catalog-frequently-asked-questions.md
-- name: Tutorials
-  items:
-- name: Concepts
-  items:
 - name: How To
   items:
   - name: Register data sources
