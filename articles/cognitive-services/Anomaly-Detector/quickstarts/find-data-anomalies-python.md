@@ -11,9 +11,16 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-# Find anomalies as a batch using the Anomaly Finder REST API and Python
+# Find anomalies in your time series data using the Anomaly Detector REST API and Python
 
-Use this quickstart to begin using the Anomaly Detector API to find anomalies in your time series data as a batch of data points. This Python application sends a batch JSON-formatted data points to the API, and gets the response. The API will generate and apply a statistical model to the data set, and each point is analyzed with the same model. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to start using the Anomaly Detector API's two detection modes to find anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the response. 
+
+| API request                                        | Application output                                                                                                                         |
+|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the locations of any detected anomalies. |
+| Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
+
+ While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -34,10 +41,17 @@ Use this quickstart to begin using the Anomaly Detector API to find anomalies in
     import json
     ```
 
-2. Create variables for your subscription key, and your endpoint. To detect anomalies in a batch of data points, use the URL `anomalyfinder/v2.0/timeseries/entire/detect`. Then create a string with a path to the JSON formatted time series data.
+2. Create variables for your subscription key, and your endpoint. Below are the URLs you can use for anomaly detection. These will later be appended to your endpoint to create the API request URLs.
+
+    |Detection method  |URL  |
+    |---------|---------|
+    |Batch detection    | `/anomalyfinder/v2.0/timeseries/entire/detect`        |
+    |Detection on the latest data point     | `/anomalyfinder/v2.0/timeseries/last/detect`        |
 
     ```python
     batch_detection_url = "anomalyfinder/v2.0/timeseries/entire/detect"
+    latest_point_detection_url = "/anomalyfinder/v2.0/timeseries/last/detect"
+
     endpoint = "[YOUR_ENDPOINT_URL]"
     subscription_key = "[YOUR_SUBSCRIPTION_KEY]"
     data_location = "[PATH_TO_TIME_SERIES_DATA]"
@@ -71,25 +85,54 @@ Use this quickstart to begin using the Anomaly Detector API to find anomalies in
             raise Exception(response.text)
     ```
 
-## Send the API request and read the response
+## Detect anomalies as a batch
 
-1. Call the `send_request()` method above with yoru endpoint, url, subscprition key, and json data. Call `json.dumps()` on the result to format it, and print it to the console.
+1. Create a method called `detect_batch()` to detect anomalies throughout the data as a batch. Call the `send_request()` method created above with your endpoint, url, subscription key, and json data. 
 
-    ```python
-    result = send_request(endpoint, batch_detection_url, subscription_key, json_data)
+2. Call `json.dumps()` on the result to format it, and print it to the console.
+
+3. Find the positions of anomalies in the data set. The response's `IsAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+
+```python
+def detect_batch(request_data):
+
+    result = send_request(endpoint, batch_detection_url, subscription_key, request_data)
     print(json.dumps(result, indent=4))
-    ```
 
-2. Find the positions of anomalies in the data set. The response's `IsAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
-
-    ```python
+    # Find and display the positions of anomalies in the data set
     anomalies = result["IsAnomaly"]
-    
-    print("Anomalies found in the following data positions:")
-    
+
     for x in range(len(anomalies)):
         if anomalies[x] == True:
             print (x)
+```
+
+## Get the anomaly status of the latest data point
+
+1. Create a method called `detect_latest()` to determine if the latest data point in your time series is an anomaly. Call the `send_request()` method above with your endpoint, url, subscription key, and json data. 
+
+2. Call `json.dumps()` on the result to format it, and print it to the console.
+
+```python
+def detect_latest(request_data):
+    print("Determining if latest data point is an anomaly")
+    # send the request, and print the JSON result
+    result = send_request(endpoint, latest_point_detection_url, subscription_key, request_data)
+    print(json.dumps(result, indent=4))
+```
+
+## load your time series data and send the request
+
+1. load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
+
+    [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+    
+    ```python
+    file_handler = open (data_location)
+    json_data = json.load(file_handler)
+    
+    detect_batch(json_data)
+    detect_latest(json_data)
     ```
 
 ### Example response

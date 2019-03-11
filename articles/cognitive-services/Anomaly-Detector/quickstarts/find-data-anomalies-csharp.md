@@ -1,5 +1,5 @@
 ---
-title: Find anomalies as a batch using the Anomaly Finder REST API and C# | Microsoft Docs
+title: Find anomalies in your time series data using the Anomaly Finder REST API and C# | Microsoft Docs
 description: Use the Anomaly Detector API to detect abnormalities in your data series as a batch.
 services: cognitive-services
 author: aahill
@@ -11,7 +11,7 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-# Find anomalies throughout time series data using the Anomaly Detector REST API and C# 
+# Find anomalies in your time series data using the Anomaly Detector REST API and C# 
 
 Use this quickstart to start using the Anomaly Detector API's two detection modes to find anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the response. 
 
@@ -52,7 +52,12 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     using System.Threading.Tasks;
     ```
 
-2. Create variables for your subscription key, and your endpoint. To detect anomalies in a batch of data points, use the URL `anomalyfinder/v2.0/timeseries/entire/detect`. Then create a string with a path to the JSON formatted time series data.
+2. Create variables for your subscription key, and your endpoint. Below are the URLs you can use for anomaly detection. These will later be appended to your endpoint to create the API request URLs.
+
+    |Detection method  |URL  |
+    |---------|---------|
+    |Batch detection    | `/anomalyfinder/v2.0/timeseries/entire/detect`        |
+    |Detection on the latest data point     | `/anomalyfinder/v2.0/timeseries/last/detect`        |
     
     ```csharp
         const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";

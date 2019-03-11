@@ -1,7 +1,5 @@
-> [!NOTE] 
-> To use the Anomaly Detector API, your data must follow these requirements:
-> - Minimum data for input time series: 
->     - Minimum of 13 data points for time series without clear periodicity
->     - Minimum of four cycles of data points for the time series with known periodicity.
-> - Data integrity: 
->     - Time series data points are separated in the same interval and no missing points.
+> [!NOTE]
+> To use the Anomaly Detector API, your time series data must:
+> * have data points separated by the same interval, with no missing points 
+> * have at least 13 data points if your data doesn't have clear perodicity.
+> * have at least 4 data points if your data has clear perodicity.
