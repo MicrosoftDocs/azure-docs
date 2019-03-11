@@ -163,11 +163,11 @@ The following steps illustrate how to create a table:
 	<li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Run the application, and select **Create table** to see results similar to the following screen shot:
+1. Run the application, and select **Create table** to see results similar to the following screenshot:
   
 	![Create table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add an entity to a table
 
@@ -273,7 +273,7 @@ The entity class *must* declare a public parameter-less constructor.
 	<li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Run the application, and select **Add entity** to see results similar to the following screen shot:
+1. Run the application, and select **Add entity** to see results similar to the following screenshot:
   
 	![Add entity](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -393,7 +393,7 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 	<li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Run the application, and select **Add entities** to see results similar to the following screen shot:
+1. Run the application, and select **Add entities** to see results similar to the following screenshot:
   
 	![Add entities](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -495,7 +495,7 @@ This section illustrates how to get a single entity from a table using the entit
 	<li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Run the application, and select **Get Single** to see results similar to the following screen shot:
+1. Run the application, and select **Get Single** to see results similar to the following screenshot:
   
 	![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -609,7 +609,7 @@ specified partition.
 	<li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Run the application, and select **Get Partition** to see results similar to the following screen shot:
+1. Run the application, and select **Get Partition** to see results similar to the following screenshot:
   
 	![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -709,7 +709,7 @@ This section illustrates how to delete an entity from a table.
 	<li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Run the application, and select **Delete entity** to see results similar to the following screen shot:
+1. Run the application, and select **Delete entity** to see results similar to the following screenshot:
   
 	![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 

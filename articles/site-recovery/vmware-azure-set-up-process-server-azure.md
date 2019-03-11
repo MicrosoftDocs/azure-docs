@@ -2,12 +2,12 @@
 title: 'Set up a process server in Azure for VMware VM and physical server failback with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set up a process server in Azure, to failback Azure VMs to VMware.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
-ms.author: raynew
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
 
 # Set up a process server in Azure for failback
@@ -19,6 +19,7 @@ After you fail over VMware VMs or physical servers to Azure using [Site Recovery
 Learn more about the [reprotection](vmware-azure-reprotect.md) and [failback](vmware-azure-failback.md) process.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+
 
 ## Deploy a process server in Azure
 

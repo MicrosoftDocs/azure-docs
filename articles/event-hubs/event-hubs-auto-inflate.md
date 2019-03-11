@@ -1,5 +1,5 @@
 ---
-title: Automatically scale up Azure Event Hubs throughput units | Microsoft Docs
+title: Automatically scale up throughput units - Azure Event Hubs | Microsoft Docs
 description: Enable Auto-inflate on a namespace to automatically scale up throughput units.
 services: event-hubs
 documentationcenter: na
@@ -11,15 +11,15 @@ ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
 
 # Automatically scale up Azure Event Hubs throughput units
-
 Azure Event Hubs is a highly scalable data streaming platform. As such, Event Hubs usage often increases after starting to use the service. Such usage requires increasing the predetermined [throughput units](event-hubs-features.md#throughput-units) to scale Event Hubs and handle larger transfer rates. The **Auto-inflate** feature of Event Hubs automatically scales up by increasing the number of throughput units, to meet usage needs. Increasing throughput units prevents throttling scenarios, in which:
 
 * Data ingress rates exceed set throughput units.
@@ -44,15 +44,25 @@ You can enable or disable Auto-inflate on an Event Hubs namespace by using eithe
 
 ### Enable Auto-inflate through the portal
 
-You can enable the Auto-inflate feature when creating an Event Hubs namespace:
+
+#### Enable at the time of creation 
+You can enable the Auto-inflate feature **when creating an Event Hubs namespace**:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Enable auto inflate at the time event hub creation](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 With this option enabled, you can start small with your throughput units and scale up as your usage needs increase. The upper limit for inflation does not immediately affect pricing, which depends on the number of throughput units used per hour.
 
-You can also enable Auto-inflate using the **Scale** option on the settings pane in the portal:
+#### Enable auto-inflate for an existing event hub
+You can also enable the Auto-inflate feature and modify its settings by using the following instructions: 
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. On the **Event Hubs Namespace** page, select **Disabled** under **Auto-inflate throughput units**.  
+
+    ![Select throughput units on the Event Hubs namespace page](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. In the **Scale Settings** page, select the checkbox for **Enable** (if the autoscale feature wasn't enabled).
+
+    ![Select Enable](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Enter the **maximum** number of throughput units or use the scrollbar to set the value. 
+4. (optional) Update the **minimum** number of throughput units at the top of this page. 
 
 
 > [!NOTE]

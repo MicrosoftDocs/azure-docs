@@ -9,16 +9,17 @@ editor: ''
 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from a .NET Desktop (WPF) app

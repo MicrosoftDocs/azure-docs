@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 11/09/2018
 ---
 
 # Connect your application to Azure SQL Database Managed Instance
@@ -55,7 +55,7 @@ If you've established on-premises to Azure connection successfully and you can't
 Managed Instance can be accessed only through a private IP address so in order to access it from your developer box, you first need to make a connection between your developer box and the Managed Instance VNet. To do so, configure a Point-to-Site connection to a VNet using native Azure certificate authentication. For more information, see  [Configure a point-to-site connection to connect to an Azure SQL Database Managed Instance from on-premises computer](sql-database-managed-instance-configure-p2s.md).
 
 ## Connect from on-premises with VNet peering
-Another scenario implemented by customers is where VPN gateway is installed in a separate virtual network and a subscription from the one hosting Managed Instance. The two virtual etworks are then peered. The following sample architecture diagram shows how this can be implemented.
+Another scenario implemented by customers is where VPN gateway is installed in a separate virtual network and a subscription from the one hosting Managed Instance. The two virtual networks are then peered. The following sample architecture diagram shows how this can be implemented.
 
 ![VNet peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -78,12 +78,16 @@ A special case of connecting Azure App Service to Managed Instance is when you i
 This scenario is illustrated in the following diagram:
 
 ![integrated app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>The VNet Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in coexistence mode the VNet Integration does not work. If you need to access resources through an ExpressRoute connection, then you can use an App Service Environment, which runs in your VNet.
+>
  
 ## Troubleshooting connectivity issues
 
 For troubleshooting connectivity issues, review the following:
 - If you are unable to connect to Managed Instance from an Azure virtual machine within the same VNet but different subnet, check if you have a Network Security Group set on VM subnet that might be blocking access.Additionally note that you need to open outbound connection on SQL port 1433 as well as ports in range 11000-12000 since those are needed for connecting via redirection inside the Azure boundary. 
-- Ensure that BGP Propogation is set to **Enabled** for the route table associated with the VNet.
+- Ensure that BGP Propagation is set to **Enabled** for the route table associated with the VNet.
 - If using P2S VPN, check the configuration in the Azure portal to see if you see **Ingress/Egress** numbers. Non-zero numbers indicate that Azure is routing traffic to/from on-premises.
 
    ![ingress/egress numbers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

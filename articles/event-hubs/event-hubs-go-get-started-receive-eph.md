@@ -1,6 +1,6 @@
 ---
-title: Receive events from Azure Event Hubs using Go | Microsoft Docs
-description: Get started receiving events from Event Hubs using Go
+title: Receive events using Go - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating a Go application that receives events from Azure Event Hubs. 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -8,7 +8,8 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---

@@ -1,6 +1,6 @@
 ---
-title: Azure Container Instances tutorial - Prepare your app
-description: Azure Container Instances tutorial part 1 of 3 - Prepare an app for deployment to Azure Container Instances
+title: Tutorial - Prepare container image for Azure Container Instances
+description: Azure Container Instances tutorial part 1 of 3 - Prepare an app in a container image for deployment to Azure Container Instances
 services: container-instances
 author: dlepow
 
@@ -8,10 +8,10 @@ ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Create container for deployment to Azure Container Instances
+# Tutorial: Create a container image for deployment to Azure Container Instances
 
 Azure Container Instances enables deployment of Docker containers onto Azure infrastructure without provisioning any virtual machines or adopting a higher-level service. In this tutorial, you package a small Node.js web application into a container image that can be run using Azure Container Instances.
 
@@ -148,7 +148,7 @@ Advance to the next tutorial in the series to learn about storing your container
 [docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

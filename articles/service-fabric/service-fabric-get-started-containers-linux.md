@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric container application on Linux | Microsoft
 description: Create your first Linux container application on Azure Service Fabric. Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -13,9 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
-ms.author: ryanwi
-
+ms.date: 1/4/2019
+ms.author: aljo
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -190,6 +189,12 @@ Specify the port mapping in the appropriate format. For this article, you need t
    </ServiceManifestImport>
 ```	
 
+We recommend that you encrypt the repository password. Refer to [
+Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.
+
+### Configure cluster-wide credentials
+Refer to [documentation here](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## Configure isolation mode
 With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and hyperv. With the hyperv isolation mode, the kernels are isolated between each container and the container host. The hyperv isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.
@@ -227,7 +232,7 @@ Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](http
 
 ![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][2]
+![HealthCheckUnhealthyApp][2]
 
 ![HealthCheckUnhealthyDsp][3]
 
@@ -256,7 +261,8 @@ Connect to the local Service Fabric cluster.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Use the install script provided in the templates at https://github.com/Azure-Samples/service-fabric-containers/ to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
 
 ```bash
 ./install.sh

@@ -1,22 +1,22 @@
 ---
 title: How to create a custom voice font
 titlesuffix: Azure Cognitive Services
-description: This article is an overview of Text to Speech voice customization, which enables you to create a recognizable, one-of-a-kind brand voice. 
+description: This article is an overview of Text to Speech voice customization, which enables you to create a recognizable, one-of-a-kind brand voice.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/28/2019
 ms.author: panosper
 ---
 # Creating custom voice fonts
 
-Text-to-Speech (TTS) voice customization enables you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.* 
+Text-to-Speech (TTS) voice customization enables you to create a recognizable, one-of-a-kind voice for your brand: a *voice font.*
 
-To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use  this voice font to synthesize speech. 
+To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use  this voice font to synthesize speech.
 
 You can get started with a small amount of data for a proof of concept. But the more data you provide, the more natural and professional your voice sounds.
 
@@ -44,7 +44,7 @@ A voice training dataset consists of a set of audio files, along with a text fil
 
 You can prepare these files in two ways. Either write a script and have it read by voice talent or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
-To produce a good voice font, make the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential for building a great digital voice. 
+To produce a good voice font, make the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential for building a great digital voice.
 
 To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [How to record voice samples for a custom voice](record-custom-voice-samples.md).
 
@@ -82,7 +82,7 @@ For example:
 The custom voice system normalizes transcripts by converting the text to lowercase and removing extraneous punctuation. It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio recordings.
 
 > [!TIP]
-> When building production Text-to-Speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:tts@microsoft.com) to find out more about having us consult.
+> When building production Text-to-Speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:speechsupport@microsoft.com) to find out more about having us consult.
 
 ## Upload your datasets
 
@@ -97,30 +97,30 @@ After you prepare your audio file archive and transcripts, upload them via the [
 
     The **My Voice** table appears. It is empty if you haven't uploaded any voice datasets yet.
 
-3. To open the page for uploading a new dataset, select **Import data**. 
+3. To open the page for uploading a new dataset, select **Import data**.
 
     ![Import Voice Data](media/custom-voice/import-voice-data.png)
 
-4. Enter a name and description in the fields that are provided. 
+4. Enter a name and description in the fields that are provided.
 
-5. Select the locale for your voice fonts. Make sure the locale information matches the language of the recording data and the scripts. 
+5. Select the locale for your voice fonts. Make sure the locale information matches the language of the recording data and the scripts.
 
 6. Select the gender of the speaker whose voice you're using.
 
-7. Select the script and audio files to upload. 
+7. Select the script and audio files to upload.
 
 8. Select **Import** to upload your data. For larger datasets, importing may take several minutes.
 
 > [!NOTE]
 > Free subscription users can upload two datasets at a time. Standard subscription users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing. Then try again.
 
-When the upload is complete, the **My Voice Data** table appears again. You should see an entry that corresponds to the dataset you just uploaded. 
+When the upload is complete, the **My Voice Data** table appears again. You should see an entry that corresponds to the dataset you just uploaded.
 
 Datasets are automatically validated after upload. Data validation includes a series of checks on the audio files to verify their file format, size, and sampling rate. Checks on the transcription files verify the file format and do some text normalization. The utterances are transcribed using speech recognition. Then the resulting text is compared with the transcript you provided.
 
 ![My Voice Data](media/custom-voice/my-voice-data.png)
 
-The following table shows the processing states for imported datasets: 
+The following table shows the processing states for imported datasets:
 
 | State | Meaning
 | ----- | -------
@@ -138,19 +138,19 @@ Consider re-recording any utterances with low pronunciation scores or poor signa
 
 ## Build your voice font
 
-After your dataset has been validated, you can use it to build your custom voice font. 
+After your dataset has been validated, you can use it to build your custom voice font.
 
 1.  In the **Custom Voice** drop-down menu, choose **Models**.
- 
+
     The **My Voice Fonts** table appears, listing any custom voice fonts you've already created.
 
-1. Under the table title, select **Create voices**. 
+1. Under the table title, select **Create voices**.
 
     The page for creating a voice font appears. The current locale is shown in the first row of the table. Change the locale to create a voice in another language. The locale must be the same as it is for the datasets that are being used to create the voice.
 
-1. As you did when you uploaded your dataset, enter a name and description to help you identify this model. 
+1. As you did when you uploaded your dataset, enter a name and description to help you identify this model.
 
-    Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters such as '-', '_', and '(', ')' are allowed.
+    Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters such as `-`, `_`, and `(', ')` are allowed.
 
     A common use of the **Description** field is to record the names of the datasets that were used to create the model.
 
@@ -162,7 +162,7 @@ After your dataset has been validated, you can use it to build your custom voice
 
     ![Create Model](media/custom-voice/create-model.png)
 
-Your new model appears in the **My Voice Fonts** table. 
+Your new model appears in the **My Voice Fonts** table.
 
 ![My Voice Fonts](media/custom-voice/my-voice-fonts.png)
 
@@ -207,7 +207,7 @@ When the deployment status is **Succeeded**, the endpoint of your deployed voice
 
 Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Endpoints testing** from the **Custom Voice** drop-down menu. The endpoint testing page appears. Choose a deployed custom voice and enter the text to be spoken (in either plain text or SSML format) in the text box.
 
-> [!NOTE] 
+> [!NOTE]
 > When using SSML, the `<voice>` tag must specify the name that you gave your custom voice when you created it. If you submit plain text, the custom voice is always used.
 
 To hear the text spoken in your custom voice font, select **Play**.
@@ -218,10 +218,18 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 
 ## Language support
 
-Voice customization is available for US English (en-US), mainland Chinese (zh-CN) and Italian (it-IT).
+Voice customization is available in these languages:
+
+| Language | Locale |
+|----------|--------|
+| Chinese (Mainland) | zh-CN |
+| English (US) | en-US |
+| French | fr-FR |
+| German | de-DE |
+| Italian | it-IT |
 
 > [!NOTE]
-> Italian voice training starts with a dataset of 2,000+ utterances. Chinese-English bilingual models are also supported with a dataset of 2,000+ utterances.
+> French, German, and Italian voice training starts with a dataset of 2,000+ utterances. Chinese-English bilingual models are also supported with a dataset of 2,000+ utterances.
 
 ## Next steps
 

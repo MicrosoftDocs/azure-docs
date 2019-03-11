@@ -1,0 +1,25 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Avere vFXT for Azure Documentation
+metadata:
+  title: Avere vFXT for Azure Documentation
+  description: Use Avere vFXT as a caching layer for read-intensive high-performance computing (HPC) tasks
+  services: avere-vfxt
+  author: ekpgh
+  ms.service: avere-vfxt
+  ms.topic: landing-page
+  ms.date: 10/31/2018
+  ms.author: v-erkell
+abstract:
+  description: Avere vFXT for Azure provides a cloud-based cache layer for data-intensive high performance computing (HPC) tasks. By caching files close to your compute nodes, Avere vFXT speeds read times and lets you work more smoothly even at peak load. Avere vFXT works best with systems that have between 1,000 and 40,000 client cores. <p>Avere vFXT can work with your existing on-premises data storage to provide Azure-based computing resources local access to active files that are stored long-term in your datacenter.
+sections:
+- title: Get started with Avere vFXT for Azure
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="avere-vfxt-deploy-plan">Plan your Avere vFXT for Azure system</a>
+    - html: <a href="avere-vfxt-deploy-overview">Learn about Avere vFXT deployment</a>
+    - html: <a href="avere-vfxt-prereqs">Fulfill prerequisites</a>
+    - html: <a href="avere-vfxt-deploy">Deploy the Avere vFXT cluster</a>
+  

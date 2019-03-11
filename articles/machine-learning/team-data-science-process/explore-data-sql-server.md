@@ -1,29 +1,22 @@
 ---
-title: Explore data in SQL Server Virtual Machine on Azure | Microsoft Docs
-description: How to explore data that is stored in a SQL Server VM on Azure.
+title: Explore data in SQL Server virtual machine - Team Data Science Process
+description: How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Explore data in SQL Server Virtual Machine on Azure
-This document covers how to explore data that is stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
 
-The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+This article covers how to explore data that is stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+This task is a step in the [Team Data Science Process](overview.md).
 
 > [!NOTE]
 > The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
@@ -63,7 +56,7 @@ The following connection string format can be used to connect to a SQL Server da
 The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The following code reads the results returned from a SQL Server database into a Pandas data frame:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](data-blob.md).
 

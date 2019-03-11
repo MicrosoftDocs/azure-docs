@@ -4,7 +4,7 @@ description: 'This topic shows how to configure the Wirecast live encoder to sen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin;anilmur
 
 ---
-# Use the Wirecast encoder to send a single bitrate live stream
+# Use the Wirecast encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -65,7 +65,7 @@ While the channel is starting, you can [configure the encoder](media-services-co
 >
 >
 
-## <a id="configure_wirecast_rtmp" /a>Configure the Telestream Wirecast encoder
+## <a id="configure_wirecast_rtmp" />Configure the Telestream Wirecast encoder
 In this tutorial, the following output settings are used. The rest of this section describes configuration steps in more detail.
 
 **Video**:

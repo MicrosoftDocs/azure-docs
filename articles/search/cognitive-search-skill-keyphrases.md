@@ -1,5 +1,5 @@
 ---
-title: Key phrase extraction cognitive search skill (Azure Search) | Microsoft Docs
+title: Key phrase extraction cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
@@ -9,17 +9,20 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/22/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Key Phrase Extraction cognitive skill
 
-The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases.
+The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> Starting December 21, 2018, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) with an Azure Search skillset. This allows us to start charging for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
+>
+> [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
 
 ## @odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 

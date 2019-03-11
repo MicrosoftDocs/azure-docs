@@ -1,13 +1,10 @@
 ---
 title: How To Restore a Server in Azure Database for PostgreSQL
 description: This article describes how to restore a server in Azure Database for PostgreSQL using the Azure portal.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ---
 
@@ -55,7 +52,7 @@ The following steps restore the sample server to a point-in-time:
 
 3. Fill out the Restore form with the required information:
 
-   ![Azure Database for PostgreSQL - Restore information ](./media/howto-restore-server-portal/3-restore.png)
+   ![Azure Database for PostgreSQL - Restore information](./media/howto-restore-server-portal/3-restore.png)
   - **Restore point**: Select the point-in-time you want to restore to.
   - **Target server**: Provide a name for the new server.
   - **Location**: You cannot select the region. By default it is same as the source server.

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Monitor a storage account in the Azure portal
 
@@ -40,7 +40,7 @@ ms.component: common
 
 1. When you finish the monitoring configuration, select **Save**.
 
-A default set of metrics is displayed in charts on the storage account blade, as well as the individual service blades (blob, queue, table, and file). Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to [configure which metrics](#how-to-customize-metrics-charts) are displayed in the chart.
+A default set of metrics is displayed in charts on the storage account blade, as well as the individual service blades (blob, queue, table, and file). Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to configure which metrics are displayed in the chart.
 
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
@@ -92,7 +92,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 3. Enter a **Name** and **Description** for your new alert rule.
 4. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
 5. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
+6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../azure-monitor/platform/alerts-webhooks.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 
@@ -110,7 +110,7 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
    ![Tile gallery in Azure portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
-Once you've added charts to your dashboard, you can further customize them as described in [Customize metrics charts](#how-to-customize-metrics-charts).
+Once you've added charts to your dashboard, you can further customize them as described in Customize metrics charts.
 
 ## Configure logging
 

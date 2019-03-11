@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
 ---
@@ -20,7 +20,7 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. Navigate to Jobs from the navigation pane.
 
-1. Click **+ New** in order to start creating a new job.
+1. Select **+ New** in order to start creating a new job.
 
     ![Create new job](./media/howto-run-a-job/createnewjob.png)
 
@@ -28,31 +28,34 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. Select the device set you want your job to be applied to. After selecting the device set, you'll see the right-hand side populate with the devices within the selected device set. If you select a broken device set, no devices will display and you will see a message explaining that your device set is broken.
 
-1. Next, choose the type of job that will be defined (a setting, property, or command). Click **+** next to the type of job selected and add your desired operations.
+1. Next, choose the type of job that will be defined (a setting, property, or command). Select **+** next to the type of job selected and add your desired operations.
 
     ![Configure job](./media/howto-run-a-job/configurejob.png)
 
-1. On the right-hand side, pick and choose the devices you’d like to run the job on. By clicking the top check box, all devices are selected in the entire device set. By clicking the check box near Name, all devices on the current page are selected.
+1. On the right-hand side, pick and choose the devices you’d like to run the job on. By selecting the top check box, all devices are selected in the entire device set. By selecting the check box near Name, all devices on the current page are selected.
 
 1. Once your desired devices have been selected, choose **Run**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs. Your running job will always show up at the top of the list.
-
-    ![Run job](./media/howto-run-a-job/runjob.png)
 
     ![View job](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > You will be able to view the history of your previously run jobs for up to 30 days.
 
-1. To get an overview of your job, click on the job name you wish to view from your list. This overview contains the job details, devices, and device statuses.
+1. To get an overview of your job, select the job name you wish to view from your list. This overview contains the job details, devices, and device statuses.
 
     ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
 
 ### Stop a running job
 
-If you would like to stop a job that is currently running, click on the name of the running job that you would like to stop. Choose the **Stop** button on the panel. You’ll see the job status has changed to reflect that the job has been stopped.
+If you would like to stop a job that is currently running, select the name of the running job that you would like to stop. Choose the **Stop** button on the panel. You’ll see the job status has changed to reflect that the job has been stopped.
 
-> [!NOTE]
-> Once a job has been stopped it cannot be restarted. You must create another job with the desired operations and devices.
+   ![Stop job](./media/howto-run-a-job/stopjob.png)
+
+### Run a stopped job
+
+If you would like to run a job that is currently stopped, select the name of the stopped job that you would like to run. Choose the **Run** button on the panel. You'll see that the job status has changed to reflect that the job is now running again.
+
+   ![Resumed job](./media/howto-run-a-job/resumejob.png)
 
 ## View the job status
 
@@ -75,7 +78,7 @@ The status message is followed by an overview of the devices within the job. The
 
 ### View the device status
 
-In order to view the status of each device in the job, click on the job name. Here you'll see the details of the job and all of the devices that were a part of this specific job. Next to each device name, you'll see one of the following status messages:
+In order to view the status of each device in the job, select the job name. Here you'll see the details of the job and all of the devices that were a part of this specific job. Next to each device name, you'll see one of the following status messages:
 
 | Status message       | Status meaning                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

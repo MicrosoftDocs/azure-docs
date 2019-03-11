@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
@@ -35,10 +35,11 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
-- East US 2 (Preview)
+- East US
+- East US 2
 - France Central
 - North Europe
-- Southeast Asia (Preview)
+- Southeast Asia 
 - West Europe
 - West US 2
 
@@ -56,7 +57,7 @@ The Azure services that support Availability Zones are:
 - Zone-redundant storage
 - SQL Database
 - Event Hubs
-- Service Bus
+- Service Bus (Premium Tier Only)
 - VPN Gateway
 - ExpressRoute
 - Application Gateway (preview)
@@ -74,10 +75,10 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
-- [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
-- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
+- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## Next steps
-- [Quickstart templates](http://aka.ms/azqs)
+- [Quickstart templates](https://aka.ms/azqs)

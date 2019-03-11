@@ -3,7 +3,7 @@ title: Azure N-series GPU driver setup for Linux | Microsoft Docs
 description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -48,9 +48,9 @@ You will see output similar to the following example (showing an NVIDIA Tesla K8
 
 Then run installation commands specific for your distribution.
 
-### Ubuntu 16.04 LTS
+### Ubuntu 
 
-1. Download and install the CUDA drivers.
+1. Download and install the CUDA drivers from the NVIDIA website. For example, for Ubuntu 16.04 LTS:
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -94,7 +94,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### CentOS or Red Hat Enterprise Linux 7.3 or 7.4
+### CentOS or Red Hat Enterprise Linux
 
 1. Update the kernel (recommended). If you choose not to update the kernel, ensure that the versions of `kernel-devel` and `dkms` are appropriate for your kernel.
 
@@ -171,7 +171,7 @@ Deploy RDMA-capable N-series VMs from one of the images in the Azure Marketplace
 
 To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
 
-### Ubuntu 16.04 LTS
+### Ubuntu 
 
 1. Run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
 

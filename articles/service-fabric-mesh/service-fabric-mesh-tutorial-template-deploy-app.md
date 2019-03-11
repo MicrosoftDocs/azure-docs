@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
@@ -47,7 +47,7 @@ Before you begin this tutorial:
 
 * [Install Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## Create a container registry
 
@@ -105,7 +105,7 @@ When the registry is created, you'll see output similar to the following:
 
 ## Push the images to Azure Container Registry
 
-This tutorial uses the To Do List sample application as an example.  The container images for the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and the [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) services can be found on Docker Hub. See [Build a Servic Fabric Mesh web app](service-fabric-mesh-tutorial-create-dotnetcore.md) for information on how to build the application in Visual Studio. Service Fabric Mesh can run Windows or Linux Docker containers.  If you're working with Linux containers, select **Switch to Linux containers** in Docker.  If you're working with Windows containers, select **Switch to Windows containers** in Docker.
+This tutorial uses the To Do List sample application as an example.  The container images for the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and the [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) services can be found on Docker Hub. See [Build a Service Fabric Mesh web app](service-fabric-mesh-tutorial-create-dotnetcore.md) for information on how to build the application in Visual Studio. Service Fabric Mesh can run Windows or Linux Docker containers.  If you're working with Linux containers, select **Switch to Linux containers** in Docker.  If you're working with Windows containers, select **Switch to Windows containers** in Docker.
 
 To push an image to an ACR instance, you must first have a container image. If you don't yet have any local container images, use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to pull the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) images from Docker Hub.
 
@@ -232,7 +232,7 @@ Services are specified in the template as properties of the application resource
   },
   "resources": [
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "MyMeshApplication",
       "type": "Microsoft.ServiceFabricMesh/applications",
       "location": "[parameters('location')]",
@@ -315,7 +315,7 @@ Services are specified in the template as properties of the application resource
       }
     },
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "ServiceAVolume",
       "type": "Microsoft.ServiceFabricMesh/volumes",
       "location": "[parameters('location')]",
@@ -355,16 +355,34 @@ To deploy the application, run the following:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-In a few minutes, you should see:
+This command will produce a JSON snippet that is shown below. Under the ```outputs``` section of the JSON output, copy the ```publicIPAddress``` property.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+This information comes from the ```outputs``` section in the ARM template. As shown below, this section references the Gateway resource to fetch the public IP address. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('todolistappGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## Open the application
 
 Once the application successfully deploys, get the public IP address for the service endpoint. The deployment command returns the public IP address of the service endpoint. Optionally, you can also query the network resource to find the public IP address of the service endpoint. The network resource name for this application is `todolistappNetwork`, fetch information about it using the following command. 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 Navigate to the IP address in a web browser.

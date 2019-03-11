@@ -9,7 +9,7 @@ manager: cgronlun
 
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -35,7 +35,7 @@ The Data Science VM is designed and configured for working with a broad range of
 This section suggests some key scenarios for which the Data Science VM can be deployed.
 
 ### Preconfigured analytics desktop in the cloud
-The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden and saving on the time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.  
+The Data Science VM provides a baseline configuration for data science teams looking to replace their local desktops with a managed cloud desktop. This baseline ensures that all the data scientists on a team have a consistent setup with which to verify experiments and promote collaboration. It also lowers costs by reducing the sysadmin burden and saving on the time needed to evaluate, install, and maintain the various software packages needed to do advanced analytics.
 
 ### Data science training and education
 Enterprise trainers and educators that teach data science classes usually provide a virtual machine image to ensure that their students have a consistent setup and that the samples work predictably. The Data Science VM creates an on-demand environment with a consistent setup that eases the support and incompatibility challenges. Cases where these environments need to be built frequently, especially for shorter training classes, benefit substantially.
@@ -47,7 +47,7 @@ Data science hackathons/competitions or large-scale data modeling and exploratio
 The Data Science VM can be used to evaluate or learn tools such as Microsoft ML Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios like replicating published experiments, executing demos, following walkthroughs in online sessions and conference tutorials.
 
 ### Deep learning
-The data science VM can be used for training models using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilities of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to a non GPU-based Azure virtual machine in which case all the deep learning frameworks will fall back to the CPU mode. 
+The data science VM can be used for training models using deep learning algorithms on GPU (Graphics processing units) based hardware. Utilizing VM scaling capabilities of Azure cloud, DSVM helps you use GPU-based hardware on the cloud as per need. One can switch to a GPU-based VM when training large models or need high-speed computations while keeping the same OS disk.  The Windows Server 2016 edition of DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPU is enabled on both the CentOS and Ubuntu DSVMs. You can deploy the Ubuntu, CentOS, or Windows 2016 edition of Data Science VM to a non GPU-based Azure virtual machine in which case all the deep learning frameworks will fall back to the CPU mode.
 
 ## What's included in the Data Science VM?
 The Data Science Virtual Machine has many popular data science and deep learning tools already installed and configured. It also includes tools that make it easy to work with various Azure data and analytics products such as, Microsoft ML Server (R, Python) for building predictive models or SQL Server 2017 for large-scale data set exploration. A host of other tools from the open source community and from Microsoft are also included, as well as sample code and notebooks. The following table itemizes and compares the main components included in the Windows and Linux editions of the Data Science Virtual Machine.
@@ -73,7 +73,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | JupyterHub (Multi-user notebook server)| N | Y |
 | JupyterLab (Multi-user notebook server) | N | Y (Ubuntu only) |
 | **Development tools, IDEs and Code editors**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) with Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs), and [R Tools for Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) with Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs), and [R Tools for Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |
@@ -83,7 +83,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim and Emacs | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git and GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | Y | N |
 | PowerBI Desktop | Y | N |
 | SDKs to access Azure and Cortana Intelligence Suite of services | Y | Y |
 | **Data Movement and management Tools** | | |
@@ -105,9 +105,9 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (Ubuntu only) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (Ubuntu only) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | N | Y (Ubuntu only) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (Ubuntu only) |
 | **Deep Learning Tools** <br>All tools will work on a GPU or CPU |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) (Windows 2016) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y (Windows 2016) | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | Y (Windows 2016) | Y|

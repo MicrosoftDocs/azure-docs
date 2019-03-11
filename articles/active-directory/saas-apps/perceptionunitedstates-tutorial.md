@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Perception United States (Non-UltiPro).
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: b4a8f026-cb5f-41eb-9680-68eddc33565e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro)
 
@@ -206,7 +207,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Perception United States (Non-UltiPro) test user
 
-In this section, you create a user called Britta Simon in Perception United States (Non-UltiPro). Work with [Perception United States (Non-UltiPro) support team](http://www.ultimatesoftware.com/Contact/ContactUs) to add the users in the Perception United States (Non-UltiPro) platform.
+In this section, you create a user called Britta Simon in Perception United States (Non-UltiPro). Work with [Perception United States (Non-UltiPro) support team](https://www.ultimatesoftware.com/Contact/ContactUs) to add the users in the Perception United States (Non-UltiPro) platform.
 
 ### Assign the Azure AD test user
 

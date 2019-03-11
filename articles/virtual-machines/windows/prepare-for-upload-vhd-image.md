@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
 
 ---
@@ -44,7 +44,7 @@ After you convert the disk, create a VM that uses the converted disk. Start and 
 >The commands in this article must be run on an elevated PowerShell session.
 
 ### Convert disk by using PowerShell
-You can convert a virtual disk by using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
+You can convert a virtual disk by using the [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) command in Windows PowerShell. Select **Run as administrator** when you start PowerShell. 
 
 The following example command converts from VHDX to VHD, and from a dynamically expanding disk to fixed-size:
 
@@ -54,7 +54,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 In this command, replace the value for "-Path" with the path to the virtual hard disk that you want to convert and the value for "-DestinationPath" with the new path and name of the converted disk.
 
 ### Convert from VMware VMDK disk format
-If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see the blog article [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). For more information, see the blog article [How to Convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## Set Windows configurations for Azure
 
@@ -69,6 +69,16 @@ On the VM that you plan to upload to Azure, run all commands in the following st
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    If the VM need to work with any specific proxy, you must add a proxy exception to the Azure IP address ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), so the VM has connectivity to the Azure:
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
@@ -324,7 +334,7 @@ Make sure that the following settings are configured correctly for remote deskto
 ### Install Windows Updates
 The ideal configuration is to **have the patch level of the machine at the latest**. If this is not possible, make sure that the following updates are installed:
 
-| Component               | Binary         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607Windows Server 2016 Version 1607 | Windows 10 Version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803Windows Server 2016 Version 1803 |
+| Component               | Binary         | Windows 7 SP1,Windows Server 2008 R2  SP1 | Windows 8,Windows Server 2012               | Windows 8.1,Windows Server 2012 R2 | Windows 10 Version 1607 Windows Server 2016 Version 1607 | Windows 10 Version 1703    | Windows 10 1709 Windows Server 2016 Version 1709 | Windows 10 1803 Windows Server 2016 Version 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -373,7 +383,7 @@ For more information about how to create a VM from a specialized disk, see:
 - [Create a VM from a specialized disk](create-vm-specialized.md)
 - [Create a VM from a specialized VHD disk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-If you want to create a generalized image, you need to run sysprep. For more information about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx). 
+If you want to create a generalized image, you need to run sysprep. For more information about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Not every role or application that’s installed on a Windows-based computer supports this generalization. So before you run this procedure, refer to the following article to make sure that the role of that computer is supported by sysprep. For more information, [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -394,18 +404,18 @@ Not every role or application that’s installed on a Windows-based computer sup
 7. Now the VHD is ready to be uploaded. For more information about how to create a VM from a generalized disk, see [Upload a generalized VHD and use it to create a new VMs in Azure](sa-upload-generalized.md).
 
 
+>[!NOTE]
+> A custom unattend.xml is not supported. While we do support the additionalUnattendContent property, that only provides limited support for adding [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) options into the unattend.xml that the Azure provisioning agent uses. E.g.  they can use [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) to add FirstLogonCommands and LogonCommands. See also [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+
+
 ## Complete recommended configurations
 The following settings do not affect VHD uploading. However, we strongly recommend that you configured them.
 
-* Install the [Azure VMs Agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see:
-
-    - [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
+* Install the [Azure VMs Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see [Azure Virtual Machine Agent overview](../extensions/agent-windows.md).
 *  After the VM is created in Azure, we recommend that you put the pagefile on the ”Temporal drive” volume to improve performance. You can set up this as follows:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 If there’s any data disk that is attached to the VM, the Temporal drive volume's drive letter is typically "D." This designation could be different, depending on the number of available drives and the settings that you  make.
 

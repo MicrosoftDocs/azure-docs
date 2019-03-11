@@ -4,7 +4,7 @@ description: This topic gives an overview and comparison of Azure on demand medi
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Overview and comparison of Azure on demand media encoders
+# Overview and comparison of Azure on demand media encoders 
+
 ## Encoding overview
 Azure Media Services provides multiple options for the encoding of media in the cloud.
 
@@ -47,7 +48,7 @@ This article gives a brief overview of on demand media encoders and provides lin
 [Formats and codecs](media-services-media-encoder-standard-formats.md)
 
 ### Presets
-Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is configured using one of the encoder presets described [here](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### Input and output metadata
 The encoders input metadata is described [here](media-services-input-metadata-schema.md).

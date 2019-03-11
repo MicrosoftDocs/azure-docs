@@ -131,11 +131,11 @@ The following steps illustrate how to create a queue:
 	<li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Run the application, and select **Create queue** to see results similar to the following screen shot:
+1. Run the application, and select **Create queue** to see results similar to the following screenshot:
   
 	![Create queue](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-	As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created. Therefore, if you run the app when the queue exists, the method returns **false**. To run the app multiple times, you must delete the queue before running the app again. Deleting the queue can be done via the **CloudQueue.Delete** method. You can also delete the queue using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created. Therefore, if you run the app when the queue exists, the method returns **false**. To run the app multiple times, you must delete the queue before running the app again. Deleting the queue can be done via the **CloudQueue.Delete** method. You can also delete the queue using the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add a message to a queue
 
@@ -220,7 +220,7 @@ Once you've [created a queue](#create-a-queue), you can add messages to that que
 	<li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Add message** to see results similar to the following screen shot:
+1. Run the application, and select **Add message** to see results similar to the following screenshot:
   
 	![Add  message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -306,7 +306,7 @@ This section illustrates how to peek at a queued message (read the first message
 	<li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Peek message** to see results similar to the following screen shot:
+1. Run the application, and select **Peek message** to see results similar to the following screenshot:
   
 	![Peek message](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -397,7 +397,7 @@ In this section, you learn how to read and remove a message from a queue.
 	<li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Read/Delete message** to see results similar to the following screen shot:
+1. Run the application, and select **Read/Delete message** to see results similar to the following screenshot:
   
 	![Read and delete message](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -484,7 +484,7 @@ This section illustrates how to get the queue length (number of messages).
 	<li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
+1. Run the application, and select **Get queue length** to see results similar to the following screenshot:
   
 	![Get queue length](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -564,7 +564,7 @@ This section illustrates how to delete a queue.
 	<li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
+1. Run the application, and select **Get queue length** to see results similar to the following screenshot:
   
 	![Delete queue](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

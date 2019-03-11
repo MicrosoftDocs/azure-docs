@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 3c496939-4201-4108-b0cc-d3e7c4244229
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ThirdPartyTrust
 

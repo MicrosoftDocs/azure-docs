@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: How to
-ms.date: 10/19/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 03/11/2019
 
-# Customer intent: As a partner OEM, I want to let the service to test my hardware bill of materials to check that it can run Azure Stack.
+
+
+# Customer intent: As a partner OEM, I want to let the service test my hardware bill of materials to check that it can run Azure Stack.
 ---
 
-# Schedule your first test
+# Scheduling a test
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Schedule a test in the Validation as a Service (VaaS) portal for your Azure Stack solution. A VaaS solution represents an Azure Stack solution with a particular hardware bill of materials (BoM). You can schedule a test to check that your hardware can run Azure Stack.
 
@@ -33,8 +36,8 @@ While the Test Pass workflow can be used to run any test provided by VaaS, inclu
 Before you follow this quickstart, you should finish the following items:
 
 - [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)
-- [Deploy the local agent](azure-stack-vaas-local-agent.md) (Recommended)
-- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Recommended)
+- [Deploy the local agent](azure-stack-vaas-local-agent.md) (Required)
+- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Required)
 
 ## Start a workflow
 
@@ -50,7 +53,7 @@ Sign in to the portal, select or creation a solution, and then select the soluti
 
 ![Alt Text](media/vaas_test_pass_parameters.png)
 
-Define the workflow for your solution. The workflow has the process steps that used to test your solution.
+Provide parameters that apply to all tests within the workflow.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -60,22 +63,23 @@ Define the workflow for your solution. The workflow has the process steps that u
 
 ## Select tests to run
 
-Choose the tests you would like to run in your workflow.
+The tests you select will be scheduled once the workflow is created.
 
 1. Select the test(s) you want to run in your workflow.
 
     If you want to override the common parameters (that is, the parameters provided in the previous section) for any test, select on the **Edit** link next to specify new values.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Select **Next** to review the workflow.
 
 ## Review and submit
 
-Review, create, and then schedule you workflow.
+Finish workflow creation.
 
 1. Review the displayed information.
 
-    The services creates your workflow with the provided information and the selected tests will be scheduled.
+    The service creates your workflow with the provided information and the selected tests will be scheduled.
 
     If anything appears incorrect, use the **Previous** buttons to go to an earlier section.
 

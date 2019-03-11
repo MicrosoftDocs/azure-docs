@@ -9,7 +9,7 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: "03/12/2018"
 ms.author: abnarain
@@ -105,7 +105,7 @@ In this section, you author a Databricks linked service. This linked service con
 
     1.  For **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  For **Cluster version**, select **4.0** (with Apache Spark 2.3.0, Scala 2.11)
+    1.  For **Cluster version**, select **4.2** (with Apache Spark 2.3.1, Scala 2.11)
 
     1.  For **Cluster node type**, select **Standard\_D3\_v2** under **General Purpose (HDD)** category for this tutorial. 
     

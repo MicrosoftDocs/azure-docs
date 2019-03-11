@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/09/2018
 ms.author: juliako
 ---
 
@@ -20,12 +20,14 @@ Azure Event Grid is an eventing service for the cloud. In this article, you use 
 
 ## Prerequisites
 
-- Have an active Azure subscription.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+
 - [Create a Media Services account](create-account-cli-how-to.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name.
-
-- Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Create a message endpoint
 
@@ -42,23 +44,13 @@ If you switch to the "Azure Event Grid Viewer" site, you see it has no events ye
    
 [!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
-## Log in to Azure
-
-Log in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
 ## Set the Azure subscription
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-```azurecli-interactive
+```azurecli
 az account set --subscription mySubscriptionId
 ```
- 
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 ## Subscribe to Media Services events
 
@@ -68,7 +60,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
 1. Get the resource id
 
-    ```azurecli-interactive
+    ```azurecli
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
@@ -80,7 +72,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
 2. Subscribe to the events
 
-    ```azurecli-interactive
+    ```azurecli
     az eventgrid event-subscription create \
     --resource-id $amsResourceId \
     --name <event_subscription_name> \

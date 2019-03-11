@@ -1,6 +1,6 @@
 ---
-title: What is Azure Event Hubs Event Processor Host and why use it | Microsoft Docs
-description: Overview and introduction to Azure Event Hubs Event Processor Host
+title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
+description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija 
 
 ---
 
-# Azure Event Hubs Event Processor Host overview
+# Receive events from Azure Event Hubs using Event Processor Host
 
 Azure Event Hubs is a powerful telemetry ingestion service that can be used to stream millions of events at low cost. This article describes how to consume ingested events using the *Event Processor Host* (EPH); an intelligent consumer agent that simplifies the management of checkpointing, leasing, and parallel event readers.  
 
-The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](http://msdn.microsoft.com/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
+The key to scale for Event Hubs is the idea of partitioned consumers. In contrast to the [competing consumers](https://msdn.microsoft.com/library/dn568101.aspx) pattern, the partitioned consumer pattern enables high scale by removing the contention bottleneck and facilitating end to end parallelism.
 
 ## Home security scenario
 
@@ -119,7 +120,9 @@ Here, each host acquires ownership of a partition for a certain duration (the le
 
 ## Receive messages
 
-Each call to [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) delivers a collection of events. It is your responsibility to handle these events. It is recommended that you do things relatively fast; that is, do as little processing as possible. Instead, use consumer groups. If you need to write to storage and do some routing, it is generally better to use two consumer groups and have two [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementations that run separately.
+Each call to [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) delivers a collection of events. It is your responsibility to handle these events. If you want to make sure the processor host processes every message at least once, you need to write your own keep retrying code. But be cautious about poisoned messages.
+
+It is recommended that you do things relatively fast; that is, do as little processing as possible. Instead, use consumer groups. If you need to write to storage and do some routing, it is generally better to use two consumer groups and have two [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementations that run separately.
 
 At some point during your processing, you might want to keep track of what you have read and completed. Keeping track is critical if you must restart reading, so you don't return to the beginning of the stream. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifies this tracking by using *checkpoints*. A checkpoint is a location, or offset, for a given partition, within a given consumer group, at which point you are satisfied that you have processed the messages. Marking a checkpoint in **EventProcessorHost** is accomplished by calling the [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) method on the [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) object. This operation is done within the [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) method but can also be done in [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 

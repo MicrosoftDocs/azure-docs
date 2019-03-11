@@ -4,15 +4,16 @@ description: What authentication methods are available in Azure AD for MFA and S
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # What are authentication methods?
 
@@ -119,7 +120,7 @@ Microsoft recommends the use of an email account that would not require the user
 
 The Microsoft Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account.
 
-The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 > [!NOTE]
 > Users will not have the option to register their mobile app when registering for self-service password reset. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or in the security info registration preview at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -169,6 +170,8 @@ Depending on the size of the CSV file, it may take a few minutes to process. Cli
 
 Once any errors have been addressed, the administrator then can activate each key by clicking **Activate** for the token to be activated and entering the OTP displayed on the token.
 
+Users may have a combination of up to 5 OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
+
 ## Mobile phone
 
 Two options are available to users with mobile phones.
@@ -190,6 +193,9 @@ An SMS is sent to the mobile phone number containing a verification code. Enter 
 
 An automated voice call is made to the phone number you provide. Answer the call and press # in the phone keypad to authenticate
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 ## Office phone
 
 An automated voice call is made to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate.
@@ -197,6 +203,9 @@ An automated voice call is made to the phone number you provide. Answer the call
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
 The office phone attribute is managed by your administrator.
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 > [!NOTE]
 > There needs to be a space between the country code and the phone number.
@@ -223,6 +232,6 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 
 [Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
 
-[Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
+[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 
 [End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)

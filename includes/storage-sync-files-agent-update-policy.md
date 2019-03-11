@@ -2,7 +2,7 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 12/11/2018
 ms.author: tamram
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as they're available.
@@ -12,13 +12,15 @@ The Azure File Sync agent is updated on a regular basis to add new functionality
 * Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: *\*.3.\**
 
 #### Upgrade paths
-There are three approved and tested ways to install the Azure File Sync agent updates. These update paths work for both major and minor versions.
+There are four approved and tested ways to install the Azure File Sync agent updates. 
 1. **(Preferred) Configure Microsoft Update to automatically download and install agent updates.**  
     We always recommend taking every Azure File Sync update to ensure you have access to the latest fixes for the server agent. Microsoft Update makes this process seamless, by automatically downloading and installing updates for you.
-2. **Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+2. **Use AfsUpdater.exe to download and install agent updates.**  
+    The AfsUpdater.exe is located in the agent installation directory. Double-click the executable to download and install agent updates. 
+3. **Patch an existing Azure File Sync agent by using a Microsoft Update patch file, or a .msp executable. The latest Azure File Sync update package can be downloaded from the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Running a .msp executable will upgrade your Azure File Sync installation with the same method used automatically by Microsoft Update in the previous upgrade path. Applying a Microsoft Update patch will perform an in-place upgrade of an Azure File Sync installation.
-3. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). The installer download is a Microsoft Installer package, or a .msi executable.**  
-    To upgrade an existing Azure File Sync agent installation, uninstalled the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
+4. **Download the newest Azure File Sync agent installer from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). The installer download is a Microsoft Installer package, or a .msi executable.**  
+    To upgrade an existing Azure File Sync agent installation, uninstall the older version and then install the latest version from the downloaded installer. The server registration, sync groups, and any other settings are maintained by the Azure File Sync installer.
 
 #### Agent lifecycle and change management guarantees
 Azure File Sync is a cloud service, which enables continuously introduction of new features and functionality. This means that a specific Azure File Sync agent version can only be supported for a limited time. To facilitate your deployment, the following rules to guarantee you have enough time and notification to accommodate agent updates/upgrades in your change management process:

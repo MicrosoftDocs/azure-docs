@@ -31,7 +31,7 @@ Ubuntu now publishes official Azure VHDs for download at [http://cloud-images.ub
 * Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## Prerequisites
-This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
+This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Ubuntu installation notes**
 
@@ -121,6 +121,16 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 	>[!Note]
 	The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
+For Ubuntu 18.04/18.10, update the Azure Data Source, edit this: /etc/cloud/cloud.cfg.d/90-azure.cfg, add this code to the end of the file:
+
+**Important:The code must be added exactly as shown, including spaces.**
+
+```bash
+datasource:
+   Azure:
+     agent_command: [service, walinuxagent, start]
+```
+
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    
 		# sudo waagent -force -deprovision
@@ -134,7 +144,4 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 ## Next steps
 You're now ready to use your Ubuntu Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
-
-
-
 

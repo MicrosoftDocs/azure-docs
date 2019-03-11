@@ -3,9 +3,9 @@ title: How to use Azure Service Bus topics with Python | Microsoft Docs
 description: Learn how to use Azure Service Bus topics and subscriptions from Python.
 services: service-bus-messaging
 documentationcenter: python
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # How to use Service Bus topics and subscriptions with Python
@@ -28,12 +28,14 @@ This article describes how to use Service Bus topics and subscriptions. The samp
 > [!NOTE] 
 > If you need to install Python or the [Azure Python package][Azure Python package], see the [Python Installation Guide](../python-how-to-install.md).
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## Create a topic
 
 The **ServiceBusService** object enables you to work with topics. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
+from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 The following code creates a **ServiceBusService** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your actual namespace, Shared Access Signature (SAS) key name, and key value.

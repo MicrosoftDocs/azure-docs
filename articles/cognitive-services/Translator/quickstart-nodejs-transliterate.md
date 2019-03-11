@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Node.js and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -63,7 +63,7 @@ if (!subscriptionKey) {
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {

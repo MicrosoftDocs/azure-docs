@@ -1,30 +1,30 @@
 ---
-title: Use Hadoop Hive with PowerShell in HDInsight - Azure 
-description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
+title: Use Apache Hive with PowerShell in HDInsight - Azure 
+description: Use PowerShell to run Hive queries in Apache Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Hive queries using PowerShell
+# Run Apache Hive queries using PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in a Hadoop on HDInsight cluster.
+This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in an Apache Hadoop on HDInsight cluster.
 
-> [!NOTE]
-> This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
+> [!NOTE]  
+> This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md).
 
 ## Prerequisites
 
-* A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
+* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A client with Azure PowerShell.
@@ -55,7 +55,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
         .\hivejob.ps1
 
-    When the script runs, you are prompted to enter the cluster name and the HTTPS/Admin account credentials for the cluster. You may also be prompted to log in to your Azure subscription.
+    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to log in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 
@@ -74,12 +74,12 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
-   > [!NOTE]
+   > [!NOTE]  
    > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+   > For more information about **Here-Strings**, see <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ## Troubleshooting
 
@@ -104,9 +104,9 @@ As you can see, Azure PowerShell provides an easy way to run Hive queries in an 
 
 For general information about Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

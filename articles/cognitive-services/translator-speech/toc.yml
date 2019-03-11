@@ -1,5 +1,4 @@
 - name: Translator Speech API Documentation
-  href: index.yml
 - name: Overview
   items: 
   - name: About Translator Speech API
@@ -24,10 +23,6 @@
   items: 
   - name: Samples on GitHub
     href: https://aka.ms/TranslatorGitHub
-- name: How-to guides
-  items:
-  - name: Sign-up for Translator Speech API
-    href: translator-speech-how-to-signup.md
 - name: Reference
   href: reference.md
   items:

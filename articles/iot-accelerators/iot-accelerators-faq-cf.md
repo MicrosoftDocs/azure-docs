@@ -22,7 +22,7 @@ The source code is stored in the following GitHub repository:
 
 ### What is OPC UA?
 
-OPC Unified Architecture (UA), released in 2008, is a platform-independent, service-oriented interoperability standard. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. OPC UA integrates the functionality of the OPC Classic specifications into one extensible framework with built-in security. It is a standard that is driven by the OPC Foundation. The [OPC Foundation](http://opcfoundation.org/) is a not-for-profit organization with more than 440 members. The goal of the organization is to use OPC specifications to facilitate multi-vendor, multi-platform, secure and reliable interoperability through:
+OPC Unified Architecture (UA), released in 2008, is a platform-independent, service-oriented interoperability standard. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. OPC UA integrates the functionality of the OPC Classic specifications into one extensible framework with built-in security. It is a standard that is driven by the OPC Foundation. The [OPC Foundation](https://opcfoundation.org/) is a not-for-profit organization with more than 440 members. The goal of the organization is to use OPC specifications to facilitate multi-vendor, multi-platform, secure and reliable interoperability through:
 
 * Infrastructure
 * Specifications
@@ -73,7 +73,7 @@ If you deployed the solution from www.azureiotsolutions.com, you cannot sign in 
 1. To start all simulation containers:
     * Export a shell variable with the name **IOTHUB_CONNECTIONSTRING**. Use the value of the **IotHubOwnerConnectionString** setting in the `<name of your deployment>.config.user` file. For example:
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -137,7 +137,7 @@ If you see no data sent to IoT Hub, then there is an issue with the simulation. 
 
 To enable an interactive map in your Connected Factory solution, you must have an Azure Maps account.
 
-When deploying from [www.azureiotsolutions.com](http://www.azureiotsolutions.com), the deployment process adds an Azure Maps account to the resource group that contains the solution accelerator services.
+When deploying from [www.azureiotsolutions.com](https://www.azureiotsolutions.com), the deployment process adds an Azure Maps account to the resource group that contains the solution accelerator services.
 
 When you deploy using the `build.ps1` script in the Connected Factory GitHub repository set the environment variable `$env:MapApiQueryKey` in the build window to the [key of your Azure Maps account](../azure-maps/how-to-manage-account-keys.md). The interactive map is then enabled automatically.
 

@@ -3,13 +3,13 @@ title: Frequently asked questions (FAQ) - Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: troubleshooting
-ms.date: 10/06/2017
-ms.author: v-jerkin
+ms.date: 03/04/2019
+ms.author: aahi
 ---
 
 # Frequently asked questions (FAQ) about the Bing Image Search API
@@ -60,4 +60,4 @@ Is your question about a missing feature or functionality? Consider requesting o
 
 ## See also
 
- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

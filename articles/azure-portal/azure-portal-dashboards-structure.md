@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
-ms.author: cwatson
+ms.author: kfollis
 
 ---
 # The structure of Azure Dashboards

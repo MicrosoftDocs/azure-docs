@@ -71,4 +71,4 @@ Azure Backup Server is an Azure Backup component that functions similarly to Sys
 
 If you aren't sure where to begin, start with the article, [Back up Windows Server and Windows client computers](../backup/backup-configure-vault.md). This tutorial leads you through the steps for setting up a backup project on a Windows Server or computer.
 
-If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](http://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are multiple Azure Government regions in the **Region** dropdown menu.
+If you already know that you could use Azure Backup, but want to know the costs, see the [Backup Pricing page](https://azure.microsoft.com/pricing/details/backup/). There is a list of Frequently Asked Questions that may provide useful information. Also note there are multiple Azure Government regions in the **Region** dropdown menu.

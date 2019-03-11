@@ -3,7 +3,7 @@ title: Deploy an existing executable to Azure Service Fabric | Microsoft Docs
 description: Learn how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell
+ms.author: aljo
 
 ---
 # Package and deploy an existing executable to Service Fabric
@@ -65,11 +65,11 @@ The process of manually packaging a guest executable is based on the following g
 4. Edit the application manifest file.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
 -->
 
 ### Create the package directory structure
-You can start by creating the directory structure, as described in the preceding section, "Application package file structure."
+You can start by creating the directory structure, as described in [Package an Azure Service Fabric App](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### Add the application's code and configuration files
 After you have created the directory structure, you can add the application's code and configuration files under the code and config directories. You can also create additional directories or subdirectories under the code or config directories.
@@ -298,4 +298,4 @@ In this article, you have learned how to package a guest executable and deploy i
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
-* [Create your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Create your first Service Fabric application using Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

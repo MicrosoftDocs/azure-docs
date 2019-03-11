@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/16/2018
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -31,12 +31,12 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Deliver videos in various formats so they can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver and stream such content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
 * Stream live sporting events to a large online audience, such as soccer, baseball, college and high school sports, and more. 
 * Broadcast public meetings and events such as town halls, city council meetings, and legislative bodies.
-* Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
+* Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
-* Add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language). 
-* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc.
-* Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event.) 
+* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc. 
+* Use Azure Media Services together with [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
+* Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event). 
 
 ## v3 capabilities
 
@@ -59,7 +59,7 @@ Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', 
 
 For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## Media Services v3 API design principles
+## v3 API design principles
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -69,61 +69,24 @@ Examples of this include
 * not returning the restriction keys in the get of the ContentKeyPolicy, 
 * not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
 
-The following .NET example shows how to get a signing key from the existing policy. You need to use **GetPolicyPropertiesWithSecretsAsync** to get to the key.
-
-```csharp
-private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string contentKeyPolicyName)
-{
-    ContentKeyPolicy policy = await client.ContentKeyPolicies.GetAsync(resourceGroupName, accountName, contentKeyPolicyName);
-
-    if (policy == null)
-    {
-        // Configure and create a new policy.
-        
-        . . . 
-        policy = await client.ContentKeyPolicies.CreateOrUpdateAsync(resourceGroupName, accountName, contentKeyPolicyName, options);
-    }
-    else
-    {
-        var policyProperties = await client.ContentKeyPolicies.GetPolicyPropertiesWithSecretsAsync(resourceGroupName, accountName, contentKeyPolicyName);
-        var restriction = policyProperties.Options[0].Restriction as ContentKeyPolicyTokenRestriction;
-        if (restriction != null)
-        {
-            var signingKey = restriction.PrimaryVerificationKey as ContentKeyPolicySymmetricTokenKey;
-            if (signingKey != null)
-            {
-                TokenSigningKey = signingKey.KeyValue;
-            }
-        }
-    }
-
-    return policy;
-}
-```
+See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
 
 ## How can I get started with v3?
 
-As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows.  
+For information on how to start developing with the Media Services v3 API using various tools and SDKs, see [Start developing](developers-guide.md).
 
-Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology.  
+## v3 content map
 
-Microsoft generates and supports the following client libraries: 
+The Media Services v3 content is organized according to the following structure (also reflected in the table of contents):
 
-|API references|SDKs/Tools|Examples|
-|---|---|---|---|
-|[REST ref](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI ref](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI examples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET examples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (Choose the **.NET CLI** tab)|[.NET Core examples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java ref](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python ref](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Go ref](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+|Sections| Description|
+|---|---|
+| Overview | Explains the functionality of Media Services and what you can do with the service.|
+| Quickstarts | Show fundamental day-1 instructions for new customers to quickly try out Media Services.|
+| Tutorials | Show scenario-based procedures for some of the top Media Services tasks.|
+| Samples | Links to code samples. |
+| Concepts | Contain in-depth explanation of [Media Services v3 concepts and functionality](concepts-overview.md). The fundamental concepts described in these topics should be reviewed prior to starting development.<br/><br/>* Cloud upload and storage<br/>* Encoding<br/>* Media analytics<br/>* Packaging, delivery, protection<br/>* Live streaming<br/>* Monitoring<br/>* Player clients<br/><br/>and more. |
+| How-to guides | Demonstrate how to complete a task.|
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with iWellnessNow | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iWellnessNow.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 24ffc841-7a77-481c-9cc4-6f8bda58fe66
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with iWellnessNow
 
@@ -111,11 +112,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 	
-	c. After successfull completion of uploading **Service Provider metadata file** the **Identifier** and **Reply URL** values get auto populated in **iWellnessNow Domain and URLs** section textbox as shown below:
+	c. After successful completion of uploading **Service Provider metadata file** the **Identifier** and **Reply URL** values get auto populated in **iWellnessNow Domain and URLs** section textbox as shown below:
 
 	![iWellnessNow Domain and URLs single sign-on information](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
 
-1. If you dont have **Service Provider metadata file** and wish to configure the application in **IDP** initiated mode, perform the following steps:
+1. If you don't have **Service Provider metadata file** and wish to configure the application in **IDP** initiated mode, perform the following steps:
 
 	![iWellnessNow Domain and URLs single sign-on information](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 

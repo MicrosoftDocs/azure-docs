@@ -1,14 +1,14 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart | Microsoft Docs
 description: In this quickstart, you run a sample iOS application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
-author: kgremban
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/20/2018
-ms.author: kgremban
+ms.date: 02/20/2019
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 

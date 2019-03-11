@@ -3,8 +3,8 @@ title: 'Deploy App Service in an offline environment in Azure Stack | Microsoft 
 description: Detailed guidance on how to deploy App Service in a disconnected Azure Stack environment secured by AD FS.
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor:
 
 ms.assetid:
@@ -13,8 +13,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/27/2019
 ms.author: anwestg
+ms.reviewer: anwestg
+ms.lastreviewed: 01/11/2019
 
 ---
 # Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
@@ -22,14 +24,15 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1807 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.3.
->
->
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5.
 
 By following the instructions in this article, you can install the [App Service resource provider](azure-stack-app-service-overview.md) to an Azure Stack environment that is:
 
 - not connected to the Internet
 - secured by Active Directory Federation Services (AD FS).
+
+> [!IMPORTANT]  
+> Before you run the resource provider installer, make sure that you've followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md) and have read the [release notes](azure-stack-app-service-release-notes-update-five.md) which accompany the 1.5 release learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To add the App Service resource provider to your offline Azure Stack deployment, you must complete these top-level tasks:
 
@@ -80,8 +83,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
     
     > [!NOTE]
-    > App Service can only be deployed into the **Default Provider Subscription** at this time.  In a future update App Service will deploy into the new Metering Subscription introduced in Azure Stack 1804 and all existing deployments will be migrated to this new subscription also.
-    >
+    > App Service can only be deployed into the **Default Provider Subscription**.
     >
     
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
@@ -99,7 +101,7 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][5]
 
-9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites
+9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a file server which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > The installer attempts to test connectivity to the fileshare before proceeding.  However, if you chose to deploy in an existing   Virtual Network, the installer might not be able to connect to the fileshare and displays a warning, asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
@@ -166,7 +168,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.  Azure App Service on Azure Stack requires that Microsoft.Net 3.5.1 SP1 is activated on the image used for deployment.   Marketplace syndicated Windows Server 2016 images do not have this feature enabled.**
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.  Azure App Service on Azure Stack requires that Microsoft.Net 3.5.1 SP1 is activated on the image used for deployment.   Marketplace syndicated Windows Server 2016 images do not have this feature enabled, therefore you must create and use a Windows Server 2016 image with this pre-enabled.**
 
 14. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -190,20 +192,25 @@ To deploy App Service in a disconnected environment, you must first create an of
 
     ![App Service Installer][18]
 
+## Post-deployment Steps
+
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
 ## Validate the App Service on Azure Stack installation
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
 
-2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
+2. In the overview, under status, check to see that the **Status** displays **All roles are ready**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
-> If you chose to deploy into an existing virtual network and a internal IP address to connect to your fileserver, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> If you chose to deploy into an existing virtual network and a internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
 > * Source port range: *
 > * Destination: IP Addresses
-> * Destination IP address range: Range of IPs for your fileserver
+> * Destination IP address range: Range of IPs for your file server
 > * Destination port range: 445
 > * Protocol: TCP
 > * Action: Allow
@@ -218,9 +225,9 @@ After you deploy and register the App Service resource provider, test it to make
 > [!NOTE]
 > You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
 >
-You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
+> You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
 >
-As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
+> As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
 1. In the Azure Stack tenant portal, click **+ Create a resource** > **Web + Mobile** > **Web App**.
 
@@ -254,9 +261,9 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
 - [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

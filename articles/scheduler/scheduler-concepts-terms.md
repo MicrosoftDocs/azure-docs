@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
 ---
 
@@ -361,5 +361,5 @@ For example:
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
 * [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API reference](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)

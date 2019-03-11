@@ -33,7 +33,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -45,7 +45,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Key | Value |
     |------------------|-------------------------|
@@ -71,7 +71,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
   
 6. In Params, enter the following Key / Value pairs and click **Send**:
 
-    ![Fuzzy Search ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy Search](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Key | Value |
     |-----|------------|
@@ -85,7 +85,7 @@ You can pass a complete or partial street address to the search address API and 
 1. In Postman, click **New Request** | **GET request** and name it **Address Search**.
 2. On the Builder tab, select the **GET** HTTP method, enter the request URL for your API endpoint, and select an authorization protocol, if any.
 
-    ![Address Search ](./media/how-to-search-for-address/address_search_url.png)
+    ![Address Search](./media/how-to-search-for-address/address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -95,7 +95,7 @@ You can pass a complete or partial street address to the search address API and 
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
   
-    ![Address Search ](./media/how-to-search-for-address/address_search_params.png)
+    ![Address Search](./media/how-to-search-for-address/address_search_params.png)
   
     | Key | Value |
     |------------------|-------------------------|
@@ -126,7 +126,7 @@ You can pass a complete or partial street address to the search address API and 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
   
-    ![Reverse Address Search URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse Address Search URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|
@@ -136,7 +136,7 @@ You can pass a complete or partial street address to the search address API and 
   
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
   
-    ![Reverse Address Search Parameters ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Reverse Address Search Parameters](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Key | Value |
     |------------------|-------------------------|
@@ -154,7 +154,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | number | true |
 
-    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
+    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
   
 6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -162,7 +162,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | returnSpeedLimit | true |
   
-    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
+    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is set, the response return of the posted speed limit.
 
 7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -170,7 +170,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | returnRoadUse | true |
 
-    When the [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reverse geocodes at street level.
+    When the [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is set, the response returns the road use array for reverse geocodes at street level.
 
 8. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -178,7 +178,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | roadUse | true |
 
-    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
+    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter.
   
 ## Search for the cross street using Reverse Address Cross Street Search
 
@@ -186,7 +186,7 @@ You can pass a complete or partial street address to the search address API and 
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
   
-    ![Reverse Address Cross Street Search ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Reverse Address Cross Street Search](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Suggested value |
     |---------------|------------------------------------------------|

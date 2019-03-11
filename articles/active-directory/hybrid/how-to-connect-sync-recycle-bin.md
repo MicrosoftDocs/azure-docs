@@ -5,18 +5,19 @@ services: active-directory
 keywords: AD Recycle Bin, accidental deletion, source anchor
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/13/2017
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 12/17/2018
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Enable AD recycle bin
 It is recommended that you enable the AD Recycle Bin feature for your on-premises Active Directories, which are synchronized to Azure AD. 
@@ -34,8 +35,6 @@ This feature helps with restoring Azure AD user objects by doing the following:
 
 > [!NOTE]
 > By default, Azure AD keeps deleted Azure AD user objects in soft-deleted state for 30 days before they are permanently deleted. However, administrators can accelerate the deletion of such objects. Once the objects are permanently deleted, they can no longer be recovered, even if on-premises AD Recycle Bin feature is enabled.
-
-
 
 ## Next steps
 **Overview topics**

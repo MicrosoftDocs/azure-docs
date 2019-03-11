@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/04/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
 
@@ -19,7 +19,7 @@ ms.author: jgao
 
 # Tutorial: Use Azure Deployment Manager with Resource Manager templates (Private preview)
 
-Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create  two templates:
+Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
 
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
 * **A rollout template**: describes the steps to take when deploying your applications.
@@ -38,6 +38,8 @@ This tutorial covers the following tasks:
 > * Deploy the newer version
 > * Clean up resources
 
+The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -47,12 +49,19 @@ To complete this article, you need:
 * Some experience with developing [Azure Resource Manager templates](./resource-group-overview.md).
 * Azure Deployment Manager is in private preview. To sign up using Azure Deployment Manager, fill the [sign-up sheet](https://aka.ms/admsignup). 
 * Azure PowerShell. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new PowerShell window, and use the following command:
+* Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
 
-    ```
+    ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). Azure Storage Explorer is not required, but it makes things easier.
+
+    If you have the Azure PowerShell Az module installed, you need two additional switches:
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
+* [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer is not required, but it makes things easier.
 
 ## Understand the scenario
 
@@ -142,12 +151,12 @@ Later in the tutorial, you deploy a rollout. A user-assigned managed identity is
 You need to create a user-assigned managed identity and configure the access control for your subscription.
 
 > [!IMPORTANT]
-> The user-assigned managed identity must be in the same location as the [rollout](#create-the-rollout-template). Currently, the Deployment Manager resources, including rollout, can only be created in either Central US or East US 2.
+> The user-assigned managed identity must be in the same location as the [rollout](#create-the-rollout-template). Currently, the Deployment Manager resources, including rollout, can only be created in either Central US or East US 2. However, this is only true for the Deployment Manager resources (such as the service topology, services, service units, rollout, and steps). Your target resources can be deployed to any supported Azure region. In this tutorial, for example, the Deployment Manager resources are deployed to Central US, but the services are deployed to East US and West US. This restriction will be lifted in the future.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+2. Create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. From the portal, select **Subscriptions** from the left menu, and then select your subscription.
-4. Select **Access control (IAM)**, and then select **Add**
+4. Select **Access control (IAM)**, and then select **Add role assignment**.
 5. Enter or select the following values:
 
     ![Azure Deployment Manager tutorial user-assigned managed identity access control](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
@@ -208,7 +217,7 @@ You create a parameters file used with the topology template.
     - **azureResourceLocation**: If you are not familiar with Azure locations, use **centralus** in this tutorial.
     - **artifactSourceSASLocation**: Enter the SAS URI to the root directory (the Blob container) where service unit template and parameters files are stored for deployment.  See [Prepare the artifacts](#prepare-the-artifacts).
     - **templateArtifactRoot**: Unless you change the folder structure of the artifacts, use **templates/1.0.0.0** in this tutorial.
-    - **tragetScriptionID**: Enter your Azure subscription ID.
+    - **targetScriptionID**: Enter your Azure subscription ID.
 
 > [!IMPORTANT]
 > The topology template and the rollout template share some common parameters. These parameters must have the same values. These parameters are: **namePrefix**, **azureResourceLocation**, and **artifactSourceSASLocation** (both artifact sources share the same storage account in this tutorial).
@@ -239,7 +248,7 @@ The variables section defines the names of the resources. Make sure the service 
 
 On the root level, there are three resources defined: an artifact source, a step, and a rollout.
 
-The artifact source definition is identical to the one defined in the topology template.  See [Create the service topology template](#create-the-service-topology-tempate) for more information.
+The artifact source definition is identical to the one defined in the topology template.  See [Create the service topology template](#create-the-service-topology-template) for more information.
 
 The following screenshot shows the wait step definition:
 
@@ -284,18 +293,16 @@ Azure PowerShell can be used to deploy the templates.
 
 1. Run the script to deploy the service topology.
 
-    ```powershell
-    $deploymentName = "<Enter a Deployment Name>"
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -307,12 +314,11 @@ Azure PowerShell can be used to deploy the templates.
 
     **Show hidden types** must be selected to see the resources.
 
-3. Deploy the rollout template:
+3. <a id="deploy-the-rollout-template"></a>Deploy the rollout template:
 
-    ```powershell
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
@@ -320,19 +326,60 @@ Azure PowerShell can be used to deploy the templates.
 
 4. Check the rollout progress using the following PowerShell script:
 
-    ```powershell
+    ```azurepowershell
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See [Prerequisites](#prerequisite).
+    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites. The -Verbose switch can be used to see the whole output.
 
     The following sample shows the running status:
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
@@ -362,7 +409,7 @@ When you have a new version (1.0.0.1) for the web application. You can use the f
 
 1. Open CreateADMRollout.Parameters.json.
 2. Update **binaryArtifactRoot** to **binaries/1.0.0.1**.
-3. Redeploy the rollout as instructed in [Deploy the templates](#deploy-the-templates).
+3. Redeploy the rollout as instructed in [Deploy the templates](#deploy-the-rollout-template).
 4. Verify the deployment as instructed in [Verify the deployment](#verify-the-deployment). The web page shall show the 1.0.0.1 version.
 
 ## Clean up resources

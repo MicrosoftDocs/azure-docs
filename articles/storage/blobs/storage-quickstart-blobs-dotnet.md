@@ -7,7 +7,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 11/14/2018
 ms.author: tamram
 ---
 
@@ -17,9 +17,7 @@ In this quickstart, you learn how to use the Azure Storage client library for .N
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-To complete this quickstart, first create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Next, download and install .NET Core 2.0 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
 
@@ -160,6 +158,7 @@ The first thing that the sample does is to check that the environment variable c
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -194,7 +193,7 @@ In this case, the sample calls the [CreateAsync](/dotnet/api/microsoft.windowsaz
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

@@ -67,7 +67,7 @@ To add a repository to your lab, first, get key information from your repository
 10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
 
 ## Connect your lab to the repository
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **More Services**, and then select **DevTest Labs** from the list of services.
 3. From the list of labs, select your lab. 
 4. Select **Configuration and policies** > **Repositories** > **+ Add**.
@@ -85,7 +85,7 @@ To add a repository to your lab, first, get key information from your repository
 
 ### Related blog posts
 * [Troubleshoot failing artifacts in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

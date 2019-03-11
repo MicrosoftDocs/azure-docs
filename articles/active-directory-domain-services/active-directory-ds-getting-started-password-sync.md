@@ -4,12 +4,12 @@ description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -49,7 +49,7 @@ This password change process causes the password hashes that are required by Azu
 ### Enable NTLM and Kerberos password hash generation for a cloud-only user account
 Here are the instructions you need to provide users, so they can change their passwords:
 
-1. Go to the [Azure AD Access Panel](http://myapps.microsoft.com) page for your organization.
+1. Go to the [Azure AD Access Panel](https://myapps.microsoft.com) page for your organization.
 
     ![Launch the Azure AD access panel](./media/active-directory-domain-services-getting-started/access-panel.png)
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Remove an application registered with the Microsoft identity platform (Preview)
@@ -26,8 +27,8 @@ Enterprise developers and software-as-a-service (SaaS) providers who have regist
 
 In this quickstart, you'll learn how to:
 
-* [Remove an application authored by you or your organization](#remove-an-application-authored-by-your-organization)
-* [Remove an application authored by another organization](#remove-an-application-authoried-by-another-organization)
+* Remove an application authored by you or your organization
+* Remove an application authored by another organization
 
 ## Prerequisites
 
@@ -55,7 +56,7 @@ Applications that you or your organization have registered are represented by bo
 
 If you are viewing **App registrations** in the context of a tenant, a subset of the applications that appear under the **All apps** tab are from another tenant and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](active-directory-application-objects.md).
 
-In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access, and can remove the application through the Azure portal or use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
+In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access, and can remove the application through the Azure portal or use the [Azure AD PowerShell Cmdlets](https://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
 ## Next steps
 

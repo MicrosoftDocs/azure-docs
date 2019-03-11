@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub security | Microsoft Docs
 description: Developer guide - how to control access to IoT Hub for device apps and back-end apps. Includes information about security tokens and support for X.509 certificates.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
 ---
 
 # Control access to IoT Hub
@@ -69,7 +69,7 @@ Each supported protocol, such as MQTT, AMQP, and HTTPS, transports tokens in dif
 
 When using MQTT, the CONNECT packet has the deviceId as the ClientId, `{iothubhostname}/{deviceId}` in the Username field, and a SAS token in the Password field. `{iothubhostname}` should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
-When using [AMQP](https://www.amqp.org/), IoT Hub supports [SASL PLAIN](http://tools.ietf.org/html/rfc4616) and [AMQP Claims-Based-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
+When using [AMQP](https://www.amqp.org/), IoT Hub supports [SASL PLAIN](https://tools.ietf.org/html/rfc4616) and [AMQP Claims-Based-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
 If you use AMQP claims-based-security, the standard specifies how to transmit these tokens.
 
@@ -87,7 +87,7 @@ HTTPS implements authentication by including a valid token in the **Authorizatio
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (You can generate a SAS token with the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool, the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
+Password (You can generate a SAS token with the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool, the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -142,7 +142,7 @@ Here are the expected values:
 
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -156,7 +156,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-    // Construct autorization string
+    // Construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
     + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
@@ -256,7 +256,7 @@ For example, a token created to access all device functionality should have the 
 
 An example using the preceding Node.js function would be:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var deviceKey ="...";
 
@@ -268,7 +268,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It's possible to generate a SAS token with the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool, the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> It's possible to generate a SAS token with the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool, the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### Use a shared access policy
 
@@ -290,7 +290,7 @@ As an example, a token service using the pre-created shared access policy called
 
 An example using the preceding Node.js function would be:
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices/device1";
 var policyName = 'device';
 var policyKey = '...';
@@ -324,7 +324,7 @@ As an example, a service generating using the pre-created shared access policy c
 * policy name: `registryRead`,
 * any expiration time.
 
-```nodejs
+```javascript
 var endpoint ="myhub.azure-devices.net/devices";
 var policyName = 'registryRead';
 var policyKey = '...';
@@ -415,7 +415,7 @@ Here are the main steps of the token service pattern:
 4. The device/module uses the token directly with the IoT hub.
 
 > [!NOTE]
-> You can use the .NET class [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) or the Java class [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token) to create a token in your token service.
+> You can use the .NET class [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) or the Java class [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth.iothubservicesastoken) to create a token in your token service.
 
 The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device/module connection. Then, the device/module must request a new token from the token service. A short expiry time increases the load on both the device/module and the token service.
 

@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure Security services and 
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2018
+ms.date: 1/29/2019
 ms.author: barclayn
 
 ---
@@ -30,7 +30,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Azure Key Vault](../key-vault/key-vault-overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
-|[Log Analytics](../log-analytics/log-analytics-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
+|[Azure Monitor logs](../log-analytics/log-analytics-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
 |[Azure Dev/Test Labs](../devtest-lab/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -80,7 +80,11 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Network&nbsp;Security&nbsp;Groups](../virtual-network/virtual-networks-nsg.md)| A network-based access control feature using a 5-tuple to make allow or deny decisions.  |
 | [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| A network device used as a VPN endpoint to allow cross-premises access to Azure Virtual Networks.  |
 | [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)|An advanced web application load balancer that can route based on URL and perform SSL-offloading. |
+|[Web application firewall](../application-gateway/waf-overview.md) (WAF)|A feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities|
 | [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|A TCP/UDP application network load balancer. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| A dedicated WAN link between on-premises networks and Azure Virtual Networks. |
 | [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
 | [Azure Application Proxy](../active-directory/active-directory-application-proxy-get-started.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
+|[Azure Firewall](../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
+|[Azure DDoS protection](../virtual-network/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
+|[Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|

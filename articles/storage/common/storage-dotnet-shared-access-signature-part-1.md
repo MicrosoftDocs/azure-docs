@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Using shared access signatures (SAS)
 
@@ -217,7 +217,7 @@ The following recommendations for using shared access signatures can help mitiga
 7. **Understand that your account will be billed for any usage, including that done with SAS.** If you provide write access to a blob, a user may choose to upload a 200GB blob. If you've given them read access as well, they may choose to download it 10 times, incurring 2 TB in egress costs for you. Again, provide limited permissions to help mitigate the potential actions of malicious users. Use short-lived SAS to reduce this threat (but be mindful of clock skew on the end time).
 8. **Validate data written using SAS.** When a client application writes data to your storage account, keep in mind that there can be problems with that data. If your application requires that data be validated or authorized before it is ready to use, you should perform this validation after the data is written and before it is used by your application. This practice also protects against corrupt or malicious data being written to your account, either by a user who properly acquired the SAS, or by a user exploiting a leaked SAS.
 9. **Don't always use SAS.** Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of SAS. For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing. Also, sometimes it's simpler to manage access in other ways. For example, if you want to make all blobs in a container publicly readable, you can make the container Public, rather than providing a SAS to every client for access.
-10. **Use Storage Analytics to monitor your application.** You can use logging and metrics to observe any spike in authentication failures due to an outage in your SAS provider service or to the inadvertent removal of a stored access policy. See the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) for additional information.
+10. **Use Storage Analytics to monitor your application.** You can use logging and metrics to observe any spike in authentication failures due to an outage in your SAS provider service or to the inadvertent removal of a stored access policy. See the [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) for additional information.
 
 ## SAS examples
 Below are some examples of both types of shared access signatures, account SAS and service SAS.
@@ -323,7 +323,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### Example: Create a service SAS on a container
-The following code creates a SAS on a container. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad-hoc SAS on the container.
+The following code creates a SAS on a container. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the container.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -333,7 +333,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -353,7 +353,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -366,7 +366,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### Example: Create a service SAS on a blob
-The following code creates a SAS on a blob. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad-hoc SAS on the blob.
+The following code creates a SAS on a blob. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -380,7 +380,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
@@ -417,5 +417,5 @@ Shared access signatures are useful for providing limited permissions to your st
 ## Next Steps
 * [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md)
-* [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Introducing Table and Queue SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

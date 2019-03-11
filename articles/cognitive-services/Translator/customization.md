@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Use the Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.subservice: translator-text
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 
 # Customize your text translations
 
-The Microsoft Custom Translator preview is feature of the Microsoft Translator service, which allows users to customize Microsoft Translator’s advanced neural machine translation when translating text using the Translator Text API (version 3 only).
+The Microsoft Custom Translator is feature of the Microsoft Translator service, which allows users to customize Microsoft Translator’s advanced neural machine translation when translating text using the Translator Text API (version 3 only).
 
-The feature can also be used to customize speech translation when used with [Cognitive Services Speech preview](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+The feature can also be used to customize speech translation when used with [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## Custom Translator
 
@@ -32,23 +32,24 @@ The customized system is then available through a regular call to the Microsoft 
 
 Given the appropriate type and amount of training data it is not uncommon to expect gains between 5 and 10, or even more BLEU points on translation quality by using Custom Translator.
 
-More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](http://aka.ms/CustomTranslatorDocs).
+More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](https://aka.ms/CustomTranslatorDocs).
 
 
 ## Microsoft Translator Hub
 
-The legacy Microsoft Translator Hub can be used to translate statistical machine translation. [Learn more](https://www.microsoft.com/en-us/translator/hub.aspx)
+> [!NOTE]
+> The legacy Microsoft Translator Hub will be retired on April 30, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 ## Custom Translator versus Hub
 
 |   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
-|Customization Feature Status	| General Availability	| Preview |
+|Customization Feature Status	| General Availability	| General Availability |
 | Text API version	| V2 only	| V3 only |
 | SMT customization	| Yes	| No |
 | NMT customization	| No	| Yes |
 | New unified Speech services customization	| No	| Yes |
-| [No Trace](http://www.aka.ms/notrace) | Yes	| Yes |
+| [No Trace](https://www.aka.ms/notrace) | Yes	| Yes |
 
 ## Collaborative Translations Framework
 
@@ -60,4 +61,4 @@ The legacy Microsoft Translator Hub can be used to translate statistical machine
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a customized language system using Custom Translator](http://aka.ms/CustomTranslatorDocs)
+> [Set up a customized language system using Custom Translator](https://aka.ms/CustomTranslatorDocs)

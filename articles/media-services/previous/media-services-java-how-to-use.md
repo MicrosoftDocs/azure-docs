@@ -12,12 +12,13 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.topic: conceptual
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Get started with the Java client SDK for Azure Media Services
+# Get started with the Java client SDK for Azure Media Services  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 This tutorial walks you through the steps of implementing a basic video content delivery service with Azure Media Services using the Java client SDK.

@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Get alternate translations, Node.js - Translator Text API"
+title: "Quickstart: Look up words with bilingual dictionary, Node.js - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Node.js and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
-# Quickstart: Use the Translator Text API to get alternate translations with Node.js
+# Quickstart: Look up words with bilingual dictionary using Node.js
 
 In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Node.js and the Translator Text REST API.
 
@@ -62,7 +62,7 @@ if (!subscriptionKey) {
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Dictionary Lookup](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {

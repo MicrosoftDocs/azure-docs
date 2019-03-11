@@ -4,37 +4,44 @@
   items:
   - name: What is Relay?
     href: relay-what-is-it.md
-  - name: FAQ
-    href: relay-faq.md
-- name: Quickstarts
+- name: Tutorials
   items:
-  - name: Create a hybrid on-premises/cloud application
-    href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
   - name: Hybrid Connections
     items:
-    - name: .NET Websockets
+    - name: Send and receive messages - .NET Websockets
       href: relay-hybrid-connections-dotnet-get-started.md
-    - name: .NET HTTP
+    - name: Send and receive messages - .NET HTTP
       href: relay-hybrid-connections-http-requests-dotnet-get-started.md
-    - name: Node Websockets
+    - name: Send and receive messages - Node Websockets
       href: relay-hybrid-connections-node-get-started.md
-    - name: Node HTTP
-      href: relay-hybrid-connections-http-requests-node-get-started.md
-  - name: WCF Relay tutorial
-    href: service-bus-relay-tutorial.md
-  - name: WCF Relay REST tutorial
-    href: service-bus-relay-rest-tutorial.md
+    - name: Send and receive messages - Node HTTP
+      href: relay-hybrid-connections-http-requests-node-get-started.md    
+  - name: Windows Communication Foundation (WCF)
+    items:
+    - name: Expose an on-premises WCF service to a web application in the cloud
+      href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - name: Expose an on-premises WCF service to a WCF client outside your network
+      href: service-bus-relay-tutorial.md
+    - name: Expose an on-premises WCF REST service to a client outside your network
+      href: service-bus-relay-rest-tutorial.md
+- name: Samples
+  items:
+  - name: Hybrid Connections
+    href: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+  - name: WCF Relay
+    href: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- name: Concepts
+  items:
+  - name: Authentication and authorization
+    href: relay-authentication-and-authorization.md
+  - name: Hybrid Connections protocol
+    href: relay-hybrid-connections-protocol.md
 - name: How To
   items:
   - name: Plan and design
     items:
-    - name: Authentication and security
-      href: relay-authentication-and-authorization.md
-      items:
-      - name: Migrate from ACS to SAS
-        href: relay-migrate-acs-sas.md
-    - name: Hybrid Connections protocol
-      href: relay-hybrid-connections-protocol.md
+    - name: Migrate from ACS to SAS
+      href: relay-migrate-acs-sas.md
   - name: Develop
     items:
     - name: Create a namespace
@@ -68,6 +75,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+  - name: FAQ
+    href: relay-faq.md
   - name: Blog
     href: https://blogs.msdn.microsoft.com/servicebus/
   - name: Pricing

@@ -3,14 +3,14 @@ title: Use the Graph API in Azure Active Directory B2C | Microsoft Docs
 description: How to call the Graph API for a B2C tenant by using an application identity to automate the process.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure AD B2C: Use the Azure AD Graph API
@@ -58,12 +58,12 @@ Now you need to configure your application to get all the required permissions t
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
 > [!NOTE]
-> Granting permissions make take a few minutes to fully process.
+> Granting permissions may take a few minutes to fully process.
 > 
 > 
 
-## Configure delete permissions for your application
-Currently, the *Read and write directory data* permission does **NOT** include the ability to do any deletions such as deleting users. If you want to give your application the ability to delete users, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
+## Configure delete or update password permissions for your application
+Currently, the *Read and write directory data* permission does **NOT** include the ability to delete users or update user passwords. If you want to give your application the ability to delete users or update passwords, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
 
 First, if you don't already have it installed, install the [Azure AD PowerShell v1 module (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -80,7 +80,7 @@ After you install the PowerShell module connect to your Azure AD B2C tenant.
 Connect-MsolService
 ```
 
-Now we'll use the **Application ID** in the script below to assign the application the user account administrator role which will allow it to delete users. These roles have well-known identifiers, so all you need to do is input your **Application ID** in the script below.
+Now we'll use the **Application ID** in the script below to assign the application the user account administrator role. These roles have well-known identifiers, so all you need to do is input your **Application ID** in the script below.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -88,7 +88,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Your application now also has permissions to delete users from your B2C tenant.
+Your application now also has permissions to delete users or update passwords from your B2C tenant.
 
 ## Download, configure, and build the sample code
 First, download the sample code and get it running. Then we will take a closer look at it.  You can [download the sample code as a .zip file](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). You can also clone it into a directory of your choice:
@@ -267,7 +267,7 @@ Content-Type: application/json
 Content-Length: 37
 
 {
-    "displayName": "Joe Consumer",                // this request updates only the user's displayName
+    "displayName": "Joe Consumer"                // this request updates only the user's displayName
 }
 ```
 

@@ -1,15 +1,16 @@
 ---
-title: Provision a Linux CentOS Data Science Virtual Machine on Azure | Microsoft Docs
+title: Create a CentOS Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -149,7 +150,7 @@ Python 3.5 is installed at */anaconda/envs/py35/bin*.
 
 To invoke a Python interactive session, just type **python** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE.
 
-To install additional Python libraries, you need to run ```conda``` or ````pip```` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
+To install additional Python libraries, you need to run ```conda``` or ```pip``` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -193,7 +194,7 @@ Before running in Spark context in Microsoft R Server, you need to do a one time
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you dont need them by running ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````
+You can stop the Hadoop related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors
@@ -372,6 +373,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 * Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
 

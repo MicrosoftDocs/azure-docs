@@ -13,9 +13,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/30/2019
 ---
 
 # Azure Stack public key infrastructure certificate requirements
@@ -38,13 +39,13 @@ The following list describes the certificate requirements that are needed to dep
 - For deployment and rotation you can either use a single certificate covering all name spaces in the certificate's Subject Name and Subject Alternative Name (SAN) fields OR you can use individual certificates for each of the namespaces below that the Azure Stack services you plan to utilize require. Both approaches require using wild cards for endpoints where they are required, such as **KeyVault** and **KeyVaultInternal**. 
 - The certificate's PFX Encryption should be 3DES. 
 - The certificate signature algorithm should not be SHA1. 
-- The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. 
+- The certificate format must be PFX, as both the public and private keys are required for Azure Stack installation. The private key must have the local machine key attribute set.
 - The PFX encryption must be 3DES (this is default when exporting from a Windows 10 client or Windows Server 2016 certificate store).
-- The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its “Key Usage" field.
-- The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
+- The certificate pfx files must have a value "Digital Signature" and "KeyEncipherment" in its "Key Usage" field.
+- The certificate pfx files must have the values "Server Authentication (1.3.6.1.5.5.7.3.1)" and "Client Authentication (1.3.6.1.5.5.7.3.2)" in the "Enhanced Key Usage" field.
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
-- Password to the certificate pfx has to be a complex password.
+- Password to the certificate pfx has to be a complex password. Create a password that meets the following password complexity requirements. A minimum length of eight characters. The password contains at least three of the following: uppercase letter, lowercase letter, numbers from 0-9, special characters, alphabetical character that is neither uppercase nor lowercase. Make note of this password. You will use it as a deployment parameter.
 - Ensure that the subject names and subject alternative names in the subject alternative name extension (x509v3_config) match. The subject alternative name field lets you specify additional host names (websites, IP addresses, common names) to be protected by a single SSL Certificate.
 
 > [!NOTE]  

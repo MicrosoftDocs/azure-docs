@@ -4,7 +4,7 @@ description: Tutorial that walks you through the creation, testing, and publishi
 keywords: powershell workflow, powershell workflow examples, workflow powershell
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/24/2018
@@ -199,3 +199,4 @@ your runbook currently starts the virtual machine that you hardcoded in the runb
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 * To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
 * For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+

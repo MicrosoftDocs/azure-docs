@@ -36,7 +36,7 @@ Check to make sure that your web app is not in the **F1** or **D1** tier. Your w
 
 ![Check pricing tier](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip to [Upload and bind your SSL certificate](#upload).
+Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip the [Scale up your App Service plan](#scale-up-your-app-service-plan) section.
 
 ### Scale up your App Service plan
 

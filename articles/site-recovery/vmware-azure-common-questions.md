@@ -1,13 +1,13 @@
 ---
 title: 'Common questions - VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article summarizes common questions when you set up disaster recovery of on-premises VMware VMs to Azure using Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.date: 10/29/2018
+services: site-recovery
+ms.date: 03/07/2019
 ms.topic: conceptual
-ms.author: raynew
-
+ms.author: mayg
 ---
 # Common questions - VMware to Azure replication
 
@@ -25,66 +25,133 @@ During replication, data is replicated to Azure storage, and you don't pay any V
 - **Disaster recovery**: You can set up full disaster recovery. In this scenario, you replicate on-premises VMware VMs to Azure storage. Then, if your on-premises infrastructure is unavailable, you can fail over to Azure. When you fail over, Azure VMs are created using the replicated data. You can access apps and workloads on the Azure VMs, until your on-premises datacenter is available again. Then, you can fail back from Azure to your on-premises site.
 - **Migration**: You can use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario you replicate on-premises VMware VMs to Azure storage. Then, you fail over from on-premises to Azure. After failover, your apps and workloads are available and running on Azure VMs.
 
-
-
 ## Azure
 ### What do I need in Azure?
-You need an Azure subscription, a Recovery Services vault, a storage account, and a virtual network. The vault, storage account and network must be in the same region.
-
-### What Azure storage account do I need?
-You need an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. Premium storage is supported.
+You need an Azure subscription, a Recovery Services vault, a cache storage account, managed disk(s) and a virtual network. The vault, cache storage account, managed disk(s) and network must be in the same region.
 
 ### Does my Azure account need permissions to create VMs?
-If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account or managed disk based on your configuration. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+### Can I use Guest OS server license on Azure?
+Yes, Microsoft Software Assurance customers can use [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
 
+## Pricing
+
+### How are licensing charges handled during replication, after failover?
+
+Please refer to our FAQ on licensing [here](https://aka.ms/asr_pricing_FAQ) for more information.
+
+### How can I calculate approximate charges during the use of Site Recovery?
+
+You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyze the [cost estimation report](https://aka.ms/asr_DP_costreport).
+
+### I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
+
+Yes, it does not matter how long you have been using Azure Site Recovery. Every protected instance incurs no Azure Site Recovery charges for the first 31 days. For example, if you have been protecting 10 instances for the last 6 months and you connect an 11th instance to Azure Site Recovery, there will be no Azure Site Recovery charges for the 11th instance for the first 31 days. The first 10 instances continue to incur Azure Site Recovery charges since they have been protected for more than 31 days.
+
+### During the first 31 days, will I incur any other Azure charges?
+
+Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions, and data transfer. A recovered virtual machine might also incur Azure compute charges.
+
+### What charges do I incur while using Azure Site Recovery?
+
+Refer to our [FAQ on costs incurred](https://aka.ms/asr_pricing_FAQ) for detailed information.
+
+### Is there a cost associated to perform DR Drills/test failover?
+
+There is no separate cost for DR drill. There will be compute charges after the virtual machine is created post test failover.
+
+## Azure Site Recovery components upgrade
+
+### My Mobility agent/Configuration Server/Process server version is very old and my upgrade has failed. How should I upgrade to latest version?
+
+Azure Site Recovery follows N-4 support model. Refer to our [support statement](https://aka.ms/asr_support_statement) to understand the details on how to upgrade from very old versions.
+
+### Where can I find the release notes/update rollups of Azure Site Recovery?
+
+Refer to the [document](https://aka.ms/asr_update_rollups) for release notes information. You can find installation links of respective components in each update roll-up.
+
+### How should I upgrade Site Recovery components for on-premises VMware or Physical site to Azure?
+
+Refer to our guidance provided [here](https://aka.ms/asr_vmware_upgrades) to upgrade your components.
+
+## Is reboot of source machine mandatory for each upgrade?
+
+Though recommended, it is not mandatory for each upgrade. Refer [here](https://aka.ms/asr_vmware_upgrades) for clear guidelines.
 
 ## On-premises
 
 ### What do I need on-premises?
-On on-premises you need Site Recovery components, installed on a single VMware VM. You also need a VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server. In addition, you need one or more VMware VMs to replicate. [Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
 
-The on-premises configuration server can be deployed in one of the two following ways
+On on-premises you need:
+- Site Recovery components, installed on a single VMware VM.
+- A VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server.
+- One or more VMware VMs to replicate.
 
-1. Deploy it using a VM template that has the configuration server pre-installed. [Read more here](vmware-azure-tutorial.md#download-the-vm-template).
-2. Deploy it using the setup on a Windows Server 2016 machine of your choice. [Read more here](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
 
-To discover the getting started steps of deploying the configuration server on your own Windows Server machines, in the Protection goal of enable protection, choose **To Azure > Not virtualized/Other**.
+The on-premises configuration server can be deployed as follows:
+
+- We recommend you deploy the configuration server as a VMware VM using an OVA template with the configuration server pre-installed.
+- If for any reason you can't use a template, you can set up the configuration server manually. [Learn more](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### Where do on-premises VMs replicate to?
-Data replicates to Azure storage. When you run a failover, Site Recovery automatically creates Azure VMs from the storage account.
+Data replicates to Azure storage. When you run a failover, Site Recovery automatically creates Azure VMs from the storage account or managed disk based on your configuration.
 
-### What apps can I replicate?
+## Replication
+
+### What applications can I replicate?
 You can replicate any app or workload running on a VMware VM that complies with [replication requirements](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery provides support for application-aware replication, so that apps can be failed over and failed back to an intelligent state. Site Recovery integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](site-recovery-workload.md) about workload protection.
+
+### Can I protect a virtual machine that has Docker disk configuration?
+
+No, this is an unsupported scenario.
 
 ### Can I replicate to Azure with a site-to-site VPN?
 Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute public peering. Replication over a site-to-site VPN network isn't supported.
 
 ### Can I replicate to Azure with ExpressRoute?
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to Azure Storage over a public endpoint. You need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) or [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) to use ExpressRoute for Site Recovery replication. Microsoft peering is the recommended routing domain for replication. Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) are also met for replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
+### How can I change storage account after machine is protected?
+
+You need to disable and enable replication to either upgrade or downgrade the storage account type.
+
+### How can I change Managed Disk type after machine is protected?
+
+Yes, you can easily change the type of managed disk. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). However, once you change the managed disk type, ensure that you wait for fresh recovery points to be generated if you need to do test failover or failover post this activity.
+
+### Can I switch the replication from managed disks to unmanaged disks?
+
+No, switching from managed to unmanaged is not supported.
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
+When you replicate to Azure, replication traffic reaches the public endpoints of a Azure Storage, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
 
-
-
-## What are the replicated VM requirements?
+### What are the replicated VM requirements?
 
 For replication, a VMware VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](vmware-physical-azure-support-matrix.md##replicated-machines) in the support matrix.
 
-## How often can I replicate to Azure?
+### How often can I replicate to Azure?
 Replication is continuous when replicating VMware VMs to Azure.
 
-## Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+### Can I retain the IP address on failover?
+Yes, you can retain the IP address on failover. Ensure that you mention the target IP address on 'Compute and Network' blade before failover. Also, ensure to shut down the machines at the time of failover to avoid IP conflicts at the time of failback.
 
-## Can I do an offline initial replication?
+### Can I extend replication?
+Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### Can I do an offline initial replication?
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
 Yes, you can exclude disks from replication.
+
+### Can I change the target VM size or VM type before failover?
+Yes, you can change the type or size of the VM any time before failover by going to Compute and Network settings of the replication item from the portal.
 
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
@@ -96,6 +163,12 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 
 For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
 
+### Can I migrate on premises machines to a new Vcenter without impacting ongoing replication?
+No, change of Vcenter or migration will impact ongoing replication. You need to set up ASR with the new Vcenter and enable replication for machines.
+
+### Can I replicate to cache/target storage account which has a Vnet (with Azure storage firewalls) configured on it?
+No, Azure Site Recovery does not support replication to Storage on Vnet.
+
 ## Configuration server
 
 ### What does the configuration server do?
@@ -103,6 +176,8 @@ The configuration server runs the on-premises Site Recovery components, includin
 - The configuration server that coordinates communications between on-premises and Azure and manages data replication.
 - The process server that acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure storage.,The process server also installs Mobility Service on VMs you want to replicate and performs automatic discovery of on-premises VMware VMs.
 - The master target server that handles replication data during failback from Azure.
+
+[Learn more](vmware-azure-architecture.md) about the configuration server components and processes.
 
 ### Where do I set up the configuration server?
 You need a single highly available on-premises VMware VM for the configuration server.
@@ -120,15 +195,38 @@ No. To do this, you need to set up a configuration server in each region.
 ### Can I host a configuration server in Azure?
 While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. This can add latencies and impact ongoing replication.
 
-
-### Where can I get the latest version of the configuration server template?
-Download the latest version from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
 ### How do I update the configuration server?
-You install update rollups. You can find the latest update information in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Learn about](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) updating the configuration server. You can find the latest update information in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery). You can also directly download the latest version of the configuration server from [Microsoft Download Center](https://aka.ms/asrconfigurationserver). If your version is older than 4 versions from current version, refer to our [support statement](https://aka.ms/asr_support_statement) for upgrade guidance.
 
 ### Should I backup the deployed configuration server?
 We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
+
+### When I'm setting up the configuration server, can I download and install MySQL manually?
+Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
+
+### Can I avoid downloading MySQL but let Site Recovery install it?
+Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
+ 
+### Can I use the configuration server VM for anything else?
+No, you should only use the VM for the configuration server. 
+
+### Can I clone a configuration server and use it for orchestration?
+No, you should setup a fresh configuration server to avoid registration issues.
+
+### Can I change the vault registered in the configuration server?
+No. After a vault is registered with configuration server, it can't be changed. Review [this article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) for re-registration steps.
+
+### Can I use the same configuration server for disaster recovery of both VMware VMs and physical servers
+Yes, but note that physical machine can be only be failed back to a VMware VM.
+
+### Where can I download the passphrase for the configuration server?
+[Review this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to learn about downloading the passphrase.
+
+### Where can I download vault registration keys?
+
+In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In **Servers**, select **Download registration key** to download the vault credentials file.
+
+
 
 ## Mobility service
 
@@ -136,7 +234,7 @@ We recommend taking regular scheduled backups of the configuration server. For s
 The installers are held in the **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** folder on the configuration server.
 
 ## How do I install the Mobility service?
-You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), or manual installation from [the UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui), or [using PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md), or [Azure Automation and DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md), or [manual installation](vmware-physical-mobility-service-install-manual.md) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 
@@ -171,6 +269,9 @@ Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft
 
 
 ## Failover and failback
+### Can I use the process server at on-premises for failback?
+It is strongly recommended to create a process server in Azure for failback purpose to avoid data transfer latencies. Additionally, in case you separated the source VMs network with the Azure facing network at Configuration server, then it is essential to use the Process Server created in Azure for failback.
+
 ### How far back can I recover?
 For VMware to Azure the oldest recovery point you can use is 72 hours.
 
@@ -181,15 +282,16 @@ After failover, you can access Azure VMs over a secure Internet connection, over
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
 
 ### Is failover automatic?
-[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [ PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
+[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
 
 ### Can I fail back to a different location?
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### Why do I need a VPN or ExpressRoute to fail back?
-
 When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
+### Can I resize the Azure VM after failover?
+No, you cannot change the size or type of the target VM after the failover.
 
 
 ## Automation and scripting

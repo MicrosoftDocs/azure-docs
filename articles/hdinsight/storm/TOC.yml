@@ -1,10 +1,10 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
-- name: Storm on HDInsight
+- name: Apache Storm on HDInsight
   items:
   - name: Overview
     href: apache-storm-overview.md
-  - name: Component versioning
+  - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -12,7 +12,7 @@
     maintainContext: true
 - name: Get started
   items:
-  - name: Create a Storm cluster
+  - name: Create an Apache Storm cluster
     href: apache-storm-tutorial-get-started-linux.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
@@ -22,7 +22,7 @@
     maintainContext: true
 - name: How to
   items:
-  - name: Develop Storm topologies
+  - name: Develop Apache Storm topologies
     items:
     - name: Develop topologies using Java
       href: apache-storm-develop-java-topology.md
@@ -32,22 +32,22 @@
       href: apache-storm-develop-csharp-visual-studio-topology.md
     - name: SCP.NET programming guide
       href: apache-storm-scp-programming-guide.md
-    - name: Storm examples
+    - name: Apache Storm examples
       href: apache-storm-example-topology.md
   - name: Deploy and monitor topologies
     href: apache-storm-deploy-monitor-topology-linux.md
   - name: Create streaming pipelines
     items:
-    - name: Kafka and Storm (Java)
+    - name: Apache Kafka and Apache Storm (Java)
       href: ../hdinsight-apache-storm-with-kafka.md
       maintainContext: true
-    - name: Event Hub, Storage, and Data Lake Store (Java)
+    - name: Event Hub, Storage, and Data Lake Storage (Java)
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
-    - name: Event Hub and Storm (C# & Java)
+    - name: Event Hub and Apache Storm (C# & Java)
       href: apache-storm-develop-csharp-event-hub-topology.md
-    - name: Azure Storage/Data Lake Store (Java)
+    - name: Azure Storage/Data Lake Storage (Java)
       href: apache-storm-write-data-lake-store.md
-    - name: Event Hub, HBase (Java)
+    - name: Event Hub, Apache HBase (Java)
       href: apache-storm-sensor-data-analysis.md
   - name: Extend clusters
     items:
@@ -121,9 +121,10 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
-    - name: Manage Hadoop clusters
+    - name: Manage Apache Hadoop clusters
       href: ../hdinsight-administer-use-portal-linux.md
       maintainContext: true
       items:
@@ -136,14 +137,14 @@
       - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
-    - name: Manage clusters using the Ambari web UI
+    - name: Manage clusters using the Apache Ambari web UI
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
-      - name: Optimize clusters with the Ambari web UI
+      - name: Optimize clusters with the Apache Ambari web UI
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Use Ambari REST API
+      - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
     - name: Manage logs for an HDInsight cluster
@@ -152,13 +153,13 @@
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Upload data for Hadoop jobs
+    - name: Upload data for Apache Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Multiple HDInsight clusters with Data Lake Store
+    - name: Multiple HDInsight clusters with Data Lake Storage
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Import and export data with Sqoop
+    - name: Import and export data with Apache Sqoop
       href: ../hdinsight-use-sqoop.md
       maintainContext: true
       items:
@@ -174,10 +175,10 @@
       - name: Run using Azure PowerShell
         href: ../hdinsight-hadoop-use-sqoop-powershell.md
         maintainContext: true
-    - name: Use Oozie for workflows
+    - name: Use Apache Oozie for workflows
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Use time-based Oozie coordinators
+    - name: Use time-based Apache Oozie coordinators
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Cluster and service ports and URIs
@@ -186,7 +187,7 @@
     - name: Migrate to Resource Manager development tools
       href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
       maintainContext: true
-    - name: 'Availability and reliability '
+    - name: Availability and reliability
       href: ../hdinsight-high-availability-linux.md
       maintainContext: true
     - name: Upgrade HDInsight cluster to newer version
@@ -202,12 +203,12 @@
     - name: Troubleshoot a slow or failing HDInsight cluster
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS troubleshooting
+    - name: Apache Hadoop HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: STORM troubleshooting
+    - name: Apache STORM troubleshooting
       href: apache-troubleshoot-storm.md
-    - name: YARN troubleshooting
+    - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Resources
@@ -215,13 +216,13 @@
       - name: Information about using HDInsight on Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop memory and performance
+      - name: Apache Hadoop memory and performance
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: Access Hadoop YARN application logs on Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Enable heap dumps for Hadoop services
+      - name: Enable heap dumps for Apache Hadoop services
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
 - name: Enterprise readiness
@@ -237,12 +238,12 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using Log Analytics
+  - name: Monitoring using Azure Monitor logs
     items:
-    - name: Use Azure Log Analytics
+    - name: Use Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Use queries with Log Analytics
+    - name: Use queries with Azure Monitor logs
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Monitor cluster performance
@@ -262,14 +263,15 @@
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Related
   items:
   - name: Windows clusters
@@ -280,15 +282,15 @@
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Deploy and manage Storm topologies
+    - name: Deploy and manage Apache Storm topologies
       href: apache-storm-deploy-monitor-topology.md
-    - name: Use Maven to build Java applications
+    - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
     - name: Customize using Script Action
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: Access YARN application logs
+    - name: Access Apache Hadoop YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Develop script actions
@@ -297,7 +299,7 @@
     - name: Manage clusters with Azure portal
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: Monitor clusters using the Ambari API
+    - name: Monitor clusters using the Apache Ambari API
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Resources

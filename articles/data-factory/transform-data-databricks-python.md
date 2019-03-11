@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
@@ -97,7 +97,7 @@ In the above Databricks activity definition you specify these library types: *ja
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

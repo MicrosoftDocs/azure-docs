@@ -30,7 +30,7 @@ This article details the steps required to create a virtual hard disk (VHD) for 
 The operating system VHD for your VM image must be based on an Azure-approved base image that contains Windows Server or SQL Server.
 To begin, create a VM from one of the following images, located at the Microsoft Azure portal:
 
--	Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
+-	Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
 -	[SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 -	[SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 
@@ -45,7 +45,7 @@ Alternately, Azure offers a range of approved Linux distributions.  For a curren
 In the Microsoft [Azure portal](https://ms.portal.azure.com/), create the base image using the following steps.
 
 1. Sign in to the portal with the Microsoft account for the Azure subscription you want to publish your VM offer.
-2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Click on **Virtual machines** in the left menubar to display the Virtual machines details page. 
 4. In this new page, click on **+Add** to display the **Compute** blade.  If you do not see the VM type on the initial screen, you can search for the name of your base VM, for example:
 

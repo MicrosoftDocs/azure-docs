@@ -53,7 +53,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
-    Formerly known as the Watchmouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
+    Formerly known as the Watch-mouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
@@ -75,7 +75,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 

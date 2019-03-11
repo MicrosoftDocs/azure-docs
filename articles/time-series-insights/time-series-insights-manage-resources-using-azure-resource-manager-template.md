@@ -1,5 +1,5 @@
 ﻿---
-title: How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs
+title: 'How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs'
 description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,6 +10,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
+ms.custom: seodec18
 ---
 # Create Time Series Insights resources using Azure Resource Manager templates
 
@@ -27,6 +28,7 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 
 - [Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 

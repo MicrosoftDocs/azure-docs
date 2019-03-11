@@ -1,15 +1,16 @@
 ---
-title: Azure Disk Encryption FAQ| Microsoft Docs
+title: FAQ - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/16/2018
+ms.date: 03/01/2019
+
+ms.custom: seodec18
 ---
 
-# Azure Disk Encryption FAQ
+# Azure Disk Encryption for IaaS VMs FAQ
 
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows and Linux IaaS VMs. For more information about this service, see [Azure Disk Encryption for Windows and Linux IaaS VMs](azure-security-disk-encryption-overview.md).
 
@@ -36,14 +37,16 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS and data disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS and data disk |
-| RHEL | 7.5 | Data disk* |
-| RHEL | 7.4 | Data disk* |
-| RHEL | 7.3 | Data disk* |
-| RHEL | 7.2 | Data disk* |
+| Ubuntu | 16.04| OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
+| RHEL | 7.6 | OS and data disk* |
+| RHEL | 7.5 | OS and data disk* |
+| RHEL | 7.4 | OS and data disk* |
+| RHEL | 7.3 | OS and data disk* |
+| RHEL | 7.2 | OS and data disk* |
 | RHEL | 6.8 | Data disk* |
 | RHEL | 6.7 | Data disk* |
+| CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
@@ -53,15 +56,11 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.7 | Data disk |
 | CentOS | 6.6 | Data disk |
 | CentOS | 6.5 | Data disk |
-| openSUSE | 13.2 | Data disk |
-| SLES | 12 SP1 | Data disk |
-| SLES | Priority: 12-SP1 | Data disk |
-| SLES | HPC 12 | Data disk |
-| SLES | Priority: 11-SP4 | Data disk |
-| SLES | 11 SP4 | Data disk |
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
-
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but isn't currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
+*__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
 ## How can I start using Azure Disk Encryption?
 
@@ -70,6 +69,18 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
 Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
+
+## Can I encrypt an unmounted volume with Azure Disk Encryption?
+
+No, Azure Disk Encryption only encrypts mounted volumes.
+
+## How do I rotate secrets or encryption keys?
+
+To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
+
+## How do I add or remove a key encryption key if I didn't originally use one?
+
+To add a key encryption key, call the enable command again passing the key encryption key parameter. To remove a key encryption key, call the enable command again without the key encryption key parameter.
 
 ## Does Azure Disk Encryption allow you to bring your own key (BYOK)?
 
@@ -131,11 +142,15 @@ If this workflow isn't possible, relying on [Storage Service Encryption](../stor
 
 ## What encryption method does Azure Disk Encryption use?
 
-On Windows, ADE uses the Bitlocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
-On Linux, ADE uses the dmcrypt default of aes-xts-plain64 with a 256-bit volume master key.
+On Windows, ADE uses the BitLocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
+On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume master key.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## Can I backup and restore an encrypted VM? 
+
+Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Restoring an encrypted VM to a different region is not currently supported.  
 
 ## Where can I go to ask questions or provide feedback?
 

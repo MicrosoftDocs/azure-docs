@@ -4,7 +4,7 @@ description: This topic shows how to use .NET to encode an asset and generate th
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# How to generate thumbnails using Media Encoder Standard with .NET
+# How to generate thumbnails using Media Encoder Standard with .NET 
 
 You can use Media Encoder Standard to generate one or more thumbnails from your input video in [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), or [BMP](https://en.wikipedia.org/wiki/BMP_file_format) image file formats. You can submit Tasks that produce only images, or you can combine thumbnail generation with encoding. This article provides a few sample XML and JSON thumbnail presets for such scenarios. At the end of the article, there is a [sample code](#code_sample) that shows how to use the Media Services .NET SDK to accomplish the encoding task.
 

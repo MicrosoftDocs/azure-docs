@@ -426,7 +426,7 @@ The following section describes how to create a short script to start and delete
 ### Start and delete cloud snapshots by using a script
 
 > [!NOTE]
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/15047.html).
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/article.100032497.html).
 
 ### Backup lifecycle
 
@@ -476,9 +476,9 @@ A disaster can be caused by a variety of factors. The following table lists comm
 The following documents were referenced for this article:
 
 - [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## Next steps
 

@@ -2,6 +2,7 @@
 
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
+## [FAQs](active-directory-ds-faqs.md)
 ## Is it right for you?
 ### [Compare with Windows Server AD](active-directory-ds-comparison.md)
 ### [Compare with Azure AD join](active-directory-ds-compare-with-azure-ad-join.md)
@@ -55,7 +56,6 @@
 ## [Troubleshoot secure LDAP](active-directory-ds-ldaps-troubleshoot.md)
 
 # Troubleshoot
-## [FAQs](active-directory-ds-faqs.md)
 ## [Troubleshooting guide](active-directory-ds-troubleshooting.md)
 ## [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md)
 ### [Fix a broken NSG configuration](active-directory-ds-troubleshoot-nsg.md)

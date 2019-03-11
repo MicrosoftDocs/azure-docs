@@ -3,8 +3,8 @@ title: Azure AD Connect Health Version History
 description: This document describes the releases for Azure AD Connect Health and what has been included in those releases.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
-manager: mtillman
+author: zhiweiwangmsft
+manager: daveba
 editor: curtand
 
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -12,15 +12,32 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## November 2018
+**New GA features:** 
+* Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal
+
+**Agent Update:** 
+*  Azure AD Connect Health agent for AD DS (version 3.1.24.0) 
+1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
+2. Reduce Global Catalog alert noise
+3. Health agent registration bug fixes
+
+*	Azure AD Connect Health agent for AD FS (version 3.1.24.0)
+1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
+2. Support of Test-ADFSRequestToken for localized operating system
+3. Solved diagnostic agent EventHandler locking issue
+4. Health agent registration bug fixes
 
 ## August 2018 
 *  Azure AD Connect Health agent for Sync (version 3.1.7.0) released with Azure AD Connect version 1.1.880.0    

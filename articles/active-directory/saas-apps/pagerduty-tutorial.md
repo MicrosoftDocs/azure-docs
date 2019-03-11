@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with PagerDuty
 
@@ -248,7 +249,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the PagerDuty tile in the Access Panelyou should get automatically signed-on to your PagerDuty application.
+When you click the PagerDuty tile in the Access Panel you should get automatically signed-on to your PagerDuty application.
 
 For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
