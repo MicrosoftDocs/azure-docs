@@ -202,7 +202,7 @@ This change makes sure that the service listens on the V1 and V2 listener.
       ```xml
       <Resources>
         <Endpoints>
-          <Endpoint Name="ServiceEndpointV2" />  
+          <Endpoint Name="ServiceEndpointV2" />
         </Endpoints>
       </Resources>
       ```
@@ -247,7 +247,7 @@ Follow these steps to change to a V2_1 stack.
   ```xml
   <Resources>
     <Endpoints>
-      <Endpoint Name="ServiceEndpointV2_1" />  
+      <Endpoint Name="ServiceEndpointV2_1" />
     </Endpoints>
   </Resources>
   ```
@@ -280,7 +280,7 @@ Follow these steps:
   ```xml
   <Resources>
     <Endpoints>
-      <Endpoint Name="ServiceEndpointV2_1" />  
+      <Endpoint Name="ServiceEndpointV2_1" />
     </Endpoints>
   </Resources>
   ```
@@ -324,7 +324,7 @@ This change makes sure that the service is listening on the V1 and the V2_1 list
       ```xml
       <Resources>
         <Endpoints>
-          <Endpoint Name="ServiceEndpointV2_1" />  
+          <Endpoint Name="ServiceEndpointV2_1" />
         </Endpoints>
       </Resources>
       ```
@@ -414,7 +414,7 @@ Follow these steps:
                if (serviceRemotingRequestMessageBody == null)
                {
                  return null;
-               }          
+               }
                using (var writeStream = new MemoryStream())
                {
                  using (var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream)))
