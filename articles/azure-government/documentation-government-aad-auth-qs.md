@@ -81,21 +81,21 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 8. In your `ConfigureServices` method, add the following code:
 
     ```cs
-        public void ConfigureServices(IServiceCollection services)
-        {
-            //Add Azure AD authentication
-            services.AddAuthentication(options => {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-            })
-            .AddCookie()
-            .AddOpenIdConnect(options => {
-                options.Authority = Configuration["Authentication:AzureAd:Azure ADInstance"] + Configuration["Authentication:AzureAd:TenantId"];
-                options.ClientId = Configuration["Authentication:AzureAd:ClientId"];
-                options.CallbackPath = Configuration["Authentication:AzureAd:CallbackPath"];
-            });
-        
-        }
+    public void ConfigureServices(IServiceCollection services)
+    {
+        //Add Azure AD authentication
+        services.AddAuthentication(options => {
+            options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+        })
+        .AddCookie()
+        .AddOpenIdConnect(options => {
+            options.Authority = Configuration["Authentication:AzureAd:Azure ADInstance"] + Configuration["Authentication:AzureAd:TenantId"];
+            options.ClientId = Configuration["Authentication:AzureAd:ClientId"];
+            options.CallbackPath = Configuration["Authentication:AzureAd:CallbackPath"];
+        });
+    
+    }
     ```
 
     In the same file, add this one line of code to the `Configure` method:
