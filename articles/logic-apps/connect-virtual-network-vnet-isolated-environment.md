@@ -58,10 +58,14 @@ For more information about integration service environments, see
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 If you don't have a virtual network, learn how to 
 [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
-You also need subnets in your virtual network for deploying your ISE. You can 
-create these subnets in advance, or wait until you create your ISE where you 
-can create subnets at the same time. Also, [make sure your virtual network makes these ports available](#ports) 
-so your ISE works correctly and stays accessible.
+
+  * Your virtual network must have four *empty* subnets for deploying and 
+  creating resources in your ISE. You can create these subnets in advance, 
+  or you can wait until you create your ISE where you can create subnets 
+  at the same time. Learn more about [subnet requirements](#create-subnet).
+
+  * Make sure that your virtual network [makes these ports available](#ports) 
+  so your ISE works correctly and stays accessible.
 
 * To use one or more custom DNS servers for deploying your Azure virtual network, 
 [set up those servers following this guidance](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 
@@ -167,15 +171,16 @@ and then choose **Review + create**, for example:
    **Create subnet**
 
    Your ISE requires four *empty* subnets that *aren't delegated* 
-   to any service. You *can't change* these subnet addresses after 
-   you create your environment. Each subnet must meet these criteria:
+   to any service for creating resources in your environment. 
+   You *can't change* these subnet addresses after you create 
+   your environment. Each subnet must meet these criteria:
 
    * Uses a name that doesn't start with a number or a hyphen.
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
 
-   * Uses at least a `/27` in the address space because 
-   each subnet must have a minimum 32 addresses. For example:
+   * Uses at least a `/27` in the address space because each subnet 
+   must have 32 addresses as the *minimum*. For example:
 
      * `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32.
 
