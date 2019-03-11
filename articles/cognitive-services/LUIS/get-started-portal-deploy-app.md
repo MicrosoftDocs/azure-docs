@@ -47,7 +47,7 @@ The prediction endpoint resource is created in the Azure portal. This resource s
 
     In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal. 
 
-## Assign resource key to LUIS app in LUIS Portal
+## Assign resource key to LUIS app in LUIS portal
 
 Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. Once it is assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries. 
 
@@ -125,7 +125,7 @@ When you are done with this quickstart, select **My apps** from the top navigati
 
 [![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Identify common intents and entities](/luis-tutorial-prebuilt-intents-entities.md)

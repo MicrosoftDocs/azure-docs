@@ -144,7 +144,7 @@ When you are done with this quickstart and you are not moving on to the next qui
 
 [![Delete app from My apps list](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy this app](get-started-portal-deploy-app.md)
