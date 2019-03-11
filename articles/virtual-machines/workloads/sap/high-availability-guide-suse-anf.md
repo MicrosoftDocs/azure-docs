@@ -247,7 +247,7 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azu
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
-1.**[A]** Install SUSE Connector
+1. **[A]** Install SUSE Connector
 
    <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
@@ -274,7 +274,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
-2.**[A]** Update SAP resource agents  
+2. **[A]** Update SAP resource agents  
    
    A patch for the resource-agents package is required to use the new configuration, that is described in this article. You can check, if the patch is already installed with the following command
 
@@ -294,7 +294,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-3.**[A]** Setup host name resolution
+3. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
@@ -317,7 +317,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ## Prepare for SAP NetWeaver installation
 
-1.**[A]** Create the shared directories
+1. **[A]** Create the shared directories
 
    <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
    sudo mkdir -p /usr/sap/trans
@@ -332,7 +332,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2.**[A]** Configure autofs
+2. **[A]** Configure autofs
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -361,7 +361,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo service autofs restart
    </code></pre>
 
-3.**[A]** Configure SWAP file
+3. **[A]** Configure SWAP file
 
    <pre><code>sudo vi /etc/waagent.conf
    
@@ -383,7 +383,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ### Installing SAP NetWeaver ASCS/ERS
 
-1.**[1]** Create a virtual IP resource and health-probe for the ASCS instance
+1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
@@ -421,7 +421,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
-2.**[1]** Install SAP NetWeaver ASCS  
+2. **[1]** Install SAP NetWeaver ASCS  
 
    Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>anftstsapvh</b>, <b>10.1.1.20</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
 
@@ -437,7 +437,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    chgrp sapsys /usr/sap/<b>QAS</b>/ASCS<b>00</b>
    </code></pre>
 
-3.**[1]** Create a virtual IP resource and health-probe for the ERS instance
+3. **[1]** Create a virtual IP resource and health-probe for the ERS instance
 
    <pre><code>
    sudo crm node online <b>anftstsapcl2</b>
@@ -482,7 +482,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #      vip_QAS_ERS  (ocf::heartbeat:IPaddr2):     <b>Started anftstsapcl2</b>
    </code></pre>
 
-4.**[2]** Install SAP NetWeaver ERS
+4. **[2]** Install SAP NetWeaver ERS
 
    Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>anftstsapers</b>, <b>10.1.1.21</b> and the instance number that you used for the probe of the load balancer, for example <b>01</b>.
 
@@ -502,7 +502,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 
-5.**[1]** Adapt the ASCS/SCS and ERS instance profiles
+5. **[1]** Adapt the ASCS/SCS and ERS instance profiles
  
    * ASCS/SCS profile
 
@@ -538,7 +538,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Autostart = 1
    </code></pre>
 
-6.**[A]** Configure Keep Alive
+6. **[A]** Configure Keep Alive
 
    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
 
@@ -549,14 +549,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
-7.**[A]** Configure the SAP users after the installation
+7. **[A]** Configure the SAP users after the installation
 
    <pre><code>
    # Add sidadm to the haclient group
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8.**[1]** Add the ASCS and ERS SAP services to the sapservice file
+8. **[1]** Add the ASCS and ERS SAP services to the sapservice file
 
    Add the ASCS service entry to the second node and copy the ERS service entry to the first node.
 
@@ -565,7 +565,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo ssh <b>anftstsapcl2</b> "cat /usr/sap/sapservices" | grep ERS<b>01</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
-9.**[1]** Create the SAP cluster resources
+9. **[1]** Create the SAP cluster resources
 
    <pre><code>sudo crm configure property maintenance-mode="true"
    
@@ -620,7 +620,7 @@ The steps bellow assume that you install the application server on a server diff
 The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.
 
 
-1. [A] Configure operating system
+1. **[A]** Configure operating system
 
    Reduce the size of the dirty cache. For more information, see [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
@@ -631,7 +631,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1.  [A] Setup host name resolution
+1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
@@ -652,7 +652,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <b>10.1.1.16 anftstsapa02</b>
    </code></pre>
 
-1. [A] Create the sapmnt directory
+1. **[A]** Create the sapmnt directory
 
    <pre><code>
    sudo mkdir -p /sapmnt/<b>QAS</b>
@@ -662,21 +662,21 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
-1. [P] Create the PAS directory
+1. **[P]** Create the PAS directory
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>02</b>
    </code></pre>
 
-1. [S] Create the AAS directory
+1. **[S]** Create the AAS directory
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. [P] Configure autofs on PAS
+1. **[P]** Configure autofs on PAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -701,7 +701,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    sudo service autofs restart
    </code></pre>
 
-1. [P] Configure autofs on AAS
+1. **[P]** Configure autofs on AAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -726,7 +726,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    sudo service autofs restart
    </code></pre>
 
-1. [A] Configure SWAP file
+1. **[A]** Configure SWAP file
 
    <pre><code>
    sudo vi /etc/waagent.conf
@@ -763,10 +763,10 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 
 Follow these steps to install an SAP application server.
 
-1. [A] Prepare application server
+1. **[A]** Prepare application server
    Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse-anf.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
 
-2. [A] Install SAP NetWeaver application server
+2. **[A]** Install SAP NetWeaver application server
    Install a primary or additional SAP NetWeaver applications server.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
@@ -774,7 +774,7 @@ Follow these steps to install an SAP application server.
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-3. Update SAP HANA secure store
+3. **[A]** Update SAP HANA secure store
 
    Update the SAP HANA secure store to point to the virtual name of the SAP HANA System Replication setup.
 
@@ -1261,5 +1261,6 @@ The following tests are a copy of the test cases in the best practices guides of
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
+* To learn how to establish high availability and plan for disaster recovery of SAP 
+* HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
