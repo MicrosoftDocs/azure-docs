@@ -236,7 +236,7 @@ and then choose **Review + create**, for example:
      * `10.0.0.0/28` has only 16 addresses and is too small because 2<sup>(32-28)</sup> 
      is 2<sup>4</sup> or 16.
 
-     To learn more about calculating address ranges, see 
+     To learn more about calculating addresses, see 
      [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    1. Under the **Subnets** list, choose **Manage subnet configuration**.
