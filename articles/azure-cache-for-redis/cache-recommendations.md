@@ -29,15 +29,15 @@ Memory pressure on the server side leads to all kinds of performance problems th
 1. The cache is filled with data near its maximum capacity.
 1. Redis is seeing high memory fragmentation. This fragmentation is most often caused by storing large objects since Redis is optimized for small objects.
 
-Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](./cache-how-to-monitor#view-metrics-with-azure-monitor) using the portal.
+Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) using the portal.
 
 There are several possible changes you can make to help keep memory usage healthy:
 
-1. [Configure a memory policy](./cache-configure#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
-1. [Configure a maxmemory-reserved value](./cache-configure#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation. For more information, see the additional [considerations for memory reservations](#considerations-for-memory-reservations) below.
+1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
+1. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation. For more information, see the additional [considerations for memory reservations](#considerations-for-memory-reservations) below.
 1. Break up your large cached objects into smaller related objects.
-1. [Create alerts](./cache-how-to-monitor#alerts) on metrics like used memory to be notified early about potential impacts.
-1. [Scale](./cache-how-to-scale.md) to a larger cache size with more memory capacity.
+1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity.
 
 #### Considerations for Memory Reservations
 
@@ -49,13 +49,13 @@ A recommendation is generated when a cache is found to have high CPU or server l
 
 A high server load or CPU usage means the server can't process requests in a timely fashion. The server may be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](./cache-how-to-monitor#view-metrics-with-azure-monitor) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
+[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
 
 There are several changes you can make to mitigate high server load:
 
 1. Investigate what is causing CPU spikes such as running [expensive commands](#expensive-commands) or page faulting because of high memory pressure.
-1. [Create alerts](./cache-how-to-monitor#alerts) on metrics like CPU or server load to be notified early about potential impacts.
-1. [Scale](./cache-how-to-scale.md) to a larger cache size with more CPU capacity.
+1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more CPU capacity.
 
 #### Expensive commands
 
@@ -69,10 +69,10 @@ A recommendation is generated when a cache is found to have high network bandwid
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Clients requests could timeout because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](./cache-how-to-monitor#view-metrics-with-azure-monitor) in the portal.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) in the portal.
 
 To mitigate high network bandwidth:
 
 1. Change client call behavior to reduce network demand.
-1. [Create alerts](./cache-how-to-monitor#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
-1. [Scale](./cache-how-to-scale.md) to a larger cache size with more bandwidth capacity.
+1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more bandwidth capacity.
