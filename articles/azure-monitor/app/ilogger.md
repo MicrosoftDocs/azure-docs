@@ -37,14 +37,14 @@ class Program
     {
         // Create DI container.
         IServiceCollection services = new ServiceCollection();
-            
+
         // Add the logging pipelines to use. We are using Application Insights only here.
         services.AddLogging(loggingBuilder =>
         {
 	    // Optional: Apply filters to configure LogLevel Trace or above is sent to ApplicationInsights for all
 	    // categories.
 	    loggingBuilder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
-            loggingBuilder.AddApplicationInsights("--YourAIKeyHere--");                
+            loggingBuilder.AddApplicationInsights("--YourAIKeyHere--");
         });
 
         // Build ServiceProvider.
@@ -80,15 +80,15 @@ public class Program
 
     public static IWebHost BuildWebHost(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
-        .UseStartup<Startup>()                
+        .UseStartup<Startup>()
         .ConfigureLogging(logging =>
-        {                
+        {
 	    logging.AddApplicationInsights("ikeyhere");
-				
+
 	    // Optional: Apply filters to configure LogLevel Trace or above is sent to
 	    // ApplicationInsights for all categories.
             logging.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
-				
+
             // Additional filtering For category starting in "Microsoft",
 	    // only Warning or above will be sent to Application Insights.
 	    logging.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Warning);
@@ -114,9 +114,9 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-	
+
 	// The following be picked up up by Application Insights.
-        _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked"); 
+        _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked");
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -156,7 +156,7 @@ public class ValuesController : ControllerBase
         // All the following logs will be picked upby Application Insights.
 	// and all have ("MyKey", "MyValue") in Properties.
 	using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
-        {			
+        {
 	    _logger.LogInformation("An example of a Information trace..");
 	    _logger.LogWarning("An example of a Warning trace..");
 	    _logger.LogTrace("An example of a Trace level message");
@@ -185,7 +185,7 @@ The following section shows how to override the default `TelemetryConfiguration`
     var serverChannel = new ServerTelemetryChannel();
     services.Configure<TelemetryConfiguration>(
         (config) =>
-        {                            
+        {
             config.TelemetryChannel = serverChannel;
             config.TelemetryInitializers.Add(new MyTelemetryInitalizer());
             config.DefaultTelemetrySink.TelemetryProcessorChainBuilder.UseSampling(5);
