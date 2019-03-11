@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
@@ -481,11 +481,18 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## Registration failures
 
-You may see one of the errors below while attempting registration of your Azure Stack:
+You might see one of the errors below while attempting registration of your Azure Stack:
 1. Could not retrieve mandatory hardware info for $hostName. Please check physical host and connectivity then try to re-run registration.
+
 2. Cannot connect to $hostName to get hardware info - please check physical host and connectivity then try to re-run registration.
 
-Cause: This is typically because we try to obtain hardware details such as UUID, Bios and CPU from the hosts to attempt activation and were not able to due to the inability to connect to the physical host.
+> Cause: this is typically because we try to obtain hardware details such as UUID, Bios and CPU from the hosts to attempt activation and were not able to due to the inability to connect to the physical host.
+
+When trying to access Marketplace management, an error occurs when trying to syndicate products. 
+> Cause: this usually happens when Azure Stack is unable to access the registration resource. One common reason for this is that when an Azure subscription’s directory tenant changes it resets the registration. You can't access the Azure Stack marketplace or report usage if you've changed the subscription’s directory tenant. You need to re-register to fix this issue.
+
+Marketplace management still asks you to register and activate your Azure Stack even when you've already registered your stamp using the disconnected process. 
+> Cause: this is a known issue for disconnected environments. You can verify your registration status by following [these steps](azure-stack-registration.md#verify-azure-stack-registration). In order to use Marketplace management, you will need to use [the offline tool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## Next steps
 
