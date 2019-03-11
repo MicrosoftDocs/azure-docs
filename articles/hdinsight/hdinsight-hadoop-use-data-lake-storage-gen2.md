@@ -5,7 +5,7 @@ services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
 
