@@ -603,7 +603,7 @@ Save the json below as advancedstaticmetricalert.json for the purpose of this wa
         "criterion1": "[array(parameters('criterion1'))]",
         "criterion2": "[array(parameters('criterion2'))]",
         "criteria": "[concat(variables('criterion1'),variables('criterion2'))]"
-     },
+    },
     "resources": [
         {
             "name": "[parameters('alertName')]",
@@ -659,24 +659,24 @@ Save and modify the json below as advancedstaticmetricalert.parameters.json for 
         },
         "criterion1": {
             "value": {
-                    "name": "1st criterion",
-                    "metricName": "Transactions",
-                    "dimensions": [
-                        {
-                            "name":"ResponseType",
-                            "operator": "Include",
-                            "values": ["Success"]
-                        },
-                        {
-                            "name":"ApiName",
-                            "operator": "Include",
-                            "values": ["GetBlob"]
-                        }
-                    ],
-                    "operator": "GreaterThan",
-                    "threshold": "5",
-                    "timeAggregation": "Total"
-                }
+                "name": "1st criterion",
+                "metricName": "Transactions",
+                "dimensions": [
+                    {
+                        "name":"ResponseType",
+                        "operator": "Include",
+                        "values": ["Success"]
+                    },
+                    {
+                        "name":"ApiName",
+                        "operator": "Include",
+                        "values": ["GetBlob"]
+                    }
+                ],
+                "operator": "GreaterThan",
+                "threshold": "5",
+                "timeAggregation": "Total"
+            }
         },
         "criterion2": {
             "value":{
@@ -871,29 +871,29 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
         },
         "criterion1": {
             "value": {
-                    "criterionType": "DynamicThresholdCriterion",
-                    "name": "1st criterion",
-                    "metricName": "Transactions",
-                    "dimensions": [
-                        {
-                            "name":"ResponseType",
-                            "operator": "Include",
-                            "values": ["Success"]
-                        },
-                        {
-                            "name":"ApiName",
-                            "operator": "Include",
-                            "values": ["GetBlob"]
-                        }
-                    ],
-                    "operator": "GreaterOrLessThan",
-                    "alertSensitivity": "Medium",
-                    "failingPeriods": {
-                        "numberOfEvaluationPeriods": "4",
-                        "minFailingPeriodsToAlert": "3"
+                "criterionType": "DynamicThresholdCriterion",
+                "name": "1st criterion",
+                "metricName": "Transactions",
+                "dimensions": [
+                    {
+                        "name":"ResponseType",
+                        "operator": "Include",
+                        "values": ["Success"]
                     },
-                    "timeAggregation": "Total"
-                }
+                    {
+                        "name":"ApiName",
+                        "operator": "Include",
+                        "values": ["GetBlob"]
+                    }
+                ],
+                "operator": "GreaterOrLessThan",
+                "alertSensitivity": "Medium",
+                "failingPeriods": {
+                    "numberOfEvaluationPeriods": "4",
+                    "minFailingPeriodsToAlert": "3"
+                },
+                "timeAggregation": "Total"
+            }
         }
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
