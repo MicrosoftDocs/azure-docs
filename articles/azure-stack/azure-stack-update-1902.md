@@ -73,6 +73,10 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
+- In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
+
+   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
@@ -165,10 +169,6 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
-
-- In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
-
-   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
 
 ### Networking  
 
