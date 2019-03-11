@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
 
-# Quickstart: Deploy an app in LUIS portal
+# Quickstart: Deploy an app in the LUIS portal
 
 Once the app is ready to return utterance predictions to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. 
 
@@ -45,9 +45,11 @@ The prediction endpoint resource is created in the Azure portal. This resource s
 
     ![Azure API Choice](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png) 
 
+1. Select **Create** to create the Azure resource. 
+
     In the next section, you learn how to connect this new resource to a LUIS app in the LUIS portal. 
 
-## Assign resource key to LUIS app in LUIS portal
+## Assign the resource key to the LUIS app in the LUIS portal
 
 Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. Once it is assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries. 
 
@@ -63,7 +65,7 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
     ![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
+1. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS API endpoint for a prediction. 
 
 ## Train and publish the app 
 
