@@ -6,11 +6,7 @@ author: cherylmc
 manager: jpconnock
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.topic: article
 ms.date: 02/14/2018
 ms.author: cherylmc
 
