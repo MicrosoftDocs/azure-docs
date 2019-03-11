@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ---
 
@@ -78,11 +78,9 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
-### Performance data for disks and networks adapters shows as zeros
+### Performance data for CPU, memory and disks is showing up as zeroes
 
-This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
-
-To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it.
+Azure Migrate continuously profiles the on-premises environment to collect performance data of the on-premises VMs. If you have just started the discovery of your environment, you need to wait for at least a day for the performance data collection to be done. If an assessment is created without waiting for one day, the performance metrics will show up as zeroes. After waiting for a day, you can either create a new assessment or update the existing assessment by using the 'Recalculate' option in the assessment report.
 
 ### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
 
