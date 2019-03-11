@@ -101,7 +101,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 3. Replace the **variables** section with the following content. This section defines values that are used later to construct the IoT hub connection string, which is needed to link the provisioning service and the IoT hub. 
  
    ```json
-    "variables": {        
+    "variables": {
         "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
         "iotHubKeyName": "iothubowner",
         "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
@@ -124,10 +124,10 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
             "tags": {
             },
             "properties": {
-            }            
+            }
         },
 
-   ``` 
+   ```
 
 5. To create the provisioning service, add the following lines after the IoT hub specification in the **resources** collection. The **name** and **location** of the provisioning service are passed in parameters. Specify the IoT hubs to link to the provisioning service in the **iotHubs** collection. At a minimum, you must specify the **connectionString** and **location** properties for each linked IoT hub. You can also set properties like **allocationWeight** and **applyAllocationPolicy** on each IoT hub, as well as properties like **allocationPolicy** and **authorizationPolicies** on the provisioning service itself. To learn more, see [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices).
 
@@ -183,7 +183,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                ]
            }
        },
-       "variables": {        
+       "variables": {
            "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', parameters('iotHubName'))]",
            "iotHubKeyName": "iothubowner",
            "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', parameters('iotHubName'), variables('iotHubKeyName'))]"
@@ -201,7 +201,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                "tags": {
                },
                "properties": {
-               }            
+               }
            },
            {
                "type": "Microsoft.Devices/provisioningServices",
@@ -251,7 +251,7 @@ The template that you defined in the last step uses parameters to specify the na
             "value": "my-sample-iot-hub"
         },
     }
-   
+
    ```
 
 3. Add the **provisioningServiceName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service. It should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
