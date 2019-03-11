@@ -7,7 +7,9 @@ ms.date: 002/08/2019
 ---
 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft. The container reports usage about every 10 to 15 minutes.
+Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft. 
+
+The container needs to be started with valid values for the following sets. These settings allow the container to connect to Azure when the container is started. The container reports usage about every 10 to 15 minutes. If the container doesn't connect within the allowed time window to Azure, the container will continue to run but will not serve endpoint queries until the connection to Azure is restored. The connection is attempted ten (10) times at the same time interval of 10 to 15 minutes. If it can't connect to Azure within the ten tries, the container will stop running. 
 
 The `docker run` uses the following arguments for billing purposes:
 
