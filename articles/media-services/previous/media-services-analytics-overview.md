@@ -107,10 +107,10 @@ Response:
 
     . . .
 
-    {  
+    {
        "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
-       "value":[  
-          {  
+       "value":[
+          {
              "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
              "Description":"Azure Media OCR",
              "Name":"Azure Media OCR",
