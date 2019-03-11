@@ -51,8 +51,6 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md) (preview)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-While we work to bring feature parity to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
-
 Azure Container Instances supports Windows Server 2016 images based on Long-Term Servicing Channel (LTSC) versions. Windows Semi-Annual Channel (SAC) releases like 1709 and 1803 are unsupported.
 
 ## Co-scheduled groups
