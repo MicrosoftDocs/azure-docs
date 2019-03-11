@@ -80,7 +80,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 1436561	Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag	Diagnostics
 1404512	3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug	Diagnostics 
 -->
-- Improvements to log collection reliability and performance. Additional logging for networking and identity services. 
+- Improvements to Azure stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
 
 ## Common vulnerabilities and exposures
 
