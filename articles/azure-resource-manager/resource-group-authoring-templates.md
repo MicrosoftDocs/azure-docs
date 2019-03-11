@@ -52,17 +52,38 @@ Each element has properties you can set. This article describes the sections of 
 
 ## Syntax
 
-The basic syntax of the template is JSON. However, expressions and functions extend the JSON values available within the template.  Expressions are written within JSON string literals whose first and last characters are the brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array or integer, depending on the actual expression.  To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
-
-Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
-
-The following example shows how to use several functions when constructing a value:
+The basic syntax of the template is JSON. However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object. The following example shows an expression in the default value of a parameter:
 
 ```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-}
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+},
 ```
+
+Within the expression, the syntax `resourceGroup()` calls one of the functions that Resource Manager provides for use within a template. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. The syntax `.location` retrieves one property from the object returned by that function.
+
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
+
+To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
+
+To pass a string value as a parameter to a function, use single quotes.
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]"
+```
+
+To escape double quotes in an expression, such as adding a JSON object in the template, use the backslash.
+
+```json
+"tags": {
+    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+},
+```
+
+A template expression can't exceed 24,576 characters.
 
 For the full list of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md). 
 
