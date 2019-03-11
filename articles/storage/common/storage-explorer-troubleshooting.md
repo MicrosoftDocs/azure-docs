@@ -238,6 +238,14 @@ For Linux distributions other than Ubuntu 16.04, you may need to manually instal
 
 Depending on your distribution, there may be other packages you need to install. The Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
 
+## Open In Explorer From Azure portal Doesn't Work
+
+If the "Open In Explorer" button on the Azure portal doesn't work for you, make sure you are using a compatible browser. The following browsers have been tested for compatibility.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
+
 ## Next steps
 
 If none of the solutions work for you, then [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). You can also quickly get to GitHub by using the "Report issue to GitHub" button in the bottom left-hand corner.
