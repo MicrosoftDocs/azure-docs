@@ -21,11 +21,15 @@ ms.author: msalias
 
 ## Reclaim memory 
 
-Automatically Reclaim Memory to Avoid Remote Memory Access​.
+Automatically reclaim memory to avoid remote memory access​.
 
 ```bash
 echo 1 >/proc/sys/vm/zone_reclaim_mode​
+```
+
 To make this persist after VM reboots:​
+
+```bash
 echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p​
 ​```
 ​
