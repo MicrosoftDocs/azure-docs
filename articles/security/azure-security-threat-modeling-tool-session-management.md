@@ -61,7 +61,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
             HttpContext.GetOwinContext().Authentication.SignOut(
                 OpenIdConnectAuthenticationDefaults.AuthenticationType,
                 CookieAuthenticationDefaults.AuthenticationType);
-        } 
+        }
 ```
 
 ## <a id="finite-tokens"></a>Use finite lifetimes for generated SaS tokens
@@ -129,7 +129,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
             var authModule = FederatedAuthentication.WSFederationAuthenticationModule;
             authModule.SignOut(false);
         //     Signs out at the specified security token service (STS) by using the WS-Federation
-        //     protocol.            
+        //     protocol.
             WSFederationAuthenticationModule.FederatedSignOut(signOutUrl, replyUrl);
             return new RedirectResult(redirectUrl);
         }
@@ -182,7 +182,7 @@ The setting is enforced even if HTTP is used to access the application. If HTTP 
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
       <cookieHandler requireSsl="true" persistentSessionLifetime="0.0:20:0" />
-    ....  
+    ....
     </federationConfiguration>
   </system.identityModel.services>
 ```
@@ -272,10 +272,10 @@ Following configuration shows the correct configuration:
 
 ### Example
 ```csharp
-@using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
-    @Html.ValidationSummary(true) 
+@using (Html.BeginForm("UserProfile", "SubmitUpdate")) {
+    @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
-    <fieldset> 
+    <fieldset>
 ```
 
 ### Example
@@ -310,7 +310,7 @@ Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because a
         {
             string cookieToken, formToken;
             AntiForgery.GetTokens(null, out cookieToken, out formToken);
-            return cookieToken + ":" + formToken;                
+            return cookieToken + ":" + formToken;
         }
     }
 
@@ -378,7 +378,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during a interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
-```XML 
+```XML
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -476,7 +476,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
         {
             string cookieToken, formToken;
             AntiForgery.GetTokens(null, out cookieToken, out formToken);
-            return cookieToken + ":" + formToken;                
+            return cookieToken + ":" + formToken;
         }
     }
     $.ajax("api/values", {
@@ -516,10 +516,10 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ### Example
 Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on Views; put an Html.AntiForgeryToken() into the form, for example,
 ```csharp
-@using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
-    @Html.ValidationSummary(true) 
+@using (Html.BeginForm("UserProfile", "SubmitUpdate")) {
+    @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
-    <fieldset> 
+    <fieldset>
 }
 ```
 
