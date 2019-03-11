@@ -82,6 +82,11 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 -->
 - To improve package integrity and security, as well as easier management for offline ingestion, Microsoft has changed the format of the Update package from .exe and .bin files to a .zip file. The new format adds additional reliability of the unpacking process that at times, can cause the preparation of the update to stall. The same package format also applies to update packages from your OEM.
 - To improve the Azure Stack operator experience when running Test-AzureStack, operators can now simply use, “Test-AzureStack -Group UpdateReadiness” as opposed to passing ten additional parameters after an Include statement.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
 - To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
     - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
     - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
