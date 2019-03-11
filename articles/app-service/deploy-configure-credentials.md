@@ -1,4 +1,4 @@
----
+exi---
 title: Configure deployment credentials - Azure App Service | Microsoft Docs
 description: Learn how to use the Azure App Service deployment credentials.
 services: app-service
@@ -51,6 +51,13 @@ and *FTP* deployment username in your app's **Properties**.
 > Azure does not show your user-level deployment password. If you forget the password, you can reset your credentials by following the steps in this section.
 >
 >  
+
+## Using user-level credentials
+
+When logging in to an endpoint using user-level credentials the username must be in the form:
+`<app-name>\<username>`
+
+Since user-level credentials are linked to the user and not a specif resource, the username must be in this format to direct the log-in action to the right app endpoint.
 
 ## <a name="appscope"></a>Get and reset app-level credentials
 To get the app-level credentials:
