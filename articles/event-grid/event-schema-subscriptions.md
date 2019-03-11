@@ -173,7 +173,7 @@ The following example shows the schema for a **ResourceDeleteSuccess** event. Th
 The following example shows the schema for a **ResourceActionSuccess** event. The same schema is used for **ResourceActionFailure** and **ResourceActionCancel** events with different values for `eventType`.
 
 ```json
-[{   
+[{
   "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
   "eventType": "Microsoft.Resources.ResourceActionSuccess",
   "eventTime": "2018-10-08T22:46:22.6022559Z",
@@ -189,7 +189,7 @@ The following example shows the schema for a **ResourceActionSuccess** event. Th
         "roleDefinitionId": "{ID}",
         "principalId": "{ID}",
         "principalType": "ServicePrincipal"
-      }     
+      }
     },
     "claims": {
       "aud": "{audience-claim}",
@@ -222,7 +222,7 @@ The following example shows the schema for a **ResourceActionSuccess** event. Th
   },
   "dataVersion": "2",
   "metadataVersion": "1",
-  "topic": "/subscriptions/{subscription-id}" 
+  "topic": "/subscriptions/{subscription-id}"
 }]
 ```
 
