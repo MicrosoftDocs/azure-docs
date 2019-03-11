@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: c878513a-d594-42ad-8b0e-403efd0c4b25
 ms.service: expressroute
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
