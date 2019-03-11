@@ -234,7 +234,7 @@ Using Azure PowerShell
 Connect-AzAccount
 
 Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
+
 New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simplestaticmetricalert.json -TemplateParameterFile simplestaticmetricalert.parameters.json
 ```
@@ -492,7 +492,7 @@ Using Azure PowerShell
 Connect-AzAccount
 
 Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
+
 New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
 ```
@@ -599,7 +599,7 @@ Save the json below as advancedstaticmetricalert.json for the purpose of this wa
             }
         }
     },
-    "variables": { 
+    "variables": {
         "criterion1": "[array(parameters('criterion1'))]",
         "criterion2": "[array(parameters('criterion2'))]",
         "criteria": "[concat(variables('criterion1'),variables('criterion2'))]"
@@ -709,7 +709,7 @@ Using Azure PowerShell
 Connect-AzAccount
 
 Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
+
 New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advancedstaticmetricalert.json -TemplateParameterFile advancedstaticmetricalert.parameters.json
 ```
@@ -813,7 +813,7 @@ Save the json below as advanceddynamicmetricalert.json for the purpose of this w
             }
         }
     },
-    "variables": { 
+    "variables": {
         "criteria": "[array(parameters('criterion'))]"
      },
     "resources": [
@@ -910,7 +910,7 @@ Using Azure PowerShell
 Connect-AzAccount
 
 Select-AzSubscription -SubscriptionName <yourSubscriptionName>
- 
+
 New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advanceddynamicmetricalert.json -TemplateParameterFile advanceddynamicmetricalert.parameters.json
 ```
@@ -1808,7 +1808,7 @@ Save and modify the json below as all-vms-in-subscription-static.parameters.json
         },
         "targetResourceType":{
             "value": "Microsoft.Compute/virtualMachines"
-        },        
+        },
         "metricName": {
             "value": "Percentage CPU"
         },
