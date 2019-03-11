@@ -41,9 +41,9 @@ class Program
         // Add the logging pipelines to use. We are using Application Insights only here.
         services.AddLogging(loggingBuilder =>
         {
-	    // Optional: Apply filters to configure LogLevel Trace or above is sent to ApplicationInsights for all
-	    // categories.
-	    loggingBuilder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
+            // Optional: Apply filters to configure LogLevel Trace or above is sent to ApplicationInsights for all
+            // categories.
+            loggingBuilder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
             loggingBuilder.AddApplicationInsights("--YourAIKeyHere--");
         });
 
@@ -83,15 +83,15 @@ public class Program
         .UseStartup<Startup>()
         .ConfigureLogging(logging =>
         {
-	    logging.AddApplicationInsights("ikeyhere");
+            logging.AddApplicationInsights("ikeyhere");
 
-	    // Optional: Apply filters to configure LogLevel Trace or above is sent to
-	    // ApplicationInsights for all categories.
+            // Optional: Apply filters to configure LogLevel Trace or above is sent to
+            // ApplicationInsights for all categories.
             logging.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Trace);
 
             // Additional filtering For category starting in "Microsoft",
-	    // only Warning or above will be sent to Application Insights.
-	    logging.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Warning);
+            // only Warning or above will be sent to Application Insights.
+            logging.AddFilter<ApplicationInsightsLoggerProvider>("Microsoft", LogLevel.Warning);
         })
         .Build();
 }
@@ -115,7 +115,7 @@ public class Startup
     {
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-	// The following be picked up up by Application Insights.
+        // The following be picked up up by Application Insights.
         _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked");
     }
 
@@ -124,7 +124,7 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-	    // The following be picked up up by Application Insights.	
+            // The following be picked up up by Application Insights.
             _logger.LogInformation("Configuring for Development environment");
             app.UseDeveloperExceptionPage();
         }
@@ -154,12 +154,12 @@ public class ValuesController : ControllerBase
     public ActionResult<IEnumerable<string>> Get()
     {
         // All the following logs will be picked upby Application Insights.
-	// and all have ("MyKey", "MyValue") in Properties.
-	using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
+        // and all have ("MyKey", "MyValue") in Properties.
+    using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
         {
-	    _logger.LogInformation("An example of a Information trace..");
-	    _logger.LogWarning("An example of a Warning trace..");
-	    _logger.LogTrace("An example of a Trace level message");
+        _logger.LogInformation("An example of a Information trace..");
+        _logger.LogWarning("An example of a Warning trace..");
+        _logger.LogTrace("An example of a Trace level message");
         }
 
         return new string[] { "value1", "value2" };
