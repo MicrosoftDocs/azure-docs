@@ -30,10 +30,11 @@ This tutorial shows you how to back up a SQL Server database that is running on 
 
 Before you start, verify the following:
 
-1. Make sure that you have a SQL Server instance running in Azure. You can quickly [create a SQL Server instance](../sql-database/sql-database-get-started-portal.md) in the marketplace.
-2. Review the public preview limitations below.
-3. Review scenario support.
-4. [Review common questions](faq-backup-sql-server.md) about this scenario.
+- Make sure that you have a SQL Server instance running in Azure. You can quickly [create a SQL Server instance](../sql-database/sql-database-get-started-portal.md) in the marketplace.
+- Review the public preview limitations below.
+- Review scenario support.
+- [Review common questions](faq-backup-sql-server.md) about this scenario.
+
 ## Preview limitations
 
 This public preview has a number of limitations.
