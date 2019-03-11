@@ -13,12 +13,11 @@ ms.author: aahi
  
 # What is the Anomaly Detector API?
 
-The Anomaly Detector API enables you to monitor data over time and detect anomalies with machine learning. Anomaly Finder adapts to your unique data by automatically applying the right statistical model regardless of your industry, scenario, or data volume. Using a time series as input, the Anomaly Finder API determines whether a data point is an anomaly, its expected value, and the anomaly upper and lower bounds for visualization.
+The Anomaly Detector API enables you to monitor and find abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the correct statistical models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines whether a data point is an anomaly, its expected value, and the anomaly upper and lower bounds for visualization.
+
+![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
 Using the Anomaly Detector doesn't require any prior experience in machine learning. The RESTful API enables you to easily integrate the service into your applications and processes, and it accepts any data set taken at uniform intervals of time.
-
-![Detecting anomalies in sales revenues](./media/anomaly_detection1.png) 
-![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
 ## Features
 
@@ -26,10 +25,10 @@ With the Anomaly Detector, you can automatically find anomalies throughout your 
 
 |Feature  |Description  |
 |---------|---------|
-|Detect anomalies as they occur in real-time. | Use previously seen data points to determine if your latest data point is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data in real-time. |
-|Find anomalies throughout your data set, as a batch. | Use your time series to detect any anomalies that might exist in your data. This operation generates a model using your entire series, and each point will be analyzed with the same model.         |
-| Visualize the range of normal values for your data | Visualize your data, including expected values, anomaly boundaries, and anomalies themselves. |
-| Adjust the sensitivity of Anomaly Detector for better results. | Increase or decrease the sensitivity of the Anomaly Detector boundaries to fit your data. |
+|Detect anomalies as they occur in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
+|Find anomalies throughout your data set as a batch. | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
+| Visualize the normal range of values for your data. | Visualize your data, including expected values, anomaly boundaries, and anomalies locations. |
+| Adjust anomaly detection sensitivity to better fit your data. | Increase or decrease the sensitivity of the Anomaly Detector API's boundaries to better fit your data. |
 
 ## Demo
 

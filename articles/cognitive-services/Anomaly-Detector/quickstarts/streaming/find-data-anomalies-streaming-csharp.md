@@ -88,7 +88,7 @@ namespace Console
         /// <param name="baseAddress">Base address of the API endpoint.</param>
         /// <param name="endpoint">The endpoint of the API</param>
         /// <param name="subscriptionKey">The subscription key applied  </param>
-        /// <param name="requestData">The JSON string for requet data points</param>
+        /// <param name="requestData">The JSON string for request data points</param>
         /// <returns>The JSON string for anomaly points and expected values.</returns>
         static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)
         {
