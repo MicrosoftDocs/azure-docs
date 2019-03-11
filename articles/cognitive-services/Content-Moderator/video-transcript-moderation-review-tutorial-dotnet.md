@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 03/11/2019
 ms.author: pafarley
 
 ---
@@ -70,47 +70,6 @@ The class `Program` in `Program.cs` is the main entry point to the video moderat
 `Main()` is where execution starts, so it's the place to start understanding the video moderation process.
 
 [!code-csharp[Main](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/Program.cs?range=20-24,42-52,54-74)]
-
-```csharp
-static void Main(string[] args)
-{
-    if (args.Length == 0)
-    {
-        string videoPath = string.Empty;
-        GetUserInputs(out videoPath);
-        Initialize();
-        AmsConfigurations.logFilePath = Path.Combine(Path.GetDirectoryName(videoPath), "log.txt");
-        try
-        {
-            ProcessVideo(videoPath).Wait();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
-    }
-    else
-    {
-        DirectoryInfo directoryInfo = new DirectoryInfo(args[0]);
-        if (args.Length == 2)
-            bool.TryParse(args[1], out generateVtt);
-        Initialize();
-        AmsConfigurations.logFilePath = Path.Combine(args[0], "log.txt");
-        var files = directoryInfo.GetFiles("*.mp4", SearchOption.AllDirectories);
-        foreach (var file in files)
-        {
-            try
-            {
-                ProcessVideo(file.FullName).Wait();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-    }
-}
-```
 
 `Main()` handles the following command-line arguments:
 
