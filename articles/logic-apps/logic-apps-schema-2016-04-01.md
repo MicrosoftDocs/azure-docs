@@ -38,7 +38,7 @@ or review this basic scope example:
    "actions": {
       "Scope": {
          "type": "Scope",
-         "actions": {                
+         "actions": {
             "Http": {
                "inputs": {
                    "method": "GET",
@@ -80,10 +80,10 @@ or review this basic example that shows a condition action:
             "type": "Http"
          }
       },
-      "else": 
+      "else":
       {
          "Condition - If trigger is another trigger": {}
-      }  
+      }
    }
 }
 ```
