@@ -27,11 +27,7 @@ Although all tiers, including the **Free** tier, generally offer feature parity,
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
 >
 
-Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) for performance tuning. You could start with two or three of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
-
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 
 ## Tiers for Azure Search
 
@@ -55,11 +51,13 @@ In Azure Search, there are three ways to incur costs in Aure Search, and there a
 
 For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service because the service cannot run on anything less than this configuration. 
 
-In the following screenshot, per unit pricing is highlighted for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average $75.14 or $249.98 respectively. Unit costs vary by tier because the computational power and storage capacity is greater at each consecutive tiers.
+In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tiers.
 
 ![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
 
-Additional replicas and partitions are an add-on to the initial charge. The first replica-partition combo is one search unit, but additional replicas and partitions are charged based on a [formula](#search-units). For a walkthrough, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Additional replicas and partitions are an add-on to the initial charge. A search service requires a replica and partition so the minimum configuration is one of each. Beyond the minimum, you add replicas and partitions independently. For example, you could add only replicas or only partitions. 
+
+Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
 
 ### 2. Data egress charges during indexing
 

@@ -1,5 +1,5 @@
 ---
-title: Powershell scripts using Az.Search module - Azure Search
+title: PowerShell scripts using Az.Search module - Azure Search
 description: Create and configure an Azure Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query system information.
 author: HeidiSteen
 manager: cgronlun
@@ -44,7 +44,7 @@ Other tasks not supported through PowerShell or any other API (portal-only) incl
 
 The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/overview).
 
-### Powershell version check (5.1 or later)
+### PowerShell version check (5.1 or later)
 
 Local PowerShell must be 5.1 or later, on any supported operating system.
 
@@ -249,7 +249,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 ```
 
 
-## Next Steps
+## Next steps
 
 Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 

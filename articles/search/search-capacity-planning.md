@@ -50,7 +50,7 @@ Generally, search applications need more replicas than partitions, particularly 
 
 3. Use the slider to increase or decrease the number of partitions. The formula at the bottom indicates how many search units are being used.
 
-    Revisit the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for the unit costs associated with adding scale before you click **Save**.
+   Revisit the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for the unit costs associated with adding scale before you click **Save**.
 
    This example adds 2 replicas and 2 partitions, doubling the capacity, but doubling capacity more than doubles the cost of running the service. The new monthly bill is 20 times the per unit cost of a standard search service.
 
