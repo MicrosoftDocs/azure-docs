@@ -27,7 +27,7 @@ There are five levels of importance: low, below_normal, normal, above_normal and
 ## Importance Scenarios
 
 Beyond the basic importance scenario described above with sales and weather data, there are other scenarios where workload importance helps meet data processing and querying needs.
-Access to locks for read and write activity is one area of natural contention.  Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition)> or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput.  This means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier.  With workload importance applied to requests with higher locking needs, this behavior can be changed.
+Access to locks for read and write activity is one area of natural contention.  Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput.  This means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier.  With workload importance applied to requests with higher locking needs, this behavior can be changed.
 
 Consider the following example:
 
