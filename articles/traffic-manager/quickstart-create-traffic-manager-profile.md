@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
+ms.author: kumud
 ---
 
 # Quickstart: Create a Traffic Manager profile using the Azure portal
