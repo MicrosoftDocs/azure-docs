@@ -59,9 +59,9 @@ The template defines the following parameters.
 The name of the Event Hubs namespace to create.
 
 ```json
-"eventHubNamespaceName":{  
+"eventHubNamespaceName":{
      "type":"string",
-     "metadata":{  
+     "metadata":{
          "description":"Name of the EventHub namespace"
       }
 }
@@ -72,9 +72,9 @@ The name of the Event Hubs namespace to create.
 The name of the event hub created in the Event Hubs namespace.
 
 ```json
-"eventHubName":{  
+"eventHubName":{
     "type":"string",
-    "metadata":{  
+    "metadata":{
         "description":"Name of the event hub"
     }
 }
@@ -187,7 +187,7 @@ The name format used by Event Hubs Capture to write the Avro files. Note that a 
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  
+
 ```
 
 ### apiVersion
@@ -195,10 +195,10 @@ The name format used by Event Hubs Capture to write the Avro files. Note that a 
 The API version of the template.
 
 ```json
- "apiVersion":{  
+ "apiVersion":{
     "type":"string",
     "defaultValue":"2017-04-01",
-    "metadata":{  
+    "metadata":{
         "description":"ApiVersion used by the template"
     }
  }
@@ -278,13 +278,13 @@ The destination folder path for the captured events. This is the folder in your 
 Creates a namespace of type **EventHub**, with one event hub, and also enables Capture to Azure Blob Storage.
 
 ```json
-"resources":[  
-      {  
+"resources":[
+      {
          "apiVersion":"[variables('ehVersion')]",
          "name":"[parameters('eventHubNamespaceName')]",
          "type":"Microsoft.EventHub/Namespaces",
          "location":"[variables('location')]",
-         "sku":{  
+         "sku":{
             "name":"Standard",
             "tier":"Standard"
          },
@@ -328,7 +328,6 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
               }
             }
           }
-
         }
       ]
     }
