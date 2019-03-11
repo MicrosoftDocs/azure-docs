@@ -24,7 +24,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 ### Azure Machine Learning SDK for Python v1.0.18
 
  + **Changes**
-   + The azureml-tensorflow package replaces azureml-contrib-tensorflow.
+   + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
 
 ## 2019-02-27
 
