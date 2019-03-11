@@ -208,7 +208,7 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. Set the Assignment to Static and enter the IP address (for example **10.1.1.21**)
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
-         * Repeat the steps above to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
+   * Repeat the steps above to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
    1. Create the backend pools
       1. Create a backend pool for the ASCS
          1. Open the load balancer, select backend pools, and click Add
@@ -224,7 +224,7 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
          1. Click OK
       1. Port 621**01** for ASCS ERS
-         * Repeat the steps above to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
+   * Repeat the steps above to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
    1. Load balancing rules
       1. 32**00** TCP for ASCS
          1. Open the load balancer, select Load balancing rules and click Add
@@ -247,7 +247,7 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azu
 
 The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
 
-1. **[A]** Install SUSE Connector
+1.**[A]** Install SUSE Connector
 
    <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
@@ -274,8 +274,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
-
-1.**[A]** Update SAP resource agents  
+2.**[A]** Update SAP resource agents  
    
    A patch for the resource-agents package is required to use the new configuration, that is described in this article. You can check, if the patch is already installed with the following command
 
@@ -295,7 +294,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-2.**[A]** Setup host name resolution
+3.**[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
@@ -384,7 +383,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ### Installing SAP NetWeaver ASCS/ERS
 
-1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
+1.**[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
@@ -627,7 +626,6 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
    <pre><code>
    sudo vi /etc/sysctl.conf
-
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
@@ -668,7 +666,6 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
-   
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>02</b>
    </code></pre>
 
@@ -676,7 +673,6 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
-   
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
@@ -692,7 +688,6 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
    <pre><code>
    sudo vi /etc/auto.direct
-   
    # Add the following lines to the file, save and exit
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
@@ -718,7 +713,6 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
    <pre><code>
    sudo vi /etc/auto.direct
-   
    # Add the following lines to the file, save and exit
    /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/sapmnt<b>qas</b>
    /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
@@ -770,11 +764,9 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 Follow these steps to install an SAP application server.
 
 1. [A] Prepare application server
+   Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse-anf.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
 
-Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse-anf.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
-
-1. [A] Install SAP NetWeaver application server
-
+2. [A] Install SAP NetWeaver application server
    Install a primary or additional SAP NetWeaver applications server.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
@@ -782,7 +774,7 @@ Follow the steps in the chapter [SAP NetWeaver application server preparation](h
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. Update SAP HANA secure store
+3. Update SAP HANA secure store
 
    Update the SAP HANA secure store to point to the virtual name of the SAP HANA System Replication setup.
 
