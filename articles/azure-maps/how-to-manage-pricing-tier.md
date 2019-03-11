@@ -3,7 +3,7 @@ title: Manage your Azure Maps account's pricing tier | Microsoft Docs
 description: You can use the Azure portal to manage your Azure Maps account and its pricing tiers.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps

@@ -360,7 +360,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
    * In the **typeProperties** section, **SqlSource** is specified as the **source type** and **BlobSink **is specified as the **sink type**.
    * SQL query `select * from emp` is specified for the **sqlReaderQuery** property of **SqlSource**.
 
-   Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial.
+   Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial.
 
    If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
 
@@ -405,7 +405,7 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 6. Click **X** to close all the pages until you
 7. get back to the home page for the **ADFTutorialOnPremDF**.
 8. (optional) Click **Pipelines**, click **ADFTutorialOnPremDF**, and drill through input tables (**Consumed**) or output datasets (**Produced**).
-9. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to verify that a blob/file is created for each hour.
+9. Use tools such as [Microsoft Storage Explorer](https://storageexplorer.com/) to verify that a blob/file is created for each hour.
 
    ![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 

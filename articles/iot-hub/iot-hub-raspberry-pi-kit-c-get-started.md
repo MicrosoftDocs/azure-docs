@@ -14,7 +14,7 @@ ms.author: rangv
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
+In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
 
 Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -143,7 +143,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
    
    **Windows Users**
-   1. Download and install [PuTTY](http://www.putty.org/) for Windows. 
+   1. Download and install [PuTTY](https://www.putty.org/) for Windows. 
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
    
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)

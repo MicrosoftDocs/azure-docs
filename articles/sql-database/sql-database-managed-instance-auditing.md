@@ -184,7 +184,7 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Enable the server audit created in step 7:
+10. Enable the server audit created in step 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
