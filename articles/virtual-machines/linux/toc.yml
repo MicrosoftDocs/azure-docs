@@ -98,20 +98,13 @@
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introduction to managed disks
       href: managed-disks-overview.md
-    - name: Premium SSDs
-      href: premium-storage.md
-    - name: Standard SSDs
-      href: disks-standard-ssd.md
-    - name: Ultra SSDs
-      href: disks-ultra-ssd.md
-    - name: Premium storage performance
+    - name: Select a disk type for IaaS VMs
+      href: disks-types.md
+    - name: Designing for high performance
       href: premium-storage-performance.md
-    - name: Standard storage
-      href: standard-storage.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -192,16 +185,12 @@
         href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Fail over a VM to another region
         href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Move VMs to another region
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
     - name: VM usage
       href: vm-usage.md
     - name: Common CLI tasks
       href: cli-manage.md
-    - name: Move a VM
-      href: move-vm.md
     - name: Change VM size
       href: change-vm-size.md
     - name: Swap the OS disk
@@ -425,6 +414,8 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
+    - name: Benchmark a disk
+      href: disks-benchmarks.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Resize a disk
@@ -449,7 +440,7 @@
       href: using-managed-disks-template-deployments.md
     - name: Using write accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Enable Ultra SSD
+    - name: Enable ultra SSDs
       href: disks-enable-ultra-ssd.md
     - name: Optimize performance
       href: optimization.md
@@ -493,11 +484,16 @@
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Azure SDKs
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
-
   - name: Use VM extensions
     href: ../extensions/overview.md
-  - name: Migrate VMs
+  - name: Move and migrate VMs
     items:
+    - name: Change subscription or resource group
+      href: move-vm.md
+    - name: Move VMs to another region
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Move to an availability zone
+      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Migrate AWS and on-premises VMs
       href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       items:

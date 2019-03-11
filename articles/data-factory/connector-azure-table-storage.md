@@ -119,7 +119,7 @@ To use shared access signature authentication, the following properties are supp
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureTableStorage**. |Yes |
-| sasUri | Specify SAS URI of the shared access signature URI to the table. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put SAS token in Azure Key Vault to leverate auto rotation and remove the token portion. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| sasUri | Specify SAS URI of the shared access signature URI to the table. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put SAS token in Azure Key Vault to leverage auto rotation and remove the token portion. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]

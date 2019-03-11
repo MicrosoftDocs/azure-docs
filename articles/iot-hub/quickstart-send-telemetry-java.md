@@ -1,15 +1,15 @@
 ---
 title: Send telemetry to Azure IoT Hub quickstart (Java) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/22/2018
-ms.author: dobett
+ms.date: 02/22/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -34,7 +34,7 @@ You can download Java for multiple platforms from [Oracle](https://aka.ms/azure-
 You can verify the current version of Java on your development machine using the following command:
 
 ```cmd/sh
-java --version
+java -version
 ```
 
 To build the samples, you need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi).
@@ -55,11 +55,11 @@ Download the sample Java project from https://github.com/Azure-Samples/azure-iot
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity.
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-   **MyJavaDevice** : This is the name given for the registered device. Use MyJavaDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyJavaDevice**: The name of the device you're registering. Use **MyJavaDevice** as shown. If you choose a different name for your device, you need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -67,7 +67,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
-    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
@@ -81,7 +81,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _iothubowner primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
 
-     **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+     **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName

@@ -1,6 +1,6 @@
 ---
 title: Sample - Enforce tag and its value on resource groups
-description: This sample policy requires a tag and value on a resource group.
+description: This sample policy definition requires a tag and a value on a resource group.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
 ---
-# Enforce tag and its value on resource groups
+# Sample - Enforce tag and its value on resource groups
 
 This policy requires a tag and value on a resource group. You specify the required tag name and value.
 
@@ -79,7 +79,7 @@ defined.
 
 ## Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Deploy with Azure PowerShell
 

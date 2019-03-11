@@ -129,7 +129,7 @@ The following section describes the configuration of auditing on your managed in
 
      1. Select a subscription, storage account, and Blob container from the dropdowns, or create your own container by clicking on **Create**. Once you have finished click **OK**:
 
-        ![Select Azure subscription, storage account, and blobl container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Select Azure subscription, storage account, and blob container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Click **OK** in the "Create Audit" dialog.
 
@@ -152,9 +152,9 @@ For additional information:
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## Set up auditing for your server to Event Hub or Log Analytics
+## Set up auditing for your server to Event Hub or Azure Monitor logs
 
-Audit logs from a managed instance can be  sent to Even Hubs or Log Analytics using Azure Monitor. This section describes how to configure this:
+Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor logs. This section describes how to configure this:
 
 1. Navigate in the [Azure Portal](https://portal.azure.com/) to the managed instance.
 
@@ -164,7 +164,7 @@ Audit logs from a managed instance can be  sent to Even Hubs or Log Analytics us
 
 4. Select **SQLSecurityAuditEvents** in the list of logs.
 
-5. Select a destination for the audit events - Event Hub, Log Analytics, or  both. Configure for each target the required parameters (e.g. Log Analytics workspace).
+5. Select a destination for the audit events - Event Hub, Azure Monitor logs, or  both. Configure for each target the required parameters (e.g. Log Analytics workspace).
 
 6. Click **Save**.
 
@@ -207,11 +207,13 @@ There are several methods you can use to view blob auditing logs.
 
 To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. For more information, see Azure Event Hubs Documentation.
 
-### Consume and Analyze logs stored in Log Analytics
+### Consume and Analyze logs stored in Azure Monitor logs
 
-If audit logs are written to Log Analytics, they are available in the Log Analytics workspace, where you can run advanced searches on the audit data. As a starting point, navigate to the Log Analytics and under *General* section click *Logs* and enter a simple query, such as: `search "SQLSecurityAuditEvents"` to view the audit logs.  
+If audit logs are written to Azure Monitor logs, they are available in the Log Analytics workspace, where you can run advanced searches on the audit data. As a starting point, navigate to the Log Analytics workspace and under *General* section click *Logs* and enter a simple query, such as: `search "SQLSecurityAuditEvents"` to view the audit logs.  
 
-Log Analytics gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Azure Monitor logs gives you real-time operational insights using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers. For additional useful information about Azure Monitor logs search language and commands, see [Azure Monitor logs search reference](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Auditing differences between databases in Azure SQL Database and databases in SQL Server
 
@@ -226,7 +228,7 @@ XEvent auditing in managed instance supports Azure Blob storage targets. File an
 The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob storage are:
 
 - A new syntax `TO URL` is provided and enables you to specify URL of the Azure blob Storage container where the `.xel` files are placed.
-- A new syntax `TO EXTERNAL MONITOR` is provided to enable Even Hub and Log Analytics targets.
+- A new syntax `TO EXTERNAL MONITOR` is provided to enable Even Hub and Azure Monitor logs targets.
 - The syntax `TO FILE` is **not supported** because SQL Database cannot access Windows file shares.
 - Shutdown option is **not supported**.
 - `queue_delay` of 0 is **not supported**.

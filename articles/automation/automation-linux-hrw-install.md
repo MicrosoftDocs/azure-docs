@@ -56,7 +56,7 @@ Before you proceed, note the Log Analytics workspace that your Automation accoun
 
 1. Enable the **Automation Hybrid Worker** solution in Azure by using one of the following methods:
 
-   * Add the **Automation Hybrid Worker** solution to your subscription by using the procedure at [Add Log Analytics management solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
+   * Add the **Automation Hybrid Worker** solution to your subscription by using the procedure at [Add Azure Monitor logs solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
    * Run the following cmdlet:
 
         ```azurepowershell-interactive
@@ -81,7 +81,7 @@ Before you proceed, note the Log Analytics workspace that your Automation accoun
 
 ## Turning off signature validation
 
-By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see an error that says "Signature validation failed." To turn off signature validation, run the following command. Replace the second parameter with your Log Analytics workspace ID.
+By default, Linux Hybrid Runbook Workers require signature validation. If you run an unsigned runbook against a worker, you see an error that says "Signature validation failed." To turn off signature validation, run the following command. Replace the second parameter with your log analytics workspace ID.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

@@ -123,7 +123,7 @@ Next, select the desired options for your domain. See the following table for ex
 Click **Legal Terms** to review the terms and the charges, then click **Buy**.
 
 > [!NOTE]
-> App Service Domains use Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+> App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 

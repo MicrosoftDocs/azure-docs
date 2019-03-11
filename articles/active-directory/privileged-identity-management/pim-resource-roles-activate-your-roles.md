@@ -105,7 +105,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 1. For the role that you want to cancel, click the **Cancel** link.
 
-    When you click Cancel, the request will be cancelled. To activate the role again, you will have to submit a new request for activation.
+    When you click Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
    ![Cancel pending request](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 

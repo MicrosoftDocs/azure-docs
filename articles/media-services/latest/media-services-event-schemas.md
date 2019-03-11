@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
 ---
 
@@ -38,7 +38,7 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobCanceled| Get an event when Job transitions to canceled state. This is a final state that includes Job outputs.|
 | Microsoft.Media.JobErrored| Get an event when Job transitions to error state. This is a final state that includes Job outputs.|
 
-[Schema examples](#event-schema-examples) follow.
+See [Schema examples](#event-schema-examples) that follow.
 
 ### Monitoring Job output state changes
 
@@ -52,15 +52,15 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobOutputCanceled| Get an event when Job output transitions to canceled state.|
 | Microsoft.Media.JobOutputErrored| Get an event when Job output transitions to error state.|
 
-[Schema examples](#event-schema-examples) follow.
+See [Schema examples](#event-schema-examples) that follow.
 
 ### Monitoring Job output progress
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobOutputProgress| The event is a best effort to indicate the progress of the job processing, from 0% to 100%. The event is sent if there has been at least 5% change or it has been at least 30 sec since the last event (heartbeat). The value is not guaranteed to start at 0% or reach 100% and is not increasing at a constant rate. The event should not be used to determine that the processing has been completed. Use the state change events to check if the processing is complete.|
+| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value is not guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. This event should not be used to determine that the processing has been completed – you should instead use the state change events.|
 
-[Schema examples](#event-schema-examples) follow.
+See [Schema examples](#event-schema-examples) that follow.
 
 ## Live event types
 
@@ -76,7 +76,7 @@ Stream-level events are raised per stream or connection. Each event has a `Strea
 | Microsoft.Media.LiveEventEncoderConnected | Encoder establishes connection with live event. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Encoder disconnects. |
 
-[Schema examples](#event-schema-examples) follow.
+See [Schema examples](#event-schema-examples) that follow.
 
 ### Track-level events
 
@@ -91,7 +91,7 @@ Track-level events are raised per track. The track event types are:
 | Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
 
-[Schema examples](#event-schema-examples) follow.
+See [Schema examples](#event-schema-examples) that follow.
 
 ## Event schema examples
 
@@ -254,14 +254,13 @@ For each JobOutput state change, the example schema looks similar to the followi
   "metadataVersion": "1"
 }]
 ```
-
 ### JobOutputProgress
 
 The example schema looks similar to the following:
 
-```json
+ ```json
 [{
-  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/belohuswc12",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
   "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
   "eventType": "Microsoft.Media.JobOutputProgress",
   "eventTime": "2018-12-10T18:20:12.1514867",
@@ -277,7 +276,6 @@ The example schema looks similar to the following:
   "dataVersion": "1.0",
   "metadataVersion": "1"
 }]
-
 ```
 
 ### LiveEventConnectionRejected

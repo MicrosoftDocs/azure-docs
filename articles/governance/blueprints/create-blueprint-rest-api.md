@@ -1,6 +1,6 @@
 ---
 title: Create a blueprint with REST API
-description: Use Azure Blueprints to create, define, and deploy artifacts.
+description: Use Azure Blueprints to create, define, and deploy artifacts using the REST API.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte

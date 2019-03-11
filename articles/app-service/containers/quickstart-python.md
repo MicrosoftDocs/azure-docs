@@ -17,6 +17,9 @@ ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
+
+experimental: true
+experiment_id: 1e304dc9-5add-4b
 ---
 # Create a Python app in Azure App Service on Linux (Preview)
 
@@ -140,15 +143,7 @@ All done.
 }
 ```
 
-The `az webapp up` command does the following actions:
-
-- Create a default resource group.
-
-- Create a default app service plan.
-
-- Create an app with the specified name.
-
-- [Zip deploy](https://docs.microsoft.com/azure/app-service/deploy-zip) files from the current working directory to the app.
+[!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 

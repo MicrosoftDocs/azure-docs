@@ -33,7 +33,7 @@ From NoSQL migration to application development, you can choose from a variety o
 |![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL migration |US, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan | [Website](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL migration       |    Global     |  [Website](http://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL migration, <br/> New app development | Argentina, Chile, Colombia, Mexico| [Website](https://lagash.com/)|
+| ![Lagash][16] | NoSQL migration, <br/> New app development | Argentina, Chile, Colombia, Mexico| [Website](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL migration, <br/> New app development | Brazil| [Website](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     App development (new apps)    |    USA     |  [Website](http://www.nealanalytics.com/)       |
 |![Pragmatic Works Software Inc][10]    |   NoSQL migration      |   USA      |  [Website](http://www.pragmaticworks.com/)       |

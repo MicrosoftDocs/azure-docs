@@ -60,7 +60,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Property  |Description  |
     |---------|---------|
     |**Cluster type**     | Select **Hadoop** |
-    |**Operating system**     |  Select your Azure subscription. |
+    |**Operating system**     | Select **Linux** |
     |**Version**     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 
     Click **Select** and then click **Next**.
@@ -162,7 +162,7 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 In this tutorial, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 

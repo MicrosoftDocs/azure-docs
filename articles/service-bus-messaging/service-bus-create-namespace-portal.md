@@ -19,12 +19,7 @@ ms.author: aschhab
 ---
 # Create a Service Bus namespace using the Azure portal
 
-A namespace is a scoping container for all messaging components. Multiple queues and topics can reside within a single namespace, and namespaces often serve as application containers. There are two ways to create a Service Bus namespace:
-
-1. Azure portal (this article)
-2. [Resource Manager templates][create-namespace-using-arm]
-
-## Create a namespace in the Azure portal
+A namespace is a scoping container for all messaging components. Multiple queues and topics can reside within a single namespace, and namespaces often serve as application containers. This article provides instructions for creating a namespace in the Azure portal. 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

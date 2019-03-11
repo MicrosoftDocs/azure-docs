@@ -1,5 +1,5 @@
 ---
-title: Delegate invitations for Azure Active Directory B2B collaboration | Microsoft Docs
+title: Delegate invitations for B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration user properties are configurable
 
 services: active-directory

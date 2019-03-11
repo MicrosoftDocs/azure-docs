@@ -100,4 +100,4 @@ All offers must meet the [All Listing Requirements](https://docs.microsoft.com/a
 *	[Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

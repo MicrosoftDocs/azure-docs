@@ -52,4 +52,4 @@ You can replicate Azure virtual machines to any Azure region within the same geo
 - Learn more about [ExpressRoute circuits](../expressroute/expressroute-circuit-peerings.md).
 - Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Learn more about [ExpressRoute locations](../expressroute/expressroute-locations.md).
-- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

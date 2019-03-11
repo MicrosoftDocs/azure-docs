@@ -10,6 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
+#Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports so that I can evaluate this technology to solve my application development challenges.
 ---
 
 # Durable Functions patterns and technical concepts
@@ -400,7 +401,7 @@ Table storage is used to store the execution history for orchestrator accounts. 
 
 Storage blobs are used primarily as a leasing mechanism to coordinate the scale-out of orchestration instances across multiple VMs. They are also used to hold data for large messages which cannot be stored directly in tables or queues.
 
-![Azure Storage Explorer screen shot](./media/durable-functions-concepts/storage-explorer.png)
+![Azure Storage Explorer screenshot](./media/durable-functions-concepts/storage-explorer.png)
 
 > [!WARNING]
 > While it's easy and convenient to see execution history in table storage, avoid taking any dependency on this table. It may change as the Durable Functions extension evolves.

@@ -1,4 +1,4 @@
----  
+---
 title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 
----  
+---
 # Determine your publishing option
 The publishing option that you choose for your offer relates directly to both the eligibility requirements and marketplace GTM benefits. More importantly, the selection of publishing option and offer type in the Cloud Partner Portal defines how users will interact with your marketplace offer.
 

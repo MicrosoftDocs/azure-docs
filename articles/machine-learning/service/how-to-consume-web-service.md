@@ -428,7 +428,6 @@ This example demonstrates how to use Python to call the web service created from
 
 ```python
 import requests
-import requests
 import json
 
 # URL for the web service

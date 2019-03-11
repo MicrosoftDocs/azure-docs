@@ -38,7 +38,7 @@ Each App Service plan tier supports a different number of deployment slots. To f
 ## Add slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 2. In the left navigation, choose the **Deployment slots (Preview)** option, then click **Add Slot**.
    
@@ -201,7 +201,9 @@ When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions
         </applicationInitialization>
     </system.webServer>
 
-You can also customize the warm-up behavior with one or more of the following [app settings](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+For more information on customizing the `applicationInitialization` element, see [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+You can also customize the warm-up behavior with one or more of the following [app settings](web-sites-configure.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warmup your site. Add this app setting by specifying a custom path that begins with a slash as the value. For example, `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. For example: `200,202` . If the returned status code is not in the list, the warmup and swap operations are stopped. By default, all response codes are valid.

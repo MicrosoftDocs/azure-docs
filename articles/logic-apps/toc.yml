@@ -292,14 +292,14 @@
     items: 
       - name: Monitor logic apps
         href: logic-apps-monitor-your-logic-apps.md
-      - name: Monitor logic apps with Log Analytics
+      - name: Monitor logic apps with Azure Monitor logs
         href: logic-apps-monitor-your-logic-apps-oms.md
-      - name: Monitor B2B messages with Log Analytics
+      - name: Monitor B2B messages with Azure Monitor logs
         href: logic-apps-monitor-b2b-message.md
         items:
-        - name: Track B2B messages with Log Analytics
+        - name: Track B2B messages with Azure Monitor logs
           href: logic-apps-track-b2b-messages-omsportal.md
-        - name: Create queries for B2B messages with Log Analytics
+        - name: Create queries for B2B messages with Azure Monitor logs
           href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
@@ -330,7 +330,7 @@
   - name: Usage metering
     href: logic-apps-pricing.md
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.logicapp
+    href: /powershell/module/az.logicapp
   - name: REST API
     href: /rest/api/logic/
   - name: Resource Manager template

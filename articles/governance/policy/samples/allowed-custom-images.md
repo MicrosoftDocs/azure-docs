@@ -1,6 +1,6 @@
 ---
 title: Sample - Approved VM images
-description: This sample policy requires that only approved custom images are deployed in your environment.
+description: This sample policy definition requires that only approved custom images are deployed in your environment.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ---
-# Approved VM images
+# Sample - Approved VM images
 
 This policy requires that only approved custom images are deployed in your environment. You specify
 an array of approved image IDs.
@@ -81,7 +81,7 @@ May 2018 image version of Windows Server 2016 Datacenter located in 'Central US'
 
 ## Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Deploy with Azure PowerShell
 

@@ -47,11 +47,11 @@ To add a real device to your application, you use the **Connected Air Conditione
 
    The **Device Explorer** shows the **Connected Air Conditioner** device template and the simulated device that was automatically created when the builder created the device template.
 
-2. To start connecting a real connected air conditioner device, choose **New**, then **Real**:
+2. To start connecting a real connected air conditioner device, select **+**, then **Real**:
 
    ![Start adding a new, real connected air conditioner device](media/tutorial-add-device-experimental/newreal.png)
 
-3. Enter the Device Id (**should be lower case**) or use the suggested Device Id. You can also enter the name for your new device and choose **Create**.  
+3. Enter the Device Id (should be lower case) or use the suggested Device Id. You can also enter the name for your new device and choose **Create**.
 
    ![Rename the device](media/tutorial-add-device-experimental/rename.png)
 
@@ -59,7 +59,7 @@ To add a real device to your application, you use the **Connected Air Conditione
 
 The real device is created from the **Connected Air Conditioner** device template. You can use **Settings** to configure your device and set property values to record information about your device.
 
-1. On the **Settings** page, notice that the **Set Temperature** setting status is **no update**. It stays in this state until the real device connects to the application and acknowledges that it has acted on the setting. 
+1. On the **Settings** page, notice that the **Set Temperature** setting status is **no update**. It stays in this state until the real device connects to the application and acknowledges that it has acted on the setting.
 
     ![Settings show syncing](media/tutorial-add-device-experimental/settingssyncing.png)
 
@@ -69,7 +69,7 @@ The real device is created from the **Connected Air Conditioner** device templat
 
 3. You can view the **Measurements**, **Rules**, and **Dashboard** pages for your real device.
 
-## Generate connection string for real device from application
+## Generate connection string
 
 A device developer needs to embed the *connection string* for your real device in the code that runs on the device. The connection string enables the device to connect securely to your Azure IoT Central application. You generate the connection string as part of preparing the client code written in Node.js in the next steps. The Node.js application represents the real connected air conditioner. 
 
@@ -114,7 +114,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 1. Return to the command line environment and generate your connection string by executing:
 
     ```cmd/sh
-    dps_keygen <scope_id> <device_id> <Primary Key>
+    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Copy the output and save in a new file (for example, connection.txt).
@@ -156,7 +156,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 1. Save the changes you have made so far, but keep the file open.
 
-## Understand how client code maps to the application
+## Review client code
 
 In the previous section, you created a skeleton Node.js project for an application that connects to your Azure IoT Central application. In this section, you add the code to:
 
@@ -293,7 +293,7 @@ In the previous section, you created a skeleton Node.js project for an applicati
 
 1. Save the changes you have made so far, but keep the file open.
 
-## Configure client code for the real device
+## Configure client code
 
 <!-- Add the connection string to the sample code, build, and run -->
 To configure your client code to connect to your Azure IoT Central application, you need to add the connection string for your real device that you noted earlier in this tutorial.
@@ -323,7 +323,7 @@ To configure your client code to connect to your Azure IoT Central application, 
 
 1. After about 30 seconds, you see the telemetry on the device **Measurements** page:
 
-   ![Real telemetry](media/tutorial-add-device-experimental/realtelemetry.png)
+   ![Real ~~telemetry](media/tutorial-add-device-experimental/realtelemetry.png)
 
 1. On the **Settings** page, you can see the setting is now synchronized. When the device first connected, it received the setting value and acknowledged the change:
 

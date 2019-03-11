@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: banders
 
 ---
@@ -22,7 +22,12 @@ ms.author: banders
 
 To manage access to Azure resources, you must have the appropriate administrator role. Azure has an authorization system called role-based access control (RBAC) with several built-in roles you can choose from. You can assign these roles at different scopes, such as management group, subscription, or resource group.
 
-Microsoft recommends that you manage access to resources using RBAC. However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) and [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md).
+Microsoft recommends that you manage access to resources using RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), you'll need to use a classic administrator. 
+
+> [!TIP]
+> If you only use the Azure portal to manage the classic resources, you won’t need to use the classic administrator.
+
+For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) and [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md).
 
 This article describes how add or change the administrator role for a user using RBAC at the subscription scope.
 

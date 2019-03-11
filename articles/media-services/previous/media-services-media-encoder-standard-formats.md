@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.author: juliako;anilmur
 
 ---
-# Media Encoder Standard Formats and Codecs (legacy)
+# Media Encoder Standard Formats and Codecs
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)

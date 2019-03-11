@@ -148,7 +148,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     ![New sink linked service](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. Select **Azure Blob Storage** from the gallery, and then select **Next**.
+    b. Select **Azure SQL Database** from the gallery, and then select **Next**.
 
     ![Select Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 

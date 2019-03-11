@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
 
 ---
@@ -73,6 +73,15 @@ The July Guest OS has released.
 > [!NOTE]
 > The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
 >
+>Installation steps:
+>1.	Please uninstall any older versions of MicrosoftAzureAuthoringTools*.msi
+>2. Install the [Azure SDK for .NET - 3.0][Windows Azure SDK]
+>3. Restart your machine
+>4. Create a new Cloud Service project and add a single Worker Role
+>5. Change the OS Family to 6 and build a package
+>6. Deploy the package to Azure using the Azure portal or Visual Studio
+>
+
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
@@ -88,6 +97,7 @@ The July Guest OS has released.
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
 >
+
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |

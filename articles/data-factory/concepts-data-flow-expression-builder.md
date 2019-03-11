@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
---- 
+---
 
-# Azure Data Factory Mapping Data Flow Expression Builder
+# Mapping Data Flow Expression Builder
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -60,8 +60,17 @@ or using double slash
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## Addressing Array Indexes
+## Addressing array indexes
 
 With expression functions that return arrays, use square brackets [] to address specific indexes inside that return array object. The array is ones-based.
 
 ![Expression Builder array](media/data-flow/expb2.png "Expression Data Preview")
+
+## Handling names with special characters
+
+When you have column names that include special characters or spaces, surround the name with curly braces.
+* ```{[dbo].this_is my complex name$$$}```
+
+## Next steps
+
+[Begin building data transformation expressions](data-flow-expression-functions.md)

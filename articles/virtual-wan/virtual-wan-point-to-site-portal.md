@@ -33,11 +33,13 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzAccount** and **Select-AzSubscription** commands.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
@@ -47,25 +49,25 @@ Click the **TryIt** to register this feature easily using Azure Cloud Shell. If 
 After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Create a virtual network
@@ -144,7 +146,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install the OpenVPN client from the official website.
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
@@ -163,7 +165,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install an OpenVPN client, such as TunnelBlik from https://tunnelblick.net/downloads.html 
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
@@ -196,10 +198,10 @@ Create a connection to monitor communication between an Azure VM and a remote si
 
 ## <a name="cleanup"></a>12. Clean up resources
 
-When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps

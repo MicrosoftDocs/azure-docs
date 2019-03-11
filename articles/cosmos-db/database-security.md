@@ -1,11 +1,11 @@
 ---
 title: Database security - Azure Cosmos DB
 description: Learn how Azure Cosmos DB provides database protection and data security for your data.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: rafats
+ms.author: rimman
 
 ---
 

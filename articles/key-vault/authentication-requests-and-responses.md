@@ -3,7 +3,7 @@ title: Authentication, requests and responses
 description: Authenticate to AD for using Key Vault
 services: key-vault
 documentationcenter:
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 

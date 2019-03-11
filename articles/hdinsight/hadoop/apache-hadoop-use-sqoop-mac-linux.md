@@ -10,7 +10,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/15/2019
 ---
 # Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and SQL Database
 
@@ -100,7 +100,7 @@ GO
     The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
 
     > [!IMPORTANT]  
-    > The `wasb:///` path works with clusters that use Azure Storage as the default cluster storage. For clusters that use Azure Data Lake Storage, use `adl:///` instead.
+    > The `wasb:///` path works with clusters that use Azure Storage as the default cluster storage. For clusters that use Azure Data Lake Storage Gen2, use `abfs:///` instead. For clusters that use Azure Data Lake Storage Gen1, use `adl:///` instead.
 
 2. Once the import has completed, use the following command to list out the data in the new directory:
 

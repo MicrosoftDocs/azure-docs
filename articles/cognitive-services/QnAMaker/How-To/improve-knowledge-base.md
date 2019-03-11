@@ -3,12 +3,12 @@ title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 
 author: diberry
-manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
+manager: nitinme 
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: diberry
 ---
 
@@ -27,13 +27,13 @@ QnA Maker learns new question variations with implicit and explicit feedback.
 
 Either method provides the ranker with similar queries that are clustered.
 
-When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
-
 ## How active learning works
 
 Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
 
 All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
+
+Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. 
 
 ## Upgrade version to use active learning
 
@@ -52,6 +52,8 @@ The algorithm to determine proximity is not a simple calculation. The ranges in 
 ## Turn on active learning
 
 Active learning is off by default. Turn it on to see suggested questions. 
+
+1. Select **Publish** to publish the knowledge base. Active learning queries are collected from the GenerateAnswer API prediction endpoint only. The queries to the Test pane in the Qna Maker portal do not impact active learning.
 
 1. To turn active learning on, Click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 
@@ -82,6 +84,9 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. Select **Save and Train** to save the changes to the knowledge base.
 
+1. Select **Publish** to allow the changes to be available from the GenerateAnswer API.
+
+    When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
 ## Determine best choice when several questions have similar scores
 

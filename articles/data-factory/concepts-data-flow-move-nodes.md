@@ -7,9 +7,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
---- 
+---
 
-#Data Factory Data Flow Move Nodes
+# Mapping Data Flow Move Nodes
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -17,7 +17,7 @@ ms.date: 10/04/2018
 
 The Azure Data Factory Data Flow design surface is a "construction" surface where you build data flows top-down, left-to-right. There is a toolbox attached to each transform with a plus (+) symbol. Concentrate on your business logic instead of connecting nodes via edges in a free-form DAG environment.
 
-So, without a drag-and-drop paradigm they way to "move" a transformation node, is to change the incoming stream. Instead, you will move transforms around by changing the "incoming stream".
+So, without a drag-and-drop paradigm, the way to "move" a transformation node, is to change the incoming stream. Instead, you will move transforms around by changing the "incoming stream".
 
 In Azure Data Factory Data Flow, streams represent the flow of data. On the transformation settings pane, you will see an "Incoming Steam" field. This tells you which incoming data stream is feeding that transformation. You can change the physical location of your transform node on the graph by clicking the Incoming Stream name and selecting another data stream. The current transformation along with all subsequent transforms on that stream will then move to the new location.
 

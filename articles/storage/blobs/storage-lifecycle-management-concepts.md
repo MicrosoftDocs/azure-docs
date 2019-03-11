@@ -223,8 +223,7 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
     {
       "name": "agingRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "container1/foo", "container2/bar" ]
@@ -252,8 +251,7 @@ Some data stays idle in the cloud and is rarely, if ever, accessed once stored. 
     {
       "name": "archiveRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "archivecontainer" ]
@@ -281,8 +279,7 @@ Some data is expected to expire days or months after creation to reduce costs or
     {
       "name": "expirationRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ]
           },
@@ -308,8 +305,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
     {
       "name": "snapshotRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "activedata" ]
@@ -332,4 +328,4 @@ The platform runs the lifecycle policy once a day. Once you set a new policy, it
 
 Learn how to recover data after accidental deletion:
 
-- [Soft delete for Azure Storage blobs ](../blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs](../blobs/storage-blob-soft-delete.md)

@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/29/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -15,7 +15,7 @@ ms.custom: H1Hack27Feb2017
 
 This article helps you use the Change Tracking solution to easily identify changes in your environment. The solution tracks changes to Windows and Linux software, Windows and Linux files, Windows registry keys, Windows services, and Linux daemons. Identifying configuration changes can help you pinpoint operational issues.
 
-Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
+Changes to installed software, Windows services, Windows registry and files, and Linux daemons on the monitored servers are sent to the Azure Monitor service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. By using the information on the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 
 ## Supported Windows operating systems
 
@@ -175,6 +175,8 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250||
 |Daemon|250||
 
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
+
 ### Windows service tracking
 
 The default collection frequency for Windows services is 30 minutes. To configure the frequency, go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there's a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
@@ -253,7 +255,7 @@ Clicking on a change or event brings up the detailed information about that chan
 
 ## Search logs
 
-In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page.
+In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Logs** page.
 
 ### Sample queries
 
@@ -306,5 +308,5 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [!div class="nextstepaction"]
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+* Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
 

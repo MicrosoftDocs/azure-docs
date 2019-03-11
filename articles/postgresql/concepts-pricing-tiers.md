@@ -38,6 +38,9 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 > [!IMPORTANT]
 > Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
+>
+> [!IMPORTANT]
+> Beginning February 19, 2019, new customers will not be able to provision compute generation 4 servers in Central US, East US, Japan East, North Europe, South Central US, Southeast Asia, West Europe. Previously created compute generation 4 servers will be migrated to compute generation 5 starting April 1, 2019 in these regions.
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|

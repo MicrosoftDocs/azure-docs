@@ -26,6 +26,8 @@ In this tutorial, you use Azure Resource Manager template and other utilities to
 > * Query data
 > * Update data
 
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
 ## Create an Azure Database for MySQL server with VNet Service Endpoint using Azure Resource Manager template
 
 To get the JSON template reference for an Azure Database for MySQL server, go to [Microsoft.DBforMySQL servers](/azure/templates/microsoft.dbformysql/servers) template reference. Below is the sample JSON template that can be used to create a new server running Azure Database for MySQL with VNet Service Endpoint.

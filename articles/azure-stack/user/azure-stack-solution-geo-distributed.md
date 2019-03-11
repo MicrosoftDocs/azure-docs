@@ -529,7 +529,7 @@ The **Custom domain** page is updated with the new, dedicated IP address. Copy t
 
 #### Test HTTPS
 
-In various browsers, browse to https://<your.custom.domain>to ensure the web ap is served.
+In various browsers, browse to https://<your.custom.domain>to ensure the web app is served.
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image42.png)
 

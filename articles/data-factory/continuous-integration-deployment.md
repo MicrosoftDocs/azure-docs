@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous integration and delivery in Azure Data Factory | Microsoft Docs
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -157,7 +157,7 @@ There are two ways to handle the secrets:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### Grant permissions to the Azure Pipelines agent
-The Azure Key Vault task may fail the fIntegration Runtimest time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
+The Azure Key Vault task may fail the fIntegration Runtime time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the Azure Pipelines agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
 
 ### Update active triggers
 Deployment can fail if you try to update active triggers. To update active triggers, you need to manually stop them and start them after the deployment. You can add an Azure Powershell task for this purpose, as shown in the following example:
@@ -843,131 +843,223 @@ else {
 
 ## Use custom parameters with the Resource Manager template
 
-You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default parameters and values.
+If you are in GIT mode, you can override the default properties in your Resource Manager template to set properties that are parameterized in the template and properties that are hard-coded. You might want to override the default parameterization template in these scenarios:
+
+* You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
+* Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
+
+Under these conditions, to override the default parameterization template, create a file named *arm-template-parameters-definition.json* in the root folder of the repository. The file name must exactly match. Data Factory tries to read this file from whichever branch you are currently on in the Azure Data Factory portal, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by using the **Export ARM template** in the UI. Then, you can merge the file into the collaboration branch. If no file is found, the default template is used.
+
 
 ### Syntax of a custom parameters file
 
-Here are some guidelines to use when authoring the custom parameters file. To see examples of this syntax, see the following section, [Sample custom parameters file](#sample).
+Here are some guidelines to use when you author the custom parameters file. The file consists of a section for each entity type: trigger, pipeline, linkedservice, dataset, integrationruntime, and so on.
+* Enter the property path under the relevant entity type.
+* When you set a property name to '\*'', you indicate that you want to parameterize all properties under it (only down to the first level, not recursively). You can also provide any exceptions to this.
+* When you set the value of a property as a string, you indicate that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
+   *  `<action>` can be one of the following characters:
+      * `=` means keep the current value as the default value for the parameter.
+      * `-` means do not keep the default value for the parameter.
+      * `|` is a special case for secrets from Azure Key Vault for connection strings or keys.
+   * `<name>` is the name of the parameter. If it is blank, it takes the name of the property. If the value starts with a `-` character, the name is shortened. For example, `AzureStorage1_properties_typeProperties_connectionString` would be shortened to `AzureStorage1_connectionString`.
+   * `<stype>` is the type of parameter. If `<stype>` is blank, the default type is `string`. Supported values: `string`, `bool`, `number`, `object`, and `securestring`.
+* When you specify an array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array by using the definition that's specified in the Integration Runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+* It's not possible to have a definition that's specific for a resource instance. Any definition applies to all resources of that type.
+* By default, all secure strings, such as Key Vault secrets, and secure strings, such as connection strings, keys, and tokens, are parameterized.
+ 
+## Sample parameterization template
 
-1. When you specify array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array using the definition specified in the Integration Runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+        "properties": {
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::number",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:number",
+                    "frequency": "=:-freq"
+                },
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
 
-    ```json
-    ...
+### Explanation:
+
+#### Pipelines
+	
+* Any property in the path activities/typeProperties/waitTimeInSeconds is parameterized. This means that any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But, it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
+* Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (JObject). It has a default value, which is the same value as in the source factory.
+
+#### IntegrationRuntimes
+
+* Only properties, and all properties, under the path `typeProperties` are parameterized, with their respective default values. For example, as of today's schema, there are two properties under **IntegrationRuntimes** type properties: `computeProperties` and `ssisProperties`. Both property types are created with their respective default values and types (Object).
+
+#### Triggers
+
+* Under `typeProperties`, two properties are parameterized. The first one is `maxConcurrency`, which is specified to have a default value, and the type would be `string`. It has the default parameter name of `<entityName>_properties_typeProperties_maxConcurrency`.
+* The `recurrence` property also is parameterized. Under it, all properties at that level are specified to be parameterized as strings, with default values and parameter names. An exception is the `interval` property, which is parameterized as number type, and with the parameter name suffixed with `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Similarly, the `freq` property is a string and is parameterized as a string. However, the `freq` property is parameterized without a default value. The name is shortened and suffixed. For example, `<entityName>_freq`.
+
+#### LinkedServices
+
+* Linked services is unique. Because linked services and datasets can potentially be of several types, you can provide type-specific customization. For example, you might say that for all linked services of type `AzureDataLakeStore`, a specific template will be applied, and for all others (via \*) a different template will be applied.
+* In the preceding example, the `connectionString` property will be parameterized as a `securestring` value, it won't have a default value, and it will have a shortened parameter name that's suffixed with `connectionString`.
+* The property `secretAccessKey`, however, happens to be an `AzureKeyVaultSecret` (for instance, an `AmazonS3` linked service). Thus, it is automatically parameterized as an Azure Key Vault secret, and it's fetched from the key vault that it's configured with in the source factory. You can also parameterize the key vault, itself.
+
+#### Datasets
+
+* Even though type-specific customization is available for datasets, configuration can be provided without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
+
+The default parameterization template can change, but this is the current template. This will be useful if you just need to add one additional property as a parameter, but also if you don’t want to lose the existing parameterizations and need to re-create them.
+
+
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
     "Microsoft.DataFactory/factories/triggers": {
         "properties": {
             "pipelines": [{
                     "parameters": {
                         "*": "="
                     }
-                },
+                },  
                 "pipelineReference.referenceName"
             ],
             "pipeline": {
                 "parameters": {
                     "*": "="
                 }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
             }
         }
     },
-    ...
-    ```
-
-2. When you set a property name to `*`, you indicate that you want the template to use all the properties at that level, except the ones explicitly defined.
-
-3. When you set the value of a property as a string, you indicate that you want to parameterize the property. Use the format `<action>:<name>:<stype>`.
-    1.	`<action>` can be one of the following characters: 
-        1.	`=`  means keep the current value as the default value for the parameter.
-        2.	`-` means do not keep the default value for the parameter.
-        3.	`|` is a special case for secrets from Azure Key Vault for a connection string.
-    2.	`<name>` is the name of the parameter. If `<name`> is blank, it takes the name of the parameter 
-    3.	`<stype>` is the type of the parameter. If `<stype>` is blank, the default type is a string.
-4.	If you enter a `-` character at the beginning of a parameter name, the full Resource Manager parameter name is shortened to `<objectName>_<propertyName>`.
-For example, `AzureStorage1_properties_typeProperties_connectionString` is shortened to `AzureStorage1_connectionString`.
-
-
-### <a name="sample"></a> Sample custom parameters file
-
-The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default parameters and values shown in the Data Factory UI.
-
-```json
-{
-	"Microsoft.DataFactory/factories/pipelines": {},
-	"Microsoft.DataFactory/factories/integrationRuntimes": {
-		"properties": {
-			"typeProperties": {
-				"ssisProperties": {
-					"catalogInfo": {
-						"catalogServerEndpoint": "=",
-						"catalogAdminUserName": "=",
-						"catalogAdminPassword": {
-							"value": "-::secureString"
-						}
-					},
-					"customSetupScriptProperties": {
-						"sasToken": {
-							"value": "-::secureString"
-						}
-					}
-				},
-				"linkedInfo": {
-					"key": {
-						"value": "-::secureString"
-					}
-				}
-			}
-		}
-	},
-	"Microsoft.DataFactory/factories/triggers": {
-		"properties": {
-			"pipelines": [{
-					"parameters": {
-						"*": "="
-					}
-				},
-				"pipelineReference.referenceName"
-			],
-			"pipeline": {
-				"parameters": {
-					"*": "="
-				}
-			}
-		}
-	},
-	"Microsoft.DataFactory/factories/linkedServices": {
-		"*": {
-			"properties": {
-				"typeProperties": {
-					"accountName": "=",
-					"username": "=",
-					"userName": "=",
-					"accessKeyId": "=",
-					"servicePrincipalId": "=",
-					"userId": "=",
-					"clientId": "=",
-					"clusterUserName": "=",
-					"clusterSshUserName": "=",
-					"hostSubscriptionId": "=",
-					"clusterResourceGroup": "=",
-					"subscriptionId": "=",
-					"resourceGroupName": "=",
-					"tenant": "=",
-					"dataLakeStoreUri": "=",
-					"baseUrl": "=",
-					"connectionString": "|:-connectionString:secureString"
-				}
-			}
-		}
-	},
-	"Microsoft.DataFactory/factories/datasets": {
-		"*": {
-			"properties": {
-				"typeProperties": {
-					"folderPath": "=",
-					"fileName": "="
-				}
-			}
-		}
-	}
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
 }
 ```
 

@@ -68,7 +68,7 @@ The request may include the following query parameters. See the Required column 
   
 |Name|Value|Type|Required|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|The number of resuts to return, starting with the index specified by the `offset` parameter.|String|No|   
+|<a name="count" />count|The number of results to return, starting with the index specified by the `offset` parameter.|String|No|   
 |<a name="localCategories" />localCategories|List of options that define search by business category.  See [Local Business Categories search](local-categories.md)|String|No|  
 |<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see Market Codes.<br /><br /> **NOTE:** The Local Business Search API currently only supports en-us market and language.<br /><br />|String|Yes|
 |<a name="offset"/>offset|The index to start results specified by the `count` parameter.|Integer|No|  

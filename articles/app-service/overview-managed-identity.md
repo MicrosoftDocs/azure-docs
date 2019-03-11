@@ -277,8 +277,8 @@ To learn more about Microsoft.Azure.Services.AppAuthentication and the operation
 
 An app with a managed identity has two environment variables defined:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - the URL to the local token service.
+- MSI_SECRET - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
 
 The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
 
@@ -286,7 +286,7 @@ The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To g
 > |-----|-----|-----|
 > |resource|Query|The AAD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.|
 > |api-version|Query|The version of the token API to be used. "2017-09-01" is currently the only version supported.|
-> |secret|Header|The value of the MSI_SECRET environment variable.|
+> |secret|Header|The value of the MSI_SECRET environment variable. This header is used to help mitigate server-side request forgery (SSRF) attacks.|
 > |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
 
 A successful 200 OK response includes a JSON body with the following properties:

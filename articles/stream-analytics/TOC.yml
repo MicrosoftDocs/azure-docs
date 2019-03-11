@@ -74,6 +74,8 @@
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
+    - name: Start a job
+      href: start-job.md
     - name: Test a job
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
@@ -134,7 +136,7 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API
+    - name: Using API for Edge jobs
       href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
@@ -215,14 +217,16 @@
           items: 
             - name: Analytic Functions Overview
               href: /stream-analytics-query/analytic-functions-azure-stream-analytics 
+            - name: AnomalyDetection_SpikeAndDip
+              href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+            - name: AnomalyDetection_ChangePoint
+              href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics
             - name: ISFIRST
               href: /stream-analytics-query/isfirst-azure-stream-analytics 
             - name: LAG
               href: /stream-analytics-query/lag-azure-stream-analytics 
             - name: LAST
               href: /stream-analytics-query/last-azure-stream-analytics 
-            - name: AnomalyDetection
-              href: /stream-analytics-query/anomaly-detection-azure-stream-analytics 
         - name: Array Functions
           items: 
             - name: Array Functions Overview
@@ -399,7 +403,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.streamanalytics
+    href: /powershell/module/az.streamanalytics
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST

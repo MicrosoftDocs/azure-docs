@@ -417,7 +417,7 @@ function renderSearchResults(results) {
     if (results.queryContext.alteredQuery) 
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // for each possible section, render the resuts from that section
+    // for each possible section, render the results from that section
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));

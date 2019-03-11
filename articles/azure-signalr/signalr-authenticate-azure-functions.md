@@ -298,7 +298,7 @@ When a sending message, the app can decide whether to send it to all connected c
 
 1. In VS Code, open **SignalRInfo/function.json**.
 
-1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
+1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 
     ```json
     {

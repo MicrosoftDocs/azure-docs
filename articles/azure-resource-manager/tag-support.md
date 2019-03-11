@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
 ---
 
@@ -1120,13 +1120,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | servers/communicationLinks | No | 
 | servers/databases | Yes (see note below) | 
 | servers/encryptionProtector | No | 
+| servers/firewallRules | No | 
 | servers/keys | No | 
 | servers/restorableDroppedDatabases | No | 
 | servers/serviceobjectives | No | 
 | servers/tdeCertificates | No | 
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases support tags.
+> The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
 
 
 ## Microsoft.SqlVirtualMachine

@@ -25,7 +25,7 @@ The time to live value is set in seconds and it is interpreted as a delta from t
 
    - If present and the value is set to some number ("n") – items expire "n" seconds after their last modified time.
 
-2. **Time to Live on an item** (set using `TimeToLive`):
+2. **Time to Live on an item** (set using `ttl`):
 
    - This Property is applicable only if `DefaultTimeToLive` is present and it is not set to null for the parent container.
 

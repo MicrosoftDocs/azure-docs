@@ -115,9 +115,9 @@ You can perform the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
 * Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
-  > [!IMPORTANT] Downgrading the bandwidth of a circuit is not supported. 
+> [!IMPORTANT] Downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
-  > [!IMPORTANT] Changing the metering plan from Unlimited Data to Metered Data is not supported.
+> [!IMPORTANT] Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 > [!IMPORTANT]
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
