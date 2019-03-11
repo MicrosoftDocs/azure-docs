@@ -18,8 +18,6 @@ ms.author: pafarley
 
 In this tutorial, you will learn how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 
-TBD: Download the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
-
 This tutorial shows you how to:
 
 > [!div class="checklist"]
@@ -33,13 +31,15 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-1. Sign up for the [Content Moderator review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags according to your needs. See [Use tags](Review-Tool-User-Guide/tags.md) if you need help with this step. The following screen shows the custom tags.
+- Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags. See [Use tags](Review-Tool-User-Guide/tags.md) if you need help with this step.
 
-    ![Video moderation custom tags](images/video-tutorial-custom-tags.png)
+    ![screenshot of Video moderation custom tags](images/video-tutorial-custom-tags.png)
+- To run the sample application, you need an Azure account, an Azure Media Services resource, an Azure Content Moderator resource, and Azure Active Directory credentials. For instructions on how to get these, see the [Video Moderation API](video-moderation-api.md) guide.
+- Download the [Video review console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) From GitHub.
 
-1. To run the sample application, you need an Azure account, an Azure Media Services resource, an Azure Content Moderator resource, and Azure Active Directory credentials. For details on obtaining these, see the [Video Moderation API](video-moderation-api.md) guide.
+## Enter credentials
 
-1. Edit the file `App.config` and add the Active Directory tenant name, service endpoints, and subscription keys indicated by `#####`. You need the following information:
+Edit the `App.config` file and add the Active Directory tenant name, service endpoints, and subscription keys indicated by `#####`. You need the following information:
 
     |Key|Description|
     |-|-|
@@ -51,7 +51,7 @@ This tutorial shows you how to:
     |`ContentModeratorApiEndpoint`|Endpoint for the Content Moderator API|
     |`ContentModeratorTeamId`|Content moderator team ID|
 
-## Getting started
+## Examine the main code
 
 The class `Program` in `Program.cs` is the main entry point to the video moderation application.
 
@@ -107,7 +107,7 @@ The `ProcessVideo()` method is fairly straightforward. It performs the following
 
 The following sections consider in more detail some of the individual processes invoked by `ProcessVideo()`. 
 
-## Compressing the video
+## Compress the video
 
 To minimize network traffic, the application converts video files to H.264 (MPEG-4 AVC) format and scales them to a maximum width of 640 pixels. The H.264 codec is recommended due to its high efficiency (compression rate). The compression is done using the free `ffmpeg` command-line tool, which is included in the `Lib` folder of the Visual Studio solution. The input files may be of any format supported by `ffmpeg`, including most commonly used video file formats and codecs.
 
@@ -132,7 +132,7 @@ The code performs the following steps:
 
 The method returns the filename of the compressed output file.
 
-## Uploading and moderating the video
+## Upload and moderate the video
 
 The video must be stored in Azure Media Services before it can be processed by the Content Moderation service. The `Program` class in `Program.cs` has a short method `CreateVideoStreamingRequest()` that returns an object representing the streaming request used to upload the video.
 
@@ -148,7 +148,7 @@ These lines perform the following tasks:
 - Set the request's `GenerateVTT` flag if the user has requested a text transcript
 - Calls `CreateAzureMediaServicesJobToModerateVideo()` to perform the upload and receive the result
 
-## Deep dive into video moderation
+## Examine video moderation code
 
 The method `CreateAzureMediaServicesJobToModerateVideo()` is in `VideoModerator.cs`, which contains the bulk of the code that interacts with Azure Media Services. The method's source code is shown in the following extract.
 
@@ -161,7 +161,7 @@ This code performs the following tasks:
 - Submits the job, uploading the file and beginning processing
 - Retrieves the moderation results, the text transcript (if requested), and other information
 
-## Sample video moderation response
+## Sample video moderation output
 
 The result of the video moderation job (See [video moderation quickstart](video-moderation-api.md) is a JSON data structure containing the moderation results. These results include a breakdown of the fragments (shots) within the video, each containing events (clips) with key frames that have been flagged for review. Each key frame is scored by the likelihood that it contains adult or racy content. The following example shows a JSON response:
 
@@ -222,7 +222,7 @@ A transcription of the audio from the video is also produced when the `GenerateV
 > [!NOTE]
 > The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
-## Creating the human-in-the-loop review
+## Create a the human-in-the-loop review
 
 The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator review tool for human moderators. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
 
@@ -239,13 +239,11 @@ The moderation process returns a list of key frames from the video, along with a
 |Scan the text transcript, if available, to locate adult or racy audio|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
 |Prepare and submits a video review request for human inspection|`CreateReviewRequestObject()`<br> `ExecuteCreateReviewApi()`<br>`CreateAndPublishReviewInContentModerator()`|`VideoReviewAPI.cs`|
 
-## Video review default view
-
 The following screen shows the results of the previous steps.
 
 ![Video review default view](images/video-tutorial-default-view.PNG)
 
-## Transcript generation
+## Process the transcript
 
 Until now, the code presented in this tutorial has focused on the visual content. Review of speech content is a separate and optional process that, as mentioned, uses a transcript generated from the audio. It's time now to take a look at how text transcripts are created and used in the review process. The task of generating the transcript falls to the [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content) service.
 
@@ -278,7 +276,7 @@ The transcript is published as an AMS asset. To scan the transcript for objectio
 
 After some necessary AMS setup, the actual download is performed by calling `DownloadAssetToLocal()`, a generic function that copies an AMS asset to a local file.
 
-## Transcript moderation
+## Moderate the transcript
 
 With the transcript close at hand, it is scanned and used in the review. Creating the review is the purview of `CreateVideoReviewInContentModerator()`, that calls `GenerateTextScreenProfanity()` to do the job. In turn, this method calls `TextScreen()`, that contains most of the functionality.
 
@@ -312,10 +310,9 @@ Next, we scan the parsed text captions with Content Moderator's text API.
 >
 > A free tier key has a one RPS rate limit.
 
-
 [!code-csharp[TextScreen3](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/VideoReviewAPI.cs?range=568-653)]
 
-### Breaking down the text moderation step
+### Text moderation breakdown
 
 `TextScreen()` is a substantial method, so let's break it down.
 
@@ -328,8 +325,6 @@ Next, we scan the parsed text captions with Content Moderator's text API.
 1. After receiving results from the Text Moderation service, the method then analyzes them to see whether they meet confidence thresholds. These values are established in `App.config` as `OffensiveTextThreshold`, `RacyTextThreshold`, and `AdultTextThreshold`. Finally, the objectionable terms themselves are also stored. All frames within the cue's time range are flagged as containing offensive, racy, and/or adult text.
 
 1. `TextScreen()` returns a `TranscriptScreenTextResult` instance that contains the text moderation result from the video as a whole. This object includes flags and scores for the various types of objectionable content, along with a list of all objectionable terms. The caller, `CreateVideoReviewInContentModerator()`, calls `UploadScreenTextResult()` to attach this information to the review so it is available to human reviewers.
-
-## Video review transcript view
 
 The following screen shows the result of the transcript generation and moderation steps.
 
