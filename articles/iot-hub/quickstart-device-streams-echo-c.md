@@ -18,7 +18,7 @@ ms.author: rezas
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md) guides.
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -85,14 +85,14 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
    * In Linux:
 
-      ``` bash
+      ```bash
       cmake ..
       make -j
       ```
 
    * In Windows, run the following commands in Developer Command Prompt for Visual Studio 2015 or 2017. A Visual Studio solution for the simulated device will be generated in the `cmake` directory.
 
-      ``` cmd
+      ```cmd
       rem For VS2015
       cmake .. -G "Visual Studio 15 2015"
 
@@ -151,30 +151,30 @@ To run the device-side application, you need to perform the following steps:
 
 2. Compile the code as follows:
 
-   ``` bash
+   ```bash
    # In Linux
    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
    make -j
    ```
 
-   ``` cmd
-   # In Windows
-   # Go to the cmake folder at the root of repo
+   ```cmd
+   rem In Windows
+   rem Go to the cmake folder at the root of repo
    cmake --build . -- /m /p:Configuration=Release
    ```
 
 3. Run the compiled program:
 
-   ``` bash
+   ```bash
    # In Linux
    # Go to sample's folder
    cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
    ./iothub_client_c2d_streaming_sample
    ```
 
-   ``` cmd
-   # In Windows
-   # Go to sample's release folder
+   ```cmd
+   rem In Windows
+   rem Go to sample's release folder
    cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
    iothub_client_c2d_streaming_sample.exe
    ```

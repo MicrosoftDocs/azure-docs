@@ -27,7 +27,6 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 
 ![Alt text](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Local proxy setup")
 
-
 1. Service-local proxy connects to IoT hub and initiates a device stream to the target device.
 
 2. Device-local proxy completes the stream initiation handshake and establishes an end-to-end streaming tunnel through IoT Hub's streaming endpoint to the service side.
@@ -47,8 +46,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * The preview of device streams is currently only supported for IoT Hubs created in the following regions:
 
-  - **Central US**
-  - **Central US EUAP**
+  * **Central US**
+  * **Central US EUAP**
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Install the latest version of [Git](https://git-scm.com/download/).
@@ -57,14 +56,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). You will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code used in this quickstart. 
 
-
 1. Download version 3.13.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.13.4 of the x64 MSI distribution:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
-    ```
+    
     
     The following hash values for version 3.13.4 were listed on the CMake site at the time of this writing:
 
@@ -96,14 +94,14 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
    * In Linux:
 
-      ``` bash
+      ```bash
       cmake ..
       make -j
       ```
 
    * In Windows, run the following commands in Developer Command Prompt for Visual Studio 2015 or 2017. A Visual Studio solution for the simulated device will be generated in the `cmake` directory.
 
-      ``` cmd
+      ```cmd
       rem For VS2015
       cmake .. -G "Visual Studio 15 2015"
 
@@ -162,13 +160,13 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 2. Compile the sample:
 
-   ``` bash
+   ```bash
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     make -j
    ```
 
-   ``` cmd
+   ```cmd
     rem In Windows
     rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
@@ -176,13 +174,13 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 3. Run the compiled program on the device:
 
-   ``` bash
+   ```bash
     # In Linux
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     ./iothub_client_c2d_streaming_proxy_sample
    ```
 
-   ``` cmd
+   ```cmd
     rem In Windows
     rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
