@@ -51,10 +51,10 @@ The following example shows the schema of a device connected event:
   "eventType": "Microsoft.Devices.DeviceConnected",
   "eventTime": "2018-06-02T19:17:44.4383997Z",
   "data": {
-      "deviceConnectionStateEventInfo": {
-        "sequenceNumber":
-          "000000000000000001D4132452F67CE200000002000000000000000000000001"
-      },
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
     "moduleId" : "DeviceModuleID",
