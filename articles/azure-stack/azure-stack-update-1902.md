@@ -74,7 +74,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
 <!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
-- Improve the reliability of capacity expansion during add node
+- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.
 
 ## Common vulnerabilities and exposures
 
