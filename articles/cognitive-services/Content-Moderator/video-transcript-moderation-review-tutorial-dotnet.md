@@ -357,4 +357,7 @@ Total Elapsed Time: 00:05:56.8420355
 
 ## Next steps
 
-[Download the Visual Studio solution](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) and sample files and required libraries for this tutorial, and get started on your integration.
+In this tutorial, you set up an application that moderates video content&mdash;including transcript content&mdash;and creates reviews in the Review tool. Next, learn more about the details of video moderation.
+
+> [!div class="nextstepaction"]
+> [Video moderation](./video-moderation-human-review.md)
