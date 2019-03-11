@@ -118,7 +118,7 @@ When running and debugging the Azure Functions runtime locally, application sett
     * The `Host` section configures the port and CORS settings for the local Functions host (this setting has no effect when running in Azure).
 
         > [!NOTE]
-        > Live Server typically defaults to http://127.0.0.1:5500, if it is using a different URL or you are using a different HTTP server, change the `CORS` setting to reflect the correct origin.
+        > Live Server is typically configured to serve content from http://127.0.0.1:5500. If you find that it is using a different URL or you are using a different HTTP server, change the `CORS` setting to reflect the correct origin.
 
     ![Get SignalR Service key](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
