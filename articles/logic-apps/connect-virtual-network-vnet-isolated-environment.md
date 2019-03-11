@@ -234,7 +234,7 @@ and then choose **Review + create**, for example:
      * `10.0.0.0/28` has only 16 addresses and is too small because 2<sup>(32-28)</sup> 
      is 2<sup>4</sup> or 16.
 
-     To learn more about caculating address ranges, see 
+     To learn more about calculating address ranges, see 
      [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    1. Under the **Subnets** list, choose **Manage subnet configuration**.
@@ -337,7 +337,7 @@ for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* You can use the same built-in triggers and actions, such as HTTP, 
+* You can use the same built-in triggers and actions such as HTTP, 
 which run in the same ISE as your logic app. Connectors with 
 the **ISE** label also run in the same ISE as your logic app. 
 Connectors without the **ISE** label run in the global Logic Apps service.
