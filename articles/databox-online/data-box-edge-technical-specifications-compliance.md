@@ -7,24 +7,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/11/2019
 ms.author: alkohli
 ---
-# Azure Data Box Edge technical specifications and compliance
+# Azure Data Box Edge technical specifications
 
-The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), disk drives, storage capacity, and enclosures. The compliance information covers such things as international standards, safety and emissions, and cabling.
+The hardware components of your Microsoft Azure Data Box Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards. 
 
 
 ## Power supply unit specifications
 
-The Data Box Edge device has two 100-240 V dual fan, SBB-compliant Power supply units (PSUs). This provides a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Data Box Edge device has two 100-240 V high performance fan, Power supply units (PSUs). This provides a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Maximum output power    |  750 W                     |
 | Frequency               | 50/60 Hz                   |
 | Voltage range selection | Auto ranging: 100-240 V AC |
-| Output                  |                            |
 | Hot pluggable           | Yes                        |
 
 ## Power consumption statistics
@@ -40,7 +39,7 @@ The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.
 |    Number of solid-state drives (SSDs)     |    8                  |
 |    Single SSD capacity                     |    1.6 TB             |
 |    Total capacity                          |    12.8 TB            |
-|    Total usable capacity*                  |    ~ XX TB            |
+|    Total usable capacity*                  |    ~ 11.8 TB            |
 
 ## Enclosure dimensions and weight specifications
 
@@ -81,7 +80,7 @@ This section lists the specifications related to the enclosure environment. The 
 |     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Airflow                              |    <!--System airflow is front to rear. System must be operated with a   low-pressure, rear-exhaust installation. Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature de-rating specifications](operating-temperature-de-rating-specifications.md).                                                                                |
+|    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature   de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications.md).                                                                                |
 |    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
 |    Shock, operational                   |    6 G for 11 milliseconds in 6   orientations                                                                                                                                                                         |
 |    Shock, non-operational               |    71 G for 2 milliseconds in 6 orientations                                                                                                                                                                           |

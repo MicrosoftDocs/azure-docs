@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 03/07/2019
+ms.topic: article
+ms.date: 03/11/2019
 ms.author: alkohli
 ---
 # Data Box Edge security and data protection
@@ -132,11 +132,11 @@ The Data Box Edge/ Data Box Gateway service collects personal information in the
 
 - **Shipping address** – After the order is placed, Data Box service provides the shipping address to third-party carriers such as UPS.
 
-- **Share users** - Users who can access the data residing on the shares. A list of users who can access the share data is displayed and can be viewed. This list is also deleted when the shares are deleted. To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Edge](data-box-edge-manage-shares.md).
+- **Share users** - Users on your device can also access the data residing on the shares. A list of users who can access the share data is displayed and can be viewed. This list is also deleted when the shares are deleted. To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Edge](data-box-gateway-manage-shares.md).
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
 
-[Deploy your Data Box Edge device](data-box-deploy-prep.md).
+[Deploy your Data Box Edge device](data-box-edge-deploy-prep.md).
 
