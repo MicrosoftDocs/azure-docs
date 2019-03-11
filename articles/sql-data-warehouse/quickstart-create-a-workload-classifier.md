@@ -32,6 +32,7 @@ This quickstart assumes you already have a SQL data warehouse and that you have 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create TheCEO user in mySampleDataWarehouse
+
    ```sql
    CREATE USER [TheCEO] WITH DEFAULT_SCHEMA=[dbo]
    CREATE USER [DataAnalyst] WITH DEFAULT_SCHEMA=[dbo]
@@ -50,13 +51,13 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Clean up resources
 
    ```sql
-   DROP USER [TheCEO] 
-   DROP USER [DataAnalyst] 
+   DROP USER [TheCEO]
+   DROP USER [DataAnalyst]
    DROP WORKLOAD CLASSIFIER wgcTheCEO;
    DROP WORKLOAD CLASSIFIER wgcDataAnalyst;
    ```
 
-You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately. 
+You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
 
 - If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
 - If you want to remove future charges, you can delete the data warehouse.
@@ -75,8 +76,6 @@ Follow these steps to clean up resources.
 
 4. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
-
 ## Next steps
-You've now created a data warehouse and a firewall rule. You've connected to your data warehouse, and run a few queries. Continue to the tutorial for loading data to learn more about Azure SQL Data Warehouse.
-> [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+
+You've now created a workload classifier. Run a few queries to see how they perform. See sys.dm_pdw_exec_requests (/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
