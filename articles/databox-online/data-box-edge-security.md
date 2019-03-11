@@ -12,9 +12,9 @@ ms.author: alkohli
 ---
 # Data Box Edge security and data protection
 
-Security is a major concern when adopting a new technology, and if the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge solution helps ensure that only authorized entities can view, modify, or delete your data.
+Security is a major concern when adopting a new technology, especially if the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge solution helps ensure that only authorized entities can view, modify, or delete your data.
 
-This article describes the Data Box Edge security features that help protect each of these components and the data stored on them.
+This article describes the Data Box Edge security features that help protect each of the solution components and the data stored on them.
 
 The Azure Data Box Edge solution consists of four main components that interact with each other:
 
@@ -27,7 +27,7 @@ The Azure Data Box Edge solution consists of four main components that interact 
 
 The Data Box Edge/Data Box Gateway service is a management service hosted in Microsoft Azure. The service is used to configure and manage the device.
 
-- Access to the Data Box Edge/Data Box Gateway service requires your organization have to have an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) subscription. For more information, go to [Sign up for an Azure subscription](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
+- Access to the Data Box Edge/Data Box Gateway service requires your organization to have an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) subscription. For more information, go to [Sign up for an Azure subscription](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Because your management service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
 ## Data Box Edge device protection
@@ -108,9 +108,6 @@ For security reasons, many datacenters require key rotation. We recommend that y
 - Rotate and then [Sync your storage account keys](data-box-gateway-manage-shares.md#sync-storage-keys) regularly to help ensure that your storage account is not accessed by unauthorized users.
 - Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Azure portal to directly access the storage account.
 
-### Protect data flowing through the service
-
-Talk about service data encryption key here.
 
 ## Manage personal information
 
