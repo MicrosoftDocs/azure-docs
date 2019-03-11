@@ -226,9 +226,9 @@ The Azure Activity Log is a subscription log that provides insight into subscrip
 3.	Run the following command to authorize the Azure Log Integration service principal created in the previous step access to the read the Activity Log for the subscription. You need to be an Owner on the subscription to run the command.
 
     ```Azlog.exe authorize subscriptionId```
-Example:
+   Example:
 
-```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+   ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
 4.	Check the following folders to confirm that the Azure Active Directory audit log JSON files are created in them:
     - C:\Users\azlog\AzureResourceManagerJson
@@ -249,5 +249,5 @@ Before you attempt the steps in this article, you must review the Get started ar
 * [Introduction to Azure Log Integration](security-azure-log-integration-overview.md). This article introduces you to Azure Log Integration, its key capabilities, and how it works.
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). This blog post shows you how to configure Azure Log Integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar. It describes our current guidance about how to configure the SIEM components. Check with your SIEM vendor for additional details.
 * [Azure Log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md). This FAQ answers common questions about Azure Log Integration.
-* [Integrating Azure Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). This article shows you how to sync Security Center alerts and virtual machine security events that are collected by Azure Diagnostics and Azure activity logs. You sync the logs by using your Azure Log Analytics or SIEM solution.
+* [Integrating Azure Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). This article shows you how to sync Security Center alerts and virtual machine security events that are collected by Azure Diagnostics and Azure activity logs. You sync the logs by using your Azure Monitor logs or SIEM solution.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). This blog post introduces you to Azure audit logs and other features that can help you gain insight into the operations of your Azure resources.

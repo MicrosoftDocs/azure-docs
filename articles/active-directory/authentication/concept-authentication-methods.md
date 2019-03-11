@@ -193,6 +193,9 @@ An SMS is sent to the mobile phone number containing a verification code. Enter 
 
 An automated voice call is made to the phone number you provide. Answer the call and press # in the phone keypad to authenticate
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 ## Office phone
 
 An automated voice call is made to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate.
@@ -200,6 +203,9 @@ An automated voice call is made to the phone number you provide. Answer the call
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
 The office phone attribute is managed by your administrator.
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 > [!NOTE]
 > There needs to be a space between the country code and the phone number.

@@ -13,10 +13,9 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
 
 ---
 # Offline update of Azure App Service on Azure Stack
@@ -24,7 +23,7 @@ ms.lastreviewed: 01/16/2019
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1809 update or later to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4. Before updating the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+> Apply the 1901 update or later to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5. 
 
 By following the instructions in this article, you can upgrade the [App Service resource provider](azure-stack-app-service-overview.md) deployed in an Azure Stack environment that is:
 
@@ -32,9 +31,7 @@ By following the instructions in this article, you can upgrade the [App Service 
 * secured by Active Directory Federation Services (AD FS).
 
 > [!IMPORTANT]
-> Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md)
->
->
+> Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md) and that you have read the [release notes](azure-stack-app-service-release-notes-update-five.md), which accompany the 1.5 release, to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 ## Run the App Service resource provider installer
 
@@ -97,7 +94,7 @@ To upgrade App Service in a disconnected environment, you must first create an o
 
    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         * If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click  **Sign In**.
-        * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example _cloudadmin@azurestack.local_. Enter your password, and click **Sign In**.
+        * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, _cloudadmin@azurestack.local_. Enter your password, and click **Sign In**.
    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
    4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.

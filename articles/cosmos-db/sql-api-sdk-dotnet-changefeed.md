@@ -125,7 +125,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+  * Fix for handling canceled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 

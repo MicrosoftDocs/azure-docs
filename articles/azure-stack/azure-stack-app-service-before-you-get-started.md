@@ -13,8 +13,8 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
 
@@ -27,7 +27,7 @@ ms.lastreviewed: 02/22/2019
 Before you deploy Azure App Service on Azure Stack, you must complete the prerequisite steps in this article.
 
 > [!IMPORTANT]
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.4.
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.5.
 
 ## Download the installer and helper scripts
 
@@ -46,15 +46,7 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
 
 ## Syndicate the Custom Script Extension from the Marketplace
 
-Azure App Service on Azure Stack requires Custom Script Extension v1.9.0.  The extension must be [syndicated from the Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) before starting the deployment or upgrade of Azure App Service on Azure Stack
-
-## High availability
-
-The Azure Stack 1802 update added support for fault domains. New deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.
-
-For existing deployments of Azure App Service on Azure Stack, which were deployed before the 1802 update, see the [Rebalance an App Service resource provider across fault domains](azure-stack-app-service-fault-domain-update.md) article.
-
-Additionally, deploy the required file server and SQL Server instances in a highly available configuration.
+Azure App Service on Azure Stack requires Custom Script Extension v1.9.1.  The extension must be [syndicated from the Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) before starting the deployment or upgrade of Azure App Service on Azure Stack
 
 ## Get certificates
 

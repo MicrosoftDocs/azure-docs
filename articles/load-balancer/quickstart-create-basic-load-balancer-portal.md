@@ -41,7 +41,7 @@ First, create a public Basic Load Balancer by using the portal. The name and pub
     | Type          | Select **Public**.                                        |
     | SKU           | Select **Basic**.                          |
     | Public IP address | Select **Create new**. |
-    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    | Public IP address name              | *MyPublicIP*   |
     | Assignment| Static|
 
 3. In the **Review + create** tab, click **Create**.   

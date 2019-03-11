@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Verify that data is collected
 
 ## Prerequisites
-Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions are supported per subscription for data export by user and group:
+Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Owner – Can create, modify, or delete scheduled exports for a subscription.
 - Contributor – Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 Cost Management + Billing &gt; Cost Management &gt; select a subscription or resource group in a subscription &gt; Export &gt; **Add**.
 
-Type a name for the export and select the "Daily export of month-to-date costs" option. Click **Next**.
+Type a name for the export and select the **Daily export of month-to-date costs** option. Click **Next**.
 
 ![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)
 

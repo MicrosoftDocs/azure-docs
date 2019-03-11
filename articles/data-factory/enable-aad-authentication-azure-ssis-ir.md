@@ -3,25 +3,27 @@ title: Enable Azure Active Directory authentication for Azure-SSIS Integration R
 description: This article describes how to enable Azure Active Directory authentication with the managed identity for Azure Data Factory to create Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
-ms.author: douglasl
+ms.date: 3/11/2019
+author: swinarko
+ms.author: sawinark
+manager: craigg
 ---
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
 
-This article shows you how to enable Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory (ADF) and use it instead of SQL authentication to create an Azure-SSIS Integration Runtime (IR) that will in turn create SSIS catalog database (SSISDB) in Azure SQL Database server/Managed Instance on your behalf.
+This article shows you how to enable Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory (ADF) and use it instead of SQL authentication to create an Azure-SSIS Integration Runtime (IR) that will in turn provision SSIS catalog database (SSISDB) in Azure SQL Database server/Managed Instance on your behalf.
 
 For more info about the managed identity for your ADF, see [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> If you have already created an Azure-SSIS IR using SQL authentication, you can not reconfigure your IR to use Azure AD authentication with PowerShell at this time, but you can do so in Azure portal/ADF app. 
+>-  In this scenario, Azure AD authentication with the managed identity for your ADF is only used in the creation and subsequent starting operations of your SSIS IR that will in turn provision and connect to SSISDB. For SSIS package executions, your SSIS IR will still connect to SSISDB using SQL authentication with fully managed accounts that are created during SSISDB provisioning.
+>-  If you have already created your SSIS IR using SQL authentication, you can not reconfigure it to use Azure AD authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Enable Azure AD on Azure SQL Database
 
@@ -212,7 +214,7 @@ To provision your Azure-SSIS IR with PowerShell, do the following things:
 2.  In your script, do not set `CatalogAdminCredential` parameter. For example:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -Description $AzureSSISDescription `
@@ -225,7 +227,7 @@ To provision your Azure-SSIS IR with PowerShell, do the following things:
                                                -CatalogServerEndpoint $SSISDBServerEndpoint `
                                                -CatalogPricingTier $SSISDBPricingTier
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                  -DataFactoryName $DataFactoryName `
                                                  -Name $AzureSSISName
    ```

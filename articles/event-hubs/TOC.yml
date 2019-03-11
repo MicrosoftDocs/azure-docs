@@ -195,6 +195,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=event-hubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs

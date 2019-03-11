@@ -1,18 +1,18 @@
 ---
 title: Configure Service Map in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
-ms.author: bwren
+ms.author: magoedte
 ---
 # Configure Service Map in Azure
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. You can use it to view your servers as you think of them--interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required, other than installation of an agent.
@@ -22,8 +22,10 @@ This article describes the details of configuring Service Map and onboarding age
 ## Supported Azure regions
 Service Map is currently available in the following Azure regions:
 - East US
-- West Europe
 - West Central US
+- Canada Central
+- UK South
+- West Europe
 - Southeast Asia
 
 ## Supported Windows operating systems
@@ -167,6 +169,8 @@ For more information on data collection and usage, see the [Microsoft Online Ser
 
 ## Installation
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### Azure VM Extension
 There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux), and you can easily deploy the Dependency agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency agent to your Windows and Linux VMs using either a PowerShell script or directly in the VM using an Azure Resource Manager template.  If you deploy the agent with the Azure VM Extension, your agents are automatically updated to the latest version.
 
@@ -182,7 +186,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
 	""
 	$name = $_.Name
@@ -192,7 +196,7 @@ ForEach-Object {
 	"${name}: ${os} (${location})"
 	Date -Format o
 	$ext = $OsExtensionMap.($os.ToString())
-	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+	$result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
 	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
 	$result.IsSuccessStatusCode
 }

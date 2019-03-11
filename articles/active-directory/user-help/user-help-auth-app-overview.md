@@ -24,14 +24,16 @@ The Microsoft Authenticator app helps you sign-in to your accounts if you use tw
 
 You can use the Microsoft Authenticator app in multiple ways, including:
 
-- Providing a prompt for a second verification method after you sign in with your username and password.
+- Respond to a prompt for authentication after you sign in with your username and password.
 
-- Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
+- Sign-in without entering a password, using your username, the authenticator app, and your mobile device with your fingerprint, face, or PIN.
+
+- As a code generator for any other accounts that support authenticator apps.
 
 >[!Important]
->The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+>The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
 
->Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-overview.md).
+>Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-add-work-school-account.md).
 
 >If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help. Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 

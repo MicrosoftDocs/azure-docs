@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
@@ -57,6 +57,8 @@ You're now ready to connect to your cluster. The master can be found in your clu
 You may also find the **Helm** package manager useful for installing and deploying apps to your cluster. For instructions on installing and using Helm with your cluster, see [helm.sh](https://helm.sh/).
 
 ## Next steps
+
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)
 
 [Add a Kubernetes to the Marketplace (for the Azure Stack operator)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

@@ -119,7 +119,7 @@ CREATE TABLE Collection (
 
 You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be XML document instead of `nvarchar(max)` type, if the value is JSON document, you can put `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns, add computed columns and indexes to simplify and optimize data access, define the table as memory/optimized schema-only table to get better performance, etc.
 
-See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
+See [how BWin is using In-Memory OLTP to achieve unprecedented performance and scale](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) for their ASP.NET caching solution that achieved 1.200.000 batches per seconds, as an example how relational model can be effectively used as key-value pair solution in practice.
 
 ## Next steps
 Multi-model capabilities in Azure SQL Databases are also the core SQL Server Database Engine features that are shared between Azure SQL Database and SQL Server. To learn more details about these features, visit the SQL Relational database documentation pages:
