@@ -83,7 +83,7 @@
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
-    - name: Azure PowerShell
+    - name: Azure portal
       href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md      
