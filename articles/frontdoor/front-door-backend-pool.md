@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # Backends and backend pools in Azure Front Door Service
-This article explains the different concepts regarding how you can map your application deployment with Front Door. We will also explain you what the different terms in Front Door configuration around application backend mean.
+This article explains the different concepts regarding how you can map your application deployment with Front Door. We will also explain what the different terms in Front Door configuration around application backend mean.
 
 ## Backend pool
 A backend pool in Front Door refers to the set of equivalent backends that can receive the same type of traffic for their application. In other words, it is a logical grouping of your application instances throughout the world that can receive the same traffic and can respond with the expected behavior. These backends are usually deployed across different regions or within the same region. Additionally, these backends can all be in Active-Active deployment mode or otherwise could be defined as an Active/Passive configuration.
