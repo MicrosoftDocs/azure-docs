@@ -154,7 +154,7 @@
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
       href: functions-runtime-install.md
-    - name: Using the Jenkins plugin
+    - name: Deploy using the Jenkins plugin
       href: /azure/jenkins/jenkins-azure-functions-deploy
   - name: Configure
     items:
