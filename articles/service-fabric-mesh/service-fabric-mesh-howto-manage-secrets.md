@@ -6,7 +6,7 @@ keywords: secrets
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.

@@ -40,8 +40,9 @@ In this tutorial, you do the following actions:
 1. Select **Connect** on the tile for the virtual machine of the lab that you want to access. 
 
     ![Connect to VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Save the RDP file to the hard disk and open it (assuming that it's a Windows VM)
-3. Use the **user name** and **password** you get from your educator/professor for logging in to the machine. 
+2. Do one of the following steps: 
+    1. For **Windows** virtual machines, save the **RDP** file to the hard disk. Open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator/professor to log in to the machine. 
+    3. For **Linux** virtual machines, copy and save the SSH connection string on the **Connect to your virtual machine** dialog box. Use this connection string from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine. 
 
 ## Next steps
 In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor.
