@@ -2,7 +2,7 @@
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: include
-ms.date: 08/06/2018
+ms.date: 03/11/2019
 ms.author: ramamill
 ---
 The steps to unregister a process server differs depending on its connection status with the Configuration Server.
@@ -11,8 +11,9 @@ The steps to unregister a process server differs depending on its connection sta
 
 1. Remote into the process server as an Administrator.
 2. Launch the **Control Panel** and open **Programs > Uninstall a program**
-3. Uninstall a program by the name **Microsoft Azure Site Recovery Configuration/Process Server**
-4. Once step 3 is completed, you can uninstall **Microsoft Azure Site Recovery Configuration/Process Server Dependencies**
+3. Uninstall a program by the name **Microsoft Azure Site Recovery Mobility Service/Master Target Server**
+4. Uninstall a program by the name **Microsoft Azure Site Recovery Configuration/Process Server**
+5. Once step 3 is completed, you can uninstall **Microsoft Azure Site Recovery Configuration/Process Server Dependencies**
 
 ### Unregister a process server that is in a disconnected state
 
