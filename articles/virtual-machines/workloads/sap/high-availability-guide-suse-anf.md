@@ -3,7 +3,7 @@ title: Azure Virtual Machines high availability for SAP NetWeaver on SUSE Linux 
 description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: radeltch
+author: rdeltcheva
 manager: juergent
 editor: ''
 tags: azure-resource-manager
@@ -134,16 +134,19 @@ Check if your selected Azure region offers ANF(Azure NetApp Files). The followin
 
 The Azure NetApp files feature is in public preview in several Azure regions. Before deploying Azure NetApp Files, sign up for ANF preview, following the [Register for Azure NetApp files instructions][anf-register]. 
 
-###Deploy Azure NetApp File(ANF) resources  
+### Deploy Azure NetApp File(ANF) resources  
 
 The steps assume that you have already deployed Azure [VNET](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Keep in mind that the ANF resources and the VMs, where the ANF resources will be mounted must be deployed in the same VNET.  
 
-1. If you haven't done that already, request to [enroll in the Azure NetApp(ANF) preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register) .  
-1. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).   
-2. Set up ANF capacity pool, following the [instructions on how to set up ANF capacity pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+1. If you haven't done that already, request to [enroll in the Azure NetApp(ANF) preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
+
+2. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
+3. Set up ANF capacity pool, following the [instructions on how to set up ANF capacity pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 The SAP Netweaver architecture presented in this article uses single ANF capacity pool, Premium SKU. We recommend ANF Premium SKU for SAP Netweaver application workload on Azure.  
-3. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) .  
-4. Deploy ANF volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated ANF [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Keep in mind that the ANF resources and the Azure VMs must be in the same Azure VNET. For example sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. are the volume names and sapmnt<b>qas</b>, usrsap<b>qas</b>, etc. are the filepaths for the ANF volumes.  
+
+4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
+
+5. Deploy ANF volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated ANF [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Keep in mind that the ANF resources and the Azure VMs must be in the same Azure VNET. For example sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. are the volume names and sapmnt<b>qas</b>, usrsap<b>qas</b>, etc. are the filepaths for the ANF volumes.  
 
    1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -155,7 +158,7 @@ The SAP Netweaver architecture presented in this article uses single ANF capacit
 
 In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) (for instance: /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>). 
 
-###Important considerations
+### Important considerations
 
 When considering ANF for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
 
@@ -166,30 +169,37 @@ When considering ANF for the SAP Netweaver on SUSE High Availability architectur
 - ANF currently supports only NFSv3 
 - ANF isn't zone aware yet. Currently ANF isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 
-
-## Setting up (A)SCS
-
-In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home) .
-
-### Deploy Linux manually via Azure portal
+## Deploy Linux VMs manually via Azure portal
 
 First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
 
 1. Create a Resource Group
 1. Create a Virtual Network
-1. Create an Availability Set for ASCS    
+1. Create an Availability Set for ASCS  
    Set max update domain
 1. Create Virtual Machine 1  
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
-   Select Availability Set created earlier  
+   Select Availability Set created earlier for ASCS  
 1. Create Virtual Machine 2  
    Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
-   Select Availability Set created earlier  
-1. Create Virtual Machine 2  
-   Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
-   Select Availability Set created earlier  
+   Select Availability Set created earlier for ASCS  
 1. Create an Availability Set for the SAP application instances (PAS, AAS)    
    Set max update domain
+1. Create Virtual Machine 3  
+   Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
+   Select Availability Set created earlier for PAS/AAS   
+1. Create Virtual Machine 4  
+   Use at least SLES4SAP 12 SP3, in this example the SLES4SAP 12 SP3 image is used  
+   Select Availability Set created earlier for PAS/AAS  
+
+## Setting up (A)SCS
+
+In this example, the resources were deployed manually via the [Azure portal](https://portal.azure.com/#home) .
+
+### Deploy Azure Load Balancer manually via Azure portal
+
+First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+
 1. Create a Load Balancer (internal)  
    1. Create the frontend IP addresses
       1. IP address 10.1.1.20 for the ASCS
