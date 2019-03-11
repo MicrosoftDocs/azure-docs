@@ -16,9 +16,10 @@ ms.custom: seodec18
 ---
 
 # Access data from your datastores
-In this article, you learn different ways to access and interact with your data in Azure Machine Learning workflows via datastores.
 
-This how-to shows examples for the following tasks: 
+Datastores allow you to interact with and access your data whether you are running your code locally, on a compute cluster, or on a virtual machine. In this article, you learn the Azure Machine Learning workflows that ensure your datastores are accessible and made available to your compute context.
+
+This how-to shows examples for the following tasks:
 * [Choose a datastore](#access)
 * [Get a datastore](#get)
 * [Upload and download data to datastores](#upload-and-download-data)
