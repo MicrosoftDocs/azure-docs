@@ -6,7 +6,7 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
