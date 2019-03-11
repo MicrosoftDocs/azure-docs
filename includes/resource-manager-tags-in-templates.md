@@ -34,7 +34,7 @@ The following example shows a storage account with two tags (`Dept` and `Environ
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
+To set a tag to a datetime value, use the [utcNow function](../articles/azure-resource-manager/resource-group-template-functions-string.md#utcnow).
 
 ### Apply an object to the tag element
 You can define an object parameter that stores several tags, and apply that object to the tag element. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that is applied to the tag element.
