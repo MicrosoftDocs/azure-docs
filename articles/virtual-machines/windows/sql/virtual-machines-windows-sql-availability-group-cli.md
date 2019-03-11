@@ -121,9 +121,11 @@ Once the availability group has been manually created, you can create the listen
    1. Select the vNet resource. 
    1. Select **Properties** in the **Settings** pane. 
    1. Identify the resource ID for the vNet and append `/subnets/<subnetname>`to the end of it to create the subnet resource ID. For example:
-        - My vNet resource ID is `/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`.
+        - My vNet resource ID is:
+         `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - My subnet name is `default`.
-        - Therefore, my subnet resource ID is `/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
+        - Therefore, my subnet resource ID is:
+         `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
 
 
 The following code snippet will create the availability group listener:
@@ -133,7 +135,7 @@ The following code snippet will create the availability group listener:
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
 #  --load-balancer sqlilb --probe-port 59999  `
-#  --subnet /subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default `
+#  --subnet /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default `
 #  --sqlvms sqlvm1 sqlvm2
 
 az sql vm group ag-listener create -n <listener name> -g <resource group name> `
@@ -164,7 +166,7 @@ To add a new replica to the availability group, do the following:
     # Add SQL VM metadata to cluster
     # example: az sqlvm aglistener add-sqlvm  --group-name Cluster`
     # --name AGListener` --resource-group SQLVM-RG `
-    #--sqlvm-rid /subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
+    #--sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
     
     az sqlvm aglistener add-sqlvm --group-name <Cluster name> `
     --name <AG Listener name> --resource-group <RG group name> `
@@ -176,11 +178,11 @@ To remove a replica from the availability group, do the following:
 
 1. Remove the replica from the availability group using SQL Server Management Studio (SSMS). 
 1. Remove the SQL Server VM metadata from the listener:
-    ```
+    ```cli
     #Remove SQL VM metadata from listener
     # example: az sqlvm aglistener remove-sqlvm --group-name Cluster `
     --name AGListener` --resource-group SQLVM-RG `
-    --sqlvm-rid /subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
+    --sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
     
     az sqlvm aglistener remove-sqlvm --group-name <Cluster name> `
     --name <AG Listener name> --resource-group <RG group name> `
@@ -188,7 +190,7 @@ To remove a replica from the availability group, do the following:
     ``` 
 1. Remove the SQL Server VM from the cluster metadata:
 
-    ```
+    ```cli
     # Remove SQL VM from cluster metadata
     #example: az sqlvm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
     
