@@ -119,7 +119,7 @@ There are two required installers for password protection for Azure Active Direc
 
          ```PowerShell
          Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-       
+         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 
          You then complete authentication by following the displayed instructions on a different device.
