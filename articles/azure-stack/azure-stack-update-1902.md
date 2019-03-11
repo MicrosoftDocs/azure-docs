@@ -74,7 +74,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
 <!-- 1404751	3617292: Graph: Remove dependency on ADWS.	Identity -->
-- Improve reliability of Graph service calls
+- Improvements to increase AD Graph reliability when communicating with customer’s Active Directory environment
 
 ## Common vulnerabilities and exposures
 
