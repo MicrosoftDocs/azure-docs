@@ -159,6 +159,20 @@ inside Linux and Windows virtual machines* initiative contains 18 policies. Ther
 For each, the **DeployIfNotExists** [policy definition rule](definition-structure.md#policy-rule)
 limits the systems evaluated.
 
+## Client log files
+
+The Guest Configuration extension writes log files in Windows to the following location:
+
+```
+C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log
+```
+
+For all Linux distributions, the Guest Configuration extension writes logs to:
+
+```
+/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log
+```
+
 ## Next steps
 
 - Review examples at [Azure Policy samples](../samples/index.md)
