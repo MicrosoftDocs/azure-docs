@@ -74,18 +74,16 @@ This topic covers specifics for the Azure Key Vault service. For general informa
  Azure Key Vault also returns error information in the response body when a problem occurs. The response body is JSON formatted and takes the form:  
 
 ```
-
-{
-  "error":
   {
-    "code": "BadArgument",
-    "message":
+    "error":
+    {
+      "code": "BadArgument",
+      "message":
 
       "’Foo’ is not a valid argument for ‘type’."
     }
   }
 }
-
 ```
 
 ## Authentication  
@@ -106,7 +104,6 @@ Authorization: Bearer <access_token>
 ```
 401 Not Authorized
 WWW-Authenticate: Bearer authorization="…", resource="…"
-
 ```
 
  The parameters on the WWW-Authenticate header are:  
