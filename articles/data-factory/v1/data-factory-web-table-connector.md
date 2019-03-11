@@ -239,13 +239,13 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 See WebSource type properties for the list of properties supported by the WebSource.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "WebTableToAzureBlob",
         "description": "Copy from a Web table to an Azure blob",
