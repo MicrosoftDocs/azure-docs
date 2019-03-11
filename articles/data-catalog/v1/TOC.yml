@@ -73,7 +73,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Release notes
-    href: articles/active-directory/fundamentals/whats-new.md
+    href: ../../active-directory/fundamentals/whats-new.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow
