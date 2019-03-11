@@ -28,13 +28,13 @@ If Backup and Replication are both enabled, and a backup is taken, there is no i
 
 ### Disk Backup/Restore
 
-We do not currently support this for an on-going replicating VM. Protection needs to be enabled after Restore of Backup.
+If you restore disk from the backup then protection of the virtual machine has to be enabled again.
 
 ### VM Backup/Restore
 
 Backup and restore of a VM or group of VMs is not supported. To make it work, protection needs to be re-enabled.
 
-**Scenario** | **Supported by Azure Site Recovery ?** | **Workaround, if any**  
+**Scenario** | **Supported by Azure Site Recovery?** | **Workaround, if any**  
 --- | --- | ---
 File/folder backup | Yes | Not Applicable
 Disk backup | Not currently | Disable and Enable Protection
