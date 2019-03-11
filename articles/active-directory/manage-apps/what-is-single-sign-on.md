@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 
 ms.collection: M365-identity-device-management
 ---
@@ -31,7 +31,7 @@ There are several ways to configure an application for single sign-on. Choosing 
 
 This flowchart helps you decide which single sign-on method is best for your situation. 
 
-![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 The following table summarizes the single sign-on methods, and links to more details. 
 
