@@ -25,10 +25,10 @@
       href: container-instances-tutorial-deploy-app.md
   - name: Deploy a multi-container group
     items:
-    - name: Deploy a container group - template
-      href: container-instances-multi-container-group.md
     - name: Deploy a container group - YAML
       href: container-instances-multi-container-yaml.md
+    - name: Deploy a container group - Resource Manager
+      href: container-instances-multi-container-group.md
 - name: Samples
   items:
   - name: Code samples
@@ -49,10 +49,6 @@
   items:
   - name: Deploy
     items:
-    - name: Multi-container group - YAML
-      href: container-instances-multi-container-yaml.md
-    - name: Multi-container group - Resource Manager
-      href: container-instances-multi-container-group.md
     - name: Deploy in a virtual network (preview)
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
