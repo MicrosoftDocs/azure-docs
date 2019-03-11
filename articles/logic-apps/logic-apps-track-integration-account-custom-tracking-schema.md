@@ -44,7 +44,7 @@ This article provides custom code that you can use in the layers outside of your
          "eventLevel": "",
          "eventTime": "",
          "recordType": "",
-         "record": {                
+         "record": {
          }
       }
    ]
