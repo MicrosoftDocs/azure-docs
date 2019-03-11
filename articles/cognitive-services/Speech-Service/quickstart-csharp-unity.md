@@ -84,7 +84,7 @@ When you're done, the UI should look similar to this screenshot:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Locate and replace the string `YourSubscriptionKey` with your Speech Service subscription key.
+1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
 1. Locate and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
@@ -106,7 +106,7 @@ When you're done, the UI should look similar to this screenshot:
 
 * Press the **Play** button in the Unity Editor toolbar (below the menu bar).
 
-* After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
+* After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
   [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

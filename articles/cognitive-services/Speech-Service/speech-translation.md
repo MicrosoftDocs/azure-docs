@@ -1,7 +1,7 @@
 ---
 title: Speech translation with Azure Speech Services
 titlesuffix: Azure Cognitive Services
-description: The Speech Service API lets you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
+description: The Speech Services let you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -56,7 +56,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 If your applications, tools, or products are using Translator Speech, we've created guides to help you migrate to the Speech Services.
 
-* [Migrate from the Translator Speech API to the Speech Service](how-to-migrate-from-translator-speech-api.md)
+* [Migrate from the Translator Speech API to the Speech Services](how-to-migrate-from-translator-speech-api.md)
 
 ## Reference docs
 

@@ -176,6 +176,8 @@
     - name: Batch transcription & customization
       href: https://westus.cris.ai/swagger/ui/index
       displayName: Batch transcription, transcription, custom models, customization, model management
+  - name: Speech Synthesis Markup Language (SSML)
+    href: speech-synthesis-markup.md
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
@@ -186,7 +188,7 @@
     href: regions.md
 - name: Resources
   items:
-  - name: Try the Speech Service for free
+  - name: Try the Speech Services for free
     href: get-started.md
   - name: FAQ
     items:
@@ -200,7 +202,6 @@
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech
   - name: Speech SDK licenses
-    href: speech-sdk.md
     displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
     items:
     - name: License

@@ -1,7 +1,7 @@
 ---
 title: Regions - Speech Services
 titlesuffix: Azure Cognitive Services
-description: Reference for regions of the Speech Service.
+description: A list of supported regions for the Azure Speech Services.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
@@ -14,9 +14,9 @@ ms.author: mahilleb
 ms.custom: seodec18
 ---
 
-# Speech Service supported regions
+# Speech Services supported regions
 
-The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
+The Speech Services allow your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
 Make sure that you use the endpoint that matches the region for your subscription.
 
@@ -64,7 +64,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 ## REST APIs
 
-The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
+The Speech Services also expose REST endpoints for speech-to-text and text-to-speech requests.
 
 ### Speech-to-text
 

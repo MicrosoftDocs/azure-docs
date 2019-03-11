@@ -42,7 +42,7 @@ This table lists required and optional headers for speech-to-text requests.
 
 ## Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Service supports 24-KHz, 16-KHz, and 8-KHz audio outputs.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24-KHz, 16-KHz, and 8-KHz audio outputs.
 
 |||
 |-|-|

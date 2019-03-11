@@ -47,12 +47,12 @@ This table lists required and optional headers for speech-to-text requests.
 
 |Header| Description | Required / Optional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your Speech Service subscription key. | Either this header or `Authorization` is required. |
+| `Ocp-Apim-Subscription-Key` | Your Speech Services subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
-| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
-| `Accept` | If provided, it must be `application/json`. The Speech Service provides results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. |
+| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Services acknowledge the initial request and awaits additional data.| Required if sending chunked audio data. |
+| `Accept` | If provided, it must be `application/json`. The Speech Services provide results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. |
 
 ## Audio formats
 
@@ -64,7 +64,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
+>The above formats are supported through REST API and WebSocket in the Speech Services. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
 
 ## Sample request
 
@@ -94,7 +94,7 @@ The HTTP status code for each response indicates success or common errors.
 
 ## Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Services to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
 
 This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
