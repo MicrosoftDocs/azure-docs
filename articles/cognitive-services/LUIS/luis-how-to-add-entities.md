@@ -1,7 +1,7 @@
 ---
 title: Add entities
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Add entities (key data in your application's domain) in Language Understanding (LUIS) apps.
+description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
 ---
 
