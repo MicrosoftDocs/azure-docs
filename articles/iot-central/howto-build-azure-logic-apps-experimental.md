@@ -27,13 +27,13 @@ You can use the IoT Central connector in Microsoft Flow. Both Azure Logic Apps a
 
 This section shows you how to post a message to Microsoft Teams when a rule is triggered. You can configure your workflow to use other connectors to do things such as send an event to your Event hub, create a new Azure DevOps work item, or insert a new row in SQL server.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). After you save the rule conditions, click the **Azure Logic Apps** tile as a new action. Click **Create in Azure portal**. You are taken to the Azure portal to create a new logic app. You may need to sign into your Azure account.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). After you save the rule conditions, select the **Azure Logic Apps** tile as a new action. Select **Create in Azure portal**. You are taken to the Azure portal to create a new logic app. You may need to sign into your Azure account.
 
-1. Enter the required information to create a new logic app. You can choose an Azure subscription to provision your new logic app into. It does not have to be the same subscription your IoT Central app was created in. Click **Create**.
+1. Enter the required information to create a new logic app. You can choose an Azure subscription to provision your new logic app into. It does not have to be the same subscription your IoT Central app was created in. Select **Create**.
 
     ![Create logic app in Azure portal](./media/howto-build-azure-logic-apps-experimental/createinazureportal.png)
 
-1. After your logic app has been successfully created, you are automatically navigated to the Logic Apps Designer. Click **Blank Logic App**. 
+1. After your logic app has been successfully created, you are automatically navigated to the Logic Apps Designer. Select **Blank Logic App**. 
 
     ![Create blank logic app](./media/howto-build-azure-logic-apps-experimental/blanklogicapp.png)
 
@@ -49,11 +49,11 @@ This section shows you how to post a message to Microsoft Teams when a rule is t
 
 1. In the action, choose the **Team** and **Channel**. Fill in the **Message** field with what you want each message to say. You can include *Dynamic content* from your IoT Central rule, passing along important information such as device name and timestamp to your notification.
     > [!NOTE]
-    > Click the "See more" text in the Dynamic content window to get measurement and property values that triggered the rule.
+    > Select the **See more** text in the Dynamic content window to get measurement and property values that triggered the rule.
 
     ![Logic app editing action with dynamic pane open](./media/howto-build-azure-logic-apps-experimental/buildworkflow.png)
 
-1. When you are done editing your action, click **Save**.
+1. When you are done editing your action, select **Save**.
 
 1. If you go back to your IoT Central app, you'll see this rule has an Azure Logic Apps action under the Actions area.
 

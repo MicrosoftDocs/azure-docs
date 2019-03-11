@@ -26,7 +26,7 @@ To complete the steps in this article, you need the following:
 
 An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics: 
 
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
 - State which contains an example measurement for **Device State**.
 - Event measurement with a **Button B Pressed** event. 
 - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
@@ -40,18 +40,18 @@ For full details on the configuration refer to [MXChip Device template details](
 
 In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details (**Scope ID, Device ID, and Primary key**).
 
-1. Add a **real device** from Device Explorer, click on **+New > Real** to add a real device.
+1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
     * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
     * Enter the Device Name or use the suggested name
     
     ![Add Device](media/concepts-connectivity/add-device.png)
 
 
-1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by clicking **Connect** on the device page.
+1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by selecting **Connect** on the device page.
  
     ![Connection details](media/concepts-connectivity/device-connect.PNG)
 
-3. Make sure to save these details, as you will temporaritly get disconnected from the internet as you prepare the DevKit device. 
+3. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device. 
 
 
 ### Prepare the DevKit device
