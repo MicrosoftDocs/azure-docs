@@ -75,26 +75,26 @@ public class OutgoingEmail
 ```cs
 [FunctionName("SendEmail")]
 public static async void Run(
- [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
- [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
 {
- var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+    var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
 
- var message = new SendGridMessage();
- message.AddTo(emailObject.To);
- message.AddContent("text/html", emailObject.Body);
- message.SetFrom(new EmailAddress(emailObject.From));
- message.SetSubject(emailObject.Subject);
- 
- await messageCollector.AddAsync(message);
+    var message = new SendGridMessage();
+    message.AddTo(emailObject.To);
+    message.AddContent("text/html", emailObject.Body);
+    message.SetFrom(new EmailAddress(emailObject.From));
+    message.SetSubject(emailObject.Subject);
+
+    await messageCollector.AddAsync(message);
 }
 
 public class OutgoingEmail
 {
- public string To { get; set; }
- public string From { get; set; }
- public string Subject { get; set; }
- public string Body { get; set; }
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
 }
 ```
 
@@ -110,19 +110,19 @@ Here's the binding data in the *function.json* file:
 {
     "bindings": [
         {
-          "type": "queueTrigger",
-          "name": "mymsg",
-          "queueName": "myqueue",
-          "connection": "AzureWebJobsStorage",
-          "direction": "in"
+            "type": "queueTrigger",
+            "name": "mymsg",
+            "queueName": "myqueue",
+            "connection": "AzureWebJobsStorage",
+            "direction": "in"
         },
         {
-          "type": "sendGrid",
-          "name": "$return",
-          "direction": "out",
-          "apiKey": "SendGridAPIKeyAsAppSetting",
-          "from": "{FromEmail}",
-          "to": "{ToEmail}"
+            "type": "sendGrid",
+            "name": "$return",
+            "direction": "out",
+            "apiKey": "SendGridAPIKeyAsAppSetting",
+            "from": "{FromEmail}",
+            "to": "{ToEmail}"
         }
     ]
 }
@@ -215,7 +215,7 @@ Here's the JavaScript code:
 ```javascript
 module.exports = function (context, input) {
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+        "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },
         subject: "Azure news",
         content: [{
