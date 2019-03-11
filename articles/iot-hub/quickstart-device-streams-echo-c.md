@@ -63,6 +63,8 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
     ```
@@ -134,25 +136,28 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
     You use this value later in the quickstart.
 
-
 ## Communicate between device and service via device streams
 
 ### Run the device-side application
 
 To run the device-side application, you need to perform the following steps:
-1. Provide your device credentials by editing the source file `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` and provide your device connection string.
+
+1. Provide your device credentials by editing the source file `iothub_client/samples/iothub_client_c2d_streaming_sample/iothub_client_c2d_streaming_sample.c` and providing your device connection string.
+
    ```C
-   /* Paste in the your iothub connection string  */
+   /* Paste in your iothub connection string  */
    static const char* connectionString = "[device connection string]";
    ```
 
 2. Compile the code as follows:
 
-   ```
+   ``` bash
    # In Linux
    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
    make -j
+   ```
 
+   ``` cmd
    # In Windows
    # Go to the cmake folder at the root of repo
    cmake --build . -- /m /p:Configuration=Release
@@ -160,12 +165,14 @@ To run the device-side application, you need to perform the following steps:
 
 3. Run the compiled program:
 
-   ```
+   ``` bash
    # In Linux
    # Go to sample's folder
    cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
    ./iothub_client_c2d_streaming_sample
+   ```
 
+   ``` cmd
    # In Windows
    # Go to sample's release folder
    cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
@@ -174,8 +181,7 @@ To run the device-side application, you need to perform the following steps:
 
 ### Run the service-side application
 
-As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompanying service programs available in [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md) guides.
-
+As mentioned previously, IoT Hub C SDK only supports device streams on the device side. For the service-side application, follow the steps to build and run the service-side application available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
 
 ## Clean up resources
 
