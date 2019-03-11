@@ -54,14 +54,6 @@ default results on whether a data point is anomaly or not, and the upper and low
 
 ![85 Sensitivity](../media/sensitivity_85.png)
 
-Request with sample data
-
-[Sample Request](../includes/request.md)
-
-Sample JSON response
-
-[Sample Response](../includes/response.md)
-
 ## How to use the APIs to do continuous monitoring 
 
 Anomaly finder APIs is a stateless services. To enable contious monitoring on streaming data, for example, in the following scenario, your have KPIs such as "Daily active users" to monitor, you have to post to the API endpoint a window of time series of DAU and get a response on whether the latest point is an anomaly or not. When a new data point is available, you complete the API post again with a moving window of time series to get the response. When this process is repeated every time a new data point is available to detect, continous monitoring is achieved on streaming data.

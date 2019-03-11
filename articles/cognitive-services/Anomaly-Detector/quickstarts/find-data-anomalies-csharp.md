@@ -34,9 +34,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 - A batch of time series data points. The data for this quickstart can be found TBD
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Create a new application
 
@@ -149,7 +149,7 @@ static void detectAnomaliesLatest(string requestData){
 
 1. In the main method of your application, load your JSON time series data with `File.ReadAllText()`. 
 
-    [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+    [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
 2. Call the anomaly detection functions created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
 

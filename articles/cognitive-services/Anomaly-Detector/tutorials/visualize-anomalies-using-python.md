@@ -21,7 +21,6 @@ with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupy
 
 ### Subscribe to Anomaly Finder and get a subscription key 
 
-- You must have a subscription key, refer to [Obtaining Subscription Keys](../How-to/get-subscription-key.md).
 
 ## Download the example code
 
@@ -37,7 +36,7 @@ with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupy
 
 ## Running the tutorial
 
-To use this notebook, you would need a subscription key for the Anomaly Finder API. Please refer to [Obtaining Subscription Keys](../How-to/get-subscription-key.md). After completing the process, paste your key into the variables section of the notebook as follows. Either the primary or the secondary key works.
+paste your key into the variables section of the notebook as follows. Either the primary or the secondary key works.
 Make sure to enclose the key in quotes to make it a string.
 
 ```Python

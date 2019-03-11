@@ -21,9 +21,9 @@ Use this quickstart to begin using the Anomaly Detector API to find anomalies in
 
 - The [Requests library](http://docs.python-requests.org) for python
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## Create a new application
 
