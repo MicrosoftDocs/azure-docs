@@ -74,7 +74,7 @@ Use this format to encode the **SharedKey** signature string:
 ```
 StringToSign = VERB + "\n" +
                   Content-Length + "\n" +
-               Content-Type + "\n" +
+                  Content-Type + "\n" +
                   x-ms-date + "\n" +
                   "/api/logs";
 ```
@@ -398,7 +398,7 @@ log_type = 'WebMonitorTest'
 
 # An example JSON web monitor object
 json_data = [{
-   "slot_ID": 12345,
+    "slot_ID": 12345,
     "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
     "availability_Value": 100,
     "performance_Value": 6.954,
