@@ -229,13 +229,13 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[Teams Communications Support Specialist](#teams-communications-support-specialist)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can only view user details in the call for the specific user they have looked up. This role has no access to view, create, or manage support tickets.
 
-* **[User Account Administrator](#user-account-administrator)**: Users with this role can create users, and manage all aspects of users with some restrictions (see below). Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
+* **[User Administrator](#user-account-administrator)**: Users with this role can create users, and manage all aspects of users with some restrictions (see below). Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
 
   | | |
   | --- | --- |
   |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets|
   |<p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
-  |Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Account Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>
+  |Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>
   
   <b>Important</b>: Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
   * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to User Administrators. Through this path a User Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
@@ -1080,7 +1080,7 @@ Can manage the Microsoft Teams service.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
-### User Account Administrator
+### User Administrator
 Can manage all aspects of users and groups, including resetting passwords for limited admins.
 
 | **Actions** | **Description** |
