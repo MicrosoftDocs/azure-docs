@@ -207,7 +207,7 @@ In this section, you create a user called Britta Simon in Coralogix. Work with t
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you select the Coralogix tile in the [MyApps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), you should be automatically signed in to Coralogix. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Coralogix tile in the MyApps portal, you should be automatically signed in to Coralogix. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 

@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Signagelive, take the following steps:
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on.
+2. In the **Select a single sign-on method** dialog box, select **SAML** to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
@@ -138,7 +138,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![New user button](common/new-user.png)
 
-3. In the User properties dialog box, take the following steps.
+3. In the **User** dialog box, take the following steps.
 
     ![The User dialog box](common/user-properties.png)
 
