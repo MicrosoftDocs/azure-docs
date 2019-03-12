@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab

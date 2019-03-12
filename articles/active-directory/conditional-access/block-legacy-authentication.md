@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -110,6 +110,8 @@ For more information, see [How should you deploy a new policy?](best-practices.m
 
 
 ## What you should know
+
+Blocking access using **Other clients** also blocks Exchange Online PowerShell using basic auth.
 
 Configuring a policy for **Other clients** blocks the entire organization from certain clients like SPConnect. This block happens because older clients authenticate in unexpected ways. The issue doesn't apply to major Office applications like the older Office clients.
 
