@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/05/2019
+ms.date: 03/11/2019
 ms.author: juliako
 
 ---
 
 # How to encode with a custom Transform
 
-When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) quickstart, or you can choose to build a custom preset to target your specific scenario or device requirements.
+When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) quickstart. You can also build a custom preset to target your specific scenario or device requirements.
 
 > [!Note]
 > In Azure Media Services v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
@@ -31,7 +31,7 @@ When encoding with Azure Media Services, you can get started quickly with one of
 
 ## Define a custom preset
 
-The following example defines a custom preset that we are going to save in the `customPreset.json` file. In this example, we upload the file into the `clouddrive` directory. 
+The following example defines a custom preset that we are going to save in the `customPreset.json` file. 
 
 ```json
 {
@@ -107,15 +107,13 @@ The following example defines a custom preset that we are going to save in the `
 
 ## Create a transform with the custom preset 
 
-You create a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest) to configure common tasks for encoding or analyzing your videos. In this example, we create a **Transform** based on the custom preset we defined earlier. 
-
-When creating a transform, you should first check if one already exists. The following `show` command returns the `customTransformName` transform if one already exists:
+You create a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest) to configure common tasks for encoding or analyzing your videos. In this example, we create the **Transform** that is based on the custom preset we defined earlier.  When creating a transform, you should first check if one already exists. The following `show` command returns the `customTransformName` checks if the transform exists:
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-The following CLI command creates a new transform based on the custom preset. This example assumes you have the `customPreset.json` file uploaded in the root of the `clouddrive` directory.
+The following CLI command creates the Transform based on the custom preset (defined earlier). 
 
 ```cli
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --preset customPreset.json
