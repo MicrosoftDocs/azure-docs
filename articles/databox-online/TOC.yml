@@ -81,8 +81,6 @@
       href: data-box-edge-manage-users.md
     - name: Manage bandwidth schedules
       href: data-box-edge-manage-bandwidth-schedules.md
-    - name: Develop C# module
-      href: data-box-edge-create-iot-edge-module.md
     - name: Manage via PowerShell
       href: data-box-edge-connect-powershell-interface.md
 - name: Resources
