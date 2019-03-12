@@ -293,7 +293,7 @@
       href: azure-stack-app-service-update.md
     - name: Update App Service Offline
       href: azure-stack-app-service-update-offline.md
-    - name: Add more web worker roles
+    - name: Add App Service infrastructure roles
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configure deployment sources
       href: azure-stack-app-service-configure-deployment-sources.md
