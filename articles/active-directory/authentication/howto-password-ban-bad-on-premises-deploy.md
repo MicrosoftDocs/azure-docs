@@ -1,6 +1,6 @@
 ---
-title: Deploy password protection for Azure Active Directory preview
-description: Deploy password protection for Azure Active Directory preview to ban bad passwords on-premises
+title: Deploy Azure AD password protection preview
+description: Deploy Azure AD password protection preview to ban bad passwords on-premises
 
 services: active-directory
 ms.service: active-directory
@@ -15,14 +15,13 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Deploy password protection for Azure AD
+# Preview: Deploy Azure AD password protection
 
 |     |
 | --- |
-| Password protection for Azure Active Directory (Azure AD) is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure Active Directory (Azure AD) password protection is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
-
-Now that you understand [how to enforce password protection for Azure AD for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
+Now that you understand [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
 
 ## Deployment strategy
 
@@ -38,16 +37,16 @@ After the feature has been running in audit mode for a reasonable period, you ca
 
 ## Deployment requirements
 
-* All domain controllers that get the DC Agent service for password protection for Azure AD installed must run Windows Server 2012 or later.
-* All machines that get the proxy service for password protection for Azure AD installed must run Windows Server 2012 R2 or later.
-* All machines, including domain controllers, that get password protection for Azure AD components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* All domain controllers that get the DC Agent service for Azure AD password protection installed must run Windows Server 2012 or later.
+* All machines that get the proxy service for Azure AD password protection installed must run Windows Server 2012 R2 or later.
+* All machines, including domain controllers, that get Azure AD password protection components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for password protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service. By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
 * All machines that host the proxy service must have network access to the following endpoints:
 
     |**Endpoint**|**Purpose**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Authentication requests|
-    |`https://enterpriseregistration.windows.net`|Password protection for AD functionality|
+    |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
 
 * All machines that host the proxy service for password protection must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A Global Administrator account to register the proxy service for password protection and forest with Azure AD.
@@ -57,15 +56,15 @@ After the feature has been running in audit mode for a reasonable period, you ca
 
 ## Single-forest deployment
 
-The following diagram shows how the basic components of password protection for Azure AD work together in an on-premises Active Directory environment.
+The following diagram shows how the basic components of Azure AD password protection work together in an on-premises Active Directory environment.
 
-![How password protection for Azure AD components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 It's a good idea to review how the software works before you deploy it. See [Conceptual overview of Azure AD password protection](concept-password-ban-bad-on-premises.md).
 
 ### Download the software
 
-There are two required installers for password protection for Azure AD. They're available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+There are two required installers for Azure AD password protection. They're available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ### Install and configure the proxy service for password protection
 
@@ -83,7 +82,7 @@ There are two required installers for password protection for Azure AD. They're 
       > The Windows Firewall service must be running before you install the AzureADPasswordProtectionProxySetup.msi package to avoid an installation error. If Windows Firewall is configured to not run, the workaround is to temporarily enable and run the Firewall service during the installation. The proxy software has no specific dependency on Windows Firewall after installation. If you're using a third-party firewall, it must still be configured to satisfy the deployment requirements. These include allowing inbound access to port 135 and the proxy RPC server port. See [Deployment requirements](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
 
 3. Open a PowerShell window as an administrator.
-   * The passsword protection proxy software includes a new PowerShell module, *AzureADPasswordProtection*. The following steps run various cmdlets from this PowerShell module. Import the new module as follows:
+   * The password protection proxy software includes a new PowerShell module, *AzureADPasswordProtection*. The following steps run various cmdlets from this PowerShell module. Import the new module as follows:
 
       ```PowerShell
       Import-Module AzureADPasswordProtection
@@ -268,7 +267,7 @@ The installation is complete after the DC Agent software is installed on a domai
 
 ## Multiple forest deployments
 
-There are no additional requirements to deploy password protection for Azure AD across multiple forests. Each forest is independently configured as described in the "Single-forest deployment" section. Each password protection proxy can only support domain controllers from the forest that it's joined to. The password protection software in any forest is unaware of password protection software that's deployed in other forests, regardless of Active Directory trust configurations.
+There are no additional requirements to deploy Azure AD password protection across multiple forests. Each forest is independently configured as described in the "Single-forest deployment" section. Each password protection proxy can only support domain controllers from the forest that it's joined to. The password protection software in any forest is unaware of password protection software that's deployed in other forests, regardless of Active Directory trust configurations.
 
 ## Read-only domain controllers
 
@@ -278,10 +277,10 @@ Password changes/sets are not processed and persisted on read-only domain contro
 
 The main availability concern for password protection is the availability of proxy servers when the domain controllers in a forest try to download new policies or other data from Azure. Each DC Agent uses a simple round-robin-style algorithm when deciding which proxy server to call. The Agent skips proxy servers that aren't responding. For most fully connected Active Directory deployments that have healthy replication of both directory and sysvol folder state, two proxy servers is enough to ensure availability. This results in timely download of new policies and other data. But you can deploy additional proxy servers.
 
-The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually *days*, not hours or less. So, brief outages of the proxy servers don't significantly impact password protection for Azure AD.
+The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually *days*, not hours or less. So, brief outages of the proxy servers don't significantly impact Azure AD password protection.
 
 ## Next steps
 
-Now that you've installed the services that you need for password protection for Azure AD on your on-premises servers, [perform post-install configuration and gather reporting information](howto-password-ban-bad-on-premises-operations.md) to complete your deployment.
+Now that you've installed the services that you need for Azure AD password protection on your on-premises servers, [perform post-install configuration and gather reporting information](howto-password-ban-bad-on-premises-operations.md) to complete your deployment.
 
 [Conceptual overview of Azure AD password protection](concept-password-ban-bad-on-premises.md)

@@ -1,6 +1,6 @@
 ---
-title: Password protection for Azure Active Directory preview
-description: Ban weak passwords in on-premises Active Directory by using Password protection for Azure Active Directory preview
+title: Azure AD password protection preview
+description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection preview
 
 services: active-directory
 ms.service: active-directory
@@ -15,18 +15,18 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Enforce password protection for Azure AD for Windows Server Active Directory
+# Preview: Enforce Azure AD password protection for Windows Server Active Directory
 
 |     |
 | --- |
-| Password protection for Azure Active Directory (Azure AD) and the custom banned password list are public preview features of Azure AD. For information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Azure Active Directory (Azure AD) password protection and the custom banned password list are public preview features of Azure AD. For information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Password protection for Azure AD is a new feature in public preview that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
+Azure AD password protection is a new feature in public preview that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
 
 ## Design principles
 
-Password protection for Azure AD is designed with these principles in mind:
+Azure AD password protection is designed with these principles in mind:
 
 * Domain controllers never have to communicate directly with the Internet.
 * No new network ports are opened on domain controllers.
@@ -38,9 +38,9 @@ Password protection for Azure AD is designed with these principles in mind:
 * We recommend that you install the DC Agent on all domain controllers to ensure universal password-protection security enforcement.
 ## Architectural diagram
 
-It's important to understand the underlying design and function concepts before you deploy password protection for Azure AD in an on-premises Active Directory environment. The following diagram shows how the components of password protection work together:
+It's important to understand the underlying design and function concepts before you deploy Azure AD password protection in an on-premises Active Directory environment. The following diagram shows how the components of password protection work together:
 
-![How password protection for AD components works together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 * The password protection proxy service runs on any domain-joined machine in the current Active Directory forest. Its primary purpose is to forward password policy download requests from domain controllers to Azure AD. It then returns the responses from Azure AD to the domain controller.
 * The password filter DLL of the DC Agent receives user password-validation requests from the operating system. It forwards them to the DC Agent service that's running locally on the domain controller.
@@ -48,7 +48,7 @@ It's important to understand the underlying design and function concepts before 
 
 ## How password protection works
 
-Each proxy service of password protection for Azure AD advertises itself to the domain controllers in the forest by creating a **serviceConnectionPoint** object in Active Directory.
+Each proxy service of Azure AD password protection advertises itself to the domain controllers in the forest by creating a **serviceConnectionPoint** object in Active Directory.
 
 Each DC Agent service for password protection also creates a **serviceConnectionPoint** object in Active Directory. But this object is used primarily for reporting and diagnostics.
 
@@ -66,11 +66,11 @@ The password protection proxy service is stateless. It never caches policies or 
 
 The DC Agent service always uses the most recent locally available password policy to evaluate a user's password. If no password policy is available on the local DC, the password is automatically accepted. When that happens, an event message is logged to warn the administrator.
 
-Password protection for Azure Active Directory isn't a real-time policy application engine. There can be a delay between when a password policy configuration change is made in Azure AD and when that change reaches and is enforced on all domain controllers.
+Azure AD password protection isn't a real-time policy application engine. There can be a delay between when a password policy configuration change is made in Azure AD and when that change reaches and is enforced on all domain controllers.
 
 ## Forest/tenant binding for password protection
 
-Deployment of password protection in an Active Directory forest requires registration of that forest with Azure AD. Any proxy services that are deployed for password protection must also be registered. These forest and proxy registrations are associated with a specific Azure AD tenant. That tenant is identified implicitly by the credentials that are used during registration.
+Deployment of Azure AD password protection in an Active Directory forest requires registration of that forest with Azure AD. Any proxy services that are deployed for password protection must also be registered. These forest and proxy registrations are associated with a specific Azure AD tenant. That tenant is identified implicitly by the credentials that are used during registration.
 
 Whenever a password protection password policy is downloaded, that policy is specific to the tenant. In other words, that policy is always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list. You can't configure different domains or proxies in a forest to be bound to different Azure AD tenants.
 
@@ -80,13 +80,13 @@ The benefits of the global banned password list apply to all users of Azure AD.
 
 The custom banned-password list requires Azure AD Basic licenses.
 
-Password protection for Azure Active Directory for Windows Server Active Directory requires Azure AD Premium licenses.
+Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses.
 
 For additional licensing information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Download
 
-The two required agent installers for password protection for Azure Active Directory are available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+The two required agent installers for Azure AD password protection are available from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## Next steps
-[Deploy password protection for Azure Active Directory](howto-password-ban-bad-on-premises-deploy.md)
+[Deploy Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md)
