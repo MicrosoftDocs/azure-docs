@@ -8,7 +8,6 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 3/3/2019
 ms.author: raynew
-
 ms.custom: MVC
 
 ---
@@ -39,6 +38,13 @@ Before you start, it's helpful to:
     - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 - In this tutorial we show you how to replicate a single VM. If you're deploying multiple VMs you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner) to help plan your deployment. [Learn more](site-recovery-deployment-planner.md) about this tool.
 
+And review these tips:
+- This tutorial uses an OVA template to create the configuration server VMware VM. If you can't do this, follow [these instructins](physical-manage-configuration-server.md) to set up the configuration server manually.
+- In this tutorial, Site Recovery downloads and installs MySQL to the configuration server. If you prefer, you can set it up manually instead. [Learn more](vmware-azure-deploy-configuration-server.md#configure-settings).
+ >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+ The license provided with OVF template is an evaluation license valid for 180 days. Windows running on the VM must be activated with the required license. 
+
+
 
 ## Select a protection goal
 
@@ -49,12 +55,10 @@ Before you start, it's helpful to:
 5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then select **OK**.
 
 
-<<<<<<< HEAD
-#
 
 ## Set up the source environment
 
-As a first deployment step, you set up your source environment. You need a single, highly available, on-premises machine to host on-premises Site Recovery components. Components include the configuration server, process server, and master target server:
+In your source environment, you need a single, highly available, on-premises machine to host on-premises Site Recovery components. Components include the configuration server, process server, and master target server:
 
 - The configuration server coordinates communications between on-premises and Azure and manages data replication.
 - The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to cache storage account in Azure. The process server also installs Mobility Service on VMs you want to replicate and performs automatic discovery of on-premises VMware VMs.
@@ -62,11 +66,7 @@ As a first deployment step, you set up your source environment. You need a singl
 
 To set up the configuration server as a highly available VMware VM, download a prepared Open Virtualization Application (OVA) template and import the template into VMware to create the VM. After you set up the configuration server, register it in the vault. After registration, Site Recovery discovers on-premises VMware VMs.
 
-> [!TIP]
-> This tutorial uses an OVA template to create the configuration server VMware VM. If you're unable to do this, you can [set up the configuration server manually](physical-manage-configuration-server.md).
 
-> [!TIP]
-> In this tutorial, Site Recovery downloads and installs MySQL to the configuration server. If you don't want Site Recovery to do this, you can set it up manually. [Learn more](vmware-azure-deploy-configuration-server.md#configure-settings).
 
 
 ### Download the VM template
@@ -76,17 +76,10 @@ To set up the configuration server as a highly available VMware VM, download a p
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the OVF template for the configuration server.
 
-<<<<<<< HEAD
- > [!TIP]
- >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-The license provided with OVF template is an evaluation license valid for 180 days. Customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
-=======
- ## Import the template in VMware
->>>>>>> a67f077ede2c321510ae3b3c5b29e9b4fc802ffe
+
 
 1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**. 
@@ -193,4 +186,4 @@ Enable replication can be performed as follows:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
+> After enabling replication, [run a disaster recovery drill](site-recovery-test-failover-to-azure.md) to make sure that everything's working as expected.
