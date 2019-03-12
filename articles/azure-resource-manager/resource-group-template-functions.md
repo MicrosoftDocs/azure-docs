@@ -18,13 +18,7 @@ ms.author: tomfitz
 
 ---
 # Azure Resource Manager template functions
-This article describes all the functions you can use in an Azure Resource Manager template.
-
-You add functions in your templates by enclosing them within brackets: `[` and `]`, respectively. The expression is evaluated during deployment. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array, object, or integer. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
-
-A template expression cannot exceed 24,576 characters.
-
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
+This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](resource-group-authoring-templates.md#syntax).
 
 To create your own functions, see [User-defined functions](resource-group-authoring-templates.md#functions).
 
@@ -225,4 +219,4 @@ Resource Manager provides the following functions for working with strings:
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
-* To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)

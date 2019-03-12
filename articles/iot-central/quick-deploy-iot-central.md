@@ -3,7 +3,7 @@ title: Create an Azure IoT Central application | Microsoft Docs
 description: Create a new Azure IoT Central application. Create a Trial or Pay-As-You-Go application using an application template.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 02/20/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -32,6 +32,7 @@ To create a new Azure IoT Central application:
 1. Choose a friendly application name, such as **Contoso IoT**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
 
 1. Choose an application template. An application template can contain predefined items such as device templates and dashboards to help you get started.
+
     | Application template | Description |
     | -------------------- | ----------- |
     | Sample Contoso       | Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
@@ -39,7 +40,8 @@ To create a new Azure IoT Central application:
     | Custom application   | Creates an empty application for you to populate with your own device templates and devices. |
 
 1. If you are creating a **Pay-As-You-Go** application, you need to select your *Directory*, *Azure Subscription*, and *Region*. 
-    - *Directory* is the Azure Active Directory to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an AAD, one is created for you when you create an Azure subscription.
+
+    - *Directory* is the Azure Active Directory (AD) to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
 
     - An *Azure Subscription* enables you to create instances of Azure services. IoT Central will provision resources in your subscription. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create Application** page. Your new subscription appears in the **Azure Subscription** drop-down.
 
@@ -55,4 +57,4 @@ To create a new Azure IoT Central application:
 In this quickstart, you created an IoT Central application. Here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Take a tour of IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)
+> [Take a tour of IoT Central](overview-iot-central-tour.md)

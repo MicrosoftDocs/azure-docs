@@ -8,10 +8,9 @@ ms.date: 12/5/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
 ---
