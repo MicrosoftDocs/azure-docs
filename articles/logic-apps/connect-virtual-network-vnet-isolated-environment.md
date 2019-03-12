@@ -21,12 +21,13 @@ For scenarios where your logic apps and integration accounts need access to an
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an 
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
 An ISE is a private and isolated environment that uses dedicated storage and other 
-resources kept separate from the public or "global" Logic Apps service. This separation 
-also reduces any impact that other Azure tenants might have on your apps' performance. 
-Your ISE is *injected* into to your Azure virtual network, which then deploys the Logic Apps 
-service into your virtual network. When you create a logic app or integration account, 
-select this ISE as their location. Your logic app or integration account can then directly 
-access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
+resources that are kept separate from the public or "global" Logic Apps service. 
+This separation also reduces any impact that other Azure tenants might have on your 
+apps' performance. Your ISE is *injected* into to your Azure virtual network, 
+which then deploys the Logic Apps service into your virtual network. When you create 
+a logic app or integration account, select this ISE as their location. Your logic 
+app or integration account can then directly access resources, such as virtual machines (VMs), 
+servers, systems, and services, in your virtual network.
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -67,12 +68,11 @@ If you don't have a virtual network, learn how to
   * Make sure that your virtual network [makes these ports available](#ports) 
   so your ISE works correctly and stays accessible.
 
-* To use one or more custom DNS servers for deploying your Azure virtual network, 
-[set up those servers following this guidance](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 
-before deploying your ISE to your virtual network. 
-Otherwise, each time you change your DNS server, 
-you also have to restart your ISE, which is a 
-capability that's available with ISE public preview.
+* If you want to use custom DNS servers for your Azure virtual network, 
+[set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 
+before you deploy your ISE to your virtual network. Otherwise, 
+each time you change your DNS server, you also have to restart your ISE, 
+which is a capability that's available with ISE public preview.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -94,11 +94,10 @@ communicate with an FTP system by using the FTP connector,
 make sure the port you use on that FTP system, 
 such as port 21 for sending commands, is available.
 
-To control the inbound and outbound traffic across the 
-virtual network's subnets where you deploy your ISE, 
-you can set up [network security groups](../virtual-network/security-overview.md) 
-for those subnets by learning 
-[how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
+To control the traffic across the virtual network's 
+subnets where you deploy your ISE, you can set up 
+[network security groups](../virtual-network/security-overview.md) for those subnets by 
+[filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
 These tables describe the ports in your virtual network 
 that your ISE uses and where those ports get used. 
 The [service tag](../virtual-network/security-overview.md#service-tags) 
@@ -170,9 +169,9 @@ and then choose **Review + create**, for example:
 
    **Create subnet**
 
-   Your ISE requires four *empty* subnets that *aren't delegated* 
-   to any service for creating resources in your environment. 
-   You *can't change* these subnet addresses after you create 
+   To create resources in your environment, your ISE needs 
+   four *empty* subnets that aren't delegated to any service. 
+   You *can't* change these subnet addresses after you create 
    your environment. Each subnet must meet these criteria:
 
    * Has a name that starts with an alphabetic character or an underscore, 
@@ -246,10 +245,10 @@ doesn't automatically go to your environment after deployment finishes.
 
 Your ISE base unit has fixed capacity, so if you 
 need more throughput, you can add more scale units. 
-You can choose either to autoscale based on performance 
-metrics or based on a specific number of processing units. 
-If you choose autoscaling based on metrics, you can 
-choose from various criteria and specify the threshold 
+You can autoscale based on performance metrics or 
+based on a number of processing units. If you choose 
+autoscaling based on metrics, you can choose from 
+various criteria and specify the threshold 
 conditions for meeting that criteria.
 
 1. In the Azure portal, find your ISE.
