@@ -243,7 +243,7 @@ In this section, you create a user called Britta Simon in Cisco Webex. In this s
 
 	b. In the **Last Name** textbox, type last name of user like **Simon**.
 
-	c. In the **Email address** textbox, type email address of user like **britta.simon@contoso.com**.
+	c. In the **Email address** textbox, type email address of user like **britta.simon\@contoso.com**.
 
 5. Click the plus sign to add Britta Simon. Then, click **Next**.
 

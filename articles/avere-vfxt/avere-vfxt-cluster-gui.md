@@ -42,7 +42,7 @@ Authentication is automatic if you used your SSH public key to create the cluste
 
 This example uses the common Windows-based terminal utility, PuTTY.
 
-Fill in the PuTTY **hostname** field with the cluster controller username and its IP address: *your_username*@*controller_public_IP*.
+Fill in the PuTTY **hostname** field with the cluster controller username and its IP address: *your_username*\@*controller_public_IP*.
 
 Example: ``azureuser@203.0.113.51``
 

@@ -343,7 +343,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
   **Restart** the KDC service after configuration.
 
-2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
+2.	Prepare a principal named **krbtgt/REALM.COM\@AD.COM** in KDC server with the following command:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -356,7 +356,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM@AD.COM**.
+2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM\@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

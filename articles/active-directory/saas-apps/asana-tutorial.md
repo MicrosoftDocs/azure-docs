@@ -202,7 +202,7 @@ In this section, you create a user called Britta Simon in Asana.
 
     ![Creating an Azure AD test user](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Type the email of the user like **britta.simon@contoso.com** in the text box and then select **Invite**.
+2. Type the email of the user like **britta.simon\@contoso.com** in the text box and then select **Invite**.
 
 3. Click **Send Invite**. The new user will receive an email into their email account. user will need to create and validate the account.
 
