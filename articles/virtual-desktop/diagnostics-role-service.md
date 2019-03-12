@@ -113,4 +113,4 @@ The **-Outcome** parameter can also be combined with other optional filtering pa
 
 To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
 
-To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell cmdlets](powershell-cmdlet-table.md) reference.
+To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).

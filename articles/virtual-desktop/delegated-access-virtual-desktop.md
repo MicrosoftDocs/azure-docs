@@ -59,6 +59,6 @@ You can modify the basic three cmdlets with the following parameters:
 
 ## Next steps
 
-For a more complete list of PowerShell cmdlets each role can use, see [PowerShell cmdlets](powershell-cmdlet-table.md).
+For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
 
 For guidelines for how to set up a Windows Virtual Desktop environment, see [Set up a Windows Virtual Desktop environment](environment-setup.md).
