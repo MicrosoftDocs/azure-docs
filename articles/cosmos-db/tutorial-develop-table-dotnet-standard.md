@@ -377,7 +377,7 @@ In this tutorial, you built code to perform basic CRUD operations on the data st
 
 Now build the solution and press f5 to run the project. When the project is run, you will see the following output in the command prompt:
 
-![Output from command prompt](./media/tutorial-develop-table-standard/.png)
+![Output from command prompt](./media/tutorial-develop-table-standard/output-from-sample.png)
 
 If you receive an error that says Settings.json file can’t be found when running the project, you can resolve it by adding the following XML entry to the project settings. Right click on CosmosTableSamples, select Edit CosmosTableSamples.csproj and add the following itemGroup: 
 
@@ -390,7 +390,7 @@ If you receive an error that says Settings.json file can’t be found when runni
 ```
 Now you can sign into the Azure portal and verify that the data exists in the table. 
 
-![Results in portal](./media/tutorial-develop-table-standard/.png)
+![Results in portal](./media/tutorial-develop-table-standard/results-in-portal.png)
 
 ## Next steps
 
