@@ -67,7 +67,7 @@
   - name: Workload Management
     items: 
     - name: Portal
-      href: create-create-a-worload-classifier.md
+      href: create-a-worload-classifier.md
 - name: Concepts
   items:
   - name: Security
