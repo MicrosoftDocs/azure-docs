@@ -71,7 +71,7 @@ The following table shows the supported mappings:
 |USGovVirginia|USGovVirginia|
 |EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
 
-<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Account are not exact region to region mapping
+<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
 
 > [!NOTE]
 > Due to demand, a region may not be available when creating your Automation Account or Log Analytics workspace.  If that is the case, ensure you are using a region in the preceding table that you can create resources in.
