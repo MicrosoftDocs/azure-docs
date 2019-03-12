@@ -65,19 +65,15 @@ In this section, you configure load balancer settings for a backend address pool
 
 To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include virtual machines for load balancing internet traffic.
 
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
-3. On the **Add a backend pool** page, do the following:
-   - For name, type *myBackendPool*, as the name for your backend pool.
-   - For **Virtual network**, select *myVNet*.
-   - Add *myVM1*, *myVM2*, and *my VM3* under **Virtual Machine** along with their corresponding IP addresses, and then select **Add**.
-4. Check to make sure your load balancer backend pool setting displays all the VMs *myVM1*, *myVM2*, and *myVM3*, and then click **OK**.
+3. On the **Add a backend pool** page, for name, type *myBackendPool*, as the name for your backend pool, and then select **Add**.
 
 ### Create a health probe
 
 To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
 
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Health probes**, then click **Add**.
 3. Use these values to create the health probe:
     - *myHealthProbe* - for the name of the health probe.
@@ -93,7 +89,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
 3. Use these values to configure the load balancing rule:
     - *myHTTPRule* - for the name of the load balancing rule.
@@ -121,7 +117,7 @@ In this section, you create a virtual network, create three virtual machines for
 
 ### Create virtual machines
 
-Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create two VMs (*myVM1* and *myVM2*) with a Standard public IP address (*myPublicIP*) that are added to the backend pool (*myBackendPool*) of the Standard Load Balancer, named *myLoadBalancer* that was created earlier.
+Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2*, and *myVM3*) with a Standard public IP address (*myPublicIP*)in three different zones (*Zone 1*, *Zone2*, and *Zone3*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
@@ -150,13 +146,13 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
 1. Select **Review + create**.   
 1. Review the settings, and then select **Create**.
-1. Follow the steps to create a second VM named *MyVM2*, with a Standard SKU public IP address named *MyVM2-ip*, and **Availability zone** setting of **2** and all the other settings the same as *MyVM1*.  
+1. Follow the steps to create two additional VMs - *MyVM2* and *myVM3*, with a Standard SKU public IP address in **Availability zone** **2** and **3** respectively, and all the other settings the same as *MyVM1*.  
 
 ### Create network security group rule
 
 In this section, you create a NSG rule to allow inbound connections using HTTP.
 
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
 2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
 3. Enter these values for the inbound security rule named *myHTTPRule* to allow for an inbound HTTP connections using port 80:
     - *Service Tag* - for **Source**.
@@ -171,7 +167,7 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 ### Install IIS on VMs
 
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupSLB* resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list click **myVM1** that is located in the *myResourceGroupSLB* resource group.
 2. On the **Overview** page, click **Connect** to RDP into the VM.
 3. In the **Connect to virtual machine** pop-up window, select **Download RDP File**, and then Open the downloaded RDP file.
 4. In the **Remote Desktop Connection** window, click **Connect**.
@@ -194,7 +190,7 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
 7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
 
 ## Test the load balancer
-1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
+1. Find the public IP address for the Load Balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then click **myPublicIP**.
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
@@ -205,13 +201,21 @@ To see the load balancer distribute traffic across the three VMs running your ap
 ## Remove or add VMs from the backend pool
 You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer.
 
-1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
-3. On the **myBackendPool** page, under **Target network IP configurations**, to remove *VM1* from the backend click the delete icon next to **Virtual machine:myVM1**
+3. On the **myBackendPool** page, to remove *VM1* select the delete icon at the end of the row that displays *myVM1*, and then click **Save**.
 
 With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
 
-To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to the backend pool* section of this article.
+To add *myVM1* back to the backend pool, complete the following steps:
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myVM1** from the resources list.
+2. In the **VM1** page, under **Settings**, select **Networking**.
+3. In the **Networking** page, select the **Load balancing** tab, and then select **Add load balancing**.
+4. In the **Add load balancing** page, do the following:
+    a. For **Load balancing options**, select **Azure load balancer**.
+    b. For **Select a load balancer**, select *myLoadBalancer*.
+    c. For **Select a backend pool**, select *myBackendPool*. 
 
 ## Clean up resources
 
