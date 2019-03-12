@@ -6,7 +6,7 @@ author: cherylmc
 manager: jpconnock
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 
