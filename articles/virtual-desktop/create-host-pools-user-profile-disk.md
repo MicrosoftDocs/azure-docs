@@ -1,17 +1,17 @@
 ---
-title: Create a User Profile Disk share for a host pool - Azure
+title: Create a User Profile Disk share for a host pool (preview)  - Azure
 description: How to create a User Profile Disk share for a Windows Virtual Desktop host pool.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Set up user profiles for a host pool (Preview)
 
-The Windows Virtual Desktop service offers FSLogix containers as the recommended user profile solution. The user profile disk (UPD) solution is not recommended and will be deprecated in future versions of Windows Virtual Desktop.
+The Windows Virtual Desktop service (preview) offers FSLogix containers as the recommended user profile solution. The user profile disk (UPD) solution is not recommended and will be deprecated in future versions of Windows Virtual Desktop.
 
 This section will tell you how to set up a User Profile Disk share for a host pool.
 

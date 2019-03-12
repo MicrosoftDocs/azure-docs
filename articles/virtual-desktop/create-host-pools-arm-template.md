@@ -1,17 +1,17 @@
 ---
-title: Create a host pool with an Azure Resource Manager template - Azure
+title: Create a host pool with an Azure Resource Manager template (preview)  - Azure
 description: How to create a host pool in Windows Virtual Desktop with an Azure Resource Manager template.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Create a host pool with an Azure Resource Manager template (Preview)
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant (preview) environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager template provided by Microsoft. This article will tell you how to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
 
@@ -47,7 +47,7 @@ For guidance about which parameters you should enter for your scenario, see the 
 
 After the GitHub Azure Resource Manager template completes, assign user access before you start testing the full session desktops on your virtual machines.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
 To assign users to the desktop application group, open a PowerShell window and run this cmdlet to sign in to the Windows Virtual Desktop environment:
 

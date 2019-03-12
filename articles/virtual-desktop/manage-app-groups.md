@@ -1,17 +1,17 @@
 ---
-title: Manage app groups for Windows Virtual Desktop - Azure
+title: Manage app groups for Windows Virtual Desktop (preview)  - Azure
 description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Tutorial: Manage app groups for Windows Virtual Desktop (Preview)
 
-The default app group created for a new host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+The default app group created for a new host pool also publishes the full desktop. In addition, you can create one or more RemoteApp (preview) application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
 
 In this tutorial, learn how to:
 
@@ -19,7 +19,7 @@ In this tutorial, learn how to:
 > * Create a RemoteApp group.
 > * Grant access to RemoteApps.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) the Windows Virtual Desktop module to use in your PowerShell session if you haven't already.
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) the Windows Virtual Desktop module to use in your PowerShell session if you haven't already.
 
 ## Create a RemoteApp group
 
@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-Once you've created your app groups, you create service principals and assign roles to your users your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
+Once you've created your app groups, you create service principals and assign roles to your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
 
 > [!div class="nextstepaction"]
 > [Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)

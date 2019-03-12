@@ -44,7 +44,5 @@
     href: host-pool-load-balancing.md
 - name: Reference
   items:
-  - name: Get started with PowerShell
-    href: powershell-get-started.md
-  - name: PowerShell cmdlets
-    href: powershell-cmdlet-table.md
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview

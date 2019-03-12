@@ -1,17 +1,17 @@
 ---
-title: Connect with the web client - Azure
+title: Connect with the web client (preview)  - Azure
 description: How to connect to the Windows Virtual Desktop HTML5 web client.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Connect with the web client (Preview)
 
-The web client lets you access your resources from a web browser without the lengthy installation process.
+The web client lets you access your Windows Virtual Desktop (preview) resources from a web browser without the lengthy installation process.
 
 >[!NOTE]
 >The web client doesn't currently have mobile OS support.

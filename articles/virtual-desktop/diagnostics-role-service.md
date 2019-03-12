@@ -1,25 +1,25 @@
 ---
-title: Identify issues with the diagnostics role service - Azure
+title: Identify issues with the diagnostics role service (preview)  - Azure
 description: Describes the Windows Virtual Desktop diagnostics role service and how to use it.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Identify issues with the diagnostics role service (Preview)
 
-The Windows Virtual Desktop diagnostics role service is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity any time a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end user and administrative actions, and can be categorized into three main buckets:
+The Windows Virtual Desktop diagnostics role service (preview) is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 
-* Feed subscription activities: the end user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
-* Connection activities: the end user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
+* Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
+* Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
 * Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
   
-Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end user is experiencing network connectivity issues.
+Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
-To get started, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+To get started, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
 ## Diagnose issues with PowerShell
 
@@ -45,7 +45,7 @@ Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
 
 ### Retrieve a specific diagnostic activity by activity ID
 
-The **-ActivityId** parameter returns a specific diagnostic activity if it exists, as shown int he following example cmdlet.
+The **-ActivityId** parameter returns a specific diagnostic activity if it exists, as shown in the following example cmdlet.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
@@ -69,7 +69,7 @@ You can filter the returned diagnostic activity list with the **-StartTime** and
 Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
 ```
 
-The **-EndTime** parameter can be added to a cmdlet with the **-StartTime** parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1st and August 10th.
+The **-EndTime** parameter can be added to a cmdlet with the **-StartTime** parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1 and August 10.
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
@@ -79,7 +79,7 @@ The **-StartTime** and **-EndTime** parameters can also be combined with other o
 
 ### Filter diagnostic activities by activity type
 
-You can also filter diagnostic activities by activity type with the **-ActivityType** parameter. The following cmdlet will return a list of end user connections:
+You can also filter diagnostic activities by activity type with the **-ActivityType** parameter. The following cmdlet will return a list of end-user connections:
 
 ```powershell
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Connection
@@ -113,4 +113,4 @@ The **-Outcome** parameter can also be combined with other optional filtering pa
 
 To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
 
-To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell cmdlets](powershell-cmdlet-table.md) reference.
+To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
