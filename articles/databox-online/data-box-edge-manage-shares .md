@@ -102,7 +102,7 @@ Do the following steps in the Azure portal to delete a share.
 
     ![Select share](media/data-box-edge-manage-shares/delete-share-1.png)
 
-2. Click **Delete**. 
+2. Click **Delete**.
 
     ![Click delete](media/data-box-edge-manage-shares/delete-share-2.png)
 
