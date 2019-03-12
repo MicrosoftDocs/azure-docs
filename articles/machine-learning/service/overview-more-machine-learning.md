@@ -1,5 +1,6 @@
 ---
 title: Choose a machine learning technology at Microsoft
+titleSuffix: Azure Machine Learning service
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 services: machine-learning
 ms.service: machine-learning

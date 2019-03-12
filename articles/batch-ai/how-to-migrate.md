@@ -82,7 +82,7 @@ Learn more about the Azure Machine Learning Workspace class in the [SDK referenc
 
 
 ## Create compute clusters
-Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM. Read more about various [compute targets](../machine-learning/service/how-to-set-up-training-targets.md). The concept of creating a Azure Batch AI compute cluster maps to creating an AmlCompute cluster in Azure Machine Learning service. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in Azure Batch AI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in Azure Batch AI.
+Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM. Read more about various [compute targets](../machine-learning/service/how-to-set-up-training-targets.md). The concept of creating an Azure Batch AI compute cluster maps to creating an AmlCompute cluster in Azure Machine Learning service. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in Azure Batch AI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in Azure Batch AI.
 
 For **Batch AI**, you did it this way:
 
