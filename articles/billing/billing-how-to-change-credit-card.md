@@ -40,12 +40,12 @@ In the Azure portal, you can add a new credit card, update an existing credit ca
 
     ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/paymentmethods_blade_x.png)
 
-1. In the top left corner, select “+” to add a card. A credit card form will appear on the right.
+1. In the top-left corner, select “+” to add a card. A credit card form will appear on the right.
 1. Enter credit or debit card details.
 
     ![Screenshot that shows adding a new card.](./media/billing-how-to-change-credit-card/sub_addnew_x.png)
 
-1. To make this card your active payment method for all subscriptions using the same card as the selected subscription, check the box next to **Make this my active payment method**.
+1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card will become the active payment instrument for all subscriptions using the same card as the selected subscription.
 
 1. Select **Next**.
 
@@ -157,7 +157,7 @@ If your credit card is associated with other active Microsoft subscriptions, you
 
 ### My subscription is disabled. Why can't I remove my credit card now?
 
-After your subscription is disabled or canceled, we wait 90 days before permanently deleting your subscription. We keep your payment method on file during the retention period in case you want to reactivate the subscription. After that, the subscription is completely deleted.
+After your subscription is disabled or canceled, we wait 90 days before permanently deleting your subscription. We keep your payment method on file during the retention period in case you want to reactivate the subscription. After that, the subscription is permanently deleted.
 
 If you need to remove your credit or debit card before the 90-day retention period ends, [reactivate your subscription](billing-subscription-become-disable.md). If you can't reactivate, [contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
