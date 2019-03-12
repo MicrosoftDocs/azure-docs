@@ -21,14 +21,14 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 1. Sign in to Azure and select the subscription. The ExpressRoute Direct resource and ExpressRoute circuits must be in the same subscription.
 
   ```powershell
-  Connect-AzureRMAccount 
+  Connect-AzAccount 
 
-  Select-AzureRMSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+  Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
   ```
 2. List all locations where ExpressRoute Direct is supported.
   
   ```powershell
-  Get-AzureRmExpressRoutePortsLocation
+  Get-AzExpressRoutePortsLocation
   ```
 
   **Example output**
@@ -61,7 +61,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 3. Determine if a location listed above has available bandwidth
 
   ```powershell
-  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+  Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Example output**
@@ -91,7 +91,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   > 
  
   ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+  $ERDirect = New-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
   ```
 
   > [!NOTE]
@@ -153,7 +153,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 1. Get ExpressRoute Direct details.
 
   ```powershell
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
   ```
 2. Set Link to Enabled. Repeat this step to set each link to enabled.
 
@@ -161,10 +161,10 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
   ```powershell
   $ERDirect.Links[0].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
   $ERDirect.Links[1].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
+  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
   ```
   **Example output:**
 
@@ -228,7 +228,7 @@ Standard or premium circuits can be created. Standard circuits are included in t
 Create a circuit on the ExpressRoute Direct resource.
 
   ```powershell
-  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
   Other bandwidths include: 5.0, 10.0, and 40.0

@@ -52,6 +52,6 @@ For more information about the different Azure Container Registry SKUs (Basic, S
 
 <!-- LINKS - External -->
 [portal]: https://portal.azure.com
-[pricing]: http://aka.ms/acr/pricing
+[pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

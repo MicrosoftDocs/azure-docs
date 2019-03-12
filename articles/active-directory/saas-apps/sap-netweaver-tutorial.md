@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 1b9e59e3-e7ae-4e74-b16c-8c1a7ccfdef3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -143,7 +143,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	b. Click on **Metadata**.
 
-	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
 
 8. In the [Azure portal](https://portal.azure.com/), on the **SAP NetWeaver** application integration page, select **Single sign-on**.
 

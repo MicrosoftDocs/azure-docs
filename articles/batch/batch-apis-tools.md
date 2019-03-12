@@ -6,7 +6,7 @@ author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18

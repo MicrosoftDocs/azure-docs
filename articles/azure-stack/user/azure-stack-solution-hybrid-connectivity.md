@@ -115,7 +115,7 @@ Use the following steps to create a virtual network by using the portal. You can
 
 To create a vNet in Azure:
 
-1. Use your browser to connect to the [Azure portal](http://portal.azure.com/) and sign in with your Azure account.
+1. Use your browser to connect to the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
 2. Select **Create a resource**. In the **Search the marketplace** field, enter `virtual network`'`. Find **Virtual network** in the results list, and then select **Virtual Network**.
 3. From the **Select a deployment model** list, select **Resource Manager**, and then select **Create**.
 4. On **Create virtual network**, configure the VNet settings. The required fields names are prefixed with a red asterisk.  When you enter a valid value, the asterisk changes to a green check mark.
@@ -128,7 +128,7 @@ To create a vNet in Azure Stack:
 
 Before connecting your virtual network to a gateway, you need to create the gateway subnet for the virtual network that you want to connect to. The gateway services use the IP addresses you specify in the gateway subnet.
 
-In the [Azure portal](http://portal.azure.com/), navigate to the Resource Manager virtual network where you want to create a virtual network gateway.
+In the [Azure portal](https://portal.azure.com/), navigate to the Resource Manager virtual network where you want to create a virtual network gateway.
 
 1. Select the vNet to open the **Virtual network** page.
 2. In **SETTINGS**, select **Subnets**.

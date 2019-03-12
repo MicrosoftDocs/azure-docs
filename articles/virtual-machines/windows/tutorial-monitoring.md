@@ -66,7 +66,7 @@ It takes a few minutes for the resources and VM to be created.
 
 ## View boot diagnostics
 
-As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screen shots are stored in an Azure storage account, which is also created by default.
+As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screenshots are stored in an Azure storage account, which is also created by default.
 
 You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive.
 
@@ -140,7 +140,7 @@ To perform additional actions on VMs that require updates, Azure Automation allo
 The validation process also checks to see if the VM is provisioned with the Microsoft Monitoring Agent (MMA) and Automation hybrid runbook worker.
 This agent is used to communicate with the VM and obtain information about the update status.
 
-Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+Choose the Log Analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
 
@@ -148,11 +148,11 @@ If any of the following prerequisites were found to be missing during onboarding
 * [Automation](../../automation/automation-offering-get-started.md)
 * A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
 
-The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
+The **Update Management** screen opens. Configure the location, Log Analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
 ![Enable Update management solution](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Log Analytics. It can take between 30 minutes and 6 hours for the data to be available for analysis.
+Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Azure Monitor logs. It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ### View update assessment
 
@@ -224,7 +224,7 @@ Enable Change and Inventory management for your VM:
 2. From the list, select a VM.
 3. On the VM screen, in the **Operations** section, click **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
 
-Configure the location, Log analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Eventhough the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
+Configure the location, Log Analytics workspace and Automation account to use and click **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Eventhough the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
 
 ![Enable Change and Inventory tracking](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -280,7 +280,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 After a few minutes, you should see the new VM in the Log Analytics workspace.
 
-![Log Analytics blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics workspace blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 
