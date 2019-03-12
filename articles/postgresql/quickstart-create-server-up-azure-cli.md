@@ -13,7 +13,7 @@ ms.date: 3/11/2019
 > [!IMPORTANT]
 > The [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command is in preview.
 
-Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
+Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command to create an Azure Database for PostgreSQL server using the Azure CLI.
 
 ## Prerequisites
 
