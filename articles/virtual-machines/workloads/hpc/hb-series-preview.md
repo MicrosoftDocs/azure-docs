@@ -46,4 +46,4 @@ Please also keep any VMs exhibiting a suspected performance or reliability conce
 Thank you for requesting access to the preview of HB-series VMs for HPC. We’re excited to deliver this capability to HPC users and are eager for your feedback.
 
 ## Next steps
-Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.
+Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

@@ -33,4 +33,4 @@ At this time, it is recommended the following for optimal application scaling ef
 
 **Next steps**
 
-Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.
+Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

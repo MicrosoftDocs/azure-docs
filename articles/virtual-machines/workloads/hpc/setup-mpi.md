@@ -140,3 +140,5 @@ make
 MPI Benchmarks are under `mpi/` folder.
 
 ## Next steps
+
+Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

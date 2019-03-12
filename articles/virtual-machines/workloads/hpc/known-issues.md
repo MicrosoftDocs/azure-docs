@@ -84,7 +84,7 @@ You can ignore this warning. This is due to a known limitation of the Azure hype
 
 ## Next steps
 
-Learn more about [high-performance computing](../../linux/high-performance-computing.md) in Azure.
+Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
 
 
 

@@ -43,3 +43,7 @@ tar xzf lis
 pushd LISISO
 ./upgrade.sh
 ```
+
+## Next steps
+
+Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
