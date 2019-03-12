@@ -20,6 +20,23 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory Connect FAQ
 
 ## General installation
+
+**Q: How can I harden my Azure AD Connect server to decrease the security attack surface? 
+
+Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
+
+•	Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups
+
+Read more: 
+
+(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+(https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+(https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **Q: Will installation work if the Azure Active Directory (Azure AD) Global Admin has two-factor authentication (2FA) enabled?**  
 As of the February 2016 builds, this scenario is supported.
 
