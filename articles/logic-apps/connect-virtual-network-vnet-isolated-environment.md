@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -103,11 +103,11 @@ These tables describe the ports in your virtual network
 that your ISE uses and where those ports get used. 
 The [service tag](../virtual-network/security-overview.md#service-tags) 
 represents a group of IP address prefixes that help 
-minimize complexity when creating security rules. 
+minimize complexity when creating security rules.
 
 > [!IMPORTANT]
 > For internal communication inside your subnets, 
-> ISE requires that you open all ports within those subnets. 
+> ISE requires that you open all ports within those subnets.
 
 | Purpose | Direction | Ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
@@ -175,7 +175,8 @@ and then choose **Review + create**, for example:
    You *can't change* these subnet addresses after you create 
    your environment. Each subnet must meet these criteria:
 
-   * Uses a name that doesn't start with a number or a hyphen.
+   * Has a name that starts with an alphabetic character or an underscore, 
+   and doesn't have these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
 
