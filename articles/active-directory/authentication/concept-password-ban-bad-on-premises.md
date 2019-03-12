@@ -15,22 +15,22 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Enforce password protection for Azure Active Directory for Windows Server Active Directory
+# Preview: Enforce password protection for Azure AD for Windows Server Active Directory
 
 |     |
 | --- |
-| Password protection for Azure Active Directory and the custom banned password list are public preview features of Azure Active Directory (Azure AD). For information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Password protection for Azure Active Directory (Azure AD) and the custom banned password list are public preview features of Azure AD. For information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Password protection for Azure Active Directory is a new feature in public preview that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD cloud-based changes.
+Password protection for Azure AD is a new feature in public preview that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
 
 ## Design principles
 
-Password protection for Active Directory is designed with these principles in mind:
+Password protection for Azure AD is designed with these principles in mind:
 
 * Domain controllers never have to communicate directly with the Internet.
 * No new network ports are opened on domain controllers.
-* No Active Directory schema changes are required. The software uses the existing Active Directory container and serviceConnectionPoint schema objects.
+* No Active Directory schema changes are required. The software uses the existing Active Directory **container** and **serviceConnectionPoint** schema objects.
 * No minimum Active Directory domain or forest functional level (DFL/FFL) is required.
 * The software doesn't create or require accounts in the Active Directory domains that it protects.
 * User clear-text passwords don't leave the domain controller during password validation operations or at any other time.
@@ -38,40 +38,41 @@ Password protection for Active Directory is designed with these principles in mi
 * We recommend that you install the DC Agent on all domain controllers to ensure universal password-protection security enforcement.
 ## Architectural diagram
 
-It's important to understand the underlying design and function concepts before you deploy password protection for Azure Active Directory in an on-premises Active Directory environment. The following diagram shows how the components of password protection work together:
+It's important to understand the underlying design and function concepts before you deploy password protection for Azure AD in an on-premises Active Directory environment. The following diagram shows how the components of password protection work together:
 
-![How password protection for Azure Active Directory components works together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-This diagram shows the three basic software components of password protection for Azure Active Directory:
+![How password protection for AD components works together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
 * The password protection proxy service runs on any domain-joined machine in the current Active Directory forest. Its primary purpose is to forward password policy download requests from domain controllers to Azure AD. It then returns the responses from Azure AD to the domain controller.
-* The password protection DC Agent password filter DLL receives user password-validation requests from the operating system. It forwards them to the password protection DC Agent service that's running locally on the domain controller.
-* The password protection DC Agent service receives password-validation requests from the DC Agent password filter DLL. It processes them by using the current locally available password policy and returns the result: *pass* or *fail*.
+* The password filter DLL of the DC Agent receives user password-validation requests from the operating system. It forwards them to the DC Agent service that's running locally on the domain controller.
+* The DC Agent service of password protection receives password-validation requests from the password filter DLL of the DC Agent. It processes them by using the current (locally available) password policy and returns the result: *pass* or *fail*.
 
 ## How password protection works
 
-Each proxy service for password protection for Azure Active Directory advertises itself to the domain controllers in the forest by creating a *serviceConnectionPoint* object in Active Directory.
+Each proxy service of password protection for Azure AD advertises itself to the domain controllers in the forest by creating a **serviceConnectionPoint** object in Active Directory.
 
-Each password protection for Azure Active Directory
-DC Agent service also creates a serviceConnectionPoint object in Active Directory. But this object is used primarily for reporting and diagnostics.
+Each DC Agent service for password protection also creates a **serviceConnectionPoint** object in Active Directory. But this object is used primarily for reporting and diagnostics.
 
-The DC Agent service is responsible for initiating the download of a new password policy from Azure AD. The first step is to locate a password protection proxy service by querying the forest for proxy serviceConnectionPoint objects. When an available proxy service is found, the DC Agent sends a password policy download request to the proxy service. The proxy service in turn sends the request to Azure AD. The proxy service then returns the response to the DC Agent service. After the DC Agent service receives a new password policy from Azure AD, the service stores the policy in a dedicated folder at the root of its domain *sysvol* folder share. The DC Agent service also monitors this folder in case newer policies replicate in from other DC Agent services in the domain.
+The DC Agent service is responsible for initiating the download of a new password policy from Azure AD. The first step is to locate a password protection proxy service by querying the forest for proxy **serviceConnectionPoint** objects. When an available proxy service is found, the DC Agent sends a password policy download request to the proxy service. The proxy service in turn sends the request to Azure AD. The proxy service then returns the response to the DC Agent service.
 
-The password protection DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent service requests a new policy from Azure AD, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
+After the DC Agent service receives a new password policy from Azure AD, the service stores the policy in a dedicated folder at the root of its domain *sysvol* folder share. The DC Agent service also monitors this folder in case newer policies replicate in from other DC Agent services in the domain.
 
-The password protection DC Agent service communicates with the password protection proxy service via RPC over TCP. The proxy service listens for these calls on a dynamic or static RPC port, depending on the configuration.
+The DC Agent service of password protection always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Azure AD, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
+
+The password protection DC Agent communicates with the password protection proxy service via RPC over TCP. The proxy service listens for these calls on a dynamic or static RPC port, depending on the configuration.
 
 The password protection DC Agent never listens on a network-available port. And the proxy service never tries to call the DC Agent service.
 
 The password protection proxy service is stateless. It never caches policies or any other state that's downloaded from Azure.
 
-The password protection DC Agent service always uses the most recent locally available password policy to evaluate a user's password. If no password policy is available on the local DC, the password is automatically accepted. When that happens, an event message is logged to warn the administrator.
+The DC Agent service always uses the most recent locally available password policy to evaluate a user's password. If no password policy is available on the local DC, the password is automatically accepted. When that happens, an event message is logged to warn the administrator.
 
 Password protection for Azure Active Directory isn't a real-time policy application engine. There can be a delay between when a password policy configuration change is made in Azure AD and when that change reaches and is enforced on all domain controllers.
 
 ## Forest/tenant binding for password protection
 
-Deployment of password protection in an Active Directory forest requires registration of that forest with Azure AD. Any deployed password protection for Azure Active Directory proxy services must also be registered. These forest and proxy registrations are associated with a specific Azure AD tenant. That tenant is identified implicitly by the credentials that are used during registration. Whenever a password protection password policy is downloaded, that policy is specific to the tenant. In other words, that policy is always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list. You can't configure different domains or proxies in a forest to be bound to different Azure AD tenants.
+Deployment of password protection in an Active Directory forest requires registration of that forest with Azure AD. Any proxy services that are deployed for password protection must also be registered. These forest and proxy registrations are associated with a specific Azure AD tenant. That tenant is identified implicitly by the credentials that are used during registration.
+
+Whenever a password protection password policy is downloaded, that policy is specific to the tenant. In other words, that policy is always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list. You can't configure different domains or proxies in a forest to be bound to different Azure AD tenants.
 
 ## License requirements
 
