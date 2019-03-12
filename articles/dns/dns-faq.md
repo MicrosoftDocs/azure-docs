@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
 ---
 
@@ -234,7 +234,7 @@ Yes. To unlink a Registration virtual network from a private zone, you update th
 
 Yes. When you delete a Registration or Resolution virtual network without unlinking it from a private zone first, your deletion operation succeeds. But the virtual network isn't automatically unlinked from your private zone, if any. You must manually unlink the virtual network from the private zone. For this reason,  unlink your virtual network from your private zone before you delete it.
 
-### Will DNS resolution by using the default FQDN (internal.cloudapp.net) still work even when a private zone (for example, contoso.local) is linked to a virtual network?
+### Will DNS resolution by using the default FQDN (internal.cloudapp.net) still work even when a private zone (for example, private.contoso.com) is linked to a virtual network?
 
 Yes. Private Zones doesn't replace the default DNS resolutions by using the Azure-provided internal.cloudapp.net zone. It's offered as an additional feature or enhancement. Whether you rely on the Azure-provided internal.cloudapp.net or on your own private zone, use the FQDN of the zone you want to resolve against. 
 

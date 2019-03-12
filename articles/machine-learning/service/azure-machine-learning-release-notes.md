@@ -23,8 +23,9 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ### Azure Machine Learning SDK for Python v1.0.18
 
-+ **Changes**
-  + The azureml-tensorflow package replaces azureml-contrib-tensorflow.
+ + **Changes**
+   + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
+   + With this release you can setup a user account on your managed compute cluster (amlcompute), while creating it. This can be done by simply passing these properties in the provisoning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
 ### Azure Machine Learning Data Prep SDK v1.0.17
 
