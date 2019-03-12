@@ -27,13 +27,13 @@ You can view your restorable users, restore a deleted user, or permanently delet
 ## Required permissions
 You must have one of the following roles to restore and permanently delete users.
 
-- Company Administrator
+- Global administrator
 
 - Partner Tier1 Support
 
 - Partner Tier2 Support
 
-- User Account Administrator
+- User administrator
 
 ## View your restorable users
 You can see all the users that were deleted less than 30 days ago. These users can be restored.

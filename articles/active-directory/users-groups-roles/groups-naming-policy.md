@@ -69,7 +69,7 @@ Selected administrators can be exempted from these policies, across all group wo
 - Global administrator
 - Partner Tier 1 Support
 - Partner Tier 2 Support
-- User account administrator
+- User administrator
 - Directory writers
 
 ## Install PowerShell cmdlets to configure a naming policy
