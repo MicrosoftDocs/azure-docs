@@ -61,39 +61,36 @@ Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
 1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
 2. Go to the newly created Function App.
 3. Within the App, go to the **Platform features** tab and select **Application settings**. In the **Application settings** section of the next page, scroll to the bottom of the list and click **Add new setting**. Add the following key/value pairs
+    
+    | App Setting name | value   | 
+    | -------------------- |-------------|
+    | cm:TeamId   | Your Content Moderator TeamId  | 
+    | cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) | 
+    | cm:Region | Your Content Moderator region name, without the spaces. See preceding note. |
+    | cm:ImageWorkflow | Name of the workflow to run on Images |
+    | cm:TextWorkflow | Name of the workflow to run on Text |
+    | cm:CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
+    | fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
+    | fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
 
-
-| App Setting name | value   | 
-| -------------------- |-------------|
-| cm:TeamId   | Your Content Moderator TeamId  | 
-| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) | 
-| cm:Region | Your Content Moderator region name, without the spaces. See preceding note. |
-| cm:ImageWorkflow | Name of the workflow to run on Images |
-| cm:TextWorkflow | Name of the workflow to run on Text |
-| cm:CallbackEndpoint | Url for the CMListener Function App that you create later in this guide |
-| fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
-| fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
-
-Click the **Save** button at the top of the page.
+    Click the **Save** button at the top of the page.
 
 1. Using the **+** button on the left pane, to bring up the New function pane.
 
-![Azure Functions pane with the Add Function button highlighted.](images/new-function.png)
+    ![Azure Functions pane with the Add Function button highlighted.](images/new-function.png)
 
-Then click **+ New function** at the top of the page. This function receives events from Facebook. Create this function by following these steps:
+    Then click **+ New function** at the top of the page. This function receives events from Facebook. Create this function by following these steps:
 
-    4. Click on the tile that says **Http trigger**.
-    5. Enter the name **FBListener**. The **Authorization Level** field should be set to **Function**.
-    6. Click **Create**.
-    7. Replace the contents of the **run.csx** with the contents from **FbListener/run.csx**
+    1. Click on the tile that says **Http trigger**.
+    1. Enter the name **FBListener**. The **Authorization Level** field should be set to **Function**.
+    1. Click **Create**.
+    1. Replace the contents of the **run.csx** with the contents from **FbListener/run.csx**
 
-[!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
 
-6. Create a new **Http trigger** function named **CMListener**. This function receives events from Content Moderator. Follow these steps to create this function.
+1. Create a new **Http trigger** function named **CMListener**. This function receives events from Content Moderator. Replace the contents of the **run.csx** with the contents from **CMListener/run.csx**
 
-    7. Replace the contents of the **run.csx** with the contents from **CMListener/run.csx**
-
-[!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
 
 ---
 
@@ -138,11 +135,11 @@ Then click **+ New function** at the top of the page. This function receives eve
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Update these environment variables:
     
-    | Key | Value   | 
-    | -------------------- |-------------|
-    | appId   | Insert your Facebook App Identifier here  | 
-    | appSecret | Insert your Facebook App's secret here | 
-    | short_lived_token | Insert the short lived user access token you generated in the previous step |
+        | Key | Value   | 
+        | -------------------- |-------------|
+        | appId   | Insert your Facebook App Identifier here  | 
+        | appSecret | Insert your Facebook App's secret here | 
+        | short_lived_token | Insert the short lived user access token you generated in the previous step |
     4. Now run the 3 APIs listed in the collection: 
         1. Select **Generate Long-Lived Access Token** and click **Send**.
         2. Select **Get User ID** and click **Send**.
