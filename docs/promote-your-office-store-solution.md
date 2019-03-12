@@ -21,7 +21,7 @@ After you submit your solution to the Seller Dashboard and it is approved for ad
 
 3. Add the badge to your app or add-in webpage, directly following the link. This makes it clear to your users that they can download your app or add-in from AppSource.
 
-You can also add your Office 365 web app using Azure AD to the Office 365 app launcher. For information, see [Have your add-in appear in the Office 365 add-in launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+You can also add your Office 365 web app using Azure AD to the Office 365 app launcher. For information, see [Add custom tiles to the app launcher](/office365/admin/manage/customize-the-app-launcher?view=o365-worldwide).
 
 ## Guidelines for using the AppSource badge
 
