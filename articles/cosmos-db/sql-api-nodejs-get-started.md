@@ -169,13 +169,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
 1. Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
-   ```javascript
-        },
-        "isRegistered": false
-       }
-   };
-
-   // ADD THIS PART TO YOUR CODE
+   // ADD THIS TO THE END OF YOUR CODE
    module.exports = config;
    ```
 
