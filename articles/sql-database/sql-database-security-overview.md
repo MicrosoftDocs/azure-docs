@@ -78,7 +78,7 @@ For an overview of permissions in Azure SQL Database, see [Logins and users](sql
 
 SQL Database secures customer data by providing auditing and threat detection capabilities.
 
-### SQL auditing in Log Analytics and Event Hubs
+### SQL auditing in Azure Monitor logs and Event Hubs
 
 SQL Database auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 

@@ -181,7 +181,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-    Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
+    Here's a screenshot showing the Log Search query:<br><br> ![failed recommendations](./media/sql-assessment/sql-assess-failed-recommendations.png)<br>
 
 3. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 

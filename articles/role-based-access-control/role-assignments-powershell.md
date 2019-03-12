@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
-description: Learn how to manage access to Azure resoruces for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -76,9 +76,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### List a specific role in JSON format
+## List a role definition
 
-To list a specific role in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+### List a role definition in JSON format
+
+To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -323,4 +325,4 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 - [Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Manage resources with Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [Manage resources with Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: Create a policy to identify non-compliant resources with Azure CLI
+title: Create a policy for non-compliant resources with Azure CLI
 description: Use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
 services: azure-policy
 author: DCtheGeek
@@ -80,7 +80,7 @@ For more information about policy assignment IDs, see [Get-AzPolicyAssignment](/
 Next, run the following command to get the resource IDs of the non-compliant resources that are
 output into a JSON file:
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

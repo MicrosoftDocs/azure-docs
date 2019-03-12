@@ -1,5 +1,5 @@
 ---
-title: What is Azure Active Directory B2B collaboration? | Microsoft Docs
+title: What is Azure Active Directory B2B collaboration? - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports guest user access so you can securely share resources and collaborate with external partners.
 
 services: active-directory

@@ -27,7 +27,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 
 * Locally redundant storage (LRS) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
 
-* Geo-redundant storage (GRS) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there is a regional outage.
+* Geo-redundant storage (GRS) is the default and recommended replication option. GRS replicates your data to a secondary region which is [Azure paired regions](../best-practices-availability-paired-regions.md) (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there is a regional outage.
 
 **Unlimited data transfer** - Azure Backup does not limit the amount of inbound or outbound data you transfer. Azure Backup also does not charge for the data that is transferred. However, if you use the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data. For more information about this cost, see [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md). Outbound data refers to data transferred from a Recovery Services vault during a restore operation.
 
@@ -38,7 +38,7 @@ Traditional backup solutions have evolved to treat the cloud as an endpoint, or 
 **Long-term retention** - You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep data in a vault for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. See the [Backup and retention](backup-introduction-to-azure-backup.md#backup-and-retention) section in this article for an explanation of how this limit may impact your backup needs.
 
 ## Which Azure Backup components should I use?
-Use the following table for information about what you can protect with each Azure Backup component. 
+Use the following table for information about what you can protect with each Azure Backup component.
 
 | Component | Benefits | Limits | What is protected? | Where are backups stored? |
 | --- | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ Use the following table for information about what you can protect with each Azu
 | Azure IaaS VM Backup |<p>**Yes**</p><p>Part of Azure fabric</p><p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> |<p>**No**</p> <p>Use System Center DPM to back up virtual machines in your datacenter.</p> |<p>Recovery Services vault</p> |
 
 ## Which applications and workloads can be backed up?
-The following table provides a matrix of the data and workloads that can be protected using Azure Backup. The Azure Backup solution column has links to the deployment documentation for that solution. 
+The following table provides a matrix of the data and workloads that can be protected using Azure Backup. The Azure Backup solution column has links to the deployment documentation for that solution.
 
 | Data or Workload | Source environment | Azure Backup solution |
 | --- | --- | --- |
@@ -75,10 +75,10 @@ The following table provides a matrix of the data and workloads that can be prot
 The following table shows Azure Backup components supported for Linux.  
 
 **Component** | **Linux (Azure endorsed)**
---- | --- 
-Azure Backup (MARS) agent | No ( Windows-based agent only) 
+--- | ---
+Azure Backup (MARS) agent | No ( Windows-based agent only)
 System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
-Azure Backup Server | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs 
+Azure Backup Server | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs
 Azure IaaS VM Backup | App-consistent backup using the [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/><br/> [File-level recovery](backup-azure-restore-files-from-vm.md)<br/><br/> [Create a VM from a restored disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Create a VM from a recovery point](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## Using premium storage VMs with Azure Backup
@@ -126,7 +126,7 @@ Backups are compressed to reduce the required storage space. The only component 
 
 
 #### Disk Deduplication
-You can take advantage of deduplication when you deploy System Center DPM or Azure Backup Server [on a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
+You can take advantage of deduplication when you deploy System Center DPM or Azure Backup Server [on a Hyper-V virtual machine](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Windows Server performs data deduplication (at the host level) on virtual hard disks (VHDs) that are attached to the virtual machine as backup storage.
 
 > [!NOTE]
 > Deduplication is not available in Azure for any Backup component. When System Center DPM and Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.

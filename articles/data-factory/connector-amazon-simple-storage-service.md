@@ -60,7 +60,7 @@ The following properties are supported for Amazon S3 linked service:
 >Specify the custom S3 service URL if you are copying data from a S3-compatible storage other than the official Amazon S3 service.
 
 >[!NOTE]
->This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
+>This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
 >
 
 Here is an example:

@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
 
 ---
@@ -113,9 +113,7 @@ They could send additional telemetry to your account by using the instrumentatio
 If you share code with other projects, remember to remove your instrumentation key.
 
 ## Is the data encrypted?
-Not inside the servers at present.
-
-All data is encrypted as it moves between data centers.
+All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.

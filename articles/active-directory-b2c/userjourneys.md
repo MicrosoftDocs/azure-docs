@@ -45,7 +45,7 @@ The **UserJourney** element contains the following elements:
 
 A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. If any step fails, the transaction fails. These orchestration steps reference both the building blocks and the claims providers allowed in the policy file. Any orchestration step that is responsible to show or render a user experience also has a reference to the corresponding content definition identifier.
 
-Orchestration steps can be conditionaly executed, based on preconditions defined in the orchestration step element. For examle you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
+Orchestration steps can be conditionally executed, based on preconditions defined in the orchestration step element. For example you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
@@ -73,7 +73,7 @@ The **OrchestrationStep** element can contain the following elements:
 | ClaimsProviderSelections | 0:n | A list of claims provider selections for the orchestration step. | 
 | ClaimsExchanges | 0:n | A list of claims exchanges for the orchestration step. | 
 
-#### Preconditions
+### Preconditions
 
 The **Preconditions** element contains the following element:
 
@@ -82,7 +82,7 @@ The **Preconditions** element contains the following element:
 | Precondition | 0:n | Depending on the technical profile being used, either redirects the client according to the claims provider selection or makes a server call to exchange claims. | 
 
 
-##### Precondition
+#### Precondition
 
 The **Precondition** element contains the following attribute:
 
@@ -98,7 +98,7 @@ The **Precondition** elements contains the following elements:
 | Value | 1:n | A ClaimTypeReferenceId to be queried for. Another value element contains the value to be checked.</li></ul>|
 | Action | 1:1 | The action that should be performed if the precondition check within an orchestration step is true. If the value of the `Action` is set to `SkipThisOrchestrationStep`, the associated `OrchestrationStep` should not be executed. | 
 
-### Preconditions examples
+#### Preconditions examples
 
 The following preconditions checks whether the user's objectId exists. In the user journey, the user has selected to sign in using local account. If the objectId exists, skip this orchestration step.
 
@@ -222,20 +222,3 @@ The **ClaimsExchange** element contains the following attributes:
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier of the claims exchange step. The identifier is used to reference the claims exchange from a claims provider selection step in the policy. | 
 | TechnicalProfileReferenceId | Yes | The identifier of the technical profile that is to be executed. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

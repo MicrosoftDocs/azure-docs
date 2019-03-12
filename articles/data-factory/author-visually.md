@@ -3,18 +3,15 @@ title: Visual authoring in Azure Data Factory | Microsoft Docs
 description: Learn how to use visual authoring in Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-
+ms.reviewer: 
+manager: craigg
 ---
 # Visual authoring in Azure Data Factory
 The Azure Data Factory user interface experience (UX) lets you visually author and deploy resources for your data factory without having to write any code. You can drag activities to a pipeline canvas, perform test runs, debug iteratively, and deploy and monitor your pipeline runs. There are two approaches for using the UX to perform visual authoring:
@@ -28,7 +25,7 @@ Visual authoring with the Data Factory service differs from visual authoring wit
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes.
 - The Data Factory service isn't optimized for collaboration or version control.
 
-![Configure the Data Factory service ](media/author-visually/configure-data-factory.png)
+![Configure the Data Factory service](media/author-visually/configure-data-factory.png)
 
 When you use the UX **Authoring canvas** to author directly with the Data Factory service, only the **Publish All** mode is available. Any changes that you make are published directly to the Data Factory service.
 
@@ -218,7 +215,7 @@ A configuration pane appears. For details about the configuration settings, see 
 
 You can configure a GitHub Enterprise repository with a data factory through two methods.
 
- #### Configuration method 1 (Enterprise repo): Let's get started page
+#### Configuration method 1 (Enterprise repo): Let's get started page
 
 In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 

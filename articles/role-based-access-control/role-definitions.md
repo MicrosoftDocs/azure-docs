@@ -146,6 +146,8 @@ Since Alice has a wildcard (`*`) action at a subscription scope, her permissions
 
 Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
 
+For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md).
+
 ### What tools support using RBAC for data operations?
 
 To view and work with data operations, you must have the correct versions of the tools or SDKs:

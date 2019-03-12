@@ -26,6 +26,11 @@ ms.date: 10/18/2018
 
 ## Release notes
 
+### <a name="0.11.0-preview"/>0.11.0-preview
+* Changes were made to how CloudTableClient can be configured. It now takes an a TableClientConfiguration object during construction. TableClientConfiguration provides different properties to configure the client behavior depending on whether the target endpoint is Cosmos DB Table API or Azure Storage Table API.
+* Added support to TableQuery to return results in sorted order on a custom column. This feature is only supported on Cosmos DB Table endpoints.
+* Added support to expose RequestCharges on various result types. This feature is only supported on Cosmos DB Table endpoints.
+
 ### <a name="0.10.1-preview"/>0.10.1-preview
 * Add support for SAS token, operations of TablePermissions, ServiceProperties, and ServiceStats against Azure Storage Table endpoints. 
    > [!NOTE]
@@ -46,6 +51,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [0.11.0-preview](#0.11.0-preview) |March 5, 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |January 22, 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |December 18, 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |October 18, 2018 |--- |

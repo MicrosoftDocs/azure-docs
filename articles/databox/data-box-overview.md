@@ -72,7 +72,7 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the device. The Data Box device has a usable storage capacity of 80 TB. 
 
-    ![Front and back plane of Data Box ](media/data-box-overview/data-box-combined3.png)
+    ![Front and back plane of Data Box](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  

@@ -66,7 +66,7 @@ The following steps guide you through the process of creating a formula from a c
     - **IP address configuration** - Specify if you want the Public, Private, or Shared IP addresses. For more information about shared IP addresses, see [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Expiration date and time** - Specify the expiration date and time for the VM so that the VM is automatically deleted. 
     - **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's page.     
-    - **Number of claimable instances** - specify how many of claimable instacnes you want to create. 
+    - **Number of claimable instances** - specify how many of claimable instances you want to create. 
 8. Select **Submit** to create the formula.
 
 9. When the formula has been created, it displays in the list on the **Formulas** page.

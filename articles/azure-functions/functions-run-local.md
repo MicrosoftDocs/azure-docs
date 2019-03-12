@@ -12,6 +12,8 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
+experimental: true
+experiment_id: c80d19c3-428d-4b
 ---
 
 # Work with Azure Functions Core Tools
@@ -89,8 +91,8 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
@@ -152,7 +154,7 @@ In version 2.x of the Azure Functions runtime, you have to explicitly register t
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md#register-binding-extensions).
+For more information, see [Azure Functions triggers and bindings concepts](./functions-bindings-expressions-patterns.md).
 
 ## Local settings file
 

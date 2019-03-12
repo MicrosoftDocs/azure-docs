@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -59,7 +59,7 @@ Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', 
 
 For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## Media Services v3 API design principles
+## v3 API design principles
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -73,7 +73,20 @@ See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) 
 
 ## How can I get started with v3?
 
-For information on how to start developing with the Media Services v3 API using variuos tools and SDKs, see [Start developing](developers-guide.md).
+For information on how to start developing with the Media Services v3 API using various tools and SDKs, see [Start developing](developers-guide.md).
+
+## v3 content map
+
+The Media Services v3 content is organized according to the following structure (also reflected in the table of contents):
+
+|Sections| Description|
+|---|---|
+| Overview | Explains the functionality of Media Services and what you can do with the service.|
+| Quickstarts | Show fundamental day-1 instructions for new customers to quickly try out Media Services.|
+| Tutorials | Show scenario-based procedures for some of the top Media Services tasks.|
+| Samples | Links to code samples. |
+| Concepts | Contain in-depth explanation of [Media Services v3 concepts and functionality](concepts-overview.md). The fundamental concepts described in these topics should be reviewed prior to starting development.<br/><br/>* Cloud upload and storage<br/>* Encoding<br/>* Media analytics<br/>* Packaging, delivery, protection<br/>* Live streaming<br/>* Monitoring<br/>* Player clients<br/><br/>and more. |
+| How-to guides | Demonstrate how to complete a task.|
 
 ## Next steps
 

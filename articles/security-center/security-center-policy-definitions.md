@@ -54,30 +54,30 @@ To understand the built-in policies that are monitored by Security Center, refer
 |Audit enabling of diagnostic logs in App Services|Audit enabling of diagnostic logs on the app. This enables you to recreate activity trails for investigation purposes if a security incident occurs or your network is compromised.| 
 |Audit transparent data encryption status|Audit transparent data encryption status for SQL databases.| 
 |Audit SQL server level Auditing settings|Audits the existence of SQL Auditing at the server level.| 
-|[Preview]: Monitor unencrypted SQL database in Azure Security Center|Unencrypted SQL servers or databases will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor unaudited SQL database in Azure Security Center|SQL servers and databases which doesn't have SQL auditing turned on will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor missing system updates in Azure Security Center|Missing security system updates on your servers will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Audit missing blob encryption for storage accounts|This policy audits storage accounts without blob encryption. It only applies to Microsoft.Storage resource types, not other storage providers. Possible network Just In Time access will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center|Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor possible app Whitelisting in Azure Security Center|Possible Application Whitelist configuration will be monitored by Azure Security Center.| 
-|[Preview]: Monitor permissive network access in Azure Security Center|Network Security Groups with too permissive rules will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor OS vulnerabilities in Azure Security Center|Servers which do not satisfy the configured baseline will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor missing Endpoint Protection in Azure Security Center|Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor unencrypted VM Disks in Azure Security Center|VMs without an enabled disk encryption will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor VM Vulnerabilities in Azure Security Center|Monitors vulnerabilities detected by Vulnerability Assessment solution and VMs without a Vulnerability Assessment solution in Azure Security Center as recommendations.| 
-|[Preview]: Monitor unprotected web application in Azure Security Center|Web applications without a Web Application Firewall protection will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor unprotected network endpoints in Azure Security Center|Network endpoints without a Next Generation Firewall's protection will be monitored by Azure Security Center as recommendations.| 
-|[Preview]: Monitor SQL vulnerability assessment results in Azure Security Center|Monitor Vulnerability Assessment scan results and recommendations for how to remediate database vulnerabilities.| 
-|[Preview]: Audit maximum number of owners for a subscription|It is recommended to designate up to 3 subscription owners in order to reduce the potential for breach by a compromised owner.| 
-|[Preview]: Audit minimum number of owners for subscription|It is recommended to designate more than one subscription owner in order to have administrator access redundancy.| 
-|[Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription|Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with owner permissions to prevent a breach of accounts or resources.| 
-|[Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription|Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with write privileges to prevent a breach of accounts or resources.| 
-|[Preview]: Audit accounts with read permissions who are not MFA enabled on a subscription|Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with read privileges to prevent a breach of accounts or resources.| 
-|[Preview]: Audit deprecated accounts with owner permissions on a subscription|Deprecated accounts with owner permissions should be removed from your subscription. Deprecated accounts are accounts that have been blocked from signing in.| 
-|[Preview]: Audit deprecated accounts on a subscription|Deprecated accounts should be removed from your subscriptions. Deprecated accounts are accounts that have been blocked from signing in.| 
-|[Preview]: Audit external accounts with owner permissions on a subscription|External accounts with owner permissions should be removed from your subscription in order to prevent unmonitored access.| 
-|[Preview]: Audit external accounts with write permissions on a subscription|External accounts with write privileges should be removed from your subscription in order to prevent unmonitored access.| 
-|[Preview]: Audit external accounts with read permissions on a subscription|External accounts with read privileges should be removed from your subscription in order to prevent unmonitored access.| 
+|\[Preview]: Monitor unencrypted SQL database in Azure Security Center|Unencrypted SQL servers or databases will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor unaudited SQL database in Azure Security Center|SQL servers and databases which doesn't have SQL auditing turned on will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor missing system updates in Azure Security Center|Missing security system updates on your servers will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Audit missing blob encryption for storage accounts|This policy audits storage accounts without blob encryption. It only applies to Microsoft.Storage resource types, not other storage providers. Possible network Just In Time access will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor possible network Just In Time (JIT) access in Azure Security Center|Possible network Just In Time (JIT) access will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor possible app Whitelisting in Azure Security Center|Possible Application Whitelist configuration will be monitored by Azure Security Center.| 
+|\[Preview]: Monitor permissive network access in Azure Security Center|Network Security Groups with too permissive rules will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor OS vulnerabilities in Azure Security Center|Servers which do not satisfy the configured baseline will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor missing Endpoint Protection in Azure Security Center|Servers without an installed Endpoint Protection agent will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor unencrypted VM Disks in Azure Security Center|VMs without an enabled disk encryption will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor VM Vulnerabilities in Azure Security Center|Monitors vulnerabilities detected by Vulnerability Assessment solution and VMs without a Vulnerability Assessment solution in Azure Security Center as recommendations.| 
+|\[Preview]: Monitor unprotected web application in Azure Security Center|Web applications without a Web Application Firewall protection will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor unprotected network endpoints in Azure Security Center|Network endpoints without a Next Generation Firewall's protection will be monitored by Azure Security Center as recommendations.| 
+|\[Preview]: Monitor SQL vulnerability assessment results in Azure Security Center|Monitor Vulnerability Assessment scan results and recommendations for how to remediate database vulnerabilities.| 
+|\[Preview]: Audit maximum number of owners for a subscription|It is recommended to designate up to 3 subscription owners in order to reduce the potential for breach by a compromised owner.| 
+|\[Preview]: Audit minimum number of owners for subscription|It is recommended to designate more than one subscription owner in order to have administrator access redundancy.| 
+|\[Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription|Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with owner permissions to prevent a breach of accounts or resources.| 
+|\[Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription|Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with write privileges to prevent a breach of accounts or resources.| 
+|\[Preview]: Audit accounts with read permissions who are not MFA enabled on a subscription|Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with read privileges to prevent a breach of accounts or resources.| 
+|\[Preview]: Audit deprecated accounts with owner permissions on a subscription|Deprecated accounts with owner permissions should be removed from your subscription. Deprecated accounts are accounts that have been blocked from signing in.| 
+|\[Preview]: Audit deprecated accounts on a subscription|Deprecated accounts should be removed from your subscriptions. Deprecated accounts are accounts that have been blocked from signing in.| 
+|\[Preview]: Audit external accounts with owner permissions on a subscription|External accounts with owner permissions should be removed from your subscription in order to prevent unmonitored access.| 
+|\[Preview]: Audit external accounts with write permissions on a subscription|External accounts with write privileges should be removed from your subscription in order to prevent unmonitored access.| 
+|\[Preview]: Audit external accounts with read permissions on a subscription|External accounts with read privileges should be removed from your subscription in order to prevent unmonitored access.| 
 
 
 

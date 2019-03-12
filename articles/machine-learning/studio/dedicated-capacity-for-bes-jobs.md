@@ -5,7 +5,7 @@ description: Overview of Azure Batch services for Machine Learning jobs. Batch P
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs

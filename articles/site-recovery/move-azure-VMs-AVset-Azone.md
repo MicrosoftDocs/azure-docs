@@ -65,7 +65,7 @@ In a scenario where you deployed your Virtual machines as 'single instance' into
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials
         
-     - [Public IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+     - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
    For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 
@@ -87,14 +87,14 @@ The below steps will guide you how to use Azure Site Recovery to enable replicat
 ![enable-rep-1.PNG](media/azure-vms-to-zones/enable-rep-1.PNG)
 
 1. Select **Next: Advanced settings**
-2. Choose the appropraite values for Target subscriptiom, target VM Resource Group & virtual network.
-3. In the **Availability** section, choose the Availabilty zone into which you want to move the VM. 
+2. Choose the appropriate values for Target subscription, target VM Resource Group & virtual network.
+3. In the **Availability** section, choose the Availability zone into which you want to move the VM. 
 > [!NOTE]
 > If you don’t see the option for availability set or Availabilty zone, please ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs are complete.
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
-7. Click on enable replicaiton. This starts a job to enable replication for the VM.
+7. Click on enable replication. This starts a job to enable replication for the VM.
 
 ## Verify settings
 

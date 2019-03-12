@@ -33,7 +33,7 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
 4. On the **Review + create** page, review the values, and select **Create**. 
 
     ![Review storage account settings and create](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. After you see the **Deployments Succeeded** message, select **Got to resource** at the top of the page. You can also launch the Storage Account page by selecting your storage account from the resource list.  
+5. After you see the **Deployments Succeeded** message, select **Go to resource** at the top of the page. You can also launch the Storage Account page by selecting your storage account from the resource list.  
 
     ![Select the storage account from deployment](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. In the **Essentials** window, select **Blobs**. 

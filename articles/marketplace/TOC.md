@@ -1,5 +1,6 @@
 # [Azure Marketplace and AppSource documentation](index.md)
 ## [Azure Marketplace and AppSource roadmap](./marketplace-roadmap.md)
+## [Azure Marketplace policies and terms](./policies-terms.md)
 
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
 ### [Become a publisher on the marketplace](./become-publisher.md)  
@@ -13,6 +14,7 @@
 #### [Lead management](./lead-management-for-cloud-marketplace.md)
 #### [Transacting in Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [Private Offers](./private-offers.md)
+#### [Standard Contract](./standard-contract.md)
 
 ### [Publishing guide by offer type](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
@@ -29,17 +31,16 @@
 #### [Offer listing best practices](./gtm-offer-listing-best-practices.md)
 #### [How to get featured](./gtm-how-to-get-featured.md)
 #### [Marketplace content validation](./marketplace-criteria-content-validation.md)
-#### [Rating and review policies](./rating-review-policies.md)   
+#### [Cloud Solution Providers](./cloud-solution-providers.md)
 
 ### [Your marketplace benefits](./gtm-your-marketplace-benefits.md)
 #### [Promote your business with Microsoft](./gtm-promote-your-business.md)
 #### [Preferred solutions](./preferred-solutions.md) 
+#### [Integrated solutions](./integrated-solutions.md)
 
 ### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)
 #### [Marketplace FAQs](./marketplace-faq-publisher-guide.md)
-#### [Marketplace terms](./marketplace-terms.md)
-#### [Marketplace participation policy](./marketplace-participation-policy.md)
-
+#### [Geographic availability and currencies](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
@@ -98,12 +99,12 @@
 #### [Delete offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### Test Drive
-#### [What is Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Azure Resource Manager Test Drive](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [Hosted Test Drive](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [Logic app Test Drive](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [Transforming examples for Test Drive](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [Marketing and best practices](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [What is Test Drive?](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Azure Resource Manager Test Drive](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [Hosted Test Drive](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [Logic app Test Drive](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [Transforming examples for Test Drive](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [Marketing and best practices](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Azure application offer](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Prerequisites](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -198,7 +199,9 @@
 ##### [Contacts tab](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
 #### [Publish offer](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Update existing offer](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
-#### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+#### [SaaS Fulfillment APIs](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md)
+##### [SaaS V1 API](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md) 
+##### [SaaS V2 API](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md) 
 
 ### [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)

@@ -29,7 +29,7 @@ This article discusses the elements and types of the XML schema on which the out
 
 You can find the complete schema code and XML example at the end of this article.  
 
-## <a name="AssetFiles "></a> AssetFiles root element
+## <a name="AssetFiles"></a> AssetFiles root element
 Collection of AssetFile entries for the encoding job.  
 
 ### Child elements
@@ -37,7 +37,7 @@ Collection of AssetFile entries for the encoding job.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |An AssetFile element that is part of the AssetFiles collection. |
 
-## <a name="AssetFile "></a> AssetFile element
+## <a name="AssetFile"></a> AssetFile element
 You can find an XML example [XML example](#xml).  
 
 ### Attributes
@@ -54,7 +54,7 @@ You can find an XML example [XML example](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. For more information, see VideoTracks element. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks. For more information, see AudioTracks element. |
 
-## <a name="Sources "></a> Sources element
+## <a name="Sources"></a> Sources element
 Collection of input/source media files, that was processed in order to produce this AssetFile.  
 
 You can find an XML example [XML example](#xml).  
@@ -64,7 +64,7 @@ You can find an XML example [XML example](#xml).
 | --- | --- |
 | **Source**<br/><br/> minOccurs="1" maxOccurs="unbounded" |An input/source file used when generating this asset. For more information, see Source element. |
 
-## <a name="Source "></a> Source element
+## <a name="Source"></a> Source element
 An input/source file used when generating this asset.  
 
 You can find an XML example [XML example](#xml).  
@@ -74,7 +74,7 @@ You can find an XML example [XML example](#xml).
 | --- | --- | --- |
 | **Name**<br/><br/> Required |**xs:string** |Input source file name. |
 
-## <a name="VideoTracks "></a> VideoTracks element
+## <a name="VideoTracks"></a> VideoTracks element
 Each physical AssetFile can contain in it zero or more videos tracks interleaved into an appropriate container format. The **VideoTracks** element represents a collection of all the video tracks.  
 
 You can find an XML example [XML example](#xml).  
@@ -106,7 +106,7 @@ You can find an XML example [XML example](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Required |**xs:int** |Target average bitrate for this video track, as requested via the encoding preset, in kilobits per second. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Max GOP average bitrate for this video track, in kilobits per second. |
 
-## <a name="AudioTracks "></a> AudioTracks element
+## <a name="AudioTracks"></a> AudioTracks element
 Each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. The **AudioTracks** element represents a collection of all those audio tracks.  
 
 You can find an XML example [XML example](#xml).  
@@ -116,7 +116,7 @@ You can find an XML example [XML example](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |A specific audio track in the parent AssetFile. For more information, see AudioTrack element. |
 
-## <a name="AudioTrack "></a> AudioTrack element
+## <a name="AudioTrack"></a> AudioTrack element
 A specific audio track in the parent AssetFile.  
 
 You can find an XML example [XML example](#xml).  
@@ -137,7 +137,7 @@ You can find an XML example [XML example](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Loudness metering result parameters. For more information, see LoudnessMeteringResultParameters element. |
 
-## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters element
+## <a name="LoudnessMeteringResultParameters"></a> LoudnessMeteringResultParameters element
 Loudness metering result parameters.  
 
 You can find an XML example [XML example](#xml).  

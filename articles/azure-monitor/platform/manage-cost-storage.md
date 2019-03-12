@@ -114,7 +114,7 @@ If you want to move your workspace into the current pricing tier, you need to [c
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
 
 > [!NOTE]
-> You can learn more about (setting the pricing tier via ARM)[https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] and 
+> You can learn more about [setting the pricing tier via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) and 
 > how to ensure that your ARM deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
 
 

@@ -36,4 +36,4 @@ This article describes how to setup your Salesforce system to handle sales leads
     ![Salesforce generate](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copy the OID in the sample and save it. You'll paste the OID in the **Object Identifier** field on the Cloud Partner Portal.
-![Salesforce get OID ](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Salesforce get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

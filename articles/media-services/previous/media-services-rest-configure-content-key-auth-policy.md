@@ -17,7 +17,7 @@ ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Dynamic encryption: Configure a content key authorization policy (legacy)
+# Dynamic encryption: Configure a content key authorization policy  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview

@@ -10,7 +10,8 @@ ms.date: 10/24/2018
 ms.author: sngun
 
 ---
-# Create and manage resources of an Azure Cosmos DB SQL API account using a Java application
+# Quickstart: Build a Java application using Azure Cosmos DB SQL API account
+
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

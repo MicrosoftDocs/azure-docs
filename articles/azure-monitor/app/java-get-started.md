@@ -27,8 +27,6 @@ You need:
 * JRE version 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
-*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
-
 If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## 1. Get an Application Insights instrumentation key

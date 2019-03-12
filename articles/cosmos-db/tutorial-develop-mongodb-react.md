@@ -98,8 +98,6 @@ In this tutorial, you've learned how to:
 > * Test the app using Postman
 > * Run the application and add heroes to the database
 
-Check back for an additional video in this tutorial series that will cover deploying the application and globally replicating your data.
-
 You can proceed to the next tutorial and learn how to import MongoDB data into Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]

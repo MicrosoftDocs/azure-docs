@@ -67,7 +67,7 @@ The Hyperscale service tier is primarily intended for customers who have large o
 
 ### What regions currently support Hyperscale
 
-Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
+Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
 
 ### Can I create multiple Hyperscale databases per SQL Database server
 

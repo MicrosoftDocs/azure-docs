@@ -35,7 +35,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 ![Metrics](media/overview/metrics.png)
 
-Log data collected by Azure Monitor can be analyzed with [queries](log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [log analytics](log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](platform/alerts-overview.md).
+Log data collected by Azure Monitor can be analyzed with [queries](log-query/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](log-query/portals.md) in the Azure portal and then either directly analyze the data using these tools or save queries for use with [visualizations](visualizations.md) or [alert rules](platform/alerts-overview.md).
 
 Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](log-query/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](log-query/sql-cheatsheet.md) and [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -125,14 +125,12 @@ Autoscale allows you to have the right amount of resources running to handle the
 You'll often have the requirement to integrate Azure Monitor with other systems and to build custom solutions that use your monitoring data. Other Azure services work with Azure Monitor to provide this integration.
 
 ### Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream log data from Azure Monitor](platform/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) is a streaming platform and event ingestion service that can transform and store data using any real-time analytics provider or batching/storage adapters. Use Event Hubs to [stream Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) to partner SIEM and monitoring tools.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) is a service that allows you to automate tasks and business processes using workflows that integrate with different systems and services. Activities are available that read and write metrics and logs in Azure Monitor, which allows you to build workflows integrating with a variety of other systems.
 
-![Logic App](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### API
 Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. This provides you with essentially unlimited possibilities to build custom solutions that integrate with Azure Monitor.
