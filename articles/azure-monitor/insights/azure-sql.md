@@ -3,7 +3,6 @@ title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: 
 ms.topic: conceptual
 author: danimir

@@ -76,7 +76,7 @@ To configure and test Azure AD single sign-on with AnswerHub, you need to comple
 2. [Configure AnswerHub single sign-on](#configure-answerhub-single-sign-on) to set up the single sign-on settings on the application side.
 3. [Create an Azure AD test user](#create-an-azure-ad-test-user) named Britta Simon.
 4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
-5. [Create an AnswerHub test user](#create-answerhub-test-user) that corresponds to and is linked to the Azure AD test user.
+5. Create an AnswerHub test user that corresponds to and is linked to the Azure AD test user.
 6. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on

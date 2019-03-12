@@ -6,6 +6,7 @@ ms.topic: include
 ms.date: 03/11/2019
 ---
 
+Queries to the container are billed at the pricing tier of the Azure resource used for the `<ApiKey>`.
 
 Cognitive Services containers are not licensed to run without being connected to the billing endpoint for metering. Customers need to enable the containers to communicate billing information with billing endpoint at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft. 
 

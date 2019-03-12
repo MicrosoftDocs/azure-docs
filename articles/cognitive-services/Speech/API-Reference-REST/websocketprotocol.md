@@ -86,7 +86,7 @@ Clients *must* support HTTP cookies as specified in [RFC 6265](https://tools.iet
 
 ### HTTP redirection
 
-Clients *must* support the standard redirection mechanisms specified by the [HTTP protocol specification](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Clients *must* support the standard redirection mechanisms specified by the [HTTP protocol specification](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### Speech endpoints
 
