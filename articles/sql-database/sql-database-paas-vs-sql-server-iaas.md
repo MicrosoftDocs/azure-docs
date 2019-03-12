@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/11/2019
 ---
 # Choose the right SQL Server option in Azure
 
@@ -85,7 +85,7 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 There are several factors that can influence your decision to choose PaaS or IaaS to host your SQL databases:
 
 - [Cost](#cost) - Both PaaS and IaaS option include base price that cover underlying infrastructure and licensing. However, with IaaS option you need to invest additional time and resources to manage your database, while in PaaS you are getting these administration features included in the price. IaaS option enables you to shut-down your resources while you are not using them to decrease the cost, while PaaS version is always running unless if you drop and re-create your resources when they are needed.
-- [Administration](#administration) - PaaS options reduce the amount of time that you need to invest to administer the database. However, it also prevent you to do some custom administration tasks that could improve performance of your workload.
+- [Administration](#administration) - PaaS options reduce the amount of time that you need to invest to administer the database. However, it also limits the range of custom administration tasks and scripts that you can perform or run. For example, the CLR is not supported with single or pooled databases, but is supported for a managed instance. Also, no deployment options in PaaS support the use of trace flags.
 - [Service-Level Agreement](#service-level-agreement-sla) - Both IaaS and PaaS provide high, industry standard SLA. PaaS option guarantees 99.99% SLA, while IaaS guarantees 99.95% SLA for infrastructure, meaning that you need to implement additional mechanisms to ensure availability of your databases. In the extreme case, if you want to implement High-availability solution that is matching PaaS, you might need to create additional SQL Server in VM and configure AlwaysOn Availability groups, which might double the cost of your database.
 - [Time to move to Azure](#market) - SQL Server in Azure VM is the exact match of your environment, so migration from on-premises to Azure SQL VM is not different than moving the databases from one on-premises server to another. Managed instance also enables extremely easy migration; however, there might be some changes that you need to apply before you migrate to a managed instance.
 

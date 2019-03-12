@@ -17,6 +17,13 @@ ms.date: 02/08/2019
 
 Transactional replication is a feature of Azure SQL Database and SQL Server that enables you to replicate data from a table in Azure SQL Database or a SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
+## When to use Transactional replication
+
+Transactional replication is useful in the following scenarios:
+- Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
+- Keep several distributed databases in synchronized state.
+- Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
+
 ## Overview
 
 The key components in transactional replication are shown in the following picture:  
@@ -87,14 +94,6 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > You may encounter error 53 when connecting to an Azure Storage File if the outbound network security group (NSG) port 445 is blocked when the distributor is an instance database and the subscriber is on-premises. [Update the vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) to resolve this issue. 
-
-## When to use Transactional replication
-
-Transactional replication is useful in the following scenarios:
-
-- Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
-- Keep several distributed databases in synchronized state.
-- Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
 
 ### Compare Data Sync with Transactional Replication
 
