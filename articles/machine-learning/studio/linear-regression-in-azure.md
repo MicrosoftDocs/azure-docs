@@ -127,10 +127,10 @@ The ability to transfer the predictive analytic forecasting from Studio to Excel
 ## Resources
 Here are some resources for helping you work with regression: 
 
-* Regression in Excel. If you’ve never tried regression in Excel, this tutorial makes it easy: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regression in Excel. If you’ve never tried regression in Excel, this tutorial makes it easy: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * Regression vs forecasting. Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner’s description of linear regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls. For an introduction and discussion of Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
-](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls. For an introduction and discussion of Regression: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
+](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

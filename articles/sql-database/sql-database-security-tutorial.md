@@ -328,7 +328,7 @@ To enable or verify encryption:
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) view. A state of `3` indicates the database is encrypted.
+> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) view. A state of `3` indicates the database is encrypted.
 
 ## Next steps
 
