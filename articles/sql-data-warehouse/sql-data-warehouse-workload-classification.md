@@ -12,7 +12,7 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
-# SQL Data Warehouse Classification (Preview)
+# SQL Data Warehouse workload classification (Preview)
 
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
 
