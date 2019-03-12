@@ -4,7 +4,7 @@ description: Learn how to collect data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/12/2019
 ms.author: rkarlin
 #As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
@@ -40,8 +40,9 @@ After you connect your data sources, choose from a gallery of expertly created d
 - Contributor permissions to your tenant to enable Azure Sentinel
 
 - Tenant global or security admin permissions
+ 
 
-## Enable Azure Sentinel
+## Enable Azure Sentinel <a name="enable"></a>
 
 1. Go into the Azure portal.
 2. Make sure that the subscription in which Azure Sentinel is created, is selected. 
@@ -56,6 +57,7 @@ After you connect your data sources, choose from a gallery of expertly created d
   >[!NOTE] 
   > - **Workspace location**  It's important to understand that all the data you stream to Azure Sentinel is stored in the geographic location of the workspace you selected.  
   > - Default workspaces created by Azure Security Center will not appear in the list; you can't install Azure Sentinel on them.
+  > - Azure Sentinel can run on workspaces that are deployed in any of the following regions:  Australia Southeast, Canada Central, Central India, East US, East US 2 EUAP (Canary), Japan East, Southeast Asia, UK South, West Europe, West US 2.
 
 6. Click **Add Azure Sentinel**.
   

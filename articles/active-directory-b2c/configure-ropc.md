@@ -36,7 +36,7 @@ The following flows are not supported:
 1.	Sign in to the Azure portal as the global administrator of your Azure AD B2C tenant.
 2.	To switch to your Azure AD B2C tenant, select the B2C directory in the upper-right corner of the portal.
 3.	Click **User flows**, and select **New user flow**.
-4.	Click the **All** tab and select **Resource Owner**.
+4.	Click the **All** tab and select **Sign in using ROPC**.
 5.	Provide a name for the user flow, such as *ROPC_Auth*.
 6.	Under **Application claims**, click **Show more**.
 7.	Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
@@ -79,7 +79,7 @@ Use your favorite API development application to generate an API call, and revie
 The actual POST request looks like the following:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

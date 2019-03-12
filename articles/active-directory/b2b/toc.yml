@@ -16,7 +16,7 @@
   - name: Tutorials
     items:
     - name: Bulk invite B2B guest users
-      href: b2b-tutorial-bulk-invite.md
+      href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
   - name: Samples

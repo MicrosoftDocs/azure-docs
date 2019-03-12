@@ -160,7 +160,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-For a virtual mchine running Linux:
+For a virtual machine running Linux:
 
 ```azurecli
 az vm extension set \

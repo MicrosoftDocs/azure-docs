@@ -60,7 +60,7 @@ The following steps will register the SQL resource provider with your Azure subs
   ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### With Azure CLI
-The following code snippet will register the SQL resource provider with your Azure susbcription. 
+The following code snippet will register the SQL resource provider with your Azure subscription. 
 
 ```cli
 # Register the new SQL resource provider for your subscription 

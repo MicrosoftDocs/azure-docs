@@ -4,7 +4,7 @@ description: Learn how to collect Windows firewall data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3

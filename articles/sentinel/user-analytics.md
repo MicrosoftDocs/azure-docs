@@ -3,7 +3,7 @@ title: Investigate users with user analytics in Azure Sentinel Preview| Microsof
 description: Learn about how to investigate users with user analytics in Azure Sentinel.
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 5b06aef0-16be-4ca0-83e4-a33795a82353

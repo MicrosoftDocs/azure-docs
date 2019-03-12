@@ -40,7 +40,7 @@ To work with Data Lake Storage Gen1 using Python, you need to install three modu
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
 * The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see the [azure-mgmt-datalake-store module reference](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see the [azure-datalake-store file-system module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
+* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see the [azure-datalake-store file-system module reference](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use the following commands to install the modules.
 
@@ -128,5 +128,5 @@ The following snippet first creates the Data Lake Storage Gen1 account client. I
 
 ## See also
 
-* [Azure Data Lake Storage Gen1 Python (Filesystem) Reference](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure Data Lake Storage Gen1 Python (Filesystem) Reference](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

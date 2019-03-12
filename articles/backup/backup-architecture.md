@@ -124,15 +124,15 @@ Azure VMs need internet access for control commands. If you're backing up worklo
 
 ## Architecture: Direct backup of on-premises Windows Server machines or Azure VM files or folders
 
-1. To set up the backup scenario, you download and install the MARS agent on the machine. You then select what to back up, when backups will run, and how long they'll be kept in Azure.
+1. To set up the scenario, you download and install the MARS agent on the machine. You then select what to back up, when backups will run, and how long they'll be kept in Azure.
 1. The initial backup runs according to your backup settings.
 1. The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup.
     - The MARS agent uses only the Windows system write operation to capture the snapshot.
     - Because the agent doesn't use any application VSS writers, it doesn't capture app-consistent snapshots.
-1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block. 
+1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
 1. Incremental backups run according to the schedule you specify, unless you run an ad-hoc backup.
 1. In incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault.
-1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup. 
+1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
 
 ![Backup of on-premises Windows Server machines with MARS agent](./media/backup-architecture/architecture-on-premises-mars.png)
 

@@ -3,7 +3,7 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Overview | Micr
 description: "This article introduces SQL Server Availability Groups on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management

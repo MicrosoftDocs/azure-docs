@@ -4,7 +4,7 @@ description: Learn how to collect Barracuda data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1

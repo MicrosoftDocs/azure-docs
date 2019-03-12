@@ -90,7 +90,7 @@ You use the [built-in performance monitoring](sql-database-performance.md) and [
 
 - **Azure Storage**: For archiving vast amounts of telemetry for a small price
 - **Azure Event Hub**: For integrating SQL Database telemetry with your custom monitoring solution or hot pipelines
-- **Azure Log Analytics**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities.
+- **Azure Monitor logs**: For built-in monitoring solution with reporting, alerting, and mitigating capabilities.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

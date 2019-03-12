@@ -23,7 +23,7 @@ ms.author: jegeib
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Secure communication to Event Hub using SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Ensure that all traffic to Identity Server is over HTTPS connection](#identity-https)</li></ul> |
 | **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Ensure SQL server connection encryption and certificate validation](#sqlserver-validation)</li><li>[Force Encrypted communication to SQL server](#encrypted-sqlserver)</li></ul> |
@@ -57,15 +57,15 @@ ms.author: jegeib
 | **References**              | N/A  |
 | **Steps** | Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security |
 
-## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory
+## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Azure Data Factory | 
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
-| **Attributes**              | Linked Service Types - Azure and On Prem |
-| **References**              |[Moving data between On Prem and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Attributes**              | Linked Service Types - Azure and On-premises |
+| **References**              |[Moving data between On-premises and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Steps** | <p>The Data Management Gateway (DMG) tool is required to connect to data sources which are protected behind corpnet or a firewall.</p><ol><li>Locking down the machine isolates the DMG tool and prevents malfunctioning programs from damaging or snooping on the data source machine. (E.g. latest updates must be installed, enable minimum required ports, controlled accounts provisioning, auditing enabled, disk encryption enabled etc.)</li><li>Data Gateway key must be rotated at frequent intervals or whenever the DMG service account password renews</li><li>Data transits through Link Service must be encrypted</li></ol> |
 
 ## <a id="identity-https"></a>Ensure that all traffic to Identity Server is over HTTPS connection

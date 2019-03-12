@@ -49,7 +49,7 @@ We will use Linux VM with Ubuntu from Azure here.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    During installation, you will see a dialog window poping up to ask you to set MySQL root password below, and you need set the password here.
+    During installation, you will see a dialog window appear to ask you to set MySQL root password below, and you need set the password here.
   
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
