@@ -54,4 +54,4 @@ Because Q5 is mediumrc, it requires two concurrency slots.  Q5 needs to wait for
 
 ## Next steps
 
-For more information about SQL Data Warehouse workload classification, see SQL Data Warehouse {Classification](sql-data-warehouse-classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier-tsql). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+For more information about SQL Data Warehouse workload classification, see [SQL Data Warehouse Workload Classification](sql-data-warehouse-workload-classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
