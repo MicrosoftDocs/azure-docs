@@ -1,15 +1,15 @@
 ---
-title: Create a policy for non-compliant resources
-description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
+title: Create a policy assignment for non-compliant resources with a Resource Manager template
+description: This article walks you through the steps to use a Resource Manager template to create a policy assignment to identify non-compliant resources.
 services: azure-policy
-author: mumian
-ms.author: jgao
-ms.date: 03/11/2019
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-policy
-manager: dougeby
+manager: carmonm
 ---
-# Create a policy assignment to identify non-compliant resources by using Resource Manager template
+# Create a policy assignment to identify non-compliant resources by using a Resource Manager template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual
@@ -23,13 +23,7 @@ before you begin.
 
 ## Create a policy assignment
 
-Azure Policy comes with built-in policy definitions you can use. Many are available, such as:
-
-* Enforce tag and its value
-* Apply tag and its value
-* Require SQL Server version 12.0
-
-In this quickstart, you create a policy assignment and assign a built-in policy definition called *Audit VMs that do not use managed disks*. For a partial list of available built-in policies, see [Policy samples](/azure/governance/policy/samples/index).
+In this quickstart, you create a policy assignment and assign a built-in policy definition called *Audit VMs that do not use managed disks*. For a partial list of available built-in policies, see [Policy samples](./samples/index).
 
 There are several methods for creating policy assignments. In this quickstart, you use a [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-buildinpolicy-resourcegroup/). Here is a copy of the template:
 
@@ -71,34 +65,19 @@ managed disks** policy assignment you created.
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
 
-When a condition is evaluated against your existing resources and found true, then those resources
-are marked as non-compliant with the policy. The following table shows how different policy effects
-work with the condition evaluation for the resulting compliance state. Although you don’t see the
-evaluation logic in the Azure portal, the compliance state results are shown. The compliance state
-result is either compliant or non-compliant.
-
-| **Resource State** | **Effect** | **Policy Evaluation** | **Compliance State** |
-| --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
-| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
-| New | Audit, AuditIfNotExist\* | False | Compliant |
-
-\* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE. The effects also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers evaluation of the existence condition for the related resources.
-
 ## Clean up resources
 
 To remove the assignment created, follow these steps:
 
 1. Select **Compliance** (or **Assignments**) in the left side of the Azure Policy page and locate the **Audit VMs that do not use managed disks** policy assignment you created.
 
-1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**
+1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**.
 
    ![Delete an assignment](./media/assign-policy-template/delete-assignment.png)
 
 ## Next steps
 
-In this quickstart, you assigned a policy definition to a scope and evaluated its compliance
+In this quickstart, you assigned a built-in policy definition to a scope and evaluated its compliance
 report. The policy definition validates that all the resources in the scope are compliant and
 identifies which ones aren't.
 
