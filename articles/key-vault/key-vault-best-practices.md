@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: prashanthyv
-# Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them
+# Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
 # Best practices to use Key Vault
 
@@ -22,7 +22,7 @@ ms.author: prashanthyv
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](key-vault-secure-your-key-vault.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
 
-Suggestions while controlling access to your vault are as follows
+Suggestions while controlling access to your vault are as follows:
 1. Lock down access to your subscription, resource group and Key Vaults (RBAC)
 2. Create Access policies for every vault
 3. Use least privilege access principal to grant access
@@ -30,17 +30,17 @@ Suggestions while controlling access to your vault are as follows
 
 ## Use separate Key Vault
 
-Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach
+Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
 
 ## Backup your Vault
 
-Make sure you take regular back ups of your [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) on update/delete/create of objects within a Vault
+Make sure you take regular back ups of your [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) on update/delete/create of objects within a Vault.
 
 ## Turn on Logging
 
-[Turn on logging](key-vault-logging.md) for your Vault. Also set up alerts
+[Turn on logging](key-vault-logging.md) for your Vault. Also set up alerts.
 
 ## Turn on recovery options
 
-1. Turn on [Soft Delete](key-vault-ovw-soft-delete.md)
-2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft delete is turned on
+1. Turn on [Soft Delete](key-vault-ovw-soft-delete.md).
+2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft delete is turned on.
