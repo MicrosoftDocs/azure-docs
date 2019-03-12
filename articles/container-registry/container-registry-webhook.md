@@ -18,20 +18,20 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 
 ## Prerequisites
 
-* Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). See [Azure Container Registry SKUs](container-registry-skus.md) for the webhooks quotas available in the different service tiers.
+* Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md). The [Azure Container Registry SKUs](container-registry-skus.md) have different webhooks quotas.
 * Docker CLI - To set up your local computer as a Docker host and access the Docker CLI commands, install [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## Create webhook - Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the container registry in which you want to create a webhook.
-1. Under **SERVICES**, select **Webhooks**.
+1. Under **Services**, select **Webhooks**.
 1. Select **Add** in the webhook toolbar.
 1. Complete the *Create webhook* form with the following information:
 
 | Value | Description |
 |---|---|
-| Name | The name you want to give to the webhook. It may contain only lowercase letters and numbers, and must be 5-50 characters in length. |
+| Name | The name you want to give to the webhook. It may contain only letters and numbers, and must be 5-50 characters in length. |
 | Service URI | The URI where the webhook should send POST notifications. |
 | Custom headers | Headers you want to pass along with the POST request. They should be in "key: value" format. |
 | Trigger actions | Actions that trigger the webhook. Actions include image push, image delete, Helm chart push, and Helm chart delete. You can choose one or more actions to trigger the webhook. |
