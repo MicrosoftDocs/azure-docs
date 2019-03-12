@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Manage file space for single and pooled databases in Azure SQL Database
 

@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 
 # PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault

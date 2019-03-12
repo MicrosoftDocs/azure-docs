@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/20/2019
+ms.date: 03/12/2019
 ---
 # Use virtual network service endpoints and rules for database servers
 

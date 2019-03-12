@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Connectivity Architecture
 

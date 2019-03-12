@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database
 

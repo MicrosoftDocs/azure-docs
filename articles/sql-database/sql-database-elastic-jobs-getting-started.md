@@ -44,7 +44,7 @@ Here we would usually create a shard map target, using the **New-AzureSqlJobTarg
 
 ## Creates a custom collection and add all databases in the server to the custom collection target with the exception of master
 
-   ```Powershell
+   ```PowerShell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -308,7 +308,7 @@ If a job cancellation is requested for a parent job, the cancellation request is
 
 To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet and set the **JobExecutionId** parameter.
 
-   ```Powershell
+   ```PowerShell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

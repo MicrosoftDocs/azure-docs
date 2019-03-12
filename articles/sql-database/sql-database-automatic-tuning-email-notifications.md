@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Email notifications for automatic tuning
 

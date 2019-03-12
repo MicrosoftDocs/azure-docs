@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
