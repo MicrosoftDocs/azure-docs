@@ -72,7 +72,7 @@ To change device mode, follow these steps:
 1. In the local web UI of your device, go to **Configuration > Cloud settings**.
 2. From the dropdown list, select the mode that you want to operate the device in. You can select from **Fully connected**, **Partially connected**, and **Fully disconnected**. To run the device in partially disconnected mode, enable **Azure portal management**.
 
-    ![Connectivity mode](media/data-box-edge-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Connectivity mode](media/data-box-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
 
 ## Manage power
