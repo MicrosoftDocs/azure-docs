@@ -16,6 +16,10 @@
           href: quickstarts/find-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/find-data-anomalies-python.md
+- name: How-to/identify-anomalies.md
+  items:
+    - name: Detect anomalies in your data
+    href: how-to/
 - name: Tutorials
   items:
     - name: Visualize Anomalies Using Python.md
