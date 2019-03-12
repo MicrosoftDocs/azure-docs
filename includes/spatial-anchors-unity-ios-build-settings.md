@@ -11,7 +11,7 @@ Open **Build Settings** by selecting **File** > **Build Settings**.
 
 In the **Platform** section, select **iOS**.
 
-Select **Switch Platform** to change the platform to **iOS**. Unity may ask you to install iOS support components if they're missing.
+Select **Switch Platform** to change the platform to **iOS**. Unity might prompt you to install iOS support components if they're missing.
 
 ![Unity Build Settings window](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 

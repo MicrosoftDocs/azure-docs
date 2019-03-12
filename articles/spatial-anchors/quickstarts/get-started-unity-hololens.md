@@ -32,7 +32,7 @@ To complete this quickstart:
 
 
 - You need a Windows computer on which <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> or later and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
-- You need a HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 October 2018 Update](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (also known as RS5) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
+- You need a HoloLens device on which [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 October 2018 Update](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (also known as RS5) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - On your app, you need to enable the **SpatialPerception** capability. This setting is in **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities**.
 - On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
 
@@ -48,7 +48,7 @@ Open **Build Settings** by selecting **File** > **Build Settings**.
 
 In the **Platform** section, select **Universal Windows Platform**. Change the **Target Device** to **HoloLens**.
 
-1. Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
+Select **Switch Platform** to change the platform to **Universal Windows Platform**. Unity might prompt you to install UWP support components if they're missing.
 
    ![Unity Build Settings window](./media/get-started-unity-hololens/unity-build-settings.png)
 
@@ -56,7 +56,7 @@ Close the **Build Settings** window.
 
 ## Configure the account identifier and key
 
-In the **Project** pane, go to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the AzureSpatialAnchorsBasicDemo.unity scene file.
+In the **Project** pane, go to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 

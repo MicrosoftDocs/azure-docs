@@ -45,7 +45,7 @@ Select **OK**.
 
 ### Create and publish the web app
 
-In **App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `https://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
+In **App Name**, enter a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `https://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
 
 Select **Create** to start creating the Azure resources.
 
