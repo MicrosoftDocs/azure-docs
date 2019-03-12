@@ -19,8 +19,10 @@
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
-    - name: Run failover and failback
+    - name: Run failover and reprotect
       href: azure-to-azure-tutorial-failover-failback.md
+    - name: Run failback
+      href: azure-to-azure-tutorial-failback.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -81,6 +83,8 @@
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
+    - name: Azure VM disaster recovery and Azure Backup Interoperability
+      href: site-recovery-backup-interoperability.md
   - name: About VMware VM disaster recovery to Azure
     items:
     - name: VMware disaster recovery overview
@@ -426,9 +430,9 @@
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
-      href: vmware-azure-troubleshoot-upgrade-failures.md  
+      href: vmware-azure-troubleshoot-upgrade-failures.md
     - name: Troubleshoot vCenter discovery failures
-      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md       
+      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication
@@ -452,7 +456,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: http://azure.microsoft.com/blog/tag/azure-site-recovery/
+    href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr
   - name: Learning path

@@ -1,7 +1,7 @@
 ---
 title: Secure web services with SSL
 titleSuffix: Azure Machine Learning service
-description: Learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication.
+description: Learn how to secure a web service deployed with the Azure Machine Learning service by enabling HTTPS. HTTPS secures the data submitted by clients using transport layer security (TLS), a replacement for secure socket layers (SSL). It is also used by clients to verify the identity of the web service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,18 +16,25 @@ ms.custom: seodec18
 
 # Use SSL to secure web services with Azure Machine Learning service
 
-In this article, you will learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using secure socket layers (SSL) and key-based authentication.
+In this article, you will learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS is used to secure communications between a client and your web service by encrypting communications between the two. Encryption is handled using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Sometimes this is still referred to as Secure Sockets Layer (SSL), which was the predecessor to TLS.
+
+> [!TIP]
+> The Azure Machine Learning SDK uses the term 'SSL' for properties related to enabling secure communications. This does not mean that TLS is not used by your web service, just that SSL is the more recognizable term for many readers.
+
+TLS and SSL both rely on __digital certificates__, which are used to perform encryption and identity verification. For more information on how digital certificates work, see the Wikipedia entry on [public key infrastructure (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> If you do not enable SSL, any user on the internet will be able to make calls to the web service.
+> If you do not enable and use HTTPS for your web service, data sent to and from the service may be visible on to others on the internet.
+>
+> HTTPS also enables the client to verify the authenticity of the server that it is connecting to. This protects clients against [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks.
 
-SSL encrypts data sent between the client and the web service. It also used by the client to verify the identity of the server. Authentication is only enabled for services that have provided an SSL certificate and key.  If you enable SSL, an authentication key is required when accessing the web service.
-
-Whether you deploy a web service enabled with SSL or you enable SSL for existing deployed web service, the steps are the same:
+The process of securing a new web service or an existing one is as follows:
 
 1. Get a domain name.
 
-2. Get an SSL certificate.
+2. Get a digital certificate.
 
 3. Deploy or update the web service with the SSL setting enabled.
 
@@ -41,7 +48,7 @@ If you do not already own a domain name, you can purchase one from a __domain na
 
 ## Get an SSL certificate
 
-There are many ways to get an SSL certificate. The most common is to purchase one from a __Certificate Authority__ (CA). Regardless of where you obtain the certificate, you need the following files:
+There are many ways to get an SSL certificate (digital certificate). The most common is to purchase one from a __Certificate Authority__ (CA). Regardless of where you obtain the certificate, you need the following files:
 
 * A __certificate__. The certificate must contain the full certificate chain, and must be PEM-encoded.
 * A __key__. The key must be PEM-encoded.

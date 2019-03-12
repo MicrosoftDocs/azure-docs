@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -26,7 +26,8 @@ Azure Migrate helps you to:
 ## Current limitations
 
 - You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, 6.5 or 6.7).
-- If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
+- Support for Hyper-V is currently in preview with production support, if you are interested in trying it out, please sign up [here.](http://aka.ms/migratefuture)
+- For assessment of physical servers, you can leverage our [partner tools](https://azure.microsoft.com/migration/partners/).
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
@@ -34,7 +35,7 @@ Azure Migrate helps you to:
     **Geography** | **Storage location**
     --- | ---
     Azure Government | US Gov Virginia
-    Asia | Southeast Asia
+    Asia | Southeast Asia or East Asia
     Europe | North Europe or West Europe
     United States | East US or West Central US
 

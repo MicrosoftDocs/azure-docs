@@ -53,16 +53,16 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Blueforce Development Corporation](http://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
-|[CACI Inc - Federal](http://www.caci.com/)|
-|[Cambria Solutions, Inc.](http://www.cambriasolutions.com/)|
+|[CACI Inc - Federal](https://www.caci.com/)|
+|[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[CAPSYS Technologies, LLC](https://www.capsystech.com/)|
 |[CB5 Solutions](https://www.cbfive.com/)|
-|[cBEYONData](http://cbeyondata.com/)|
+|[cBEYONData](https://cbeyondata.com/)|
 |[CBTS](https://www.cbts.com/)|
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
 |CENTRALE LLC|
-|[Centurylink](http://www.centurylink.com/public-sector/federal-government.html)|
+|[Centurylink](https://www.centurylink.com/public-sector/federal-government.html)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
@@ -73,7 +73,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Competitive Innovations, LLC](https://www.cillc.com)|
 |[Computer Professionals International](http://www.comproinc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
-|[Coretek Services](http://www.coretekservices.com/)|
+|[Coretek Services](https://www.coretekservices.com/)|
 |[CorpInfo Services](https://www.corpinfo.com)|
 |[Corporate Technologies LLC](http://www.gocorptech.com/)|
 |[Cre8tive Technology Design](http://www.ctnd.com/)|
@@ -82,31 +82,31 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CWPS](https://www.cwps.com/)|
 |[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
-|[Data Center Services Inc](http://www.d8acenter.com)|
+|[Data Center Services Inc](https://www.d8acenter.com)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|
 |[Dataprise, Inc.](https://www.dataprise.com/)|
 |[Definitive Logic Corporation](https://www.definitivelogic.com/)|
-|[Dell Marketing LP](http://www.dell.com/learn/us/en/rc1009777/fed)|
+|[Dell Marketing LP](https://www.dell.com/learn/us/en/rc1009777/fed)|
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[Doublehorn, LLC](https://doublehorn.com/)|
-|[DXC Technology Services LLC](http://www.dxc.technology/services)|
+|[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[eFibernet Inc.](http://www.efibernet.com)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
-|[Enabling Technologies Corp.](http://www.enablingtechcorp.com/)|
+|[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
 |[Ensono](https://www.ensono.com)|
 |[Enterprise Infrastructure Partners, LLC](http://www.entisp.com/)|
 |[Enterprise Technology International](https://enterpriseti.com)|
 |[Epic Systems Inc](http://epicinfotech.com/)|
 |[EpochConcepts](https://epochconcepts.com)|
-|[Equilibrium IT Solutions, Inc.](http://eqinc.com/)|
+|[Equilibrium IT Solutions, Inc.](https://eqinc.com/)|
 |[eWay Corp](https://www.ewaycorp.com)|
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[FCN, Inc.](https://fcnit.com)|
-|[Federal Resources Corporation FRC](http://fedresources.com/)|
+|[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
 |[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
@@ -115,22 +115,22 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Global Justice Solutions, LLC](http://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
-|[GovPlace](http://www.govplace.com/)|
+|[GovPlace](https://www.govplace.com/)|
 |[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
-|[Hendrix Corporation](http://www.hendrixcorp.com/)|
+|[Hendrix Corporation](https://www.hendrixcorp.com/)|
 |[Hewlett Packard Enterprise](https://www.hpe.com)|
 |[Hiscomp](http://www.hiscompllc.com/)|
 |[I10 Inc](http://i10agile.com/)|
-|[I2, Inc](http://www.i2-inc.com/)|
+|[I2, Inc](https://www.i2-inc.com/)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
-|[ImageSource](http://imagesourceinc.com/)|
+|[ImageSource](https://imagesourceinc.com/)|
 |[Imperitive Solutions LLC](http://www.imperitiv.com/)|
 |[Indicium Technologies Inc](https://www.istech-corp.com/)|
 |[Info Gain Consulting LLC](http://infogainconsulting.com/)|
-|[Inforeliance LLC](http://www.inforeliance.com/)|
+|[Inforeliance LLC](https://www.inforeliance.com/)|
 |[InnovaSystems International](http://www.innovasi.com/)|
 |[Inquisit, LLC](https://www.inquisitllc.com)|
 |[InsITe Business Solutions Inc.](https://trustedinsite.com/)|
@@ -141,8 +141,8 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[It1 Source LLC](https://www.it1.com)|
 |[IV4, Inc](https://www.iv4.com)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
-|[Jacobs Technolgy Inc.](http://www.jacobs.com/)|
-|[JHC Technology, Inc.](http://www.jhctechnology.com/)|
+|[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
+|[JHC Technology, Inc.](https://www.jhctechnology.com/)|
 |[KC & Company]|
 |[Keylogic Systems, Inc.](http://www.keylogic.com/)|
 |[KiZAN Technologies](https://www.kizan.com)|
@@ -152,19 +152,19 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Liftoff, LLC](http://liftoffonline.com/)|
-|[Logicalis, Inc.](http://www.us.logicalis.com/)|
+|[Logicalis, Inc.](https://www.us.logicalis.com/)|
 |[Lucidius Group LLC](http://www.lucidiusgrp.com)|
 |[M2 Technology, Inc.](http://www.m2ti.com/)|
 |[Magenium Solutions, LLC](https://www.magenium.com)|
-|[Managed Solution](http://www.managedsolution.com/)|
-|[ManCom Inc](http://www.mancominc.com/)|
-|[ManTech](http://www.mantech.com/Pages/Home.aspx)|
+|[Managed Solution](https://www.managedsolution.com/)|
+|[ManCom Inc](https://www.mancominc.com/)|
+|[ManTech](https://www.mantech.com/Pages/Home.aspx)|
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
 |[Mibura Inc.](https://www.mibura.com)|
-|[Microtechnologies, LLC](http://www.microtech.net/)|
-|[Miken Technologies](http://www.miken.net)|
+|[Microtechnologies, LLC](https://www.microtech.net/)|
+|[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
-|[MIS Sciences Corp](http://www.mis-sciences.com/)|
+|[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
 |MSCloud Express, LLC|
@@ -180,7 +180,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
 |[NWN Corporation](https://www.nwnit.com)|
-|[Olive + Goose](http://www.oliveandgoose.com/)|
+|[Olive + Goose](https://www.oliveandgoose.com/)|
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
@@ -188,17 +188,17 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Orion Communications, Inc.](https://www.orioncom.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
-|[PCM](http://www.pcm.com/)|
+|[PCM](https://www.pcm.com/)|
 |[Peerless Tech Solutions](https://www.getpeerless.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |[Perspecta](https://perspecta.com/)|
 |[Phacil](https://www.phacil.com/)|
 |[Pharicode LLC](https://pharicode.com)|
-|[Picis Envision](http://www.picis.com/solution/analytics-suite/)|
+|[Picis Envision](https://www.picis.com/solution/analytics-suite/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
 |[Pitech Solutions Inc](http://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
-|[Plexhosted LLC](http://plexhosted.com/)|
+|[Plexhosted LLC](https://plexhosted.com/)|
 |[Practical Solutions](https://www.ps4b.com)|
 |[ProArch IT Solutions](http://www.proarch.com/)|
 |[Project Hosts Inc.](https://www.projecthosts.com)|
@@ -213,7 +213,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Reperi LLC](http://www.reperi.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[rmsource, Inc.](https://www.rmsource.com)|
-|[Saiph Technologies Corporation](http://www.saiphtech.com/)|
+|[Saiph Technologies Corporation](https://www.saiphtech.com/)|
 |[SAP NS2](https://sapns2.com)|
 |[Science Applications International Corporation](https://www.saic.com)|
 |[Secure-24](https://www.secure-24.com)|
@@ -221,13 +221,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Shadow-Soft, LLC.](https://shadow-soft.com)|
 |[SHI International Corp](https://www.shi.com)|
 |[Shoshin Technologies Inc.](https://www.shoshintech.com)|
-|[Simons Advisors, LLC](http://simonsadvisors.com/)|
-|[Sirius Computer Solutions, Inc.](http://www.siriuscom.com/)|
-|[SKY SOLUTIONS LLC](http://www.skysolutions.com/)|
+|[Simons Advisors, LLC](https://simonsadvisors.com/)|
+|[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
+|[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[Smartronix](https://www.smartronix.com)|
 |[Socius 1 LLC](https://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
-|[Software Services Group (dba Secant Technolgies)](http://www.secantcorp.com/)|
+|[Software Services Group (dba Secant Technolgies)](https://www.secantcorp.com/)|
 |[SoftwareONE Inc.](https://www.softwareone.com/en-us)|
 |[Stabilify](http://www.stabilify.net/)|
 |[Stafford Associates](https://www.staffordnet.com/)|
@@ -236,7 +236,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Strategic Communications](https://stratcomminc.com)|
 |[Stratus Solutions](https://stratussolutions.com)|
 |[Strongbridge LLC](https://www.sb-llc.com)|
-|[Summit 7 Systems, Inc.](http://summit7systems.com/)|
+|[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](https://www.sybatech.com)|
@@ -244,11 +244,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|
-|[Tech Data Government Solutions, LLC](http://gov.as.techdata.com/en-us/Pages/default.aspx)|
+|[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|
 |[TechFlow](https://www.techflow.com)|
 |[TechTrend](https://techtrend.us)|
 |[The Cram Group LLC](https://aeccloud.com/)|
-|[ThunderCat Technology](http://www.thundercattech.com/)|
+|[Thundercat Technology](https://www.thundercattech.com/)|
 |[TIC Business Consultants, Ltd.](https://www.ticbiz.com/)|
 |[Tier1, Inc.](https://www.tier1inc.com)|
 |[Tilson Technology Group, Inc](https://tilsontech.com)|
@@ -268,7 +268,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[ViON Corp.](https://www.vion.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
-|[VVL Systems & Consulting, LLC](http://www.vvlsystems.com/)|
+|[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|
@@ -277,7 +277,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[X-Centric IT Solutions, LLC](https://www.x-centric.com/)|
 |[XentIT, llc](https://xentit.com)|
 |[Xgility](https://www.xgility.com)|
-|[Zones Inc](http://www.zones.com/site/home/index.html)|
+|[Zones Inc](https://www.zones.com/site/home/index.html)|
 
 ## Approved indirect CSPs
 |Partner Name|
@@ -286,7 +286,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
 |[Synnex](https://www.synnexcorp.com)|
-|[Tech Data Corporation](http://www.techdata.com/)|
+|[Tech Data Corporation](https://www.techdata.com/)|
 
 ## Approved LSPs
 |LSP Name|Email|Phone|

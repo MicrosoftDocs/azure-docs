@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
+ms.date: 03/07/2019
 ---
 
 # PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
@@ -170,7 +170,7 @@ Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
 ## Troubleshooting
 
 Check the following if an issue occurs:
-- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet.
+- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
@@ -190,7 +190,7 @@ Check the following if an issue occurs:
 
 - You must have an Azure subscription and be an administrator on that subscription.
 - [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
-- Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+- Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 - Create an Azure Key Vault and Key to use for TDE.
    - [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
    - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
@@ -258,11 +258,11 @@ Now the database or data warehouse has TDE enabled with a customer-managed encry
 
 ## SQL CLI References
 
-https://docs.microsoft.com/cli/azure/sql?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql 
 
-https://docs.microsoft.com/cli/azure/sql/server/key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/key 
 
-https://docs.microsoft.com/cli/azure/sql/server/tde-key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/tde-key 
 
-https://docs.microsoft.com/cli/azure/sql/db/tde?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/db/tde 
 

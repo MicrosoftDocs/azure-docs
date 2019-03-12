@@ -5,7 +5,7 @@ services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
 ms.date: 02/27/2019
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
@@ -54,7 +54,7 @@ To install via Composer: (take the blob as an example).
     }
     ```
 
-2. Download [composer.phar](http://getcomposer.org/composer.phar) to the project root.
+2. Download [composer.phar](https://getcomposer.org/composer.phar) to the project root.
 3. Run: `php composer.phar install`.
 
 ### Previous versions (1802 to 1809 update)
@@ -83,7 +83,7 @@ To install via Composer: (take blob as example).
     }
   ```
 
-2. Download [composer.phar](http://getcomposer.org/composer.phar) to the project root.
+2. Download [composer.phar](https://getcomposer.org/composer.phar) to the project root.
 3. Run: `php composer.phar install`.
 
 ## Endpoint declaration

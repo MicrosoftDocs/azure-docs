@@ -96,7 +96,7 @@ To achieve this, you must own a custom domain and follow the process mentioned b
 
   Request Method: GET
 
-  Host: [www.contoso.com](http://www.contoso.com)
+  Host: www.contoso.com
 
   ## Response headers:
 

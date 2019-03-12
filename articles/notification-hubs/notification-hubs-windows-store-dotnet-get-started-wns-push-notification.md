@@ -182,6 +182,6 @@ notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 <!-- URLs. -->
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx

@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 03/12/2019
 ---
 # Monitor performance with the Query Store
 
@@ -26,12 +26,18 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 ### Enable Query Store using the Azure portal
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 2. Select **Server Parameters** in the **Settings** section of the menu.
-3. Search for the **pg_qs.query_capture_mode** parameter.
-4. Update the value from NONE to TOP and save.
+3. Search for the `pg_qs.query_capture_mode` parameter.
+4. Set the value to `TOP` and **Save**.
 
-Alternatively you can set this parameter using the Azure CLI.
+To enable wait statistics in your Query Store: 
+5. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+6. Set the value to `ALL` and **Save**.
+
+
+Alternatively you can set these parameters using the Azure CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.

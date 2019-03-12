@@ -31,7 +31,7 @@ In this article, you learn about how to use the REST API to do end-user authenti
 
 * **Create an Azure Active Directory "Native" Application**. You must have completed the steps in [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
+* **[cURL](https://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
 
 ## End-user authentication
 End-user authentication is the recommended approach if you want a user to log in to your application using Azure AD. Your application is able to access Azure resources with the same level of access as the logged-in user. The user needs to provide their credentials periodically in order for your application to maintain access.

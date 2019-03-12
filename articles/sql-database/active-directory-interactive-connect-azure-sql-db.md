@@ -93,7 +93,7 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 
 An Azure AD admin for a SQL Database server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
-You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) command. For example, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. For example, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](sql-database-aad-authentication.md).
 
