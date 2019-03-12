@@ -70,6 +70,7 @@
   items:
   - name: Compare versions 1.x and 2.x
     href: functions-versions.md
+    displayName: migrate, migration
   - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
