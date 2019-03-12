@@ -37,15 +37,13 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
       - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
 
-
-
       This example uses a **Spark Project with Samples (Scala)** template.
 
    c. In the **Build tool** list, select either of the following, according to your need:
 
       - **Maven**, for Scala project-creation wizard support
 
-      -  **SBT**, for managing the dependencies and building for the Scala project 
+      - **SBT**, for managing the dependencies and building for the Scala project 
 
       ![Create a debug project](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
@@ -103,7 +101,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
    ![Run debug configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. In the **Spark Submission Advanced Configuration** dialog box, select **Enable Spark remote debug**. Enter the SSH username, and then enter a password or use a private key file. To save the configuration, select **OK**. If you want to perform remote debug, you need to set it. There is no need to set it if you just want to use remote run.
+1. In the **Spark Submission Advanced Configuration** part, select **Enable Spark remote debug**. Enter the SSH username, and then enter a password or use a private key file. If you want to perform remote debug, you need to set it. There is no need to set it if you just want to use remote run.
 
    ![Enable Spark remote debug](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
