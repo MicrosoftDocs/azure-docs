@@ -119,7 +119,7 @@ The following is the **Request body** example that defines a custom preset.
 
 ## Create a transform with the custom preset 
 
-You create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing your videos. In this example, we create the **Transform** that is based on the custom preset we defined earlier. When creating a transform, you should first use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if one already exists. 
+You create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing your videos. In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if one already exists. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 
@@ -133,9 +133,7 @@ Select the **Body** tab and replace the body with the json code you [defined ear
 
 Select **Send**. 
 
-The Transform has been created.
-
-Now you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
+If the Transform been successfully created, you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
 ## Next steps
 

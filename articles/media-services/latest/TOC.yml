@@ -160,15 +160,14 @@
     - name: Local file as Job input - .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
-    - name: Use a custom Transform - .NET
-      displayName: encode, encoding
-      href: customize-encoder-presets-how-to.md
-    - name: Use a custom Transform - CLI
-      displayName: encode, encoding
-      href: custom-preset-cli-howto.md
-    - name: Use a custom Transform - REST
-      displayName: encode, encoding
-      href: custom-preset-rest-howto.md      
+    - name: Encode with a custom Transform
+      items:
+      - name: With .NET
+        href: customize-encoder-presets-how-to.md
+      - name: With CLI
+        href: custom-preset-cli-howto.md
+      - name: With REST
+        href: custom-preset-rest-howto.md      
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
