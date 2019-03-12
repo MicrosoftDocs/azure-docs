@@ -36,7 +36,7 @@ When creating custom presets, the following considerations apply:
 * All values for height and width on AVC content must be a multiple of 4.
 * In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
 
-## Define a custom transform
+## Define a custom preset
 
 The following example defines the request body of a new Transform. We define a set of outputs that we want to be generated when this Transform is used. In this example, we add an AacAudio layer for the audio encoding and a H264Video for the video encoding. In the video layers, we assign labels so that they can be used for the output file names. We also want to generate a set of PNG thumbnails.
 
@@ -133,8 +133,6 @@ We then specify the format for the output files - one for video + audio, and ano
 
 ## Create a new transform  
 
-When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you need to specify what `outputs` you want it to generate. Each transform output contains a `preset` that describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired transform output. 
-
 In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if the desired transform already exists. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
@@ -149,7 +147,7 @@ Select the **Body** tab and replace the body with the json code you [defined ear
 
 Select **Send**. 
 
-If the Transform has been successfully created, you can submit a job under the new Transform. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
+You submit a Job under the Transform to request for Media Services to apply the transform to the specified video or audio. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
 ## Next steps
 
