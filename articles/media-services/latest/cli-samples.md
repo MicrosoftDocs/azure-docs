@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/21/2019
+ms.date: 03/11/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -35,6 +35,7 @@ The following table includes links to the Azure CLI examples for Azure Media Ser
 | [Upload a file](./scripts/cli-upload-file-asset.md)|Uploads a local file to a storage container.|
 | **Transforms** and **Jobs**||
 | [Create transforms](./scripts/cli-create-transform.md)|Shows how to create transforms. Transforms describe a simple workflow of tasks for processing your video or audio files (often referred to as a "recipe").<br/> You should always check if a Transform with desired name and "recipe" already exist. If it does, reuse it. |
+| [Encode with a custom transform](custom-preset-cli-howto.md) | Shows how to build a custom preset to target your specific scenario or device requirements.|
 | [Create jobs](./scripts/cli-create-jobs.md)|Submits a Job to a simple encoding Transform using HTTPs URL.|
 | [Create EventGrid](./scripts/cli-create-event-grid.md)|Creates an account level Event Grid subscription for Job State Changes.|
 | **Deliver**||
