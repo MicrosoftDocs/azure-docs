@@ -166,7 +166,9 @@ Throughput units are pre-purchased and are billed per hour. Once purchased, thro
 
 You can purchase more throughput units in blocks of 20, up to 100 throughput units, by contacting Azure support. Beyond that limit, you can purchase blocks of 100 throughput units.
 
-We recommend that you balance throughput units and partitions to achieve optimal scale. A single partition has a minimum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an event hub.
+We recommend that you balance equal throughput units and partitions to achieve optimal scale. A single partition has a maximum guaranteed scale of one throughput unit. We strongly recommend that the number of partitions in an event hub be greater than or equal to the number of throughput units.
+
+The reason we recommend this is at lower throughput, multiple partitions can share a throughput unit, however at higher throughput, one partition cannot necessarily take advantage of multiple throughput units. Optimum scale is achieved by sharding across partitions with one throughput unit per partition.
 
 For detailed Event Hubs pricing information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
