@@ -232,7 +232,7 @@ If you completed the configuration, these services should already be running. Ot
 
 ### Quick agent installation in multiple servers
 1. Create a user account in Azure AD with a password.
-2. Assign the **Owner** role for this local AAD account in Azure AD Connect Health via the portal. Follow the steps .[here](./media/how-to-connect-health-operations#manage-access-with-role-based-access-control). Assign the role to all service instances. 
+2. Assign the **Owner** role for this local AAD account in Azure AD Connect Health via the portal. Follow the steps [here](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Assign the role to all service instances. 
 3. Download the .exe MSI file in local domain controller for installation.
 4. Run the following script to registration. Replace the parameters with the new user account created and its password. 
 
