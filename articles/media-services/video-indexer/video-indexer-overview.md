@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
 ---
 
@@ -20,7 +20,7 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 
 - **Face detection**: Detects and groups faces appearing in the video.
 - **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities – such as world leaders, actors and actresses, athletes, researchers, business and tech leaders across the globe. The data about these celebrities can also be found on various famous websites, for example, IMDB and Wikipedia.
-- **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the model trained specifically for videos in that account.
+- **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the model trained specifically for videos in that account. For more information, see [Customize a Person model from the Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Video Indexer API](customize-person-model-with-api.md).
 - **Thumbnail extraction for faces** ("best face"): Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
 - **Visual text recognition** (OCR): Extracts text that is visually displayed in the video.
 - **Visual content moderation**: Detects adult and/or racy visuals.
@@ -36,7 +36,7 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 - **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 - **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
 - **Noise reduction**: Clears up telephony audio or noisy recordings (based on Skype filters).
-- **Transcript customization** (CRIS): Trains and executes extended custom speech to text models to create industry-specific transcripts.
+- **Transcript customization** (CRIS): Trains and executes extended custom speech to text models to create industry-specific transcripts. For more information, see [Customize a Language model from the Video Indexer website](customize-language-model-with-website.md) and [Customize a Language model with the Video Indexer APIs](customize-language-model-with-api.md).
 - **Speaker enumeration**: Maps and understands which speaker spoke which words and when.
 - **Speaker statistics**: Provides statistics for speakers speech ratios.
 - **Textual content moderation**: Detects explicit text in the audio transcript.
@@ -53,8 +53,6 @@ When indexing by one channel partial result for those models will be available
 - **Topic inference**: Makes inference of main topics from transcripts. The 1st-level IPTC taxonomy is included.
 - **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 - **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
- 
-  
  
 Once Video Indexer is done processing and analyzing, you can review, curate, search, and publish the video insights.
 
