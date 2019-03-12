@@ -87,9 +87,9 @@ Read the following SAP Notes and papers first:
 ## Overview
 
 High availability(HA) for SAP Netweaver central services requires shared storage.
-To achieve that on SLES so far it was necessary to build separate highly available NFS cluster. 
+To achieve that on SUSE Linux so far it was necessary to build separate highly available NFS cluster. 
 
-Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using ANF for the shared storage eliminates the need for additional NFS cluster. Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
+Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using ANF for the shared storage eliminates the need for additional [NFS cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
 
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
@@ -152,11 +152,11 @@ The SAP Netweaver architecture presented in this article uses single ANF capacit
    2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
    3. volume usrsap<b>QAS</b>sys (nfs://10.1.0.5/usrsap<b>qas</b>sys)
    4. volume usrsap<b>QAS</b>ers (nfs://10.1.0.4/usrsap<b>qas</b>ers)
-   5. volume usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>qas</b>pas)
-   6. volume usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
-   7. volume trans (nfs://10.1.0.4/trans)
-
-In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) (for instance: /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>). 
+   5. volume trans (nfs://10.1.0.4/trans)
+   6. volume usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>qas</b>pas)
+   7. volume usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
+   
+In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . In this example <b>a-e</b> must be on ANF and <b>f-g</b> (i.e. /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
 
 ### Important considerations
 
@@ -167,6 +167,7 @@ When considering ANF for the SAP Netweaver on SUSE High Availability architectur
 - ANF and all virtual machines, where ANF volumes will be mounted must be in the same Azure Virtual Network. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) isn't supported yet by ANF.
 - The selected virtual network must have a subnet, delegated to ANF.
 - ANF currently supports only NFSv3 
+- ANF offers [export policy](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.).
 - ANF isn't zone aware yet. Currently ANF isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 
    > [!NOTE]
@@ -211,7 +212,7 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. Set the Assignment to Static and enter the IP address (for example **10.1.1.21**)
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
-   * Repeat the steps above to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
+         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
    1. Create the backend pools
       1. Create a backend pool for the ASCS
          1. Open the load balancer, select backend pools, and click Add
@@ -227,7 +228,7 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
          1. Click OK
       1. Port 621**01** for ASCS ERS
-   * Repeat the steps above to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
+            * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
    1. Load balancing rules
       1. 32**00** TCP for ASCS
          1. Open the load balancer, select Load balancing rules and click Add
@@ -238,9 +239,9 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. **Make sure to enable Floating IP**
          1. Click OK
       1. Additional ports for the ASCS
-         * Repeat the steps above for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
+         * Repeat the steps above under under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
       1. Additional ports for the ASCS ERS
-         * Repeat the steps above for ports 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
+         * Repeat the steps above under "d" for ports 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
 
 ### Create Pacemaker cluster
 
@@ -806,7 +807,7 @@ Follow these steps to install an SAP application server.
 
 ## Test the cluster setup
 
-The following tests are a copy of the test cases in the best practices guides of SUSE. They are copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
+The following tests are a copy of the test cases in the [best practices guides of SUSE](https://www.suse.com/documentation/suse-best-practices/pdfdoc/SAP_HA740_SetupGuide_color_en.pdf). They are copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
 
 1. Test HAGetFailoverConfig, HACheckConfig, and HACheckFailoverConfig
 
