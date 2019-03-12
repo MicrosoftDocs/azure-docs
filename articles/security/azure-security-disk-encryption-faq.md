@@ -3,7 +3,6 @@ title: FAQ - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
@@ -40,12 +39,14 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | --- | --- |--- |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
+| RHEL | 7.6 | OS and data disk* |
 | RHEL | 7.5 | OS and data disk* |
 | RHEL | 7.4 | OS and data disk* |
 | RHEL | 7.3 | OS and data disk* |
 | RHEL | 7.2 | OS and data disk* |
 | RHEL | 6.8 | Data disk* |
 | RHEL | 6.7 | Data disk* |
+| CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
