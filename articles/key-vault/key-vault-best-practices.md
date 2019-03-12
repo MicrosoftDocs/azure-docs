@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
-ms.author: pryerram
+ms.author: prashanthyv
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them
 ---
 # Best practices to use Key Vault
@@ -42,5 +42,5 @@ Make sure you take regular back ups of your [vault](https://blogs.technet.micros
 
 ## Turn on recovery options
 
-1. Turn on [Soft Delete](key-vault-ovw.soft-delete.md)
+1. Turn on [Soft Delete](key-vault-ovw-soft-delete.md)
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft delete is turned on
