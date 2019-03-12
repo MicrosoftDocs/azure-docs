@@ -195,7 +195,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -220,7 +220,7 @@ The users who will log into Azure AD and access SharePoint must be granted acces
 
 6. In the **Policy for Web Application** dialog box, in the **Choose Users** section, click the **Browse** icon.
 
-7. In the **Find** textbox, type the **user principal name(UPN)** value for which you have configured the SharePoint on-premises application in the Azure AD and click **Search**. </br>Example: *brittasimon@contoso.com*.
+7. In the **Find** textbox, type the **user principal name(UPN)** value for which you have configured the SharePoint on-premises application in the Azure AD and click **Search**. </br>Example: *brittasimon\@contoso.com*.
 
 8. Under the AzureAD heading in the list view, select the name property and click **Add** then click **OK** to close the dialog.
 

@@ -348,7 +348,7 @@ Use this method when connecting with an Azure AD principal name using the Azure 
 Use this method to authenticate to SQL DB/DW with Azure AD for native or federated Azure AD users. A native user is one explicitly created in Azure AD and being authenticated using user name and password, while a federated user is a Windows user whose domain is federated with Azure AD. The latter method (using user & password) can be used when a user wants to use their windows credential, but their local machine is not joined with the domain (for example, using a remote access). In this case, a Windows user can indicate their domain account and password and can authenticate to SQL DB/DW using federated credentials.
 
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Password**.
-2. In the **User name** box, type your Azure Active Directory user name in the format **username@domain.com**. User names must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
+2. In the **User name** box, type your Azure Active Directory user name in the format **username\@domain.com**. User names must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
 3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
 
     ![Select AD Password Authentication][12]

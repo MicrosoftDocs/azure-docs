@@ -46,7 +46,7 @@ After registering, record the Microsoft Partner Network ID for your organization
 
 ## 2. Create a Microsoft Account  
 | 15 min |  
-A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
+A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
 
 [! IMPORTANT] Please note that a Microsoft account associated with your work email will not allow you to access the portal.
 
