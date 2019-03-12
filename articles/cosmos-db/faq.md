@@ -97,7 +97,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ### How do I sign up for Azure Cosmos DB?
 
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a Azure Cosmos DB account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB account to your Azure subscription.
 
 ### What is a master key?
 

@@ -167,7 +167,7 @@ To restore a single or pooled database using the REST API:
 ### Azure CLI
 
 - To restore a single or pooled database using Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- To restore a managed instance using Azure CLI, see [az sql midb restore](/cli/azure/sql/db#az-sql-midb-restore)
+- To restore a managed instance using Azure CLI, see [az sql midb restore](/cli/azure/sql/db)
 
 ## Summary
 

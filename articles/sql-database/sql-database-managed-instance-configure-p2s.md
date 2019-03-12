@@ -22,7 +22,7 @@ This quickstart demonstrates how to connect to an Azure SQL Database Managed Ins
 This quickstart:
 
 - Uses the resources created [Create a Managed Instance](sql-database-managed-instance-get-started.md) as its starting point.
-- Requires PowerShell 5.1 and Azure PowerShell 5.4.2 or higher on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0#install-the-azure-powershell-module).
+- Requires PowerShell 5.1 and Azure PowerShell 5.4.2 or higher on your on-premises client computer. If necessary, see the instructions for [installing the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Requires the newest version of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) on your on-premises client computer.
 
 ## Attach a VPN gateway to your Managed Instance virtual network
