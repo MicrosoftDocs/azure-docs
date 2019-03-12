@@ -55,9 +55,9 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files (ANF)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
-In the example configurations, installation commands etc. the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
+In the example configurations, installation commands etc., the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
 
-This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. In the interest of brevity, we'll refer to Azure NetApp Files as ANF. The database layer isn't the covered in detail in this article.
+This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. In the interest of brevity, we'll also refer to Azure NetApp Files as ANF. The database layer isn't covered in detail in this article.
 
 Read the following SAP Notes and papers first:
 
@@ -136,7 +136,7 @@ The Azure NetApp files feature is in public preview in several Azure regions. Be
 
 ### Deploy Azure NetApp File(ANF) resources  
 
-The steps assume that you have already deployed Azure [VNET](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Keep in mind that the ANF resources and the VMs, where the ANF resources will be mounted must be deployed in the same VNET.  
+The steps assume that you have already deployed [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Keep in mind that the ANF resources and the VMs, where the ANF resources will be mounted must be deployed in the same Azure Virtual Network.  
 
 1. If you haven't done that already, request to [enroll in the Azure NetApp(ANF) preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
 
@@ -146,7 +146,7 @@ The SAP Netweaver architecture presented in this article uses single ANF capacit
 
 4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Deploy ANF volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated ANF [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Keep in mind that the ANF resources and the Azure VMs must be in the same Azure VNET. For example sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. are the volume names and sapmnt<b>qas</b>, usrsap<b>qas</b>, etc. are the filepaths for the ANF volumes.  
+5. Deploy ANF volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated ANF [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Keep in mind that the ANF resources and the Azure VMs must be in the same Azure Virtual Network. For example sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. are the volume names and sapmnt<b>qas</b>, usrsap<b>qas</b>, etc. are the filepaths for the ANF volumes.  
 
    1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -164,10 +164,13 @@ When considering ANF for the SAP Netweaver on SUSE High Availability architectur
 
 - The minimum ANF capacity pool is 4TiB. The ANF capacity pool size must be in multiples of 4TiB.
 - The minimum ANF volume is 100 GiB
-- ANF and all virtual machines, where ANF volumes will be mounted must be in the same VNET. VNET peering isn't supported yet.
-- The selected VNET must have a subnet, delegated to ANF.
+- ANF and all virtual machines, where ANF volumes will be mounted must be in the same Azure Virtual Network. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) isn't supported yet by ANF.
+- The selected virtual network must have a subnet, delegated to ANF.
 - ANF currently supports only NFSv3 
 - ANF isn't zone aware yet. Currently ANF isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
+
+   > [!NOTE]
+   > Be aware that Azure NetApp Files doesn't support Virtual Network peering yet. Deploy the VMs and the ANF volumes in the same virtual network.
 
 ## Deploy Linux VMs manually via Azure portal
 
@@ -425,9 +428,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Install SAP NetWeaver ASCS as root on the first node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ASCS, for example <b>anftstsapvh</b>, <b>10.1.1.20</b> and the instance number that you used for the probe of the load balancer, for example <b>00</b>.
 
-   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst. You can use parameter SAPINST_USE_HOSTNAME to install SAP, using virtual hostname.
 
-   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**,try setting the owner and group of the ASCS**00**  folder and retry. 
@@ -486,9 +489,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Install SAP NetWeaver ERS as root on the second node using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the ERS, for example <b>anftstsapers</b>, <b>10.1.1.21</b> and the instance number that you used for the probe of the load balancer, for example <b>01</b>.
 
-   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
+   You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst. You can use parameter SAPINST_USE_HOSTNAME to install SAP, using virtual hostname.
 
-   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
    > [!NOTE]
