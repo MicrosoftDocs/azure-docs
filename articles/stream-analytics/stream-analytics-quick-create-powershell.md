@@ -113,7 +113,7 @@ The following Azure PowerShell code block uses commands to create blob storage t
 
 2. Retrieve the storage account context `$storageAccount.Context` that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials.
 
-3. Create a storage container using [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer).
+3. Create a storage container using [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer).
 
 4. Copy the storage key that is outputted by the code, and save that key to create the streaming job's output later on.
 

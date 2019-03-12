@@ -95,7 +95,7 @@ On the **SQL Server settings** window, configure the following options.
 
 1. In the **SQL connectivity** drop-down, select **Public (Internet)**. This allows SQL Server connections over the internet.
 
-1. Change the **Port** to **1401** to avoid using a well-known port name in the public scneario.
+1. Change the **Port** to **1401** to avoid using a well-known port name in the public scenario.
 
 1. Under **SQL Authentication**, click **Enable**. The SQL Login is set to the same user name and password that you configured for the VM.
 

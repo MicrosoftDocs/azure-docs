@@ -4,7 +4,7 @@ description: Azure Storage is Microsoft's cloud storage solution. Azure Storage 
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common

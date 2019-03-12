@@ -91,7 +91,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ##### Version 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -122,6 +122,8 @@ With the exception of HTTP and timer triggers, all bindings must be explicitly a
 The following table shows which bindings are supported in each runtime version.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## Next steps
 

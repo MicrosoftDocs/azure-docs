@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
 
 ---
@@ -81,7 +81,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.   
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules. Azure provides you an HSM in the cloud with [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../key-vault/key-vault-whatis.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don’t put credentials and other secrets in source code or GitHub.   
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.

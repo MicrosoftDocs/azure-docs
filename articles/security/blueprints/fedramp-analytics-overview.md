@@ -140,7 +140,7 @@ To learn more about using the security features of Azure SQL Database, see the [
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essential to managing the deployment and provisioning access to personnel interacting with the environment. An existing Windows Server Active Directory can be integrated with AAD in [four clicks](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Customers can also tie the deployed Active Directory infrastructure (domain controllers) to an existing AAD by making the deployed Active Directory infrastructure a subdomain of an AAD forest.
 
 ### Additional services
-#### IaaS - VM vonsiderations
+#### IaaS - VM considerations
 This PaaS solution does not incorporate any Azure IaaS VMs. A customer could create an Azure VM to run many of these PaaS services. In this case, specific features and services for business continuity and Azure Monitor logs could be leveraged:
 
 ##### Business continuity

@@ -14,7 +14,7 @@ ms.date: 11/06/2018
 
 In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs. 
 
-For example, choose **Interactive Query** cluster type to optimize for ad-hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+For example, choose **Interactive Query** cluster type to optimize for ad hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 HDInsight clusters of Hadoop cluster type are not optimized for performance by default. This article describes some of the most common Hive performance optimization methods that you can apply to your queries.
 

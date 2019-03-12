@@ -58,16 +58,16 @@ The procedure shown here assigns a role scoped to a container, but you can follo
 1. Locate the container for which you want to assign a role, and display the container's settings. 
 1. Select **Access control (IAM)** to display access control settings for the container. Select the **Role assignments** tab to see the list of role assignments.
 
-    ![Screen shot showing container access control settings](media/storage-auth-aad-rbac/portal-access-control-container.png)
+    ![Screenshot showing container access control settings](media/storage-auth-aad-rbac/portal-access-control-container.png)
 
 1. Click the **Add role assignment** button to add a new role.
 1. In the **Add role assignment** window, select the Azure Storage role that you want to assign. Then search to locate the security principal to which you want to assign that role.
 
-    ![Screen shot showing how to assign an RBAC role](media/storage-auth-aad-rbac/add-rbac-role.png)
+    ![Screenshot showing how to assign an RBAC role](media/storage-auth-aad-rbac/add-rbac-role.png)
 
 1. Click **Save**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that the user added now has read permissions to data in the container named *sample-container*.
 
-    ![Screen shot showing list of users assigned to a role](media/storage-auth-aad-rbac/container-scoped-role.png)
+    ![Screenshot showing list of users assigned to a role](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 You can follow similar steps to assign a role scoped to the storage account, resource group, or subscription.
 

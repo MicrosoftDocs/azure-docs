@@ -89,11 +89,11 @@ Each of the subnets has a dedicated network security group:
 - 1 network security group for web tier (WEBNSG)
 
 ### Data in transit
-Azure encrypts all communications to and from Azure datacentres by default. 
+Azure encrypts all communications to and from Azure datacenters by default. 
 
 For Protected data in transit from customer owned networks, the Architecture uses the Internet or ExpressRoute with a VPN Gateway configured with IPSEC.
 
-Additionally, all transactions to Azure through the Azure management portal occur via HTTPS utilising TLS 1.2.
+Additionally, all transactions to Azure through the Azure management portal occur via HTTPS utilizing TLS 1.2.
 
 ### Data at rest
 The architecture protects data at rest through encryption, database auditing, and other measures.
@@ -168,7 +168,7 @@ Azure services extensively log system and user activity, as well as system healt
 - **Activity logs**: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription. Activity logs can help determine an operation's initiator, time of occurrence, and status.
 - **Diagnostic logs**: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include Windows event system logs, Azure Storage logs, Key Vault audit logs, and Application Gateway access and firewall logs. All diagnostic logs write to a centralized and encrypted Azure storage account for archival. The retention is user-configurable, up to 730 days, to meet organization-specific retention requirements.
 
-**Azure Monitor logs**: These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate tables for each data type, which allows all data to be analysed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
+**Azure Monitor logs**: These logs are consolidated in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) for processing, storing, and dashboard reporting. Once collected, the data is organized into separate tables for each data type, which allows all data to be analyzed together regardless of its original source. Furthermore, Azure Security Center integrates with Azure Monitor logs allowing customers to use Kusto queries to access their security event data and combine it with data from other services.
 
 The following Azure [monitoring solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) are included as a part of this architecture:
 -	[Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.

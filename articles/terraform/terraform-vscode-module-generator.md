@@ -3,7 +3,7 @@
 title: 'Create a Terraform base template in Azure using Yeoman'
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc

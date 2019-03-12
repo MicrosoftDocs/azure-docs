@@ -131,7 +131,7 @@ function textToSpeech(accessToken, text) {
 
 ## Put it all together
 
-You're almost done. The last step is to to create an asynchronous function. This function will read your subscription key from an environment variable, prompt for text, get a token, wait for the request to complete, then convert the text-to-speech and save the audio as a .wav.
+You're almost done. The last step is to create an asynchronous function. This function will read your subscription key from an environment variable, prompt for text, get a token, wait for the request to complete, then convert the text-to-speech and save the audio as a .wav.
 
 If you're unfamiliar with environment variables or prefer to test with your subscription key hardcoded as a string, replace `process.env.SPEECH_SERVICE_KEY` with your subscription key as a string.
 

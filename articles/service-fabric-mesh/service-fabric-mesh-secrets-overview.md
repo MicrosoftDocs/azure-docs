@@ -6,7 +6,7 @@ keywords: secrets
 author: v-steg
 ms.author: v-steg
 ms.date: 10/25/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.
