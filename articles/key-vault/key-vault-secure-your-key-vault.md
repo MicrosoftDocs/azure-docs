@@ -24,7 +24,7 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets l
 
 ## Access model overview
 
-Access to a key vault is controlled through two interfaces: the *management plane* and the *data plane*. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
+Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. 
 
@@ -55,10 +55,6 @@ The following table shows the endpoints for the management and data planes.
 | --- | --- | --- | --- |
 | Management plane | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure Resource Manager RBAC |
 | Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Keys: decrypt, encrypt,<br> unwrap, wrap, verify, sign,<br> get, list, update, create,<br> import, delete, backup, restore<br><br> Secrets: get, list, set, delete | Key Vault access policy |
-
-## Management Plane and Data Plane
-
-Use the management plane to manage Key Vault itself. This includes operations such as managing attributes and setting data plane access policies. Use the data plane to add, delete, modify, and use the keys, secrets, and certificates stored in Key Vault.
 
 ## Management plane and RBAC
 
