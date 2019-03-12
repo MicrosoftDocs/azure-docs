@@ -173,16 +173,16 @@ Choosing which roles to protect with PIM can be difficult and will be different 
 
 It is important to prioritize protecting Azure AD roles that have the most number of permissions. Based on usage patterns among all PIM customers, the top 10 Azure AD roles managed by PIM are:
 
-1. Global Administrator
-1. Security Administrator
-1. User Account Administrator
-1. Exchange Administrator
-1. SharePoint Administrator
-1. Intune Service Administrator
-1. Security Reader
-1. Service Administrator
-1. Billing Administrator
-1. Skype for Business Administrator
+1. Global administrator
+1. Security administrator
+1. User administrator
+1. Exchange administrator
+1. SharePoint administrator
+1. Intune administrator
+1. Security reader
+1. Service administrator
+1. Billing administrator
+1. Skype for Business administrator
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommends** you manage all your Global Administrators and Security Administrators using PIM as a first step as they are the ones that can do the most harm when compromised.
