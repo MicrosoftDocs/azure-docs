@@ -7,6 +7,7 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
+ms.topic: conceptual
 ---
 
 # Frequently asked questions (FAQ) about Azure Files
