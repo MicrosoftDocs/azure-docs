@@ -34,12 +34,14 @@ The maximum size of a record should be 50,000 characters as measured by `String.
 
 Parameters are case-sensitive.
 | Inputs	            | Description |
+
 |---------------------|-------------|
 | defaultLanguageCode | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Optional) The maximum number of key phrases to produce. |
 
 ## Skill inputs
 | Inputs	 | Description |
+
 |--------------------|-------------|
 | text | The text to be analyzed.|
 | languageCode	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|

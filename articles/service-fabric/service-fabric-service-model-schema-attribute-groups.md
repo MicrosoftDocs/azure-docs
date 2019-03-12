@@ -21,6 +21,7 @@ ms.author: ryanwi
 # Service model XML schema attribute groups
 
 ## AccountCredentialsGroup attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|2 attribute(s)|
@@ -46,11 +47,13 @@ ms.author: ryanwi
 
 #### AccountName
 User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).
+
 |Attribute|Value|
 |---|---|
 |name|AccountName|
 |type|xs:string|
 |use|optional|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountName" type="xs:string" use="optional">
@@ -63,11 +66,13 @@ User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@de
 
 #### Password
 Password for the user account.
+
 |Attribute|Value|
 |---|---|
 |name|Password|
 |type|xs:string|
 |use|optional|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Password" type="xs:string" use="optional">
@@ -109,11 +114,13 @@ Attribute group for application instance.
 
 #### NameUri
 Fully qualified name of the application.
+
 |Attribute|Value|
 |---|---|
 |name|NameUri|
 |type|FabricUri|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameUri" type="FabricUri" use="required">
@@ -126,11 +133,13 @@ Fully qualified name of the application.
 
 #### ApplicationId
 Id of this application.
+
 |Attribute|Value|
 |---|---|
 |name|ApplicationId|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationId" type="xs:string" use="required">
@@ -188,10 +197,12 @@ Attribute group for application manifest.
 
 #### ApplicationTypeName
 The type identifier for this application.
+
 |Attribute|Value|
 |---|---|
 |name|ApplicationTypeName|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeName" use="required">
@@ -209,10 +220,12 @@ The type identifier for this application.
 
 #### ApplicationTypeVersion
 The version of this application type, an unstructured string.
+
 |Attribute|Value|
 |---|---|
 |name|ApplicationTypeVersion|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeVersion" use="required">
@@ -230,12 +243,14 @@ The version of this application type, an unstructured string.
 
 #### ManifestId
 The identifier of this application manifest, an unstructured string.
+
 |Attribute|Value|
 |---|---|
 |name|ManifestId|
 |use|optional|
 |default||
 |type|xs:string|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestId" use="optional" default="" type="xs:string">
@@ -272,11 +287,13 @@ Identifies configuration overrides for a service package.
 ### Attribute details
 
 #### ServicePackageName
+
 |Attribute|Value|
 |---|---|
 |name|ServicePackageName|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageName" type="xs:string" use="required"/>
@@ -285,11 +302,13 @@ Identifies configuration overrides for a service package.
 
 #### RolloutVersion
 ID of the rollout in which changes were made to the overrides element.
+
 |Attribute|Value|
 |---|---|
 |name|RolloutVersion|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required">
@@ -301,6 +320,7 @@ ID of the rollout in which changes were made to the overrides element.
 ```
 
 ## ConnectionString attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -321,11 +341,13 @@ ID of the rollout in which changes were made to the overrides element.
 
 #### ConnectionString
 Connection string to the Azure storage account. Format: DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]
+
 |Attribute|Value|
 |---|---|
 |name|ConnectionString|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString" type="xs:string" use="required">
@@ -337,6 +359,7 @@ Connection string to the Azure storage account. Format: DefaultEndpointsProtocol
 ```
 
 ## ContainerName attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -357,10 +380,12 @@ Connection string to the Azure storage account. Format: DefaultEndpointsProtocol
 
 #### ContainerName
 The name of the container in Azure blob storage where data is uploaded.
+
 |Attribute|Value|
 |---|---|
 |name|ContainerName|
 |type|xs:string|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName" type="xs:string">
@@ -372,6 +397,7 @@ The name of the container in Azure blob storage where data is uploaded.
 ```
 
 ## DataDeletionAgeInDays attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -392,10 +418,12 @@ The name of the container in Azure blob storage where data is uploaded.
 
 #### DataDeletionAgeInDays
 Number of days after which old data is deleted from this location.
+
 |Attribute|Value|
 |---|---|
 |name|DataDeletionAgeInDays|
 |type|xs:string|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays" type="xs:string">
@@ -407,6 +435,7 @@ Number of days after which old data is deleted from this location.
 ```
 
 ## IsEnabled attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -427,10 +456,12 @@ Number of days after which old data is deleted from this location.
 
 #### IsEnabled
 Whether or not data transfer to this destination is enabled. By default, it is not enabled.
+
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
 |type|xs:string|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled" type="xs:string">
@@ -442,6 +473,7 @@ Whether or not data transfer to this destination is enabled. By default, it is n
 ```
 
 ## LevelFilter attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -462,10 +494,12 @@ Whether or not data transfer to this destination is enabled. By default, it is n
 
 #### LevelFilter
 Level at which ETW events should be filtered. All events at the same or lower level than the specified level are included.
+
 |Attribute|Value|
 |---|---|
 |name|LevelFilter|
 |type|xs:string|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter" type="xs:string">
@@ -512,10 +546,12 @@ Name and Value defined as an attribute.
 
 #### Name
 The name of the setting to override.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Name" use="required">
@@ -533,11 +569,13 @@ The name of the setting to override.
 
 #### Value
 The new value of the setting.
+
 |Attribute|Value|
 |---|---|
 |name|Value|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Value" type="xs:string" use="required">
@@ -549,6 +587,7 @@ The new value of the setting.
 ```
 
 ## Path attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -569,11 +608,13 @@ The new value of the setting.
 
 #### Path
 Path to the file share. Format: file:[]
+
 |Attribute|Value|
 |---|---|
 |name|Path|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path" type="xs:string" use="required">
@@ -585,6 +626,7 @@ Path to the file share. Format: file:[]
 ```
 
 ## RelativeFolderPath attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -605,11 +647,13 @@ Path to the file share. Format: file:[]
 
 #### RelativeFolderPath
 Path to the folder, relative to the application log directory.
+
 |Attribute|Value|
 |---|---|
 |name|RelativeFolderPath|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath" type="xs:string" use="required">
@@ -661,10 +705,12 @@ Identifies a service manifest.
 
 #### ServiceManifestName
 The name of the service manifest this is referenced. The name must match the Name declared in the ServiceManifest element of the service manifest.
+
 |Attribute|Value|
 |---|---|
 |name|ServiceManifestName|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestName" use="required">
@@ -682,10 +728,12 @@ The name of the service manifest this is referenced. The name must match the Nam
 
 #### ServiceManifestVersion
 The version of the service manifest that is referenced. The version must match the version declared in the service manifest.
+
 |Attribute|Value|
 |---|---|
 |name|ServiceManifestVersion|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestVersion" use="required">
@@ -702,6 +750,7 @@ The version of the service manifest that is referenced. The version must match t
 ```
 
 ## UploadIntervalInMinutes attributeGroup
+
 |Attribute|Value|
 |---|---|
 |content|1 attribute(s)|
@@ -722,10 +771,12 @@ The version of the service manifest that is referenced. The version must match t
 
 #### UploadIntervalInMinutes
 Interval in minutes at which data is uploaded to this destination.
+
 |Attribute|Value|
 |---|---|
 |name|UploadIntervalInMinutes|
 |type|xs:string|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes" type="xs:string">
@@ -757,11 +808,13 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 ### Attribute details
 
 #### RolloutVersion
+
 |Attribute|Value|
 |---|---|
 |name|RolloutVersion|
 |type|xs:string|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required"/>
@@ -809,10 +862,12 @@ Attribute group that includes a Name and a Version.
 
 #### Name
 Name of the versioned item.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Name" use="required">
@@ -830,10 +885,12 @@ Name of the versioned item.
 
 #### Version
 Version of the versioned item, an unstructured string.
+
 |Attribute|Value|
 |---|---|
 |name|Version|
 |use|required|
+
 ##### XML source
 ```xml
 <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Version" use="required">

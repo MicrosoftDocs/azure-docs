@@ -96,6 +96,7 @@ Defines the partitioning scheme for a service.
 
 #### SingletonPartition
 Declares that this service has only one partition.
+
 |Attribute|Value|
 |---|---|
 |name|SingletonPartition|
@@ -114,6 +115,7 @@ Declares that this service has only one partition.
 
 #### UniformInt64Partition
 Describes a uniform partitioning scheme based on Int64 keys.
+
 |Attribute|Value|
 |---|---|
 |name|UniformInt64Partition|
@@ -148,6 +150,7 @@ Describes a uniform partitioning scheme based on Int64 keys.
 
 #### NamedPartition
 Describes a named partitioning scheme based on names for each partition.
+
 |Attribute|Value|
 |---|---|
 |name|NamedPartition|
@@ -250,6 +253,7 @@ Defines the scaling mechanism.
 
 #### InstanceCountScalingMechanism
 Defines a mechanism for increasing the instance count of a partition. This is for stateless services only.
+
 |Attribute|Value|
 |---|---|
 |name|InstanceCountScalingMechanism|
@@ -286,6 +290,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 
 #### AddRemoveIncrementalNamedPartitionScalingMechanism
 Defines a mechanism for adding or removing named partitions.
+
 |Attribute|Value|
 |---|---|
 |name|AddRemoveIncrementalNamedPartitionScalingMechanism|
@@ -401,6 +406,7 @@ Defines the scaling trigger.
 
 #### AveragePartitionLoadScalingTrigger
 Defines a scaling mechanism based on the average load of replicas of a partition.
+
 |Attribute|Value|
 |---|---|
 |name|AveragePartitionLoadScalingTrigger|
@@ -442,6 +448,7 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 
 #### AverageServiceLoadScalingTrigger
 Defines a scaling mechanism based on the average load of partitions of a service.
+
 |Attribute|Value|
 |---|---|
 |name|AverageServiceLoadScalingTrigger|

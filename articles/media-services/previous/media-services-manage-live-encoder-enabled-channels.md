@@ -214,6 +214,7 @@ Note that if you need custom presets, you should contact  amslived@microsoft.com
 **Default720p** will encode the video into the following 6 layers.
 
 #### Output Video Stream
+
 | BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |

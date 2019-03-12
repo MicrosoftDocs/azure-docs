@@ -64,6 +64,7 @@ Defines a mechanism for adding or removing named partitions.
 
 #### MinPartitionCount
 The minimum number of partitions.
+
 |Attribute|Value|
 |---|---|
 |name|MinPartitionCount|
@@ -72,6 +73,7 @@ The minimum number of partitions.
 
 #### MaxPartitionCount
 The maximum number of partitions.
+
 |Attribute|Value|
 |---|---|
 |name|MaxPartitionCount|
@@ -80,6 +82,7 @@ The maximum number of partitions.
 
 #### ScaleIncrement
 The number of partitions by which to perform the upshift/downshift.
+
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -111,6 +114,7 @@ Application Instance specific information like application name and application 
 
 <a id="ApplicationEndpointsElementanonymouscomplexTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## ApplicationEndpoints element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -133,6 +137,7 @@ Application Instance specific information like application name and application 
 ### Attribute details
 
 #### StartPort
+
 |Attribute|Value|
 |---|---|
 |name|StartPort|
@@ -140,6 +145,7 @@ Application Instance specific information like application name and application 
 |use|required|
 
 #### EndPort
+
 |Attribute|Value|
 |---|---|
 |name|EndPort|
@@ -211,6 +217,7 @@ ApplicationPackage represents the versioned Application information required by 
 
 <a id="ApplicationPackageRefElementanonymouscomplexTypeComplexTypeDefinedInApplicationInstanceTypecomplexType"></a>
 ## ApplicationPackageRef element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -231,6 +238,7 @@ ApplicationPackage represents the versioned Application information required by 
 
 <a id="ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType"></a>
 ## Arguments element
+
 |Attribute|Value|
 |---|---|
 |type|xs:string|
@@ -295,6 +303,7 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 
 #### MetricName
 The name of metric which should be used for scaling operations.
+
 |Attribute|Value|
 |---|---|
 |name|MetricName|
@@ -303,6 +312,7 @@ The name of metric which should be used for scaling operations.
 
 #### LowerLoadThreshold
 The lower limit of the load value of a metric.
+
 |Attribute|Value|
 |---|---|
 |name|LowerLoadThreshold|
@@ -311,6 +321,7 @@ The lower limit of the load value of a metric.
 
 #### UpperLoadThreshold
 The upper limit of the load value of a metric.
+
 |Attribute|Value|
 |---|---|
 |name|UpperLoadThreshold|
@@ -319,6 +330,7 @@ The upper limit of the load value of a metric.
 
 #### ScaleIntervalInSeconds
 The time interval in seconds to be considered for scaling.
+
 |Attribute|Value|
 |---|---|
 |name|ScaleIntervalInSeconds|
@@ -380,6 +392,7 @@ Defines a scaling mechanism based on the average load of partitions of a service
 
 #### MetricName
 The name of metric which should be used for scaling operations.
+
 |Attribute|Value|
 |---|---|
 |name|MetricName|
@@ -388,6 +401,7 @@ The name of metric which should be used for scaling operations.
 
 #### LowerLoadThreshold
 The lower limit of the load value of a metric.
+
 |Attribute|Value|
 |---|---|
 |name|LowerLoadThreshold|
@@ -396,6 +410,7 @@ The lower limit of the load value of a metric.
 
 #### UpperLoadThreshold
 The upper limit of the load value of a metric.
+
 |Attribute|Value|
 |---|---|
 |name|UpperLoadThreshold|
@@ -404,6 +419,7 @@ The upper limit of the load value of a metric.
 
 #### ScaleIntervalInSeconds
 The time interval in seconds to be considered for scaling.
+
 |Attribute|Value|
 |---|---|
 |name|ScaleIntervalInSeconds|
@@ -412,6 +428,7 @@ The time interval in seconds to be considered for scaling.
 
 #### UseOnlyPrimaryLoad
 Use load of primary replica as average load of partition.
+
 |Attribute|Value|
 |---|---|
 |name|UseOnlyPrimaryLoad|
@@ -461,6 +478,7 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 
 <a id="BackupRestoreServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## BackupRestoreServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -478,6 +496,7 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 
 <a id="BlackbirdElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureelement"></a>
 ## Blackbird element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -506,6 +525,7 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 ### Content element details
 
 #### Roles
+
 |Attribute|Value|
 |---|---|
 |name|Roles|
@@ -540,6 +560,7 @@ The capacities of various metrics for this node type
 ### Content element details
 
 #### Capacity
+
 |Attribute|Value|
 |---|---|
 |name|Capacity|
@@ -549,6 +570,7 @@ The capacities of various metrics for this node type
 
 <a id="CapacityElementKeyValuePairTypeComplexTypeDefinedInCapacitieselement"></a>
 ## Capacity element
+
 |Attribute|Value|
 |---|---|
 |type|[KeyValuePairType](service-fabric-service-model-schema-complex-types.md#keyvaluepairtype-complextype)|
@@ -567,6 +589,7 @@ The capacities of various metrics for this node type
 
 <a id="CentralSecretServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## CentralSecretServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -665,6 +688,7 @@ Declares certificates used to secure endpoints or encrypt secrets within the app
 
 #### SecretsCertificate
 Declares a certificate used to encrypt sensitive information within the application manifest. The application author uses the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt the sensitive information, which is copied to a Parameter in the ConfigOverrides section.
+
 |Attribute|Value|
 |---|---|
 |name|SecretsCertificate|
@@ -672,6 +696,7 @@ Declares a certificate used to encrypt sensitive information within the applicat
 |minOccurs|0|
 
 #### EndpointCertificate
+
 |Attribute|Value|
 |---|---|
 |name|EndpointCertificate|
@@ -680,6 +705,7 @@ Declares a certificate used to encrypt sensitive information within the applicat
 
 <a id="CertificatesElementanonymouscomplexTypeComplexTypeDefinedInClusterManifestTypecomplexType"></a>
 ## Certificates element (defined in ClusterManifestType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -703,6 +729,7 @@ Declares a certificate used to encrypt sensitive information within the applicat
 ### Content element details
 
 #### SecretsCertificate
+
 |Attribute|Value|
 |---|---|
 |name|SecretsCertificate|
@@ -734,6 +761,7 @@ The default admin role client certificate used to secure client server communica
 
 <a id="ClientConnectionEndpointElementInputEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## ClientConnectionEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InputEndpointType](service-fabric-service-model-schema-complex-types.md#inputendpointtype-complextype)|
@@ -773,6 +801,7 @@ The certificate used to secure the intra cluster communication.
 
 <a id="ClusterConnectionEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## ClusterConnectionEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -789,6 +818,7 @@ The certificate used to secure the intra cluster communication.
 
 <a id="ClusterManagerReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## ClusterManagerReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -919,6 +949,7 @@ Describes configuration overrides for the imported service manifest. Configurati
 ### Content element details
 
 #### ConfigOverride
+
 |Attribute|Value|
 |---|---|
 |name|ConfigOverride|
@@ -1037,6 +1068,7 @@ Warning! Do not use console redirection in a production application, only use it
 
 #### FileRetentionCount
 Sets the number of console redirection output files to retain.  Must be a positive integer, the default value is "2".
+
 |Attribute|Value|
 |---|---|
 |name|FileRetentionCount|
@@ -1044,6 +1076,7 @@ Sets the number of console redirection output files to retain.  Must be a positi
 
 #### FileMaxSizeInKb
 Set the maximum size of a console redirection output file.  Must be a positive integer greater than 128KB, the default value is "20480".
+
 |Attribute|Value|
 |---|---|
 |name|FileMaxSizeInKb|
@@ -1100,6 +1133,7 @@ EnvironmentBlock for containers.
 
 <a id="ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType"></a>
 ## ContainerHost element
+
 |Attribute|Value|
 |---|---|
 |type|[ContainerHostEntryPointType](service-fabric-service-model-schema-complex-types.md#containerhostentrypointtype-complextype)|
@@ -1257,6 +1291,7 @@ Specifies crash dump collection. Crash dumps are collected for executables that 
 
 #### IsEnabled
 Whether or not crash dump collection is enabled. By default, it is not enabled.
+
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
@@ -1266,12 +1301,14 @@ Whether or not crash dump collection is enabled. By default, it is not enabled.
 
 #### Destinations
 Destinations to which the crash dumps need to be transferred.
+
 |Attribute|Value|
 |---|---|
 |name|Destinations|
 |minOccurs|0|
 
 #### None
+
 |Attribute|Value|
 |---|---|
 |ref|Parameters|
@@ -1280,6 +1317,7 @@ Destinations to which the crash dumps need to be transferred.
 
 <a id="CurrentInstallationElementWindowsFabricDeploymentInformationComplexTypeDefinedInTargetInformationTypecomplexType"></a>
 ## CurrentInstallation element
+
 |Attribute|Value|
 |---|---|
 |type|[WindowsFabricDeploymentInformation](service-fabric-service-model-schema-complex-types.md#windowsfabricdeploymentinformation-complextype)|
@@ -1337,6 +1375,7 @@ Specifies information on debugger to attach when activating codepackage.
 
 <a id="DefaultReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## DefaultReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -1385,6 +1424,7 @@ Specify a default user account for all service code packages that don't have a s
 
 #### UserRef
 The user account that the service code packages will run as.  The user account must be declared in the Principals section. Often it is preferable to run the setup entry point using a local system account rather than an administrators account.
+
 |Attribute|Value|
 |---|---|
 |name|UserRef|
@@ -1491,6 +1531,7 @@ Destinations to which the crash dumps need to be transferred.
 ### Content element details
 
 #### LocalStore
+
 |Attribute|Value|
 |---|---|
 |name|LocalStore|
@@ -1499,6 +1540,7 @@ Destinations to which the crash dumps need to be transferred.
 |maxOccurs|unbounded|
 
 #### FileStore
+
 |Attribute|Value|
 |---|---|
 |name|FileStore|
@@ -1507,6 +1549,7 @@ Destinations to which the crash dumps need to be transferred.
 |maxOccurs|unbounded|
 
 #### AzureBlob
+
 |Attribute|Value|
 |---|---|
 |name|AzureBlob|
@@ -1546,6 +1589,7 @@ Destinations to which the crash dumps need to be transferred.
 ### Content element details
 
 #### LocalStore
+
 |Attribute|Value|
 |---|---|
 |name|LocalStore|
@@ -1554,6 +1598,7 @@ Destinations to which the crash dumps need to be transferred.
 |maxOccurs|unbounded|
 
 #### FileStore
+
 |Attribute|Value|
 |---|---|
 |name|FileStore|
@@ -1562,6 +1607,7 @@ Destinations to which the crash dumps need to be transferred.
 |maxOccurs|unbounded|
 
 #### AzureBlob
+
 |Attribute|Value|
 |---|---|
 |name|AzureBlob|
@@ -1601,6 +1647,7 @@ Destinations to which the folder contents need to be transferred.
 ### Content element details
 
 #### LocalStore
+
 |Attribute|Value|
 |---|---|
 |name|LocalStore|
@@ -1609,6 +1656,7 @@ Destinations to which the folder contents need to be transferred.
 |maxOccurs|unbounded|
 
 #### FileStore
+
 |Attribute|Value|
 |---|---|
 |name|FileStore|
@@ -1617,6 +1665,7 @@ Destinations to which the folder contents need to be transferred.
 |maxOccurs|unbounded|
 
 #### AzureBlob
+
 |Attribute|Value|
 |---|---|
 |name|AzureBlob|
@@ -1664,6 +1713,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 <a id="DigestedCertificatesElementanonymouscomplexTypeComplexTypeDefinedInApplicationPackageTypecomplexType"></a>
 ## DigestedCertificates element (defined in ApplicationPackageType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -1688,6 +1738,7 @@ Describes the diagnostic settings for the components of this service manifest.
 ### Content element details
 
 #### SecretsCertificate
+
 |Attribute|Value|
 |---|---|
 |name|SecretsCertificate|
@@ -1695,6 +1746,7 @@ Describes the diagnostic settings for the components of this service manifest.
 |minOccurs|0|
 
 #### EndpointCertificate
+
 |Attribute|Value|
 |---|---|
 |name|EndpointCertificate|
@@ -1703,6 +1755,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 <a id="DigestedCertificatesElementanonymouscomplexTypeComplexTypeDefinedInDigestedResourceselement"></a>
 ## DigestedCertificates element (defined in DigestedResources) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -1727,6 +1780,7 @@ Describes the diagnostic settings for the components of this service manifest.
 ### Content element details
 
 #### EndpointCertificate
+
 |Attribute|Value|
 |---|---|
 |name|EndpointCertificate|
@@ -1736,6 +1790,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 <a id="DigestedCodePackageElementanonymouscomplexTypeComplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## DigestedCodePackage element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -1779,12 +1834,14 @@ Describes the diagnostic settings for the components of this service manifest.
 ### Attribute details
 
 #### ContentChecksum
+
 |Attribute|Value|
 |---|---|
 |name|ContentChecksum|
 |type|xs:string|
 
 #### IsShared
+
 |Attribute|Value|
 |---|---|
 |name|IsShared|
@@ -1793,12 +1850,14 @@ Describes the diagnostic settings for the components of this service manifest.
 ### Content element details
 
 #### CodePackage
+
 |Attribute|Value|
 |---|---|
 |name|CodePackage|
 |type|[CodePackageType](service-fabric-service-model-schema-complex-types.md#codepackagetype-complextype)|
 
 #### RunAsPolicy
+
 |Attribute|Value|
 |---|---|
 |name|RunAsPolicy|
@@ -1807,6 +1866,7 @@ Describes the diagnostic settings for the components of this service manifest.
 |maxOccurs|2|
 
 #### DebugParameters
+
 |Attribute|Value|
 |---|---|
 |name|DebugParameters|
@@ -1816,6 +1876,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 #### ContainerHostPolicies
 Specifies policies for activating container hosts.
+
 |Attribute|Value|
 |---|---|
 |name|ContainerHostPolicies|
@@ -1824,6 +1885,7 @@ Specifies policies for activating container hosts.
 
 #### ResourceGovernancePolicy
 Specifies resource limits for codepackage.
+
 |Attribute|Value|
 |---|---|
 |name|ResourceGovernancePolicy|
@@ -1832,6 +1894,7 @@ Specifies resource limits for codepackage.
 
 #### ConfigPackagePolicies
 Specifies config policies for mounts.
+
 |Attribute|Value|
 |---|---|
 |name|ConfigPackagePolicies|
@@ -1840,6 +1903,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedConfigPackageElementanonymouscomplexTypeComplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## DigestedConfigPackage element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -1869,12 +1933,14 @@ Specifies config policies for mounts.
 ### Attribute details
 
 #### ContentChecksum
+
 |Attribute|Value|
 |---|---|
 |name|ContentChecksum|
 |type|xs:string|
 
 #### IsShared
+
 |Attribute|Value|
 |---|---|
 |name|IsShared|
@@ -1883,12 +1949,14 @@ Specifies config policies for mounts.
 ### Content element details
 
 #### ConfigPackage
+
 |Attribute|Value|
 |---|---|
 |name|ConfigPackage|
 |type|[ConfigPackageType](service-fabric-service-model-schema-complex-types.md#configpackagetype-complextype)|
 
 #### ConfigOverride
+
 |Attribute|Value|
 |---|---|
 |name|ConfigOverride|
@@ -1896,6 +1964,7 @@ Specifies config policies for mounts.
 |minOccurs|0|
 
 #### DebugParameters
+
 |Attribute|Value|
 |---|---|
 |name|DebugParameters|
@@ -1905,6 +1974,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedDataPackageElementanonymouscomplexTypeComplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## DigestedDataPackage element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -1933,12 +2003,14 @@ Specifies config policies for mounts.
 ### Attribute details
 
 #### ContentChecksum
+
 |Attribute|Value|
 |---|---|
 |name|ContentChecksum|
 |type|xs:string|
 
 #### IsShared
+
 |Attribute|Value|
 |---|---|
 |name|IsShared|
@@ -1947,12 +2019,14 @@ Specifies config policies for mounts.
 ### Content element details
 
 #### DataPackage
+
 |Attribute|Value|
 |---|---|
 |name|DataPackage|
 |type|[DataPackageType](service-fabric-service-model-schema-complex-types.md#datapackagetype-complextype)|
 
 #### DebugParameters
+
 |Attribute|Value|
 |---|---|
 |name|DebugParameters|
@@ -1962,6 +2036,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedEndpointElementanonymouscomplexTypeComplexTypeDefinedInDigestedEndpointselement"></a>
 ## DigestedEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -1989,12 +2064,14 @@ Specifies config policies for mounts.
 ### Content element details
 
 #### Endpoint
+
 |Attribute|Value|
 |---|---|
 |name|Endpoint|
 |type|[EndpointType](service-fabric-service-model-schema-complex-types.md#endpointtype-complextype)|
 
 #### SecurityAccessPolicy
+
 |Attribute|Value|
 |---|---|
 |name|SecurityAccessPolicy|
@@ -2002,6 +2079,7 @@ Specifies config policies for mounts.
 |minOccurs|0|
 
 #### EndpointBindingPolicy
+
 |Attribute|Value|
 |---|---|
 |name|EndpointBindingPolicy|
@@ -2009,6 +2087,7 @@ Specifies config policies for mounts.
 |minOccurs|0|
 
 #### ResourceGovernancePolicy
+
 |Attribute|Value|
 |---|---|
 |name|ResourceGovernancePolicy|
@@ -2018,6 +2097,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedEndpointsElementanonymouscomplexTypeComplexTypeDefinedInDigestedResourceselement"></a>
 ## DigestedEndpoints element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2050,6 +2130,7 @@ Specifies config policies for mounts.
 ### Content element details
 
 #### DigestedEndpoint
+
 |Attribute|Value|
 |---|---|
 |name|DigestedEndpoint|
@@ -2058,6 +2139,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedEnvironmentElementEnvironmentTypeComplexTypeDefinedInApplicationPackageTypecomplexType"></a>
 ## DigestedEnvironment element
+
 |Attribute|Value|
 |---|---|
 |type|[EnvironmentType](service-fabric-service-model-schema-complex-types.md#environmenttype-complextype)|
@@ -2074,6 +2156,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedResourcesElementanonymouscomplexTypeComplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## DigestedResources element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2120,12 +2203,14 @@ Specifies config policies for mounts.
 ### Content element details
 
 #### DigestedEndpoints
+
 |Attribute|Value|
 |---|---|
 |name|DigestedEndpoints|
 |minOccurs|0|
 
 #### DigestedCertificates
+
 |Attribute|Value|
 |---|---|
 |name|DigestedCertificates|
@@ -2134,6 +2219,7 @@ Specifies config policies for mounts.
 
 <a id="DigestedServiceTypesElementanonymouscomplexTypeComplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## DigestedServiceTypes element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2157,6 +2243,7 @@ Specifies config policies for mounts.
 ### Content element details
 
 #### ServiceTypes
+
 |Attribute|Value|
 |---|---|
 |name|ServiceTypes|
@@ -2182,6 +2269,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 
 <a id="DomainGroupElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement"></a>
 ## DomainGroup element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2204,6 +2292,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -2213,6 +2302,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 
 <a id="DomainUserElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement"></a>
 ## DomainUser element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2235,6 +2325,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -2326,6 +2417,7 @@ Describes the ETW settings for the components of this service manifest.
 
 #### ProviderGuids
 Lists the ETW provider GUIDs for the components of this service manifest.
+
 |Attribute|Value|
 |---|---|
 |name|ProviderGuids|
@@ -2333,6 +2425,7 @@ Lists the ETW provider GUIDs for the components of this service manifest.
 
 #### ManifestDataPackages
 Lists the data packages containing ETW manifests for the components of this service manifest. The data package containing ETW manifests should not contain any other files. 
+
 |Attribute|Value|
 |---|---|
 |name|ManifestDataPackages|
@@ -2386,6 +2479,7 @@ Specifies ETW trace collection. ETW traces are collected for the providers that 
 
 #### IsEnabled
 Whether or not ETW trace collection is enabled. By default, it is not enabled.
+
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
@@ -2395,12 +2489,14 @@ Whether or not ETW trace collection is enabled. By default, it is not enabled.
 
 #### Destinations
 Destinations to which the crash dumps need to be transferred.
+
 |Attribute|Value|
 |---|---|
 |name|Destinations|
 |minOccurs|0|
 
 #### None
+
 |Attribute|Value|
 |---|---|
 |ref|Parameters|
@@ -2573,6 +2669,7 @@ The service endpoint(s) to override.
 
 #### Endpoint
 The endpoint, declared in the service manifest, to override.
+
 |Attribute|Value|
 |---|---|
 |name|Endpoint|
@@ -2609,6 +2706,7 @@ Defines endpoints for the service.
 ### Content element details
 
 #### Endpoint
+
 |Attribute|Value|
 |---|---|
 |name|Endpoint|
@@ -2636,6 +2734,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 
 <a id="EntryPointElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType"></a>
 ## EntryPoint element (type xs:string) 
+
 |Attribute|Value|
 |---|---|
 |type|xs:string|
@@ -2654,6 +2753,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 
 <a id="EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement"></a>
 ## EnvironmentOverrides element
+
 |Attribute|Value|
 |---|---|
 |type|[EnvironmentOverridesType](service-fabric-service-model-schema-complex-types.md#environmentoverridestype-complextype)|
@@ -2740,6 +2840,7 @@ Pass environment variables to your container or exe.
 
 <a id="EphemeralEndpointsElementanonymouscomplexTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## EphemeralEndpoints element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2762,6 +2863,7 @@ Pass environment variables to your container or exe.
 ### Attribute details
 
 #### StartPort
+
 |Attribute|Value|
 |---|---|
 |name|StartPort|
@@ -2769,6 +2871,7 @@ Pass environment variables to your container or exe.
 |use|required|
 
 #### EndPort
+
 |Attribute|Value|
 |---|---|
 |name|EndPort|
@@ -2778,6 +2881,7 @@ Pass environment variables to your container or exe.
 
 <a id="EventStoreServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## EventStoreServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -2824,6 +2928,7 @@ Eviction Policy extension for the Service Type.
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -2831,6 +2936,7 @@ Eviction Policy extension for the Service Type.
 |use|required|
 
 #### Provider
+
 |Attribute|Value|
 |---|---|
 |name|Provider|
@@ -2840,6 +2946,7 @@ Eviction Policy extension for the Service Type.
 ### Content element details
 
 #### Properties
+
 |Attribute|Value|
 |---|---|
 |name|Properties|
@@ -2848,6 +2955,7 @@ Eviction Policy extension for the Service Type.
 
 <a id="ExeHostElementExeHostEntryPointTypeComplexTypeDefinedInSetupEntryPointelement"></a>
 ## ExeHost element (type ExeHostEntryPointType) 
+
 |Attribute|Value|
 |---|---|
 |type|[ExeHostEntryPointType](service-fabric-service-model-schema-complex-types.md#exehostentrypointtype-complextype)|
@@ -2864,6 +2972,7 @@ Eviction Policy extension for the Service Type.
 
 <a id="ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType"></a>
 ## ExeHost element (defined in EntryPointDescriptionType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2901,6 +3010,7 @@ Eviction Policy extension for the Service Type.
 
 <a id="ExtensionElementanonymouscomplexTypeComplexTypeDefinedInExtensionsTypecomplexType"></a>
 ## Extension element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -2933,12 +3043,14 @@ Eviction Policy extension for the Service Type.
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
 |use|required|
 
 #### GeneratedId
+
 |Attribute|Value|
 |---|---|
 |name|GeneratedId|
@@ -2985,6 +3097,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 <a id="FailoverManagerReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## FailoverManagerReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -3002,6 +3115,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 <a id="FaultAnalysisServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## FaultAnalysisServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -3108,6 +3222,7 @@ Specifies the collection of the contents of a particular folder on the local nod
 
 #### IsEnabled
 Whether or not collection of the contents of this folder is enabled. By default, it is not enabled.
+
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
@@ -3117,12 +3232,14 @@ Whether or not collection of the contents of this folder is enabled. By default,
 
 #### Destinations
 Destinations to which the folder contents need to be transferred.
+
 |Attribute|Value|
 |---|---|
 |name|Destinations|
 |minOccurs|0|
 
 #### None
+
 |Attribute|Value|
 |---|---|
 |ref|Parameters|
@@ -3131,6 +3248,7 @@ Destinations to which the folder contents need to be transferred.
 
 <a id="FromSourceElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType"></a>
 ## FromSource element
+
 |Attribute|Value|
 |---|---|
 |type|xs:string|
@@ -3149,6 +3267,7 @@ Destinations to which the folder contents need to be transferred.
 
 <a id="GatewayResourceManagerReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## GatewayResourceManagerReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -3225,6 +3344,7 @@ Declares a group as a security principal, which can be referenced in policies.
 
 #### Name
 Name of the local group account. The name will be prefixed with the application ID.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -3234,12 +3354,14 @@ Name of the local group account. The name will be prefixed with the application 
 ### Content element details
 
 #### NTLMAuthenticationPolicy
+
 |Attribute|Value|
 |---|---|
 |name|NTLMAuthenticationPolicy|
 |minOccurs|0|
 
 #### Membership
+
 |Attribute|Value|
 |---|---|
 |name|Membership|
@@ -3279,6 +3401,7 @@ The group to add the user to.  The group must be defined in the Groups section.
 
 #### NameRef
 The name of the group.
+
 |Attribute|Value|
 |---|---|
 |name|NameRef|
@@ -3356,6 +3479,7 @@ Declares a set of groups as security principals, which can be referenced in poli
 
 #### Group
 Declares a group as a security principal, which can be referenced in policies.
+
 |Attribute|Value|
 |---|---|
 |name|Group|
@@ -3406,6 +3530,7 @@ Describes the policy for evaluating health events reported on various applicatio
 
 <a id="HttpApplicationGatewayEndpointElementInputEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## HttpApplicationGatewayEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InputEndpointType](service-fabric-service-model-schema-complex-types.md#inputendpointtype-complextype)|
@@ -3423,6 +3548,7 @@ Describes the policy for evaluating health events reported on various applicatio
 
 <a id="HttpGatewayEndpointElementInputEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## HttpGatewayEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InputEndpointType](service-fabric-service-model-schema-complex-types.md#inputendpointtype-complextype)|
@@ -3512,6 +3638,7 @@ Image names corresponding to OS build number to be launched.
 
 <a id="ImageStoreServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## ImageStoreServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -3529,6 +3656,7 @@ Image names corresponding to OS build number to be launched.
 
 <a id="InfrastructureElementanonymouscomplexTypeComplexTypeDefinedInClusterManifestTypecomplexType"></a>
 ## Infrastructure element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -3621,31 +3749,37 @@ Image names corresponding to OS build number to be launched.
 ### Content element details
 
 #### WindowsServer
+
 |Attribute|Value|
 |---|---|
 |name|WindowsServer|
 
 #### Linux
+
 |Attribute|Value|
 |---|---|
 |name|Linux|
 
 #### WindowsAzure
+
 |Attribute|Value|
 |---|---|
 |name|WindowsAzure|
 
 #### WindowsAzureStaticTopology
+
 |Attribute|Value|
 |---|---|
 |name|WindowsAzureStaticTopology|
 
 #### Blackbird
+
 |Attribute|Value|
 |---|---|
 |name|Blackbird|
 
 #### PaaS
+
 |Attribute|Value|
 |---|---|
 |name|PaaS|
@@ -3716,6 +3850,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 
 #### MinInstanceCount
 The minimum number of instances.
+
 |Attribute|Value|
 |---|---|
 |name|MinInstanceCount|
@@ -3724,6 +3859,7 @@ The minimum number of instances.
 
 #### MaxInstanceCount
 The maximum number of instances..
+
 |Attribute|Value|
 |---|---|
 |name|MaxInstanceCount|
@@ -3732,6 +3868,7 @@ The maximum number of instances..
 
 #### ScaleIncrement
 The number of instances by which to perform the upshift/downshift.
+
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -3788,6 +3925,7 @@ Specifies the labels for the container.
 
 <a id="LeaseDriverEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## LeaseDriverEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -3804,6 +3942,7 @@ Specifies the labels for the container.
 
 <a id="LinuxElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureelement"></a>
 ## Linux element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -3875,6 +4014,7 @@ Load metrics reported by this service.
 ### Content element details
 
 #### LoadMetric
+
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
@@ -3911,6 +4051,7 @@ Load metrics reported by this service, used for resource balancing services.
 ### Content element details
 
 #### LoadMetric
+
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
@@ -3947,6 +4088,7 @@ Load metrics reported by this service.
 ### Content element details
 
 #### LoadMetric
+
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
@@ -3983,6 +4125,7 @@ Load metrics reported by this service.
 ### Content element details
 
 #### LoadMetric
+
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
@@ -4019,6 +4162,7 @@ Load metrics reported by this service, used for resource balancing services.
 ### Content element details
 
 #### LoadMetric
+
 |Attribute|Value|
 |---|---|
 |name|LoadMetric|
@@ -4099,12 +4243,14 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 ### Content element details
 
 #### LogCollectionPolicy
+
 |Attribute|Value|
 |---|---|
 |name|LogCollectionPolicy|
 
 <a id="LogCollectionPolicyElementanonymouscomplexTypeComplexTypeDefinedInLogCollectionPolicieselement"></a>
 ## LogCollectionPolicy element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4125,6 +4271,7 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 ### Attribute details
 
 #### Path
+
 |Attribute|Value|
 |---|---|
 |name|Path|
@@ -4186,6 +4333,7 @@ Describe the LogicalDirectories settings associated with this node type
 ### Content element details
 
 #### LogicalDirectory
+
 |Attribute|Value|
 |---|---|
 |name|LogicalDirectory|
@@ -4279,6 +4427,7 @@ Lists the data packages containing ETW manifests for the components of this serv
 ### Content element details
 
 #### ManifestDataPackage
+
 |Attribute|Value|
 |---|---|
 |name|ManifestDataPackage|
@@ -4288,6 +4437,7 @@ Lists the data packages containing ETW manifests for the components of this serv
 
 <a id="MemberElementServiceGroupMemberTypeComplexTypeDefinedInMemberselementDefinedInMemberselement"></a>
 ## Member element
+
 |Attribute|Value|
 |---|---|
 |type|[ServiceGroupMemberType](service-fabric-service-model-schema-complex-types.md#servicegroupmembertype-complextype)|
@@ -4358,6 +4508,7 @@ Users can be added to any existing membership group, so it can inherit all the p
 
 #### SystemGroup
 The system group to add the user to.  The system group must be defined in the Groups section.
+
 |Attribute|Value|
 |---|---|
 |name|SystemGroup|
@@ -4366,6 +4517,7 @@ The system group to add the user to.  The system group must be defined in the Gr
 
 #### Group
 The group to add the user to.  The group must be defined in the Groups section.
+
 |Attribute|Value|
 |---|---|
 |name|Group|
@@ -4403,6 +4555,7 @@ Member services of this service group
 ### Content element details
 
 #### Member
+
 |Attribute|Value|
 |---|---|
 |name|Member|
@@ -4441,6 +4594,7 @@ Member services of this service group
 ### Content element details
 
 #### Member
+
 |Attribute|Value|
 |---|---|
 |name|Member|
@@ -4450,6 +4604,7 @@ Member services of this service group
 
 <a id="MembershipElementanonymouscomplexTypeComplexTypeDefinedInGroupelement"></a>
 ## Membership element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4487,6 +4642,7 @@ Member services of this service group
 ### Content element details
 
 #### DomainGroup
+
 |Attribute|Value|
 |---|---|
 |name|DomainGroup|
@@ -4494,6 +4650,7 @@ Member services of this service group
 |maxOccurs|unbounded|
 
 #### SystemGroup
+
 |Attribute|Value|
 |---|---|
 |name|SystemGroup|
@@ -4501,6 +4658,7 @@ Member services of this service group
 |maxOccurs|unbounded|
 
 #### DomainUser
+
 |Attribute|Value|
 |---|---|
 |name|DomainUser|
@@ -4509,6 +4667,7 @@ Member services of this service group
 
 <a id="NTLMAuthenticationPolicyElementanonymouscomplexTypeComplexTypeDefinedInGroupelement"></a>
 ## NTLMAuthenticationPolicy element (defined in Group) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4530,6 +4689,7 @@ Member services of this service group
 ### Attribute details
 
 #### IsEnabled
+
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
@@ -4540,6 +4700,7 @@ Member services of this service group
 
 <a id="NTLMAuthenticationPolicyElementanonymouscomplexTypeComplexTypeDefinedInUserelement"></a>
 ## NTLMAuthenticationPolicy element (defined in User) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4577,6 +4738,7 @@ Member services of this service group
 ### Attribute details
 
 #### IsEnabled
+
 |Attribute|Value|
 |---|---|
 |name|IsEnabled|
@@ -4585,6 +4747,7 @@ Member services of this service group
 |default|true|
 
 #### PasswordSecret
+
 |Attribute|Value|
 |---|---|
 |name|PasswordSecret|
@@ -4592,6 +4755,7 @@ Member services of this service group
 |use|required|
 
 #### PasswordSecretEncrypted
+
 |Attribute|Value|
 |---|---|
 |name|PasswordSecretEncrypted|
@@ -4600,6 +4764,7 @@ Member services of this service group
 |default|false|
 
 #### X509StoreLocation
+
 |Attribute|Value|
 |---|---|
 |name|X509StoreLocation|
@@ -4607,12 +4772,14 @@ Member services of this service group
 |default|LocalMachine|
 
 #### X509StoreName
+
 |Attribute|Value|
 |---|---|
 |name|X509StoreName|
 |default|My|
 
 #### X509Thumbprint
+
 |Attribute|Value|
 |---|---|
 |name|X509Thumbprint|
@@ -4665,12 +4832,14 @@ Describes a named partitioning scheme based on names for each partition.
 
 #### Partition
 Describes a partition by name.
+
 |Attribute|Value|
 |---|---|
 |name|Partition|
 
 <a id="NamingReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## NamingReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -4774,6 +4943,7 @@ Describes a Infrastructure information needed.
 
 <a id="NodeListElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureInformationTypecomplexType"></a>
 ## NodeList element (defined in InfrastructureInformationType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4796,6 +4966,7 @@ Describes a Infrastructure information needed.
 ### Content element details
 
 #### Node
+
 |Attribute|Value|
 |---|---|
 |name|Node|
@@ -4804,6 +4975,7 @@ Describes a Infrastructure information needed.
 
 <a id="NodeListElementanonymouscomplexTypeComplexTypeDefinedInLinuxInfrastructureTypecomplexType"></a>
 ## NodeList element (defined in LinuxInfrastructureType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4826,6 +4998,7 @@ Describes a Infrastructure information needed.
 ### Content element details
 
 #### Node
+
 |Attribute|Value|
 |---|---|
 |name|Node|
@@ -4834,6 +5007,7 @@ Describes a Infrastructure information needed.
 
 <a id="NodeListElementanonymouscomplexTypeComplexTypeDefinedInWindowsInfrastructureTypecomplexType"></a>
 ## NodeList element (defined in WindowsInfrastructureType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -4856,6 +5030,7 @@ Describes a Infrastructure information needed.
 ### Content element details
 
 #### Node
+
 |Attribute|Value|
 |---|---|
 |name|Node|
@@ -4952,6 +5127,7 @@ Describe a node type.
 
 #### Name
 Name of the NodeType
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -4962,6 +5138,7 @@ Name of the NodeType
 
 #### Endpoints
 Describe the endpoints associated with this node type
+
 |Attribute|Value|
 |---|---|
 |name|Endpoints|
@@ -4970,6 +5147,7 @@ Describe the endpoints associated with this node type
 
 #### KtlLoggerSettings
 Describe the KtlLogger information associated with this node type
+
 |Attribute|Value|
 |---|---|
 |name|KtlLoggerSettings|
@@ -4978,6 +5156,7 @@ Describe the KtlLogger information associated with this node type
 
 #### LogicalDirectories
 Describe the LogicalDirectories settings associated with this node type
+
 |Attribute|Value|
 |---|---|
 |name|LogicalDirectories|
@@ -4985,6 +5164,7 @@ Describe the LogicalDirectories settings associated with this node type
 
 #### Certificates
 Describe the certificates associated with this node type
+
 |Attribute|Value|
 |---|---|
 |name|Certificates|
@@ -4993,6 +5173,7 @@ Describe the certificates associated with this node type
 
 #### PlacementProperties
 Describe the properties for this NodeType that will be used as placement constraints
+
 |Attribute|Value|
 |---|---|
 |name|PlacementProperties|
@@ -5000,6 +5181,7 @@ Describe the properties for this NodeType that will be used as placement constra
 
 #### Capacities
 The capacities of various metrics for this node type
+
 |Attribute|Value|
 |---|---|
 |name|Capacities|
@@ -5007,6 +5189,7 @@ The capacities of various metrics for this node type
 
 #### SfssRgPolicies
 The SF system services resource governance policy for this node type
+
 |Attribute|Value|
 |---|---|
 |name|SfssRgPolicies|
@@ -5014,6 +5197,7 @@ The SF system services resource governance policy for this node type
 
 <a id="NodeTypesElementanonymouscomplexTypeComplexTypeDefinedInClusterManifestTypecomplexType"></a>
 ## NodeTypes element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -5106,6 +5290,7 @@ The SF system services resource governance policy for this node type
 
 #### NodeType
 Describe a node type.
+
 |Attribute|Value|
 |---|---|
 |name|NodeType|
@@ -5113,6 +5298,7 @@ Describe a node type.
 
 <a id="PaaSElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureelement"></a>
 ## PaaS element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -5148,11 +5334,13 @@ Describe a node type.
 ### Content element details
 
 #### Roles
+
 |Attribute|Value|
 |---|---|
 |name|Roles|
 
 #### Votes
+
 |Attribute|Value|
 |---|---|
 |name|Votes|
@@ -5178,6 +5366,7 @@ Indicates if a code, config or data package should be shared across service inst
 
 <a id="ParameterElementParameterTypeComplexTypeDefinedInParametersTypecomplexType"></a>
 ## Parameter element (type ParameterType) 
+
 |Attribute|Value|
 |---|---|
 |type|[ParameterType](service-fabric-service-model-schema-complex-types.md#parametertype-complextype)|
@@ -5239,6 +5428,7 @@ An application parameter to be used in this manifest. The parameter value can be
 
 #### Name
 The name of the parameter to be used in the manifest as "[Name]".
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -5246,6 +5436,7 @@ The name of the parameter to be used in the manifest as "[Name]".
 
 #### DefaultValue
 Default value for the parameter, used if the parameter value is not provided during application instantiation.
+
 |Attribute|Value|
 |---|---|
 |name|DefaultValue|
@@ -5255,6 +5446,7 @@ Default value for the parameter, used if the parameter value is not provided dur
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement"></a>
 ## Parameter element (defined in Parameters) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -5323,6 +5515,7 @@ The setting to override.
 
                       If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
                     
+
 |Attribute|Value|
 |---|---|
 |name|IsEncrypted|
@@ -5335,6 +5528,7 @@ The setting to override.
                       If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
                       If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
                     
+
 |Attribute|Value|
 |---|---|
 |name|Type|
@@ -5344,6 +5538,7 @@ The setting to override.
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInSectionelement"></a>
 ## Parameter element (defined in Section) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -5378,6 +5573,7 @@ The setting to override.
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -5385,6 +5581,7 @@ The setting to override.
 |use|required|
 
 #### Value
+
 |Attribute|Value|
 |---|---|
 |name|Value|
@@ -5393,6 +5590,7 @@ The setting to override.
 
 #### MustOverride
 If true, the value of this parameter must be overridden by higher level configuration.
+
 |Attribute|Value|
 |---|---|
 |name|MustOverride|
@@ -5401,6 +5599,7 @@ If true, the value of this parameter must be overridden by higher level configur
 
 #### IsEncrypted
 If true, the value of this parameter is encrypted.
+
 |Attribute|Value|
 |---|---|
 |name|IsEncrypted|
@@ -5408,6 +5607,7 @@ If true, the value of this parameter is encrypted.
 |default|false|
 
 #### Type
+
 |Attribute|Value|
 |---|---|
 |name|Type|
@@ -5470,6 +5670,7 @@ List of parameters for the application as defined in application manifest and th
 ### Content element details
 
 #### Parameter
+
 |Attribute|Value|
 |---|---|
 |name|Parameter|
@@ -5528,6 +5729,7 @@ Declares the parameters that are used in this application manifest. The value of
 
 #### Parameter
 An application parameter to be used in this manifest. The parameter value can be changed during application instantiation, or, if no value is supplied the default value is used.
+
 |Attribute|Value|
 |---|---|
 |name|Parameter|
@@ -5572,6 +5774,7 @@ Describes a partition by name.
 
 #### Name
 The name of the partition
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -5618,6 +5821,7 @@ Persistence Policy extension for the Service Type
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -5625,12 +5829,14 @@ Persistence Policy extension for the Service Type
 |use|required|
 
 #### Mode
+
 |Attribute|Value|
 |---|---|
 |name|Mode|
 |use|required|
 
 #### WriteBehind
+
 |Attribute|Value|
 |---|---|
 |name|WriteBehind|
@@ -5638,6 +5844,7 @@ Persistence Policy extension for the Service Type
 |use|required|
 
 #### Provider
+
 |Attribute|Value|
 |---|---|
 |name|Provider|
@@ -5647,6 +5854,7 @@ Persistence Policy extension for the Service Type
 ### Content element details
 
 #### Properties
+
 |Attribute|Value|
 |---|---|
 |name|Properties|
@@ -5706,6 +5914,7 @@ Describe the properties for this NodeType that will be used as placement constra
 ### Content element details
 
 #### Property
+
 |Attribute|Value|
 |---|---|
 |name|Property|
@@ -5836,6 +6045,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 <a id="PropertyElementKeyValuePairTypeComplexTypeDefinedInPlacementPropertieselement"></a>
 ## Property element (type KeyValuePairType) 
+
 |Attribute|Value|
 |---|---|
 |type|[KeyValuePairType](service-fabric-service-model-schema-complex-types.md#keyvaluepairtype-complextype)|
@@ -5854,6 +6064,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 <a id="PropertyElementanonymouscomplexTypeComplexTypeDefinedInServiceTypeExtensionPolicyPropertiesTypecomplexType"></a>
 ## Property element (defined in ServiceTypeExtensionPolicyPropertiesType) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -5877,6 +6088,7 @@ Defines Properties for the Persistence and Eviction policies.
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -5884,6 +6096,7 @@ Defines Properties for the Persistence and Eviction policies.
 |use|required|
 
 #### Value
+
 |Attribute|Value|
 |---|---|
 |name|Value|
@@ -5893,6 +6106,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 <a id="ProviderGuidElementanonymouscomplexTypeComplexTypeDefinedInProviderGuidselement"></a>
 ## ProviderGuid element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -5921,6 +6135,7 @@ Defines Properties for the Persistence and Eviction policies.
 ### Attribute details
 
 #### Value
+
 |Attribute|Value|
 |---|---|
 |name|Value|
@@ -5967,6 +6182,7 @@ Lists the ETW provider GUIDs for the components of this service manifest.
 ### Content element details
 
 #### ProviderGuid
+
 |Attribute|Value|
 |---|---|
 |name|ProviderGuid|
@@ -5975,6 +6191,7 @@ Lists the ETW provider GUIDs for the components of this service manifest.
 
 <a id="RepairManagerReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## RepairManagerReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -6077,6 +6294,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RoleElementAzureRoleTypeComplexTypeDefinedInRoleselement"></a>
 ## Role element (type AzureRoleType) 
+
 |Attribute|Value|
 |---|---|
 |type|[AzureRoleType](service-fabric-service-model-schema-complex-types.md#azureroletype-complextype)|
@@ -6094,6 +6312,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RoleElementBlackbirdRoleTypeComplexTypeDefinedInRoleselement"></a>
 ## Role element (type BlackbirdRoleType) 
+
 |Attribute|Value|
 |---|---|
 |type|[BlackbirdRoleType](service-fabric-service-model-schema-complex-types.md#blackbirdroletype-complextype)|
@@ -6112,6 +6331,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RoleElementPaaSRoleTypeComplexTypeDefinedInRoleselement"></a>
 ## Role element (type PaaSRoleType) 
+
 |Attribute|Value|
 |---|---|
 |type|[PaaSRoleType](service-fabric-service-model-schema-complex-types.md#paasroletype-complextype)|
@@ -6129,6 +6349,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RolesElementanonymouscomplexTypeComplexTypeDefinedInBlackbirdelement"></a>
 ## Roles element (defined in Blackbird) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -6151,6 +6372,7 @@ Describes the resources used by this service, which can be declared without modi
 ### Content element details
 
 #### Role
+
 |Attribute|Value|
 |---|---|
 |name|Role|
@@ -6160,6 +6382,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RolesElementanonymouscomplexTypeComplexTypeDefinedInPaaSelement"></a>
 ## Roles element (defined in PaaS) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -6182,6 +6405,7 @@ Describes the resources used by this service, which can be declared without modi
 ### Content element details
 
 #### Role
+
 |Attribute|Value|
 |---|---|
 |name|Role|
@@ -6190,6 +6414,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RolesElementanonymouscomplexTypeComplexTypeDefinedInWindowsAzureelement"></a>
 ## Roles element (defined in WindowsAzure) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -6212,6 +6437,7 @@ Describes the resources used by this service, which can be declared without modi
 ### Content element details
 
 #### Role
+
 |Attribute|Value|
 |---|---|
 |name|Role|
@@ -6239,6 +6465,7 @@ Specifies the local user or local system account that a service code package wil
 
 <a id="RunFrequencyElementanonymouscomplexTypeComplexTypeDefinedInExeHostelement"></a>
 ## RunFrequency element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -6267,6 +6494,7 @@ Specifies the local user or local system account that a service code package wil
 ### Attribute details
 
 #### IntervalInSeconds
+
 |Attribute|Value|
 |---|---|
 |name|IntervalInSeconds|
@@ -6375,6 +6603,7 @@ A section in the Settings.xml file to override.
 
 #### Name
 The name of the section in the Settings.xml file to override.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -6384,6 +6613,7 @@ The name of the section in the Settings.xml file to override.
 
 #### Parameter
 The setting to override.
+
 |Attribute|Value|
 |---|---|
 |name|Parameter|
@@ -6438,6 +6668,7 @@ A user-defined named section.
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -6447,6 +6678,7 @@ A user-defined named section.
 ### Content element details
 
 #### Parameter
+
 |Attribute|Value|
 |---|---|
 |name|Parameter|
@@ -6483,6 +6715,7 @@ List of security policies applied to resources at the application level.
 ### Content element details
 
 #### SecurityAccessPolicy
+
 |Attribute|Value|
 |---|---|
 |name|SecurityAccessPolicy|
@@ -6605,6 +6838,7 @@ Declares a service to be created automatically when the application is instantia
 
 #### Name
 The service name, used to form the fully qualified application name URI. The fully qualified name URI of the service would be: fabric:/ApplicationName/ServiceName.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -6613,6 +6847,7 @@ The service name, used to form the fully qualified application name URI. The ful
 
 #### GeneratedIdRef
 Reference to the auto generated id used by Visual Studio tooling.
+
 |Attribute|Value|
 |---|---|
 |name|GeneratedIdRef|
@@ -6621,6 +6856,7 @@ Reference to the auto generated id used by Visual Studio tooling.
 
 #### ServiceDnsName
 The DNS name of the service.
+
 |Attribute|Value|
 |---|---|
 |name|ServiceDnsName|
@@ -6629,6 +6865,7 @@ The DNS name of the service.
 
 #### ServicePackageActivationMode
 ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
@@ -6639,12 +6876,14 @@ ServicePackageActivationMode to be used when creating the service. Allowed value
 ### Content element details
 
 #### StatelessService
+
 |Attribute|Value|
 |---|---|
 |name|StatelessService|
 |type|[StatelessServiceType](service-fabric-service-model-schema-complex-types.md#statelessservicetype-complextype)|
 
 #### StatefulService
+
 |Attribute|Value|
 |---|---|
 |name|StatefulService|
@@ -6652,6 +6891,7 @@ ServicePackageActivationMode to be used when creating the service. Allowed value
 
 <a id="ServiceConnectionEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## ServiceConnectionEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -6717,6 +6957,7 @@ Defines an affinity relationship with another service. Useful when splitting a p
 
 #### ServiceName
 The name of the other service as a URI. Example, "fabric:/otherApplication/parentService".
+
 |Attribute|Value|
 |---|---|
 |name|ServiceName|
@@ -6724,6 +6965,7 @@ The name of the other service as a URI. Example, "fabric:/otherApplication/paren
 
 #### Scheme
 In NonAlignedAffinity the replicas or instances of the different services are placed on the same nodes. AlignedAffinity is used with stateful services. Configuring one stateful service as having aligned affinity with another stateful service ensures that the primaries of those services are placed on the same nodes as each other, and that each pair of secondaries are also placed on the same nodes.
+
 |Attribute|Value|
 |---|---|
 |name|Scheme|
@@ -6789,6 +7031,7 @@ Defines affinity relationships between services.
 
 #### ServiceCorrelation
 Defines an affinity relationship with another service. Useful when splitting a previously-monolithic application into microservices.  One service has a local dependency on another service and both services need to run on the same node in order to work.
+
 |Attribute|Value|
 |---|---|
 |name|ServiceCorrelation|
@@ -6859,6 +7102,7 @@ A collection of services that are automatically located together, so they are al
 
 #### Name
 Name of this service relative to this application Name URI. Fully qualified Name of the service is a combination of Name Uri of the Application and this Name.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -6867,6 +7111,7 @@ Name of this service relative to this application Name URI. Fully qualified Name
 
 #### ServicePackageActivationMode
 ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
@@ -6877,12 +7122,14 @@ ServicePackageActivationMode to be used when creating the service. Allowed value
 ### Content element details
 
 #### StatelessServiceGroup
+
 |Attribute|Value|
 |---|---|
 |name|StatelessServiceGroup|
 |type|[StatelessServiceGroupType](service-fabric-service-model-schema-complex-types.md#statelessservicegrouptype-complextype)|
 
 #### StatefulServiceGroup
+
 |Attribute|Value|
 |---|---|
 |name|StatefulServiceGroup|
@@ -6919,6 +7166,7 @@ Member types of this service group type.
 ### Content element details
 
 #### None
+
 |Attribute|Value|
 |---|---|
 |ref|ServiceGroupTypeMember|
@@ -6974,6 +7222,7 @@ Describes the member type of the service group.
 
 #### ServiceTypeName
 User-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor
+
 |Attribute|Value|
 |---|---|
 |name|ServiceTypeName|
@@ -6983,6 +7232,7 @@ User-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup M
 
 #### LoadMetrics
 Load metrics reported by this service, used for resource balancing services.
+
 |Attribute|Value|
 |---|---|
 |name|LoadMetrics|
@@ -7049,6 +7299,7 @@ Imports a service manifest created by the service developer. A service manifest 
 ### Content element details
 
 #### ServiceManifestRef
+
 |Attribute|Value|
 |---|---|
 |name|ServiceManifestRef|
@@ -7056,12 +7307,14 @@ Imports a service manifest created by the service developer. A service manifest 
 
 #### ConfigOverrides
 Describes configuration overrides for the imported service manifest. Configuration overrides allow the flexibility of re-using the same service manifests across multiple application types by overriding the service manifest's configuration only when used with a particular application type. Configuration overrides can change any default configuration in a service manifest as long as default configuration is defined using the Settings.xml in the ConfigPackage folder. 
+
 |Attribute|Value|
 |---|---|
 |name|ConfigOverrides|
 |minOccurs|0|
 
 #### ResourceOverrides
+
 |Attribute|Value|
 |---|---|
 |name|ResourceOverrides|
@@ -7069,6 +7322,7 @@ Describes configuration overrides for the imported service manifest. Configurati
 |minOccurs|0|
 
 #### EnvironmentOverrides
+
 |Attribute|Value|
 |---|---|
 |name|EnvironmentOverrides|
@@ -7077,6 +7331,7 @@ Describes configuration overrides for the imported service manifest. Configurati
 |maxOccurs|unbounded|
 
 #### Policies
+
 |Attribute|Value|
 |---|---|
 |name|Policies|
@@ -7125,6 +7380,7 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 
 <a id="ServicePackageContainerPolicyElementServicePackageContainerPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## ServicePackageContainerPolicy element
+
 |Attribute|Value|
 |---|---|
 |type|[ServicePackageContainerPolicyType](service-fabric-service-model-schema-complex-types.md#servicepackagecontainerpolicytype-complextype)|
@@ -7143,6 +7399,7 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 
 <a id="ServicePackageRefElementanonymouscomplexTypeComplexTypeDefinedInApplicationInstanceTypecomplexType"></a>
 ## ServicePackageRef element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -7165,6 +7422,7 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -7256,6 +7514,7 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 
 #### ServicePlacementPolicy
 Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
+
 |Attribute|Value|
 |---|---|
 |name|ServicePlacementPolicy|
@@ -7322,6 +7581,7 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 
 #### ServicePlacementPolicy
 Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
+
 |Attribute|Value|
 |---|---|
 |name|ServicePlacementPolicy|
@@ -7379,12 +7639,14 @@ Defines a service placement policy, which specifies that the service should or s
 
 #### DomainName
 The fault domain where the service should or should not be placed, depending on the Type value.
+
 |Attribute|Value|
 |---|---|
 |name|DomainName|
 
 #### Type
 InvalidDomain allows you to specify that a particular Fault Domain is invalid for this workload. RequiredDomain requires that all of the replicas be present in the specified domain. Multiple required domains can be specified. PreferredPrimaryDomain specifies the preferred Fault Domain for primary replicas. Useful in geographically spanned clusters where you are using other locations for redundancy, but would prefer that the primary replicas be placed in a certain location in order to provider lower latency for operations which go to the primary. RequiredDomainDistribution specifies that replicas are required to be distributed among the available fault domains. NonPartiallyPlace controls if the service replicas will be partially place if not all of them can be placed.
+
 |Attribute|Value|
 |---|---|
 |name|Type|
@@ -7443,12 +7705,14 @@ Defines a service placement policy, which specifies that the service should or s
 
 #### DomainName
 The fault domain where the service should or should not be placed, depending on the Type value.
+
 |Attribute|Value|
 |---|---|
 |name|DomainName|
 
 #### Type
 InvalidDomain allows you to specify that a particular Fault Domain is invalid for this workload. RequiredDomain requires that all of the replicas be present in the specified domain. Multiple required domains can be specified. PreferredPrimaryDomain specifies the preferred Fault Domain for primary replicas. Useful in geographically spanned clusters where you are using other locations for redundancy, but would prefer that the primary replicas be placed in a certain location in order to provider lower latency for operations which go to the primary. RequiredDomainDistribution specifies that replicas are required to be distributed among the available fault domains. NonPartiallyPlace controls if the service replicas will be partially place if not all of them can be placed. 
+
 |Attribute|Value|
 |---|---|
 |name|Type|
@@ -7485,6 +7749,7 @@ Declares scaling policies for a service. Useful for dynamically scaling the serv
 ### Content element details
 
 #### ScalingPolicy
+
 |Attribute|Value|
 |---|---|
 |name|ScalingPolicy|
@@ -7573,6 +7838,7 @@ Defines what service types are supported by a CodePackage in this manifest. When
 
 <a id="ServiceTypesElementServiceTypesTypeComplexTypeDefinedInDigestedServiceTypeselement"></a>
 ## ServiceTypes element (type ServiceTypesType) 
+
 |Attribute|Value|
 |---|---|
 |type|[ServiceTypesType](service-fabric-service-model-schema-complex-types.md#servicetypestype-complextype)|
@@ -7658,6 +7924,7 @@ A privileged entry point that by default runs with the same credentials as Servi
 ### Content element details
 
 #### ExeHost
+
 |Attribute|Value|
 |---|---|
 |name|ExeHost|
@@ -7693,6 +7960,7 @@ The SF system services resource governance policy for this node type
 ### Content element details
 
 #### SfssRgPolicy
+
 |Attribute|Value|
 |---|---|
 |name|SfssRgPolicy|
@@ -7702,6 +7970,7 @@ The SF system services resource governance policy for this node type
 
 <a id="SfssRgPolicyElementKeyValuePairTypeComplexTypeDefinedInSfssRgPolicieselement"></a>
 ## SfssRgPolicy element
+
 |Attribute|Value|
 |---|---|
 |type|[KeyValuePairType](service-fabric-service-model-schema-complex-types.md#keyvaluepairtype-complextype)|
@@ -7753,6 +8022,7 @@ Specific GUID to use as the shared log ID.
 ### Attribute details
 
 #### Value
+
 |Attribute|Value|
 |---|---|
 |name|Value|
@@ -7788,6 +8058,7 @@ Defines path to shared log.
 ### Attribute details
 
 #### Value
+
 |Attribute|Value|
 |---|---|
 |name|Value|
@@ -7830,6 +8101,7 @@ Defines how large is the shared log.
 ### Attribute details
 
 #### Value
+
 |Attribute|Value|
 |---|---|
 |name|Value|
@@ -8037,6 +8309,7 @@ The system group to add the user to.  The system group must be defined in the Gr
 
 #### Name
 The name of the system group.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -8046,6 +8319,7 @@ The name of the system group.
 
 <a id="SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement"></a>
 ## SystemGroup element (defined in Membership) 
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -8068,6 +8342,7 @@ The name of the system group.
 ### Attribute details
 
 #### Name
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -8099,6 +8374,7 @@ Describes the target the FabricDeployer needs to deploy.
 
 <a id="TargetInstallationElementWindowsFabricDeploymentInformationComplexTypeDefinedInTargetInformationTypecomplexType"></a>
 ## TargetInstallation element
+
 |Attribute|Value|
 |---|---|
 |type|[WindowsFabricDeploymentInformation](service-fabric-service-model-schema-complex-types.md#windowsfabricdeploymentinformation-complextype)|
@@ -8156,6 +8432,7 @@ Describes a uniform partitioning scheme based on Int64 keys.
 
 #### PartitionCount
 Total number of partitions (positive integer). Each partition is responsible for a non-overlapping subrange of the overall partition key range.
+
 |Attribute|Value|
 |---|---|
 |name|PartitionCount|
@@ -8164,6 +8441,7 @@ Total number of partitions (positive integer). Each partition is responsible for
 
 #### LowKey
 Inclusive low range of the partition key (long).
+
 |Attribute|Value|
 |---|---|
 |name|LowKey|
@@ -8172,6 +8450,7 @@ Inclusive low range of the partition key (long).
 
 #### HighKey
 Inclusive high range of the partition key (long).
+
 |Attribute|Value|
 |---|---|
 |name|HighKey|
@@ -8199,6 +8478,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 
 <a id="UpgradeOrchestrationServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## UpgradeOrchestrationServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -8216,6 +8496,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 
 <a id="UpgradeServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
 ## UpgradeServiceReplicatorEndpoint element
+
 |Attribute|Value|
 |---|---|
 |type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
@@ -8343,6 +8624,7 @@ Declares a user as a security principal, which can be referenced in policies.
 
 #### Name
 Name of the user account.
+
 |Attribute|Value|
 |---|---|
 |name|Name|
@@ -8351,6 +8633,7 @@ Name of the user account.
 
 #### AccountType
 Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalService, ManagedServiceAccount, or LocalSystem.  The default is LocalUser. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.
+
 |Attribute|Value|
 |---|---|
 |name|AccountType|
@@ -8358,6 +8641,7 @@ Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalServi
 |default|LocalUser|
 
 #### LoadUserProfile
+
 |Attribute|Value|
 |---|---|
 |name|LoadUserProfile|
@@ -8366,6 +8650,7 @@ Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalServi
 |default|false|
 
 #### PerformInteractiveLogon
+
 |Attribute|Value|
 |---|---|
 |name|PerformInteractiveLogon|
@@ -8375,6 +8660,7 @@ Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalServi
 
 #### PasswordEncrypted
 True if the password is encrypted; false if in plain text.
+
 |Attribute|Value|
 |---|---|
 |name|PasswordEncrypted|
@@ -8384,6 +8670,7 @@ True if the password is encrypted; false if in plain text.
 ### Content element details
 
 #### NTLMAuthenticationPolicy
+
 |Attribute|Value|
 |---|---|
 |name|NTLMAuthenticationPolicy|
@@ -8391,6 +8678,7 @@ True if the password is encrypted; false if in plain text.
 
 #### MemberOf
 Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).
+
 |Attribute|Value|
 |---|---|
 |name|MemberOf|
@@ -8540,6 +8828,7 @@ Declares a set of users as security principals, which can be referenced in polic
 
 #### User
 Declares a user as a security principal, which can be referenced in policies.
+
 |Attribute|Value|
 |---|---|
 |name|User|
@@ -8571,6 +8860,7 @@ Specifies the volume to be bound to container.
 
 <a id="VoteElementPaaSVoteTypeComplexTypeDefinedInVoteselement"></a>
 ## Vote element
+
 |Attribute|Value|
 |---|---|
 |type|[PaaSVoteType](service-fabric-service-model-schema-complex-types.md#paasvotetype-complextype)|
@@ -8588,6 +8878,7 @@ Specifies the volume to be bound to container.
 
 <a id="VotesElementanonymouscomplexTypeComplexTypeDefinedInPaaSelement"></a>
 ## Votes element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -8610,6 +8901,7 @@ Specifies the volume to be bound to container.
 ### Content element details
 
 #### Vote
+
 |Attribute|Value|
 |---|---|
 |name|Vote|
@@ -8618,6 +8910,7 @@ Specifies the volume to be bound to container.
 
 <a id="WindowsAzureElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureelement"></a>
 ## WindowsAzure element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -8646,12 +8939,14 @@ Specifies the volume to be bound to container.
 ### Content element details
 
 #### Roles
+
 |Attribute|Value|
 |---|---|
 |name|Roles|
 
 <a id="WindowsAzureStaticTopologyElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureelement"></a>
 ## WindowsAzureStaticTopology element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -8674,6 +8969,7 @@ Specifies the volume to be bound to container.
 
 <a id="WindowsServerElementanonymouscomplexTypeComplexTypeDefinedInInfrastructureelement"></a>
 ## WindowsServer element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -8698,6 +8994,7 @@ Specifies the volume to be bound to container.
 
 <a id="WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType"></a>
 ## WorkingFolder element
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|

@@ -276,6 +276,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 
 ## COM+/Volume Shadow Copy service error (error code 151025)
+
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
 151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
