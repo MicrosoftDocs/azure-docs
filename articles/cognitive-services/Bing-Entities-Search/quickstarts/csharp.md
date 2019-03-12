@@ -43,7 +43,6 @@ While this application is written in C#, the API is a RESTful Web service compat
     using System;
     using System.Net.Http;
     using System.Text;
-    using 
     ```
 
 2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search.
