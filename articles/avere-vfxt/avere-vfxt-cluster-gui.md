@@ -26,7 +26,7 @@ Before connecting, make sure that the SSH public/private key pair that you used 
 
 If using a Linux-based client, use an SSH tunneling command with this form: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 This command connects to the cluster's management IP address through the cluster controller's IP address.
 

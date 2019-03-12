@@ -72,14 +72,14 @@ Azure Active Directory schema does not allow two or more objects to have the sam
 4. Bob also has following values for the **proxyAddresses** attribute:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob@contoso.com**
+   * **smtp: bob\@contoso.com**
 5. A new user, **Bob Taylor**, is added to the on premises Active Directory.
 6. Bob Taylor's **UserPrincipalName** is set as **bobt@contoso.com**.
 7. **"abcdefghijkl0123456789==""** is the **sourceAnchor** calculated by Azure AD Connect using Bob Taylor's **objectGUID** from on premises Active Directory. Bob Taylor's object has NOT synced to Azure Active Directory yet.
 8. Bob Taylor has the following values for the proxyAddresses attribute
    * smtp: bobt@contoso.com
    * smtp: bob.taylor@contoso.com
-   * **smtp: bob@contoso.com**
+   * **smtp: bob\@contoso.com**
 9. During sync, Azure AD Connect will recognize the addition of Bob Taylor in on premises Active Directory and ask Azure AD to make the same change.
 10. Azure AD will first perform hard match. That is, it will search if there is any object with the immutableId equal to "abcdefghijkl0123456789==". Hard Match will fail as no other object in Azure AD will have that immutableId.
 11. Azure AD will then attempt to soft-match Bob Taylor. That is, it will search if there is any object with proxyAddresses equal to the three values, including smtp: bob@contoso.com
@@ -111,8 +111,8 @@ When Azure AD attempts to soft match two objects, it is possible that two object
 * A mail enabled security group is created in Office 365. Admin adds a new user or contact in on premises AD (that's not synchronized to Azure AD yet) with the same value for the ProxyAddresses attribute as that of the Office 365 group.
 
 #### Example case
-1. Admin creates a new mail enabled security group in Office 365 for the Tax department and provides an email address as tax@contoso.com. This group  is assigned the ProxyAddresses attribute value of **smtp: tax@contoso.com**
-2. A new user joins Contoso.com and an account is created for the user on premises with the proxyAddress as **smtp: tax@contoso.com**
+1. Admin creates a new mail enabled security group in Office 365 for the Tax department and provides an email address as tax@contoso.com. This group  is assigned the ProxyAddresses attribute value of **smtp: tax\@contoso.com**
+2. A new user joins Contoso.com and an account is created for the user on premises with the proxyAddress as **smtp: tax\@contoso.com**
 3. When Azure AD Connect will sync the new user account, it will get the "ObjectTypeMismatch" error.
 
 #### How to fix ObjectTypeMismatch error
@@ -142,7 +142,7 @@ If Azure AD Connect attempts to add a new object or update an existing object wi
 3. Bob also has following values for the **proxyAddresses** attribute:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob@contoso.com**
+   * **smtp: bob\@contoso.com**
 4. A new user, **Bob Taylor**, is added to the on premises Active Directory.
 5. Bob Taylor's **UserPrincipalName** is set as **bobt@contoso.com**.
 6. **Bob Taylor** has the following values for the **ProxyAddresses** attribute
@@ -150,7 +150,7 @@ If Azure AD Connect attempts to add a new object or update an existing object wi
     ii. smtp: bob.taylor@contoso.com
 7. Bob Taylor's object is synchronized with Azure AD successfully.
 8. Admin decided to update Bob Taylor's **ProxyAddresses** attribute with the following value:
-    i. **smtp: bob@contoso.com**
+    i. **smtp: bob\@contoso.com**
 9. Azure AD will attempt to update Bob Taylor's object in Azure AD with the above value, but that operation will fail as that ProxyAddresses value is already assigned to Bob Smith, resulting in "AttributeValueMustBeUnique" error.
 
 #### How to fix AttributeValueMustBeUnique error
