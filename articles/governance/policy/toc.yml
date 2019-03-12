@@ -263,6 +263,9 @@
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
+  - name: Determine causes of non-compliance
+    displayName: reasons, comliance details
+    href: ./how-to/determine-non-compliance.md
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md

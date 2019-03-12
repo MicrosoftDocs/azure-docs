@@ -207,7 +207,7 @@
     - name: License
       href: https://aka.ms/csspeech/license201809
     - name: Third-party notices
-      href: https://csspeechstorage.blob.core.windows.net/drop/1.3.0/ThirdPartyNotices.html
+      href: https://aka.ms/csspeech/toctpn
   - name: Speech Devices SDK
     href: speech-devices-sdk.md
     displayName: roobo, speech devices sdk

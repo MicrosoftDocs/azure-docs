@@ -129,15 +129,19 @@ To see whether Profiler is configured correctly by Azure Diagnostics, do the fol
 
 To check the settings that were used to configure Azure Diagnostics:
 
-1. Sign in to the virtual machine (VM), and then open the log file at this location: 
+1. Sign in to the virtual machine (VM), and then open the log file at this location. (The drive could be c: or d: and the plugin version could be different.)
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    or
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. In the file, you can search for the string **WadCfg** to find the settings that were passed to the VM to configure Azure Diagnostics. You can check to see whether the iKey used by the Profiler sink is correct.
 
-1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file:
+1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file. (The drive could be c: or d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

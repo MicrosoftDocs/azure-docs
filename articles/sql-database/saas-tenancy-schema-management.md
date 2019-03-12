@@ -121,7 +121,7 @@ In this tutorial you learned how to:
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md) to explore running distributed queries across tenant databases.
 
 
 ## Additional resources

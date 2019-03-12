@@ -8,12 +8,12 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,6 +42,8 @@ To configure Azure AD integration with Cisco Webex, you need the following items
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Cisco Webex supports **SP** initiated SSO
+
+* Cisco Webex supports **Automated** user provisioning
 
 ## Adding Cisco Webex from the gallery
 
@@ -118,7 +120,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
     
 	| Name |  Source Attribute|
 	| ---------------|--------- |
-	| UID | user.userprincipalname |
+	| uid | user.userprincipalname |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -148,7 +150,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -260,3 +262,5 @@ When you click the Cisco Webex tile in the Access Panel, you should be automatic
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

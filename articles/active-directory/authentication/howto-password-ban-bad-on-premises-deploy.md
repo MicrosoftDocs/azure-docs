@@ -54,6 +54,7 @@ This is preferably accomplished by fully patching the machine via Windows Update
 * A global administrator account to register the Azure AD Password Protection Proxy service and forest with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
+* The Microsoft Key Distribution Service must be enabled on all Windows Server 2012 and later domain controllers in the domain (enabled via manual trigger start is the default state of this service).
 
 ## Single forest deployment
 
@@ -110,7 +111,7 @@ There are two required installers for Azure AD Password Protection that can be d
       * Device-code authentication mode:
 
          ```PowerShell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceMode
+         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 
@@ -120,7 +121,7 @@ There are two required installers for Azure AD Password Protection that can be d
 
          ```PowerShell
          $globalAdminCredentials = Get-Credential
-         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
+         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
          ```
 
          > [!NOTE]
@@ -153,7 +154,7 @@ There are two required installers for Azure AD Password Protection that can be d
       * Device-code authentication mode:
 
          ```PowerShell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceMode
+         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
 

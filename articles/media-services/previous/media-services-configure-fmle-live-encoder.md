@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
 
 ---
-# Use the FMLE encoder to send a single bitrate live stream (legacy)
+# Use the FMLE encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)

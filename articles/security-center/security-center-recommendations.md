@@ -59,15 +59,9 @@ You can filter recommendations. To filter the recommendations, select **Filter**
    * **Low (Blue)**: A vulnerability exists that should be addressed but does not require immediate attention. (By default, low recommendations aren't presented, but you can filter on low recommendations if you want to see them.) 
    * **Healthy (Green)**:
    * **Not Available (Grey)**:
- <!-- * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
-**STATE**: Describes the current state of the recommendation:
-   * **Open**: The recommendation hasn't been addressed yet.
-    * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
-   * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
-    -->
+ 
 
-Use the table below as a reference to help you understand the available recommendations and what each one does if you apply it.
-<!-- There is no table below -->
+
 > [!NOTE]
 > You will want to understand the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
 >

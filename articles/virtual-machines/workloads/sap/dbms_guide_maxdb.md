@@ -437,7 +437,7 @@ To find out supported Windows version for SAP Content Server on Azure, see:
 It is highly recommended to use the newest version of Microsoft Windows Server.
 
 ### SAP Content Server Configuration Guidelines for SAP Installations in Azure VMs
-#### Storage Configuration foir Content Server in Azure
+#### Storage Configuration for Content Server in Azure
 If you configure SAP Content Server to store files in the SAP MaxDB database, all Azure storage best practices recommendation mentioned for SAP MaxDB in this document are also valid for the SAP Content Server scenario. 
 
 If you configure SAP Content Server to store files in the file system, it is recommended to use a dedicated logical drive. Using Windows Storage Spaces enables you to also increase logical disk size and IOPS throughput, as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 

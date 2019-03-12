@@ -61,7 +61,7 @@ The next step is to use the account identifier and account key recorded previous
 
 # [Java](#tab/openproject-java)
 
-Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/ARActive.java`.
+Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 

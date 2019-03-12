@@ -301,7 +301,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-## Next Steps
+## Next steps
 Congratulations! You have created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
 
 + [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)

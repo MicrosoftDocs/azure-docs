@@ -212,7 +212,7 @@ You can use the **Region management** tile to verify that the Azure Stack regist
 
 2. From the Dashboard, select **Region management**.
 
-    [ ![Region management tile](media/asdk-register/admin1sm.png "Region management tile") ](media/asdk-register/admin1.png#lightbox)
+    [![Region management tile](media/asdk-register/admin1sm.png "Region management tile")](media/asdk-register/admin1.png#lightbox)
 
 3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
 

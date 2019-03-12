@@ -136,10 +136,12 @@
        href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md
-       name: Manually run a non HTTP-triggered function
+     - name: Manually run a non HTTP-triggered function
        href: functions-manually-run-non-http.md
      - name: Debug Event Grid trigger locally
        href: functions-debug-event-grid-trigger-local.md
+     - name: Azure for Students Starter
+       href: functions-create-student-starter.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -152,6 +154,9 @@
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
       href: functions-runtime-install.md
+    - name: Deploy using the Jenkins plugin
+      href: /azure/jenkins/jenkins-azure-functions-deploy
+      maintainContext: true
   - name: Configure
     items:
     - name: Manage a function app 
@@ -232,6 +237,8 @@
       href: functions-bindings-event-grid.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
+    - name: IoT Hub
+      href: functions-bindings-event-iot.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph

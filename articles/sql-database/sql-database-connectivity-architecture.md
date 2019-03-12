@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
+ms.date: 02/25/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -22,10 +22,12 @@ This article explains the Azure SQL Database and SQL Data Warehouse connectivity
 > Customers are advised to create new servers and set existing ones with connection type explicitly set to Redirect (preferable) or Proxy depending on their connectivity architecture.
 >
 > To prevent connectivity through a service endpoint from breaking in existing environments as a result of this change, we use telemetry do the following:
+>
 > - For servers that we detect that were accessed through service endpoints before the change, we switch the connection type to `Proxy`.
 > - For all other servers, we switch the connection type will be switched to `Redirect`.
 >
 > Service endpoint users might still be affected in the following scenarios:
+>
 > - Application connects to an existing server infrequently so our telemetry didn't capture the information about those applications
 > - Automated deployment logic creates a SQL Database server assuming that the default behavior for service endpoint connections is `Proxy`
 >
@@ -100,10 +102,7 @@ The following table lists the primary and secondary IPs of the Azure SQL Databas
 | North Europe | 191.235.193.75 | 40.113.93.91 |
 | South Central US | 23.98.162.75 | 13.66.62.124 |
 | South East Asia | 23.100.117.95 | 104.43.15.0 |
-| UK North | 13.87.97.210 | |
-| UK South 1 | 51.140.184.11 | |
-| UK South 2 | 13.87.34.7 | |
-| UK West | 51.141.8.11 | |
+| UK South | 51.140.184.11 | |
 | West Central US | 13.78.145.25 | |
 | West Europe | 191.237.232.75 | 40.68.37.158 |
 | West US 1 | 23.99.34.75 | 104.42.238.205 |
@@ -121,6 +120,8 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 ## Script to change connection settings via PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
@@ -128,16 +129,16 @@ The following PowerShell script shows how to change the connection policy.
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzureRmResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id).Properties.connectionType
 
 # Update connection policy
-Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
+Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## Script to change connection settings via Azure CLI

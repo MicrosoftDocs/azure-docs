@@ -447,7 +447,7 @@ Azure IaaS components are located in the Production network. Each app tier has i
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | Frontends/web tier VMs
 **PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | App-tier VMs
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | Database VMs
-**PROD-DC-EUS2** | 10.245.42.0/23 | 251 | Domain controller VMs
+**PROD-DC-EUS2** | 10.245.42.0/24 | 251 | Domain controller VMs
 
 
 ![Hub network architecture](./media/contoso-migration-infrastructure/azure-networks-eus2.png)

@@ -13,7 +13,9 @@ ms.custom: seodec18
 ---
 # Configure Network Performance Monitor for ExpressRoute
 
-This article helps you configure a Network Performance Monitor extension to monitor ExpressRoute. Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
+This article helps you configure a Network Performance Monitor extension to monitor ExpressRoute. Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Azure Monitor logs. NPM offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 You can:
 
@@ -54,7 +56,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. At the bottom of the main **Network Performance Monitor** page, click **Create** to open **Network Performance Monitor - Create new solution** page. Click **Log Analytics Workspace - select a workspace** to open the Workspaces page. Click **+ Create New Workspace** to open the Workspace page.
-3. On the **Log Analytics Workspace** page, select **Create New**, then configure the following settings:
+3. On the **Log Analytics workspace** page, select **Create New**, then configure the following settings:
 
   * Log Analytics Workspace - Type a name for your Workspace.
   * Subscription - If you have multiple subscriptions, choose the one you want to associate with the new Workspace.
@@ -94,7 +96,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license, and then click **I Agree**.
 4. On the **Destination Folder** page, change or keep the default installation folder, and then click **Next**.
-5. On the **Agent Setup Options** page, you can choose to connect the agent to Azure Log Analytics or Operations Manager. Or, you can leave the choices blank if you want to configure the agent later. After making your selection(s), click **Next**.
+5. On the **Agent Setup Options** page, you can choose to connect the agent to Azure Monitor logs or Operations Manager. Or, you can leave the choices blank if you want to configure the agent later. After making your selection(s), click **Next**.
 
   * If you chose to connect to **Azure Log Analytics**, paste the **Workspace ID** and **Workspace Key** (Primary Key) that you copied into Notepad in the previous section. Then, click **Next**.
 
@@ -107,7 +109,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
     ![Account](./media/how-to-npm/10.png)
 6. On the **Ready to Install** page, review your choices, and then click **Install**.
 7. On the **Configuration completed successfully** page, click **Finish**.
-8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Log Analytics. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
+8. When complete, the Microsoft Monitoring Agent appears in the Control Panel. You can review your configuration there, and verify that the agent is connected to Azure Monitor logs. When connected, the agent displays a message stating: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service**.
 
 9. Repeat this procedure for each VNET that you need to be monitored.
 
@@ -131,7 +133,7 @@ You can easily verify whether your agents are communicating.
 1. On a server with the monitoring agent, open the **Control Panel**.
 2. Open the **Microsoft Monitoring Agent**.
 3. Click the **Azure Log Analytics** tab.
-4. In the **Status** column, you should see that the agent connected successfully to Log Analytics.
+4. In the **Status** column, you should see that the agent connected successfully to Azure Monitor logs.
 
   ![status](./media/how-to-npm/12.png)
 

@@ -70,7 +70,7 @@ You have enabled the Cookie-based Affinity setting, when you access the Applicat
 
 To identify this issue, follow the instructions:
 
-1. Take a web debugger trace trace on the “Client” which is connecting to the application behind the Application Gateway(We are using Fiddler in this example).
+1. Take a web debugger trace on the “Client” which is connecting to the application behind the Application Gateway(We are using Fiddler in this example).
     **Tip** If you don't know how to use the Fiddler, check the option "**I want to collect network traffic and analyze it using web debugger**" at the bottom.
 
 2. Check and analyze the session logs, to determine whether the cookies provided by the client have the ARRAffinity details. If you don't find the ARRAffinity details, such as "**ARRAffinity=** *ARRAffinityValue*" within the cookie set, that means the client is not replying with the ARRA cookie, which is provided by the Application Gateway.

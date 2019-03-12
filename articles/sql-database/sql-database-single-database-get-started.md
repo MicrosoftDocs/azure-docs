@@ -11,7 +11,7 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/25/2019
 ---
 # Quickstart: Create a single database in Azure SQL Database using the Azure portal
 
@@ -23,7 +23,7 @@ For all steps in this quickstart, sign in to the [Azure portal](https://portal.a
 
 ## Create a single database
 
-A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing model(sql-database-purchase-models.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
+A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](sql-database-purchase-models.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
 
 To create a single database containing the AdventureWorksLT sample data:
 
@@ -36,8 +36,8 @@ To create a single database containing the AdventureWorksLT sample data:
    - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**.
    - **Select source**: Drop down and select **Sample (AdventureWorksLT)**.
 
-    >[!IMPORTANT]
-    >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
+    > [!IMPORTANT]
+    > Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
   
    ![Create single database](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -50,18 +50,18 @@ To create a single database containing the AdventureWorksLT sample data:
    - **Confirm Password**: Retype the password.
    - **Location**: Drop down and select any valid location.  
 
-   >[!IMPORTANT]
-   >Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
+   > [!IMPORTANT]
+   > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
 
     ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Choose **Select**.
 7. On the **SQL Database** form, select **Pricing tier**. Explore the amount of DTUs and storage available for each service tier.
 
-   >[!NOTE]
-   >This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
-   >[!IMPORTANT]
-   >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 current limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > [!NOTE]
+   > This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
+   > [!IMPORTANT]
+   > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
 9. Select **Apply**.  

@@ -45,8 +45,6 @@ The rest of this guide describes the areas to consider when planning to develop 
 
 For an introduction to Azure Resource Manger templates, see [Template deployment](resource-group-overview.md#template-deployment).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Ensure template functions work
 
 The basic syntax of a Resource Manager template is JSON. Templates use a superset of JSON, extending the syntax with expressions and functions. The template language processor is frequently updated to support additional template functions. For a detailed explanation of the available template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).

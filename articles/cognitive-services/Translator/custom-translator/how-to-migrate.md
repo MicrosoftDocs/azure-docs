@@ -5,7 +5,7 @@ description: Migrate your Hub workspace and projects to Custom Translator.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
@@ -23,11 +23,11 @@ These actions are performed during migration:
 * At any point, the BLEU score migrated from the Hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
 
 >[!Note]
->For a training to succeed, Custom Translator requires minimum 10,000 extracted sentences. For less number of extracted sentences than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator can't conduct a training.
+For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## Enable account migration
 
-In order to use the Migration Tool, you'll need to have your Hub account migration enabled. To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all liveid accounts that you would like enabled. These accounts should be the email addresses that you log in with.
+In order to use the Migration Tool, you'll need to have your Hub account migration enabled. To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all live id accounts that you would like enabled. These accounts should be the email addresses that you log in with.
 
 ## Find Custom Translator Workspace ID
 
@@ -137,6 +137,10 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 | NMT customization	| No	| Yes |
 | New unified Speech services customization	| No	| Yes |
 | No Trace | Yes | Yes |
+
+## New languages
+
+If you are a community or organization working on creating a new language system for Microsoft Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
 
 ## Next steps
 

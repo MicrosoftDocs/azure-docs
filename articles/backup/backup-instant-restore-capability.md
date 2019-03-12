@@ -73,7 +73,7 @@ Alternatively, you can go to **Properties** page of the vault to get the **Upgra
 
 
 ## Configure snapshot retention using Azure portal
-This option is currently available in **West Central US**, **India South** and **Australia East**.
+All the users across all **public geos** have been upgraded to Instant restore.
 
 For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 

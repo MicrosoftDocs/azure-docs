@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: 
 ms.devlang:
-ms.topic: howto
+ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
@@ -53,7 +53,7 @@ For more information about how to prepare for planned maintenance events on your
 - On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.  More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md).
 - If your client program connects to SQL Database while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Client connections to Azure SQL Database sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. For more information, [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) and [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- For networking configation for a managed instance, see [network configuration for managed instances](sql-database-howto-managed-instance.md#network-configuration).
+- For networking configuration for a managed instance, see [network configuration for managed instances](sql-database-howto-managed-instance.md#network-configuration).
 
 ## Next steps
 

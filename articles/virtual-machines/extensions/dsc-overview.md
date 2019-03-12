@@ -62,6 +62,28 @@ Installing WMF requires a restart. After restarting, the extension downloads the
 
 The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/metaconfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
+## Information for registering with Azure Automation State Configuration (DSC) service
+
+When using the DSC Extension to register a node with the State Configuration service,
+three values will need to be provided.
+
+- RegistrationUrl - the https address of the Azure Automation account
+- RegistrationKey - a shared secret used to register nodes with the service
+- NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
+
+This information can be seen in the
+[Azure portal](../../automation/automation-dsc-onboarding.md#azure-portal) or you can use PowerShell.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+For the Node Configuration name, make sure you are using the name of the *Node Configuration* and not the Configuration.
+A Configuration is defined in a script that is used
+[to compile the Node Configuration (MOF file)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+The name will always be the Configuration followed by a period `.` and either `localhost` or a specific computer name.
+
 ## DSC extension in Resource Manager templates
 
 In most scenarios, Resource Manager deployment templates are the expected way to work with the DSC extension. For more information and for examples of how to include the DSC extension in Resource Manager deployment templates, see [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md).
@@ -138,7 +160,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-For a virtual mchine running Linux:
+For a virtual machine running Linux:
 
 ```azurecli
 az vm extension set \
