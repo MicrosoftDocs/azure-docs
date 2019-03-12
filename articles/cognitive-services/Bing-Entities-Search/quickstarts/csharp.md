@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ---
 
@@ -71,7 +71,7 @@ While this application is written in C#, the API is a RESTful Web service compat
 
     1. Construct the URI for your request by combining the host and path. Then add your market, and URL-encode your query.
     2. Await `client.GetAsync()` to get a HTTP response, and then store the json response by awaiting `ReadAsStringAsync()`.
-    3. Format the JSON string with  with `JsonConvert.DeserializeObject()` and print it to the console.
+    3. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
 
     ```csharp
     async static void Search()
