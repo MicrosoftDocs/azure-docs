@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support
 
@@ -34,6 +34,8 @@ TDE with Azure Key Vault integration provides the following benefits:
 ## How does TDE with Azure Key Vault integration support work
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ![Authentication of the Server to the Key Vault](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 

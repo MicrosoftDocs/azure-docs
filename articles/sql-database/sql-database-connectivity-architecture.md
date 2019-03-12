@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -121,6 +121,8 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 ## Script to change connection settings via PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
