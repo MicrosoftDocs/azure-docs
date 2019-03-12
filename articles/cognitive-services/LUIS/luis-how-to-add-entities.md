@@ -86,7 +86,7 @@ To add hierarchical entities, complete the following steps:
 
 <a name="add-composite-entities"></a>
 
-## Add composite entities to group different types of entities into a parent-child relationship
+## Add composite entities to group into a parent-child relationship
 
 You can define relationships between entities of different types by creating a composite entity. In the following example, the entity contains a regular expression, and a prebuilt entity of name.  
 
@@ -110,7 +110,7 @@ In the utterance `Send hrf-123456 to John Smith`, the text `hrf-123456` is match
 
 <a name="add-pattern-any-entities"></a>
 
-## Add Pattern.any entities to capture entities that may be confused with the words surrounding the entity
+## Add Pattern.any entities to capture free-form entities
 
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
@@ -128,7 +128,7 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
-## Add a role to pattern-based entity to distinguish different contexts for the entity
+## Add a role to distinguish different contexts
 
 A role is a named subtype of an entity based on context. It is comparable to an [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
 
