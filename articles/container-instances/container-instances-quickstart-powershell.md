@@ -1,6 +1,6 @@
 ﻿---
-title: Quickstart - Run an application in Azure Container Instances - PowerShell
-description: In this quickstart, you use Azure PowerShell to deploy a Docker container application to Azure Container Instances with Azure PowerShell
+title: Quickstart - Deploy Docker container to Azure Container Instances - PowerShell
+description: In this quickstart, you use Azure PowerShell to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
 author: dlepow
 
@@ -11,9 +11,11 @@ ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run a container application in Azure Container Instances with Azure PowerShell
+# Quickstart: Deploy a container instance in Azure using Azure PowerShell
 
-Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure portal to create a Windows container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
+Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service.
+
+In this quickstart, you use Azure PowerShell to deploy an isolated Windows container and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the application running in the container:
 
 ![App deployed to Azure Container Instances viewed in browser][qs-powershell-01]
 
@@ -41,7 +43,7 @@ Now that you have a resource group, you can run a container in Azure. To create 
 
 You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so that IIS is publicly reachable.
 
-Execute the following command to start a container instance. The `-DnsNameLabel` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
+Execute a command similar to the following to start a container instance. Set a `-DnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

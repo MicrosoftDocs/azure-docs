@@ -39,7 +39,7 @@ This article summarizes the new features and improvements in the recent releases
 - [Blog - Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Customer Advisory Team blogs](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
-- [Stack Overflow forum](http://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Azure glossary](../azure-glossary-cloud-terminology.md)

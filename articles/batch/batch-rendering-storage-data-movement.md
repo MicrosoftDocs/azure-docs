@@ -2,6 +2,7 @@
 title: Storage and data movement for rendering - Azure Batch
 description: Storage and data movement options for rendering workloads
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018

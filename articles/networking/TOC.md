@@ -76,6 +76,6 @@
 ## [Pricing](https://azure.microsoft.com/pricing)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 

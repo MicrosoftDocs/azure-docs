@@ -196,4 +196,4 @@ az group delete --name <your_resource_group>
 
 ## Next steps
 
-Now that you have a Java EE application deployed to App Service, please see the [Java Enterprise developer guide](https://aka.ms/wildfly-quickstart) for more information on setting up services, troubleshooting, and scaling your application.
+Now that you have a Java EE application deployed to App Service, please see the [Java Enterprise developer guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) for more information on setting up services, troubleshooting, and scaling your application.

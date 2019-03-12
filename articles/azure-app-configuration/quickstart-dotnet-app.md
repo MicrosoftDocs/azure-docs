@@ -68,7 +68,7 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
     </appSettings>
     ```
 
-   Plesae note, as we will be reading the connection string of your app configuration store from the environment variable `ConnectionString`, it's important to add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+   Please note, as we will be reading the connection string of your app configuration store from the environment variable `ConnectionString`, it's important to add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
 3. Open *Program.cs* and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
