@@ -21,7 +21,7 @@ ms.author: v-jamebr
 # Create Service Fabric container running Apache Tomcat server on Linux
 Apache Tomcat is a popular, open-source implementation of the Java Servlet and Java Server technologies. This article shows you how to build a container with Apache Tomcat and a simple Web application, deploy the container to a Service Fabric cluster running Linux, and connect to the Web application.  
 
-To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomcat.apache.org/). 
+To learn more about Apache Tomcat, see the [Apache Tomcat homepage](https://tomcat.apache.org/). 
 
 ## Prerequisites
 * A development computer running:
