@@ -11,37 +11,53 @@ ms.author: helohr
 ---
 # Windows Virtual Desktop environment (Preview)
 
-Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
-
-* **Remote Desktop Broker** is the centerpiece of Remote Desktop Services deployment, as it communicates with the database where all deployment-related configurations take place, including role configurations, user assignments, and session host health.
-* **Remote Desktop Diagnostics** is an event-based aggregator that marks each user action on the RDS deployment (end-user or administrator) as a success or failure. Later on, administrators can query the aggregation of events to identify failing components.
-* **Remote Desktop Gateway** securely connects users to their sessions over the Internet. Besides the session hosts themselves, Remote Desktop Gateway is the only other role used throughout the lifespan of a session.
-* **Remote Desktop Web** lists the apps and resources assigned to users. Remote Desktop clients query the Remote Desktop Web to find which apps users have been assigned and then launch those apps in the client itself. Remote Desktop Web has built-in caching capabilities to reduce the chance of throttling the Remote Desktop Broker and the database.
-
-When deploying Windows Virtual Desktop, take note of the URLs for each role and the admin UPN as they are outputted to you, as you'll need that information for when you start deploying tenants.
+Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 
 ## Tenants
 
-Windows Virtual Desktop enables a multi-tenant infrastructure to be deployed as Azure App Services that manage connections from Remote Desktop clients to multiple isolated Remote Desktop tenant environments. Each Remote Desktop tenant environment consists of one or more host pools, which in turn contain one or more identical session hosts. The session hosts are virtual machines running one of the following operating systems: Windows Server 2012 R2, Windows Server 2016, or Windows 10 RS4.
+The Windows Virtual Desktop tenant is the primary interface for managing your Windows Virtual Desktop environment. Each Windows Virtual Desktop tenant must be associated with the Azure Active Directory containing the users who will sign in to the environment. From the Windows Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
 
-Each session host must have a Windows Virtual Desktop host agent installed and registered with Windows Virtual Desktop. You must also install a protocol stack on the session host to support connections from the session host to the Windows Virtual Desktop deployment. This practice is referred to as “reverse-connect” and eliminates the need for inbound ports to be opened to the Remote Desktop tenant environment. (The opposite is referred to as “forward-connect” and requires an inbound 3389 port to be opened to the Remote Desktop tenant environment.)
+## Host pools
 
-Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group is used to publish the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group is used to publish one or more RemoteApps that display on the Remote Desktop client as the application window on the local Remote Desktop client desktop.
+A host pool is a collection of Azure virtual machines that register to Windows Virtual Desktop as session hosts when you run the Windows Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience.
 
-If Windows Virtual Desktop experiences connection issues, your tenant admin can use the [diagnostics role service](diagnostics-role-service.md) to identify the root cause.
+A host pool can be one of two types:
+
+- Personal, where each session host is assigned to individual users.
+- Pooled, where session hosts can accept connections from any user authorized to an app group within the host pool.
+
+You can set additional properties on the host pool to change its load-balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Windows Virtual Desktop sessions. You control the resources published to users through app groups.
+
+## App groups
+
+An app group is a logical grouping of applications installed on session hosts in the host pool. An app group can be one of two types:
+
+- RemoteApp, where users access the RemoteApps you individually select and publish to the app group
+- Desktop, where users access the full desktop
+
+By default, a desktop app group (named "Desktop Application Group") is automatically created whenever you create a host pool. You can remove this app group at any time. However, you can't create another desktop app group in the host pool while a desktop app group exists. To publish RemoteApps, you must create a RemoteApp app group. You can create multiple RemoteApp app groups to accommodate different worker scenarios. Different RemoteApp app groups can also contain overlapping RemoteApps.
+
+To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
+
+- A user can't be assigned to both a desktop app group and a RemoteApp app group in the same host pool.
+- A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
+
+## Tenant groups
+
+In Windows Virtual Desktop, the Windows Virtual Desktop tenant is where most of the setup and configuration happens. The Windows Virtual Desktop tenant contains the host pools, app groups, and app group user assignments. However, there may be certain situations where you need to manage multiple Windows Virtual Desktop tenants at once, particularly if you're a Cloud Service Provider (CSP) or a hosting partner. In these situations, you can use a custom Windows Virtual Desktop tenant group to place each of the customers' Windows Virtual Desktop tenants and centrally manage access. However, if you're only managing a single Windows Virtual Desktop tenant, the tenant group concept doesn't apply and you can continue to operate and manage your tenant that exists in the default tenant group.
 
 ## End users
 
-Once their accounts are set up, users can connect to a Windows Virtual Desktop deployment with either a Windows Virtual Desktop client or the [web client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
+After you've assigned users to their app groups, they can connect to a Windows Virtual Desktop deployment with any of the Windows Virtual Desktop clients.
 
 ## Next steps
 
-Learn more about infrastructure roles and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up a tenant environment, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](tenant-setup-azure-active-directory.md).
+To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-* [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-* [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
-* [Connect to the Windows Virtual Desktop web client](connect-web.md)
+- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
+- [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
+- [Connect to the Windows Virtual Desktop web client](connect-web.md)
