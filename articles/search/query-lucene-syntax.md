@@ -36,20 +36,20 @@ The following example finds documents in the index using the Lucene query syntax
 
 The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  Alternatively, use POST:  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 For additional examples, see [Lucene query syntax examples for building queries in Azure Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 

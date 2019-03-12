@@ -170,9 +170,9 @@ Follow these steps to prepare the development environment for DevKit:
 
 ### Install ST-Link drivers
 
-[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html) is the USB interface that IoT DevKit uses to communicate with your development machine. You need to install it on Windows to enable flash the compiled deivce code to the DevKit. Follow the OS-specific steps to allow the machine access to your device.
+[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) is the USB interface that IoT DevKit uses to communicate with your development machine. You need to install it on Windows to enable flash the compiled deivce code to the DevKit. Follow the OS-specific steps to allow the machine access to your device.
 
-* **Windows**: Download and install USB driver from [STMicroelectronics website](http://www.st.com/en/development-tools/stsw-link009.html).
+* **Windows**: Download and install USB driver from [STMicroelectronics website](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: No driver is required for macOS.
 * **Ubuntu**: Run the following in terminal and log out and log in for the group change to take effect:
     ```bash

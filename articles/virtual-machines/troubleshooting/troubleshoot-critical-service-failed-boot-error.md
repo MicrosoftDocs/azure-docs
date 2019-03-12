@@ -3,7 +3,7 @@ title: CRITICAL SERVICE FAILED when booting an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot the "0x0000005A-CRITICAL SERVICE FAILED" error that occurs when booting | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 
@@ -104,7 +104,7 @@ To enable dump logs and Serial Console, run the following script.
 
 ### Optional: Analyze the dump logs in Dump Crash mode
 
-To analyse the dump logs yourself, follow these steps:
+To analyze the dump logs yourself, follow these steps:
 
 1. Attach the OS disk to a recovery VM.
 2. On the OS disk that you attached, browse to **\windows\system32\config**. Copy all the files as a backup in case a rollback is required.

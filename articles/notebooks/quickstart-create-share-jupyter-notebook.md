@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -89,7 +89,7 @@ ms.author: kraigb
 
     ![Save icon on the Jupyter notebook toolbar](media/quickstarts/hello-results-save-icon.png)
 
-1. Select the **File** > **Halt and close** menu command to stop the server and close the browser window.
+1. Select the **File** > **Close and Halt** menu command to stop the server and close the browser window.
 
 ## Share the notebook
 

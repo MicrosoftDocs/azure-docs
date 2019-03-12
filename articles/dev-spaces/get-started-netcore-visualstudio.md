@@ -5,7 +5,6 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "07/09/2018"
@@ -28,7 +27,7 @@ In this guide, you will learn how to:
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1. Sign in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
    Complete the following steps under each heading of the create AKS cluster form.

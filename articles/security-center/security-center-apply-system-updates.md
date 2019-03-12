@@ -59,13 +59,13 @@ In this example, we will use **Compute**.
 
    ![Missing security update][3]
 
-4. Select the **Search** icon in the top ribbon.  A Log Analytics search query opens filtered to the computers missing the update.
+4. Select the **Search** icon in the top ribbon.  An Azure Monitor logs search query opens filtered to the computers missing the update.
 
-   ![Log Analytics search][4]
+   ![Azure Monitor logs search][4]
 
 5. Select a computer from the list for more information. Another search result opens with information filtered only for that computer.
 
-    ![Log Analytics search][5]
+    ![Azure Monitor logs search][5]
 
 ## Reboot after system updates
 1. Return to the **Recommendations** blade. A new entry was generated after you applied system updates, called **Reboot after system updates**. This entry lets you know that you need to reboot the VM to complete the process of applying system updates.

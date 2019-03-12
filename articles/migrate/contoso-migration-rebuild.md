@@ -149,7 +149,7 @@ Contoso admins run a deployment script to create the managed Kubernetes cluster 
 
 ### Prerequisites
 
-1. Before they start, Contoso admins ensure that all prerequisitie software in installed on the dev machine they're using for the deployment.
+1. Before they start, Contoso admins ensure that all prerequisite software in installed on the dev machine they're using for the deployment.
 2. They clone the repo local to the dev machine using Git: **git clone https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 

@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# How to perform live streaming using Media Services to create multi-bitrate streams with the Azure portal (legacy)
+# How to perform live streaming using Media Services to create multi-bitrate streams with the Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)

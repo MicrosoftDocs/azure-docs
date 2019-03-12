@@ -404,7 +404,7 @@ Contoso admins are now ready to run a failover on the recovery plan, to migrate 
 
 ### Connect the VM to the database
 
-As the final step in the migration process, Contoso adins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
+As the final step in the migration process, Contoso admins update the connection string of the application to point to the app database running on the **OSTICKETMYSQL** VM. 
 
 1. They make an SSH connection to the **OSTICKETWEB** VM using Putty or another SSH client. The VM is private so they connect using the private IP address.
 

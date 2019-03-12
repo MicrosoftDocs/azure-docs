@@ -263,13 +263,13 @@ To start the image, run the following commands.
 From the command-line:
 ```cmd
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\bind-mount -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 From PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\bind-mount -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 The response looks similar to the following:

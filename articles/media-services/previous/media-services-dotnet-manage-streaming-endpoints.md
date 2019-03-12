@@ -20,7 +20,7 @@ ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with .NET SDK (legacy)
+# Manage streaming endpoints with .NET SDK  
 
 >[!NOTE]
 >Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).

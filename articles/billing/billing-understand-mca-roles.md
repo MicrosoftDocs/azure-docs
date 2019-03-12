@@ -178,7 +178,7 @@ The following table shows what role you need to complete tasks in the context of
 
 ## Manage billing roles in the Azure portal
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 

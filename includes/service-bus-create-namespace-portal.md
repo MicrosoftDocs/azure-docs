@@ -20,7 +20,7 @@ To create a namespace:
 
     ![Create a resource -> Integration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. In the **Create namespace** dialog, do the following steps: 
-    1. Enter a **name for the namespace**. The system immediately checks to see if the name is available.
+    1. Enter a **name for the namespace**. The system immediately checks to see if the name is available. For a list of rules for naming namespaces, see [Create Namespace REST API](/rest/api/servicebus/create-namespace).
     2. Select the pricing tier (Basic, Standard, or Premium) for the namespace. If you want to use [topics and subscriptions](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions are not supported in the Basic pricing tier.
     3. If you selected the **Premium** pricing tier, follow these steps: 
         1. Specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has least one messaging unit. You can select 1, 2, or 4 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../articles/service-bus-messaging/service-bus-premium-messaging.md).
