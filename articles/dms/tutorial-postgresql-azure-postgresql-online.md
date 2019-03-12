@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/12/2019
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
