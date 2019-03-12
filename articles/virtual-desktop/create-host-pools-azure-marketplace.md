@@ -82,7 +82,7 @@ For the last two blades:
 
 1. In the **Summary** blade, review the setup information. If you need to change something, go back to the appropriate blade and make your change before continuing. If the information looks right, select **OK**.
 2. In the **Buy** blade, review the additional information about your purchase from Azure Marketplace.
-3. Select **Create** to to deploy your host pool.
+3. Select **Create** to deploy your host pool.
 
 Depending on how many VMs you’re creating, this process can take an hour or more to complete.
 

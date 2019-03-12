@@ -11,4 +11,4 @@ ms.author: helohr
 ---
 # PowerShell cmdlets (Preview)
 
-To learn more about the PowerShell cmdlets you can use for Windows Virtual Desktop, please see the [Windows Virtual Desktop PowerShell reference](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+To learn more about the PowerShell cmdlets you can use for Windows Virtual Desktop, see the [Windows Virtual Desktop PowerShell reference](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).

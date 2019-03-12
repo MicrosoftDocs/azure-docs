@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-Once you've created your app groups, you create service principals and assign roles to your users your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
+Once you've created your app groups, you create service principals and assign roles to your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
 
 > [!div class="nextstepaction"]
 > [Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)

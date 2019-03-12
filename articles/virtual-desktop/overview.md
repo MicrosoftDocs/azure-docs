@@ -18,7 +18,7 @@ Windows Virtual Desktop (preview) enables you to create a full desktop virtualiz
 With Windows Virtual Desktop, you can:
 
 * Bring your own image for production workloads, or test from the Azure Gallery.
-* Reduce costs with pooled, multi-session resources. With the Remote Desktop Session Host (RDSH) role on Windows Server and the new Windows 10 Enterprise multi-session capability (preview) exclusive to Windows Virtual Desktop, you can run greatly reduce the number of virtual machines and OS overhead while still providing the same resources to your users.
+* Reduce costs with pooled, multi-session resources. With the Remote Desktop Session Host (RDSH) role on Windows Server and the new Windows 10 Enterprise multi-session capability (preview) exclusive to Windows Virtual Desktop, you can greatly reduce the number of virtual machines and OS overhead while still providing the same resources to your users.
 * Provide individual ownership through personal desktops.
 * Publish full desktop or individual RemoteApps (preview) from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
 * Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
@@ -32,7 +32,7 @@ There are a few things you need to set up Windows Virtual Desktop and successful
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
 * An Azure Active Directory
-* A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through
+* A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through:
   * Azure AD Connect
   * Azure AD Domain Services
 * An Azure subscription, containing:
@@ -40,7 +40,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* Standard domain-joined or Hybrid AD-joined. Virtual machines cannot be Azure AD-joined.
+* Standard domain-joined or Hybrid AD-joined. Virtual machines can't be Azure AD-joined.
 * Running one of the following supported OS images:
   * Windows 10 Enterprise multi-session
   * Windows Server 2016
