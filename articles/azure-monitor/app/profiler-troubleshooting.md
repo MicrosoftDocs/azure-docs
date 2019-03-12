@@ -118,7 +118,7 @@ Profiler runs as a continuous webjob in the web app. You can open the web app re
 
 ## Troubleshoot problems with Profiler and Azure Diagnostics
 
-  >**There is a bug in the profiler that ships in the latest version of WAD for Cloud Services.** In order to use profiler with a cloud service, it only supports AI SDK up to version 2.7.2. If you are using a newer version of the AI SDK, you'll have to go back to 2.7.2 in order to use the profiler.
+  >**There is a bug in the profiler that ships in the latest version of WAD for Cloud Services.** In order to use profiler with a cloud service, it only supports AI SDK up to version 2.7.2. If you are using a newer version of the AI SDK, you'll have to go back to 2.7.2 in order to use the profiler. If you use Visual Studio to downgrade the version of the App Insights SDK, you may get a binding redirect error at runtime. This is because the "newVersion" in the web.config file for Microsoft.ApplicationInsights should be set to "2.7.2.0" after downgrading the AI SDK, but it doesn't get updated automatically.
 
 To see whether Profiler is configured correctly by Azure Diagnostics, do the following three things: 
 1. First, check to see whether the contents of the Azure Diagnostics configuration that are deployed are what you expect. 

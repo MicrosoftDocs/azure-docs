@@ -31,11 +31,11 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisite
 
-You must be a Global Administrator or User Account Administrator in the tenant to set up group expiration.
+You must be a Global administrator or User administrator in the organization to set up group expiration.
 
 ## Turn on user creation for groups
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global Administrator or User Account Administrator for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global administrator or User administrator for the organization.
 
 2. Select **Groups**, and then select **General**.
   

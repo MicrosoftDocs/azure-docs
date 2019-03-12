@@ -45,7 +45,7 @@ To create any new Dynamic groups, you'll first need to delete some existing Dyna
 **I configured a rule on a group but no memberships get updated in the group**<br/>
 1. Verify the values for user or device attributes in the rule. Ensure there are users that satisfy the rule. 
 For devices, check the device properties to ensure any synced attributes contain the expected values.<br/>
-2. Check the membership processing status to confirm if it is complete. You can check the [membership processing status](\groups-create-rule.md#check-processing-status-for-a-rule) and the last updated date on the **Overview** page for the group.
+2. Check the membership processing status to confirm if it is complete. You can check the [membership processing status](\groups-create-rule.md) and the last updated date on the **Overview** page for the group.
 
 If everything looks good, please allow some time for the group to populate. Depending on the size of your tenant, the group may take up to 24 hours for populating for the first time or after a rule change.
 

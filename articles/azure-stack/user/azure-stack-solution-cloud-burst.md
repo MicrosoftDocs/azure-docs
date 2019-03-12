@@ -263,7 +263,7 @@ Now that the endpoint information exists, the Azure Pipelines to Azure Stack con
 
 Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from Azure Repos to deploy to both clouds.
 
-### Add code to a Azure Repos project
+### Add code to an Azure Repos project
 
 1.  Sign in to Azure Repos with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 

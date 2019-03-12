@@ -68,4 +68,4 @@ After you sign up, the Office 365 subscription is added to the same Azure Active
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo). 
