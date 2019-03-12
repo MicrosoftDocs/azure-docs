@@ -71,12 +71,14 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 2. Under **Settings**, select **Health probes**, then select **Add**.
-3. Use these values to create the health probe:
-    - *myHealthProbe* - for the name of the health probe.
-    - **HTTP** - for the protocol type.
-    - *80* - for the port number.
-    - *15* - for number of **Interval** in seconds between probe attempts.
-    - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myHealthProbe*. |
+    | Protocol | Select **HTTP**. |
+    | Port | Enter *80*.|
+    | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
+    | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
+    | Health probe | Select *myHealthProbe*. |
 4. Select **OK**.
 
    ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
@@ -88,12 +90,15 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 2. Under **Settings**, select **Load balancing rules**, then select **Add**.
 3. Use these values to configure the load balancing rule:
-    - *myHTTPRule* - for the name of the load balancing rule.
-    - **TCP** - for the protocol type.
-    - *80* - for the port number.
-    - *80* - for the backend port.
-    - *myBackendPool* - for the name of the backend pool.
-    - *myHealthProbe* - for the name of the health probe.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myHTTPRule*. |
+    | Protocol | Select **TCP**. |
+    | Port | Enter *80*.|
+    | Backend port | Enter *80*. |
+    | Backend pool | Select *myBackendPool*.|
+    | Health probe | Select *myHealthProbe*. |
+4. Leave the rest of the defaults and select **OK**.
 4. Select **OK**.
 
 ## Create backend servers
@@ -101,13 +106,21 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 In this section, you create a virtual network, create two virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Virtual network** and enter these values for the virtual network:
-    - *myVnet* - for the name of the virtual network.
-    - *myResourceGroupSLB* - for the name of the existing resource group
-    - *myBackendSubnet* - for the subnet name.
-2. Select **Create** to create the virtual network.
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 
-    ![Create a virtual network](./media/load-balancer-standard-public-portal/2-load-balancer-virtual-network.png)
+1. In **Create virtual network**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myVNet*. |
+    | Address space | Enter *10.1.0.0/16*. |
+    | Subscription | Select your subscription.|
+    | Resource group | Select existing resource - *MyResourceGroupSLB*,. |
+    | Location | Select **West Europe**.|
+    | Subnet - Name | Enter *myBackendSubnet*. |
+    | Subnet - Address range | Enter *10.1.0.0/24*. |
+
+1. Leave the rest of the defaults and select **Create**.
 
 ### Create virtual machines
 Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create two VMs (*myVM1* and *myVM2*) with a Standard public IP address (*myPublicIP*) in two different zones (*Zone 1* and *Zone2*) that are added to the backend pool of the Standard Load Balancer that was created earlier.

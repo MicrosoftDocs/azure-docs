@@ -76,44 +76,53 @@ To allow the load balancer to monitor the status of your app, you use a health p
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Health probes**, then click **Add**.
 3. Use these values to create the health probe:
-    - *myHealthProbe* - for the name of the health probe.
-    - **HTTP** - for the protocol type.
-    - *80* - for the port number.
-    - *15* - for number of **Interval** in seconds between probe attempts.
-    - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
-4. Click **OK**.
+     | Setting | Value |
+     | ------- | ----- |
+     | Name | Enter *myHealthProbe*. |
+     | Protocol | Select **HTTP**. |
+     | Port | Enter *80*.|
+     | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
+     | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
+     | Health probe | Select *myHealthProbe*. |
+1. Select **OK**.
 
    ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
 
 ### Create a load balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
 3. Use these values to configure the load balancing rule:
-    - *myHTTPRule* - for the name of the load balancing rule.
-    - **TCP** - for the protocol type.
-    - *80* - for the port number.
-    - *80* - for the backend port.
-    - *myBackendPool* - for the name of the backend pool.
-    - *myHealthProbe* - for the name of the health probe.
-4. Click **OK**.
+ | Setting | Value |
+ | ------- | ----- |
+ | Name | Enter *myHTTPRule*. |
+ | Protocol | Select **TCP**. |
+ | Port | Enter *80*.|
+ | Backend port | Enter *80*. |
+ | Backend pool | Select *myBackendPool*.|
+ | Health probe | Select *myHealthProbe*. |
+4. Leave the rest of the defaults and select **OK**.
 
 ## Create backend servers
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create a virtual network
-1. On the top left-hand side of the Azure portal, select **Create a resource** > **Networking** > **Virtual network** and then enter these values for the virtual network:
-    |Setting|Value|
-    |---|---|
-    |Name|Enter *myVNet*.|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Use existing** and then select *myResourceGroupSLB*.|
-    |Subnet name| Enter *myBackendSubnet*.|
-    
-2. Click **Create** to create the virtual network.
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+2. In **Create virtual network**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myVNet*. |
+    | Address space | Enter *10.1.0.0/16*. |
+    | Subscription | Select your subscription.|
+    | Resource group | Select existing resource - *MyResourceGroupSLB*,. |
+    | Location | Select **West Europe**.|
+    | Subnet - Name | Enter *myBackendSubnet*. |
+    | Subnet - Address range | Enter *10.1.0.0/24*. |
+3. Leave the rest of the defaults and select **Create**.
 
 ### Create virtual machines
 
