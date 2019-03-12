@@ -1,7 +1,7 @@
 - name: High-perfomance Computing
   items:
   - name: Overview
-    href: ../../linux/high-performance-computing.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
+    href: /architecture/topics/high-performance-computing/index.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
   - name: Create a VM using the HB-series
     href: create-vm-using-hb-series.md
   - name: Configure HPC
