@@ -21,7 +21,7 @@ ms.author: yegu
 
 Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure compute service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
 
-Azure App Configuration and its .NET Core, .NET, and Java Spring client libraries come with MSI support built into them. Although you aren't required to use it, MSI eliminates the need for an access token that contains secrets. Your code only has to know the service endpoint for an app configuration store in order to access it. You can embed this URL in your code directly without the concern of exposing any secret.
+Azure App Configuration and its .NET Core, .NET, and Java Spring client libraries come with MSI support built into them. Although you aren't required to use it, MSI eliminates the need for an access token that contains secrets. Your code has to know only the service endpoint for an app configuration store in order to access it. You can embed this URL in your code directly without the concern of exposing any secret.
 
 This tutorial shows how you can take advantage of MSI to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
@@ -60,7 +60,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 2. Select **Access control (IAM)**.
 
-3. On the **Check access** tab, select **Add** in the **Add a role assignment** card UI.
+3. On the **Check access** tab, select **Add** in the **Add role assignment** card UI.
 
 4. Under **Role**, select *Contributor*, and under **Assign access to** select *App Service* under *System assigned managed identity*.
 
@@ -72,7 +72,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Use a managed identity
 
-1. Open *appsettings.json*, add the following script, and replace *<service_endpoint>* (including brackets) with the URL to your app configuration store:
+1. Open *appsettings.json*, and add the following script. Replace *<service_endpoint>*, including the brackets, with the URL to your app configuration store:
 
     ```json
     "AppConfig": {
@@ -99,7 +99,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Deploy from local Git
 
-The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
+The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Azure Cloud Shell.
 
 ### Configure a deployment user
 
@@ -145,13 +145,13 @@ Back in the _local terminal window_, add an Azure remote to your local Git repos
 git remote add azure <url>
 ```
 
-Push to the Azure remote to deploy your app with the following command. When prompted for a password, make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
+Push to the Azure remote to deploy your app with the following command. When you're prompted for a password, enter the password you created in [Configure a deployment user](#configure-a-deployment-user). Don't use the password you use to sign in to the Azure portal.
 
 ```bash
 git push azure master
 ```
 
-You may see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python.
+You might see runtime-specific automation in the output, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python.
 
 ### Browse to the Azure web app
 
@@ -165,7 +165,7 @@ http://<app_name>.azurewebsites.net
 
 ## Use managed identity in other languages
 
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, you simply use your app configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, use your app configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
 
     ```xml
     <configSections>
