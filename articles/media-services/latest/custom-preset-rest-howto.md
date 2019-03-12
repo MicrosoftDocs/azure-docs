@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: juliako
 
 ---
@@ -133,7 +133,7 @@ We then specify the format for the output files - one for video + audio, and ano
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if the desired transform already exists. 
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if a Transform with a desired name and "recipe" already exist. If it does, reuse it. In REST, use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if the transform exists. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 
@@ -143,11 +143,11 @@ The **PUT** HTTP request method is similar to:
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
 ```
 
-Select the **Body** tab and replace the body with the json code you [defined earlier](#define-a-custom-preset).
+Select the **Body** tab and replace the body with the json code you [defined earlier](#define-a-customFor Media Services to apply the Transform to the specified video or audio, you need to submit a Job under that Transform. -preset).
 
 Select **Send**. 
 
-You submit a Job under the Transform to request for Media Services to apply the transform to the specified video or audio. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
+For Media Services to apply the Transform to the specified video or audio, you need to submit a Job under that Transform. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
 ## Next steps
 
