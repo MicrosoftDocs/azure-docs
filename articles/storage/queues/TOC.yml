@@ -8,6 +8,7 @@
 - name: Quickstarts
   items:
   - name: Create a storage account
+    displayName: resource manager, resource manager template, template, ARM
     href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Manage queues without code
     items:
@@ -200,6 +201,7 @@
     - name: Import/Export
       href: /rest/api/storageimportexport
   - name: Resource Manager template
+    displayName: ARM
     href: /azure/templates/microsoft.storage/allversions
 - name: Resources
   items:

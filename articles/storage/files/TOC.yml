@@ -200,6 +200,7 @@
     - name: Import/Export
       href: /rest/api/storageimportexport
   - name: Resource Manager template
+    displayName: arm
     href: /azure/templates/microsoft.storage/allversions
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
