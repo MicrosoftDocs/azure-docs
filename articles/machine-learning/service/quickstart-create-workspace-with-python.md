@@ -47,10 +47,11 @@ The following Azure resources are added automatically to your workspace when the
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-## Install the SDK
+## Prerequisites
 
+### Install the SDK
 > [!IMPORTANT]
-> Skip this section if you use an Azure Data Science Virtual Machine or Azure Databricks.
+> Skip installation of the SDK if you use an Azure Data Science Virtual Machine or Azure Databricks.
 > * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
@@ -138,40 +139,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
 1. Find a value for the `<azure-subscription-id>` parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
 
-   ```python
-   from azureml.core import Workspace
-   ws = Workspace.create(name='myworkspace',
-                         subscription_id='<azure-subscription-id>',	
-                         resource_group='myresourcegroup',
-                         create_resource_group=True,
-                         location='eastus2' 
-                        )
-   ```
-
-   When you execute the code, you might be prompted to sign into your Azure account. After you sign in, the authentication token is cached locally.
-
-1. To view the workspace details, such as associated storage, container registry, and key vault, enter the following code:
-
-    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
-
-
-## Write a configuration file
-
-Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.  
-
-This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory.  
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-This `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
-
-```json
-{
-    "subscription_id": "<azure-subscription-id>",
-    "resource_group": "myresourcegroup",
-    "workspace_name": "myworkspace"
-}
-```
+@@ add link to new article here
 
 ## Use the workspace
 
