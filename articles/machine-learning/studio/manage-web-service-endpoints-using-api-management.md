@@ -1,5 +1,5 @@
 ---
-title: Manage Machine Learning Studio web services using API Management
+title: Manage web services using API Management
 titleSuffix: Azure Machine Learning Studio
 description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 services: machine-learning
@@ -177,11 +177,11 @@ Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and d
 
 Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connect the book reviews dataset module to a Project Columns module](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Click **Select Columns in Dataset** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Select columns using column names](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 
