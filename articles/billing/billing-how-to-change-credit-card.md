@@ -33,7 +33,7 @@ In the Azure portal, you can add a new credit card, update an existing credit ca
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search on **Cost Management + Billing**.
 
-    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search_costmanagement.png)
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Select the subscription you'd like to add the credit or debit card to.
 1. Select **Payment methods**.
@@ -58,7 +58,7 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search on **Cost Management + Billing**.
 
-    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search_costmanagement.png)
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Select **Payment methods**.
 
@@ -78,7 +78,7 @@ If more than one of your subscriptions have the same active payment method, then
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search on **Cost Management + Billing**.
 
-    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search_costmanagement.png)
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Select the subscription you'd like to add the credit or debit card to.
 1. Select **Payment methods**.
@@ -94,7 +94,7 @@ If more than one of your subscriptions have the same active payment method, then
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Select **Cost Management + Billing** on the left side of the page.
 
-[Screenshot that shows search](./media/billing-how-to-change-credit-card/search_costmanagement.png)
+[Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Under **Billing**, select **Payment methods**.
 
