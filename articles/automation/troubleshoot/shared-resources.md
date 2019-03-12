@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation shared resou
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -149,7 +149,7 @@ This error is most likely caused by an incorrectly configured [Run As Account](.
 
 #### Resolution
 
-Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following exampl shows a snippet of code to authenticate to Azure in a runbook.
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
