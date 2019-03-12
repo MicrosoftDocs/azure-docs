@@ -176,6 +176,9 @@ In this section, you get the host information from the Apache Ambari REST API on
 
 2. To set an environment variable to the cluster name, use the following command:
 
+    > [!Important]
+    > Enter your cluster name in all lowercase letters for this command, even if it was provisioned with uppercase letters in the name. Uppercase names cannot be used with Zookeeper or for broker information.
+
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```

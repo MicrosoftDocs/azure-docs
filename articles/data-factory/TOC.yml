@@ -303,6 +303,9 @@
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
       href: connector-sap-business-warehouse-open-hub.md
+      items:
+      - name: Load SAP BW data
+        href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
@@ -352,6 +355,8 @@
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Storage Gen1
       href: load-azure-data-lake-store.md 
+    - name: Load SAP BW data
+      href: load-sap-bw-data.md
     - name: Load Office 365 data
       href: load-office-365-data.md
     - name: Read or write partitioned data

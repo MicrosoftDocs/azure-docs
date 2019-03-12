@@ -4,7 +4,7 @@ description: Send custom metrics for an Azure resource to the Azure Monitor metr
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
@@ -77,7 +77,7 @@ Save the access token from the response.
     - **AccessToken**. Paste the token that you acquired previously.
 
     ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+    curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
 1. Change the timestamp and values in the JSON file. 
 1. Repeat the previous two steps a few times, so you have data for several minutes.

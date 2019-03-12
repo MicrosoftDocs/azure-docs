@@ -66,7 +66,11 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 Once that you receive the message that the secret has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](./media/quick-create-portal/version.png)
+![Secret properties](./media/quick-create-portal/current-version-hidden.png)
+
+By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
+
+![Secret value appeared](./media/quick-create-portal/current-version-shown.png)
 
 ## Clean up resources
 

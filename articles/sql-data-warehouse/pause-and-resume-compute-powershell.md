@@ -5,14 +5,14 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
-
 # Quickstart: Pause and resume compute in Azure SQL Data Warehouse with PowerShell
+
 Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -60,6 +60,7 @@ Follow these steps to find location information for your data warehouse.
 6. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. Drop the suffix and use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Pause compute
+
 To save costs, you can pause and resume compute resources on-demand. For example, if you are not using the database during the night and on weekends, you can pause it during those times, and resume it during the day. There is no charge for compute resources while the database is paused. However, you continue to be charged for storage.
 
 To pause a database, use the [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. The following example pauses a data warehouse named **mySampleDataWarehouse** hosted on a server named **newserver-20171113**. The server is in an Azure resource group named **myResourceGroup**.
@@ -81,6 +82,7 @@ $resultDatabase
 
 
 ## Resume compute
+
 To start a database, use the [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. The following example starts a database named mySampleDataWarehouse hosted on a server named newserver-20171113. The server is in an Azure resource group named myResourceGroup.
 
 ```Powershell
@@ -110,17 +112,18 @@ Follow these steps to clean up resources as you desire.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, click **Start**.
+2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, click **Start**.
 
-2. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
+3. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
 
-3. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net**, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+4. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net**, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
-4. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
+5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 
 
 ## Next steps
+
 You have now paused and resumed compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)

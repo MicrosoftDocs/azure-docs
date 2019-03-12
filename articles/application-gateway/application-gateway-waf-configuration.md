@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
-
+ms.topic: conceptual
 ---
 
 # Web application firewall request size limits and exclusion lists

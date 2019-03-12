@@ -56,7 +56,7 @@ Enable the metrics and diagnostics logging on SQL databases - they're not enable
 You can set up Azure SQL databases, and instance databases to collect the following diagnostics telemetry:
 
 | Monitoring telemetry for databases | Single database and pooled database support | Instance database support |
-| :------------------- | ------------------- | ------------------- |
+| :------------------- | ----- | ----- |
 | [All metrics](#all-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such as CPU, LOG, and LOCKING. | Yes | Yes |
@@ -66,7 +66,7 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | [Blocks](#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
 | [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
-> [!NOTE]
+> [!IMPORTANT]
 > Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
 
 ## Azure portal
@@ -157,11 +157,11 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 > [!NOTE]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
 
-### Configure streaming of diagnostics telemetry for database in managed instance
+### Configure streaming of diagnostics telemetry for instance databases
 
    ![Instance database in managed instance icon](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
-To enable streaming of diagnostics telemetry for instance databases in managed instance, follow these steps:
+To enable streaming of diagnostics telemetry for instance databases, follow these steps:
 
 1. Go to your instance database in managed instance.
 2. Select **Diagnostics settings**.
@@ -399,11 +399,11 @@ Refer to the following tables for details about all metrics by resource.
 |---|---|
 |Azure SQL database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
 
-## Logs for managed instances
+## All logs
 
-Refer to the following table for details about logs for managed instances.
+Details of telemetry available for all logs are disclosed in tables below. Please see [supported diagnostic logging](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
-### Resource usage statistics
+### Resource usage stats for managed instance
 
 |Property|Description|
 |---|---|
@@ -427,10 +427,6 @@ Refer to the following table for details about logs for managed instances.
 |io_requests_s|IOPS count |
 |io_bytes_read_s|IOPS bytes read |
 |io_bytes_written_s|IOPS bytes written |
-
-## Logs for single, pooled, and instance databases
-
-Refer to the following tables for details about logs for Azure SQL single, pooled, and instance databases.
 
 ### Query Store runtime statistics
 
