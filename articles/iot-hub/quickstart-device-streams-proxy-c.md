@@ -62,8 +62,8 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
-    
-    
+    ```
+
     The following hash values for version 3.13.4 were listed on the CMake site at the time of this writing:
 
     ```
