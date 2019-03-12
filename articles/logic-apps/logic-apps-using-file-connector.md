@@ -45,7 +45,7 @@ when you create the file system connection from your logic app.
 * A [Dropbox account](https://www.dropbox.com/), 
 which you can sign up for free. Your account credentials 
 are necessary for creating a connection between your 
-logic app and your Drobox account. 
+logic app and your Dropbox account. 
 
 * Access to the computer that has the file system 
 you want to use. For example, if you install the 
