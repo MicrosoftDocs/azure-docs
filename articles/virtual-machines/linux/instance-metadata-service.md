@@ -51,9 +51,33 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 
 ### Versioning
 
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-04-02`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
+The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
+
+When no version is specified, an error is returned with a list of the newest supported versions.
+
+> [!NOTE] 
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+```
+
+**Response**
+
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2018-10-01",
+        "2018-04-02",
+        "2018-02-01"
+    ]
+}
+```
 
 ### Using headers
 
@@ -108,7 +132,7 @@ HTTP Status Code | Reason
 ### Examples
 
 > [!NOTE]
-> All API responses are JSON strings. All following example responses  are pretty-printed for readability.
+> All API responses are JSON strings. All following example responses are pretty-printed for readability.
 
 #### Retrieving network information
 
@@ -162,7 +186,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
 ```
 
 **Response**
@@ -173,13 +197,20 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```json
 {
   "compute": {
+    "azEnvironment": "AZUREPUBLICCLOUD",
     "location": "westus",
     "name": "avset2",
     "offer": "UbuntuServer",
     "osType": "Linux",
     "placementGroupId": "",
+    "plan": {
+        "name": "",
+        "product": "",
+        "publisher": ""
+    },
     "platformFaultDomain": "1",
     "platformUpdateDomain": "1",
+    "provider": "Microsoft.Compute",
     "publisher": "Canonical",
     "resourceGroupName": "myrg",
     "sku": "16.04-LTS",
@@ -225,34 +256,46 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Instance metadata can be retrieved in Windows via the PowerShell utility `curl`: 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
 ```
 
 Or through the `Invoke-RestMethod` cmdlet:
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get 
 ```
 
 **Response**
 
 > [!NOTE]
-> The response is a JSON string. The following example response  is pretty-printed for readability.
+> The response is a JSON string. The following example response is pretty-printed for readability.
 
 ```json
 {
   "compute": {
+    "azEnvironment": "AZUREPUBLICCLOUD",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
     "osType": "Windows",
+    "placementGroupId": "",
+    "plan": {
+        "name": "",
+        "product": "",
+        "publisher": ""
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
+    "provider": "Microsoft.Compute",
     "publisher": "MicrosoftSQLServer",
+    "resourceGroupName": "myrg",
     "sku": "Enterprise",
+    "tags": "",
     "version": "13.0.400110",
     "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
-    "vmSize": "Standard_DS2"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_DS2",
+    "zone": ""
   },
   "network": {
     "interface": [
@@ -287,6 +330,7 @@ The following data categories are available through the Instance Metadata Servic
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
+azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image. This value is only present for images deployed from Azure image gallery. | 2017-04-02
@@ -303,6 +347,7 @@ tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for you
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher | 2018-04-02
+provider | Provider of the VM | 2018-10-01
 publicKeys | Collection of Public Keys[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assigned to the VM and paths | 2018-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
@@ -452,27 +497,11 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 
 **Request**
 
-> [!NOTE]
-> Requires jq to be installed.
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 
-```bash
-  metadata=$(curl "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H "Metadata:true")
-  endpoints=$(curl "https://management.azure.com/metadata/endpoints?api-version=2017-12-01")
-
-  location=$(echo $metadata | jq .location -r)
-
-  is_ww=$(echo $endpoints | jq '.cloudEndpoint.public.locations[]' -r | grep -w $location)
-  is_us=$(echo $endpoints | jq '.cloudEndpoint.usGovCloud.locations[]' -r | grep -w $location)
-  is_cn=$(echo $endpoints | jq '.cloudEndpoint.chinaCloud.locations[]' -r | grep -w $location)
-  is_de=$(echo $endpoints | jq '.cloudEndpoint.germanCloud.locations[]' -r | grep -w $location)
-
-  environment="Unknown"
-  if [ ! -z $is_ww ]; then environment="AzureCloud"; fi
-  if [ ! -z $is_us ]; then environment="AzureUSGovernment"; fi
-  if [ ! -z $is_cn ]; then environment="AzureChinaCloud"; fi
-  if [ ! -z $is_de ]; then environment="AzureGermanCloud"; fi
-
-  echo $environment
+**Response**
+```
+AZUREPUBLICCLOUD
 ```
 
 ### Validating that the VM is running in Azure
