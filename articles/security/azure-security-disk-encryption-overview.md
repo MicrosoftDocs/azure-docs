@@ -1,10 +1,10 @@
 ---
 title: Overview - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for IaaS VMs.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
+ms.author: mbaldwin
 ms.date: 03/05/2019
 
 ms.custom: seodec18
