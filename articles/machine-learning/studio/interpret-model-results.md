@@ -1,5 +1,5 @@
 ---
-title: Interpret model results in Machine Learning Studio
+title: Interpret model results
 titleSuffix: Azure Machine Learning Studio
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning

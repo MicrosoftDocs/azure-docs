@@ -1,5 +1,5 @@
 ---
-title: Create multiple models from one Studio experiment
+title: Create multiple endpoints for a model
 titleSuffix: Azure Machine Learning Studio
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
