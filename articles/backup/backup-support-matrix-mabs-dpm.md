@@ -18,12 +18,13 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview?view=sc-dpm-1807) is an enterprise solution that configures, facilitates, and manages backup and recovery of enterprise machines and data. It's part of the [System Center](https://www.microsoft.com/cloud-platform/system-center-pricing) suite of products.
 
-Microsoft Azure Backup Server (MABS) is a server product that can be used to back up on-premises physical servers, virtual machines (VMs), and apps running on them, and Azure VMs.
+MABS is a server product that can be used to back up on-premises physical servers, VMs, and apps running on them.
 
-- MABS is based on System Center Data Protection Manager (DPM) and provides similar functionality with a couple of differences:
-  - No System Center license is required to run MABS.
-  - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
-- You download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM in Azure.
+MABS is based on System Center DPM and provides similar functionality with a couple of differences:
+- No System Center license is required to run MABS.
+- For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
+
+You download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
 
 DPM and MABS support backing up a wide variety of apps, and server and client operating systems. They provide multiple backup scenarios:
 
@@ -65,7 +66,7 @@ DPM/MABS can be deployed as summarized in the following table.
 
 ## Supported MABS and DPM operating systems
 
-Azure Backup can back up DPM/MABS that are running any of the following operating systems. Operating systems should be running the latest service packs and updates.
+Azure Backup can back up DPM/MABS instances that are running any of the following operating systems. Operating systems should be running the latest service packs and updates.
 
 **Scenario** | **DPM/MABS** 
 --- | --- 
@@ -79,7 +80,7 @@ Azure Backup can back up DPM/MABS that are running any of the following operatin
 ## Management support
 **Issue** | **Details**
 --- | ---
-**Installation** | Install DPM/MABS on a single purpose machine.<br/><br/> Don't install DPM/MABS on a domain controller, on a machine with the Application Server role installation, on a machine that is running Microsoft Exchange Server or System Center Operations Manager, or on a cluster node.<br/><br/> [Review all DPM system requirements](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
+**Installation** | Install DPM/MABS on a single-purpose machine.<br/><br/> Don't install DPM/MABS on a domain controller, on a machine with the Application Server role installation, on a machine that is running Microsoft Exchange Server or System Center Operations Manager, or on a cluster node.<br/><br/> [Review all DPM system requirements](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
 **Domain** | DPM/MABS should be joined to a domain. Install first, and then join DPM/MABS to a domain. Moving DPM/MABS to a new domain after deployment isn't supported.
 **Storage** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
 **MABS upgrade** | You can directly install MABS v3, or upgrade to MABS v3 from MABS v2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
@@ -92,17 +93,17 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 **Component** | **Details**
 --- | --- 
-**MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2012 R2 or Windows Server 2016 image from the Azure marketplace.<br/><br/> Don't install anything else on the MABS VM.
+**MABS on Azure Stack VM** | At least size A2. We recommend you start with a Windows Server 2012 R2 or Windows Server 2016 image from the Azure Marketplace.<br/><br/> Don't install anything else on the MABS VM.
 **MABS storage** | Use a separate storage account for the MABS VM. The MARS agent running on MABS needs temporary storage for a cache location and to hold data restored from the cloud.
 **MABS storage pool** | The size of the MABS storage pool is determined by the number and size of disks that are attached to the MABS VM. Each Azure Stack VM size has a maximum number of disks. For example, A2 is four disks.
 **MABS retention** | Don't retain backed up data on the local MABS disks for more than five days.
-**MABS scale up** | To scale up your deployment, you can increase the size of the MABS VM. For example, from A to D series.<br/><br/> You can also ensure that you're offloading data with backup to Azure regularly, and if necessary, you can deploy additional MABS servers.
+**MABS scale up** | To scale up your deployment, you can increase the size of the MABS VM. For example, you can change from A to D series.<br/><br/> You can also ensure that you're offloading data with backup to Azure regularly. If necessary, you can deploy additional MABS servers.
 **.NET Framework on MABS** | The MABS VM needs .NET Framework 3.3 SP1 or later installed on it.
 **MABS domain** | The MABS VM must be joined to a domain. A domain user with admin privileges must install MABS on the VM.
 **Azure Stack VM data backup** | You can back up files, folders, and apps.
-**Supported backup** | These operating systems are supported for VMs that you want to back up:<br/><br/> Windows Server Semi-Annual Channel (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
-**SQL Server support for Azure Stack VMs** | Back up SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Back up and recover database.
-**SharePoint support for Azure Stack VMs** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Back up and recover farm, database, front end, and web server.
+**Supported backup** | These operating systems are supported for VMs that you want to back up:<br/><br/> Windows Server Semi-Annual Channel (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+**SQL Server support for Azure Stack VMs** | Back up SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Back up and recover a database.
+**SharePoint support for Azure Stack VMs** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Back up and recover a farm, database, front end, and web server.
 **Network requirements for backed up VMs** | All VMs in Azure Stack workload must belong to the same virtual network and belong to the same subscription.
 
 ## DPM/MABS networking support
@@ -145,7 +146,7 @@ From DPM 2016/MABS v2 (running on Windows Server 2016) and later, you can take a
 - MBS backups are stored on a Resilient File System (ReFS) disk.
 - MBS uses ReFS block cloning for faster backup and more efficient use of storage space.
 - When you add volumes to the local DPM/MABS storage pool, you configure them with drive letters. You can then configure workload storage on different volumes.
-- When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you could store backups for SQL or other high IOPS workloads a high-performance drive, and store workloads that are backed up less frequently on a lower performance drive.
+- When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you might store backups for SQL or other high IOPS workloads a high-performance drive, and store workloads that are backed up less frequently on a lower performance drive.
 
 
 ## Supported backups to MABS
