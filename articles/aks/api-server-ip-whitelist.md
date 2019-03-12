@@ -155,7 +155,7 @@ az aks update \
 
 ## Update or disable IP address whitelisting
 
-To update or disable IP whitelisting, edit the *parameters-with-whitelisting.json* again. Change the permitted CIDR ranges, or set `"defaultValue": []` to provide an empty range of IP addresses and allow public access, as shown in the following example.
+To update or disable IP whitelisting, edit the *api-server-ip-whitelist.json* again. Change the permitted CIDR ranges, or set `"defaultValue": []` to provide an empty range of IP addresses and allow public access, as shown in the following example.
 
 ```json
         "apiServerAuthorizedIPRanges": {
