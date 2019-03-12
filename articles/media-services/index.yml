@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03-11-2019
+  ms.date: 03/11/2019
   ms.author: juliako
 abstract:
   description: Azure Media Services (AMS) is a cloud-based platform that enables you to build solutions that achieve high-definition video encoding and broadcast-quality video streaming that reach your audiences on most popular devices. AMS v3 also enables you to extract the insights from your video and audio files with Video Indexer through AMS v3 analyzer presets. If you want more detailed insights, use Video Indexer directly.<br/> To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">comparison document</a>.
