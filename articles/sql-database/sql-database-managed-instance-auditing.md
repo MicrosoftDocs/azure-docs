@@ -129,7 +129,7 @@ The following section describes the configuration of auditing on your managed in
 
      1. Select a subscription, storage account, and Blob container from the dropdowns, or create your own container by clicking on **Create**. Once you have finished click **OK**:
 
-        ![Select Azure subscription, storage account, and blobl container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Select Azure subscription, storage account, and blob container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Click **OK** in the "Create Audit" dialog.
 
@@ -184,7 +184,7 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Enable the server audit created in step 7:
+10. Enable the server audit created in step 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
