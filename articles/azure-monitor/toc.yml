@@ -281,6 +281,8 @@
             href: app/profiler-servicefabric.md 
           - name: Enable Profiler for an Azure VM
             href: app/profiler-vm.md
+          - name: Profiler for Linux App services (preview)
+            href: app/profiler-aspnetcore-linux.md
           - name: Profiler Settings
             href: app/profiler-settings.md 
           - name: Track Requests for Profiling
@@ -304,7 +306,7 @@
         - name: ASP.NET Core
           href: app/asp-net-core.md
           items:
-          - name: Profiler for Linux App services
+          - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
         - name: Console
           href: app/console.md
