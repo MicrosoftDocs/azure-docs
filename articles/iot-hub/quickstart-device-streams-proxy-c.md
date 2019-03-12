@@ -188,7 +188,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
 
 ### Run the service-local proxy application
 
-As discussed [previously](#how-it-works), establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (both on the service and the device). During public preview, IoT Hub C SDK only supports device streams on the device side. For the service-local proxy, follow the steps to build and run the service-local proxy in the [C# quickstart](./quickstart-device-streams-proxy-csharp.md) or [Node.js quickstart](./quickstart-device-streams-proxy-nodejs.md).
+As discussed [previously](#how-it-works), establishing an end-to-end stream to tunnel SSH traffic requires a local proxy at each end (both on the service and the device). During public preview, IoT Hub C SDK only supports device streams on the device side. To build and run the service-local proxy, follow the steps available in the [C# quickstart](./quickstart-device-streams-proxy-csharp.md) or the [Node.js quickstart](./quickstart-device-streams-proxy-nodejs.md).
 
 ### Establish an SSH session
 
