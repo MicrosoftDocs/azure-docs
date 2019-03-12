@@ -12,9 +12,9 @@ ms.custom: mvc
 # Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI up command (preview)
 
 > [!IMPORTANT]
-> The [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command is in preview.
+> The [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command is in preview.
 
-Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
+Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ az account set --subscription <subscription id>
 ```
 
 ## Create an Azure Database for PostgreSQL server
-To use the commands, install the [`db-up`](/cli/azure/ext/db-up) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI]( /cli/azure/install-azure-cli).  
+To use the commands, install the [db-up](/cli/azure/ext/db-up) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI]( /cli/azure/install-azure-cli).  
 
 ```azurecli
 az extension add --name db-up
@@ -56,7 +56,7 @@ backup-retention | 7 | How long a backup should be retained. Unit is days. Range
 geo-redundant-backup | Disabled |  Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
 location | westus2 | The Azure location for the server. You can configure the default location using `az configure --defaults location=<location>`
 ssl-enforcement | Disabled | Whether ssl should be enabled or not for this server.
-storage-size | 5120 |The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120 MB and increases in 1024 MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits. 
+storage-size | 5120 |The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120 MB and increases in 1024 MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits.
 version | 10 |  The PostgreSQL major version.
 admin-user | System generated | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | System generated |  The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
@@ -74,7 +74,7 @@ The following are also automatically configured:
 ## Get the connection information
 After the `az postgres up` command is completed, a list of connection strings for popular programming languages are returned to you. These connection strings are pre-configured with the specific attributes of your newly created Azure Database for PostgreSQL server.
 
-In the future, you can use the [`az postgres show-connection string`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) command to list these connection strings again.
+In the future, you can use the [az postgres show-connection string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) command to list these connection strings again.
 
 ## Clean up resources
 
