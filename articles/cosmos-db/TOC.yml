@@ -390,7 +390,7 @@
       - name: Tutorials
         items:
         - name: 1 - Create & manage data
-          href: tutorial-develop-table-dotnet-standard.md
+          href: tutorial-develop-table-dotnet.md
         - name: 2 - Migrate data
           displayName: import 
           href: table-import.md
