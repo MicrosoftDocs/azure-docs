@@ -158,10 +158,10 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
-    - name: Classification (Preview for Gen2)
-      href: classification.md
-    - name: Importance (Preview for Gen2)
-      href: importance.md
+    - name: Workload Classification (Preview)
+      href: sql-data-warehouse-workload-classification.md
+    - name: Workload Importance (Preview)
+      href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
