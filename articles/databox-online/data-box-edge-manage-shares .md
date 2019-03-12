@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Edge manage shares | Microsoft Docs 
+title: Azure Data Box Edge share management | Microsoft Docs 
 description: Describes how to use the Azure portal to manage shares on your Azure Data Box Edge.
 services: databox
 author: alkohli
@@ -20,10 +20,10 @@ This article describes how to manage shares on your Azure Data Box Edge. You can
 
 ## About shares
 
-To transfer data to Azure, you need to create shares on your Azure Data Box Edge. The shares that you add on the Data Box Edge device can be Edge local shares or Edge shares.
+To transfer data to Azure, you need to create shares on your Azure Data Box Edge. The shares that you add on the Data Box Edge device can be local shares or shares that push data to cloud.
 
- - **Edge local shares**: Use these shares when you want the data to be processed locally on the device.
- - **Edge shares**: Use these shares when you want the device data to be automatically pushed to your storage account in the cloud. All the cloud functions such as **Refresh** and **Sync storage keys** apply to the Edge shares.
+ - **Local shares**: Use these shares when you want the data to be processed locally on the device.
+ - **Shares**: Use these shares when you want the device data to be automatically pushed to your storage account in the cloud. All the cloud functions such as **Refresh** and **Sync storage keys** apply to the shares.
 
 In this article, you learn how to:
 
@@ -34,7 +34,7 @@ In this article, you learn how to:
 > * Sync storage key
 
 
-## Add an Edge share
+## Add a share
 
 Do the following steps in the Azure portal to create a share.
 
@@ -50,21 +50,21 @@ Do the following steps in the Azure portal to create a share.
 
 4. Provide a **Storage account** where the share lives. A container is created in the storage account with the share name if the container already does not exist. If the container already exists, then the existing container is used.
 
-5. From the dropdown list, choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as block blobs in Azure, hence we select **Block Blob**. If choosing**Page Blob**, you must ensure that your data is 512 bytes aligned. Use **Page blob** for VHDs or VHDX that are always 512 bytes aligned.
+5. From the dropdown list, choose the **Storage service** from block blob, page blob, or files. The type of the service chosen depends on which format you want the data to reside in Azure. For example, in this instance, we want the data to reside as block blobs in Azure, hence we select **Block Blob**. If choosing **Page Blob**, you must ensure that your data is 512 bytes aligned. Use **Page blob** for VHDs or VHDX that are always 512 bytes aligned.
 
 6. This step depends on whether you are creating an SMB or an NFS share.
     - **If creating an SMB share** - In the **All privilege local user** field, choose from **Create new** or **Use existing**. If creating a new local user, provide the **username**, **password**, and then confirm password. This assigns the permissions to the local user. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
 
-        ![Add SMB share](media/data-box-edge-manage-shares/add-share-2.png)
+        ![Add SMB share](media/data-box-edge-manage-shares/add-smb-share.png)
 
         If you check allow only read operations for this share data, you can specify read-only users.
     - **If creating an NFS share** - You need to supply the **IP addresses of the allowed clients** that can access the share.
 
-        ![Add NFS share](media/data-box-edge-manage-shares/add-share-3.png)
+        ![Add NFS share](media/data-box-edge-manage-shares/add-nfs-share.png)
 
 7. Click **Create** to create the share. You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
  
-## Add an Edge local share
+## Add a local share
 
 1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
 
@@ -115,32 +115,33 @@ The list of shares updates to reflect the deletion.
 
 ## Refresh shares
 
-The refresh feature allows you to refresh the contents of an on-premises share. When you refresh a share, a search is initiated to find all the Azure objects including blobs and files that were added to the cloud since the last refresh. These additional files are then used to refresh the contents of the on-premises share on the device.
+The refresh feature allows you to refresh the contents of a share. When you refresh a share, a search is initiated to find all the Azure objects including blobs and files that were added to the cloud since the last refresh. These additional files are then downloaded to refresh the contents of the share on the device.
+
+> [!IMPORTANT]
+> You can't refresh local shares.
 
 Do the following steps in the Azure portal to refresh a share.
 
 1.	In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
 
-    ![Select share](media/data-box-edge-manage-shares/refresh-1.png)
+    ![Select share](media/data-box-edge-manage-shares/refresh-share-1.png)
 
 2.	Click **Refresh**. 
 
-    ![Click refresh](media/data-box-edge-manage-shares/refresh-2.png)
+    ![Click refresh](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.	When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share. 
+3.	When prompted for confirmation, click **Yes**. A job starts to refresh the contents of the on-premises share.
 
-    ![Confirm refresh](media/data-box-edge-manage-shares/refresh-3.png)
+    ![Confirm refresh](media/data-box-edge-manage-shares/refresh-share-3.png)
  
 4.	While the refresh is in progress, the refresh option is grayed out in the context menu. Click the job notification to view the refresh job status.
 
-5.	The time to refresh depends on the number of files in the Azure container as well as the files on the device. Once the refresh has successfully completed, the share timestamp is updated. Even if the refresh has partial failures, the operation is considered successful and the timestamp is updated.
+5.	The time to refresh depends on the number of files in the Azure container as well as the files on the device. Once the refresh has successfully completed, the share timestamp is updated. Even if the refresh has partial failures, the operation is considered successful and the timestamp is updated. The refresh error logs are also updated.
 
-    ![Updated timestamp](media/data-box-edge-manage-shares/refresh-4.png)
+    ![Updated timestamp](media/data-box-edge-manage-shares/refresh-share-4.png)
  
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
 
->[!IMPORTANT]
-> In this preview release, do not refresh more than a single share at a time.
 
 ## Sync storage keys
 
@@ -148,14 +149,15 @@ If your storage account keys have been rotated, then you need to sync the storag
 
 Do the following steps in the Azure portal to sync your storage access key.
 
-1. Go to **Overview** in your resource.
-2. From the list of shares, choose and click a share associated with the storage account that you need to sync. Click **Sync storage key**.
+1. Go to **Overview** in your resource. From the list of shares, choose and click a share associated with the storage account that you need to sync.
 
-     ![Sync storage key 1](media/data-box-edge-manage-shares/sync-storage-key-1.png)
+    ![Select share with relevant storage account](media/data-box-edge-manage-shares/sync-storage-key-1.png)
 
-3. Click **Yes** when prompted for confirmation. Exit out of the dialog once the sync is complete.
+2. Click **Sync storage key**. Click **Yes** when prompted for confirmation.
 
-     ![Sync storage key 1](media/data-box-edge-manage-shares/sync-storage-key-2.png)
+     ![Select Sync storage key](media/data-box-edge-manage-shares/sync-storage-key-2.png)
+
+3. Exit out of the dialog once the sync is complete.
 
 >[!NOTE]
 > You only have to do this once for a given storage account. You don't need to repeat this action for all the shares associated with the same storage account.
