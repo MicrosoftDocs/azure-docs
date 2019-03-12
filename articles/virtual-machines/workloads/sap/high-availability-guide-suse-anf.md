@@ -156,18 +156,18 @@ The SAP Netweaver architecture presented in this article uses single ANF capacit
    6. volume usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>qas</b>pas)
    7. volume usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
    
-In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . In this example <b>a-e</b> must be on ANF and <b>f-g</b> (i.e. /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
+In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . In this example <b>a-e</b> must be on ANF and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
 
 ### Important considerations
 
 When considering ANF for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
 
-- The minimum ANF capacity pool is 4TiB. The ANF capacity pool size must be in multiples of 4TiB.
+- The minimum ANF capacity pool is 4 TiB. The ANF capacity pool size must be in multiples of 4 TiB.
 - The minimum ANF volume is 100 GiB
 - ANF and all virtual machines, where ANF volumes will be mounted must be in the same Azure Virtual Network. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) isn't supported yet by ANF.
 - The selected virtual network must have a subnet, delegated to ANF.
 - ANF currently supports only NFSv3 
-- ANF offers [export policy](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.).
+- ANF offers [export policy](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - ANF isn't zone aware yet. Currently ANF isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 
    > [!NOTE]
@@ -239,7 +239,7 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
          1. **Make sure to enable Floating IP**
          1. Click OK
       1. Additional ports for the ASCS
-         * Repeat the steps above under under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
+         * Repeat the steps above under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
       1. Additional ports for the ASCS ERS
          * Repeat the steps above under "d" for ports 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
 
@@ -434,7 +434,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**,try setting the owner and group of the ASCS**00**  folder and retry. 
+   If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**, try setting the owner and group of the ASCS**00**  folder and retry. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
