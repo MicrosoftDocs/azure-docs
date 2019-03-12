@@ -3,7 +3,7 @@ title: Best Practices to use Key Vault - Azure Key Vault | Microsoft Docs
 description: This document explains some of the best practices to use Key Vault
 services: key-vault
 documentationcenter: ''
-author: pryerram
+author: yvprashanth
 manager: barbkess
 tags: azure-key-vault
 
