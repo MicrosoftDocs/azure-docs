@@ -16,6 +16,8 @@ ms.date: 03/07/2019
 ms.author: pryerram
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them
 ---
+# Best practices to use Key Vault
+
 ## Control Access to your vault
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](key-vault-secure-your-key-vault.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
