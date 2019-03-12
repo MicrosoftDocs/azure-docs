@@ -39,9 +39,11 @@ While this application is written in C#, the API is a RESTful Web service compat
 1. create a new C# console solution in Visual Studio. Then add the following namespaces into the main code file.
     
     ```csharp
+    using Newtonsoft.Json;
     using System;
     using System.Net.Http;
     using System.Text;
+    using 
     ```
 
 2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search.
