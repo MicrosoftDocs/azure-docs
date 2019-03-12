@@ -76,34 +76,35 @@ To allow the load balancer to monitor the status of your app, you use a health p
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Health probes**, then click **Add**.
 3. Use these values to create the health probe:
-     | Setting | Value |
-     | ------- | ----- |
-     | Name | Enter *myHealthProbe*. |
-     | Protocol | Select **HTTP**. |
-     | Port | Enter *80*.|
-     | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
-     | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
-     | Health probe | Select *myHealthProbe*. |
+     
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myHealthProbe*. |
+    | Protocol | Select **HTTP**. |
+    | Port | Enter *80*.|
+    | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
+    | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
+    | Health probe | Select *myHealthProbe*. |
+
 1. Select **OK**.
 
-   ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
-
-### Create a load balancer rule
+  ### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
 3. Use these values to configure the load balancing rule:
- | Setting | Value |
- | ------- | ----- |
- | Name | Enter *myHTTPRule*. |
- | Protocol | Select **TCP**. |
- | Port | Enter *80*.|
- | Backend port | Enter *80*. |
- | Backend pool | Select *myBackendPool*.|
- | Health probe | Select *myHealthProbe*. |
-4. Leave the rest of the defaults and select **OK**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myHTTPRule*. |
+    | Protocol | Select **TCP**. |
+    | Port | Enter *80*.|
+    | Backend port | Enter *80*. |
+    | Backend pool | Select *myBackendPool*.|
+    | Health probe | Select *myHealthProbe*. |
+1. Leave the rest of the defaults and select **OK**.
 
 ## Create backend servers
 

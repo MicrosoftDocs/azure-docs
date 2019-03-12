@@ -71,6 +71,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 2. Under **Settings**, select **Health probes**, then select **Add**.
+    
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter *myHealthProbe*. |
@@ -79,9 +80,8 @@ To allow the load balancer to monitor the status of your app, you use a health p
     | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
     | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
     | Health probe | Select *myHealthProbe*. |
-4. Select **OK**.
 
-   ![Adding a probe](./media/load-balancer-standard-public-portal/4-load-balancer-probes.png)
+4. Select **OK**.
 
 ### Create a load balancer rule
 
@@ -90,6 +90,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 2. Under **Settings**, select **Load balancing rules**, then select **Add**.
 3. Use these values to configure the load balancing rule:
+    
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter *myHTTPRule*. |
