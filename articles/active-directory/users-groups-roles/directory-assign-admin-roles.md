@@ -1119,6 +1119,8 @@ Can manage all aspects of users and groups, including resetting passwords for li
 
 ## Role template IDs
 
+Role template IDs are used mainly by Graph API or PowerShell users.
+
 Graph displayName | Azure portal display name | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
