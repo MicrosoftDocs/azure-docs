@@ -115,11 +115,10 @@ In this section, you create a virtual network, create two virtual machines for t
     | Name | Enter *myVNet*. |
     | Address space | Enter *10.1.0.0/16*. |
     | Subscription | Select your subscription.|
-    | Resource group | Select existing resource - *MyResourceGroupSLB*,. |
+    | Resource group | Select existing resource - *MyResourceGroupSLB*. |
     | Location | Select **West Europe**.|
     | Subnet - Name | Enter *myBackendSubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
-
 1. Leave the rest of the defaults and select **Create**.
 
 ### Create virtual machines
@@ -137,16 +136,14 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
    
    - Make sure the following are selected:
-       - **Virtual network**: **MyVnet**
-       - **Subnet**: **MyBackendSubnet**
-       - **Public IP** > select **Create new**, and in the **Create public IP address** window, for **SKU**, select **Standard**.
-      
+       - **Virtual network**: *MyVnet*
+       - **Subnet**: *MyBackendSubnet*
+       - **Public IP** > select **Create new**, and in the **Create public IP address** window, for **SKU**, select **Standard**, and for **Availability zone**, select **Zone-redundant**, and then select **OK**.
    - To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
        1. In the **Configure network security group** field, select **Create new**. 
        1. Type *MyNetworkSecurityGroup*, and select **OK**.
-
-    - To make the VM a part of the load balancer's backend pool, complete the following steps:
-        - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution**, select **Yes**.
+   - To make the VM a part of the load balancer's backend pool, complete the following steps:
+        - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution?**, select **Yes**.
         - In **Load balancing settings**, for **Load balancing options**, select **Azure load balancer**.
         - For **Select a load balancer**, *myLoadBalancer*. 
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
