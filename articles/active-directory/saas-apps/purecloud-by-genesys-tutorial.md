@@ -271,7 +271,7 @@ To enable Azure AD users to log in to PureCloud by Genesys, they must be provisi
 
 	a. In **Full Name** text box, enter the name of user like **Brittasimon**.
 
-	b. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+	b. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 	
 	c. Click **Create**.
 

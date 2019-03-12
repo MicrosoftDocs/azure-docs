@@ -210,7 +210,7 @@ To enable Azure AD users to log in to Flock, they must be provisioned into Flock
 
 	![Add Employee](./media/flock-tutorial/user2.png)
 
-4. Enter the email address of the user like **Brittasimon@contoso.com** and then select **Add Users**.
+4. Enter the email address of the user like **Brittasimon\@contoso.com** and then select **Add Users**.
 
 	![Add Employee](./media/flock-tutorial/user3.png)
 

@@ -200,7 +200,7 @@ In order to enable Azure AD users to log into Mindflash, they must be provisione
 
 	b. In the **Last name** textbox, type **Last name** of the user as **Simon**.
 	
-	c. In the **Email** textbox, type **Email Address** of the user as **BrittaSimon@contoso.com**.
+	c. In the **Email** textbox, type **Email Address** of the user as **Brittasimon\@contoso.com**.
 
     b. Click **Add**.
 

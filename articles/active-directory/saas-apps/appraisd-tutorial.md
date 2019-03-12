@@ -259,7 +259,7 @@ To enable Azure AD users sign in to Appraisd, they must be provisioned into Appr
 
 	b. In **Last name** text box, enter the last name of user like **simon**.
 
-	c. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	c. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	d. Click **Add user**.
 

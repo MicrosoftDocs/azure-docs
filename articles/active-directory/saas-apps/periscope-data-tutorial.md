@@ -215,7 +215,7 @@ To enable Azure AD users to log in to Periscope Data, they must be provisioned i
 
     b. In **Last Name** text box, enter the last name of user like **Simon**.
 
-    c. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+    c. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
     d. Click **ADD**.
 

@@ -206,7 +206,7 @@ To enable Azure AD users to log in to Workspot Control, they must be provisioned
 
 	b. In **Last Name** text box, enter the last name of user like **simon**.
 
-	c. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	c. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	d. Select the appropriate user role from the **Role** dropdown.
 

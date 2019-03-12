@@ -226,7 +226,7 @@ To enable Azure AD users to log in to Egnyte, they must be provisioned into Egny
     
     ![New Standard User](./media/egnyte-tutorial/ic787825.png "New Standard User")   
 
-	a. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	a. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	b. In **Username** text box, enter the username of user like **Brittasimon**.
 

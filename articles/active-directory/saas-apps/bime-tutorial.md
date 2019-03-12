@@ -223,7 +223,7 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
 
     b. In the **Last name** textbox, enter the last name of user like **Simon**.
 
-    c. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+    c. In the **Email** textbox, enter the email of user like **Brittasimon\@contoso.com**.
 
     d. Click **Save**.
 

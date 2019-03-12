@@ -235,7 +235,7 @@ To enable Azure AD users to sign in to dmarcian, they must be provisioned into d
 
 	![The new user](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-	a. In the **New User Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+	a. In the **New User Email** textbox, enter the email of user like **Brittasimon\@contoso.com**.
 
 	b. If you want to give admin rights to the user, select **Make User an Admin**.
 

@@ -232,7 +232,7 @@ In order to enable Azure AD users to log into Citrix ShareFile, they must be pro
    
 	![Basic Information](./media/sharefile-tutorial/IC799951.png "Basic Information")
    
-	a. In the **Email Address** textbox, type the email address of Britta Simon as **brittasimon@contoso.com**.
+	a. In the **Email Address** textbox, type the email address of Britta Simon as **Brittasimon\@contoso.com**.
    
 	b. In the **First Name** textbox, type **first name** of user as **Britta**.
    

@@ -217,7 +217,7 @@ In the case of Peakon, provisioning is a manual task.
 
 	a. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
 
-	b. In the **Email** textbox, type the email address like **Brittasimon@contoso.com**.
+	b. In the **Email** textbox, type the email address like **Brittasimon\@contoso.com**.
 
 	c. Click **Create employee**.
 

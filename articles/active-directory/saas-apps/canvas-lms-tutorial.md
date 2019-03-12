@@ -237,9 +237,9 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
 
    a. In the **Full Name** textbox, enter the name of user like **BrittaSimon**.
 
-   b. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+   b. In the **Email** textbox, enter the email of user like **Brittasimon\@contoso.com**.
 
-   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon@contoso.com**.
+   c. In the **Login** textbox, enter the user’s Azure AD email address like **Brittasimon\@contoso.com**.
 
    d. Select **Email the user about this account creation**.
 

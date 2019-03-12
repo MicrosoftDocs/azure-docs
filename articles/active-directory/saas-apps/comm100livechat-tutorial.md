@@ -246,7 +246,7 @@ To enable Azure AD users to log in to Comm100 Live Chat, they must be provisione
 
 	![Comm100 Live Chat new agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-	a. a. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	a. a. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	b. In **First Name** text box, enter the first name of user like **Britta**.
 

@@ -228,7 +228,7 @@ The objective of this section is to create a user called Britta Simon in SD Elem
    
     ![Creating a SD Elements test user](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. In the **E-mail** textbox, enter the email of user like **brittasimon@contoso.com**.
+    a. In the **E-mail** textbox, enter the email of user like **Brittasimon\@contoso.com**.
    
     b. In the **First Name** textbox, enter the first name of user like **Britta**.
    

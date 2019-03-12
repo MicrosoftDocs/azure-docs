@@ -211,7 +211,7 @@ In the case of HubSpot, provisioning is a manual task.
 
 	![Configure Single Sign-On](./media/hubspot-tutorial/user2.png)
 
-5. Enter the email address of the user like **brittasimon@contoso.com** in the **Add email addess(es)** textbox and click **Next**.
+5. Enter the email address of the user like **Brittasimon\@contoso.com** in the **Add email addess(es)** textbox and click **Next**.
 
 	![Configure Single Sign-On](./media/hubspot-tutorial/user3.png)
 
