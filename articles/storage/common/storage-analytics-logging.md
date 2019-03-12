@@ -1,29 +1,17 @@
 ---
-title: "Azure Storage analytics logging"
-ms.custom: na
-ms.date: 01/30/2007
-ms.prod: azure
-ms.reviewer: na
+title: "Azure Storage Analytics logging"
+description: Learn how to log details about requests made against Azure Storage.
+services: storage
+author: fhryo-msft
+
 ms.service: storage
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.assetid: 1727932c-8a3b-4502-86ac-c89931d54bac
-caps.latest.revision: 24
-author: tamram
-manager: twooley
-translation.priority.mt:
-  - de-de
-  - es-es
-  - fr-fr
-  - it-it
-  - ja-jp
-  - ko-kr
-  - pt-br
-  - ru-ru
-  - zh-cn
-  - zh-tw
+ms.topic: article
+ms.date: 03/11/2019
+ms.author: fryu
+ms.subservice: common
 ---
 # Azure Storage analytics logging
+
 Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
  Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties), and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) operations to enable Storage Analytics for each service.
@@ -40,7 +28,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
 -   Failed requests, including timeout, throttling, network, authorization, and other errors
 
--   Requests using a Shared Access Signature (SAS), including failed and successful requests
+-   Requests using a Shared Access Signature (SAS) or OAuth, including failed and successful requests
 
 -   Requests to analytics data
 

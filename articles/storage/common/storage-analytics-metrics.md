@@ -1,36 +1,24 @@
 ---
 title: "Azure Storage analytics metrics (Classic)"
-ms.custom: na
-ms.date: 01/30/2017
-ms.prod: azure
-ms.reviewer: na
+description: Learn how to use metrics in Azure Storage.
+services: storage
+author: fhryo-msft
+
 ms.service: storage
-ms.suite: na
-ms.tgt_pltfrm: na
-ms.assetid: c944c107-684c-47bf-92bf-5ce32689b7ae
-caps.latest.revision: 20
-author: tamram
-manager: twooley
-translation.priority.mt:
-  - de-de
-  - es-es
-  - fr-fr
-  - it-it
-  - ja-jp
-  - ko-kr
-  - pt-br
-  - ru-ru
-  - zh-cn
-  - zh-tw
+ms.topic: article
+ms.date: 03/11/2019
+ms.author: fryu
+ms.subservice: common
 ---
 # Azure Storage analytics metrics (Classic)
+
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.  
 
  Storage Analytics metrics are enabled by default for new storage accounts. You can configure metrics in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operations to enable Storage Analytics for each service.  
 
 > [!NOTE]
 >  Storage Analytics metrics are available for the Blob, Queue, Table, and File services.
->  Storage Analytics metrics become classic and Storage Metrics have been released. Please start using [Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md)
+>  Storage Analytics metrics are now Classic metrics. Microsoft recommends using [Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md) instead of Storage Analytics metrics.
 
 ## Transaction metrics  
  A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) topic.  
