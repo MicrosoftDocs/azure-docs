@@ -78,7 +78,7 @@ Add users as Azure subscription creators on an invoice section to give them perm
 
 ## Need help? Contact support
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
 
 ## Next steps
 

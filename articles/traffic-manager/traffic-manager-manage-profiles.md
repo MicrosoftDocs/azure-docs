@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Traffic Manager profiles | Microsoft Docs
-description: This article helps you create, disable, enable, and delete a Azure Traffic Manager profile.
+description: This article helps you create, disable, enable, and delete an Azure Traffic Manager profile.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
