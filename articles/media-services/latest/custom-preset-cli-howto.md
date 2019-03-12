@@ -35,7 +35,7 @@ When creating custom presets, the following considerations apply:
 
 ## Define a custom transform
 
-The following example defines a custom Transform with a set of outputs that we want to be generated when this Transform is used. In this example, we add an AacAudio layer for the audio encoding and a H264Video for the video encoding. In the video layers we assign labels so that they can be used for the output file names. We also want to generate a set of PNG thumbnails.
+The following example defines a custom Transform with a set of outputs that we want to be generated when this Transform is used. In this example, we add an AacAudio layer for the audio encoding and a H264Video for the video encoding. In the video layers, we assign labels so that they can be used for the output file names. We also want to generate a set of PNG thumbnails.
 
 We then specify the format for the output files - one for video + audio, and another for the thumbnails. Since we have multiple H264Layers, we have to use macros that produce unique names per layer. We can either use a `{Label}` or `{Bitrate}`.
 
