@@ -2,12 +2,13 @@
 title: Set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery | Microsoft Docs
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery.
 services: site-recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 3/3/2019
-ms.author: mayg
+ms.author: raynew
+
 ms.custom: MVC
 
 ---
@@ -36,6 +37,7 @@ Before you start, it's helpful to:
     - Set up the [replication source](vmware-azure-set-up-source.md) and [configuration server](vmware-azure-deploy-configuration-server.md).
     - Set up the [replication target](vmware-azure-set-up-target.md).
     - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
+- In this tutorial we show you how to replicate a single VM. If you're deploying multiple VMs you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner) to help plan your deployment. [Learn more](site-recovery-deployment-planner.md) about this tool.
 
 
 ## Select a protection goal
@@ -47,9 +49,8 @@ Before you start, it's helpful to:
 5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then select **OK**.
 
 
-## Plan your deployment
-
-In this tutorial we're showing you how to replicate a single VM, and in **Deployment Planning**, we'll select **Yes, I have done it**. If you're deploying multiple VMs we recommend that you don't skip this step. We provide the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner) to help you. [Learn more](site-recovery-deployment-planner.md) about this tool.
+<<<<<<< HEAD
+#
 
 ## Set up the source environment
 
@@ -75,6 +76,7 @@ To set up the configuration server as a highly available VMware VM, download a p
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the OVF template for the configuration server.
 
+<<<<<<< HEAD
  > [!TIP]
  >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
@@ -82,6 +84,9 @@ To set up the configuration server as a highly available VMware VM, download a p
 The license provided with OVF template is an evaluation license valid for 180 days. Customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
+=======
+ ## Import the template in VMware
+>>>>>>> a67f077ede2c321510ae3b3c5b29e9b4fc802ffe
 
 1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**. 
