@@ -131,7 +131,9 @@ The following **Request body** example defines a custom preset.
 
 ## Create a transform with the custom preset 
 
-You create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing your videos. In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if one already exists. 
+When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you need to specify what `outputs` you want it to generate. Each transform output contains a `preset` that describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired transform output. 
+
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use the [Get](https://docs.microsoft.com/rest/api/media/transforms/get) operation to check if the desired transform already exists. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 

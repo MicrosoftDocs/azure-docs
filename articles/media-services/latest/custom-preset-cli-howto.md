@@ -117,7 +117,9 @@ The following example defines a custom preset that we are going to save in the `
 
 ## Create a transform with the custom preset 
 
-You create a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest) to configure common tasks for encoding or analyzing your videos. In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if one already exists. The following `show` command returns the `customTransformName` if the transform exists:
+When creating a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest), you need to specify what `outputs` you want it to generate. Each transform output contains a `preset` that describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired transform output. 
+
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if the desired transform already exists. The following `show` command returns the `customTransformName` if the transform exists:
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
