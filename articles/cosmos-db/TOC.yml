@@ -400,6 +400,8 @@
           href: tutorial-global-distribution-table.md
       - name: Samples
         items:
+        - name: .NET
+          href: table-storage-how-to-use-dotnet.md
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
