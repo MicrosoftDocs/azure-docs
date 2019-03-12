@@ -13,13 +13,13 @@ ms.date: 3/11/2019
 > [!IMPORTANT]
 > The [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command is in preview.
 
-Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command to create an Azure Database for PostgreSQL server using the Azure CLI.
+Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command creates an Azure Database for PostgreSQL server using the Azure CLI. In addition to creating the server, the `az postgres up` creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. This is helps to expedite the development process.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 You'll need to login to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **id** property from the command output for the corresponding subscription name.
 
@@ -28,19 +28,20 @@ az login
 ```
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription id** property from the **az login** output for your subscription into the subscription id placeholder.
+
 ```azurecli
 az account set --subscription <subscription id>
 ```
 
 ## Create an Azure Database for PostgreSQL server
 
-To use the commands, install the [db-up](/cli/azure/ext/db-up) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI]( /cli/azure/install-azure-cli).
+To use the commands, install the [db-up](/cli/azure/ext/db-up) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up
 ```
 
-Create an Azure Database for PostgreSQL server using the command below:
+Create an Azure Database for PostgreSQL server using the following command:
 
 ```azurecli
 az postgres up
@@ -80,7 +81,7 @@ Once your server is created, it comes with the following settings:
 
 After the `az postgres up` command is completed, a list of connection strings for popular programming languages is returned to you. These connection strings are pre-configured with the specific attributes of your newly created Azure Database for PostgreSQL server.
 
-In the future, you can use the [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) command to list these connection strings again.
+You can use the [az postgres show-connection-string](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-show-connection-string) command to list these connection strings again.
 
 ## Clean up resources
 
