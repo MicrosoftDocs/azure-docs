@@ -56,16 +56,16 @@ Azure Backup takes snapshots according to the backup schedule.
 
 - **Windows VMs:** For Windows VMs, the Backup service coordinates with VSS to take an app-consistent snapshot of the VM disks.
 
-    - By default, Azure Backup takes full VSS backups. [Learn more](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
-    - To change the setting so that Azure Backup takes VSS copy backups, set the following registry key from a command prompt:
-    
-       **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+  - By default, Azure Backup takes full VSS backups. [Learn more](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+  - To change the setting so that Azure Backup takes VSS copy backups, set the following registry key from a command prompt:
+
+    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
 
 - **Linux VMs:** To take app-consistent snapshots of Linux VMs, use the Linux pre-script and post-script framework to write your own custom scripts to ensure consistency.
 
-    -  Azure Backup invokes only the pre/post scripts written by you.
-    - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
-    - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
+  - Azure Backup invokes only the pre/post scripts written by you.
+  - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
+  - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
 
 ### Snapshot consistency
 
