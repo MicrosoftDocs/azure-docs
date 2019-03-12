@@ -48,7 +48,7 @@ You can also import modules from the PowerShell Gallery directly from your Autom
 
 ## Internal cmdlets
 
-The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account.
+The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. These cmdlets do not require you to implicitly connect to Azure when using them. This is beneficial for scenarios where you have a connection, such as a Run As Account that you need to use to authenticate to Azure.
 
 |Name|Description|
 |---|---|
@@ -62,7 +62,7 @@ The following is a listing of cmdlets in the internal `Orchestrator.AssetManagem
 
 ## Add a connection type to your module
 
-You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account.
+You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this you must first know how or learn to authoring a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/developer/module/how-to-write-a-powershell-script-module).
 
 ![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
 
