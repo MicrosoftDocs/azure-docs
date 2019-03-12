@@ -123,7 +123,7 @@ import requests
 auth_url = 'http://169.254.169.254/metadata/identity/oauth2/token'
 headers = {'metadata': 'true'}
 params = {
-    'resource': 'https://storage.azure.net/',
+    'resource': 'https://storage.azure.com/',
     'api-version': '2018-02-01',
 }
 
