@@ -27,7 +27,7 @@ In this quickstart, you create a policy assignment and assign a built-in policy 
 
 There are several methods for creating policy assignments. In this quickstart, you use a [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-buildinpolicy-resourcegroup/). Here is a copy of the template:
 
-[!resource-manager-template[create azure policy assignments resource manager templates](~/quickstart-templates/101-azurepolicy-assign-buildinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-buildinpolicy-resourcegroup/azuredeploy.json)]
 
 The template defines several parameters, which include the policy assignment name and the policy definition ID. Many people choose to use the policy display name as the policy assignment name. To retrieve the policy definition ID of *Audit VMs that do not use managed disks*, select **Try it** from the following code section to open the Azure Cloud shell. To paste the code, right-click the shell console, and then select **Paste**.
 
