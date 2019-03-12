@@ -38,7 +38,7 @@ What you can back up depends on where the agent is installed.
 
 ## Before you start
 
-- [Learn how](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) Azure Backup backs up Windows machines with the MARS agent.
+- [Learn how](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Azure Backup backs up Windows machines with the MARS agent.
 - [Learn about](backup-architecture.md#architecture-back-up-to-dpmmabs) the backup architecture running the MARS agent on a secondary MABS or DPM server.
 - [Review](backup-support-matrix-mars-agent.md) what's supported and what can be backed up with the MARS agent.
 - Verify internet access on the machines you want to back up.
