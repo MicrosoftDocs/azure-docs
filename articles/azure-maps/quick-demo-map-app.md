@@ -3,7 +3,7 @@ title: Interactive map search with Azure Maps | Microsoft Docs
 description: Azure quickstart - Create a demo interactive map search by using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Download the application
 
-1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
+1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Search for the string `<insert-key>`. Replace it with the **Primary Key** value from the preceding section.
 

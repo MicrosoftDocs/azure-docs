@@ -56,81 +56,81 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
 
- The `tokenizer_name` is the name of a tokenizer, `token_filter_name_1`  and `token_filter_name_2` are the names of token filters, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see the [Tokenizers](#Tokenizers), [Token filters](#TokenFilters) and [Char filters](#CharFilters) tables for valid values).
+ The `tokenizer_name` is the name of a tokenizer, `token_filter_name_1`  and `token_filter_name_2` are the names of token filters, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see the [Tokenizers](#Tokenizers), [Token filters](#TokenFilters) and Char filters tables for valid values).
 
 The analyzer definition is a part of the larger index. See [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index) for information about the rest of the index.
 
-```  
-"analyzers":(optional)[  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",  
-      "charFilters":[  
-         "char_filter_name_1",  
-         "char_filter_name_2"  
-      ],  
-      "tokenizer":"tokenizer_name",  
-      "tokenFilters":[  
-         "token_filter_name_1",  
-         "token_filter_name_2"  
-      ]  
-   },  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#analyzer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"charFilters":(optional)[  
-   {  
-      "name":"char_filter_name",  
-      "@odata.type":"#char_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenizers":(optional)[  
-   {  
-      "name":"tokenizer_name",  
-      "@odata.type":"#tokenizer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenFilters":(optional)[  
-   {  
-      "name":"token_filter_name",  
-      "@odata.type":"#token_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-]  
-```  
+```
+"analyzers":(optional)[
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters":[
+         "char_filter_name_1",
+         "char_filter_name_2"
+      ],
+      "tokenizer":"tokenizer_name",
+      "tokenFilters":[
+         "token_filter_name_1",
+         "token_filter_name_2"
+      ]
+   },
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#analyzer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"charFilters":(optional)[
+   {
+      "name":"char_filter_name",
+      "@odata.type":"#char_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenizers":(optional)[
+   {
+      "name":"tokenizer_name",
+      "@odata.type":"#tokenizer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenFilters":(optional)[
+   {
+      "name":"token_filter_name",
+      "@odata.type":"#token_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+]
+```
 
 > [!NOTE]  
 >  Custom analyzers that you create are not exposed in the Azure portal. The only way to add a custom analyzer is through code that makes calls to the API when defining an index.  
 
  Within an index definition, you can place this section anywhere in the body of a create index request but usually it goes at the end:  
 
-```  
-{  
-  "name": "name_of_index",  
-  "fields": [ ],  
-  "suggesters": [ ],  
-  "scoringProfiles": [ ],  
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) { },  
-  "analyzers":(optional)[ ],  
-  "charFilters":(optional)[ ],  
-  "tokenizers":(optional)[ ],  
-  "tokenFilters":(optional)[ ]  
-}  
-```  
+```
+{
+  "name": "name_of_index",
+  "fields": [ ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) { },
+  "analyzers":(optional)[ ],
+  "charFilters":(optional)[ ],
+  "tokenizers":(optional)[ ],
+  "tokenFilters":(optional)[ ]
+}
+```
 
 Definitions for char filters, tokenizers, and token filters are added to the index only if you are setting custom options. To use an existing filter or tokenizer as-is, specify it by name in the analyzer definition.
 

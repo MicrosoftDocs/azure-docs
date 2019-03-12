@@ -17,7 +17,7 @@ This quickstart shows how to install [Jenkins](https://jenkins.io) on an Ubuntu 
 ## Prerequisites
 
 * An Azure subscription
-* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](http://www.putty.org/))
+* Access to SSH on your computer's command line (such as the Bash shell or [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

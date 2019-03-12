@@ -1,20 +1,20 @@
 ﻿---
 title: Azure PowerShell Script Sample - Back up an Azure virtual machine | Microsoft Docs
-description: Azure PowerShell Script Sample - Back up an Azure virtual machine 
+description: Azure PowerShell Script Sample - Back up an Azure virtual machine
 services: backup
-documentationcenter: 
+documentationcenter:
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: sample
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
 ---
 
 # Back up an encrypted Azure virtual machine with PowerShell
 
-This script creates a Recovery Services vault with Geo-redundant storage (GRS) for an encrypted Azure virtual machine. The default protection policy is applied to the vault. The policy generates a daily backup for the virtual machine, and retains each backup for 30 days. The script also triggers the initial recovery point for the virtual machine and retains that recovery point for 365 days. 
+This script creates a Recovery Services vault with geo-redundant storage (GRS) for an encrypted Azure virtual machine. The default protection policy is applied to the vault. The policy generates a daily backup for the virtual machine, and retains each backup for 30 days. The script also triggers the initial recovery point for the virtual machine and retains that recovery point for 365 days.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -26,7 +26,7 @@ This script creates a Recovery Services vault with Geo-redundant storage (GRS) f
 
 [!code-powershell[main](../../../powershell_scripts/backup/backup-encrypted-vm/backup-encrypted-vm.ps1 "Back up encrypted virtual machine")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 

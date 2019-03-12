@@ -61,7 +61,7 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
     const mongoose = require('mongoose');
     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
     mongoose.Promise = global.Promise;
 

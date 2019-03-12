@@ -38,9 +38,9 @@ To upgrade, use the following steps:
 
 1. Return to the folder to which you downloaded the Unified Setup and run MicrosoftAzureSiteRecoveryUnifiedSetup.exe to finish the upgrade. 
 
-## Upgrade failure due to the thirdparty folder being renamed
+## Upgrade failure due to the 3rd-party folder being renamed
 
-For the upgrade to succeed, the thirdparty folder must not be renamed.
+For the upgrade to succeed, the 3rd-party folder must not be renamed.
 
 To resolve the issue.
 

@@ -109,7 +109,7 @@ The SDK includes the sample code for the simulated device. This simulated device
 
 ## Create a symmetric key enrollment group
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and open your Device Provisioning Service instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
 
 2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page. 
 

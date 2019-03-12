@@ -50,7 +50,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     Jane|Doe
 	```
 
-1. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
+1. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
 #### Create a sink SQL table
 

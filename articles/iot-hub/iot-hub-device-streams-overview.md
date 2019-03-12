@@ -150,7 +150,7 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 ## IoT Hub Device Stream Samples
 
 We have published two [quickstart samples](/azure/iot-hub) to demonstrate the use of device streams by applications.
-* The *echo* sample demonstrates programatic use of device streams (by calling the SDK API's directly).
+* The *echo* sample demonstrates programmatic use of device streams (by calling the SDK API's directly).
 * The *local proxy* sample demonstrates the tunneling of off-the-shelf client/server application traffic (such as SSH, RDP, or web) through device streams.
 
 These samples are covered in greater detail below.

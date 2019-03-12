@@ -1,5 +1,5 @@
 ---
-author: manish-shukla01
+author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows 
 ms.topic: include 
@@ -188,12 +188,13 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_E16s_v3|8|
 |Standard_E16-4s_v3|8|
 |Standard_E16-8s_v3|8|
+|Standard_E20s_v3|10|
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
 |Standard_E32-16s_v3|16|
-|Standard_E64s_v3|32|
-|Standard_E64-16s_v3|32|
-|Standard_E64-32s_v3|32|
+|Standard_E64s_v3|28.8|
+|Standard_E64-16s_v3|28.8|
+|Standard_E64-32s_v3|28.8|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
@@ -205,6 +206,7 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
+|Standard_E20_v3|10|
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
 

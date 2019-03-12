@@ -25,6 +25,8 @@ The purpose of this document is to help user to identify where (or even if) a co
 >
 >
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 The following diagram shows the logical connectivity of a customer network to Microsoft network using ExpressRoute.
 [![1]][1]
@@ -68,7 +70,7 @@ Regardless of the connectivity model, an ExpressRoute circuit has to be created 
 >
 
 ### Verification via the Azure portal
-In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screen shot:
+In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screenshot:
 
 ![4][4]    
 
@@ -84,17 +86,17 @@ For an ExpressRoute circuit to be operational, the *Circuit status* must be *Ena
 ### Verification via PowerShell
 To list all the ExpressRoute circuits in a Resource Group, use the following command:
 
-	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+	Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
 >You can get your resource group name through the Azure 
->. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
+>. See the previous subsection of this document and note that the resource group name is listed in the example screenshot.
 >
 >
 
 To select a particular ExpressRoute circuit in a Resource Group, use the following command:
 
-	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+	Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
 A sample response is:
 
@@ -171,7 +173,7 @@ After the service provider has completed the provisioning the ExpressRoute circu
 >
 >
 
-In the Azure portal, status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" would open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials would be listed as shown in the following screen shot:
+In the Azure portal, status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" would open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials would be listed as shown in the following screenshot:
 
 ![5][5]
 
@@ -185,8 +187,8 @@ In the preceding example, as noted Azure private peering routing context is enab
 ### Verification via PowerShell
 To get the Azure private peering configuration details, use the following commands:
 
-	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+	$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+	Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 A sample response, for a successfully configured private peering, is:
 
@@ -209,21 +211,21 @@ A sample response, for a successfully configured private peering, is:
 
 To get the Azure public peering configuration details, use the following commands:
 
-	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+	$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+	Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 To get the Microsoft peering configuration details, use the following commands:
 
-	$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-	 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+	$ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+	 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 If a peering is not configured, there would be an error message. A sample response, when the stated peering (Azure Public peering in this example) is not configured within the circuit:
 
-	Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+	Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
 	At line:1 char:1
-		+ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+		+ Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
 		+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    		+ CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
+    		+ CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
     		+ FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 

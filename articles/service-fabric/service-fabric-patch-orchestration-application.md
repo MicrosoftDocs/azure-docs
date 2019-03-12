@@ -418,4 +418,4 @@ An administrator must intervene and determine why the application or cluster bec
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
 
 ### Version 1.3.2
-- Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
+- Fixing an issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 

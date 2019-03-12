@@ -18,7 +18,7 @@ Grafana is an analytics platform that enables you to query and visualize data, t
 
 You need the following to complete this how to:
 
-* [Grafana version 5.3.0 or later](http://docs.grafana.org/installation/) for your operating system
+* [Grafana version 5.3.0 or later](https://docs.grafana.org/installation/) for your operating system
 
 * The [Azure Data Explorer plugin](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) for Grafana
 

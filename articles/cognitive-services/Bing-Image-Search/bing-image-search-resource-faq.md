@@ -60,4 +60,4 @@ Is your question about a missing feature or functionality? Consider requesting o
 
 ## See also
 
- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)
