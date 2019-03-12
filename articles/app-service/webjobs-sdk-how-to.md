@@ -367,7 +367,7 @@ You can configure the following bindings:
 
 * [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
-* [Queue storage trigger](#queue-trigger-configuration)
+* Queue storage trigger
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
 
