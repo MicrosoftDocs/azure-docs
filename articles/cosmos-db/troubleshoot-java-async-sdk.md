@@ -162,8 +162,7 @@ To identify which library brings in RxJava-1.2.2 run the following command next 
 ```bash
 mvn dependency:tree
 ```
-more info here:
-https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html
+For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
 Once you identify  RxJava-1.2.2 is transitive dependency of which other dependency of your project, you can modify the dependency on that lib in your pom file and exclude RxJava transitive dependency it:
 
@@ -181,8 +180,7 @@ Once you identify  RxJava-1.2.2 is transitive dependency of which other dependen
 </dependency>
 ```
 
-More info on how to exclude a transitive dependency:
-https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html
+For more information, see the [exclude transitive dependency guide](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
