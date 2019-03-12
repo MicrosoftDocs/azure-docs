@@ -35,6 +35,7 @@ When you use the managed storage account key feature:
 - **Only allow Key Vault to manage your storage account keys.** Don't attempt to manage them yourself, as you'll interfere with Key Vault's processes.
 - **Don't allow storage account keys to be managed by more than one Key Vault object**.
 - **Don't manually regenerate your storage account keys**. We recommend that you regenerate them via Key Vault.
+- Asking Key Vault to manage your storage account can be done by a User Principal for now and not a Service Principal
 
 The following example shows you how to allow Key Vault to manage your storage account keys.
 
