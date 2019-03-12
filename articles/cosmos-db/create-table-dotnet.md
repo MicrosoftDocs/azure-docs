@@ -29,10 +29,6 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Create a database account
 
-> [!IMPORTANT] 
-> You must create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
->
-
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Add a table
@@ -65,7 +61,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
    > [!NOTE]
-   > The .Net standard sample described in this doc works with both Azure Table Storage and Azure Cosmos DB Table API. If you are interested in running the sample that works with .Net Framework 4.5, see the [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample. 
+   > The .Net standard sample described in this doc works with both Azure Cosmos DB Table API and Azure Table Storage. If you are interested in running the sample that works with .Net Framework 4.5, see the [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample. 
 
 
 ## Open the sample application in Visual Studio
@@ -95,10 +91,6 @@ Now go back to the Azure portal to get your connection string information and co
    ```
    If you are using the [.Net Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample, you should update the connection string that’s located in the **App.config** file.
 
-   > [!IMPORTANT]
-   > If your Endpoint uses documents.azure.com, that means you have a preview account, and you must create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
-   > 
-
 4. Press CTRL+S to save the **Settings.json** file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
@@ -125,8 +117,6 @@ You've now updated your app with all the info it needs to communicate with Azure
 5. Press F5 to run the application. The console window displays the name of the new table database (in this case, demoa13b1) in Azure Cosmos DB. 
     
     ![Console output](media/create-table-dotnet/azure-cosmosdb-console.png)
-
-    If you get an error about dependencies, see [Troubleshooting](table-sdk-dotnet.md#troubleshooting).
 
     When you hit the first breakpoint, go back to Data Explorer in the Azure portal. Click the **Refresh** button, expand the demo* table, and click **Entities**. The **Entities** tab on the right shows the new entity that was added for Walter Harp. Note that the phone number for the new entity is 425-555-0101.
 

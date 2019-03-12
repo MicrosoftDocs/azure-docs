@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET Standard SDK
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+title: Get started with Azure Cosmos DB Table API using .NET Standard SDK
+description: Store structured data in the cloud using the Azure Cosmos DB Table API.
 author: wmengmsft
 ms.author: wmeng
 ms.service: cosmos-db
@@ -9,15 +9,15 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
 ---
-# Get started with Azure Table storage and the Azure Cosmos DB Table API using .NET SDK
+# Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-You can use Azure Table storage or the Azure Cosmos DB Table API to store structured NoSQL data in the cloud, providing a key/attribute store with a schema less design. Because Table storage and the Azure Cosmos DB Table API are schema less, it's easy to adapt your data as the needs of your application evolve. You can use Table storage or the Azure Cosmos DB Table API to store flexible datasets such as user data for web applications, address books, device information, or other types of metadata your service requires. 
+You can use the Azure Cosmos DB Table API or Azure Table storage to store structured NoSQL data in the cloud, providing a key/attribute store with a schema less design. Because Azure Cosmos DB Table API and Table storage are schema less, it's easy to adapt your data as the needs of your application evolve. You can use Azure Cosmos DB Table API or the Table storage to store flexible datasets such as user data for web applications, address books, device information, or other types of metadata your service requires. 
 
-This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Table storage and Azure Cosmo DB Table API scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
+This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Cosmo DB Table API and Azure Table storage scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
 
 Prerequisites
 You need the following to run this tutorial:
@@ -218,7 +218,8 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
        // Execute the operation.
        TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
        CustomerEntity insertedCustomer = result.Result as CustomerEntity;
-
+        
+        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
         if (result.RequestCharge.HasValue)
           {
             Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
@@ -235,9 +236,9 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
     }
 ```
 
-### Retrieve an entity from a partition
+### Get an entity from a partition
 
-To query a table for all entities in a partition by using the Retrieve method under the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) class. The following code example gets the partition key row key, email and phone number of a customer entity. This example also prints out the request units consumed to query for the entity. To query for an entity, append the following code to **SamplesUtils.cs** file: 
+You can get entity from a partition by using the Retrieve method under the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) class. The following code example gets the partition key row key, email and phone number of a customer entity. This example also prints out the request units consumed to query for the entity. To query for an entity, append the following code to **SamplesUtils.cs** file: 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)
@@ -252,6 +253,7 @@ public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(Clou
           Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
         }
 
+        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
         if (result.RequestCharge.HasValue)
         {
            Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
@@ -285,6 +287,7 @@ public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity dele
     TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
     TableResult result = await table.ExecuteAsync(deleteOperation);
 
+    // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
     if (result.RequestCharge.HasValue)
     {
        Console.WriteLine("Request Charge of Delete Operation: " + result.RequestCharge);
