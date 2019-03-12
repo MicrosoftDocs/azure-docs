@@ -23,6 +23,20 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## March 2019
+**Agent Update:** 
+*  Azure AD Connect Health agent for AD DS (version 3.1.41.0) 
+1. .NET version collection.
+2. Improvement of performance counter collection when missing certain categories.
+3. Bug fix on preventing spawning of multiple Monitoring Agent instances.
+
+*  Azure AD Connect Health agent for AD FS (version 3.1.41.0) 
+1. Integrate and upgrade of AD FS test scripts using ADFSToolBox.
+2. .NET version collection.
+3. Improvement of performance counter collection when missing certain categories.
+4. Bug fix on preventing spawning of multiple Monitoring Agent instances.
+
+
 ## November 2018
 **New GA features:** 
 * Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal
