@@ -74,7 +74,6 @@ To change device mode, follow these steps:
 
     ![Connectivity mode](media/data-box-edge-manage-access-power-connectivity-mode/connectivity-mode.png)
  
-
 ## Manage power
 
 You can shut down or restart your physical device using the local web UI. We recommend that before you restart, take the shares offline on the data server and then the device. This action minimizes any possibility of data corruption.
