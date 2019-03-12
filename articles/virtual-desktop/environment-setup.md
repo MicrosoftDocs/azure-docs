@@ -1,17 +1,17 @@
 ---
-title: Windows Virtual Desktop environment - Azure
+title: Windows Virtual Desktop environment (preview)  - Azure
 description: The basic elements of a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop environment (Preview)
 
-Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
+Windows Virtual Desktop (preview) is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
 
 * **Remote Desktop Broker** is the centerpiece of Remote Desktop Services deployment, as it communicates with the database where all deployment-related configurations take place, including role configurations, user assignments, and session host health.
 * **Remote Desktop Diagnostics** is an event-based aggregator that marks each user action on the RDS deployment (end-user or administrator) as a success or failure. Later on, administrators can query the aggregation of events to identify failing components.

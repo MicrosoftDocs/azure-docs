@@ -1,25 +1,25 @@
 ---
-title: Connect with Windows 7 and Windows 10 - Azure
+title: Connect with Windows 7 and Windows 10 (preview)  - Azure
 description: How to connect to the Windows Virtual Desktop HTML5 web client.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Connect with Windows 7 and Windows 10 (Preview)
 
 > Applies to: Windows 7 and Windows 10.
 
-A downloadable client is available that provides access to Windows Virtual Desktop resources from devices running Windows 7 and Windows 10.
+A downloadable client is available that provides access to Windows Virtual Desktop (preview) resources from devices running Windows 7 and Windows 10.
 
 ## Install the client
 
 To install and deploy the client to your local PC:
 
-1. [Download the client](https://go.microsoft.com/fwlink/?linkid=2068602). 
+1. [Download the client](https://go.microsoft.com/fwlink/?linkid=2068602).
 2. Run the MSI to install the client. This requires admin rights.
 
 ## Subscribe to a feed

@@ -1,17 +1,17 @@
 ---
-title: Create a host pool with PowerShell - Azure
+title: Create a host pool with PowerShell (preview)  - Azure
 description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Create a host pool with PowerShell (Preview)
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant (preview) environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 ## Use your PowerShell client to create a host pool
 
@@ -70,7 +70,7 @@ You can create a virtual machine in multiple ways:
 You need to do the following things to prepare your virtual machines before you can install the Windows Virtual Desktop agents and register the virtual machines to your Windows Virtual Desktop host pool:
 
 - You must domain-join the machine. This allows incoming Windows Virtual Desktop users to be mapped from their Azure Active Directory account to their Active Directory account and be successfully allowed access to the virtual machine.
-- You must install the Remote Desktop Session Host (RDSH) role if the virtual machine is running a Windows Server OS. The RDSH role allows the Windows Virtual Desktop agents to install properly.
+- You must install the Remote Desktop Session Host (RDSH) role (preview) if the virtual machine is running a Windows Server OS. The RDSH role allows the Windows Virtual Desktop agents to install properly.
 
 To successfully domain-join, do the following things on each virtual machine:
 
@@ -109,7 +109,7 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 
 ## Next steps
 
-Now that you've made a host pool, it's time to populate it with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
+Now that you've made a host pool, it's time to populate it with RemoteApps (preview). To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
 
 > [!div class="nextstepaction"]
 > [Manage app groups tutorial](./manage-app-groups.md)

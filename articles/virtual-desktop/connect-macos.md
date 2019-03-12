@@ -1,17 +1,17 @@
 ---
-title: Connect with Microsoft Remote Desktop for macOS - Azure
+title: Connect with Microsoft Remote Desktop for macOS (preview)  - Azure
 description: How to connect to the Microsoft Remote Desktop client with macOS.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Connect with Microsoft Remote Desktop for macOS (Preview)
 
-You can use the Microsoft Remote Desktop client to access published resources on Windows Virtual Desktop. To get started, go to the Mac App Store and install [Microsoft Remote Desktop](https://aka.ms/rdmac).
+You can use the Microsoft Remote Desktop client to access published resources on Windows Virtual Desktop (preview). To get started, go to the Mac App Store and install [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
 After installing the client, get the list of resources available to you by subscribing to the feed provided by your admin.
 

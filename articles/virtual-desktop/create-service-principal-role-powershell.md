@@ -1,17 +1,17 @@
 ---
-title: Create service principals and assign roles with PowerShell - Azure
+title: Create service principals and assign roles with PowerShell (preview)  - Azure
 description: How to create service principals and assign roles with PowerShell in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Tutorial: Create service principals and role assignments with PowerShell
 
-Service principals are identities you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop, you can create a service principal to:
+Service principals are identities you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop (preview), you can create a service principal to:
 
 - Automate specific Windows Virtual Desktop management tasks
 - Use as credentials in place of MFA-required users when running any Windows Virtual Desktop ARM template

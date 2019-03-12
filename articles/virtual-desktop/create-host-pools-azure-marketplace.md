@@ -1,23 +1,23 @@
 ---
-title: Create a host pool with Azure Marketplace - Azure
+title: Create a host pool with Azure Marketplace (preview)  - Azure
 description: How to create a Windows Virtual Desktop host pool with Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool with Azure Marketplace (Preview)
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant (preview) environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 Follow the steps in this article to create a host pool within a Windows Virtual Desktop tenant using a Microsoft Azure Marketplace offering. This includes creating a host pool in Windows Virtual Desktop, creating a resource group with VMs in an Azure subscription, joining those VMs to the Active Directory domain, and registering the VMs with Windows Virtual Desktop.
 
 You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article.
 
-Run the following cmdlet to install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery if you haven't done so already:
+Run the following cmdlet to install the Windows Virtual Desktop PowerShell module (preview) from the PowerShell Gallery if you haven't done so already:
 
 ```powershell
 PS C:\> Install-Module WindowsVirtualDesktop

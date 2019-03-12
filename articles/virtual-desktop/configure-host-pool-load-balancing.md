@@ -1,17 +1,17 @@
 ---
-title: Configure the Windows Virtual Desktop load-balancing method - Azure
+title: Configure the Windows Virtual Desktop load-balancing method (preview) - Azure
 description: How to configure the load-balancing method for a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Configure the Windows Virtual Desktop load-balancing method
 
-Configuring the load balancing method for a host pool allows you to adjust the Windows Virtual Desktop environment to better suit your needs.
+Configuring the load balancing method for a host pool allows you to adjust the Windows Virtual Desktop (preview) environment to better suit your needs.
 
 >[!NOTE]
 > This does not apply to a persistent desktop host pool because users always have a 1:1 mapping to a session host within the host pool.

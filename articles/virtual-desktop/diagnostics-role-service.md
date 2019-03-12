@@ -1,17 +1,17 @@
 ---
-title: Identify issues with the diagnostics role service - Azure
+title: Identify issues with the diagnostics role service (preview)  - Azure
 description: Describes the Windows Virtual Desktop diagnostics role service and how to use it.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # Identify issues with the diagnostics role service (Preview)
 
-The Windows Virtual Desktop diagnostics role service is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity any time a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end user and administrative actions, and can be categorized into three main buckets:
+The Windows Virtual Desktop diagnostics role service (preview) is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity any time a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end user and administrative actions, and can be categorized into three main buckets:
 
 * Feed subscription activities: the end user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
 * Connection activities: the end user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.

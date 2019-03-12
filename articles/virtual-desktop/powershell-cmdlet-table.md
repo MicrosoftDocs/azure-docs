@@ -1,17 +1,17 @@
 ---
-title: PowerShell cmdlets - Azure
+title: PowerShell cmdlets (preview)  - Azure
 description: A list of PowerShell cmdlets that can be used for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: reference
-ms.date: 02/20/2019
+ms.date: 03/21/2019
 ms.author: helohr
 ---
 # PowerShell cmdlets (Preview)
 
-This article lists the PowerShell cmdlets for Windows Virtual Desktop.
+This article lists the PowerShell cmdlets for Windows Virtual Desktop (preview).
 
 ## RDS Owner
 
