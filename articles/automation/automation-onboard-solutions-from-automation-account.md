@@ -85,7 +85,7 @@ Select either saved search to view the query used to populate the group. The fol
 
 From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
 
-Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. On the **Enable Update Management** page, click **Enable**. This action adds the selected VMs to the computer group saved search for the solution.
+Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation Account. On the **Enable Update Management** page, click **Enable**. This action adds the selected VMs to the computer group saved search for the solution.
 
 ![Enable Azure VMs](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 

@@ -41,7 +41,7 @@ you can create an X12 agreement by following these steps.
 
 ## Create an X12 agreement
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. From the main Azure menu, select **All services**. 
 In the search box, enter "integration", 
