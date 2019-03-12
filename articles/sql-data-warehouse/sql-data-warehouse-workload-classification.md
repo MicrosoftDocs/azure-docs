@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
 
 > [!Note]
-> Classification is available on SQL Data Warehouse Gen2.
+> Workload classification is available on SQL Data Warehouse Gen2.
 
 ## Classification
 

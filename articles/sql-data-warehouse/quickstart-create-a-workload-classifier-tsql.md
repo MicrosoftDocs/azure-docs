@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a workload classifier'
-description: Create a workload classifier with high importance
+title: 'Quickstart: Create a workload classifier - T-SQL | Microsoft Docs'
+description: Use T-SQL to create a workload classifier with high importance
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -12,9 +12,12 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create a workload classifier
+# Quickstart: Create a workload classifier using T-SQL (Preview)
 
 In this quickstart, you'll quickly create a workload classifier with high importance for the CEO of your organization. This workload classifier will allow CEO queries to take precedence over other queries with lower importance in the queue.
+
+> [!Note]
+> Workload classification is available on SQL Data Warehouse Gen2.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -92,3 +95,5 @@ Follow these steps to clean up resources.
 ## Next steps
 
 You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+
+For more information about SQL Data Warehouse workload management, see [SQL Data Warehouse Workload Importance](sql-data-warehouse-workload-importance.md) and [SQL Data Warehouse Workload Classification](sql-data-warehouse-workload-classification.md).

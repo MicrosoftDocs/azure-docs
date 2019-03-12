@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/01/2019
+ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -16,8 +16,8 @@ ms.reviewer: jrasnick
 
 This article explains how workload importance can influence the order of execution for SQL Data Warehouse requests.
 
->[!Note]
->Classification is available on SQL Data Warehouse Gen2.
+> [!Note]
+> Workload importance is available on SQL Data Warehouse Gen2.
 
 ## Importance
 
@@ -32,6 +32,9 @@ There are five levels of importance: low, below_normal, normal, above_normal, an
 ## Importance scenarios
 
 Beyond the basic importance scenario described above with sales and weather data, there are other scenarios where workload importance helps meet data processing and querying needs.
+
+### Locking
+
 Access to locks for read and write activity is one area of natural contention.  Activities such as [partition switching](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) or [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) require elevated locks.  Without workload importance, SQL Data Warehouse optimizes for throughput.  Optimizing for throughput means that when running and queued requests have the same locking needs and resources are available, the queued requests can bypass requests with higher locking needs that arrived in the request queue earlier.  Once workload importance is applied to requests with higher locking needs. Request with higher importance will be run before request with lower importance.
 
 Consider the following example:
@@ -41,6 +44,8 @@ Q2 is queued waiting for Q1 to complete.  It was submitted at 9am and is attempt
 Q3 is submitted at 9:01am and wants to select data from SalesFact.
 
 If Q2 and Q3 have the same importance and Q1 is still executing, Q3 will begin executing. Q2 will continue to wait for an exclusive lock on SalesFact.  If Q2 has higher importance than Q3, Q3 will wait until Q2 is finished before it can begin execution.
+
+### Non-uniform requests
 
 Another scenario where importance can help meet querying demands is when requests with different resource classes are submitted.  As was previously mentioned, under the same importance, SQL Data Warehouse optimizes for throughput.  When mixed size requests (such as smallrc or mediumrc) are queued, SQL Data Warehouse will choose the earliest arriving request that fits within the available resources.  If workload importance is applied, the highest importance request is scheduled next.
   
