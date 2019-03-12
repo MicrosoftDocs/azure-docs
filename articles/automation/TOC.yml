@@ -115,9 +115,9 @@
       displayName: input,json
     - name: Error handling in graphical runbooks
       href: automation-runbook-graphical-error-handling.md
-    - name: Track a runbook job
+    - name: Runbook execution
       href: automation-runbook-execution.md
-      displayName: fair share, activity log
+      displayName: fair share, activity log, job
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
@@ -207,6 +207,8 @@
       href: automation-deploy-template-runbook.md
     - name: Integrate Azure Automation with Event Grid and Microsoft Teams
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Move your Automation Account to another Subscription
+      href: how-to/move-account.md
   - name: Monitor
     items:
     - name: Forward Azure Automation job data to Azure Monitor logs

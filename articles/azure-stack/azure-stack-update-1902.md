@@ -61,7 +61,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-- When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 10.0.3.11 before applying 1902.
+- When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1902.
 
 - The package format for the Azure Stack update has changed from **.bin/.exe/.xml** to **.zip/.xml** starting with the 1902 release. Customers with connected Azure Stack scale units will see the **Update available** message in the portal. Customers that are not connected can now simply download and import the .zip file with the corresponding .xml.
 
@@ -69,9 +69,34 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 <!-- ## Fixed issues -->
 
-## Changes
+## Improvements
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
+
+<!--
+1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
+1399240	3322580: [PNU] Optimize the DSC resource execution on the Host	PNU
+1398846	Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance	PNU
+1398818	3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context	PNU
+1381018	[1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists	PNU
+-->
+- To improve package integrity and security, as well as easier management for offline ingestion, Microsoft has changed the format of the Update package from .exe and .bin files to a .zip file. The new format adds additional reliability of the unpacking process that at times, can cause the preparation of the update to stall. The same package format also applies to update packages from your OEM.
+- To improve the Azure Stack operator experience when running Test-AzureStack, operators can now simply use, “Test-AzureStack -Group UpdateReadiness” as opposed to passing ten additional parameters after an Include statement.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
+    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
+    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
+    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
+    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
+    - Check the state of the XRP service fabric nodes and repair them as needed
+    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
+
+
 
 ## Common vulnerabilities and exposures
 

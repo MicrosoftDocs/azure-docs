@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
 
 ---
@@ -2011,7 +2011,7 @@ The output from the preceding example with the default values is:
 
 `utcNow(format)`
 
-Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHH:mm:ssZ) format is used. **This function can only be used in the default value for a parameter.**
+Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHHmmssZ) format is used. **This function can only be used in the default value for a parameter.**
 
 ### Parameters
 
@@ -2080,6 +2080,41 @@ The output from the preceding example varies for each deployment but will be sim
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
+The next example shows how to use a value from the function when setting a tag value.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "westeurope",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
+            },
+            "properties":{}
+        }
+    ],
+    "outputs": {
+        "utcShort": {
+            "type": "string",
+            "value": "[parameters('utcShort')]"
+        }
+    }
+}
+```
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

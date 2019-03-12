@@ -38,7 +38,7 @@ This approach is useful when you're experimenting with IoT Central or testing de
 
 To connect a single device to IoT Central using SAS, follow these steps:
 
-1. To add real device, navigate to the **Devices Explorer**, choose a device template, and select **+New > Real**:
+1. To add real device, navigate to the **Device Explorer**, choose a device template, and select **+New > Real**:
     - Enter your own (lowercase) **Device ID** or use the suggested ID.
     - Enter a **Device Name** or use the suggested name.
 

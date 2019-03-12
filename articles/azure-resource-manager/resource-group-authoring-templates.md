@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
 ---
 
@@ -41,7 +41,7 @@ In its simplest structure, a template has the following elements:
 |:--- |:--- |:--- |
 | $schema |Yes |Location of the JSON schema file that describes the version of the template language.<br><br> For resource group deployments, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
-| apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version from the profile for that resource type. For more information, see [Track versions using API profiles](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Values that are provided when deployment is executed to customize resource deployment. |
 | [variables](#variables) |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | [functions](#functions) |No |User-defined functions that are available within the template. |
@@ -52,17 +52,38 @@ Each element has properties you can set. This article describes the sections of 
 
 ## Syntax
 
-The basic syntax of the template is JSON. However, expressions and functions extend the JSON values available within the template.  Expressions are written within JSON string literals whose first and last characters are the brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. While written as a string literal, the result of evaluating the expression can be of a different JSON type, such as an array or integer, depending on the actual expression.  To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
-
-Typically, you use expressions with functions to perform operations for configuring the deployment. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. You reference properties by using the dot and [index] operators.
-
-The following example shows how to use several functions when constructing a value:
+The basic syntax of the template is JSON. However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object. The following example shows an expression in the default value of a parameter:
 
 ```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-}
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+},
 ```
+
+Within the expression, the syntax `resourceGroup()` calls one of the functions that Resource Manager provides for use within a template. Just like in JavaScript, function calls are formatted as `functionName(arg1,arg2,arg3)`. The syntax `.location` retrieves one property from the object returned by that function.
+
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
+
+To have a literal string start with a bracket `[`, but not have it interpreted as an expression, add an extra bracket to start the string with `[[`.
+
+To pass a string value as a parameter to a function, use single quotes.
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]"
+```
+
+To escape double quotes in an expression, such as adding a JSON object in the template, use the backslash.
+
+```json
+"tags": {
+    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+},
+```
+
+A template expression can't exceed 24,576 characters.
 
 For the full list of template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md). 
 

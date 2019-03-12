@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
 ---
 # API Management transformation policies
@@ -203,6 +203,15 @@ This topic provides a reference for the following API Management policies. For i
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
+or
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Backend entities can be managed via management [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+
 ### Example
 
 ```xml
@@ -255,8 +264,8 @@ In this example the policy routes the request to a service fabric backend, using
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|base-url|New backend service base URL.|No|N/A|
-|backend-id|Identifier of the backend to route to.|No|N/A|
+|base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -477,7 +486,7 @@ OriginalUrl.
  For more information, see [Policy expressions](api-management-policy-expressions.md) and [Context variable](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Multiple values of a header are concatenated to a CSV string, for example:  
+> Multiple values of a header are concatenated to a CSV string, for example:
 > `headerName: value1,value2,value3`
 >
 > Exceptions include standardized headers, which values:
@@ -485,9 +494,9 @@ OriginalUrl.
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+>`User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### Elements
