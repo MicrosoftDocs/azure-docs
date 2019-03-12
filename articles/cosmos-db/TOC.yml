@@ -21,7 +21,7 @@
       href: create-sql-api-xamarin-dotnet.md
   - name: Tutorials
     items:
-    - name: 1 - Create account
+    - name: 1 - Create & manage data
       items:
       - name: Build a console app
         items:
@@ -238,7 +238,7 @@
           href: create-mongodb-golang.md
       - name: Tutorials
         items:
-        - name: 1 - Create account
+        - name: 1 - Create & manage data
           items:
           - name: Node.js console app
             href: mongodb-samples.md
@@ -337,7 +337,7 @@
           href: create-cassandra-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create account & database
+        - name: 1 - Create & manage data
           href: create-cassandra-api-account-java.md
         - name: 2 - Load data
           href: cassandra-api-load-data.md
@@ -389,8 +389,8 @@
           href: create-table-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create account
-          href: tutorial-develop-table-dotnet.md
+        - name: 1 - Create & manage data
+          href: tutorial-develop-table-dotnet-standard.md
         - name: 2 - Migrate data
           displayName: import 
           href: table-import.md
@@ -400,8 +400,6 @@
           href: tutorial-global-distribution-table.md
       - name: Samples
         items:
-        - name: .NET
-          href: table-storage-how-to-use-dotnet.md
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
