@@ -55,7 +55,7 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Screenshot of command prompt](./media/known-issues/cache-cleaning2.png)
+![Screenshot of command prompt](./media/known-issues/cache-cleaning-2.png)
 
 
 ## Kernel warnings
