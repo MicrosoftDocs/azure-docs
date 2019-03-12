@@ -40,7 +40,7 @@ To load data automatically without specifying the file type, use the `auto_read_
 ```python
 import azureml.dataprep as dprep
 
-dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+dflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
 This function is useful for automatically detecting file type, encoding, and other parsing arguments all from one convenient entry point. The function also automatically performs the following steps commonly performed when loading delimited data:
@@ -56,8 +56,8 @@ Alternatively, if you know the file type ahead of time and want to explicitly co
 To read simple text data into a dataflow, use the `read_lines()` without specifying optional parameters.
 
 ```python
-dataflow = dprep.read_lines(path='./data/text_lines.txt')
-dataflow.head(5)
+dflow = dprep.read_lines(path='./data/text_lines.txt')
+dflow.head(5)
 ```
 
 ||Line|
@@ -70,7 +70,7 @@ dataflow.head(5)
 After the data is ingested, run the following code to convert the dataflow object into a Pandas dataframe.
 
 ```python
-pandas_df = dataflow.to_pandas_dataframe()
+pandas_df = dflow.to_pandas_dataframe()
 ```
 
 ## Load CSV data
@@ -78,8 +78,8 @@ pandas_df = dataflow.to_pandas_dataframe()
 When reading delimited files, the underlying runtime can infer the parsing parameters (separator, encoding, whether to use headers, etc.). Run the following code to attempt to read a CSV file by specifying only its location.
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
-dataflow.head(5)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -92,9 +92,9 @@ dataflow.head(5)
 To exclude lines during loading, define the `skip_rows` parameter. This parameter will skip loading rows descending in the CSV file (using a one-based index).
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
-dataflow.head(5)
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -105,7 +105,7 @@ dataflow.head(5)
 Run the following code to display the column data types.
 
 ```python
-dataflow.dtypes
+dflow.dtypes
 ```
 Output:
 
@@ -121,10 +121,10 @@ Output:
 By default, the Azure Machine Learning Data Prep SDK does not change your data type. The data source you're reading from is a text file, so the SDK reads all values as strings. For this example, numeric columns should be parsed as numbers. Set the `inference_arguments` parameter to `InferenceArguments.current_culture()` to automatically infer and convert the column types during the file read.
 
 ```
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
-dataflow.dtypes
+dflow.dtypes
 ```
 Output:
 
@@ -145,8 +145,8 @@ Several of the columns were correctly detected as numeric and their type is set 
 The SDK includes a `read_excel()` function to load Excel files. By default the function will load the first sheet in the workbook. To define a specific sheet to load, define the `sheet_name` parameter with the string value of the sheet name.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
-dataflow.head(5)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
+dflow.head(5)
 ```
 
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
@@ -160,7 +160,7 @@ dataflow.head(5)
 The output shows that the data in the second sheet had three empty rows before the headers. The `read_excel()` function contains optional parameters for skipping rows and using headers. Run the following code to skip the first three rows, and use the fourth row as the headers.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|
@@ -173,8 +173,8 @@ dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_c
 To load fixed-width files, you specify a list of character offsets. The first column is always assumed to start at zero offset.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
-dataflow.head(5)
+dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow.head(5)
 ```
 
 ||010000|99999|BOGUS NORWAY|NO|NO_1|ENRS|Column7|Column8|Column9|
@@ -186,7 +186,7 @@ dataflow.head(5)
 To avoid header detection and parse the correct data, pass `PromoteHeadersMode.NONE` to the `header` parameter.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
 ```
@@ -216,8 +216,8 @@ ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
 After you create a data source object, you can proceed to read data from query output.
 
 ```python
-dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
-dataflow.head(5)
+dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
+dflow.head(5)
 ```
 
 ||ProductID|Name|ProductNumber|Color|StandardCost|ListPrice|Size|Weight|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate|
@@ -241,7 +241,7 @@ On your local machine, run the following command.
 ```azurecli
 az login
 az account show --query tenantId
-dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
+dflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dflow.head(5) head
 ```
 
 > [!NOTE]
@@ -294,8 +294,8 @@ from azureml.dataprep.api.datasources import DataLakeDataSource
 
 ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
 token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
-dataflow.to_pandas_dataframe().head()
+dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+dflow.to_pandas_dataframe().head()
 ```
 
 ||FMID|MarketName|Website|street|city|County|

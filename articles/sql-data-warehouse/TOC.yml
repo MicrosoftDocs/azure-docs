@@ -2,7 +2,7 @@
   href: index.md
 - name: Overview
   items:
-  - name: About SQL Data Warehouse
+  - name: What is SQL Data Warehouse?
     href: sql-data-warehouse-overview-what-is.md
   - name: SQL Data Warehouse architecture
     href: massively-parallel-processing-mpp-architecture.md
