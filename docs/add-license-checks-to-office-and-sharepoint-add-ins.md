@@ -1,7 +1,7 @@
 ---
 title: Add license checks to Office and SharePoint Add-ins
 description: Test the license-checking code of your add-in by using test licenses.
-ms.date: 1/11/2018
+ms.date: 03/12/2019
 localization_priority: Normal
 ---
 
@@ -9,7 +9,7 @@ localization_priority: Normal
 
 You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the AppSource, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the [add-in license schema structure](add-in-license-schema.md).
 
-To create a test token: 
+To create a test token:
 
 - Copy the example [license schema](add-in-license-schema.md) into a text file and save it with a .tok extension.
 - Change the appropriate attributes, such as Product ID.
@@ -17,7 +17,7 @@ To create a test token:
 
 The AppSource verification web service, which you use to verify add-in license tokens, does not validate the encryption token or any of the attribute values of license tokens where the test attribute is set to **true**. You can edit your test tokens directly and use them to test add-in behavior code based on different attribute values.
 
-For Word, Excel, and PowerPoint add-ins: 
+For Word, Excel, and PowerPoint add-ins:
 
 - Create your test tokens.
 - Upload your test license tokens by using the developer registry. For details, see [Load a test license](#load-a-test-license) later in this article.
@@ -26,12 +26,12 @@ For Outlook add-ins:
 
 - Create your test token.
 - Create a URL-encoded version of the add-in license token.
-- In the add-in manifest file, manually edit the appropriate [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element. Add the URL-encoded version of the license token to the source location URL as a query parameter named *et*.
+- In the add-in manifest file, manually edit the appropriate [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation) element. Add the URL-encoded version of the license token to the source location URL as a query parameter named *et*.
 
     <br/>
 
     > [!NOTE]
-    > If your add-in uses [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](https://docs.microsoft.com/en-us/outlook/add-ins/validate-an-identity-token) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](https://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
+    > If your add-in uses [getUserIdentityTokenAsync](/javascript/api/outlook_1_7/office.mailbox#getuseridentitytokenasync-callback--usercontext-), adding to the [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](/outlook/add-ins/validate-an-identity-token) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](/office/dev/add-ins/reference/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
 
 <a name="bk_implement"> </a>
 ## Implement license checks in the Office Add-in code
@@ -54,17 +54,17 @@ For Outlook add-ins, the *et* query parameter string is only URL-encoded, and **
 
 ```XML
 <r>
-  <t 
-    aid="WA907006056" 
-    pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}" 
-    cid="32F3E7FC559F4F49" 
-    did="{0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1}" 
-    ts="30" 
-    et="Trial" 
-    ad="2012-01-12T21:58:13Z" 
-    ed="2019-06-30T21:58:13Z" 
+  <t
+    aid="WA907006056"
+    pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
+    cid="32F3E7FC559F4F49"
+    did="{0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1}"
+    ts="30"
+    et="Trial"
+    ad="2012-01-12T21:58:13Z"
+    ed="2019-06-30T21:58:13Z"
     sd="2012-01-12T00:00:00Z"
-    test="true" 
+    test="true"
     te="2019-06-30T02:49:34Z" />
   <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d>
 </r>
@@ -76,7 +76,7 @@ Has to be converted to this:
 <r> <t aid="WA907006056" pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}" cid="32F3E7FC559F4F49" did="{0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1}" ts="30" et="Trial" ad="2012-01-12T21:58:13Z" ed="2019-06-30T21:58:13Z" sd="2012-01-12T00:00:00Z" test="true" te="2019-06-30T02:49:34Z" /> <d>VNNAnf36IrkyUVZlihQJNdUUZl/YFEfJOeldWBtd3IM=</d> </r>
 ```
 
-The source location modified to include a test token for an Outlook add-in would look like this: 
+The source location modified to include a test token for an Outlook add-in would look like this:
 
   `https://myApp/index.htm?et=%3Cr%3E%20%3Ct%20aid%3D%22WA907006056%22%20pid%3D%22%7B4FB601F2-5469-4542-B9FC-B96345DC8B39%7D%22%20cid%3D%2232F3E7FC559F4F49%22%20did%3D%22%7B0672BAE9-B41B-48FE-87F1-7F4D3DD3F3B1%7D%22%20ts%3D%2230%22%20et%3D%22Trial%22%20ad%3D%222012-01-12T21%3A58%3A13Z%22%20ed%3D%222019-06-30T21%3A58%3A13Z%22%20sd%3D%222012-01-12T00%3A00%3A00Z%22%20test%3D%22true%22%20te%3D%222019-06-30T02%3A49%3A34Z%22%20%2F%3E%20%3Cd%3EVNNAnf36IrkyUVZlihQJNdUUZl%2FYFEfJOeldWBtd3IM%3D%3C%2Fd%3E%20%3C%2Fr%3E`
 
@@ -89,10 +89,10 @@ For example, the following code extracts the token from the URL, decodes the tok
 
 ```csharp
 // Obtains token URL
-string token = Request.Params["et"].ToString(); 
+string token = Request.Params["et"].ToString();
 
 // Applies base64 decoding of the token to get a decoded token.
-byte[] decodedBytes = Convert.FromBase64String(token); 
+byte[] decodedBytes = Convert.FromBase64String(token);
 string decodedToken = Encoding.Unicode.GetString(decodedBytes);
 ```
 
@@ -137,9 +137,9 @@ After you pass the add-in license token to the verification service's [VerifyEnt
 
 ### Code example: Check the Office Add-in license by retrieving and validating its add-in license token
 
-The following example shows the basic logic flow of retrieving and validating the license token for a content or task pane add-in: 
+The following example shows the basic logic flow of retrieving and validating the license token for a content or task pane add-in:
 
-1. The code retrieves the URL query string parameter, `et`, which contains the encoded license token. 
+1. The code retrieves the URL query string parameter, `et`, which contains the encoded license token.
 
 2. The code uses a custom function to decode the license token and convert it from base-64 to a string format that the AppSource verification service accepts.
 
@@ -198,7 +198,7 @@ namespace EtokenWeb{
 <a name="load-a-test-license"> </a>
 ## Inject an add-in license into an Office Add-in at runtime
 
-The Office and SharePoint Add-ins licensing model gives you a way to include code in your add-in to verify and enforce how it's used based on the properties of its license. You can load a test license with your add-in from either: 
+The Office and SharePoint Add-ins licensing model gives you a way to include code in your add-in to verify and enforce how it's used based on the properties of its license. You can load a test license with your add-in from either:
 
 - The Visual Studio project for your add-in.
 - The file system by using the Developer Registry provider.
@@ -219,14 +219,14 @@ Both methods allow an add-in to get the license the same way it would if it were
 
     ```XML
     <r>
-      <t 
+      <t
         aid="WA900006056"
         pid="{4FB601F2-5469-4542-B9FC-B96345DC8B39}"
         cid="32F3E7FC559F4F49"
         et="Trial"
         ad="2012-01-12T21:58:13Z"
         ed="2012-06-30T21:58:13Z"
-        sd="2012-01-12T00:00:00Z" 
+        sd="2012-01-12T00:00:00Z"
         te="2012-06-30T02:49:34Z"
         ts="0"
         test="true"/>
@@ -359,7 +359,7 @@ using (ClientContext ctx = new ClientContext(webUrl))
         billingMarket8; "US", // Replace this with whatever billing market you want
         appName: "add-in Name", // Replace this with the name of the app
         iconUrl: "http://www.office.com", // Replace this with the URL of the icon of the add-in (as it appears on AppSource),
-// Or you can simply leave the URL blank.
+                                          // Or you can simply leave the URL blank.
         providerName: "Provider Name"); // Replace this with the name of the provider of the app
 
     ctx.ExecuteQuery();
@@ -392,7 +392,7 @@ The following example retrieves all the add-in licenses for the current user as 
 
 string webUrl = "http://localhost" // This localhost URL should be replaced with the URL of the add-in web or host web of the app.
     // If you are redirected from the add-in web to the third-party side executing this code
-    // in the code-behind, you can get the add-in web URL with 
+    // in the code-behind, you can get the add-in web URL with
     // HttpContext.Current.Request.QueryString["AppWebUrl"].
 
 productId = new Guid(<product ID of the app>);
@@ -406,7 +406,7 @@ using(ClientContext ctx = new ClientContext(webUrl))
 By the end of this example, `licensecollection` includes all the add-in licenses for the current user as a collection of [AppLicense](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.applicense.aspx) objects. You can use the [RawXMLLicenseToken](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.applicense.rawxmllicensetoken.aspx) property to access the license token XML. So, for example, to access the license token for the first add-in license token in the collection, you use `licensecollection.Value[0].RawXMLLicenseToken`.
 
 > [!IMPORTANT]
-> Do not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and causes the license verification check to fail. 
+> Do not to parse or otherwise manipulate the add-in license token string before passing it to the AppSource license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation, the AppSource verification web service treats the token as a literal string. The AppSource verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and causes the license verification check to fail.
 
 ### Validate the add-in license token
 
@@ -443,7 +443,7 @@ After you pass the license token to the verification service's [VerifyEntitlemen
 <a name="bk_example"> </a>
 #### Code example: SharePoint Add-ins licensing checking
 
-The following example retrieves an add-in's license token from the SharePoint deployment and passes the token to the AppSource verification service for validation. The example catches a variety of possible errors if the verification fails. If the verification succeeds, it builds a string from the various license properties. Finally, the code provides logic for specifying the level of functionality based on the license type: Free, Paid, or Trial. 
+The following example retrieves an add-in's license token from the SharePoint deployment and passes the token to the AppSource verification service for validation. The example catches a variety of possible errors if the verification fails. If the verification succeeds, it builds a string from the various license properties. Finally, the code provides logic for specifying the level of functionality based on the license type: Free, Paid, or Trial.
 
 This example requires a reference to  [Microsoft.SharePoint.Client.Utilities](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.aspx), and a web service reference to the AppSource verification service.
 
@@ -471,7 +471,7 @@ private string GetLicenseTokenFromSP(Guid productId, ClientContext clientContext
 }
 
 private void VerifyLicenseToken(string rawLicenseToken)
-{    
+{
     if (string.IsNullOrEmpty(rawLicenseToken))
     {
         licVerifyEndPoint.Text = "There is no valid license for this user in SharePoint (OR) license cannot be obtained due to some error - check ULS.";
@@ -482,7 +482,7 @@ private void VerifyLicenseToken(string rawLicenseToken)
     VerifyEntitlementTokenResponse result = null;
     VerifyEntitlementTokenRequest request = new VerifyEntitlementTokenRequest();
     request.RawToken = rawLicenseToken;
-    lblSPLicenseText.Text = System.Web.HttpUtility.HtmlEncode(request.RawToken);   
+    lblSPLicenseText.Text = System.Web.HttpUtility.HtmlEncode(request.RawToken);
 
     try
     {
@@ -540,5 +540,3 @@ private void VerifyLicenseToken(string rawLicenseToken)
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
-
-
