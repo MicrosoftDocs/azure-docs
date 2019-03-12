@@ -40,6 +40,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 - France Central
 - North Europe
 - Southeast Asia 
+- UK South 
 - West Europe
 - West US 2
 
