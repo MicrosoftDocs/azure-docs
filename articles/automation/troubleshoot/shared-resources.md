@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation shared resou
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/22/2019
+ms.date: 03/11/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -132,6 +132,30 @@ You don't have the permissions that you need to create or update the Run As acco
 To create or update a Run As account, you must have appropriate permissions to the various resources used by the Run As account. To learn about the permissions needed to create or update a Run As account, see [Run As account permissions](../manage-runas-account.md#permissions).
 
 If the issue is because of a lock, verify that the lock is ok to remove it. Then navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
+
+### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
+
+#### Issue
+
+When executing a runbook you receive the following exception:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### Cause
+
+This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
+
+#### Resolution
+
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following exampl shows a snippet of code to authenticate to Azure in a runbook.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## Next steps
 
