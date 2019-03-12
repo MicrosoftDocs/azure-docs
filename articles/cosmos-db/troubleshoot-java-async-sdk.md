@@ -150,7 +150,7 @@ The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to wo
 
 ### Dependency Conflict Issues
 
-```
+```bash
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
