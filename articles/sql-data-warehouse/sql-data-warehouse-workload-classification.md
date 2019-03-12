@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: workload management
 ms.date: 03/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -16,12 +16,12 @@ ms.reviewer: jrasnick
 
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
 
->[!Note]
->Classification is available on SQL Data Warehouse Gen2.
+> [!Note]
+> Classification is available on SQL Data Warehouse Gen2.
 
 ## Classification
 
-[!Video https://www.youtube.com/embed/QcCRBAhoXpM]
+> [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
 Workload management classification allows workload policies to be applied to requests through assigning [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) and [importance](importance.md).
 
@@ -33,8 +33,8 @@ You can also subclassify your query and load workloads.  Subclassification gives
 
 Classification in SQL Data Warehouse is achieved today by assigning users to a resource class using [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). The ability to characterize requests beyond a login to a resource class is limited with this capability.  A richer method for classification is now available with the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntax.  With this syntax, SQL Data Warehouse users can assign importance and a resource class to requests.  
 
->[!NOTE]
->Classification is evaluated on a per request basis.  Multiple requests in a single session can be classified differently.
+> [!NOTE]
+> Classification is evaluated on a per request basis.  Multiple requests in a single session can be classified differently.
 
 ## Next steps
 
