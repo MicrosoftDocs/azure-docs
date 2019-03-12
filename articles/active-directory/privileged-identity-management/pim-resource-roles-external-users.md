@@ -62,7 +62,7 @@ To make sure you can invite external users into your directory, you should check
 
 Using PIM, you can invite an external user and make them eligible for an Azure resource role just like a member user.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) or [User Account Administrator](../users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) or [User Account Administrator](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
