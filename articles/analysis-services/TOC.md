@@ -38,8 +38,8 @@
 ### [Manage a server](analysis-services-manage.md)
 ### [Monitor server metrics](analysis-services-monitor.md)
 ### [Setup diagnostic logging](analysis-services-logging.md)
-### [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Create service principal - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
 
 ## Model
@@ -78,6 +78,7 @@
 
 ## [PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
+## [Resource Manager template](/azure/templates/microsoft.analysisservices/servers)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
@@ -94,7 +95,7 @@
 ## [Feedback](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [Pricing](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
 

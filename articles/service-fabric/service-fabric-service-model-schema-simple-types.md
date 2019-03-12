@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/06/2018
+ms.date: 12/10/2018
 ms.author: ryanwi
 ---
 
@@ -25,7 +25,7 @@ A URI that is used as a stable identifier of services by Microsoft Azure Service
 
 ### XML source
 ```xml
-<xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FabricUri">
+<xs:simpleType xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FabricUri">
     <xs:annotation>
       <xs:documentation>A URI that is used as a stable identifier of services by Microsoft Azure Service Fabric Naming system. </xs:documentation>
     </xs:annotation>

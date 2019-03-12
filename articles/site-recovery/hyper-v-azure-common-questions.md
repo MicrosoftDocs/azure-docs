@@ -1,16 +1,16 @@
 ---
-title: 'Common questions - Hyper-V to Azure replication with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions about replicating on-premises Hyper-V VMs to Azure using Azure Site Recovery.
+title: 'Common questions - Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 09/12/2018
+ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
 
 ---
-# Common questions - Hyper-V to Azure replication
+# Common questions - Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 
@@ -99,7 +99,7 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### What's the replication process?
 
-1. When initial replication is triggered, a Hyper-V VM snapshot snapshot is taken.
+1. When initial replication is triggered, a Hyper-V VM snapshot is taken.
 2. Virtual hard disks on the VM are replicated one by one, until they're all copied to Azure. This might take a while, depending on the VM size, and network bandwidth. Learn how to increase network bandwidth.
 3. If disk changes occur while initial replication is in progress, the Hyper-V Replica Replication Tracker tracks the changes as Hyper-V replication logs (.hrl). These log files are located in the same folder as the disks. Each disk has an associated .hrl file that's sent to secondary storage. The snapshot and log files consume disk resources while initial replication is in progress.
 4. When the initial replication finishes, the VM snapshot is deleted.
@@ -119,7 +119,7 @@ Site Recovery replicates data from on-premises to Azure storage over a public en
 
 ### Can I replicate to Azure with ExpressRoute?
 
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### Why can't I replicate over VPN?
@@ -130,15 +130,15 @@ When you replicate to Azure, replication traffic reaches the public endpoints of
 
 For replication, a Hyper-V VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](hyper-v-azure-support-matrix.md#replicated-vms) in the support matrix.
 
-###How often can I replicate to Azure?
+### How often can I replicate to Azure?
 
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
 
 ###Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?
-This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
 Yes, you can exclude disks from replication. 
@@ -184,7 +184,7 @@ After failover, you can access Azure VMs over a secure Internet connection, over
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
 
 ### Is failover automatic?
-[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [ PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
+[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
 
 ### How do I fail back?
 
@@ -202,6 +202,3 @@ After your on-premises infrastructure is up and running again, you can fail back
 
 ### Can I fail back to a different location?
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
-
-
-

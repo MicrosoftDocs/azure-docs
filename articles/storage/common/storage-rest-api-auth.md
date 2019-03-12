@@ -4,10 +4,10 @@ description: Calling Azure Storage Services REST API operations including authen
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Using the Azure Storage REST API

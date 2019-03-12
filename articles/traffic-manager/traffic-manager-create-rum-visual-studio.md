@@ -4,10 +4,6 @@ description: Set up your mobile application developed using Visual Studio Mobile
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -72,7 +68,7 @@ To use Real User Measurements, complete the following procedure:
     In your **app/build.gradle** file add the following lines:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

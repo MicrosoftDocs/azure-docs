@@ -2,16 +2,19 @@
 title: Deploy a split-merge service | Microsoft Docs
 description: Use the split-merge too to move data between sharded databases.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 12/04/2018
 ---
-# Deploy a split-merge service
+# Deploy a split-merge service to move data between sharded databases
+
 The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Download the Split-Merge packages
@@ -54,13 +57,13 @@ For detailed instructions to configure the security of the service, refer to the
 For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
 ### Create a self-signed certificate
-Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) window:
+Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) window:
 
    ```
     makecert ^
     -n "CN=*.cloudapp.net" ^
     -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
-    -a sha1 -len 2048 ^
+    -a sha256 -len 2048 ^
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
    ```
@@ -195,7 +198,7 @@ The script files included are:
    
 ## Use PowerShell to verify your deployment
 1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
-2. Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
+2. Create an Azure SQL Database server (or choose an existing server) where the shard map manager and shards will be created.
    
    > [!NOTE]
    > The SetupSampleSplitMergeEnvironment.ps1 script creates all these databases on the same server by default to keep the script simple. This is not a restriction of the Split-Merge Service itself.

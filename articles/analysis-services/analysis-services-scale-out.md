@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -22,7 +22,7 @@ With scale-out, you can create a query pool with up to seven additional query re
 
 Regardless of the number of query replicas you have in a query pool, processing workloads are not distributed among query replicas. A single server serves as the processing server. Query replicas serve only queries against the models synchronized between each query replica in the query pool. 
 
-When scaling out, new query replicas are added to the query pool incrementally. It can take up to five minutes for new query replica resources to be included in the query pool; ready to receive client connections and queries. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to.  When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. They are reconnected to a remaining query pool resource when the scale in operation has completed, which can take up to five minutes.
+When scaling out, new query replicas are added to the query pool incrementally. It can take up to five minutes for new query replica resources to be included in the query pool. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to.  When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. They are reconnected to a remaining query pool resource when the scale in operation has completed, which can take up to five minutes.
 
 When processing models, after processing operations are completed, a synchronization must be performed between the processing server and the query replicas. When automating processing operations, it's important to configure a synchronization operation upon successful completion of processing operations. Synchronization can be performed manually in the portal, or by using PowerShell or REST API. 
 
@@ -58,7 +58,6 @@ The number of query replicas you can configure are limited by the region your se
 
 Tabular models on your primary server are synchronized with the replica servers. When synchronization is complete, the query pool begins distributing incoming queries among the replica servers. 
 
-
 ## Synchronization 
 
 When you provision new query replicas, Azure Analysis Services automatically replicates your models across all replicas. You can also perform a manual synchronization by using the portal or REST API. When you process your models, you should perform a synchronization so updates are synchronized among your query replicas.
@@ -70,22 +69,26 @@ In **Overview** > model > **Synchronize model**.
 ![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### REST API
+
 Use the **sync** operation.
 
 #### Synchronize a model   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### Get sync status  
-`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### PowerShell
-Before using PowerShell, [install or update the latest AzureRM module](https://github.com/Azure/azure-powershell/releases). 
 
-To set the number of query replicas, use [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To run sync, use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Before using PowerShell, [install or update the latest Azure PowerShell module](/powershell/azure/install-az-ps). 
 
+To set the number of query replicas, use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specify the optional `-ReadonlyReplicaCount` parameter.
 
+To run sync, use [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 ## Connections
 
@@ -101,8 +104,7 @@ For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and A
 
 **Issue:** Users get error **Cannot find server '\<Name of the server>' instance in connection mode 'ReadOnly'.**
 
-**Solution:** When selecting the **Separate the processing server from the querying pool** option, client connections using the default connection string (without :rw) are redirected to query pool replicas. If replicas in the query pool are not yet online because synchronization has not yet been completed, redirected client connections can fail. To prevent failed connections, choose not to separate the processing server from the querying pool until a scale-out and synchronization operation are complete. You can use the Memory and QPU metrics to monitor synchronization status.
-
+**Solution:** When selecting the **Separate the processing server from the querying pool** option, client connections using the default connection string (without :rw) are redirected to query pool replicas. If replicas in the query pool are not yet online because synchronization has not yet been completed, redirected client connections can fail. To prevent failed connections, there must be at least two servers in the query pool when performing a synchronization. Each server is synchronized individually while others remain online. If you choose to not have the processing server in the query pool during processing, you can choose to remove it from the pool for processing, and then add it back into the pool after processing is complete, but prior to synchronization. Use Memory and QPU metrics to monitor synchronization status.
 
 ## Related information
 

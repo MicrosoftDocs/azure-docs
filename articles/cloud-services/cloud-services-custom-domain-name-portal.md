@@ -32,7 +32,7 @@ Do you already understand what CNAME and A records are? [Jump past the explanati
 <p/>
 
 > [!TIP]
-> Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
+> Get going faster--use the NEW Azure [guided walkthrough](https://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
 > 
 > 
 
@@ -43,7 +43,7 @@ CNAME (or alias records) and A records both allow you to associate a domain name
 A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **[myapp].cloudapp.net** domain name of your Azure hosted application. Once created, the CNAME creates an alias for the **[myapp].cloudapp.net**. The CNAME entry will resolve to the IP address of your **[myapp].cloudapp.net** service automatically, so if the IP address of the cloud service changes, you do not have to take any action.
 
 > [!NOTE]
-> Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME record](http://en.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035) document.
+> Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, [the Wikipedia entry on CNAME record](https://en.wikipedia.org/wiki/CNAME_record), or the [IETF Domain Names - Implementation and Specification](https://tools.ietf.org/html/rfc1035) document.
 > 
 > 
 
@@ -76,7 +76,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
      Save the domain name used in the URL returned by either method, as you will need it when creating a CNAME record.
 2. Log on to your DNS registrar's website and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 3. Now find where you can select or enter CNAME's. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
-4. You must also provide the domain or subdomain alias for the CNAME, such as **www** if you want to create an alias for **www.customdomain.com**. If you want to create an alias for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+4. You must also provide the domain or subdomain alias for the CNAME, such as **www** if you want to create an alias for **www.customdomain.com**. If you want to create an alias for the root domain, it may be listed as the '**\@**' symbol in your registrar's DNS tools.
 5. Then, you must provide a canonical host name, which is your application's **cloudapp.net** domain in this case.
 
 For example, the following CNAME record forwards all traffic from **www.contoso.com** to **contoso.cloudapp.net**, the custom domain name of your deployed application:
@@ -115,7 +115,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 3. Now find where you can select or enter A record's. You may have to select the record type from a drop down, or go to an advanced settings page.
 4. Select or enter the domain or subdomain that will use this A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '*****'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
    
-    If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+    If you want to create an A record for the root domain, it may be listed as the '**\@**' symbol in your registrar's DNS tools.
 5. Enter the IP address of your cloud service in the provided field. This associates the domain entry used in the A record with the IP address of your cloud service deployment.
 
 For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of your deployed application:

@@ -1,11 +1,8 @@
 ---
 title: 'Tutorial: Design an Azure Database for MySQL using Azure portal'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
@@ -25,6 +22,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Query data
 > * Update data
 > * Restore data
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -51,7 +50,7 @@ An Azure Database for MySQL server is created with a defined set of [compute and
     Confirm password | *Your choice*| Confirm the admin account password.
     Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
     Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
-    Pricing tier | **General Purpose**, **Gen 4**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 

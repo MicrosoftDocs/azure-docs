@@ -1,21 +1,22 @@
 ---
-title: How to add an existing Azure subscription to your Azure Active Directory tenant | Microsoft Docs
-description: Learn how to add an existing Azure subscription to your Azure Active Directory tenant.
+title: Add an existing Azure subscription to your tenant - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Associate or add an Azure subscription to Azure Active Directory
+# Associate or add an Azure subscription to your Azure Active Directory tenant
 The Azure subscription has a trust relationship with Azure Active Directory (Azure AD), which means that the subscription trusts Azure AD to authenticate users, services, and devices. Multiple subscriptions can trust the same Azure AD directory, but each subscription can only trust a single directory.
 
 If your subscription expires, you lose access to all the other resources associated with the subscription. However, the Azure AD directory remains in Azure, letting you associate and manage the directory using a different Azure subscription.
@@ -41,19 +42,19 @@ Before you can associate or add your subscription, you must perform the followin
 
 2. Select **Change directory**.
 
-    ![Subscriptions page, with Change directory option highlighted](/media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
+    ![Subscriptions page, with Change directory option highlighted](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
 
 3. Review any warnings that appear, and then select **Change**.
 
-    ![Change the directory page, showing the directory to change to](/media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+    ![Change the directory page, showing the directory to change to](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
     The directory is changed for the subscription and you get a success message.
 
-    ![Success message](/media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Success message](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
 
 4. Use the Directory switcher to go to your new directory. It might take up to 10 minutes for everything to show up properly.
 
-    ![Directory switcher page](/media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Directory switcher page](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md). 
 

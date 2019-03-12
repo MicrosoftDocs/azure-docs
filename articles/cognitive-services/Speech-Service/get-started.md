@@ -1,28 +1,29 @@
 ---
-title: Try the Speech service for free
-description: Discover how you can try the Speech service at no cost.
-titleSuffix: "Azure Cognitive Services"
+title: Try Speech Services for free
+titleSuffix: Azure Cognitive Services
+description: Getting started with the Speech Services is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
 services: cognitive-services
-author: v-jerkin
-
+author: erhopf
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
-ms.topic: article
-ms.date: 05/17/2018
-ms.author: v-jerkin
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 02/08/2019
+ms.author: erhopf
+ms.custom: seodec18
 ---
 
-# Try the Speech service for free
+# Try Speech Services for free
 
-Getting started with the Speech service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
+Getting started with the Speech Services is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
 
-If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days.
+If you need more time, sign up for a Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech Services subscription for up to 30 days.
 
-Finally, the Speech service offers a free, low-volume tier that's suitable for developing applications. You can keep this free subscription even after your service credit expires.
+Finally, the Speech Services offers a free, low-volume tier that's suitable for developing applications. You can keep this free subscription even after your service credit expires.
 
 ## Free trial
 
-The 30-day free trial gives you access to the S0 standard pricing tier for a limited time. 
+The 30-day free trial gives you access to the standard pricing tier for a limited time.
 
 To sign up for a 30-day free trial:
 
@@ -31,8 +32,8 @@ To sign up for a 30-day free trial:
 1. Select the **Speech APIs** tab.
 
    ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
-   
-1. Under **Speech services <sup>PREVIEW</sup>**, select the **Get API Key** button.
+
+1. Under **Speech Services**, select the **Get API Key** button.
 
    ![API key](media/index/try-speech-api-free-trial2.png)
 
@@ -40,58 +41,30 @@ To sign up for a 30-day free trial:
 
    ![Agree to terms](media/index/try-speech-api-free-trial3.png)
 
-1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account. Or, you can sign up for a free Microsoft account:
+1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account.
 
-    * Go to the [Microsoft account portal](https://account.microsoft.com/account).
-    * Select **Sign in with Microsoft**.
+    You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
 
-    ![Sign in](media/index/try-speech-api-free-trial4.png)
-
-    * When asked to sign in, select **Create one**.
-
-    ![Create new account](media/index/try-speech-api-free-trial5.png)
-
-    * In the steps that follow, enter your e-mail address or phone number, assign a password, and follow the instructions to verify your new Microsoft account.
-
-After you sign in, your free trial begins. The displayed webpage lists all the Azure Cognitive Services services for which you currently have trial subscriptions. Two subscription keys are listed beside **Speech services**. You can use either key in your applications.
+After you sign in to Try Cognitive Services, your free trial begins. The displayed webpage lists all the Azure Cognitive Services services for which you currently have trial subscriptions. Two subscription keys are listed beside **Speech Services**. You can use either key in your applications.
 
 > [!NOTE]
-> All free trial subscriptions are in the West US region. When you make requests, be sure to use the endpoint that corresponds to your region.
+> All free trial subscriptions are in the West US region. When you make requests, be sure to use the `westus` endpoint.
 
 ## New Azure account
 
-New Azure accounts receive a $200 service credit that is available for up to 30 days. You can use this credit to further explore the Speech service or to begin application development.
+New Azure accounts receive a $200 service credit that is available for up to 30 days. You can use this credit to further explore the Speech Services or to begin application development.
 
-To sign up for a new Azure account:
+To sign up for a new Azure account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), click **Start Free,** and create a new Azure account using your Microsoft account.
 
-1. Go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/). 
+You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
 
-1. Select **Start free**.
-
-    ![Start free](media/index/try-speech-api-new-azure1.png)
-
-1. Sign in with your Microsoft account. If you don't have one:
-
-    * Go to the [Microsoft account portal](https://account.microsoft.com/account).
-    * Select **Sign in with Microsoft**.
-    * When asked to sign in, select **Create one.**
-    * In the steps that follow, enter your e-mail address or phone number, assign a password, and follow the instructions to verify your new Microsoft account.
-
-1. Enter the rest of the information that's requested to sign up for an account. Specify your country and your name and provide a phone number and e-mail address.
-
-    ![Enter information](media/index/try-speech-api-new-azure2.png)
-
-    Verify your identity by phone and by providing a credit card number. (Your credit card will not be billed.) hen, accept the Azure user agreement. 
-
-    ![Accept agreement](media/index/try-speech-api-new-azure3.png)
-
-Your free Azure account is created. Follow the steps in the next section to start a subscription to the Speech service.
+After creating your Azure account, follow the steps in the next section to start a subscription to the Speech Services.
 
 ## Create a Speech resource in Azure
 
-To add a Speech service resource to your Azure account:
+To add a Speech Services resource (free or paid tier) to your Azure account:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/) by using your Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Microsoft account.
 
 1. Select **Create a resource** at the top left of the portal.
 
@@ -99,11 +72,11 @@ To add a Speech service resource to your Azure account:
 
 1. In the **New** window, search for **speech**.
 
-1. In the search results, select **Speech (preview)**.
+1. In the search results, select **Speech**.
 
-    ![Select Speech (preview)](media/index/try-speech-api-create-speech2.png)
+    ![Select Speech](media/index/try-speech-api-create-speech2.png)
 
-1. Under **Speech (preview)**, select the **Create** button.
+1. Under **Speech**, select the **Create** button.
 
     ![Select the Create button](media/index/try-speech-api-create-speech3.png)
 
@@ -111,22 +84,34 @@ To add a Speech service resource to your Azure account:
 
     * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
     * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
-    * Choose the region where the resource will be used. Currently, the Speech service is available in East Asia, North Europe, and West US regions.
-    * Choose the pricing tier, either F0 (limited free subscription) or S0 (standard subscription). Select **View full pricing details** for complete information about pricing and usage quotas for each tier.
+    * Choose the region where the resource will be used. Currently, the Speech Services is available in East Asia, North Europe, and West US regions.
+    * Choose either a free or paid pricing tier. Click **View full pricing details** for complete information about pricing and usage quotas for each tier.
     * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
     * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.
     * Select **Create.**
 
     ![Select the Create button](media/index/try-speech-api-create-speech4.png)
 
-    It might take a moment to create and deploy your new Speech resource. Select **Quickstart** to see information about your new resource.
+    It takes a moment to create and deploy your new Speech resource. Select **Quickstart** to see information about your new resource.
 
     ![Quickstart panel](media/index/try-speech-api-create-speech5.png)
 
-1. Under **Quickstart**, select the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
+1. Under **Quickstart**, click the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
 
 > [!NOTE]
-> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription.
+> You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decomissioned automatically.
+
+## Switch to a new subscription
+
+To switch from one subscription to another, for example when your free trial expires or when you publish your application, replace the region and subscription key in your code with the region and subscription key of the new Azure resource.
+
+> [!NOTE]
+> Free trial keys are created in the West US (`westus`) region. A subscription created via the Azure dashboard may be in some other region if you so choose.
+
+* If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when creating a speech configuration.
+* If your application uses one of the Speech Services's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+
+Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Next steps
 

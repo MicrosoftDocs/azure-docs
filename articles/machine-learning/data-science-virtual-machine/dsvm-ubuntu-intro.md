@@ -1,16 +1,17 @@
 ---
-title: Provision a Linux (Ubuntu) Data Science Virtual Machine on Azure | Microsoft Docs
+title: Create an Ubuntu Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Data Science Virtual Machine For Linux (Ubuntu) on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 ms.author: gokuma
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -23,14 +24,14 @@ ms.date: 03/16/2018
 
 The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with machine learning, including deep learning, on Azure. Deep learning tools include:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
+  * [Caffe](https://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
   * [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface
-  * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
-  * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
+  * [Keras](https://keras.io/): A high-level neural network API in Python for TensorFlow, Microsoft Cognitive Toolkit, and Theano
+  * [MXNet](https://mxnet.io/): A flexible, efficient deep learning library with many language bindings
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks
-  * [PyTorch](http://pytorch.org/): A high-level Python library with support for dynamic networks
+  * [PyTorch](https://pytorch.org/): A high-level Python library with support for dynamic networks
   * [TensorFlow](https://www.tensorflow.org/): An open-source library for machine intelligence from Google
   * [Theano](http://deeplearning.net/software/theano/): A Python library for defining, optimizing, and efficiently evaluating mathematical expressions involving multi-dimensional arrays
   * [Torch](http://torch.ch/): A scientific computing framework with wide support for machine learning algorithms
@@ -116,7 +117,7 @@ You can access the Ubuntu DSVM using three methods:
 
 ### SSH
 
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
@@ -126,7 +127,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 ### X2Go
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
-1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
      * **Host**: The host name or IP address of your Linux Data Science VM.
@@ -173,7 +174,7 @@ Some example notebooks are available in JupyterHub.
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. To start H2O from the command-line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`; there are various [command line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you may like to configure. The Flow Web UI can be accessed by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
 #### Keras
-Keras is a high-level neural network API in Python that is capable of running on top of either TensorFlow or Theano. It is available in the root and py35 Python environments. 
+Keras is a high-level neural network API in Python that is capable of running on top of TensorFlow, Microsoft Cognitive Toolkit, or Theano. It is available in the root and py35 Python environments. 
 
 #### MXNet
 MXNet is a deep learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.
@@ -202,7 +203,7 @@ R is one of the most popular languages for data analysis and machine learning. I
 
 To launch R console, you just type **R** in the shell. This takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi, and then run the scripts within R. With RStudio, you have a full graphical IDE environment to develop your R program.
 
-There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
+There is also an R script for you to install the [Top 20 R packages](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
 
 ### Python
 Anaconda Python is installed with Python 2.7 and 3.5 environments. The 2.7 environment is called _root_, and the 3.5 environment is called _py35_. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. 
@@ -217,7 +218,7 @@ To activate the py35 environment again:
 
 To invoke a Python interactive session, just type **python** in the shell. 
 
-Install additional Python libraries using ```conda``` or ````pip```` . For pip, activate the correct environment first if you do not want the default:
+Install additional Python libraries using ```conda``` or ```pip``` . For pip, activate the correct environment first if you do not want the default:
 
     source activate root
     pip install <package>
@@ -268,13 +269,13 @@ Before running in Spark context in Microsoft R Server, you need to do a one time
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you dont need them by running ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````
+You can stop the Hadoop related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors
 You have a choice of several code editors. This includes vi/VIM, Emacs, PyCharm, RStudio, and IntelliJ. IntelliJ, RStudio and PyCharm are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
 
-**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](http://ess.r-project.org/).
+**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](https://ess.r-project.org/).
 
 **LaTex** is installed through the texlive package along with an Emacs add-on [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) package, which simplifies authoring your LaTex documents within Emacs.  
 
@@ -429,6 +430,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Data Science Virtual Machine for Linux](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](http://aka.ms/tdsp).
+* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://aka.ms/tdsp).
 * Visit the [Azure AI Gallery](https://gallery.azure.ai/) for machine learning and data analytics samples that use the Azure AI services.
 

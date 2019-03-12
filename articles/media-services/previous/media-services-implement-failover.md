@@ -4,20 +4,19 @@ description: This topic shows how to implement a failover streaming scenario.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Implement failover streaming with Azure Media Services
+# Implement failover streaming with Media Services 
 
 This walkthrough demonstrates how to copy content (blobs) from one asset into another in order to handle redundancy for on-demand streaming. This scenario is useful if you want to set up Azure Content Delivery Network to fail over between two datacenters, in case of an outage in one datacenter. This walkthrough uses the Azure Media Services SDK, the Azure Media Services REST API, and the Azure Storage SDK to demonstrate the following tasks:
 
@@ -46,11 +45,6 @@ The following considerations apply:
 * The current version of Media Services SDK does not support programmatically generating IAssetFile information that would associate an asset with asset files. Instead, use the CreateFileInfos Media Services REST API to do this. 
 * Storage encrypted assets (AssetCreationOptions.StorageEncrypted) are not supported for replication (because the encryption key is different in both Media Services accounts). 
 * If you want to take advantage of dynamic packaging, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
-
-> [!NOTE]
-> Consider using the Media Services [Replicator Tool](http://replicator.codeplex.com/) as an alternative to implementing a failover streaming scenario manually. This tool allows you to replicate assets across two Media Services accounts.
-> 
-> 
 
 ## Prerequisites
 * Two Media Services accounts in a new or existing Azure subscription. See [How to Create a Media Services Account](media-services-portal-create-account.md).
@@ -180,7 +174,7 @@ In this section, you create the ability to handle redundancy.
 		        CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
 		
 		        // Check if the AssetFiles are now  associated with the asset.
-		        Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+		        Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
 		        foreach (var af in targetAsset.AssetFiles)
 		        {
 		            Console.WriteLine(af.Name);

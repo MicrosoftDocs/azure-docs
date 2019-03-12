@@ -1,3 +1,10 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: danlep
+---
 ## Get account credentials
 
 For this example, you need to provide credentials for your Batch and Storage accounts. A straightforward way to get the necessary credentials is in the Azure portal. (You can also get these credentials using the Azure APIs or command-line tools.)

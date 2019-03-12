@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/06/2018
+ms.date: 12/10/2018
 ms.author: ryanwi
 ---
 
@@ -35,7 +35,7 @@ Defines a mechanism for adding or removing named partitions.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AddRemoveIncrementalNamedPartitionScalingMechanism" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AddRemoveIncrementalNamedPartitionScalingMechanism" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a mechanism for adding or removing named partitions.</xs:documentation>
                 </xs:annotation>
@@ -52,7 +52,7 @@ Defines a mechanism for adding or removing named partitions.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -79,7 +79,7 @@ The maximum number of partitions.
 |use|required|
 
 #### ScaleIncrement
-The number of partitions by wich to perform the upshift/downshift.
+The number of partitions by which to perform the upshift/downshift.
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -100,7 +100,7 @@ Application Instance specific information like application name and application 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Application" type="AppInstanceDefinitionType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Application" type="AppInstanceDefinitionType">
                 <xs:annotation>
                         <xs:documentation>Application Instance specific information like application name and application parameter values used to create application. Parameter values in this file overrides the default parameter values defined in Application Manifest.</xs:documentation>
                 </xs:annotation>
@@ -121,7 +121,7 @@ Application Instance specific information like application name and application 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationEndpoints" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationEndpoints" minOccurs="0">
         <xs:complexType>
           <xs:attribute name="StartPort" type="xs:int" use="required"/>
           <xs:attribute name="EndPort" type="xs:int" use="required"/>
@@ -160,7 +160,7 @@ Describes an instance of a Microsoft Azure Service Fabric application.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationInstance" type="ApplicationInstanceType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationInstance" type="ApplicationInstanceType">
     <xs:annotation>
       <xs:documentation>Describes an instance of a Microsoft Azure Service Fabric application.</xs:documentation>
     </xs:annotation>
@@ -182,7 +182,7 @@ Declaratively describes the application type and version. One or more service ma
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationManifest" type="ApplicationManifestType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationManifest" type="ApplicationManifestType"/>
         
 
 ```
@@ -200,7 +200,7 @@ ApplicationPackage represents the versioned Application information required by 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationPackage" type="ApplicationPackageType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationPackage" type="ApplicationPackageType">
     <xs:annotation>
       <xs:documentation>ApplicationPackage represents the versioned Application information required by the node.</xs:documentation>
     </xs:annotation>
@@ -220,7 +220,7 @@ ApplicationPackage represents the versioned Application information required by 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationPackageRef">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationPackageRef">
         <xs:complexType>
           <xs:attributeGroup ref="VersionedItemAttrGroup"/>
         </xs:complexType>
@@ -241,7 +241,7 @@ ApplicationPackage represents the versioned Application information required by 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Arguments" type="xs:string" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Arguments" type="xs:string" minOccurs="0"/>
       
 
 ```
@@ -261,7 +261,7 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AveragePartitionLoadScalingTrigger" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AveragePartitionLoadScalingTrigger" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a scaling mechanism based on the average load of replicas of a partition.</xs:documentation>
                 </xs:annotation>
@@ -333,7 +333,7 @@ Defines a scaling mechanism based on the average load of partitions of a service
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
-|content|0 element(s), 4 attribute(s)|
+|content|0 element(s), 5 attribute(s)|
 |defined|locally in [ScalingPolicyTriggerGroup group](service-fabric-service-model-schema-element-groups.md#scalingpolicytriggergroup-group)|
 |name|AverageServiceLoadScalingTrigger|
 |minOccurs|0|
@@ -341,7 +341,7 @@ Defines a scaling mechanism based on the average load of partitions of a service
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AverageServiceLoadScalingTrigger" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AverageServiceLoadScalingTrigger" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a scaling mechanism based on the average load of partitions of a service.</xs:documentation>
                 </xs:annotation>
@@ -364,6 +364,11 @@ Defines a scaling mechanism based on the average load of partitions of a service
                     <xs:attribute name="ScaleIntervalInSeconds" type="xs:string" use="required">
                         <xs:annotation>
                             <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="UseOnlyPrimaryLoad" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>Use load of primary replica as average load of partition.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -405,6 +410,14 @@ The time interval in seconds to be considered for scaling.
 |type|xs:string|
 |use|required|
 
+#### UseOnlyPrimaryLoad
+Use load of primary replica as average load of partition.
+|Attribute|Value|
+|---|---|
+|name|UseOnlyPrimaryLoad|
+|type|xs:string|
+|use|optional|
+
 
 <a id="AzureBlobElementAzureBlobETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## AzureBlob element (type AzureBlobETWType) 
@@ -421,7 +434,7 @@ Describes an Azure blob store destination for ETW events. Works only in Azure en
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AzureBlob" type="AzureBlobETWType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AzureBlob" type="AzureBlobETWType" minOccurs="0" maxOccurs="unbounded"/>
                 
 
 ```
@@ -441,7 +454,7 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AzureBlob" type="AzureBlobType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AzureBlob" type="AzureBlobType" minOccurs="0" maxOccurs="unbounded"/>
                 
 
 ```
@@ -458,7 +471,7 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="BackupRestoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="BackupRestoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -474,7 +487,7 @@ Describes an Azure blob store destination for diagnostics data. Works only in Az
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Blackbird">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Blackbird">
                                                         <xs:complexType>
                                                                 <xs:sequence>
                                                                         <xs:element name="Roles">
@@ -511,7 +524,7 @@ The capacities of various metrics for this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Capacities" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Capacities" minOccurs="0">
                                                                                 <xs:annotation>
                                                                                         <xs:documentation>The capacities of various metrics for this node type</xs:documentation>
                                                                                 </xs:annotation>
@@ -547,18 +560,31 @@ The capacities of various metrics for this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Capacity" type="KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Capacity" type="KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
                                                                                         
+
+```
+
+<a id="CentralSecretServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
+## CentralSecretServiceReplicatorEndpoint element
+|Attribute|Value|
+|---|---|
+|type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [FabricEndpointsType complexType](service-fabric-service-model-schema-complex-types.md#fabricendpointstype-complextype)|
+|name|CentralSecretServiceReplicatorEndpoint|
+|minOccurs|0|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CentralSecretServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+      
 
 ```
 
 <a id="CertificateRefElementContainerCertificateTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## CertificateRef element
-Specifies information about an X509 certificate which is to be exposed to the container environment. The certificate must be installed in the LocalMachine store of all the cluster nodes.
-          When the application starts, the runtime reads the certificate and generates a PFX file and password (on Windows) or a PEM file (on Linux).
-          The PFX file and password are accessible in the container using the Certificates_ServicePackageName_CodePackageName_CertName_PFX and
-          Certificates_ServicePackageName_CodePackageName_CertName_Password environment variables. The PEM file is accessible in the container using the
-          Certificates_ServicePackageName_CodePackageName_CertName_PEM and Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey environment variables.
+Specifies information for a certificate which will be exposed to the container.
 
 |Attribute|Value|
 |---|---|
@@ -571,7 +597,11 @@ Specifies information about an X509 certificate which is to be exposed to the co
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CertificateRef" type="ContainerCertificateType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CertificateRef" type="ContainerCertificateType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Specifies information for a certificate which will be exposed to the container.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
 
 ```
@@ -590,7 +620,7 @@ Describe the certificates associated with this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Certificates" type="CertificatesType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Certificates" type="CertificatesType" minOccurs="0">
                                                                                 <xs:annotation>
                                                                                         <xs:documentation>Describe the certificates associated with this node type</xs:documentation>
                                                                                 </xs:annotation>
@@ -613,7 +643,7 @@ Declares certificates used to secure endpoints or encrypt secrets within the app
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Certificates" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Certificates" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Declares certificates used to secure endpoints or encrypt secrets within the application manifest or a cluster manifest.</xs:documentation>
         </xs:annotation>
@@ -660,7 +690,7 @@ Declares a certificate used to encrypt sensitive information within the applicat
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Certificates" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Certificates" minOccurs="0">
                                 <xs:complexType>
                                         <xs:sequence>
                                                 <xs:element name="SecretsCertificate" type="FabricCertificateType" minOccurs="0"/>
@@ -681,7 +711,7 @@ Declares a certificate used to encrypt sensitive information within the applicat
 
 <a id="ClientCertificateElementFabricCertificateTypeComplexTypeDefinedInCertificatesTypecomplexType"></a>
 ## ClientCertificate element
-The default admin role client certificate used to secure client-server communication.
+The default admin role client certificate used to secure client server communication.
 
 |Attribute|Value|
 |---|---|
@@ -693,9 +723,9 @@ The default admin role client certificate used to secure client-server communica
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClientCertificate" type="FabricCertificateType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default admin role client certificate used to secure client-server communication.</xs:documentation>
+          <xs:documentation>The default admin role client certificate used to secure client server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
       
@@ -713,7 +743,7 @@ The default admin role client certificate used to secure client-server communica
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClientConnectionEndpoint" type="InputEndpointType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClientConnectionEndpoint" type="InputEndpointType"/>
       
 
 ```
@@ -732,7 +762,7 @@ The certificate used to secure the intra cluster communication.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterCertificate" type="FabricCertificateType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The certificate used to secure the intra cluster communication.</xs:documentation>
         </xs:annotation>
@@ -752,7 +782,7 @@ The certificate used to secure the intra cluster communication.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterConnectionEndpoint" type="InternalEndpointType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterConnectionEndpoint" type="InternalEndpointType"/>
       
 
 ```
@@ -769,7 +799,7 @@ The certificate used to secure the intra cluster communication.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -787,7 +817,7 @@ Describes a Microsoft Azure Service Fabric Cluster.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterManifest" type="ClusterManifestType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ClusterManifest" type="ClusterManifestType">
                 <xs:annotation>
                         <xs:documentation>Describes a Microsoft Azure Service Fabric Cluster.</xs:documentation>
                 </xs:annotation>
@@ -810,7 +840,7 @@ Describes a code package that supports a defined service type. When a service is
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CodePackage" type="CodePackageType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CodePackage" type="CodePackageType" maxOccurs="unbounded"/>
       
 
 ```
@@ -830,7 +860,7 @@ Pass a comma delimited list of commands to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Commands" type="xs:string" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Commands" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Pass a comma delimited list of commands to the container.</xs:documentation>
         </xs:annotation>
@@ -854,7 +884,7 @@ Describes the configuration overrides for a particular config package in the imp
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigOverride" type="ConfigOverrideType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigOverride" type="ConfigOverrideType" minOccurs="0" maxOccurs="unbounded"/>
                 
 
 ```
@@ -873,7 +903,7 @@ Describes configuration overrides for the imported service manifest. Configurati
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigOverrides" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigOverrides" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Describes configuration overrides for the imported service manifest. Configuration overrides allow the flexibility of re-using the same service manifests across multiple application types by overriding the service manifest's configuration only when used with a particular application type. Configuration overrides can change any default configuration in a service manifest as long as default configuration is defined using the Settings.xml in the ConfigPackage folder. </xs:documentation>
               </xs:annotation>
@@ -896,9 +926,29 @@ Describes configuration overrides for the imported service manifest. Configurati
 |minOccurs|0|
 |maxOccurs|unbounded|
 
-<a id="ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement"></a>
-## ConfigPackage element
+<a id="ConfigPackageElementConfigPackageDescriptionTypeComplexTypeDefinedInConfigPackagePoliciesTypecomplexType"></a>
+## ConfigPackage element (type ConfigPackageDescriptionType) 
 Declares a folder, named by the Name attribute, that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
+
+|Attribute|Value|
+|---|---|
+|type|[ConfigPackageDescriptionType](service-fabric-service-model-schema-complex-types.md#configpackagedescriptiontype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ConfigPackagePoliciesType complexType](service-fabric-service-model-schema-complex-types.md#configpackagepoliciestype-complextype)|
+|name|ConfigPackage|
+|minOccurs|0|
+|maxOccurs|unbounded|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackage" type="ConfigPackageDescriptionType" minOccurs="0" maxOccurs="unbounded"/>
+    
+
+```
+
+<a id="ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement"></a>
+## ConfigPackage element (type ConfigPackageType) 
+Declares a folder, named by the Name attribute, and PackageRoot that contains a Settings.xml file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the ConfigPackage version has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically.
 
 |Attribute|Value|
 |---|---|
@@ -911,13 +961,38 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackage" type="ConfigPackageType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackage" type="ConfigPackageType" minOccurs="0" maxOccurs="unbounded"/>
+      
+
+```
+
+<a id="ConfigPackagePoliciesElementConfigPackagePoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
+## ConfigPackagePolicies element
+Config Packages to be mounted inside the container.
+
+|Attribute|Value|
+|---|---|
+|type|[ConfigPackagePoliciesType](service-fabric-service-model-schema-complex-types.md#configpackagepoliciestype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ServiceManifestImportPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#servicemanifestimportpoliciestype-complextype), DigestedCodePackage element|
+|name|ConfigPackagePolicies|
+|minOccurs|0|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigPackagePolicies" type="ConfigPackagePoliciesType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Config Packages to be mounted inside the container.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       
 
 ```
 
 <a id="ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType"></a>
 ## ConsoleRedirection element
+Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup script to an output file in the application folder called "log" on the cluster node where the application is deployed and run.
+
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
@@ -928,9 +1003,15 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConsoleRedirection" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConsoleRedirection" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup script to an output file in the application folder called "log" on the cluster node where the application is deployed and run.</xs:documentation>
+        </xs:annotation>
         <xs:complexType>
           <xs:attribute name="FileRetentionCount" default="2">
+            <xs:annotation>
+              <xs:documentation>Sets the number of console redirection output files to retain.  Must be a positive integer, the default value is "2".</xs:documentation>
+            </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:int">
                 <xs:minInclusive value="1"/>
@@ -938,6 +1019,9 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
             </xs:simpleType>
           </xs:attribute>
           <xs:attribute name="FileMaxSizeInKb" default="20480">
+            <xs:annotation>
+              <xs:documentation>Set the maximum size of a console redirection output file.  Must be a positive integer greater than 128KB, the default value is "20480".</xs:documentation>
+            </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:int">
                 <xs:minInclusive value="128"/>
@@ -952,12 +1036,14 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 ### Attribute details
 
 #### FileRetentionCount
+Sets the number of console redirection output files to retain.  Must be a positive integer, the default value is "2".
 |Attribute|Value|
 |---|---|
 |name|FileRetentionCount|
 |default|2|
 
 #### FileMaxSizeInKb
+Set the maximum size of a console redirection output file.  Must be a positive integer greater than 128KB, the default value is "20480".
 |Attribute|Value|
 |---|---|
 |name|FileMaxSizeInKb|
@@ -966,7 +1052,7 @@ Declares a folder, named by the Name attribute, that contains a Settings.xml fil
 
 <a id="ContainerEntryPointElementxs:stringComplexTypeDefinedInDebugParametersTypecomplexType"></a>
 ## ContainerEntryPoint element
-Overidden entrypoint for containers so debugger can be launched.
+Overridden entrypoint for containers so debugger can be launched.
 
 |Attribute|Value|
 |---|---|
@@ -979,9 +1065,9 @@ Overidden entrypoint for containers so debugger can be launched.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Overidden entrypoint for containers so debugger can be launched.</xs:documentation>
+          <xs:documentation>Overridden entrypoint for containers so debugger can be launched.</xs:documentation>
         </xs:annotation>
       </xs:element>
       
@@ -1003,12 +1089,12 @@ EnvironmentBlock for containers.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerEnvironmentBlock" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerEnvironmentBlock" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>EnvironmentBlock for containers.</xs:documentation>
         </xs:annotation>
       </xs:element>
-    
+      
 
 ```
 
@@ -1023,7 +1109,7 @@ EnvironmentBlock for containers.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerHost" type="ContainerHostEntryPointType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerHost" type="ContainerHostEntryPointType"/>
       
 
 ```
@@ -1042,9 +1128,33 @@ Specifies policies for activating container hosts.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerHostPolicies" type="ContainerHostPoliciesType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerHostPolicies" type="ContainerHostPoliciesType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specifies policies for activating container hosts.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+
+```
+
+<a id="ContainerLabelElementxs:stringComplexTypeDefinedInDebugParametersTypecomplexType"></a>
+## ContainerLabel element
+Labels for containers in form key=value.
+
+|Attribute|Value|
+|---|---|
+|type|xs:string|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [DebugParametersType complexType](service-fabric-service-model-schema-complex-types.md#debugparameterstype-complextype)|
+|name|ContainerLabel|
+|minOccurs|0|
+|maxOccurs|unbounded|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerLabel" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Labels for containers in form key=value.</xs:documentation>
         </xs:annotation>
       </xs:element>
     
@@ -1066,12 +1176,36 @@ Volumes to be mounted inside container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerMountedVolume" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerMountedVolume" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Volumes to be mounted inside container.</xs:documentation>
         </xs:annotation>
       </xs:element>
       
+
+```
+
+<a id="ContainerNetworkPolicyElementContainerNetworkPolicyTypeComplexTypeDefinedInNetworkPoliciesTypecomplexType"></a>
+## ContainerNetworkPolicy element
+Describes container network policies for the service package.
+
+|Attribute|Value|
+|---|---|
+|type|[ContainerNetworkPolicyType](service-fabric-service-model-schema-complex-types.md#containernetworkpolicytype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [NetworkPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#networkpoliciestype-complextype)|
+|name|ContainerNetworkPolicy|
+|minOccurs|0|
+|maxOccurs|unbounded|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerNetworkPolicy" type="ContainerNetworkPolicyType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Describes container network policies for the service package.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    
 
 ```
 
@@ -1089,7 +1223,7 @@ Specifies crash dump collection. Crash dumps are collected for executables that 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CrashDumpSource" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CrashDumpSource" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specifies crash dump collection. Crash dumps are collected for executables that host the code packages of all services belonging to the application.</xs:documentation>
         </xs:annotation>
@@ -1156,14 +1290,14 @@ Destinations to which the crash dumps need to be transferred.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CurrentInstallation" type="WindowsFabricDeploymentInformation" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="CurrentInstallation" type="WindowsFabricDeploymentInformation" minOccurs="0"/>
       
 
 ```
 
 <a id="DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement"></a>
 ## DataPackage element
-Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
+Declares a folder, named by the Name attribute, under PackageRoot which contains static data files to be consumed by the process at runtime. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
 |Attribute|Value|
 |---|---|
@@ -1176,7 +1310,7 @@ Declares a folder, named by the Name attribute, which contains static data files
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataPackage" type="DataPackageType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataPackage" type="DataPackageType" minOccurs="0" maxOccurs="unbounded"/>
       
 
 ```
@@ -1196,7 +1330,7 @@ Specifies information on debugger to attach when activating codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DebugParameters" type="DebugParametersType" minOccurs="0" maxOccurs="1"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DebugParameters" type="DebugParametersType" minOccurs="0" maxOccurs="1"/>
             
 
 ```
@@ -1213,7 +1347,7 @@ Specifies information on debugger to attach when activating codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -1232,7 +1366,7 @@ Specify a default user account for all service code packages that don't have a s
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultRunAsPolicy" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultRunAsPolicy" minOccurs="0">
                                 <xs:annotation>
                                         <xs:documentation>Specify a default user account for all service code packages that don't have a specific RunAsPolicy defined in the ServiceManifestImport section.</xs:documentation>
                                 </xs:annotation>
@@ -1272,7 +1406,7 @@ Specifies the default service type health policy, which will replace the default
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultServiceTypeHealthPolicy" type="ServiceTypeHealthPolicyType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultServiceTypeHealthPolicy" type="ServiceTypeHealthPolicyType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specifies the default service type health policy, which will replace the default health policy for all service types in the application.</xs:documentation>
         </xs:annotation>
@@ -1295,7 +1429,7 @@ Declares service instances that are automatically created whenever an applicatio
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultServices" type="DefaultServicesType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DefaultServices" type="DefaultServicesType" minOccurs="0">
 
       </xs:element>
       
@@ -1316,7 +1450,7 @@ Text describing this application.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Description" type="xs:string" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Description" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Text describing this application.</xs:documentation>
         </xs:annotation>
@@ -1339,7 +1473,7 @@ Destinations to which the crash dumps need to be transferred.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Destinations" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Destinations" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Destinations to which the crash dumps need to be transferred.</xs:documentation>
               </xs:annotation>
@@ -1394,7 +1528,7 @@ Destinations to which the crash dumps need to be transferred.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Destinations" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Destinations" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Destinations to which the crash dumps need to be transferred.</xs:documentation>
               </xs:annotation>
@@ -1449,7 +1583,7 @@ Destinations to which the folder contents need to be transferred.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Destinations" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Destinations" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Destinations to which the folder contents need to be transferred.</xs:documentation>
               </xs:annotation>
@@ -1504,7 +1638,7 @@ Describes the diagnostic settings for applications.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Diagnostics" type="DiagnosticsType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Diagnostics" type="DiagnosticsType" minOccurs="0"/>
       
 
 ```
@@ -1523,7 +1657,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Diagnostics" type="ServiceDiagnosticsType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Diagnostics" type="ServiceDiagnosticsType" minOccurs="0"/>
     
 
 ```
@@ -1539,7 +1673,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedCertificates">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedCertificates">
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded">
             <xs:element name="SecretsCertificate" type="FabricCertificateType" minOccurs="0"/>
@@ -1580,7 +1714,7 @@ Describes the diagnostic settings for the components of this service manifest.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedCertificates" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedCertificates" minOccurs="0" maxOccurs="1">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="EndpointCertificate" type="EndpointCertificateType" minOccurs="0" maxOccurs="unbounded"/>
@@ -1605,14 +1739,14 @@ Describes the diagnostic settings for the components of this service manifest.
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
-|content|5 element(s), 2 attribute(s)|
+|content|6 element(s), 2 attribute(s)|
 |defined|locally in [ServicePackageType complexType](service-fabric-service-model-schema-complex-types.md#servicepackagetype-complextype)|
 |name|DigestedCodePackage|
 |maxOccurs|unbounded|
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedCodePackage" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedCodePackage" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="CodePackage" type="CodePackageType"/>
@@ -1626,6 +1760,11 @@ Describes the diagnostic settings for the components of this service manifest.
             <xs:element name="ResourceGovernancePolicy" type="ResourceGovernancePolicyType" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Specifies resource limits for codepackage.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ConfigPackagePolicies" type="ConfigPackagePoliciesType" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Specifies config policies for mounts.</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -1691,6 +1830,14 @@ Specifies resource limits for codepackage.
 |type|[ResourceGovernancePolicyType](service-fabric-service-model-schema-complex-types.md#resourcegovernancepolicytype-complextype)|
 |minOccurs|0|
 
+#### ConfigPackagePolicies
+Specifies config policies for mounts.
+|Attribute|Value|
+|---|---|
+|name|ConfigPackagePolicies|
+|type|[ConfigPackagePoliciesType](service-fabric-service-model-schema-complex-types.md#configpackagepoliciestype-complextype)|
+|minOccurs|0|
+
 <a id="DigestedConfigPackageElementanonymouscomplexTypeComplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## DigestedConfigPackage element
 |Attribute|Value|
@@ -1704,7 +1851,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedConfigPackage" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedConfigPackage" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="ConfigPackage" type="ConfigPackageType"/>
@@ -1769,7 +1916,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedDataPackage" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedDataPackage" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="DataPackage" type="DataPackageType"/>
@@ -1826,7 +1973,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedEndpoint" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedEndpoint" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                       <xs:sequence>
                         <xs:element name="Endpoint" type="EndpointType"/>
@@ -1881,7 +2028,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedEndpoints" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedEndpoints" minOccurs="0">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="DigestedEndpoint" minOccurs="0" maxOccurs="unbounded">
@@ -1920,7 +2067,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedEnvironment" type="EnvironmentType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedEnvironment" type="EnvironmentType"/>
       
 
 ```
@@ -1937,7 +2084,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedResources" minOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedResources" minOccurs="1">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="DigestedEndpoints" minOccurs="0">
@@ -1996,7 +2143,7 @@ Specifies resource limits for codepackage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedServiceTypes">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DigestedServiceTypes">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="ServiceTypes" type="ServiceTypesType"/>
@@ -2028,7 +2175,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DllHost" type="DllHostEntryPointType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DllHost" type="DllHostEntryPointType"/>
         
 
 ```
@@ -2046,7 +2193,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DomainGroup" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DomainGroup" minOccurs="0" maxOccurs="unbounded">
                                                     <xs:complexType>
                                                         <xs:attribute name="Name" type="xs:string" use="required"/>
                                                     </xs:complexType>
@@ -2077,7 +2224,7 @@ Unsupported, do not use. DLL hosting support (assembly entry point) is provided 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DomainUser" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DomainUser" minOccurs="0" maxOccurs="unbounded">
                                                     <xs:complexType>
                                                         <xs:attribute name="Name" type="xs:string" use="required"/>
                                                     </xs:complexType>
@@ -2110,7 +2257,7 @@ Driver options to be passed to driver.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DriverOption" type="DriverOptionType" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DriverOption" type="DriverOptionType" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
                   <xs:documentation>Driver options to be passed to driver.</xs:documentation>
               </xs:annotation>
@@ -2133,7 +2280,7 @@ Describes the ETW settings for the components of this service manifest.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ETW" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ETW" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Describes the ETW settings for the components of this service manifest.</xs:documentation>
         </xs:annotation>
@@ -2205,7 +2352,7 @@ Specifies ETW trace collection. ETW traces are collected for the providers that 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ETWSource" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ETWSource" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specifies ETW trace collection. ETW traces are collected for the providers that are registered by all services belonging to the application.</xs:documentation>
         </xs:annotation>
@@ -2262,6 +2409,8 @@ Destinations to which the crash dumps need to be transferred.
 
 <a id="EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement"></a>
 ## Endpoint element (type EndpointOverrideType) 
+The endpoint, declared in the service manifest, to override.
+
 |Attribute|Value|
 |---|---|
 |type|[EndpointOverrideType](service-fabric-service-model-schema-complex-types.md#endpointoverridetype-complextype)|
@@ -2272,7 +2421,11 @@ Destinations to which the crash dumps need to be transferred.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoint" type="EndpointOverrideType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoint" type="EndpointOverrideType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>The endpoint, declared in the service manifest, to override.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           
 
 ```
@@ -2291,8 +2444,32 @@ Defines an endpoint for the service. Specific ports can be requested.  If a port
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoint" type="EndpointType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoint" type="EndpointType" maxOccurs="unbounded"/>
           
+
+```
+
+<a id="EndpointBindingElementContainerNetworkPolicyEndpointBindingTypeComplexTypeDefinedInContainerNetworkPolicyTypecomplexType"></a>
+## EndpointBinding element
+Specifies an endpoint that should be exposed on the container network.
+
+|Attribute|Value|
+|---|---|
+|type|[ContainerNetworkPolicyEndpointBindingType](service-fabric-service-model-schema-complex-types.md#containernetworkpolicyendpointbindingtype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ContainerNetworkPolicyType complexType](service-fabric-service-model-schema-complex-types.md#containernetworkpolicytype-complextype)|
+|name|EndpointBinding|
+|minOccurs|0|
+|maxOccurs|unbounded|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointBinding" type="ContainerNetworkPolicyEndpointBindingType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Specifies an endpoint that should be exposed on the container network.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    
 
 ```
 
@@ -2310,7 +2487,7 @@ Specifies a certificate that should be returned to a client for an HTTPS endpoin
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointBindingPolicy" type="EndpointBindingPolicyType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointBindingPolicy" type="EndpointBindingPolicyType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specifies a certificate that should be returned to a client for an HTTPS endpoint.</xs:documentation>
         </xs:annotation>
@@ -2333,7 +2510,7 @@ Specifies information about an X509 certificate used to secure an endpoint.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointCertificate" type="EndpointCertificateType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EndpointCertificate" type="EndpointCertificateType" minOccurs="0"/>
           
 
 ```
@@ -2352,7 +2529,7 @@ Describe the endpoints associated with this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoints" type="FabricEndpointsType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoints" type="FabricEndpointsType" minOccurs="0">
                                                                                 <xs:annotation>
                                                                                         <xs:documentation>Describe the endpoints associated with this node type</xs:documentation>
                                                                                 </xs:annotation>
@@ -2363,7 +2540,7 @@ Describe the endpoints associated with this node type
 
 <a id="EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourceOverridesTypecomplexType"></a>
 ## Endpoints element (defined in ResourceOverridesType) 
-Defines endpoints for the service.
+The service endpoint(s) to override.
 
 |Attribute|Value|
 |---|---|
@@ -2375,13 +2552,17 @@ Defines endpoints for the service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoints" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoints" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Defines endpoints for the service.</xs:documentation>
+          <xs:documentation>The service endpoint(s) to override.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="Endpoint" type="EndpointOverrideType" maxOccurs="unbounded"/>
+            <xs:element name="Endpoint" type="EndpointOverrideType" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>The endpoint, declared in the service manifest, to override.</xs:documentation>
+              </xs:annotation>
+            </xs:element>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -2391,6 +2572,7 @@ Defines endpoints for the service.
 ### Content element details
 
 #### Endpoint
+The endpoint, declared in the service manifest, to override.
 |Attribute|Value|
 |---|---|
 |name|Endpoint|
@@ -2411,7 +2593,7 @@ Defines endpoints for the service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoints" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Endpoints" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Defines endpoints for the service.</xs:documentation>
         </xs:annotation>
@@ -2447,7 +2629,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EntryPoint" type="EntryPointDescriptionType" minOccurs="1"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EntryPoint" type="EntryPointDescriptionType" minOccurs="1"/>
       
 
 ```
@@ -2465,7 +2647,7 @@ The executable specified by EntryPoint is typically the long-running service hos
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EntryPoint" type="xs:string" minOccurs="0" maxOccurs="1"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EntryPoint" type="xs:string" minOccurs="0" maxOccurs="1"/>
       
 
 ```
@@ -2483,27 +2665,51 @@ The executable specified by EntryPoint is typically the long-running service hos
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentOverrides" type="EnvironmentOverridesType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentOverrides" type="EnvironmentOverridesType" minOccurs="0" maxOccurs="unbounded"/>
             
 
 ```
 
-<a id="EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType"></a>
-## EnvironmentVariable element
+<a id="EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType"></a>
+## EnvironmentVariable element (type EnvironmentVariableOverrideType) 
 Environment variable.
 
 |Attribute|Value|
 |---|---|
-|type|[EnvironmentVariableType](service-fabric-service-model-schema-complex-types.md#environmentvariabletype-complextype)|
+|type|[EnvironmentVariableOverrideType](service-fabric-service-model-schema-complex-types.md#environmentvariableoverridetype-complextype)|
 |content|0 element(s), 0 attribute(s)|
-|defined|locally in [EnvironmentOverridesType complexType](service-fabric-service-model-schema-complex-types.md#environmentoverridestype-complextype), [EnvironmentVariablesType complexType](service-fabric-service-model-schema-complex-types.md#environmentvariablestype-complextype)|
+|defined|locally in [EnvironmentOverridesType complexType](service-fabric-service-model-schema-complex-types.md#environmentoverridestype-complextype)|
 |name|EnvironmentVariable|
 |minOccurs|0|
 |maxOccurs|unbounded|
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentVariable" type="EnvironmentVariableType" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentVariable" type="EnvironmentVariableOverrideType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Environment variable.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    
+
+```
+
+<a id="EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentVariablesTypecomplexType"></a>
+## EnvironmentVariable element (type EnvironmentVariableType) 
+Environment variable.
+
+|Attribute|Value|
+|---|---|
+|type|[EnvironmentVariableType](service-fabric-service-model-schema-complex-types.md#environmentvariabletype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [EnvironmentVariablesType complexType](service-fabric-service-model-schema-complex-types.md#environmentvariablestype-complextype)|
+|name|EnvironmentVariable|
+|minOccurs|0|
+|maxOccurs|unbounded|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentVariable" type="EnvironmentVariableType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Environment variable.</xs:documentation>
         </xs:annotation>
@@ -2527,8 +2733,7 @@ Pass environment variables to your container or exe.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentVariables" type="EnvironmentVariablesType" minOccurs="0" maxOccurs="1"/>
-
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EnvironmentVariables" type="EnvironmentVariablesType" minOccurs="0" maxOccurs="1"/>
     
 
 ```
@@ -2545,7 +2750,7 @@ Pass environment variables to your container or exe.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EphemeralEndpoints" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EphemeralEndpoints" minOccurs="0">
         <xs:complexType>
           <xs:attribute name="StartPort" type="xs:int" use="required"/>
           <xs:attribute name="EndPort" type="xs:int" use="required"/>
@@ -2571,6 +2776,23 @@ Pass environment variables to your container or exe.
 |use|required|
 
 
+<a id="EventStoreServiceReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
+## EventStoreServiceReplicatorEndpoint element
+|Attribute|Value|
+|---|---|
+|type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [FabricEndpointsType complexType](service-fabric-service-model-schema-complex-types.md#fabricendpointstype-complextype)|
+|name|EventStoreServiceReplicatorEndpoint|
+|minOccurs|0|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EventStoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+      
+
+```
+
 <a id="EvictionPolicyElementanonymouscomplexTypeComplexType"></a>
 ## EvictionPolicy element
 Eviction Policy extension for the Service Type.
@@ -2584,7 +2806,7 @@ Eviction Policy extension for the Service Type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EvictionPolicy">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="EvictionPolicy">
     <xs:annotation>
       <xs:documentation>Eviction Policy extension for the Service Type.</xs:documentation>
     </xs:annotation>
@@ -2635,7 +2857,7 @@ Eviction Policy extension for the Service Type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ExeHost" type="ExeHostEntryPointType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ExeHost" type="ExeHostEntryPointType"/>
           
 
 ```
@@ -2651,7 +2873,7 @@ Eviction Policy extension for the Service Type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ExeHost">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ExeHost">
           <xs:complexType>
             <xs:complexContent>
               <xs:extension base="ExeHostEntryPointType">
@@ -2690,7 +2912,7 @@ Eviction Policy extension for the Service Type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Extension" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Extension" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
             <xs:any namespace="##other" processContents="lax"/>
@@ -2737,7 +2959,7 @@ Describes extensions that can be applied to other elements.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Extensions" type="ExtensionsType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Extensions" type="ExtensionsType"/>
   
 
 ```
@@ -2756,7 +2978,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FabricSettings" type="SettingsOverridesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FabricSettings" type="SettingsOverridesType" minOccurs="0"/>
                         
 
 ```
@@ -2773,7 +2995,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FailoverManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FailoverManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -2790,14 +3012,14 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FaultAnalysisServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FaultAnalysisServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
 
 <a id="FileStoreElementFileStoreETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## FileStore element (type FileStoreETWType) 
-Describes a file store destination for ETW events. Works only in on-premises environment.
+Describes a file store destination for ETW events. Works only in on-premise environment.
 
 |Attribute|Value|
 |---|---|
@@ -2810,7 +3032,7 @@ Describes a file store destination for ETW events. Works only in on-premises env
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStore" type="FileStoreETWType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStore" type="FileStoreETWType" minOccurs="0" maxOccurs="unbounded"/>
                   
 
 ```
@@ -2830,7 +3052,7 @@ Describes a file store destination for diagnostics data. Works only in a standal
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStore" type="FileStoreType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStore" type="FileStoreType" minOccurs="0" maxOccurs="unbounded"/>
                   
 
 ```
@@ -2850,7 +3072,7 @@ Specifies the collection of the contents of a particular folder on the local nod
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FolderSource" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FolderSource" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Specifies the collection of the contents of a particular folder on the local node.</xs:documentation>
         </xs:annotation>
@@ -2920,8 +3142,25 @@ Destinations to which the folder contents need to be transferred.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FromSource" type="xs:string" minOccurs="0" maxOccurs="1"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FromSource" type="xs:string" minOccurs="0" maxOccurs="1"/>
     
+
+```
+
+<a id="GatewayResourceManagerReplicatorEndpointElementInternalEndpointTypeComplexTypeDefinedInFabricEndpointsTypecomplexType"></a>
+## GatewayResourceManagerReplicatorEndpoint element
+|Attribute|Value|
+|---|---|
+|type|[InternalEndpointType](service-fabric-service-model-schema-complex-types.md#internalendpointtype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [FabricEndpointsType complexType](service-fabric-service-model-schema-complex-types.md#fabricendpointstype-complextype)|
+|name|GatewayResourceManagerReplicatorEndpoint|
+|minOccurs|0|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="GatewayResourceManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+      
 
 ```
 
@@ -2939,7 +3178,7 @@ Declares a group as a security principal, which can be referenced in policies.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Group" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Group" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>Declares a group as a security principal, which can be referenced in policies.</xs:documentation>
                             </xs:annotation>
@@ -3021,7 +3260,7 @@ The group to add the user to.  The group must be defined in the Groups section.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Group" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Group" minOccurs="0" maxOccurs="unbounded">
                                                                                                         <xs:annotation>
                                                                                                                 <xs:documentation>The group to add the user to.  The group must be defined in the Groups section.</xs:documentation>
                                                                                                         </xs:annotation>
@@ -3049,7 +3288,7 @@ The name of the group.
 
 <a id="GroupsElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType"></a>
 ## Groups element
-Declares a set of groups as security principals, which can be referenced in policies.
+Declares a set of groups as security principals, which can be referenced in policies. Groups are useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
 |Attribute|Value|
 |---|---|
@@ -3061,9 +3300,9 @@ Declares a set of groups as security principals, which can be referenced in poli
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Groups" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Groups" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Declares a set of groups as security principals, which can be referenced in policies.</xs:documentation>
+                    <xs:documentation>Declares a set of groups as security principals, which can be referenced in policies. Groups are useful if there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
@@ -3137,7 +3376,7 @@ Specifies docker HEALTHCHECK integration options for the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HealthConfig" type="ContainerHealthConfigType" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HealthConfig" type="ContainerHealthConfigType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Specifies docker HEALTHCHECK integration options for the container.</xs:documentation>
         </xs:annotation>
@@ -3160,7 +3399,7 @@ Describes the policy for evaluating health events reported on various applicatio
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HealthPolicy" type="ApplicationHealthPolicyType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HealthPolicy" type="ApplicationHealthPolicyType" minOccurs="0"/>
                         
 
 ```
@@ -3177,7 +3416,7 @@ Describes the policy for evaluating health events reported on various applicatio
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HttpApplicationGatewayEndpoint" type="InputEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HttpApplicationGatewayEndpoint" type="InputEndpointType" minOccurs="0"/>
       
 
 ```
@@ -3194,7 +3433,7 @@ Describes the policy for evaluating health events reported on various applicatio
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HttpGatewayEndpoint" type="InputEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="HttpGatewayEndpoint" type="InputEndpointType" minOccurs="0"/>
       
 
 ```
@@ -3215,7 +3454,7 @@ Container image corresponding to OS build version number to be launched. If the 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Image" type="ImageType" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Image" type="ImageType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Container image corresponding to OS build version number to be launched. If the Os attribute is not specified, the container image
             is assumed to work across all versions of the OS and overrides the image specified in the service manifest.</xs:documentation>
@@ -3238,7 +3477,7 @@ The repo and image on https://hub.docker.com or Azure Container Registry.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageName" type="xs:string">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageName" type="xs:string">
         <xs:annotation>
           <xs:documentation>The repo and image on https://hub.docker.com or Azure Container Registry.</xs:documentation>
         </xs:annotation>
@@ -3249,10 +3488,7 @@ The repo and image on https://hub.docker.com or Azure Container Registry.
 
 <a id="ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## ImageOverrides element
-Windows Server containers may not be compatible across different versions of the OS.  You can specify multiple OS images per container and tag
-        them with the build versions of the OS. Get the build version of the OS by running "winver" at a Windows command prompt. If the underlying OS
-        is build version 16299 (Windows Server version 1709), Service Fabric picks the container image tagged with Os="16299". An untagged container image
-        is assumed to work across all versions of the OS and overrides the image specified in the service manifest.
+Image names corresponding to OS build number to be launched.
 
 |Attribute|Value|
 |---|---|
@@ -3265,8 +3501,12 @@ Windows Server containers may not be compatible across different versions of the
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageOverrides" type="ImageOverridesType" minOccurs="0" maxOccurs="1"/>
-    
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageOverrides" type="ImageOverridesType" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>Image names corresponding to OS build number to be launched.</xs:documentation>
+      </xs:annotation>
+      </xs:element>
+      
 
 ```
 
@@ -3282,7 +3522,7 @@ Windows Server containers may not be compatible across different versions of the
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageStoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ImageStoreServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -3298,7 +3538,7 @@ Windows Server containers may not be compatible across different versions of the
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Infrastructure">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Infrastructure">
                                 <xs:complexType>
                                         <xs:choice>
                                                 <xs:element name="WindowsServer">
@@ -3423,7 +3663,7 @@ Describes the infrastructure on which fabric needs to run.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InfrastructureInformation" type="InfrastructureInformationType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InfrastructureInformation" type="InfrastructureInformationType">
                 <xs:annotation>
                         <xs:documentation>Describes the infrastructure on which fabric needs to run.</xs:documentation>
                 </xs:annotation>
@@ -3447,7 +3687,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InstanceCountScalingMechanism" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InstanceCountScalingMechanism" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a mechanism for increasing the instance count of a partition. This is for stateless services only.</xs:documentation>
                 </xs:annotation>
@@ -3464,7 +3704,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -3491,7 +3731,7 @@ The maximum number of instances..
 |use|required|
 
 #### ScaleIncrement
-The number of instances by wich to perform the upshift/downshift.
+The number of instances by which to perform the upshift/downshift.
 |Attribute|Value|
 |---|---|
 |name|ScaleIncrement|
@@ -3513,12 +3753,36 @@ Describe the KtlLogger information associated with this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="KtlLoggerSettings" type="FabricKtlLoggerSettingsType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="KtlLoggerSettings" type="FabricKtlLoggerSettingsType" minOccurs="0">
                                                                             <xs:annotation>
                                                                               <xs:documentation>Describe the KtlLogger information associated with this node type</xs:documentation>
                                                                             </xs:annotation>
                                                                           </xs:element>
                                                                           
+
+```
+
+<a id="LabelElementContainerLabelTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
+## Label element
+Specifies the labels for the container.
+
+|Attribute|Value|
+|---|---|
+|type|[ContainerLabelType](service-fabric-service-model-schema-complex-types.md#containerlabeltype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ContainerHostPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#containerhostpoliciestype-complextype)|
+|name|Label|
+|minOccurs|0|
+|maxOccurs|unbounded|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Label" type="ContainerLabelType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+            <xs:documentation>Specifies the labels for the container.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    
 
 ```
 
@@ -3533,7 +3797,7 @@ Describe the KtlLogger information associated with this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LeaseDriverEndpoint" type="InternalEndpointType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LeaseDriverEndpoint" type="InternalEndpointType"/>
       
 
 ```
@@ -3549,7 +3813,7 @@ Describe the KtlLogger information associated with this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Linux">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Linux">
               <xs:complexType>
                 <xs:complexContent>
                   <xs:extension base="LinuxInfrastructureType">
@@ -3576,7 +3840,7 @@ A resource that this service should be balanced on, such as memory or CPU usage.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetric" type="LoadMetricType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetric" type="LoadMetricType" maxOccurs="unbounded"/>
                     
 
 ```
@@ -3595,7 +3859,7 @@ Load metrics reported by this service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Load metrics reported by this service.</xs:documentation>
                 </xs:annotation>
@@ -3631,7 +3895,7 @@ Load metrics reported by this service, used for resource balancing services.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
           <xs:annotation>
             <xs:documentation>Load metrics reported by this service, used for resource balancing services.</xs:documentation>
           </xs:annotation>
@@ -3667,7 +3931,7 @@ Load metrics reported by this service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Load metrics reported by this service.</xs:documentation>
         </xs:annotation>
@@ -3703,7 +3967,7 @@ Load metrics reported by this service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Load metrics reported by this service.</xs:documentation>
         </xs:annotation>
@@ -3739,7 +4003,7 @@ Load metrics reported by this service, used for resource balancing services.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LoadMetrics" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Load metrics reported by this service, used for resource balancing services.</xs:documentation>
                 </xs:annotation>
@@ -3776,7 +4040,7 @@ Describes a store destination within the node for ETW events.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LocalStore" type="LocalStoreETWType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LocalStore" type="LocalStoreETWType" minOccurs="0" maxOccurs="unbounded"/>
                   
 
 ```
@@ -3796,7 +4060,7 @@ Describes a store destination within the node for diagnostic data.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LocalStore" type="LocalStoreType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LocalStore" type="LocalStoreType" minOccurs="0" maxOccurs="unbounded"/>
                   
 
 ```
@@ -3815,7 +4079,7 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogCollectionPolicies" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogCollectionPolicies" minOccurs="0">
                                 <xs:annotation>
                                         <xs:documentation>Specifies whether log collection is enabled. Works only in an Azure cluster environment</xs:documentation>
                                 </xs:annotation>
@@ -3850,7 +4114,7 @@ Specifies whether log collection is enabled. Works only in an Azure cluster envi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogCollectionPolicy">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogCollectionPolicy">
                                                         <xs:complexType>
                                                                 <xs:attribute name="Path" type="xs:string" use="optional"/>
                                                         </xs:complexType>
@@ -3883,7 +4147,7 @@ Specifies the logging driver for a container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogConfig" type="ContainerLoggingDriverType" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogConfig" type="ContainerLoggingDriverType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Specifies the logging driver for a container.</xs:documentation>
         </xs:annotation>
@@ -3906,7 +4170,7 @@ Describe the LogicalDirectories settings associated with this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogicalDirectories" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogicalDirectories" minOccurs="0">
                                                                             <xs:annotation>
                                                                               <xs:documentation>Describe the LogicalDirectories settings associated with this node type</xs:documentation>
                                                                             </xs:annotation>
@@ -3942,7 +4206,7 @@ Describes a LogicalDirectoryType.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogicalDirectory" type="LogicalDirectoryType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LogicalDirectory" type="LogicalDirectoryType" maxOccurs="unbounded"/>
                                                                               
 
 ```
@@ -3960,14 +4224,14 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManagedAssembly" type="ManagedAssemblyType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManagedAssembly" type="ManagedAssemblyType"/>
       
 
 ```
 
 <a id="ManifestDataPackageElementDataPackageTypeComplexTypeDefinedInManifestDataPackageselement"></a>
 ## ManifestDataPackage element
-Declares a folder, named by the Name attribute, which contains static data files. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
+Declares a folder, named by the Name attribute, under PackageRoot which contains static data files to be consumed by the process at runtime. Service Fabric will recycle all EXEs and DLLHOSTs specified in the host and support packages when any of the data packages listed in the service manifest are upgraded.
 
 |Attribute|Value|
 |---|---|
@@ -3980,7 +4244,7 @@ Declares a folder, named by the Name attribute, which contains static data files
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestDataPackage" type="DataPackageType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestDataPackage" type="DataPackageType" minOccurs="0" maxOccurs="unbounded"/>
                 
 
 ```
@@ -3999,7 +4263,7 @@ Lists the data packages containing ETW manifests for the components of this serv
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestDataPackages" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestDataPackages" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Lists the data packages containing ETW manifests for the components of this service manifest. The data package containing ETW manifests should not contain any other files. </xs:documentation>
               </xs:annotation>
@@ -4035,7 +4299,7 @@ Lists the data packages containing ETW manifests for the components of this serv
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Member" type="ServiceGroupMemberType" minOccurs="1" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Member" type="ServiceGroupMemberType" minOccurs="1" maxOccurs="unbounded"/>
                             
 
 ```
@@ -4054,7 +4318,7 @@ Users can be added to any existing membership group, so it can inherit all the p
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="MemberOf" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="MemberOf" minOccurs="0">
                                         <xs:annotation>
                                             <xs:documentation>Users can be added to any existing membership group, so it can inherit all the properties and security settings of that membership group. The membership group can be used to secure external resources that need to be accessed by different services or the same service (on a different machine).</xs:documentation>
                                                                                 </xs:annotation>
@@ -4123,7 +4387,7 @@ Member services of this service group
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Members" minOccurs="1" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Members" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation>Member services of this service group</xs:documentation>
                         </xs:annotation>
@@ -4161,7 +4425,7 @@ Member services of this service group
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Members" minOccurs="1" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Members" minOccurs="1" maxOccurs="1">
                         <xs:annotation>
                             <xs:documentation>Member services of this service group</xs:documentation>
                         </xs:annotation>
@@ -4196,7 +4460,7 @@ Member services of this service group
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Membership" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Membership" minOccurs="0">
                                         <xs:complexType>
                                             <xs:choice maxOccurs="unbounded">
                                                 <xs:element name="DomainGroup" minOccurs="0" maxOccurs="unbounded">
@@ -4255,7 +4519,7 @@ Member services of this service group
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NTLMAuthenticationPolicy" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NTLMAuthenticationPolicy" minOccurs="0">
                                         <xs:complexType>
                                             <xs:attribute name="IsEnabled" type="xs:boolean" use="optional" default="true"/>
                                         </xs:complexType>
@@ -4286,7 +4550,7 @@ Member services of this service group
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NTLMAuthenticationPolicy" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NTLMAuthenticationPolicy" minOccurs="0">
                                         <xs:complexType>
                                             <xs:attribute name="IsEnabled" type="xs:boolean" use="optional" default="true"/>
                                             <xs:attribute name="PasswordSecret" type="xs:string" use="required"/>
@@ -4368,7 +4632,7 @@ Describes a named partitioning scheme based on names for each partition.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamedPartition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamedPartition">
                 <xs:annotation>
                     <xs:documentation>Describes a named partitioning scheme based on names for each partition.</xs:documentation>
                 </xs:annotation>
@@ -4417,7 +4681,7 @@ Describes a partition by name.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamingReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamingReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -4437,12 +4701,36 @@ Specifies the network configuration for a container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NetworkConfig" type="ContainerNetworkConfigType" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NetworkConfig" type="ContainerNetworkConfigType" minOccurs="0" maxOccurs="1">
             <xs:annotation>
                 <xs:documentation>Specifies the network configuration for a container.</xs:documentation>
             </xs:annotation>
         </xs:element>
         
+
+```
+
+<a id="NetworkPoliciesElementNetworkPoliciesTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
+## NetworkPolicies element
+Specifies network policies including container network policies.
+
+|Attribute|Value|
+|---|---|
+|type|[NetworkPoliciesType](service-fabric-service-model-schema-complex-types.md#networkpoliciestype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ServiceManifestImportPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#servicemanifestimportpoliciestype-complextype), [ServicePackageType complexType](service-fabric-service-model-schema-complex-types.md#servicepackagetype-complextype)|
+|name|NetworkPolicies|
+|minOccurs|0|
+|maxOccurs|1|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NetworkPolicies" type="NetworkPoliciesType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Specifies network policies including container network policies.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    
 
 ```
 
@@ -4460,7 +4748,7 @@ Describes a Microsoft Azure Service Fabric Node.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Node" type="FabricNodeType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Node" type="FabricNodeType" maxOccurs="unbounded"/>
                                         
 
 ```
@@ -4479,7 +4767,7 @@ Describes a Infrastructure information needed.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Node" type="InfrastructureNodeType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Node" type="InfrastructureNodeType" maxOccurs="unbounded"/>
           
 
 ```
@@ -4495,7 +4783,7 @@ Describes a Infrastructure information needed.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeList">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeList">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="Node" type="InfrastructureNodeType" maxOccurs="unbounded"/>
@@ -4525,7 +4813,7 @@ Describes a Infrastructure information needed.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeList">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeList">
         <xs:complexType>
           <xs:sequence>
             <xs:element name="Node" type="FabricNodeType" maxOccurs="unbounded"/>
@@ -4555,7 +4843,7 @@ Describes a Infrastructure information needed.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeList">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeList">
                                 <xs:complexType>
                                         <xs:sequence>
                                                 <xs:element name="Node" type="FabricNodeType" maxOccurs="unbounded"/>
@@ -4588,7 +4876,7 @@ Describe a node type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeType" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeType" maxOccurs="unbounded">
                                                         <xs:annotation>
                                                                 <xs:documentation>Describe a node type.</xs:documentation>
                                                         </xs:annotation>
@@ -4736,7 +5024,7 @@ The SF system services resource governance policy for this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeTypes" minOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NodeTypes" minOccurs="1">
                                 <xs:complexType>
                                         <xs:sequence>
                                                 <xs:element name="NodeType" maxOccurs="unbounded">
@@ -4834,7 +5122,7 @@ Describe a node type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PaaS">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PaaS">
                                                         <xs:complexType>
                                                                 <xs:all>
                                                                         <xs:element name="Roles">
@@ -4871,7 +5159,7 @@ Describe a node type.
 
 <a id="PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType"></a>
 ## PackageSharingPolicy element
-Indicates if a code, config or data package should be shared.
+Indicates if a code, config or data package should be shared across service instances of the same service type.
 
 |Attribute|Value|
 |---|---|
@@ -4883,7 +5171,7 @@ Indicates if a code, config or data package should be shared.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PackageSharingPolicy" type="PackageSharingPolicyType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PackageSharingPolicy" type="PackageSharingPolicyType" minOccurs="0"/>
       
 
 ```
@@ -4901,7 +5189,7 @@ Indicates if a code, config or data package should be shared.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" type="ParameterType" minOccurs="1" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" type="ParameterType" minOccurs="1" maxOccurs="unbounded"/>
                 
 
 ```
@@ -4922,7 +5210,7 @@ An application parameter to be used in this manifest. The parameter value can be
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" block="" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" block="" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
                 <xs:documentation>An application parameter to be used in this manifest. The parameter value can be changed during application instantiation, or, if no value is supplied the default value is used.</xs:documentation>
               </xs:annotation>
@@ -4978,7 +5266,7 @@ Default value for the parameter, used if the parameter value is not provided dur
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:attributeGroup ref="NameValuePair"/>
               </xs:complexType>
@@ -4994,7 +5282,7 @@ The setting to override.
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
-|content|0 element(s), 1 attribute(s)|
+|content|0 element(s), 2 attribute(s)|
 |defined|locally in Section element|
 |name|Parameter|
 |minOccurs|0|
@@ -5002,7 +5290,7 @@ The setting to override.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" minOccurs="0" maxOccurs="unbounded">
               <xs:annotation>
                 <xs:documentation>The setting to override.</xs:documentation>
               </xs:annotation>
@@ -5010,9 +5298,20 @@ The setting to override.
                 <xs:attributeGroup ref="NameValuePair"/>
                 <xs:attribute name="IsEncrypted" type="xs:boolean" default="false">
                   <xs:annotation>
-                    <xs:documentation>If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.</xs:documentation>
+                    <xs:documentation>
+                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
+                    </xs:documentation>
                                     </xs:annotation>
                                 </xs:attribute>
+                <xs:attribute name="Type" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
+                      If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
                             </xs:complexType>
                         </xs:element>
                     
@@ -5021,12 +5320,26 @@ The setting to override.
 ### Attribute details
 
 #### IsEncrypted
-If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.
+
+                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
+                    
 |Attribute|Value|
 |---|---|
 |name|IsEncrypted|
 |type|xs:boolean|
 |default|false|
+
+#### Type
+
+                      This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
+                      If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+                    
+|Attribute|Value|
+|---|---|
+|name|Type|
+|type|xs:string|
+|use|optional|
 
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInSectionelement"></a>
@@ -5034,7 +5347,7 @@ If true, the value of this parameter is encrypted. The application developer is 
 |Attribute|Value|
 |---|---|
 |type|anonymous complexType|
-|content|0 element(s), 4 attribute(s)|
+|content|0 element(s), 5 attribute(s)|
 |defined|locally in Section element|
 |name|Parameter|
 |minOccurs|0|
@@ -5042,7 +5355,7 @@ If true, the value of this parameter is encrypted. The application developer is 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameter" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:attribute name="Name" type="xs:string" use="required"/>
                 <xs:attribute name="Value" type="xs:string" use="required"/>
@@ -5056,6 +5369,7 @@ If true, the value of this parameter is encrypted. The application developer is 
                     <xs:documentation>If true, the value of this parameter is encrypted.</xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="Type" type="xs:string" use="optional"/>
               </xs:complexType>
             </xs:element>
           
@@ -5093,6 +5407,13 @@ If true, the value of this parameter is encrypted.
 |type|xs:boolean|
 |default|false|
 
+#### Type
+|Attribute|Value|
+|---|---|
+|name|Type|
+|type|xs:string|
+|use|optional|
+
 
 <a id="ParametersElementParametersTypeComplexType"></a>
 ## Parameters element (type ParametersType) 
@@ -5107,7 +5428,7 @@ Additional settings specified as name-value pairs
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameters" type="ParametersType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameters" type="ParametersType">
     <xs:annotation>
       <xs:documentation>Additional settings specified as name-value pairs</xs:documentation>
     </xs:annotation>
@@ -5129,7 +5450,7 @@ List of parameters for the application as defined in application manifest and th
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameters">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameters">
         <xs:annotation>
           <xs:documentation>List of parameters for the application as defined in application manifest and their respective values.</xs:documentation>
         </xs:annotation>
@@ -5169,7 +5490,7 @@ Declares the parameters that are used in this application manifest. The value of
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameters" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Parameters" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Declares the parameters that are used in this application manifest. The value of these parameters can be supplied when the application is instantiated and can be used to override application or service configuration settings.</xs:documentation>
         </xs:annotation>
@@ -5227,7 +5548,7 @@ Describes a partition by name.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Partition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Partition">
                             <xs:annotation>
                                 <xs:documentation>Describes a partition by name.</xs:documentation>
                             </xs:annotation>
@@ -5270,7 +5591,7 @@ Persistence Policy extension for the Service Type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PersistencePolicy">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PersistencePolicy">
     <xs:annotation>
       <xs:documentation>Persistence Policy extension for the Service Type</xs:documentation>
     </xs:annotation>
@@ -5334,7 +5655,7 @@ Persistence Policy extension for the Service Type
 
 <a id="PlacementConstraintsElementxs:stringComplexTypeDefinedInServiceTypecomplexTypeDefinedInServiceTypeTypecomplexTypeDefinedInServiceGroupTypeTypecomplexType"></a>
 ## PlacementConstraints element
-Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the services requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
+Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion>12  && InDMZ == True)".
 
 |Attribute|Value|
 |---|---|
@@ -5346,9 +5667,9 @@ Used to control which nodes in the cluster a service can run on. A key/value pai
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PlacementConstraints" type="xs:string" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PlacementConstraints" type="xs:string" minOccurs="0">
                 <xs:annotation>
-                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the services requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
+                    <xs:documentation>Used to control which nodes in the cluster a service can run on. A key/value pair which describes the node property name and the service's requirements for the value. Individual statements can be grouped together with simple boolean logic to create the necessary constraint. For example, "(FirmwareVersion&gt;12  &amp;&amp; InDMZ == True)".</xs:documentation>
                 </xs:annotation>
             </xs:element>
             
@@ -5369,7 +5690,7 @@ Describe the properties for this NodeType that will be used as placement constra
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PlacementProperties" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PlacementProperties" minOccurs="0">
                                                                                 <xs:annotation>
                                                                                         <xs:documentation>Describe the properties for this NodeType that will be used as placement constraints</xs:documentation>
                                                                                 </xs:annotation>
@@ -5406,7 +5727,7 @@ Describes the policies (log collection, default run-as, health, and security acc
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Policies" type="ApplicationPoliciesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Policies" type="ApplicationPoliciesType" minOccurs="0"/>
       
 
 ```
@@ -5425,32 +5746,32 @@ Describes policies (end-point binding, package sharing, run-as, and security acc
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Policies" type="ServiceManifestImportPoliciesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Policies" type="ServiceManifestImportPoliciesType" minOccurs="0"/>
           
 
 ```
 
-<a id="PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
+<a id="PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## PortBinding element
-Specifies which endpoint resource to bind to the exposed container port.
+Specifies which endpoint resource to bind container exposed port.
 
 |Attribute|Value|
 |---|---|
 |type|[PortBindingType](service-fabric-service-model-schema-complex-types.md#portbindingtype-complextype)|
 |content|0 element(s), 0 attribute(s)|
-|defined|locally in [ContainerHostPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#containerhostpoliciestype-complextype)|
+|defined|locally in [ServicePackageContainerPolicyType complexType](service-fabric-service-model-schema-complex-types.md#servicepackagecontainerpolicytype-complextype), [ContainerHostPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#containerhostpoliciestype-complextype)|
 |name|PortBinding|
 |minOccurs|0|
 |maxOccurs|unbounded|
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PortBinding" type="PortBindingType" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PortBinding" type="PortBindingType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Specifies which endpoint resource to bind to the exposed container port.</xs:documentation>
+          <xs:documentation>Specifies which endpoint resource to bind container exposed port.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+    
 
 ```
 
@@ -5468,14 +5789,14 @@ Describes the security principals (users, groups) required for this application 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Principals" type="SecurityPrincipalsType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Principals" type="SecurityPrincipalsType" minOccurs="0"/>
       
 
 ```
 
 <a id="ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType"></a>
 ## Program element
-The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
+The executable name. For example, "MySetup.bat" or "MyServiceHost.exe".
 
 |Attribute|Value|
 |---|---|
@@ -5486,9 +5807,9 @@ The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Program" type="xs:string">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Program" type="xs:string">
         <xs:annotation>
-          <xs:documentation>The executable name.  For example, "MySetup.bat" or "MyServiceHost.exe".</xs:documentation>
+          <xs:documentation>The executable name. For example, "MySetup.bat" or "MyServiceHost.exe".</xs:documentation>
         </xs:annotation></xs:element>
       
 
@@ -5508,7 +5829,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Properties" type="ServiceTypeExtensionPolicyPropertiesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Properties" type="ServiceTypeExtensionPolicyPropertiesType" minOccurs="0"/>
       
 
 ```
@@ -5526,7 +5847,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Property" type="KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Property" type="KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
                                                                                         
 
 ```
@@ -5544,7 +5865,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Property" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Property" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:attribute name="Name" type="xs:string" use="required"/>
           <xs:attribute name="Value" type="xs:string" use="required"/>
@@ -5583,7 +5904,7 @@ Defines Properties for the Persistence and Eviction policies.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ProviderGuid" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ProviderGuid" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                       <xs:attribute name="Value" use="required">
                         <xs:simpleType>
@@ -5620,7 +5941,7 @@ Lists the ETW provider GUIDs for the components of this service manifest.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ProviderGuids" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ProviderGuids" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Lists the ETW provider GUIDs for the components of this service manifest.</xs:documentation>
               </xs:annotation>
@@ -5664,7 +5985,7 @@ Lists the ETW provider GUIDs for the components of this service manifest.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RepairManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RepairManagerReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -5684,7 +6005,7 @@ Credentials for container image repository to pull images from.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RepositoryCredentials" type="RepositoryCredentialsType" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RepositoryCredentials" type="RepositoryCredentialsType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Credentials for container image repository to pull images from.</xs:documentation>
         </xs:annotation>
@@ -5695,7 +6016,7 @@ Credentials for container image repository to pull images from.
 
 <a id="ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement"></a>
 ## ResourceGovernancePolicy element
-Specifies resource limits for a code package.
+Specifies resource limits for a codepackage.
 
 |Attribute|Value|
 |---|---|
@@ -5707,9 +6028,9 @@ Specifies resource limits for a code package.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ResourceGovernancePolicy" type="ResourceGovernancePolicyType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ResourceGovernancePolicy" type="ResourceGovernancePolicyType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Specifies resource limits for a code package.</xs:documentation>
+          <xs:documentation>Specifies resource limits for a codepackage.</xs:documentation>
         </xs:annotation>
       </xs:element>
       
@@ -5718,7 +6039,7 @@ Specifies resource limits for a code package.
 
 <a id="ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement"></a>
 ## ResourceOverrides element
-Describes the resource overrides for endpoints in service manifest resources.
+Specifies resource overrides for endpoints declared in service manifest resources.
 
 |Attribute|Value|
 |---|---|
@@ -5730,7 +6051,7 @@ Describes the resource overrides for endpoints in service manifest resources.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ResourceOverrides" type="ResourceOverridesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ResourceOverrides" type="ResourceOverridesType" minOccurs="0"/>
             
 
 ```
@@ -5749,7 +6070,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Resources" type="ResourcesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Resources" type="ResourcesType" minOccurs="0"/>
       
 
 ```
@@ -5766,7 +6087,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Role" type="AzureRoleType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Role" type="AzureRoleType" maxOccurs="unbounded"/>
                                                                                         
 
 ```
@@ -5784,7 +6105,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Role" type="BlackbirdRoleType" minOccurs="1" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Role" type="BlackbirdRoleType" minOccurs="1" maxOccurs="unbounded"/>
                                                                                         
 
 ```
@@ -5801,7 +6122,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Role" type="PaaSRoleType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Role" type="PaaSRoleType" maxOccurs="unbounded"/>
                                                                                         
 
 ```
@@ -5817,7 +6138,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Roles">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Roles">
                                                                                 <xs:complexType>
                                                                                         <xs:sequence>
                                                                                                 <xs:element name="Role" type="BlackbirdRoleType" minOccurs="1" maxOccurs="unbounded"/>
@@ -5848,7 +6169,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Roles">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Roles">
                                                                                 <xs:complexType>
                                                                                         <xs:sequence>
                                                                                                 <xs:element name="Role" type="PaaSRoleType" maxOccurs="unbounded"/>
@@ -5878,7 +6199,7 @@ Describes the resources used by this service, which can be declared without modi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Roles">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Roles">
                                                                                 <xs:complexType>
                                                                                         <xs:sequence>
                                                                                                 <xs:element name="Role" type="AzureRoleType" maxOccurs="unbounded"/>
@@ -5899,7 +6220,7 @@ Describes the resources used by this service, which can be declared without modi
 
 <a id="RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement"></a>
 ## RunAsPolicy element
-Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
+Specifies the local user or local system account that a service code package will run as. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available. By default, applications run under the account that the Fabric.exe process runs under. Applications can also run as other accounts, which must be declared in the Principals section. If you apply a RunAs policy to a service, and the service manifest declares endpoint resources with the HTTP protocol, you must also specify a SecurityAccessPolicy to ensure that ports allocated to these endpoints are correctly access-control listed for the RunAs user account that the service runs under. For an HTTPS endpoint, you also have to define a EndpointBindingPolicy to indicate the name of the certificate to return to the client.
 
 |Attribute|Value|
 |---|---|
@@ -5911,7 +6232,7 @@ Specifies the local user or local system account that a service code package wil
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RunAsPolicy" type="RunAsPolicyType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RunAsPolicy" type="RunAsPolicyType" minOccurs="0"/>
       
 
 ```
@@ -5928,7 +6249,7 @@ Specifies the local user or local system account that a service code package wil
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RunFrequency" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RunFrequency" minOccurs="0">
                     <xs:complexType>
                       <xs:attribute name="IntervalInSeconds" use="required">
                         <xs:simpleType>
@@ -5966,7 +6287,7 @@ A scaling policy description consisting of a trigger and a mechanism for scaling
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ScalingPolicy" type="ScalingPolicyType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ScalingPolicy" type="ScalingPolicyType" maxOccurs="unbounded"/>
                     
 
 ```
@@ -5985,7 +6306,7 @@ This specifies the certificate information.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecretsCertificate" type="FabricCertificateType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecretsCertificate" type="FabricCertificateType" minOccurs="0"/>
                                         
 
 ```
@@ -6004,7 +6325,7 @@ A section in the Settings.xml file to override.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Section" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Section" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>A section in the Settings.xml file to override.</xs:documentation>
         </xs:annotation>
@@ -6018,9 +6339,20 @@ A section in the Settings.xml file to override.
                 <xs:attributeGroup ref="NameValuePair"/>
                 <xs:attribute name="IsEncrypted" type="xs:boolean" default="false">
                   <xs:annotation>
-                    <xs:documentation>If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section.</xs:documentation>
+                    <xs:documentation>
+                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
+                    </xs:documentation>
                                     </xs:annotation>
                                 </xs:attribute>
+                <xs:attribute name="Type" type="xs:string" use="optional">
+                  <xs:annotation>
+                    <xs:documentation>
+                      This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
+                      If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
@@ -6073,7 +6405,7 @@ A user-defined named section.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Section" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Section" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>A user-defined named section.</xs:documentation>
         </xs:annotation>
@@ -6093,6 +6425,7 @@ A user-defined named section.
                     <xs:documentation>If true, the value of this parameter is encrypted.</xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
+                <xs:attribute name="Type" type="xs:string" use="optional"/>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
@@ -6134,7 +6467,7 @@ List of security policies applied to resources at the application level.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecurityAccessPolicies" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecurityAccessPolicies" minOccurs="0">
                                 <xs:annotation>
                                         <xs:documentation>List of security policies applied to resources at the application level.</xs:documentation>
                                 </xs:annotation>
@@ -6169,7 +6502,7 @@ Grants access permissions to a principal on a resource (such as an endpoint) def
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecurityAccessPolicy" type="SecurityAccessPolicyType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecurityAccessPolicy" type="SecurityAccessPolicyType" minOccurs="0"/>
       
 
 ```
@@ -6189,7 +6522,7 @@ Specifies securityoptions for the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecurityOption" type="SecurityOptionsType" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SecurityOption" type="SecurityOptionsType" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Specifies securityoptions for the container.</xs:documentation>
         </xs:annotation>
@@ -6212,7 +6545,7 @@ The certificate used to secure the intra cluster communication.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServerCertificate" type="FabricCertificateType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServerCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>The certificate used to secure the intra cluster communication.</xs:documentation>
         </xs:annotation>
@@ -6234,7 +6567,7 @@ Declares a service to be created automatically when the application is instantia
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Service">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Service">
                     <xs:annotation>
                         <xs:documentation>Declares a service to be created automatically when the application is instantiated.</xs:documentation>
                     </xs:annotation>
@@ -6260,7 +6593,7 @@ Declares a service to be created automatically when the application is instantia
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -6295,7 +6628,7 @@ The DNS name of the service.
 |use|optional|
 
 #### ServicePackageActivationMode
-ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
@@ -6329,7 +6662,7 @@ ServicePackageActivationMode to be used when creating the service. Allowed value
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceConnectionEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceConnectionEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -6348,7 +6681,7 @@ Defines an affinity relationship with another service. Useful when splitting a p
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceCorrelation" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceCorrelation" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>Defines an affinity relationship with another service. Useful when splitting a previously-monolithic application into microservices.  One service has a local dependency on another service and both services need to run on the same node in order to work.</xs:documentation>
                             </xs:annotation>
@@ -6411,7 +6744,7 @@ Defines affinity relationships between services.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceCorrelations" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceCorrelations" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Defines affinity relationships between services.</xs:documentation>
                 </xs:annotation>
@@ -6461,6 +6794,30 @@ Defines an affinity relationship with another service. Useful when splitting a p
 |name|ServiceCorrelation|
 |maxOccurs|unbounded|
 
+<a id="ServiceFabricRuntimeAccessPolicyElementServiceFabricRuntimeAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
+## ServiceFabricRuntimeAccessPolicy element
+Specifies policies that determine how the service fabric runtime is exposed to the replicas.
+
+|Attribute|Value|
+|---|---|
+|type|[ServiceFabricRuntimeAccessPolicyType](service-fabric-service-model-schema-complex-types.md#servicefabricruntimeaccesspolicytype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ServiceManifestImportPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#servicemanifestimportpoliciestype-complextype), [ServicePackageType complexType](service-fabric-service-model-schema-complex-types.md#servicepackagetype-complextype)|
+|name|ServiceFabricRuntimeAccessPolicy|
+|minOccurs|0|
+|maxOccurs|1|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceFabricRuntimeAccessPolicy" type="ServiceFabricRuntimeAccessPolicyType" minOccurs="0" maxOccurs="1">
+      <xs:annotation>
+        <xs:documentation>Specifies policies that determine how the service fabric runtime is exposed to the replicas.</xs:documentation>
+      </xs:annotation>
+      </xs:element>
+      
+
+```
+
 <a id="ServiceGroupElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType"></a>
 ## ServiceGroup element
 A collection of services that are automatically located together, so they are also moved together during fail-over or resource management.
@@ -6474,7 +6831,7 @@ A collection of services that are automatically located together, so they are al
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceGroup">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceGroup">
                     <xs:annotation>
                         <xs:documentation>A collection of services that are automatically located together, so they are also moved together during fail-over or resource management.</xs:documentation>
                     </xs:annotation>
@@ -6490,7 +6847,7 @@ A collection of services that are automatically located together, so they are al
                         </xs:attribute>
                         <xs:attribute name="ServicePackageActivationMode" type="xs:string" use="optional" default="SharedProcess">
                           <xs:annotation>
-                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
+                            <xs:documentation>ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
                     </xs:complexType>
@@ -6509,7 +6866,7 @@ Name of this service relative to this application Name URI. Fully qualified Name
 |use|required|
 
 #### ServicePackageActivationMode
-ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share the same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
+ServicePackageActivationMode to be used when creating the service. Allowed values are 'SharedProcess' and 'ExclusiveProcess'. With SharedProcess mode, replica(s) or instance(s) from different partition(s) of service will share same activation of service package on a node. With ExclusiveProcess mode, each replica or instance of service will have its own dedicated activation of service package.
 |Attribute|Value|
 |---|---|
 |name|ServicePackageActivationMode|
@@ -6546,7 +6903,7 @@ Member types of this service group type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceGroupMembers" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceGroupMembers" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Member types of this service group type.</xs:documentation>
         </xs:annotation>
@@ -6581,7 +6938,7 @@ Describes the member type of the service group.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceGroupTypeMember">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceGroupTypeMember">
     <xs:annotation>
       <xs:documentation>Describes the member type of the service group.</xs:documentation>
     </xs:annotation>
@@ -6600,7 +6957,7 @@ Describes the member type of the service group.
       </xs:sequence>
       <xs:attribute name="ServiceTypeName" use="required">
         <xs:annotation>
-          <xs:documentation>user-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor</xs:documentation>
+          <xs:documentation>User-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor</xs:documentation>
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -6616,7 +6973,7 @@ Describes the member type of the service group.
 ### Attribute details
 
 #### ServiceTypeName
-user-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor
+User-defined type identifier for a Microsoft Azure Service Fabric ServiceGroup Member, .e.g Actor
 |Attribute|Value|
 |---|---|
 |name|ServiceTypeName|
@@ -6644,7 +7001,7 @@ Declaratively describes the service type and version. It lists the independently
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifest" type="ServiceManifestType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifest" type="ServiceManifestType"/>
         
 
 ```
@@ -6663,7 +7020,7 @@ Imports a service manifest created by the service developer. A service manifest 
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestImport" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestImport" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Imports a service manifest created by the service developer. A service manifest must be imported for each constituent service in the application. Configuration overrides and policies can be declared for the service manifest.</xs:documentation>
         </xs:annotation>
@@ -6739,7 +7096,7 @@ Imports the service manifest by reference. Currently the service manifest file (
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestRef" type="ServiceManifestRefType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestRef" type="ServiceManifestRefType"/>
             
 
 ```
@@ -6757,12 +7114,30 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackage" type="ServicePackageType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackage" type="ServicePackageType">
     <xs:annotation>
       <xs:documentation>ServicePackage represents a versioned unit of deployment and activation. The version of the ServicePackage is determined based on the manifest version and the version of the overrides.</xs:documentation>
     </xs:annotation>
   </xs:element>
   
+
+```
+
+<a id="ServicePackageContainerPolicyElementServicePackageContainerPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
+## ServicePackageContainerPolicy element
+|Attribute|Value|
+|---|---|
+|type|[ServicePackageContainerPolicyType](service-fabric-service-model-schema-complex-types.md#servicepackagecontainerpolicytype-complextype)|
+|content|0 element(s), 0 attribute(s)|
+|defined|locally in [ServiceManifestImportPoliciesType complexType](service-fabric-service-model-schema-complex-types.md#servicemanifestimportpoliciestype-complextype), [ServicePackageType complexType](service-fabric-service-model-schema-complex-types.md#servicepackagetype-complextype)|
+|name|ServicePackageContainerPolicy|
+|minOccurs|0|
+|maxOccurs|1|
+
+### XML source
+```xml
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageContainerPolicy" type="ServicePackageContainerPolicyType" minOccurs="0" maxOccurs="1"/>
+      
 
 ```
 
@@ -6778,7 +7153,7 @@ ServicePackage represents a versioned unit of deployment and activation. The ver
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageRef" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageRef" maxOccurs="unbounded">
         <xs:complexType>
           <xs:attribute name="Name" use="required"/>
           <xs:attributeGroup ref="VersionedItemAttrGroup"/>
@@ -6811,7 +7186,7 @@ Defines the resource governance policy that is applied at the level of the entir
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageResourceGovernancePolicy" type="ServicePackageResourceGovernancePolicyType" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageResourceGovernancePolicy" type="ServicePackageResourceGovernancePolicyType" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Defines the resource governance policy that is applied at the level of the entire service package.</xs:documentation>
         </xs:annotation>
@@ -6834,7 +7209,7 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicies" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicies" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Declares placement policies for a service.  Useful when the cluster spans geographic distances or and/or geopolitical regions.</xs:documentation>
         </xs:annotation>
@@ -6900,7 +7275,7 @@ Declares placement policies for a service.  Useful when the cluster spans geogra
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicies" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicies" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Declares placement policies for a service.  Useful when the cluster spans geographic distances or and/or geopolitical regions.</xs:documentation>
                 </xs:annotation>
@@ -6966,7 +7341,7 @@ Defines a service placement policy, which specifies that the service should or s
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicy" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicy" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.</xs:documentation>
                             </xs:annotation>
@@ -7030,7 +7405,7 @@ Defines a service placement policy, which specifies that the service should or s
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicy" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePlacementPolicy" maxOccurs="unbounded">
               <xs:annotation>
                 <xs:documentation>Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.</xs:documentation>
               </xs:annotation>
@@ -7094,7 +7469,7 @@ Declares scaling policies for a service. Useful for dynamically scaling the serv
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceScalingPolicies" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceScalingPolicies" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Declares scaling policies for a service. Useful for dynamically scaling the service based on needs. </xs:documentation>
                 </xs:annotation>
@@ -7130,7 +7505,7 @@ Declares the set of permitted service types that can be created dynamically insi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTemplates" type="ServiceTemplatesType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTemplates" type="ServiceTemplatesType" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Declares the set of permitted service types that can be created dynamically inside the application instance. Default configuration values, such as replication factor, are specified and used as a template for creating service instances.</xs:documentation>
         </xs:annotation>
@@ -7154,7 +7529,7 @@ Describes the policy for evaluating health events reported on services, partitio
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTypeHealthPolicy" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTypeHealthPolicy" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Describes the policy for evaluating health events reported on services, partitions and replicas of a particular service type.</xs:documentation>
         </xs:annotation>
@@ -7187,7 +7562,7 @@ Defines what service types are supported by a CodePackage in this manifest. When
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTypes" type="ServiceAndServiceGroupTypesType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTypes" type="ServiceAndServiceGroupTypesType">
         <xs:annotation>
           <xs:documentation>Defines what service types are supported by a CodePackage in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. Service types are declared at the manifest level and not the code package level.</xs:documentation>
         </xs:annotation>
@@ -7207,7 +7582,7 @@ Defines what service types are supported by a CodePackage in this manifest. When
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTypes" type="ServiceTypesType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceTypes" type="ServiceTypesType"/>
           
 
 ```
@@ -7226,7 +7601,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Settings" type="SettingsOverridesType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Settings" type="SettingsOverridesType" minOccurs="0"/>
     
 
 ```
@@ -7244,7 +7619,7 @@ Defiles configurable settings for the code packages of a service. Microsoft Azur
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Settings" type="SettingsType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Settings" type="SettingsType">
                 <xs:annotation>
                         <xs:documentation>Defiles configurable settings for the code packages of a service. Microsoft Azure Service Fabric does not interpret the settings, however it makes them available via Runtime APIs for use by the code components.</xs:documentation>
                 </xs:annotation>
@@ -7255,7 +7630,7 @@ Defiles configurable settings for the code packages of a service. Microsoft Azur
 
 <a id="SetupEntryPointElementanonymouscomplexTypeComplexTypeDefinedInCodePackageTypecomplexType"></a>
 ## SetupEntryPoint element
-A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NetworkService account) before any other entry point. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. In the application manifest, you can change the security permissions to run the startup script under a local system account or an administrator account.
+A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NETWORKSERVICE account) before any other entry point. The executable specified by EntryPoint is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time.
 
 |Attribute|Value|
 |---|---|
@@ -7267,9 +7642,9 @@ A privileged entry point that by default runs with the same credentials as Servi
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SetupEntryPoint" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SetupEntryPoint" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NetworkService account) before any other entry point. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. In the application manifest, you can change the security permissions to run the startup script under a local system account or an administrator account.</xs:documentation>
+          <xs:documentation>A privileged entry point that by default runs with the same credentials as Service Fabric (typically the NETWORKSERVICE account) before any other entry point. The executable specified by EntryPoint is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -7302,7 +7677,7 @@ The SF system services resource governance policy for this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SfssRgPolicies" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SfssRgPolicies" minOccurs="0">
                                                                                 <xs:annotation>
                                                                                         <xs:documentation>The SF system services resource governance policy for this node type</xs:documentation>
                                                                                 </xs:annotation>
@@ -7338,7 +7713,7 @@ The SF system services resource governance policy for this node type
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SfssRgPolicy" type="KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SfssRgPolicy" type="KeyValuePairType" minOccurs="0" maxOccurs="unbounded"/>
                                                                                         
 
 ```
@@ -7357,7 +7732,7 @@ Specific GUID to use as the shared log ID.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFileId" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFileId" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Specific GUID to use as the shared log ID.</xs:documentation>
         </xs:annotation>
@@ -7398,7 +7773,7 @@ Defines path to shared log.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFilePath" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFilePath" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Defines path to shared log.</xs:documentation>
         </xs:annotation>
@@ -7434,7 +7809,7 @@ Defines how large is the shared log.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFileSizeInMB" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SharedLogFileSizeInMB" minOccurs="0">
         <xs:annotation>
           <xs:documentation>Defines how large is the shared log.</xs:documentation>
         </xs:annotation>
@@ -7474,7 +7849,7 @@ Declares that this service has only one partition.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SingletonPartition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SingletonPartition">
                 <xs:annotation>
                     <xs:documentation>Declares that this service has only one partition.</xs:documentation>
                 </xs:annotation>
@@ -7497,7 +7872,7 @@ Defines a stateful service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulService" type="StatefulServiceType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulService" type="StatefulServiceType"/>
             
 
 ```
@@ -7515,7 +7890,7 @@ Defines a stateful service group.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulServiceGroup" type="StatefulServiceGroupType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulServiceGroup" type="StatefulServiceGroupType"/>
         
 
 ```
@@ -7533,7 +7908,7 @@ Describes a stateful service group type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulServiceGroupType" type="StatefulServiceGroupTypeType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulServiceGroupType" type="StatefulServiceGroupTypeType"/>
       
 
 ```
@@ -7551,7 +7926,7 @@ Describes a stateful service type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulServiceType" type="StatefulServiceTypeType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatefulServiceType" type="StatefulServiceTypeType"/>
       
 
 ```
@@ -7569,7 +7944,7 @@ Defines a stateless service.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessService" type="StatelessServiceType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessService" type="StatelessServiceType"/>
             
 
 ```
@@ -7587,7 +7962,7 @@ Defines a stateless service group.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessServiceGroup" type="StatelessServiceGroupType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessServiceGroup" type="StatelessServiceGroupType"/>
             
 
 ```
@@ -7605,7 +7980,7 @@ Describes a stateless service group type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessServiceGroupType" type="StatelessServiceGroupTypeType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessServiceGroupType" type="StatelessServiceGroupTypeType"/>
     
 
 ```
@@ -7623,7 +7998,7 @@ Describes a stateless service type.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessServiceType" type="StatelessServiceTypeType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="StatelessServiceType" type="StatelessServiceTypeType"/>
       
 
 ```
@@ -7643,7 +8018,7 @@ The system group to add the user to.  The system group must be defined in the Gr
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SystemGroup" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SystemGroup" minOccurs="0" maxOccurs="unbounded">
                                                                                                         <xs:annotation>
                                                                                                                 <xs:documentation>The system group to add the user to.  The system group must be defined in the Groups section.</xs:documentation>
                                                                                                         </xs:annotation>
@@ -7682,7 +8057,7 @@ The name of the system group.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SystemGroup" minOccurs="0" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SystemGroup" minOccurs="0" maxOccurs="unbounded">
                                                     <xs:complexType>
                                                         <xs:attribute name="Name" type="xs:string" use="required"/>
                                                     </xs:complexType>
@@ -7713,7 +8088,7 @@ Describes the target the FabricDeployer needs to deploy.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="TargetInformation" type="TargetInformationType">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="TargetInformation" type="TargetInformationType">
                 <xs:annotation>
                         <xs:documentation>Describes the target the FabricDeployer needs to deploy.</xs:documentation>
                 </xs:annotation>
@@ -7734,7 +8109,7 @@ Describes the target the FabricDeployer needs to deploy.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="TargetInstallation" type="WindowsFabricDeploymentInformation" minOccurs="1"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="TargetInstallation" type="WindowsFabricDeploymentInformation" minOccurs="1"/>
     
 
 ```
@@ -7752,7 +8127,7 @@ Describes a uniform partitioning scheme based on Int64 keys.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UniformInt64Partition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UniformInt64Partition">
                 <xs:annotation>
                     <xs:documentation>Describes a uniform partitioning scheme based on Int64 keys.</xs:documentation>
                 </xs:annotation>
@@ -7817,7 +8192,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UnmanagedDll" type="UnmanagedDllType"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UnmanagedDll" type="UnmanagedDllType"/>
         
 
 ```
@@ -7834,7 +8209,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UpgradeOrchestrationServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UpgradeOrchestrationServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -7851,7 +8226,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UpgradeServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UpgradeServiceReplicatorEndpoint" type="InternalEndpointType" minOccurs="0"/>
       
 
 ```
@@ -7870,7 +8245,7 @@ Declares a user as a security principal, which can be referenced in policies.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="User" maxOccurs="unbounded">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="User" maxOccurs="unbounded">
                             <xs:annotation>
                                 <xs:documentation>Declares a user as a security principal, which can be referenced in policies.</xs:documentation>
                             </xs:annotation>
@@ -7938,7 +8313,7 @@ Declares a user as a security principal, which can be referenced in policies.
                                                                 </xs:attribute>
                                                                 <xs:attribute name="AccountType" use="optional" default="LocalUser">
                                                                         <xs:annotation>
-                                                                                <xs:documentation>Specifies the type of account. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.</xs:documentation>
+                                                                                <xs:documentation>Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalService, ManagedServiceAccount, or LocalSystem.  The default is LocalUser. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.</xs:documentation>
                                                                         </xs:annotation>
                                                                         <xs:simpleType>
                                                                                 <xs:restriction base="xs:string">
@@ -7975,7 +8350,7 @@ Name of the user account.
 |use|required|
 
 #### AccountType
-Specifies the type of account. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.
+Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalService, ManagedServiceAccount, or LocalSystem.  The default is LocalUser. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.
 |Attribute|Value|
 |---|---|
 |name|AccountType|
@@ -8023,7 +8398,7 @@ Users can be added to any existing membership group, so it can inherit all the p
 
 <a id="UserRoleClientCertificateElementFabricCertificateTypeComplexTypeDefinedInCertificatesTypecomplexType"></a>
 ## UserRoleClientCertificate element
-The default user role client certificate used to secure client-server communication.
+The default user role client certificate used to secure client server communication.
 
 |Attribute|Value|
 |---|---|
@@ -8035,9 +8410,9 @@ The default user role client certificate used to secure client-server communicat
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UserRoleClientCertificate" type="FabricCertificateType" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UserRoleClientCertificate" type="FabricCertificateType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>The default user role client certificate used to secure client-server communication.</xs:documentation>
+          <xs:documentation>The default user role client certificate used to secure client server communication.</xs:documentation>
         </xs:annotation>
       </xs:element>
     
@@ -8058,7 +8433,7 @@ Declares a set of users as security principals, which can be referenced in polic
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Users" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Users" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Declares a set of users as security principals, which can be referenced in policies.</xs:documentation>
                 </xs:annotation>
@@ -8132,7 +8507,7 @@ Declares a set of users as security principals, which can be referenced in polic
                                                                 </xs:attribute>
                                                                 <xs:attribute name="AccountType" use="optional" default="LocalUser">
                                                                         <xs:annotation>
-                                                                                <xs:documentation>Specifies the type of account. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.</xs:documentation>
+                                                                                <xs:documentation>Specifies the type of account: LocalUser, DomainUser, NetworkService, LocalService, ManagedServiceAccount, or LocalSystem.  The default is LocalUser. Local user accounts are created on the machines where the application is deployed. By default, these accounts do not have the same names as those specified here. Instead, they are dynamically generated and have random passwords. Supported local system account types are LocalUser, NetworkService, LocalService and LocalSystem. Domain accounts are supported on Windows Server deployments where Azure Active Directory is available.</xs:documentation>
                                                                         </xs:annotation>
                                                                         <xs:simpleType>
                                                                                 <xs:restriction base="xs:string">
@@ -8172,7 +8547,7 @@ Declares a user as a security principal, which can be referenced in policies.
 
 <a id="VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType"></a>
 ## Volume element
-Specifies the volume to be bound to the container.
+Specifies the volume to be bound to container.
 
 |Attribute|Value|
 |---|---|
@@ -8185,7 +8560,11 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Volume" type="ContainerVolumeType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Volume" type="ContainerVolumeType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+                <xs:documentation>Specifies the volume to be bound to container.</xs:documentation>
+            </xs:annotation>
+        </xs:element>
       
 
 ```
@@ -8202,7 +8581,7 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Vote" type="PaaSVoteType" maxOccurs="unbounded"/>
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Vote" type="PaaSVoteType" maxOccurs="unbounded"/>
                                                                                         
 
 ```
@@ -8218,7 +8597,7 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Votes">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Votes">
                                                                                 <xs:complexType>
                                                                                         <xs:sequence>
                                                                                                 <xs:element name="Vote" type="PaaSVoteType" maxOccurs="unbounded"/>
@@ -8248,7 +8627,7 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WindowsAzure">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WindowsAzure">
                                                         <xs:complexType>
                                                                 <xs:sequence>
                                                                         <xs:element name="Roles">
@@ -8282,7 +8661,7 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WindowsAzureStaticTopology">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WindowsAzureStaticTopology">
                                                         <xs:complexType>
                                                                 <xs:complexContent>
                                                                         <xs:extension base="WindowsInfrastructureType"/>
@@ -8304,7 +8683,7 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WindowsServer">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WindowsServer">
                                                         <xs:complexType>
                                                                 <xs:complexContent>
                                                                         <xs:extension base="WindowsInfrastructureType">
@@ -8330,7 +8709,7 @@ Specifies the volume to be bound to the container.
 
 ### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WorkingFolder" default="Work" minOccurs="0">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="WorkingFolder" default="Work" minOccurs="0">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="Work"/>

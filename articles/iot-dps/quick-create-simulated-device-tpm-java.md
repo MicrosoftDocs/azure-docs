@@ -1,6 +1,6 @@
 ---
 title: Provision a simulated TPM device to Azure IoT Hub using Java | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service
+description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -18,13 +18,19 @@ ms.custom: mvc
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
-If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## Prepare the environment 
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 
@@ -57,11 +63,11 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _Id Scope_ and _Provisioning Service Global Endpoint_.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
     ![Device Provisioning Service information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
 
-1. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
+1. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -77,18 +83,18 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-1. The program begins running. Note the _Endorsement Key_ and _Registration Id_ for the next section and leave the program running.
+1. The program begins running. Note the _Endorsement Key_ and _Registration ID_ for the next section and leave the program running.
 
     ![Java TPM device program](./media/java-quick-create-simulated-device/program.png)
     
 
 ## Create a device enrollment entry
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-1. Under the **Add enrollment list entry**, enter the following information:
+1. Under the **Add Enrollment**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
     - Enter the *Registration ID* and *Endorsement key* for your TPM device as noted previously. 
     - Select an IoT hub linked with your provisioning service.
@@ -96,7 +102,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
     - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
 
-    ![Enter device enrollment information in the portal blade](./media/java-quick-create-simulated-device/enter-device-enrollment.png)  
+    ![Enter device enrollment information in the portal blade](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device appears in the list under the *Individual Enrollments* tab. 
 
@@ -109,7 +115,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade.
 
-    ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device/hub-registration.png) 
+    ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device/hubregistration.png) 
 
     If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 

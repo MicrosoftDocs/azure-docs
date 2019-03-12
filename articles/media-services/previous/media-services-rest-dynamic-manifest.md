@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin
 
 ---
-# Creating Filters with Azure Media Services REST API
+# Creating Filters with Azure Media Services REST API 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
@@ -38,9 +38,9 @@ The following types are used when creating filters:
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
->[!NOTE]
-
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
 ## Connect to Media Services
 
@@ -191,7 +191,7 @@ To list filters, use the following HTTP requests:
 
 
 ## Update filters
-Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Clear the cache after updating the filter. If this option is not possible, consider using a different filter.  
 

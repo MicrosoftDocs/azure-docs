@@ -1,18 +1,19 @@
 ---
-title: "Quickstart: Send search queries with the Bing Image Search API and PHP"
+title: "Quickstart: Search for images - Bing Image Search REST API and PHP"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search and find images on the web using the Bing Web Search API.
+description:  Use this quickstart to send image search requests to the Bing Image Search REST API using PHP, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
-ms.date: 9/07/2018
+ms.subservice: bing-image-search
+ms.topic: quickstart
+ms.date: 2/12/2019
 ms.author: aahi
+ms.custom: seodec2018
 ---
-# Quickstart: Send search queries using the Bing Image Search REST API and PHP
+# Quickstart: Search for images using the Bing Image Search REST API and PHP
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. The simple application in this article sends a search query and displays the raw results.
 
@@ -22,9 +23,11 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [PHP 5.6.x or later](http://php.net/downloads.php).
+* [PHP 5.6.x or later](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 
@@ -40,9 +43,9 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## Construct and perform a HTTP request
+## Construct and perform an HTTP request
 
-1. Use the variables from the last step to prepare a HTTP request to the Image Search API.
+1. Use the variables from the last step to prepare an HTTP request to the Image Search API.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -50,7 +53,7 @@ To run this application, follow these steps.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Perform the web request and get the JSON response.
+2. Send the web request and get the JSON response.
 
     ```php
     $context = stream_context_create($options);
@@ -72,7 +75,7 @@ Process and print the returned JSON response.
         return array($headers, $result);
     ```
 
-## Sample JSON response
+## Example JSON response
 
 Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -116,7 +119,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -125,10 +128,11 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
 * [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services Documentation](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

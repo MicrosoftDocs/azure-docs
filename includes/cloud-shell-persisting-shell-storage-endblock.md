@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: azure
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+---
 ## Transfer local files to Cloud Shell
 The `clouddrive` directory syncs with the Azure portal storage blade. Use this blade to transfer local files to or from your file share. Updating files from within Cloud Shell is reflected in the file storage GUI when you refresh the blade.
 

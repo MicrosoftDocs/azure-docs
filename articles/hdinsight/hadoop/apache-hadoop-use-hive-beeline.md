@@ -1,8 +1,8 @@
 ---
-title: Use Beeline with Apache Hive - Azure HDInsight 
+title: Use Apache Beeline with Apache Hive - Azure HDInsight 
 description: Learn how to use the Beeline client to run Hive queries with Hadoop on HDInsight. Beeline is a utility for working with HiveServer2 over JDBC.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: beeline hive,hive beeline
 
@@ -10,20 +10,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Use the Beeline client with Apache Hive
+# Use the Apache Beeline client with Apache Hive
 
-Learn how to use [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Hive queries on HDInsight.
+Learn how to use [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) to run Apache Hive queries on HDInsight.
 
 Beeline is a Hive client that is included on the head nodes of your HDInsight cluster. Beeline uses JDBC to connect to HiveServer2, a service hosted on your HDInsight cluster. You can also use Beeline to access Hive on HDInsight remotely over the internet. The following examples provide the most common connection strings used to connect to HDInsight from Beeline:
 
 * __Using Beeline from an SSH connection to a headnode or edge node__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Using Beeline on a client, connecting to HDInsight over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Using Beeline on a client, connecting to a HDInsight Enterprise Security Package (ESP) cluster over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __Using Beeline on a client, connecting to HDInsight over the public internet__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
-> [!NOTE]
+> [!NOTE]  
 > Replace `admin` with the cluster login account for your cluster.
 >
 > Replace `password` with the password for the cluster login account.
@@ -31,12 +32,14 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 > Replace `clustername` with the name of your HDInsight cluster.
 >
 > When connecting to the cluster through a virtual network, replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode.
+>
+> When connecting to an Enterprise Security Package (ESP) cluster, replace `<AAD-Domain>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Replace `<username>` with the name of an account on the domain with permissions to access the cluster.
 
 ## <a id="prereq"></a>Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
@@ -63,6 +66,12 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * When connecting to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline commands begin with a `!` character, for example `!help` displays help. However the `!` can be omitted for some commands. For example, `help` also works.
@@ -135,7 +144,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
 
-  > [!NOTE]
+  > [!NOTE]  
   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
   >
   > Dropping an external table does **not** delete the data, only the table definition.
@@ -189,7 +198,7 @@ Use the following steps to create a file, then run it using Beeline.
     * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
     * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Unlike external tables, dropping an internal table deletes the underlying data as well.
 
 3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
@@ -200,7 +209,7 @@ Use the following steps to create a file, then run it using Beeline.
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `-i` parameter starts Beeline and runs the statements in the `query.hql` file. Once the query completes, you arrive at the `jdbc:hive2://headnodehost:10001/>` prompt. You can also run a file using the `-f` parameter, which exits Beeline after the query completes.
 
 5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
@@ -238,11 +247,11 @@ If you have Beeline installed locally, and connect over an Azure Virtual Network
 
 * __Connection string__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
-To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
-## <a id="sparksql"></a>Use Beeline with Spark
+## <a id="sparksql"></a>Use Beeline with Apache Spark
 
-Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
+Apache Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
 
 The __connection string__ used when connecting over the internet is slightly different. Instead of containing `httpPath=/hive2` it is `httpPath/sparkhive2`. The following is an example of connecting over the internet:
 
@@ -260,35 +269,30 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 For more general information on Hive in HDInsight, see the following document:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For more information on other ways you can work with Hadoop on HDInsight, see the following documents:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-If you are using Tez with Hive, see the following documents:
+If you are using Tez with Hive, see the following document: [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
-* [Use the Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
-
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
@@ -296,4 +300,4 @@ If you are using Tez with Hive, see the following documents:
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

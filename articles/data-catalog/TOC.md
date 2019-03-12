@@ -28,6 +28,7 @@
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [Resource Manager template](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Search syntax reference](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Developer concepts](data-catalog-developer-concepts.md)
 
@@ -39,5 +40,5 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](../active-directory/fundamentals/whats-new.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Terminology](data-catalog-terminology.md)

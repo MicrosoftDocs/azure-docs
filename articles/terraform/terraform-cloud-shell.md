@@ -2,9 +2,9 @@
 title: Use Terraform with Azure Cloud Shell
 description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, scale set, virtual machine, network, storage, modules
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -40,7 +40,7 @@ The Cloud Shell passes required values for the `azurerm` provider through enviro
 
 Files and shell states persist in Azure Storage between Cloud Shell sessions. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to copy and upload files to the Cloud Shell from your local computer.
 
-The Azure CLI 2.0 is available in the Cloud Shell and is a great tool for testing configurations and checking your work after a `terraform apply` or `terraform destroy` completes.
+The Azure CLI is available in the Cloud Shell and is a great tool for testing configurations and checking your work after a `terraform apply` or `terraform destroy` completes.
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn how to use Media Encoder Standard to encode media content on 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -26,9 +26,10 @@ ms.author: juliako
 >
 
 ## Overview
+
 To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too large to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
-Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
 
 Each job can have one or more tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create jobs and their related tasks in one of two ways:
 
@@ -50,16 +51,17 @@ Before you start referencing media processors, verify that you have the correct 
 For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## Create a job with a single encoding task
+
 > [!NOTE]
 > When you're working with the Media Services REST API, the following considerations apply:
 >
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API development](media-services-rest-how-to-use.md).
 >
-> When using JSON and specifying to use the **__metadata** keyword in the request (for example, to reference a linked object), you must set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
+> When using JSON and specifying to use the **__metadata** keyword in the request (for example, to reference a linked object), you must set the **Accept** header to [JSON Verbose format](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
 >
 
-The following example shows you how to create and post a job with one task set to encode a video at a specific resolution and quality. When you encode with Media Encoder Standard, you can use task configuration presets specified [here](http://msdn.microsoft.com/library/mt269960).
+The following example shows you how to create and post a job with one task set to encode a video at a specific resolution and quality. When you encode with Media Encoder Standard, you can use task configuration presets specified [here](https://msdn.microsoft.com/library/mt269960).
 
 Request:
 
@@ -145,7 +147,7 @@ To enable task chaining:
 * There must be at least one task whose input is the output of another task in the job.
 
 ## Use OData batch processing
-The following example shows how to use OData batch processing to create a job and tasks. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+The following example shows how to use OData batch processing to create a job and tasks. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx

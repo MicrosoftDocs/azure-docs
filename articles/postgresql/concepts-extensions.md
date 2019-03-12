@@ -1,14 +1,11 @@
 ---
 title: Use PostgreSQL extensions in Azure Database for PostgreSQL
 description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 05/30/2018
+ms.topic: conceptual
+ms.date: 03/12/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -69,6 +66,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | **Extension** | **Description** |
 |---|---|
 | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL loadable procedural language. |
+| [plv8](https://plv8.github.io/) | A Javascript language extension for PostgreSQL that can be used for stored procedures, triggers, etc. |
 
 ### Miscellaneous extensions
 
@@ -80,8 +78,10 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Provides a means for tracking execution statistics of all SQL statements executed by a server. (See below for a note on this extension). |
 | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Provides a means for showing row-level locking information. |
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
-| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. |
+| [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. (See below for a note on this extension).|
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. (See below for a note on this extension). |
+
 
 ### PostGIS extensions
 
@@ -90,7 +90,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
 | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. |
-| [pgrouting](http://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
+| [pgrouting](https://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 
 
 ### Using pg_stat_statements
@@ -98,6 +98,11 @@ The [pg\_stat\_statements extension](https://www.postgresql.org/docs/9.6/static/
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
+
+### Using dblink and postgres_fdw
+dblink and postgres_fdw allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON whitelists all Azure IPs.
+
+Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers.
 
 
 ## Next steps

@@ -1,14 +1,16 @@
 ---
-title: Provision a Deep Learning Data Science Virtual Machine on Azure  | Microsoft Docs
+title: Create a Deep Learning Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
@@ -18,7 +20,7 @@ ms.author: gokuma
 ---
 # Provision a Deep Learning Virtual Machine on Azure 
 
-The Deep Learning Virtual Machine (DLVM) is a specially configured variant of the popular [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) to make it easier to use GPU-based VM instances for rapidly training deep learning models. It is supported with either Windows 2016, or the Ubuntu DSVM as the base. The DLVM shares the same core VM images and hence all the rich toolset that is available on DSVM. 
+The Deep Learning Virtual Machine (DLVM) is a specially configured variant of the popular [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) to make it easier to use GPU-based VM instances for rapidly training deep learning models. It is supported with either Windows 2016, or the Ubuntu DSVM as the base. The DLVM shares the same core VM images and hence all the rich toolset that is available on DSVM. 
 
 The DLVM contains several tools for AI including GPU editions of popular deep learning frameworks like Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; tools to acquire and pre-process image, textual data, tools for data science modeling and development activities such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL databases and many other data science and ML tools. 
 
@@ -60,7 +62,7 @@ Once the VM is created, you can remote desktop into it using the Admin account c
 
 ### Linux Edition
 
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On aWindows client, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On aWindows client, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
 > The X2Go client performed better than X11 forwarding in our testing. We recommend using the X2Go client for a graphical desktop interface.
@@ -70,7 +72,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 #### Installing and configuring X2Go client
 The Linux DLVM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
-1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
      * **Host**: The host name or IP address of your Linux Data Science VM.

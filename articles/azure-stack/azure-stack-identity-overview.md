@@ -12,17 +12,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.topic: conceptual
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer:
+ms.reviewer: fiseraci
+ms.lastreviewed: 01/14/2019
+
 ---
 
 # Overview of identity for Azure Stack
 
 Azure Stack requires Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS), backed by Active Directory as an identity provider. The choice of a provider is a one-time decision that you make when you first deploy Azure Stack. The concepts and authorization details in this article can help you choose between identity providers.
 
-Your choice of either Azure AD or AD FS might be determined by the mode in which you deploy Azure Stack:
+Your choice of either Azure AD or AD FS is determined by the mode in which you deploy Azure Stack:
 
 - When you deploy it in a connected mode, you can use either Azure AD or AD FS.
 - When you deploy it in a disconnected mode, without a connection to the internet, only AD FS is supported.
@@ -55,7 +57,7 @@ How you create and manage users and groups depends on the identity solution you 
 
 In Azure Stack, user accounts:
 
-- Are created in the *username@domain* format. Although AD FS maps user accounts to an Active Directory instance, AD FS does not support the use of the *\<domain>\<alias>* format.
+- Are created in the *username@domain* format. Although AD FS maps user accounts to an Active Directory instance, AD FS does not support the use of the *\\\<domain>\\\<alias>* format.
 - Can be set up to use multi-factor authentication.
 - Are restricted to the directory where they first register, which is their organization's directory.
 - Can be imported from your on-premises directories. For more information, see  [Integrate your on-premises directories with Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).

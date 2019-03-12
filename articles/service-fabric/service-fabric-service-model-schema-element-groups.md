@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 06/06/2018
+ms.date: 12/10/2018
 ms.author: ryanwi
 ---
 
@@ -29,7 +29,7 @@ Defines the partitioning scheme for a service.
 
 ### XML source
 ```xml
-<xs:group xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PartitionDescriptionGroup">
+<xs:group xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="PartitionDescriptionGroup">
         <xs:annotation>
             <xs:documentation>Defines the partitioning scheme for a service.</xs:documentation>
         </xs:annotation>
@@ -102,7 +102,7 @@ Declares that this service has only one partition.
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SingletonPartition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="SingletonPartition">
                 <xs:annotation>
                     <xs:documentation>Declares that this service has only one partition.</xs:documentation>
                 </xs:annotation>
@@ -120,7 +120,7 @@ Describes a uniform partitioning scheme based on Int64 keys.
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UniformInt64Partition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UniformInt64Partition">
                 <xs:annotation>
                     <xs:documentation>Describes a uniform partitioning scheme based on Int64 keys.</xs:documentation>
                 </xs:annotation>
@@ -154,7 +154,7 @@ Describes a named partitioning scheme based on names for each partition.
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamedPartition">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NamedPartition">
                 <xs:annotation>
                     <xs:documentation>Describes a named partitioning scheme based on names for each partition.</xs:documentation>
                 </xs:annotation>
@@ -193,7 +193,7 @@ Defines the scaling mechanism.
 
 ### XML source
 ```xml
-<xs:group xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ScalingPolicyMechanismGroup">
+<xs:group xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ScalingPolicyMechanismGroup">
         <xs:annotation>
             <xs:documentation>Defines the scaling mechanism.</xs:documentation>
         </xs:annotation>
@@ -215,7 +215,7 @@ Defines the scaling mechanism.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -237,7 +237,7 @@ Defines the scaling mechanism.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -258,7 +258,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InstanceCountScalingMechanism" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="InstanceCountScalingMechanism" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a mechanism for increasing the instance count of a partition. This is for stateless services only.</xs:documentation>
                 </xs:annotation>
@@ -275,7 +275,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -294,7 +294,7 @@ Defines a mechanism for adding or removing named partitions.
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AddRemoveIncrementalNamedPartitionScalingMechanism" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AddRemoveIncrementalNamedPartitionScalingMechanism" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a mechanism for adding or removing named partitions.</xs:documentation>
                 </xs:annotation>
@@ -311,7 +311,7 @@ Defines a mechanism for adding or removing named partitions.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -329,7 +329,7 @@ Defines the scaling trigger.
 
 ### XML source
 ```xml
-<xs:group xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ScalingPolicyTriggerGroup">
+<xs:group xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ScalingPolicyTriggerGroup">
         <xs:annotation>
             <xs:documentation>Defines the scaling trigger.</xs:documentation>
         </xs:annotation>
@@ -386,6 +386,11 @@ Defines the scaling trigger.
                             <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
+                    <xs:attribute name="UseOnlyPrimaryLoad" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>Use load of primary replica as average load of partition.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
                 </xs:complexType>
             </xs:element>
         </xs:choice>
@@ -404,7 +409,7 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AveragePartitionLoadScalingTrigger" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AveragePartitionLoadScalingTrigger" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a scaling mechanism based on the average load of replicas of a partition.</xs:documentation>
                 </xs:annotation>
@@ -445,7 +450,7 @@ Defines a scaling mechanism based on the average load of partitions of a service
 
 ##### XML source
 ```xml
-<xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AverageServiceLoadScalingTrigger" minOccurs="0" maxOccurs="1">
+<xs:element xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AverageServiceLoadScalingTrigger" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>Defines a scaling mechanism based on the average load of partitions of a service.</xs:documentation>
                 </xs:annotation>
@@ -468,6 +473,11 @@ Defines a scaling mechanism based on the average load of partitions of a service
                     <xs:attribute name="ScaleIntervalInSeconds" type="xs:string" use="required">
                         <xs:annotation>
                             <xs:documentation>The time interval in seconds to be considered for scaling.</xs:documentation>
+                        </xs:annotation>
+                    </xs:attribute>
+                    <xs:attribute name="UseOnlyPrimaryLoad" type="xs:string" use="optional">
+                        <xs:annotation>
+                            <xs:documentation>Use load of primary replica as average load of partition.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>

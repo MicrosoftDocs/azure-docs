@@ -1,13 +1,10 @@
 ---
 title: Create and manage firewall rules in Azure Database for PostgreSQL
 description: Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal
@@ -33,7 +30,7 @@ Use a search engine or other online tool to check your own IP address. For examp
 
 4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to log in to any database on the PostgreSQL server to which they have valid credentials.
 
-  ![Azure portal - firewall rules ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+  ![Azure portal - firewall rules](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
 

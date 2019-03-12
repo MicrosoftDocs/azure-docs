@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Microsoft Docs'
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
@@ -11,7 +11,7 @@ ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -46,9 +46,12 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to: 
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 
   1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
@@ -59,22 +62,22 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
 	```PowerShell 
-	Connect-AzureRmAccount
+	Connect-AzAccount
 	```   
   2. Run the following command to view all the subscriptions for this account:
 
 	```PowerShell     
-	Get-AzureRmSubscription
+	Get-AzSubscription
 	``` 
   3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
      
 	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
 	```
   4. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:  
 
 	```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 	```
      
       If the resource group already exists, you specify whether to update it (Y) or keep it as (N). 
@@ -99,7 +102,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 ```JSON
 {
@@ -115,7 +118,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 For details about JSON properties, see [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-### azuersqllinkedservice.json
+### azuresqllinkedservice.json
 > [!IMPORTANT]
 > Replace **servername**, **databasename**, **username**, and **password** with name of your Azure SQL server, name of SQL database, user account, and password for the account.  
 > 
@@ -281,7 +284,7 @@ Note the following points:
  
 Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2017-02-03", which is equivalent to "2017-02-03T00:00:00Z"
  
-Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
+Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
  
 If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
  
@@ -361,12 +364,12 @@ Note the following points:
   * In Azure PowerShell, run the following command to register the Data Factory provider: 
 
 	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
 	```PowerShell
-	Get-AzureRmResourceProvider
+	Get-AzResourceProvider
 	```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 

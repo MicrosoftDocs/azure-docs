@@ -1,16 +1,15 @@
 ---
-title: Reprotect VMs from Azure to an on-premises site | Microsoft Docs
-description: After failover of VMs to Azure, you can initiate a failback to bring VMs back to on-premises. Learn how to reprotect before a failback.
-services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+title: Reprotect VMs from Azure to an on-premises site during disaster recovery of VMware VMs and physical servers | Microsoft Docs
+description: After failover to Azure during disaster recovery of VMware VMs and physical servers, learn how to fail back from Azure to the on-premises site.
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: rajanaki
+ms.topic: conceptual
+ms.date: 3/12/2019
+ms.author: mayg
 ---
 
-# Reprotect machines from Azure to an on-premises site
+# Reprotect and fail back machines to an on-premises site after failover to Azure
 
 After [failover](site-recovery-failover.md) of on-premises VMware VMs or physical servers to Azure, the first step in failing back to your on-premises site is to reprotect the Azure VMs that were created during failover. This article describes how to do this. 
 
@@ -57,8 +56,8 @@ To deploy a process server in Azure:
 
 The master target server receives failback data. By default, the master target server runs on the on-premises configuration server. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback. Here's how to create one:
 
-* [Create a Linux master target server](vmware-azure-install-linux-master-target.md) for failback of Linux VMs. This is required.
-* Optionally, create a separate master target server for Windows VM failback. To do this, run Unified Setup again, and select to create a master target server. [Learn more](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* [Create a Linux master target server](vmware-azure-install-linux-master-target.md) for failback of Linux VMs. This is required. Note that, Master target server on LVM is not supported.
+* Optionally, create a separate master target server for Windows VM failback. To do this, run Unified Setup again, and select to create a master target server. [Learn more](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 After you create a master target server, do the following tasks:
 
@@ -110,7 +109,6 @@ Note the following information:
 
 ## Common issues
 
-- Currently, Site Recovery supports failing back only to a VMFS or vSAN datastore. An NFS datastore isn't supported. Due to this limitation, the datastore selection input on the reprotect screen is empty for NFS datastores, or it shows the vSAN datastore but fails during the job. If you intend to fail back, you can create a VMFS datastore on-premises and fail back to it. This failback causes a full download of the VMDK.
 - If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores can't be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an appropriate account that has permissions and then retry the job. 
 - When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation occurs because the Network Manager package is removed when the virtual machine is recovered in Azure.
 - When a Linux virtual machine is configured with a static IP address and is failed over to Azure, the IP address is acquired from DHCP. When you fail over to on-premises, the virtual machine continues to use DHCP to acquire the IP address. Manually sign in to the machine, and then set the IP address back to a static address if necessary. A Windows virtual machine can acquire its static IP address again.

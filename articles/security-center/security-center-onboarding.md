@@ -3,8 +3,8 @@ title: Onboarding to Azure Security Center Standard for enhanced security | Micr
 description: " Learn how to onboard to Azure Security Center Standard for enhanced security. "
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2018
-ms.author: rkarlin
+ms.date: 19/02/2019
+ms.author: monhaber
 
 ---
 # Onboarding to Azure Security Center Standard for enhanced security
-Upgrade to Security Center Standard to take advantage of enhanced security management and threat protection for your hybrid cloud workloads.  You can try Standard free for 60 days. See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+Upgrade to Security Center Standard to take advantage of enhanced security management and threat protection for your hybrid cloud workloads.  You can try Standard free. See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
 Security Center Standard includes:
 
@@ -29,7 +29,7 @@ Security Center Standard includes:
 ## Detecting unprotected resources     
 Security Center automatically detects any Azure subscriptions or workspaces not enabled for Security Center Standard. This includes Azure subscriptions using Security Center Free and workspaces that do not have the Security solution enabled.
 
-You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription, or you can define a unique policy to upgrade a specific resource group only. If the resource group’s policy settings are unique, Security Center will not override the pricing policies when you upgrade the subscription to the Standard tier. Applying the Standard tier to a subscription only applies to the VMs in the subscription that are reporting to workspaces created by Security Center. Applying the Standard tier to the workspace applies to all resources reporting to the workspace.
+You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription, or you can define a unique policy to upgrade a specific resource group only. If the resource group’s policy settings are unique, Security Center will not override the pricing policies when you upgrade the subscription to the Standard tier. Applying the Standard tier to a subscription applies to all supported  resources in the subscription. Applying the Standard tier to a workspace applies to all resources reporting to the workspace.
 
 > [!NOTE]
 > You may want to manage your costs and limit the amount of data collected for a solution by limiting it to a particular set of agents. [Solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) allows you to apply a scope to the solution and target a subset of computers in the workspace.  If you are using solution targeting, Security Center lists the workspace as not having a solution.
@@ -49,7 +49,7 @@ To upgrade a subscription or workspace to Standard:
 
 
    > [!NOTE]
-   > Security Center’s Free capabilities are applied to your Azure VMs only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
+   > Security Center’s Free capabilities are applied to your Azure VMs and VMSS only. The Free capabilities are not applied to your non-Azure computers. If you select Standard, the Standard capabilities are applied to all Azure VMs, VM scale sets, and non-Azure computers reporting to the workspace. We recommend that you apply Standard to provide advanced security for your Azure and non-Azure resources.
    >
    >
 
@@ -78,6 +78,8 @@ If you have existing workspaces, they are listed under **Add new Non-Azure compu
    ![Add a new workspace][4]
 
 2. Under **Security and Audit**, select **OMS Workspace** to create a new workspace.
+> [!NOTE]
+> OMS workspaces are now referred to as Log Analytics workspaces.
 3. Under **OMS Workspace**, enter the information for your workspace.
 4. Under **OMS Workspace**, select **OK**.  After you select OK, you will get a link for downloading a Windows or Linux agent and keys for your workspace ID to use in configuring the agent.
 5. Under **Security and Audit**, select **OK**.

@@ -2,13 +2,12 @@
 title: Azure Container Registry webhooks
 description:  Learn how to use webhooks to trigger events when certain actions occur in your registry repositories.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Using Azure Container Registry webhooks
@@ -71,7 +70,7 @@ To test an ACR webhook with the Azure CLI, use the [az acr webhook ping](/cli/az
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-To see the results, use the [az acr webhook list-events](/cli/azure/acr/webhook#list-events) command.
+To see the results, use the [az acr webhook list-events](/cli/azure/acr/webhook) command.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01

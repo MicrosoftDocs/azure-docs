@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 ### Azure Storage Linked Service
 The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**, which provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
 
@@ -6,20 +13,20 @@ The **Azure Storage linked service** allows you to link an Azure storage account
 | type |The type property must be set to: **AzureStorage** |Yes |
 | connectionString |Specify information needed to connect to Azure storage for the connectionString property. |Yes |
 
-See the following article for steps to view/copy the account key for an Azure Storage: [View, copy, and regenerate storage access keys](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+See the following section for steps to view/copy the account key for an Azure Storage: [Access keys](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Example:**  
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
+}
 ```
 
 ### Azure Storage Sas Linked Service
@@ -43,15 +50,15 @@ The Azure Storage SAS linked service allows you to link an Azure Storage Account
 **Example:**
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<Specify SAS URI of the Azure Storage resource>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<Specify SAS URI of the Azure Storage resource>"
+        }
+    }
+}
 ```
 
 When creating an **SAS URI**, considering the following:  

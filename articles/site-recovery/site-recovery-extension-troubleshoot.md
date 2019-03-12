@@ -1,17 +1,15 @@
 ---
-title: 'Troubleshoot Azure Site Recovery Agent failure: Guest Agent Status Unavailable | Microsoft Docs'
-description: 'Symptoms, causes, and resolutions of Azure Site Recovery failures related to agent and extension'
-services: site-recovery
+title: Troubleshoot issues with Azure Site Recovery agents | Microsoft Docs'
+description: Provides information about symptoms, causes, and resolutions of Azure Site Recovery agent failures.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 11/27/2018
 ms.author: asgang
 ---
 
-# Troubleshoot Azure Site Recovery extension failures: Issues with the agent or extension
+# Troubleshoot issues with the Azure Site Recovery agent
 
 This article provides troubleshooting steps that can help you resolve Azure Site Recovery  errors related to VM agent and extension.
 
@@ -61,7 +59,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 1. Determine whether the "Windows Azure Guest Agent service" is running in the VM services (services.msc). Try to restart the "Windows Azure Guest Agent service".    
 2. If the Windows Azure Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Guest Agent service is installed.
 4. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
-5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
+5. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 6. Verify that the Windows Azure Guest Agent services appears in services.
 7. Restart the protection job.
 

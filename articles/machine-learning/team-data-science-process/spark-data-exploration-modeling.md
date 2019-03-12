@@ -1,27 +1,20 @@
 ---
-title: Data exploration and modeling with Spark | Microsoft Docs
+title: Data exploration and modeling with Spark - Team Data Science Process
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Data exploration and modeling with Spark
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
+This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
 
 * The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 * The **regression** task is to predict the amount of the tip based on other tip features. 
@@ -30,8 +23,8 @@ The models we use include logistic and linear regression, random forests, and gr
 
 * [Linear regression with SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) is a linear regression model that uses a Stochastic Gradient Descent (SGD) method and for optimization and feature scaling to predict the tip amounts paid. 
 * [Logistic regression with LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) or "logit" regression, is a regression model that can be used when the dependent variable is categorical to do data classification. LBFGS is a quasi-Newton optimization algorithm that approximates the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm using a limited amount of computer memory and that is widely used in machine learning.
-* [Random forests](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features and can be extended to the multiclass classification setting. They do not require feature scaling and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
-* [Gradient boosted trees](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
+* [Random forests](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) are ensembles of decision trees.  They combine many decision trees to reduce the risk of overfitting. Random forests are used for regression and classification and can handle categorical features and can be extended to the multiclass classification setting. They do not require feature scaling and are able to capture non-linearities and feature interactions. Random forests are one of the most successful machine learning models for classification and regression.
+* [Gradient boosted trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) are ensembles of decision trees. GBTs train decision trees iteratively to minimize a loss function. GBTs are used for regression and classification and can handle categorical features, do not require feature scaling, and are able to capture non-linearities and feature interactions. They can also be used in a multiclass-classification setting.
 
 The modeling steps also contain code showing how to train, evaluate, and save each type of model. Python has been used to code the solution and to show the relevant plots.   
 
@@ -62,7 +55,7 @@ The regression and classification tasks that are implemented using a Spark 2.0 c
 > [!NOTE]
 > The airline dataset was added to the Spark 2.0 notebooks to better illustrate the use of classification algorithms. See the following links for information about airline on-time departure dataset and weather dataset:
 
->- Airline on-time departure data: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Airline on-time departure data: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 
 >- Airport weather data: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
@@ -363,8 +356,8 @@ This code shows how to create a new feature by binning hours into traffic time b
 ### Index and encode categorical features for input into modeling functions
 This section shows how to index or encode categorical features for input into the modeling functions. The modeling and predict functions of MLlib require features with categorical input data to be indexed or encoded prior to use. Depending on the model, you need to index or encode them in different ways:  
 
-* **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories. 
-* **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
+* **Tree-based modeling** requires categories to be encoded as numerical values (for example, a feature with three categories may be encoded with 0, 1, 2). This is provided by MLlib’s [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) function. This function encodes a string column of labels to a column of label indices that are ordered by label frequencies. Although indexed with numerical values for input and data handling, the tree-based algorithms can be specified to treat them appropriately as categories. 
+* **Logistic and Linear Regression models** require one-hot encoding, where, for example, a feature with three categories can be expanded into three feature columns, with each containing 0 or 1 depending on the category of an observation. MLlib provides [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) function to do one-hot encoding. This encoder maps a column of label indices to a column of binary vectors, with at most a single one-value. This encoding allows algorithms that expect numerical valued features, such as logistic regression, to be applied to categorical features.
 
 Here is the code to index and encode categorical features:
 
@@ -434,7 +427,7 @@ Here is the code to index and encode text features for binary classification.
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -998,7 +991,7 @@ The code in this section shows how to train, evaluate, and save a gradient boost
     dirfilename = modelDir + btregressionfilename;
     gbtModel.save(sc, dirfilename)
 
-    # CONVER RESULTS TO DF AND REGISER TEMP TABLE
+    # CONVERT RESULTS TO DF AND REGISTER TEMP TABLE
     test_predictions = sqlContext.createDataFrame(predictionAndLabels)
     test_predictions.registerTempTable("tmp_results");
 

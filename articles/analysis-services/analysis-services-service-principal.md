@@ -1,10 +1,11 @@
 ---
 title: Automate Azure Analysis Services tasks with service principals  | Microsoft Docs
+description: Learn how to create service principals for automating Azure Analysis Services tasks.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -20,8 +21,8 @@ In Analysis Services, service principals are used with Azure Automation, PowerSh
  
 Service principals can be created in the Azure portal or by using PowerShell. To learn more, see:
 
-[Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Create service principal - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Create service principal - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## Store credential and certificate assets in Azure Automation
 
@@ -40,7 +41,9 @@ Service principal appID and password or certificate can be used in connection st
 
 ### PowerShell
 
-When using a service principal for resource management operations with the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  module, use `Login-AzureRmAccount` cmdlet. When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzureAnalysisServicesAccount` cmdlet. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+When using a service principal for resource management operations with the [Az.AnalysisServices](/powershell/module/az.analysisservices)  module, use `Connect-AzAccount` cmdlet. When using a service principal for server operations with the [SQLServer](https://www.powershellgallery.com/packages/SqlServer) module, use `Add-AzAnalysisServicesAccount` cmdlet. 
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 
@@ -55,7 +58,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Add-AzureAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
+Add-AzAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
 
 Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
 ```
@@ -79,5 +82,5 @@ db.Model.SaveChanges();
 ```
 
 ## Next steps
-[Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md)   

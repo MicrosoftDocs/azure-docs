@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
@@ -44,11 +44,12 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
     - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
     - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-7. Enter a **Public IP address name**, such as *myPublicIP*.
-8. Enter a unique **Domain name label**, such as *myuniquedns*. This DNS label forms the base of the FQDN for the load balancer in front of the scale set.
-9. To confirm the scale set options, select **Create**.
+    ![Basic Details to create a virtual machine scale set in the Azure portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. Select a load balancing option, such as *Load balancer*, under **Choose Load balancing options**. Enter the remaining details for your load balancing option. For example, for *Load balancer* you need to enter a **Public IP address name** and **Domain name label**.
+1. Enter the virtual network details under **Configure Virtual Networks**. For example, you can create a new virtual network, *myVirtualNetwork*, and a new subnet, *default*.
+1. To confirm the scale set options, select **Create**.
+    ![Networking Details to create a virtual machine scale set in the Azure portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Create a virtual machine scale set in the Azure portal](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## Connect to a VM in the scale set

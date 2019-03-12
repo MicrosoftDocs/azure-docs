@@ -41,6 +41,7 @@ ms.author: sedusch
 
 [suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -74,6 +75,7 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
@@ -802,7 +804,7 @@ The following tests are a copy of the test cases in the best practices guides of
    nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
    # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 
@@ -843,7 +845,7 @@ The following tests are a copy of the test cases in the best practices guides of
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
    # run as root
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 

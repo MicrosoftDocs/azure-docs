@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/25/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
 ---
 
 # Tutorial: configure hybrid cloud connectivity with Azure and Azure Stack
@@ -28,6 +29,13 @@ In this tutorial, you will build a sample environment to:
 > [!div class="checklist"]
 > - Keep data on-premises to meet privacy or regulatory requirements, but have access to global Azure resources.
 > - Maintain a legacy system while using cloud-scaled app deployment and resources in global Azure.
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack is an extension of Azure. Azure Stack brings the agility and innovation of cloud computing to your on-premises environment and enabling the only hybrid cloud that allows you to build and deploy hybrid apps anywhere.  
+> 
+> The whitepaper [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) reviews pillars of software quality (placement, scalability, availability, resiliency, manageability and security) for designing, deploying and operating hybrid applications. The design considerations assist in optimizing hybrid application design, minimizing challenges in production environments.
+
 
 ## Prerequisites
 
@@ -49,7 +57,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 ### Azure
 
  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
- - Create a [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) in Azure. Make note of the Web App URL, because you'll need it in the tutorial.
+ - Create a [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Make note of the Web App URL, because you'll need it in the tutorial.
 
 ### Azure Stack
 
@@ -107,7 +115,7 @@ Use the following steps to create a virtual network by using the portal. You can
 
 To create a vNet in Azure:
 
-1. Use your browser to connect to the [Azure portal](http://portal.azure.com/) and sign in with your Azure account.
+1. Use your browser to connect to the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
 2. Select **Create a resource**. In the **Search the marketplace** field, enter `virtual network`'`. Find **Virtual network** in the results list, and then select **Virtual Network**.
 3. From the **Select a deployment model** list, select **Resource Manager**, and then select **Create**.
 4. On **Create virtual network**, configure the VNet settings. The required fields names are prefixed with a red asterisk.  When you enter a valid value, the asterisk changes to a green check mark.
@@ -120,7 +128,7 @@ To create a vNet in Azure Stack:
 
 Before connecting your virtual network to a gateway, you need to create the gateway subnet for the virtual network that you want to connect to. The gateway services use the IP addresses you specify in the gateway subnet.
 
-In the [Azure portal](http://portal.azure.com/), navigate to the Resource Manager virtual network where you want to create a virtual network gateway.
+In the [Azure portal](https://portal.azure.com/), navigate to the Resource Manager virtual network where you want to create a virtual network gateway.
 
 1. Select the vNet to open the **Virtual network** page.
 2. In **SETTINGS**, select **Subnets**.

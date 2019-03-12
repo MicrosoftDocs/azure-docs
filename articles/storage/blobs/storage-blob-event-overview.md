@@ -8,7 +8,7 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Reacting to Blob storage events
@@ -24,7 +24,7 @@ Take a look at [Route Blob storage events to a custom web endpoint - CLI](storag
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## Blob storage accounts
-Blob storage events are available in [Blob storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) and in [General Purpose v2 storage accounts](../common/storage-account-options.md#general-purpose-v2-accounts). **General Purpose v2 (GPv2)** are storage accounts that support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts. 
+Blob storage events are available in general-purpose v2 storage accounts and Blob storage accounts. **General-purpose v2** storage accounts support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
 ## Available Blob storage events
 Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.  Blob storage event subscriptions can include two types of events:  
@@ -86,7 +86,7 @@ Here is an example of a BlobCreated event:
 For more information, see [Blob storage events schema](../../event-grid/event-schema-blob-storage.md).
 
 ## Filtering events
-Blob event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update). Subject filters in Event Grid work based on "begins with" and "ends with" matches, so that events with a matching subject are delivered to the subscriber. 
+Blob event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Subject filters in Event Grid work based on "begins with" and "ends with" matches, so that events with a matching subject are delivered to the subscriber. 
 
 The subject of Blob storage events uses the format:
 

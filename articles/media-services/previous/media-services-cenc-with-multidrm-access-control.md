@@ -4,7 +4,7 @@ description: Learn about how to license the Microsoft Smooth Streaming Client Po
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 02/08/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
-# Design of a content protection system with access control using Azure Media Services
+# Design of a content protection system with access control using Azure Media Services 
 
 ## Overview
 
@@ -24,7 +24,7 @@ Designing and building a digital rights management (DRM) subsystem for an over-t
 
 The targeted readers for this document are engineers who work in DRM subsystems of OTT or online streaming/multiscreen solutions or readers who are interested in DRM subsystems. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay, or Adobe Access.
 
-In this discussion of DRM, we also include common encryption (CENC) with multi-DRM. A major trend in online streaming and the OTT industry is to use CENC with multi-native DRM on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
+In this discussion of DRM, we also include common encryption (CENC) with multi-DRM. A major trend in online streaming and the OTT industry is to use CENC with multi-native DRM on various client platforms. This trend is a shift from the previous one that used a single DRM and its client SDK for various client platforms. When you use CENC with multi-native DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
 The benefits of CENC with multi-DRM are that it:
 
@@ -56,7 +56,7 @@ The following table summarizes the native platform/native app and browsers suppo
 | **Client platform** | **Native DRM support** | **Browser/app** | **Streaming formats** |
 | --- | --- | --- | --- |
 | **Smart TVs, operator STBs, OTT STBs** |PlayReady primarily, and/or Widevine, and/or other |Linux, Opera, WebKit, other |Various formats |
-| **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
+| **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -152,7 +152,7 @@ The following table shows the mapping.
 | **Key management** |Not needed for reference implementation |
 | **Content management** |A C# console application |
 
-In other words, both IDP and STS are used with Azure AD. The [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Media Services and Media Player support DASH and CENC with multi-DRM.
+In other words, both IDP and STS are used with Azure AD. The [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/) is used for the player. Both Media Services and Media Player support DASH and CENC with multi-DRM.
 
 The following diagram shows the overall structure and flow with the previous technology mapping:
 
@@ -204,7 +204,7 @@ Implementation includes the following steps:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
+8. Create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
 9. The following table shows the test matrix.
 
@@ -221,7 +221,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation
@@ -308,9 +308,9 @@ What if the key rollover happens after Azure AD generates a JWT but before the J
 Because a key can be rolled over at any moment, more than one valid public key is always available in the federation metadata document. Media Services license delivery can use any of the keys specified in the document. Because one key might be rolled soon, another might be its replacement, and so forth.
 
 ### Where is the access token?
-If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), the authentication flow is as follows:
+If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/web-api.md), the authentication flow is as follows:
 
-* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/web-app.md).
 * The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns the authorization code to the client application's redirect URI.
 * The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to the Azure AD token endpoint and provides the credential, client ID, and web API's application ID URI. It presents the authorization code to prove that the user consented.
 * Azure AD authenticates the application and returns a JWT access token that's used to call the web API.
@@ -368,7 +368,7 @@ There are two types of security keys:
 
 > [!NOTE]
 > If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown:
-
+> 
 > IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits.
 
 ## The completed system and test

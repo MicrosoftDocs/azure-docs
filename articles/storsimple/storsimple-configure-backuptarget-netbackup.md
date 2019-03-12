@@ -288,7 +288,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores are from a StorSimple tiered volume.
 
-![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Primary backup target configuration logical diagram](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### StorSimple as a primary backup target GFS schedule example
 
@@ -532,9 +532,9 @@ A disaster can be caused by a variety of factors. The following table lists comm
 The following documents were referenced for this article:
 
 - [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## Next steps
 

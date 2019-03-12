@@ -1,15 +1,16 @@
 ---
-title: Blob storage events for Azure Event Grid with the Azure portal | Microsoft Docs
-description: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. 
+title: Send Blob storage events to web endpoint - portal | Microsoft Docs
+description: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.
 services: event-grid 
 keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 08/13/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: seodec18
 ---
-# Create and route Blob storage events with the Azure portal and Event Grid
+# Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a Blob storage account, subscribe to events for that blob storage, and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
@@ -31,7 +32,7 @@ When you're finished, you see that the event data has been sent to the web app.
 
    ![Select storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. For events, you must create either a [Blob storage account](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) or a [General Purpose v2 storage account](../storage/common/storage-account-options.md#general-purpose-v2-accounts). For applications requiring only block or append blob storage, we recommend using Blob storage accounts. Provide values for either the Blob or StorageV2 account. Provide a unique name for the account. When done providing values, select **Create**.
+1. To subscribe to events, create either a general-purpose v2 storage account or a Blob storage account. For more information, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
    ![Start steps](./media/blob-event-quickstart-portal/provide-blob-values.png)
 
@@ -41,7 +42,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`

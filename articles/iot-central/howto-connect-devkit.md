@@ -1,13 +1,13 @@
 ---
 title: Connect a DevKit device to your Azure IoT Central application | Microsoft Docs
 description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
-author: tbhagwat3
-ms.author: tanmayb
-ms.date: 04/16/2018
+author: dominicbetts
+ms.author: dobett
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+manager: philmea
 ---
 
 # Connect an MXChip IoT DevKit device to your Azure IoT Central application
@@ -18,46 +18,48 @@ This article describes how, as a device developer, to connect a MXChip IoT DevKi
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
+1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](http://mxchip.com/az3166).
 
+## Sample Devkits application
 
-## **Sample Devkits** application
+An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics:
 
-An application created from the **Sample Devkits** application template includes a **MXChip** device template with the following characteristics: 
-
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnometer** (measured along X, Y, Z axis), **Accelorometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
+- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, **Pressure**, **Magnetometer** (measured along X, Y, Z axis), **Accelerometer** (measured along X, Y, Z axis) and **Gyroscope** (measured along X, Y, Z axis).
 - State which contains an example measurement for **Device State**.
 - Event measurement with a **Button B Pressed** event. 
 - Settings showing **Voltage**, **Current**, **Fan Speed**, and an **IR** toggle.
 - Properties containing device property **die number** and **Device Location** which is a location property as well as in a **Manufactured In** cloud property. 
 
-
-For full details on the configuration refer to [MXChip Device template details](howto-connect-devkit.md#mxchip-device-template-details)
+For full details on the configuration refer to [MXChip Device template details](#mxchip-device-template-details)
 
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details (**Scope ID, Device ID, and Primary key**).
+
+1. Add a **real device** from Device Explorer, select **+New > Real** to add a real device.
+
+    * Enter the Device Id **<span style="color:Red">(should be lower case)</span>** or use the suggested Device Id.
+    * Enter the Device Name or use the suggested name
+
+    ![Add Device](media/howto-connect-devkit/add-device.png)
+
+1. Get connection details such as **Scope ID, Device ID, and Primary key** for the added device by selecting **Connect** on the device page.
+
+    ![Connection details](media/howto-connect-devkit/device-connect.png)
+
+1. Make sure to save these details, as you will temporarily get disconnected from the internet as you prepare the DevKit device.
 
 ### Prepare the DevKit device
 
 > [!NOTE]
 > If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
 
-#### Before you start configuring the device:
-1. In your IoT Central **Sample Devkits** go to `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device` (on the top right) 
-2. Copy the primary connection string
-3. Make sure to save the connection string, as you will temporaritly get disconnected from the internet as you prepare the DevKit device. 
+#### To prepare the DevKit device
 
-
-#### To prepare the DevKit device:
-
-
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/Azure/iot-central-firmware/releases) page on GitHub. The download filename on the releases page looks like `AZ3166-IoT-Central-X.X.X.bin`.
-
+1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://aka.ms/iotcentral-docs-MXChip-releases) page on GitHub.
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
-
 1. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
 1. When the DevKit device restarts, the following screen displays:
@@ -65,12 +67,12 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > If the screen displays anything else, press the **A**  and **B** buttons on the device at the same time to reboot the device. 
+    > If the screen displays anything else, reset the device and press the **A**  and **B** buttons on the device at the same time to reboot the device.
 
 1. The device is now in access point (AP) mode. You can connect to this WiFi access point from your computer or mobile device.
 
@@ -84,8 +86,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
     - add the name of your WiFi network 
     - your WiFi network password
     - PIN CODE shown on the device LCD 
-    - the connection string of your device (you should have already saved this following the steps)
-      You can find the connection string at `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (on the top right)
+    - the connection details **Scope Id, Device Id, and Primary key** of your device (you should have already saved this following the steps)      
     - Select all the available telemetry measurements! 
 
 1. After you choose **Configure Device**, you see this page:
@@ -95,7 +96,6 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 1. Press the **Reset** button on your device.
 
 
-
 ## View the telemetry
 
 When the DevKit device restarts, the screen on the device shows:
@@ -103,6 +103,9 @@ When the DevKit device restarts, the screen on the device shows:
 * The number of telemetry messages sent.
 * The number of failures.
 * The number of desired properties received and the number of reported properties sent.
+
+> [!NOTE]
+> If the device appears to be looping during connect check if the device is *Blocked* in IoT Central, and *Unblock* the device so it can connect to the app.
 
 Shake the device increment the number of reported properties sent. The device sends a random number as the **Die number** device property.
 
@@ -165,7 +168,7 @@ Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot
 
 For information about how to modify, build, and upload the sample code to your device, see the **readme.md** file in the `AZ3166` folder.
 
-## MXChip Device template details 
+## MXChip Device template details
 
 An application created from the Sample Devkits application template includes a MXChip device template with the following characteristics:
 

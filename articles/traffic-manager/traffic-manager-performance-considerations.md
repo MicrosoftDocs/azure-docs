@@ -4,10 +4,6 @@ description: Understand performance on Traffic Manager and how to test performan
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -57,7 +53,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
-    Formerly known as the Watchmouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
+    Formerly known as the Watch-mouse Check Website tool, this site show you the DNS resolution time from multiple geographic regions simultaneously. Enter the URL to see DNS resolution time, connection time, and speed from several geographic locations. Use this test to see which hosted service is returned for different locations around the world.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
@@ -79,7 +75,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 [Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Operations on Traffic Manager (REST API Reference)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 

@@ -1,14 +1,15 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: Use synonyms to expand scope of a search query
-authors: mhko
+title: Synonyms for query expansion over a search index - Azure Search
+description: Create a synonym map to expand the scope of a search query on an Azure Search index. Scope is broadened to include equivalent terms you provide in a list.
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
 # Synonyms in Azure Search
 
@@ -45,7 +46,7 @@ You can create a new synonym map using HTTP POST, as in the following example:
 	POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
 	api-key: [admin key]
 
-	{  
+	{
 	   "name":"mysynonymmap",
 	   "format":"solr",
 	   "synonyms": "
@@ -58,7 +59,7 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
 	api-key: [admin key]
 
-    {  
+    {
        "format":"solr",
        "synonyms": "
 	      USA, United States, United States of America\n
@@ -142,6 +143,8 @@ The synonyms feature rewrites the original query with synonyms with the OR opera
 Synonym feature applies to search queries and does not apply to filters or facets. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
 
 Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded.
+
+If you need to do a single query that applies synonym expansion and wildcard, regex, or fuzzy searches, you can combine the queries using the OR syntax. For example, to combine synonyms with wildcards for simple query syntax, the term would be `<query> | <query>*`.
 
 ## Tips for building a synonym map
 

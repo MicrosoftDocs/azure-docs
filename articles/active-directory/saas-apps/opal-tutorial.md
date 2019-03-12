@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Opal | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Opal.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 434fc204-e9f9-4678-ad5f-054d621bb2f9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Opal
 

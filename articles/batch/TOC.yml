@@ -47,6 +47,8 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
+  - name: High availability and disaster recovery
+    href: high-availability-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
@@ -77,12 +79,14 @@
       href: batch-virtual-network.md
     - name: Mount an Azure file share
       href: pool-file-shares.md
-    - name: Use compute-intensive VMs
+    - name: Use RDMA or GPU instances
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
     - name: Use low-priority VMs
       href: batch-low-pri-vms.md
+    - name: Checking for pool and node errors
+      href: batch-pool-node-error-checking.md
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks
@@ -155,7 +159,7 @@
   - name: Azure CLI
     href: /cli/azure/batch
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.batch
+    href: /powershell/module/az.batch
   - name: .NET
     href: /dotnet/api/overview/azure/batch
   - name: Java
@@ -170,6 +174,8 @@
       href: /rest/api/batchservice
     - name: Batch Management
       href: /rest/api/batchmanagement/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.batch/allversions
   - name: Batch Analytics
     href: batch-analytics.md
     items:
@@ -201,8 +207,8 @@
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: https://blogs.technet.microsoft.com/windowshpc/
-  - name: HPC solutions in Azure
-    href: ../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json
+  - name: HPC on Azure
+    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Pricing calculator
@@ -212,6 +218,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-batch
+    href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch

@@ -20,9 +20,11 @@ ms.author: spelluru
 
 # Create virtual machines using an Azure Resource Manager template 
 
-When you are creating a virtual machine (VM) in DevTest Labs through the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), you can view the Azure Resource Manager template before you save the VM. The template can then be used as a basis to create more lab VMs with the same settings.
+When you are creating a virtual machine (VM) in DevTest Labs through the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), you can view the Azure Resource Manager template before you save the VM. The template can then be used as a basis to create more lab VMs with the same settings.
 
 This article describes Multi-VM vs. single-VM Resource Manager templates and shows you how to view and save a template when creating a VM.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Multi-VM vs. single-VM Resource Manager templates
 There are two ways to create VMs in DevTest Labs using a Resource Manager template: provision the Microsoft.DevTestLab/labs/virtualmachines resource or provision the Microsoft.Commpute/virtualmachines resource. Each is used in different scenarios and requires different permissions.
@@ -31,7 +33,7 @@ There are two ways to create VMs in DevTest Labs using a Resource Manager templa
 
    ![List of VMs as single items in the DevTest Labs virtual machines list](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   This type of Resource Manager template can be provisioned through the Azure PowerShell command **New-AzureRmResourceGroupDeployment** or through the Azure CLI command **az group deployment create**. It requires administrator permissions, so users who are assigned with a DevTest Labs user role can’t perform the deployment. 
+   This type of Resource Manager template can be provisioned through the Azure PowerShell command **New-AzResourceGroupDeployment** or through the Azure CLI command **az group deployment create**. It requires administrator permissions, so users who are assigned with a DevTest Labs user role can’t perform the deployment. 
 
 - Resource Manager templates that use a Microsoft.Compute/virtualmachines resource type can provision multiple VMs as a single environment in the DevTest Labs virtual machines list:
 
@@ -39,12 +41,12 @@ There are two ways to create VMs in DevTest Labs using a Resource Manager templa
 
    VMs in the same environment can be managed together and share the same lifecycle. Users who are assigned with a DevTest Labs user role can create environments using those templates as long as the administrator has configured the lab that way.
 
-The remainder of this article discusses Resource Manager templates that use Mirosoft.DevTestLab/labs/virtualmachines. These are used by lab admins to automate lab VM creation (for example, claimable VMs) or golden image generation (for example, image factory).
+The remainder of this article discusses Resource Manager templates that use Microsoft.DevTestLab/labs/virtualmachines. These are used by lab admins to automate lab VM creation (for example, claimable VMs) or golden image generation (for example, image factory).
 
 [Best practices for creating Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) offers many guidelines and suggestions to help you create Azure Resource Manager templates that are reliable and easy to use.
 
 ## View and save a virtual machine's Resource Manager template
-1. Follow the steps at [Create your first VM in a lab](devtest-lab-create-first-vm.md) to begin creating a virtual machine.
+1. Follow the steps at [Create your first VM in a lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) to begin creating a virtual machine.
 1. Enter the required information for your virtual machine and add any artifacts you want for this VM.
 1. At the bottom of the Configure settings window, choose **View ARM template**.
 

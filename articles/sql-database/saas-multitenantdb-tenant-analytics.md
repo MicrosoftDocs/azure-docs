@@ -1,20 +1,21 @@
 ---
 title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
-keywords: "sql tutorial"
-services: "sql-database"
-author: "stevestein"
-manager: craigg
-ms.service: "sql-database"
-ms.custom: "scale out apps"
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a multi-tenant app."
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.author: anjangsh
-ms.reviewer: billgib, genemi
+author: stevestein
+ms.author: sstein
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
 ---
-# Cross-tenant analytics using extracted data
-
-In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
+# Cross-tenant analytics using extracted data - multi-tenant app
+ 
+In this tutorial, you walk through a complete analytics scenario for a multitenant implementation. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract data** from each tenant database into an analytics store.
 2.	**Optimize the extracted data** for analytics processing.
@@ -234,5 +235,6 @@ Congratulations!
 
 ## Additional resources
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Elastic Jobs](sql-database-elastic-jobs-overview.md).
+- [Cross-tenant analytics using extracted data - single-tenant app](saas-tenancy-tenant-analytics.md) 

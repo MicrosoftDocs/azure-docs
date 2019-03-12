@@ -3,15 +3,16 @@ title: Overview of SQL Server on Azure Linux Virtual Machines | Microsoft Docs
 description: Learn about how to run full SQL Server editions on Azure Linux Virtual machines. Get direct links to all Linux SQL Server VM images and related content.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Overview of SQL Server on Azure Virtual Machines (Linux)
 

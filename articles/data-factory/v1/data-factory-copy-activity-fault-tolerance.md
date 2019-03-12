@@ -10,7 +10,7 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
@@ -59,8 +59,8 @@ The following example provides a JSON definition to configure skipping the incom
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
         "linkedServiceName": "BlobStorage",
         "path": "redirectcontainer/erroroutput"

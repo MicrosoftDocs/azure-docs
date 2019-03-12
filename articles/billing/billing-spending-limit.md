@@ -4,7 +4,7 @@ description: Describes how Azure spending limit works and how to remove it
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 
@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
+ms.author: banders
 
 ---
 # Understand Azure spending limit and how to remove it
 
 Spending limit in Azure exists to prevent spending over your credit amount. All new customers who sign up for the trial or offers that includes credits over multiple months have the spending limit turned on by default. The spending limit is $0. It can’t be changed. The spending limit isn’t available for subscription types such as Pay-As-You-Go subscriptions and commitment plans. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
-**Looking for billing alerts?** See [Set up billing or credit alerts for Azure subscriptions](billing-set-up-alerts.md).
-
 ## What happens when I reach the spending limit?
 
 When your usage results in charges that exhaust the monthly amounts included with your subscription, the services that you deployed are disabled for the rest of that billing period. 
 
-For example, when you spend all the credit included with your subscription, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. The data in your storage accounts and databases are available in a read-only manner.
+For example, when you spend all the credit included with your subscription, Cloud Services that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. The data in your storage accounts are available in a read-only manner.
 
 At the beginning of the next billing period, if your subscription offer includes credits over multiple months, your subscription would be re-enabled automatically. Then you can redeploy your Cloud Services and have full access to your storage accounts and databases.
 
@@ -74,7 +72,7 @@ This feature is available only when the spending limit has been removed indefini
 
 ### How do I set a custom spending limit?
 
-We don't have custom spend limits today. However, you can opt in to [use billing alerts to control your spend](billing-set-up-alerts.md).
+Custom spending limits aren't available.
 
 ### Does the spending limit prevent all charges from Azure?
 
@@ -82,6 +80,6 @@ We don't have custom spend limits today. However, you can opt in to [use billing
 
 ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).

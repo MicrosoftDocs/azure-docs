@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #e5e5e5;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #2bc7f4;
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <title>i_account-management</title>
+  <g id="ICONS-64x">
+    <rect class="cls-1" x="10" y="1" width="43" height="62" rx="2" ry="2"/>
+    <path class="cls-2" d="M53,52v9a2,2,0,0,1-2,2H12a2,2,0,0,1-2-2V52Z"/>
+    <path class="cls-3" d="M53,3V8H10V3a2,2,0,0,1,2-2H51A2,2,0,0,1,53,3Z"/>
+    <rect class="cls-4" x="10" y="1" width="43" height="62" rx="2" ry="2"/>
+    <line class="cls-4" x1="10" y1="8" x2="53" y2="8"/>
+    <line class="cls-4" x1="10" y1="52" x2="53" y2="52"/>
+    <g>
+      <circle class="cls-4" cx="31.5" cy="23" r="8"/>
+      <path class="cls-4" d="M19,43A12.26,12.26,0,0,1,31.5,31,12.26,12.26,0,0,1,44,43"/>
+    </g>
+    <rect class="cls-5" width="64" height="64"/>
+  </g>
+</svg>
