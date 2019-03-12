@@ -56,6 +56,9 @@ The DNS protocol prevents the assignment of anything other than an A or AAAA rec
 With alias records, this problem no longer exists. Now application owners can point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners can point to the same Traffic Manager profile that's used for any other domain within their DNS zone. 
 For example, contoso.com and www.contoso.com can point to the same Traffic Manager profile. This is the case as long as the Traffic Manager profile has only external endpoints configured.
 
+### Point zone apex to Azure CDN endpoints
+Just like you can use alias records to point zone apex of your business DNS zone to a Traffic Manager profile; you can also use alias records to point the zone apex of your business DNS zone to Azure CDN endpoints. This is useful if you are creating static websites using Azure storage and Azure CDN and want your user to be able to access the website without having to append "www" to your DNS zone name. For example if your static website is named www.contoso.com you'd want your user to be able to access your site even by typing contoso.com without having to append www to the DNS name. As described in above section since CNAME record is not supported at zone apex you'll not be able to point contoso.com to your CDN endpoint where your static website is hosted. Using an alias record you can point the zone apex to a CDN endpoint directly without having  to use a CNAME record. 
+
 ## Next steps
 
 To learn more about alias records, see the following articles:
