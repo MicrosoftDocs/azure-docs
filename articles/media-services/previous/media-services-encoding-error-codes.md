@@ -48,4 +48,4 @@ To get help from the **Media Services** team, open a [support ticket](https://po
 * [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

@@ -55,7 +55,7 @@ To view VMs on the vault dashboard:
 
 To manage a backup policy:
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), select **All settings**.
+1. On the vault item dashboard, select **All settings**.
 
     ![The All settings option](./media/backup-azure-manage-vms/all-settings-button.png)
 2. In **Settings**, select **Backup policy**.
@@ -75,7 +75,7 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 
 To trigger an on-demand backup:
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), under **Protected Item**, select **Backup Item**.
+1. On the vault item dashboard, under **Protected Item**, select **Backup Item**.
 
     ![The Backup now option](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -102,7 +102,7 @@ There are two ways to stop protecting a VM:
 
 To stop protection for a VM:
 
-1. On the [vault item's dashboard](#view-vms-in-the-dashboard), select **Stop backup**.
+1. On the vault item's dashboard, select **Stop backup**.
 2. Choose whether to retain or delete the backup data, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
 
     ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -115,7 +115,7 @@ If you keep backup data when you stop the VM, you can later resume protection. I
 
 To resume protection for a VM:
 
-1. On the [vault item's dashboard](#view-vms-in-the-dashboard), select **Resume backup**.
+1. On the vault item's dashboard, select **Resume backup**.
 
 2. Follow the steps in [Manage backup policies](#manage-backup-policies) to assign the policy for the VM. You don't need to choose the VM's initial protection policy.
 3. After you apply the backup policy to the VM, you see the following message:
@@ -132,7 +132,7 @@ You can delete a VM's backup data during the **Stop backup** job or after the ba
 After you stop or disable the VM's backup job, you can delete the backup data:
 
 
-1. On the [vault item dashboard](#view-vms-in-the-dashboard), select **Delete backup**.
+1. On the vault item dashboard, select **Delete backup**.
 
     ![Select Delete backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

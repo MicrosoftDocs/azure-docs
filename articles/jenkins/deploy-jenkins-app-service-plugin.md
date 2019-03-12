@@ -86,7 +86,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 ### Set up the Jenkins job
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
-2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http:\//github.com/&lt;your_ID>/javawebappsample.
 3. Add a step to build the project by using Maven by adding the **Execute shell** command. For this example, we need an additional command to rename the \*.war file in the target folder to **ROOT.war**:   
     ```bash
     mvn clean package
@@ -139,7 +139,7 @@ Before setting up the job in Jenkins, you need a web app on Linux. You also need
 ### Set up the Jenkins job for Docker
 
 1. Create a new **freestyle** project on the Jenkins Dashboard.
-2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configure the **Source Code Management** field to use your local fork of the [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). Provide the **Repository URL** value. For example: http:\//github.com/&lt;your_ID>/javawebappsample.
 3. Add a step to build the project by using Maven by adding an **Execute shell** command. Include the following line in the command:
     ```bash
     mvn clean package

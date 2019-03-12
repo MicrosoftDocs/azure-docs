@@ -67,7 +67,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## Create an Azure file share
-All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure Files client.
+All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use an Azure Files client.
 
 ```cpp
 // Create the Azure Files client.

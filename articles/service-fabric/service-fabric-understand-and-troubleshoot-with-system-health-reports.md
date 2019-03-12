@@ -345,7 +345,7 @@ HealthEvents          :
                           S/S Ready Node3 131482789688598468
                           (Showing 3 out of 3 replicas. Total available replicas: 3)                        
                         
-                        For more information see: http://aka.ms/sfhealth
+                        For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/27/2017 3:43:32 AM, LastError = 1/1/0001 12:00:00 AM
@@ -458,7 +458,7 @@ Exception has been thrown by the target of an invocation.
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at Microsoft.ServiceFabric.Services.Runtime.StatefulServiceReplicaAdapter.d__0.MoveNext()
 
-    For more information see: http://aka.ms/sfhealth
+    For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
@@ -488,7 +488,7 @@ HealthEvents          :
                         Description           : Replica had multiple failures during close on _Node_1. The application 
                         host has crashed.
                         
-                        For more information see: http://aka.ms/sfhealth
+                        For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 1:16:03 AM, LastOk = 1/1/0001 12:00:00 AM
@@ -532,7 +532,7 @@ HealthEvents          :
                         TTL                   : Infinite
                         Description           : Reconfiguration is stuck. Waiting for response from the local replica
                         
-                        For more information see: http://aka.ms/sfhealth
+                        For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 2:13:57 AM, LastOk = 1/1/0001 12:00:00 AM
@@ -564,7 +564,7 @@ HealthEvents          :
                         P/I Down 40 131483956244554282
                         S/S Down 20 131483956274972403
                         
-                        For more information see: http://aka.ms/sfhealth
+                        For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/28/2017 12:07:37 PM, LastOk = 1/1/0001 12:00:00 AM
