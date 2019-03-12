@@ -30,6 +30,8 @@ This guide discusses two options to rotate the TDE protector on the server.
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 - This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md).
 - You must have Azure PowerShell installed and running.

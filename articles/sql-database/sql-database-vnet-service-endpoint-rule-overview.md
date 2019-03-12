@@ -170,6 +170,8 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
 #### Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 1.	Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.	If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).

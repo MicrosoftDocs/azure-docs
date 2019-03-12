@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 03/05/2019
+ms.date: 03/12/2019
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database
 
@@ -77,6 +77,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 Use the [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet to submit an import database request to the Azure SQL Database service. Depending on database size, the import may take some time to complete.
 

@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/27/2019
+ms.date: 03/12/2019
 ---
 # Creating and using active geo-replication
 
@@ -150,6 +150,8 @@ As discussed previously, active geo-replication can also be managed programmatic
 ### PowerShell: Manage failover of single and pooled databases
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 | Cmdlet | Description |
 | --- | --- |

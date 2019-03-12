@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/04/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Database and SQL Data Warehouse IP firewall rules
 
@@ -144,6 +144,8 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ## Manage server-level IP firewall rules using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> The Powershell Azure Resource Manager is still supported by Azure SQL Database. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 | Cmdlet | Level | Description |
 | --- | --- | --- |
