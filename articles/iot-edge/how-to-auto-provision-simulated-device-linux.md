@@ -90,7 +90,7 @@ In the virtual machine, build a C SDK tool that you can use to retrieve the devi
 3. Sign in to your VM, then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C. 
 
    >[!TIP]
-   >In the course of this article, you'll copy to and paste from from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to virtual machine through Hyper-V Manager once to retrieve its IP address: `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
+   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to virtual machine through Hyper-V Manager once to retrieve its IP address: `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
 4. Run the following commands to build an C SDK tool that retrieves your device provisioning information. 
 

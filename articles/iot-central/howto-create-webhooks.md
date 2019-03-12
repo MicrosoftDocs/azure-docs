@@ -19,7 +19,7 @@ Webhooks enable you to connect your IoT Central app to other applications and se
 ## How to set up the webhook
 In this example, you will connect to RequestBin to get notified when rules fire using webhooks. 
 
-1. Open [RequestBin](http://requestbin.net/). 
+1. Open [RequestBin](https://requestbin.net/). 
 1. Create a new RequestBin and copy the **Bin URL**. 
 1. Create a [telemetry rule](howto-create-telemetry-rules.md) or an [event rule](howto-create-event-rules.md). Save the rule and add a new action.
 ![Webhook creation screen](media/howto-create-webhooks/webhookcreate.PNG)

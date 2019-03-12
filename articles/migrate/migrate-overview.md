@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 02/25/2018
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -93,7 +93,7 @@ The process is as follows:
 4. The appliance is always connected to the Azure Migrate service, and continually sends metadata and performance-related data from the VMs to Azure. The appliance uses CIM sessions to connect and collect VM information.
     - Nothing needs to be installed on the VMs you're discovering.
     - VM metadata includes information about cores, memory, disks, disk sizes, and network adapters.
-    - Performance data includes information about CPU and memory usage, disk IOPS, disk throughput (MBps) , and network output (MBps).
+    - Performance data includes information about CPU and memory usage, disk IOPS, disk throughput (MBps) , and network output (MBps)
 5. After discovery finishes, in the Azure portal you gather discovered VMs into groups.and run an assessment on each group. A group typically consists of VMs that you'd like to migrate together.
 6. After the assessment finishes, you can view it in the portal, or download it in Excel format.
 

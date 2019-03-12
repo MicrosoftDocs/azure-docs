@@ -24,7 +24,7 @@ The following example shows the resolution of the **builtin.url** entity.
 
 ```json
 {
-  "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
+  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.781975448
@@ -37,7 +37,7 @@ The following example shows the resolution of the **builtin.url** entity.
   ],
   "entities": [
     {
-      "entity": "http://www.luis.ai",
+      "entity": "https://www.luis.ai",
       "type": "builtin.url",
       "startIndex": 0,
       "endIndex": 17

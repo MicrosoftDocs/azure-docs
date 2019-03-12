@@ -60,7 +60,7 @@ For additional information about the schema definition, see [Schema Format](Sche
 
 ## Generate data
 
-The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](http://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
+The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](https://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
 
 ```
 ...
