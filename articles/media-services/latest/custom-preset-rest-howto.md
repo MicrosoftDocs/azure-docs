@@ -122,7 +122,7 @@ Select the **Body** tab and replace the body with the json code you [defined ear
 
 Select **Send**. 
 
-If the Transform been successfully created, you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
+If the Transform has been successfully created, you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
 ## Next steps
 

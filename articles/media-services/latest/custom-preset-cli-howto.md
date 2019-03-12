@@ -35,62 +35,62 @@ The following example defines a custom preset that we are going to save in the `
 
 ```json
 {
-    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
-    "codecs": [
-        {
-            "@odata.type": "#Microsoft.Media.AacAudio",
-            "profile": "AacLc",
-            "channels": 2,
-            "samplingRate": 48000,
-            "bitrate": 128000
-        },
-        {
-            "@odata.type": "#Microsoft.Media.H264Video",
-            "sceneChangeDetection": false,
-            "complexity": "Balanced",
-            "layers": [
-                {
-                    "@odata.type": "#Microsoft.Media.H264Layer",
-                    "profile": "Auto",
-                    "level": "auto",
-                    "bufferWindow": "PT5S",
-                    "referenceFrames": 3,
-                    "entropyMode": "Cabac",
-                    "bitrate": 2000000,
-                    "maxBitrate": 2000000,
-                    "bFrames": 3,
-                    "slices": 0,
-                    "adaptiveBFrame": true,
-                    "width": "1280",
-                    "height": "720"
-                },
-                {
-                    "@odata.type": "#Microsoft.Media.H264Layer",
-                    "profile": "Auto",
-                    "level": "auto",
-                    "bufferWindow": "PT5S",
-                    "referenceFrames": 3,
-                    "entropyMode": "Cabac",
-                    "bitrate": 1000000,
-                    "maxBitrate": 1000000,
-                    "bFrames": 3,
-                    "slices": 0,
-                    "adaptiveBFrame": true,
-                    "width": "640",
-                    "height": "360"
-                }
-            ],
-            "keyFrameInterval": "PT2S",
-            "stretchMode": "AutoSize"
-        }
-    ],
-    "formats": [
-        {
-            "@odata.type": "#Microsoft.Media.Mp4Format",
-            "outputFiles": [],
-            "filenamePattern": "{Basename}_{Bitrate}{Extension}"
-        }
-    ]
+  "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
+  "codecs": [
+      {
+          "@odata.type": "#Microsoft.Media.AacAudio",
+          "profile": "AacLc",
+          "channels": 2,
+          "samplingRate": 48000,
+          "bitrate": 128000
+      },
+      {
+          "@odata.type": "#Microsoft.Media.H264Video",
+          "sceneChangeDetection": false,
+          "complexity": "Balanced",
+          "layers": [
+              {
+                  "@odata.type": "#Microsoft.Media.H264Layer",
+                  "profile": "Auto",
+                  "level": "auto",
+                  "bufferWindow": "PT5S",
+                  "referenceFrames": 3,
+                  "entropyMode": "Cabac",
+                  "bitrate": 2000000,
+                  "maxBitrate": 2000000,
+                  "bFrames": 3,
+                  "slices": 0,
+                  "adaptiveBFrame": true,
+                  "width": "1280",
+                  "height": "720"
+              },
+              {
+                  "@odata.type": "#Microsoft.Media.H264Layer",
+                  "profile": "Auto",
+                  "level": "auto",
+                  "bufferWindow": "PT5S",
+                  "referenceFrames": 3,
+                  "entropyMode": "Cabac",
+                  "bitrate": 1000000,
+                  "maxBitrate": 1000000,
+                  "bFrames": 3,
+                  "slices": 0,
+                  "adaptiveBFrame": true,
+                  "width": "640",
+                  "height": "360"
+              }
+          ],
+          "keyFrameInterval": "PT2S",
+          "stretchMode": "AutoSize"
+      }
+  ],
+  "formats": [
+      {
+          "@odata.type": "#Microsoft.Media.Mp4Format",
+          "outputFiles": [],
+          "filenamePattern": "{Basename}_{Bitrate}{Extension}"
+      }
+  ]
 }
 ```
 
@@ -108,7 +108,7 @@ The following CLI command creates the Transform based on the custom preset (defi
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-If the Transform been successfully created, you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md).
+If the Transform has been successfully created, you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md).
 
 ## See also
 
