@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: juliako
 
 ---
@@ -121,7 +121,7 @@ We are going to save this transform in a file. In this example, we name the file
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if the desired Transform might already exist. The following `show` command returns the `customTransformName` transform if it exists:
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if a Transform with a desired name and "recipe" already exist. The following `show` command returns the `customTransformName` transform if it exists:
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
@@ -133,7 +133,7 @@ The following CLI command creates the Transform based on the custom preset (defi
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-You submit a Job under the Transform to request for Media Services to apply the transform to the specified video or audio. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md).
+For Media Services to apply the Transform to the specified video or audio, you need to submit a Job under that Transform. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md).
 
 ## See also
 
