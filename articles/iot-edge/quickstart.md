@@ -27,8 +27,8 @@ In this quickstart you learn how to:
 
 The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights.
 
->[!NOTE]
->The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!NOTE]
+> The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 If you don't have an active Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
@@ -57,7 +57,7 @@ IoT Edge device:
 * A Windows virtual machine to act as your IoT Edge device. You can create this virtual machine using the following command, replacing *{password}* with a secure password:
 
   ```azurecli-interactive
-  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --generate-ssh-keys --size Standard_DS1_v2
+  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
   ```
 
   It may take a few minutes to create and start the new virtual machine. You can then download an RDP file for use when connecting to your virtual machine:
@@ -134,7 +134,7 @@ The installation script automatically installs the Moby engine on your device be
 1. Find and select **Containers**.
 1. Select **OK**.
 
-Once complete, you need to restart Windows (as distinct from the Azure virtual machine) for the changes to take effect.
+Once complete, you need to restart Windows for the changes to take effect, but you can do so from your Remote Desktop session instead of restarting the virtual machine from the Azure portal.
 
 ### Download and install the IoT Edge service
 
