@@ -263,7 +263,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 ## Disaster recovery for your Azure ecosystem
 
-If you are using other Azure services, be sure to implement disaster recovery best practices for those services, too. For example, if you choose to use an external Hive metastore instance, you should consider disaster recovery for [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), and/or [Azure Database for MySQL](../mysql/concepts-business-continuity.md). For general information about disaster recovery, see [Disaster recovery for Azure applications](../architecture/resiliency/disaster-recovery-azure-applications#multiple-datacenter-regions.md).
+If you are using other Azure services, be sure to implement disaster recovery best practices for those services, too. For example, if you choose to use an external Hive metastore instance, you should consider disaster recovery for [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), and/or [Azure Database for MySQL](../mysql/concepts-business-continuity.md). For general information about disaster recovery, see [Disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## Next steps
 
