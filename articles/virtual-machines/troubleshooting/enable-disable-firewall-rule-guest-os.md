@@ -18,7 +18,7 @@ ms.author: delhan
 
 ---
 
-# Enable or disable a firewall rule on a Azure VM Guest OS
+# Enable or disable a firewall rule on an Azure VM Guest OS
 
 This article provides a reference for troubleshooting a situation in which you suspect that the guest operating system firewall is filtering partial traffic on a virtual machine (VM). This could be useful for the following reasons:
 

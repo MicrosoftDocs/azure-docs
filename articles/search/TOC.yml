@@ -73,7 +73,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Allocate partitions and replicas
+    - name: Scale partitions and replicas
       href: search-capacity-planning.md
     - name: Deployment strategies and best practices
       href: search-performance-optimization.md
@@ -149,7 +149,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-    - name: Indexers (crawlers)
+    - name: Indexers
       items:
       - name: Indexers overview
         href: search-indexer-overview.md

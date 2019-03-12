@@ -22,8 +22,7 @@ Some of these datasets are available in Azure Blob storage. For these datasets, 
 The rest of these sample datasets are available in your workspace under **Saved Datasets**. You can find this in the module palette to the left of the experiment canvas in Machine Learning Studio.
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
 
-
-
+## Datasets
 
 <table>
 
@@ -410,6 +409,10 @@ The dataset was downloaded and stored in Azure Blob storage (<a href="https://az
 
 </table>
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Kickstart your experiments with examples](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

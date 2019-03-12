@@ -1,5 +1,5 @@
 ---
-title: Getting started with the R programming language
+title: Getting started with R
 titleSuffix: Azure Machine Learning Studio
 description: Use this R programming tutorial to get started using the R language with Azure Machine Learning Studio to create a forecasting solution.
 services: machine-learning

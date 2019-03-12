@@ -21,8 +21,8 @@ Use the Azure portal to create an Azure Machine Learning workspace. This workspa
 In this quickstart, you take the following actions:
 
 * Create a workspace in your Azure subscription.
-* Try it out with Python in a Jupyter notebook and log values across multiple iterations.
-* View the logged values in your workspace.
+* Try it out with Python in a Jupyter notebook. The notebook contains code to estimate pi and logs errors at each iteration. 
+* View the logged error values in your workspace.
 
 The following Azure resources are added automatically to your workspace when they're regionally available:
 
