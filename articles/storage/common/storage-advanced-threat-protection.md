@@ -31,7 +31,7 @@ Advanced Threat Protection for Azure Storage ingests diagnostic logs of read, wr
 
 3. In the **Advanced Threat Protection** configuration blade
 	* Turn **ON** Advanced *Threat Protection*
-	* Click **Save** to save the new or updated Advanced Threat Protection policy.
+	* Click **Save** to save the new or updated Advanced Threat Protection policy. (Prices in the image are for example purposes only.)
 
 ![Turn on Azure Storage advanced threat protection](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
