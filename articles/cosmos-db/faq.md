@@ -185,10 +185,6 @@ You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
 * Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](stored-procedures-triggers-udfs.md).
 
-### I've set up my container to use lazy indexing, I see that my queries don't return expected results.
-
-As explained in the indexing section, lazy indexing can result in this behavior. You should always use consistent indexing for all the applications.
-
 ### Does the SQL API support resource link caching?
 
 Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable and can be cached. SQL API clients can specify an "If-None-Match" header for reads against any resource-like document or collection and then update their local copies after the server version has changed.
