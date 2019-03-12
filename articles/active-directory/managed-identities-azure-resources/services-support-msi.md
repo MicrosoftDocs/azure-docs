@@ -147,12 +147,12 @@ Refer to the following list to configure managed identity for Azure Container In
 
 The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
 
-| Service | Resource ID | Status | Assign access |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | Available | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md) |
-| Azure Key Vault | `https://vault.azure.net` | Available |  
+| Service | Azure Global Endpoint Resource ID | Azure Government Resource ID | Azure Germany Resource ID | Azure China 21Vianet | Status | Assign access |
+| ------- | ----------- | ------ | ---- | ------------- |------|--------|------------|
+| Azure Resource Manager | `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.microsoftazure.de/` | `https://management.chinacloudapi.cn` | Available | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md) |
+| Azure Key Vault | `https://vault.azure.net` | `https://vault.usgovcloudapi.net` | `https://vault.microsoftazure.de` | `https://vault.azure.cn` | Available |  
 | Azure Data Lake | `https://datalake.azure.net/` | Available |
 | Azure SQL | `https://database.windows.net/` | Available |
-| Azure Event Hubs | `https://eventhubs.azure.net` | Preview |
-| Azure Service Bus | `https://servicebus.azure.net` | Preview |
-| Azure Storage | `https://storage.azure.com/` | Preview |
+| Azure Event Hubs | `https://eventhubs.azure.net` | Not Available | Not Available | Not Available | Preview |
+| Azure Service Bus | `https://servicebus.azure.net` | Not Available | Not Available | Not Available | Preview |
+| Azure Storage | `https://storage.azure.com/` |Not Available |Not Available |Not Available | Preview |
