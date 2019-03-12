@@ -1120,7 +1120,7 @@ Can manage all aspects of users and groups, including resetting passwords for li
 ## Role template IDs
 
 Graph displayName | Azure portal display name | directoryRoleTemplateId
-------------------------| ================= | -------------------------
+----------------- | ------------------------- | -------------------------
 Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Billing Administrator | Billing administrator | b0f54661-2d74-4c50-afa3-1ec803f12efe
