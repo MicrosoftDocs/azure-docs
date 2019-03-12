@@ -106,6 +106,6 @@ This section lists the specifications related to the enclosure environment such 
 |    40°C to 45°C (104°F to 113°F)           |    Maximum temperature is reduced by   1°C/125 m (1°F/228 ft) above 950 m (3,117 ft).    |
 
 
-## Next step
+## Next steps
 
 - [Deploy your Azure Data Box Edge](data-box-edge-deploy-prep.md)

@@ -53,7 +53,6 @@ The activation key that you use:
 - Is an Azure Active Directory (AAD) based authentication key.
 - Expires after three days.
 - Isn't used after device activation.
-
  
 After a device is activated, it uses tokens to communicate with Microsoft Azure.
 
@@ -126,7 +125,6 @@ The Data Box Edge/ Data Box Gateway service collects personal information in the
     - Zip/postal code
     - State
     - Country/Province/Region
-    - Carrier account number
     - Shipping tracking number
 
     The order details are encrypted and stored in the service. The service retains the information until you delete the resource or order explicitly. Moreover, the deletion of resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
