@@ -22,7 +22,7 @@ Log in to Azure at https://portal.azure.com
 
 In the Azure portal, navigate to **Virtual machines**.
 
-Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time.
+Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time. Azure VMs can exist in any region no matter the location of your Automation Account.
 
 ![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]

@@ -138,7 +138,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML Sanitization Vulnerability](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **References**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML Sanitization Vulnerability](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Steps** | The autocomplete attribute specifies whether a form should have autocomplete on or off. When autocomplete is on, the browser automatically complete values based on values that the user has entered before. For example, when a new name and password is entered in a form and the form is submitted, the browser asks if the password should be saved.Thereafter when the form is displayed, the name and password are filled in automatically or are completed as the name is entered. An attacker with local access could obtain the clear text password from the browser cache. By default autocomplete is enabled, and it must explicitly be disabled. |
 
 ### Example
@@ -179,7 +179,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Password Hashing using .NET Crypto APIs](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **References**              | [Password Hashing using .NET Crypto APIs](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Steps** | Passwords should not be stored in custom user store databases. Password hashes should be stored with salt values instead. Make sure the salt for the user is always unique and you apply b-crypt, s-crypt or PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000 loops to eliminate the possibility of brute forcing.| 
 
 ## <a id="db-encrypted"></a>Ensure that sensitive data in database columns is encrypted
@@ -396,7 +396,7 @@ If the application is not an enterprise application, then use platform provided 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Crypto Obfuscation For .Net](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **References**              | [Crypto Obfuscation For .Net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Steps** | Generated binaries (assemblies within apk) should be obfuscated to stop reverse engineering of assemblies.Tools like `CryptoObfuscator` may be used for this purpose. |
 
 ## <a id="cert"></a>Set clientCredentialType to Certificate or Windows
@@ -426,7 +426,7 @@ Set clientCredentialType to Certificate or Windows.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Security Mode - Transport, Security Mode - Message |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](https://www.codemag.com/article/0611051) |
 | **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security cannot guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
 
 ### Example

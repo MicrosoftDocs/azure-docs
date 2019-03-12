@@ -30,7 +30,7 @@ Your sign-in experience differs depending on what you choose to use as your seco
 | [With a phone call to my mobile or office phone](#signing-in-with-a-phone-call) |
 | [With a text to my mobile phone](#signing-in-with-a-text-message)
 | [With notifications from the Microsoft Authenticator app](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
-| [With verification codes from the Microsoft Authenticator app](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
+| With verification codes from the Microsoft Authenticator app |
 | [With an alternate method, because I can't use my preferred method right now](#signing-in-with-an-alternate-method) |
 
 ## Signing in with a phone call
