@@ -129,7 +129,7 @@ more details on, see [Understand the charges on your billing profile's invoice](
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
 
 ## Next steps
 
