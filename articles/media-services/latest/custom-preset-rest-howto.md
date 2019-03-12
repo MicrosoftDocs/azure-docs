@@ -129,7 +129,7 @@ The **PUT** HTTP request method is similar to:
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
 ```
 
-Select the **Body** tab and paste the json code you [defined earlier](#define-a-filter).
+Select the **Body** tab and replace the body with the json code you [defined earlier](#define-a-custom-preset).
 
 Select **Send**. 
 
@@ -137,6 +137,6 @@ The Transform has been created.
 
 Now you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Tutorial: Stream video files - REST](stream-files-tutorial-with-rest.md).
 
-## See also
+## Next steps
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+See [other REST operations](https://docs.microsoft.com/rest/api/media/)
