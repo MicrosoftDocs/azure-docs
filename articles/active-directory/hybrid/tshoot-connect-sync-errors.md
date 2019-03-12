@@ -67,14 +67,14 @@ Azure Active Directory schema does not allow two or more objects to have the sam
 
 #### Example case:
 1. **Bob Smith** is a synced user in Azure Active Directory from on premises Active Directory of *contoso.com*
-2. Bob Smith's **UserPrincipalName** is set as **bobs@contoso.com**.
+2. Bob Smith's **UserPrincipalName** is set as **bobs\@contoso.com**.
 3. **"abcdefghijklmnopqrstuv=="** is the **SourceAnchor** calculated by Azure AD Connect using Bob Smith's **objectGUID** from on premises Active Directory, which is the **immutableId** for Bob Smith in Azure Active Directory.
 4. Bob also has following values for the **proxyAddresses** attribute:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
    * **smtp: bob\@contoso.com**
 5. A new user, **Bob Taylor**, is added to the on premises Active Directory.
-6. Bob Taylor's **UserPrincipalName** is set as **bobt@contoso.com**.
+6. Bob Taylor's **UserPrincipalName** is set as **bobt\@contoso.com**.
 7. **"abcdefghijkl0123456789==""** is the **sourceAnchor** calculated by Azure AD Connect using Bob Taylor's **objectGUID** from on premises Active Directory. Bob Taylor's object has NOT synced to Azure Active Directory yet.
 8. Bob Taylor has the following values for the proxyAddresses attribute
    * smtp: bobt@contoso.com
@@ -138,13 +138,13 @@ If Azure AD Connect attempts to add a new object or update an existing object wi
 
 #### Example case:
 1. **Bob Smith** is a synced user in Azure Active Directory from on premises Active Directory of contoso.com
-2. Bob Smith's **UserPrincipalName** on premises is set as **bobs@contoso.com**.
+2. Bob Smith's **UserPrincipalName** on premises is set as **bobs\@contoso.com**.
 3. Bob also has following values for the **proxyAddresses** attribute:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
    * **smtp: bob\@contoso.com**
 4. A new user, **Bob Taylor**, is added to the on premises Active Directory.
-5. Bob Taylor's **UserPrincipalName** is set as **bobt@contoso.com**.
+5. Bob Taylor's **UserPrincipalName** is set as **bobt\@contoso.com**.
 6. **Bob Taylor** has the following values for the **ProxyAddresses** attribute
     i. smtp: bobt@contoso.com
     ii. smtp: bob.taylor@contoso.com
@@ -184,7 +184,7 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 This case results in a **"FederatedDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
-For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
+For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob\@contoso.com* was changed to *UserPrincipalName = bob\@fabrikam.com*.
 
 #### Example
 1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
