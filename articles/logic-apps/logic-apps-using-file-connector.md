@@ -42,16 +42,15 @@ systems such as your file system server, you need to
 That way, you can specify to use your gateway installation 
 when you create the file system connection from your logic app.
 
-* A [Drobox account](https://www.dropbox.com/) 
-and your account credentials. Your DropBox 
-credentials are necessary for creating a 
-connection between your logic app and your Drobox account. 
+* A [Dropbox account](https://www.dropbox.com/), 
+which you can sign up for free. Your account credentials 
+are necessary for creating a connection between your 
+logic app and your Drobox account. 
 
-* Your account credentials for the computer 
-that has the file system you want to access. 
-For example, if you install the data gateway on 
-the same computer as your file system, 
-then you need the account credentials for that computer. 
+* Access to the computer that has the file system 
+you want to use. For example, if you install the 
+data gateway on the same computer as your file system, 
+you need the account credentials for that computer. 
 
 * An email account from a provider that's supported by Logic Apps, 
 such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, 
