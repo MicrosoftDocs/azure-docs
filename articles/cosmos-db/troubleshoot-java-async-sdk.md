@@ -159,7 +159,7 @@ The above exception suggests you have a dependency on an older version of RxJava
 The workaround for such issuses is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
 
 To identify which library brings in RxJava-1.2.2 run the following command next to your project pom.xml file:
-```
+```bash
 mvn dependency:tree
 ```
 more info here:
@@ -167,7 +167,7 @@ https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conf
 
 Once you identify  RxJava-1.2.2 is transitive dependency of which other dependency of your project, you can modify the dependency on that lib in your pom file and exclude RxJava transitive dependency it:
 
-```
+```xml
 <dependency>
   <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
   <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
