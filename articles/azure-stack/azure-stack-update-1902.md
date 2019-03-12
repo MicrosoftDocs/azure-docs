@@ -170,6 +170,18 @@ The following are post-installation known issues for this build version.
 
    To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
 
+- If you do not have a Hardware Lifecycle Host (HLH) - before 1902 you had to set Group Policy *Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options* to **Send LM & NTLM – use NTLMv2 session security if negotiated**; however, since 1902 you have to leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is a default value). Otherwise you will not be able to establish PowerShell Remote session and will receive an *Access is denied* error:
+   ```PowerShell
+   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
+   about_Remote_Troubleshooting Help topic.
+   At line:1 char:12
+   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
+      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
+   ```
+
 ### Networking  
 
 <!-- 3239127 - IS, ASDK -->
