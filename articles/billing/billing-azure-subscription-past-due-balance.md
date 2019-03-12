@@ -46,4 +46,4 @@ The service is canceled and your resources are no longer available. Your Azure d
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
