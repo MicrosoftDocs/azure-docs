@@ -56,17 +56,17 @@ IoT Edge device:
 
 * A Windows virtual machine to act as your IoT Edge device. You can create this virtual machine using the following command, replacing *{password}* with a secure password:
 
-   ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --generate-ssh-keys --size Standard_DS1_v2
-   ```
+  ```azurecli-interactive
+  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --generate-ssh-keys --size Standard_DS1_v2
+  ```
 
-   It may take a few minutes to create and start the new virtual machine. You can then download an RDP file for use when connecting to your virtual machine:
+  It may take a few minutes to create and start the new virtual machine. You can then download an RDP file for use when connecting to your virtual machine:
 
-   1. Navigate to your new Windows virtual machine in the Azure portal.
-   1. Select **Connect**.
-   1. On the **RDP** tab, select **Download RDP File**.
+  1. Navigate to your new Windows virtual machine in the Azure portal.
+  1. Select **Connect**.
+  1. On the **RDP** tab, select **Download RDP File**.
 
-   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
+  Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
 ## Create an IoT hub
 
