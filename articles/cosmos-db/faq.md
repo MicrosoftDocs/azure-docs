@@ -305,7 +305,7 @@ You can get the connection string from the Connection String page in the Azure p
 
 ### How do I override the config settings for the request options in the .NET SDK for the Table API?
 
-Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application. For information about config settings, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet).
+Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application. For information about config settings, see [Azure Cosmos DB capabilities](tutorial-develop-table-dotnet.md).
 
 ### Are there any changes for customers who are using the existing Azure Table storage SDKs?
 
