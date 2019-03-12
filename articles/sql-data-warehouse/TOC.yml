@@ -66,8 +66,8 @@
       href: quickstart-scale-compute-tsql.md
   - name: Workload Management
     items: 
-    - name: Portal
-      href: quickstart-create-a-workload-classifier-portal.md
+    - name: T-SQL
+      href: quickstart-create-a-workload-classifier-tsql.md
 - name: Concepts
   items:
   - name: Security

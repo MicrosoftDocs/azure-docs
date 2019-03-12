@@ -6,8 +6,8 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
-ms.date: 02/07/2019
+ms.subservice: workload management
+ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -31,27 +31,43 @@ This quickstart assumes you already have a SQL data warehouse and that you have 
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
+## Create login for TheCEO
+
+Create a SQL Server authentication login in the `master` database using [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql) for 'TheCEO'.
+
+```sql
+IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
+BEGIN
+CREATE LOGIN [TheCEO] WITH PASSWORD='<strongpassword>'
+END
+;
+```
+
 ## Create TheCEO user in mySampleDataWarehouse
 
-   ```sql
-   CREATE USER [TheCEO] WITH DEFAULT_SCHEMA=[dbo]
-    ```
+```sql
+IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
+BEGIN
+CREATE USER [TheCEO] FOR LOGIN [TheCEO]
+END
+;
+```
 
-## Create a workload classifier for TheCEO with high importance.
+## Create a workload classifier for TheCEO with high importance
 
-   ```sql
-   DROP WORKLOAD CLASSIFIER wgcTheCEO;
-   CREATE WORKLOAD CLASSIFIER wgcTheCEO
-   WITH (WORKLOAD_GROUP = 'xlargerc'
-         ,MEMBERNAME = 'TheCEO'
-         ,IMPORTANCE = HIGH);
-   ```
+```sql
+DROP WORKLOAD CLASSIFIER [wgcTheCEO];
+CREATE WORKLOAD CLASSIFIER [wgcTheCEO]
+WITH (WORKLOAD_GROUP = 'xlargerc'
+      ,MEMBERNAME = 'TheCEO'
+      ,IMPORTANCE = HIGH);
+```
 
 ## Clean up resources
 
    ```sql
    DROP USER [TheCEO]
-   DROP WORKLOAD CLASSIFIER wgcTheCEO;
+   DROP WORKLOAD CLASSIFIER [wgcTheCEO];
    ```
 
 You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
@@ -75,4 +91,4 @@ Follow these steps to clean up resources.
 
 ## Next steps
 
-You've now created a workload classifier. Run a few queries to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

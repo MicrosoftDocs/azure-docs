@@ -52,8 +52,6 @@ Q6 is submitted with smallrc resource class at 9:01am.
 
 Because Q5 is mediumrc, it requires two concurrency slots.  Q5 needs to wait for two of the running queries to complete.  However, when one of the running queries (Q1-Q4) completes, Q6 is scheduled immediately because the resources exist to execute the query.  If Q5 has higher importance than Q6, Q6 waits until Q5 is running before it can begin executing.
 
->[!GIF ]
-
 ## Next steps
 
-For more information about SQL Data Warehouse workload classification, see SQL Data Warehouse {Classification](classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+For more information about SQL Data Warehouse workload classification, see SQL Data Warehouse {Classification](sql-data-warehouse-classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier-tsql). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

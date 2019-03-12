@@ -23,7 +23,7 @@ This article explains the SQL Data Warehouse workload classification process of 
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Workload management classification allows workload policies to be applied to requests through assigning [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) and [importance](importance.md).
+Workload management classification allows workload policies to be applied to requests through assigning [resource classes](resource-classes-for-workload-management.md#what-are-resource-classes) and [importance](sql-dat-warehouse-workload-importance.md).
 
 While there are many ways to classify data warehousing workloads, the simplest and most common classification is load and query.  You load data with insert, update, and delete statements.  You query the data using selects.  A data warehousing solution will often have a workload policy for load activity, such as assigning a higher resource class with more resources. A different workload policy could apply to queries, such as lower importance compared to load activities.
 
@@ -38,4 +38,4 @@ Classification in SQL Data Warehouse is achieved today by assigning users to a r
 
 ## Next steps
 
-For more information about SQL Data Warehouse workload classification, and importance, see [Create a workload classifier](quickstart-create-a-workload-classifier) and [SQL Data Warehouse Importance](importance.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+For more information about SQL Data Warehouse workload classification, and importance, see [Create a workload classifier](quickstart-create-a-workload-classifier-tsql) and [SQL Data Warehouse Importance](importance.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
