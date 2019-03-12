@@ -25,7 +25,7 @@
 6. Select **Next** on the page. 
 7. Select **Skip this step** on the page. 
 
-    ![Skip the last step](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)1. 
+    ![Skip the last step](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)
 8. In the Firebase console, select the cog for your project. Then select **Project Settings**.
 
     ![Select Project Settings](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
