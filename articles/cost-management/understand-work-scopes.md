@@ -26,7 +26,7 @@ Scopes are where you manage billing data, have roles specific to payments, view 
 
 ## How Cost Management uses scopes
 
-Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the RBAC scopes don't.
+Cost Management works at all scopes above resources to allow organizations to manage costs at the level at which they have access, whether that's the entire billing account or a single resource group. Although billing scopes differ based on your Microsoft agreement (subscription type), the RBAC scopes do not.
 
 ## Azure RBAC scopes
 
@@ -141,6 +141,10 @@ Billing users don't have access to management groups because they don't explicit
 ## Cloud Solution Provider (CSP) scopes
 
 Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+
+## How to switch between scopes within Cost Management
+
+All Cost Management experiences within the Azure portal include a **Scope** pill at the top-left of the blade, which provides access to quickly change scope. Clicking the **Scope** pill opens a scope picker which shows billing accounts, the root management group, and any subscriptions which aren't nested under the root management group. To select a scope, click the background to highlight it and then click the **Select** button at the bottom. To drill in to nested scopes (e.g. resource groups within a subscription), click the scope name link. To select the parent scope at any nested level, click the **Select this <scope>** button at the top of the scope picker.
 
 ## Identify the resource ID for a scope
 
