@@ -36,17 +36,6 @@ The following example defines a custom preset that we are going to save in the `
 ```json
 {
     "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
-    "filters": {
-        "rotation": "Auto",
-        "overlays": [
-            {
-                "@odata.type": "#Microsoft.Media.VideoOverlay",
-                "opacity": 1.0,
-                "inputLabel": "videooverlay",
-                "audioGainLevel": 1.0
-            }
-        ]
-    },
     "codecs": [
         {
             "@odata.type": "#Microsoft.Media.AacAudio",
@@ -107,7 +96,7 @@ The following example defines a custom preset that we are going to save in the `
 
 ## Create a transform with the custom preset 
 
-You create a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest) to configure common tasks for encoding or analyzing your videos. In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if one already exists. The following `show` command returns the `customTransformName` checks if the transform exists:
+You create a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest) to configure common tasks for encoding or analyzing your videos. In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if one already exists. The following `show` command returns the `customTransformName` if the transform exists:
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
@@ -116,7 +105,7 @@ az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 The following CLI command creates the Transform based on the custom preset (defined earlier). 
 
 ```cli
-az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --preset customPreset.json
+az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
 If the Transform been successfully created, you can submit a job under the transform. The job is the request to Media Services to apply the transform to the given video. For a complete example that shows how to submit a job under a transform, see [Quickstart: Stream video files - CLI](stream-files-cli-quickstart.md).

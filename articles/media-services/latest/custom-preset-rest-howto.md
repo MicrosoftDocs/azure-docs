@@ -46,17 +46,6 @@ The following is the **Request body** example that defines a custom preset.
                 "relativePriority": "Normal",
                 "preset": {
                     "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
-                    "filters": {
-                        "rotation": "Auto",
-                        "overlays": [
-                            {
-                                "@odata.type": "#Microsoft.Media.VideoOverlay",
-                                "inputLabel": "videooverlay",
-                                "audioGainLevel": 1,
-                                "opacity": 1
-                            }
-                        ]
-                    },
                     "codecs": [
                         {
                             "@odata.type": "#Microsoft.Media.AacAudio",
