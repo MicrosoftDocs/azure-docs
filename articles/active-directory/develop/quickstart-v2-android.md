@@ -80,11 +80,11 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > If you selected Option 1 above, you can skip these steps. Open the project in Android Studio and run the app. 
 
 1. Extract and open the Project in Android Studio.
-1. Inside **app** > **res** > **raw**, open **auth_config.json**.
+2. Inside **app** > **res** > **raw**, open **auth_config.json**.
 
 
 > [!div renderon="portal" class="sxs-lookup"]
-> 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
+> 3. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
 > > ```javascript
 > > "client_id" : "Enter_the_Application_Id_Here",
 > > "type": "Enter_the_Audience_Info_Here",
@@ -92,14 +92,14 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > > ```
 
 > [!div renderon="docs"]
-> 1. Edit **auth_config.json** and replace the `client_id`:
+> 3. Edit **auth_config.json** and replace the `client_id`:
 > > ```javascript
 > > "client_id" : "ENTER_YOUR_APPLICATION_ID",
 > > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
 > > ```
 
-1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
+4. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
+5. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
 
 	> [!div renderon="docs"]
 	> ```xml
@@ -138,7 +138,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
     > ```
 
 > [!div renderon="docs"]
-> <span>6.</span> Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+> 6. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
 
 ## More Information
 
