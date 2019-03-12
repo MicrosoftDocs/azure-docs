@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL using the Azure CLI up command (preview)
+title: Quickstart - Create an Azure Database for PostgreSQL using a simple Azure CLI command - az postgres up (preview)
 description: Quickstart guide to create Azure Database for PostgreSQL server using Azure CLI (command line interface) up command.
 author: rachel-msft
 ms.author: raagyema
@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/11/2019
 ---
-# Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI up command (preview)
+# Quickstart - Create an Azure Database for PostgreSQL using a simple Azure CLI command - az postgres up (preview)
 
 > [!IMPORTANT]
 > The [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command is in preview.
