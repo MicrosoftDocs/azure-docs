@@ -131,12 +131,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## Fetch SAS tokens in code
 
