@@ -144,7 +144,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## Script to change connection settings via Azure CLI
 
 > [!IMPORTANT]
-> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 The following CLI script shows how to change the connection policy.
 

@@ -26,7 +26,7 @@ You can use Draft with any Docker image registry and any Kubernetes cluster, inc
 ## Create an Azure Container Registry
 You can easily [create a new Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
 
-1. Create a Azure resource group to manage your ACR registry and the Kubernetes cluster in ACS.
+1. Create an Azure resource group to manage your ACR registry and the Kubernetes cluster in ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```

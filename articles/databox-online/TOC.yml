@@ -71,6 +71,10 @@
       href: data-box-edge-system-requirements.md
     - name: Understand limits
       href: data-box-edge-limits.md
+    - name: Security overview
+      href: data-box-edge-security.md
+    - name: Review specifications
+      href: data-box-edge-technical-specifications-compliance.md
   - name: How to
     items:
     - name: Develop C# module

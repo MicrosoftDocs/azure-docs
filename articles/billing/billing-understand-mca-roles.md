@@ -19,7 +19,7 @@ ms.author: banders
 
 To manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a Microsoft Customer Agreement.
 
 ## Billing role definitions
 

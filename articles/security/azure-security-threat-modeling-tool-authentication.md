@@ -335,7 +335,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Steps** | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Azure AD</li><li>Federation - Identity Server</li></ul><p>Links in the references section provide low-level details on how each of the authentication schemes can be implemented to secure a Web API.</p>|
 
 ## <a id="authn-aad"></a>Use standard authentication scenarios supported by Azure Active Directory
