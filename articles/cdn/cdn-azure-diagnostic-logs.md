@@ -226,9 +226,9 @@ You can display the data in a variety of ways by using Management Solutions. You
 
 You can install monitoring solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
 
-### Add a Azure Monitor CDN monitoring solution
+### Add an Azure Monitor CDN monitoring solution
 
-Follow these steps to add a Azure Monitor monitoring solution:
+Follow these steps to add an Azure Monitor monitoring solution:
 
 1.   Sign in to the Azure portal using your Azure subscription and go to your dashboard.
     ![Azure dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)

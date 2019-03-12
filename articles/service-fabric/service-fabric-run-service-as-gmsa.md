@@ -1,5 +1,5 @@
 ---
-title: Run a Azure Service Fabric service under a gMSA account | Microsoft Docs
+title: Run an Azure Service Fabric service under a gMSA account | Microsoft Docs
 description: Learn how to run a service as a gMSA on a Service Fabric Windows standalone cluster.
 services: service-fabric
 documentationcenter: .net
