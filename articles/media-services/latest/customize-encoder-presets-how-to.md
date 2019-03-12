@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -26,7 +26,7 @@ When encoding with Azure Media Services, you can get started quickly with one of
 When creating custom presets, the following considerations apply:
 
 * All values for height and width on AVC content must be a multiple of 4.
-* In Azure Media Services v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
+* In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
 
 ## Download the sample
 

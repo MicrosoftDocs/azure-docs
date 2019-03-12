@@ -31,11 +31,15 @@ When encoding with Azure Media Services, you can get started quickly with one of
 When creating custom presets, the following considerations apply:
 
 * All values for height and width on AVC content must be a multiple of 4.
-* In Azure Media Services v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
+* In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
 
-## Define a custom preset
+## Define a custom transform
 
-The following example defines a custom preset that we are going to save in the `customPreset.json` file. 
+The following example defines a custom Transform with a set of outputs that we want to be generated when this Transform is used. In this example, we add an AacAudio layer for the audio encoding and a H264Video for the video encoding. In the video layers we assign labels so that they can be used for the output file names. We also want to generate a set of PNG thumbnails.
+
+We then specify the format for the output files - one for video + audio, and another for the thumbnails. Since we have multiple H264Layers, we have to use macros that produce unique names per layer. We can either use a `{Label}` or `{Bitrate}`.
+
+We are going to save this transform in a file. In this example, we name the file `customPreset.json`. 
 
 ```json
 {
@@ -115,7 +119,7 @@ The following example defines a custom preset that we are going to save in the `
   }
 ```
 
-## Create a transform with the custom preset 
+## Create a new transform  
 
 When creating a [Transform](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest), you need to specify what `outputs` you want it to generate. Each transform output contains a `preset` that describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired transform output. 
 
