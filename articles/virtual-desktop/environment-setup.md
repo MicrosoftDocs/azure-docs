@@ -26,7 +26,7 @@ A host pool can be one of two types:
 - Personal, where each session host is assigned to individual users.
 - Pooled, where session hosts can accept connections from any user authorized to an app group within the host pool.
 
-You can set additional properties on the host pool to change its load balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Windows Virtual Desktop sessions. You control the resources published to users through app groups.
+You can set additional properties on the host pool to change its load-balancing behavior, how many sessions each session host can take, and what the user can do to session hosts in the host pool while signed in to their Windows Virtual Desktop sessions. You control the resources published to users through app groups.
 
 ## App groups
 
@@ -35,20 +35,20 @@ An app group is a logical grouping of applications installed on session hosts in
 - RemoteApp, where users access the RemoteApps you individually select and publish to the app group
 - Desktop, where users access the full desktop
 
-By default, a desktop app group (named "Desktop Application Group") is automatically created whenever you create a host pool. You can remove this app group at any time. However, you can't create another desktop app group in the host pool while a desktop app group exists. To publish RemoteApps, you must create a RemoteApp app group. You can create multiple RemoteApp app groups to accommodate different worker scenarios. Different RemoteApp app groups can even contain overlapping RemoteApps.
+By default, a desktop app group (named "Desktop Application Group") is automatically created whenever you create a host pool. You can remove this app group at any time. However, you can't create another desktop app group in the host pool while a desktop app group exists. To publish RemoteApps, you must create a RemoteApp app group. You can create multiple RemoteApp app groups to accommodate different worker scenarios. Different RemoteApp app groups can also contain overlapping RemoteApps.
 
-To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following:
+To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
 
 - A user can't be assigned to both a desktop app group and a RemoteApp app group in the same host pool.
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
 
 ## Tenant groups
 
-In Windows Virtual Desktop, the Windows Virtual Desktop tenant is where most of the setup and configuration happens, since it contains the host pools, app groups, and app group user assignments. However, there may be certain situations where you need to manage multiple Windows Virtual Desktop tenants at once, particularly if you're a Cloud Service Provider (CSP) or a hosting partner. In these situations, you can use a custom Windows Virtual Desktop tenant group to place each of the customers' Windows Virtual Desktop tenants and centrally manage access. Otherwise, if you're only managing a single Windows Virtual Desktop tenant, the tenant group concept doesn't apply and you can continue to operate and manage your tenant that exists in the default tenant group.
+In Windows Virtual Desktop, the Windows Virtual Desktop tenant is where most of the setup and configuration happens. The Windows Virtual Desktop tenant contains the host pools, app groups, and app group user assignments. However, there may be certain situations where you need to manage multiple Windows Virtual Desktop tenants at once, particularly if you're a Cloud Service Provider (CSP) or a hosting partner. In these situations, you can use a custom Windows Virtual Desktop tenant group to place each of the customers' Windows Virtual Desktop tenants and centrally manage access. However, if you're only managing a single Windows Virtual Desktop tenant, the tenant group concept doesn't apply and you can continue to operate and manage your tenant that exists in the default tenant group.
 
 ## End users
 
-Once users are assigned to their app groups, they can connect to a Windows Virtual Desktop deployment with any of the Windows Virtual Desktop clients.
+After you've assigned users to their app groups, they can connect to a Windows Virtual Desktop deployment with any of the Windows Virtual Desktop clients.
 
 ## Next steps
 
