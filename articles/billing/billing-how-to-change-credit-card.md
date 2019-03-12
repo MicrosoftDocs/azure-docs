@@ -38,12 +38,12 @@ In the Azure portal, you can add a new credit card, update an existing credit ca
 1. Select the subscription you'd like to add the credit or debit card to.
 1. Select **Payment methods**.
 
-    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/paymentmethods_blade_x.png)
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
 1. In the top-left corner, select “+” to add a card. A credit card form will appear on the right.
 1. Enter credit or debit card details.
 
-    ![Screenshot that shows adding a new card.](./media/billing-how-to-change-credit-card/sub_addnew_x.png)
+    ![Screenshot that shows adding a new card.](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
 1. To make this card your active payment method, check the box next to **Make this my active payment method** above the form. This card will become the active payment instrument for all subscriptions using the same card as the selected subscription.
 
@@ -62,11 +62,11 @@ If your credit card gets renewed and the number stays the same, update the exist
 
 1. Select **Payment methods**.
 
-    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/paymentmethods_blade_x.png)
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
 1. Click on the credit or debit card that you'd like to edit. A credit card form will appear on the right.
 
-    ![Screenshot that shows credit or debit card selected.](./media/billing-how-to-change-credit-card/editcard_x.png)
+    ![Screenshot that shows credit or debit card selected.](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
 1. Update the credit or debit card details.
 1. Select **Save**.
@@ -83,11 +83,11 @@ If more than one of your subscriptions have the same active payment method, then
 1. Select the subscription you'd like to add the credit or debit card to.
 1. Select **Payment methods**.
 
-    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/paymentmethods_blade_x.png)
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
 1. Check the box next to the card you'd like to make the active payment method.
 1. Click **Set active**.
-    ![Screenshot that shows credit or debit card selected and set active.](./media/billing-how-to-change-credit-card/sub_changeactive_x.png)
+    ![Screenshot that shows credit or debit card selected and set active.](./media/billing-how-to-change-credit-card/sub-change-active-x.png)
 
 ## Remove a credit or debit card from the account
 
@@ -98,7 +98,7 @@ If more than one of your subscriptions have the same active payment method, then
 
 1. Under **Billing**, select **Payment methods**.
 
-    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/paymentmethods_blade_x.png)
+    ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
 1. Check the box next to the card that you want to remove.
 1. Click **Delete**.
