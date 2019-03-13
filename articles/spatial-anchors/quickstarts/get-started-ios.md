@@ -80,7 +80,7 @@ open ./SampleObjC.xcworkspace
 
 ## Configure account identifier and key
 
-The next step is to use the account identifier and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+The next step is to configure the app to use your account identifier and account key. You copied them into Notepad when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
 # [Swift](#tab/openproject-swift)
 
