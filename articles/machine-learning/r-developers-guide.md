@@ -190,7 +190,7 @@ but will continue to evolve.
 
 
 ### Next steps
-* [Running your R code on Azure with mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
+* [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server in the Cloud](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Additional Resources for Machine Learning Server and Microsoft R](https://docs.microsoft.com/machine-learning-server/resources-more)
 * [R on Azure](https://github.com/yueguoguo/r-on-azure) - an overview of packages, tools, and case studies for using R with Azure

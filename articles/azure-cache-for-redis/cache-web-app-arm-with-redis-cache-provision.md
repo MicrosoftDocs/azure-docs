@@ -32,7 +32,7 @@ For the complete template, see [Web App with Azure Cache for Redis template](htt
 In this template, you will deploy:
 
 * Azure Web App
-* Azure Cache for Redis.
+* Azure Cache for Redis
 
 To run the deployment automatically, click the following button:
 
