@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/7/2019
+ms.date: 03/13/2019
 ms.author: mayg
 
 ---
@@ -58,13 +58,17 @@ Ensure that following services are running on the PS machine. Start or restart a
 
 Ensure that the StartType of all the services is set to **Automatic or Automatic (Delayed Start)**. Microsoft Azure Recovery Services Agent (obengine) service need not have its StartType set as above.
 
-## Initial replication issues
+## Replication issues
 
-Initial replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. In most cases, you can troubleshoot these issues by completing the steps in the following sections.
+Initial and ongoing replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. In most cases, you can troubleshoot these issues by completing the steps in the following sections.
 
-### Check the source machine
+>**[!Note]** Ensure that:
+>1. The system date time for the protected item is in sync.
+>2. No anti-virus software is blocking Azure Site Recovery. Learn [more](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) on folder exclusions required for Azure Site Recovery.
 
-The following list shows ways you can check the source machine:
+### Check the source machine for connectivity issues
+
+The following list shows ways you can check the source machine.
 
 *  At the command line on the source server, use Telnet to ping the process server via the HTTPS port by running the following command. HTTPS Port 9443 is the default used by Process Server for sending and receiving replication traffic. You can modify this port at the time of registration. The following command checks for network connectivity issues and for issues that block the firewall port.
 
@@ -89,7 +93,7 @@ The following list shows ways you can check the source machine:
 
        C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
-### Check the process server
+### Check the process server for connectivity issues
 
 The following list shows ways you can check the process server:
 
@@ -106,7 +110,7 @@ The following list shows ways you can check the process server:
        C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
        and
        C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-2. Check the following logs on the PS in case there is no heartbeat from PS:
+2. Check the following logs on the PS in case there is no heartbeat from PS. This is identified by **Error code 806** on the portal.
 
        C:\ProgramData\ASR\home\svsystems\eventmanager*.log
        and
@@ -174,6 +178,7 @@ The following list shows ways you can check the process server:
 
    Increase the bandwidth, and then check whether the problem still occurs.
 
+
 ## Source machine isn't listed in the Azure portal
 
 When you try to select the source machine to enable replication by using Site Recovery, the machine might not be available for one of the following reasons:
@@ -191,6 +196,96 @@ When you try to select the source machine to enable replication by using Site Re
 ## Protected virtual machines are greyed out in the portal
 
 Virtual machines that are replicated under Site Recovery aren't available in the Azure portal if there are duplicate entries in the system. To learn how to delete stale entries and resolve the issue, refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+
+## Common Errors and Recommended steps for resolution
+
+### Initial Replication issues [Error 78169]
+
+Over an above ensuring that there are no connectivity, bandwidth or time sync related issues, ensure that:
+
+- No anti-virus software is blocking Azure Site Recovery. Learn [more](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) on folder exclusions required for Azure Site Recovery.
+
+### Application consistency recovery point missing [Error 78144]
+
+ This happens due to issues with Volume Shadow copy Service (VSS). To resolve: 
+ 
+- Verify that the installed version of the Azure Site Recovery agent is at least 9.22.2. 
+- Verify that VSS Provider is installed as a service in Windows Services and also verify the Component Service MMC to check that Azure Site Recovery VSS Provider is listed.
+- If the VSS Provider is not installed, refer the [installation failure troubleshooting article](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+
+- If VSS is disabled,
+    - Verify that the startup type of the VSS Provider service is set to **Automatic**.
+    - Restart the following services:
+        - VSS service
+        - Azure Site Recovery VSS Provider
+        - VDS service
+
+### High Churn on Source Machine [Error 78188]
+
+Possible Causes:
+- The data change rate (write bytes/sec) on the listed disks of the virtual machine is more than the [Azure Site Recovery supported limits](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) for the replication target storage account type.
+- There is a sudden spike in the churn rate due to which high amount of data is pending for upload.
+
+To resolve the issue:
+- Ensure that the target storage account type (Standard or Premium) is provisioned as per the churn rate requirement at source.
+- If the observed churn is temporary, wait for a few hours for the pending data upload to catch up and to create recovery points.
+- If the problem continues to persist, use the ASR [deployment planner](site-recovery-deployment-planner.md#overview) to help plan replication.
+
+### No Heartbeat from Source Machine [Error 78174]
+
+This happens when Azure Site Recovery Mobility agent on the Source Machine is not communicating with the Configuration Server (CS).
+
+To resolve the issue, use the following steps to verify the network connectivity from the source VM to the Config Server:
+
+1. Verify that the Source Machine is running.
+2. Sign in to the Source Machine using an account that has administrator privileges.
+3. Verify that the following services are running and if not restart the services:
+   - Svagents (InMage Scout VX Agent)
+   - InMage Scout Application Service
+4. On the Source Machine, examine the logs at the location for error details:
+
+       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    
+### No heartbeat from Process Server [Error 806]
+In case there is no heartbeat from the Process Server (PS), check that:
+1. PS VM is up and running
+2. Check following logs on the PS for error details:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+
+### No Heartbeat from Master Target [Error 78022]
+
+This happens when Azure Site Recovery Mobility agent on the Master Target is not communicating with the Configuration Server.
+
+To resolve the issue, use the following steps to verify the service status:
+
+1. Verify that the Master Target VM is running.
+2. Sign in to the Master Target VM using an account that has administrator privileges.
+    - Verify that the svagents service is running. If it is running, restart the service
+    - Check the logs at the location for error details:
+        
+          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+
+### Process Server is not reachable from the Source Machine [Error 78186]
+
+This error leads to app and crash consistent points not being generated if it is not addressed. To resolve the issue, follow the below troubleshooting links:
+1. Ensure that [PS Services are running](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Check the source machine connectivity issues](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Check the process server connectivity issues](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) and follow the guidance provided for:
+    - Checking connectivity with source
+    - Firewall and proxy issues
+
+### Data Upload blocked from Source Machine to Process Server [Error 78028]
+
+This error leads to app and crash consistent points not being generated if it is not addressed. To resolve the issue, follow the below troubleshooting links:
+
+1. Ensure that [PS Services are running](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Check the source machine connectivity issues](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Check the process server connectivity issues](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) and follow the guidance provided for:
+    - Checking connectivity with source
+    - Firewall and proxy issues
 
 ## Next steps
 
