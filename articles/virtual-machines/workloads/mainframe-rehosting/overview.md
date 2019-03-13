@@ -24,7 +24,11 @@ Azure VMs can run mainframe emulation environments and compilers that support li
 
 Some mainframe workloads can be migrated to Azure with relative ease, while others can be rehosted on Azure using a partner solution. For detailed guidance about choosing a partner solution, the [Azure Mainframe Migration center](https://azure.microsoft.com/migration/mainframe/) can help.
 
-## Set up dev/test environment using a Micro Focus rehosting platform
+## Mainframe migration
+
+Rehost, rebuild, replace, or retire? IaaS for Paas? For help determining the right migration strategy for your mainframe application, see the [Mainframe migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  guide in the Azure Architecture Center.
+
+## Micro Focus rehosting platform
 
 Micro Focus Enterprise Server is one of the largest mainframe rehosting platforms available. You can use it run your z/OS workloads on a less expensive x86 platform on Azure.
 
