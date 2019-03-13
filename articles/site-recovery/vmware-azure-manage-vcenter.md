@@ -75,7 +75,7 @@ Modify the credentials used to connect to the vCenter server or ESXi host as fol
 4. In the **vCenter servers** section, click on the vCenter you want to modify.
 5. On the vCenter summary page, update the IP address and port of the vCenter in the respective fields, and then save your changes.
 
-   ![Add_IP_new_vCenter](media/vmware-azure-manage-vcenter/add-ip.png)
+   ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
 6. For changes to become effective, wait for 15 minutes or [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
