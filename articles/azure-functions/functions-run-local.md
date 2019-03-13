@@ -479,3 +479,5 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functionsworkerruntime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
