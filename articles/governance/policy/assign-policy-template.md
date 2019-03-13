@@ -29,19 +29,14 @@ There are several methods for creating policy assignments. In this quickstart, y
 
 [!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
-The template defines several parameters, which include the policy assignment name and the policy definition ID. Many people choose to use the policy display name as the policy assignment name. To retrieve the policy definition ID of *Audit VMs that do not use managed disks*, select **Try it** from the following code section to open the Azure Cloud shell. To paste the code, right-click the shell console, and then select **Paste**.
-
-```azurepowershell-interactive
-$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
-$policyAssignmentName = $definition.Properties.displayName
-$policyDefinitionID = $definition.PolicyDefinitionId
-```
+> [!NOTE]
+> Azure Policy service is free.  For more information, see [Overview of Azure Policy](./overview.md).
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
-2. Select or enter the following values:
+1. Select or enter the following values:
 
     | Name | Value |
     |------|-------|
@@ -49,11 +44,11 @@ $policyDefinitionID = $definition.PolicyDefinitionId
     | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is *mypolicyquickstart<Date in MMDD>rg*. |
     | Location | Select a region. For example, **Central US**. |
     | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
-    | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **resourceGroup()** is a template function that retrieve the resource group. |
-    | Policy Definition ID | Specify the policy definition ID you retrieved by using the PowerShell script at the beginning of this section. |
+    | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** is a template function that retrieve the resource group. |
+    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. Here is a PowerShell example on retrieving the ID: *(Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }).PolicyDefinitionID* |
     | I agree to the terms and conditions stated above | (Select) |
 
-3. Select **Purchase**.
+1. Select **Purchase**.
 
 Some additional resources:
 
