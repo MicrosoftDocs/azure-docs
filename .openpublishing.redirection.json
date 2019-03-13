@@ -36260,7 +36260,16 @@
       "redirect_url": "/azure/cost-management/overview-cost-mgt",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/analysis-services/analysis-services-import-pbix.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/analysis-services-create-model-portal.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
