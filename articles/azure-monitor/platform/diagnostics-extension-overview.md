@@ -32,7 +32,7 @@ The Azure Diagnostics extension can collect the following types of data:
 (1) To get a list of ETW providers, run `c:\Windows\System32\logman.exe query providers` in a console window on the machine you'd like to gather information from.
 
 ## Data storage
-The extension stores its data in an [Azure Storage account](diagnostics-extension-to-storage.md) that you specify.
+The extension stores its data in an [Azure Storage account](diagnostics-extension-to-storage.md) that you specify. 
 
 You can also send it to [Application Insights](../../azure-monitor/app/cloudservices.md). 
 
@@ -44,6 +44,9 @@ You also have the choice of sending your data to Azure Monitor metrics time-seri
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric.  For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk on the VM (for example, C:)
 
 To learn more on how to configure this sink, refer to the [Azure diagnostics schema documentation.](diagnostics-extension-schema-1dot3.md)
+
+## Costs
+Each of the options above may incur costs. Be sure to research them to avoid unexpected bills.  Application Insights, Event hub, and Azure Storage have separate costs associated with ingestion and the time stored. In particular, Azure Storage will hold any data forever so you may want to purge older data after a certain time period to keep your costs down.    
 
 ## Versioning and configuration schema
 See [Azure Diagnostics Version History and Schema](diagnostics-extension-schema.md).
