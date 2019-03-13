@@ -43,7 +43,7 @@ To export the ASDK root certificate in PEM format:
 
 2. Sign in to the machine, open an elevated PowerShell prompt, and then run the following script:
 
-      ```powershell  
+```powershell  
       $label = "AzureStackSelfSignedRootCert"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
@@ -52,7 +52,7 @@ To export the ASDK root certificate in PEM format:
           Write-Error "Certificate with subject CN=$label not found"
           return
       }
-      
+
     Write-Host "Exporting certificate"
     Export-Certificate -Type CERT -FilePath root.cer -Cert $root
 
@@ -71,15 +71,15 @@ You can set up a publicly accessible endpoint that hosts a virtual machine alias
 
 2. Download the [sample file](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) from GitHub.
 
-4. Create a storage account in Azure Stack. When that's done, create a blob container. Set the access policy to "public."  
+3. Create a storage account in Azure Stack. When that's done, create a blob container. Set the access policy to "public."  
 
-3. Upload the JSON file to the new container. When that's done, you can view the URL of the blob. Select the blob name and then selecting the URL from the blob properties.
+4. Upload the JSON file to the new container. When that's done, you can view the URL of the blob. Select the blob name and then selecting the URL from the blob properties.
 
-### Install or ugrade CLI
+### Install or upgrade CLI
 
 Sign in to your development workstation and install CLI. Azure Stack requires version 2.0 or later of Azure CLI. The latest version of the API Profiles requires a current version of the CLI.  You can install the CLI by using the steps described in the [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify whether the installation was successful, open a terminal or command prompt window, and run the following command:
 
-```azurecli
+```shell
 az --version
 ```
 
@@ -268,7 +268,7 @@ This section will walk you through setting up CLI if you are using Active Direct
 
 ### Trust the Azure Stack CA root certificate
 
-If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the intregrated systems.
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
 
 1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 

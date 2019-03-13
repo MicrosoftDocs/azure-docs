@@ -117,6 +117,20 @@ In Unix based systems, you can use the following command:
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
+### Trust the Azure Stack CA root certificate
+
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
+
+1. Export the Azure Stack Self-Signed certificate to your desktop
+
+1. In a cmd shell, change directory to %JAVA_HOME%\bin
+
+1. Run this cmd:
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+```
+
 ### The Azure Stack resource manager endpoint
 
 The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage, and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.
