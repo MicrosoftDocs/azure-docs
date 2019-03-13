@@ -432,6 +432,8 @@
     items:
     - name: Aggregate
       href: data-flow-aggregate.md
+    - name: Alter row
+      href: data-flow-alter-row.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column

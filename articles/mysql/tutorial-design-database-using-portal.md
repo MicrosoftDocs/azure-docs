@@ -76,7 +76,7 @@ Get the fully qualified **Server name** and **Server admin login name** for your
 2. From the **Overview** page, note down **Server Name** and **Server admin login name**. You may click the copy button next to each field to copy to the clipboard.
    ![4-2 server properties](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-In this example, the server name is *mydemoserver.mysql.database.azure.com*, and the server admin login is *myadmin@mydemoserver*.
+In this example, the server name is *mydemoserver.mysql.database.azure.com*, and the server admin login is *myadmin\@mydemoserver*.
 
 ## Connect to the server using mysql
 Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MySQL server. You can run the mysql command-line tool from the Azure Cloud Shell in the browser or from your own machine using mysql tools installed locally. To launch the Azure Cloud Shell, click the `Try It` button on a code block in this article, or visit the Azure portal and click the `>_` icon in the top right toolbar. 
