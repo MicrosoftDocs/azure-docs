@@ -53,6 +53,10 @@ The Azure Function Activity supports **routing**. For example, if your app uses 
 
 The Azure Function Activity also supports **queries**. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
 
+## Sample
+
+You can find a sample of a Data Factory that uses an Azure Function to extract the content of a tar file [here](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
+
 ## Next steps
 
 Learn more about activities in Data Factory in [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md).
