@@ -14,7 +14,7 @@ For the current SKUs (VpnGw1, VpnGw2, and VPNGW3) you want to resize your gatewa
 
 The following PowerShell example shows a gateway SKU being resized to VpnGw2.
 
-```azurepowershell
+```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
