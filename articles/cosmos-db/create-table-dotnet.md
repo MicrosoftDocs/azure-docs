@@ -61,7 +61,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
    > [!NOTE]
-   > The .Net standard sample described in this doc works with both Azure Cosmos DB Table API and Azure Table Storage. If you are interested in running the sample that works with .Net Framework 4.5, see the [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample. 
+   > The .NET standard sample described in this doc works with both Azure Cosmos DB Table API and Azure Table Storage. If you are interested in running the sample that works with .NET Framework 4.5, see the [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample. 
 
 
 ## Open the sample application in Visual Studio
@@ -89,7 +89,7 @@ Now go back to the Azure portal to get your connection string information and co
       "StorageConnectionString": "<Primary connection string from Azure portal>"
    }
    ```
-   If you are using the [.Net Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample, you should update the connection string that’s located in the **App.config** file.
+   If you are using the [.NET Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample, you should update the connection string that’s located in the **App.config** file.
 
 4. Press CTRL+S to save the **Settings.json** file.
 
@@ -97,14 +97,14 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Build and deploy the app
 
-1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
+1. In Visual Studio, right-click on the **CosmosTableSamples** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
    ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. In the NuGet **Browse** box, type Microsoft.Azure.Cosmos.Table. This will find the Cosmos DB Table API client library. Note that this library is currently available for .NET Framework and .NET Standard. 
 
    > [!NOTE]
-   > If you are using the samples that uses .Net Framework, you should install the *Microsoft.Azure.CosmosDB.Table*, NuGet package. If you are using the .Net Framework sample with Azure Table Storage, in addition to the Cosmos DB specific NuGet package you also require the *Microsoft.Azure.Storage.Common* NuGet package. 
+   > If you are using the samples that uses .NET Framework, you should install the *Microsoft.Azure.CosmosDB.Table*, NuGet package. If you are using the .NET Framework sample with Azure Table Storage, in addition to the Cosmos DB specific NuGet package you also require the *Microsoft.Azure.Storage.Common* NuGet package. 
    
    ![NuGet Browse tab](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
@@ -116,12 +116,22 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 5. Press F5 to run the application. The console window displays the name of the new table database (in this case, demoa13b1) in Azure Cosmos DB. 
     
-    ![Console output](media/create-table-dotnet/azure-cosmosdb-console.png)
+   ![Console output](media/create-table-dotnet/azure-cosmosdb-console.png)
 
-    When you hit the first breakpoint, go back to Data Explorer in the Azure portal. Click the **Refresh** button, expand the demo* table, and click **Entities**. The **Entities** tab on the right shows the new entity that was added for Walter Harp. Note that the phone number for the new entity is 425-555-0101.
+   When you hit the first breakpoint, go back to Data Explorer in the Azure portal. Click the **Refresh** button, expand the demo* table, and click **Entities**. The **Entities** tab on the right shows the new entity that was added for Walter Harp. Note that the phone number for the new entity is 425-555-0101.
 
-    ![New entity](media/create-table-dotnet/azure-cosmosdb-entity.png)
+   ![New entity](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
+   If you receive an error that says Settings.json file can’t be found when running the project, you can resolve it by adding the following XML entry to the project settings. Right click on CosmosTableSamples, select Edit CosmosTableSamples.csproj and add the following itemGroup: 
+
+   ```csharp
+     <ItemGroup>
+       <None Update="Settings.json">
+         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+       </None>
+     </ItemGroup>
+   ```
+
 6. Close the **Entities** tab in Data Explorer.
     
 7. Press F5 to run the app to the next breakpoint. 

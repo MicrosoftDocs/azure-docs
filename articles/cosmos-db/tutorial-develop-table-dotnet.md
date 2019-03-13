@@ -19,20 +19,13 @@ You can use the Azure Cosmos DB Table API or Azure Table storage to store struct
 
 This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Cosmo DB Table API and Azure Table storage scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
 
-Prerequisites
-You need the following to run this tutorial:
-•	Microsoft Visual Studio
-•	Microsoft Azure Cosmos DB Table Library for .NET - This library is currently available for .NET Standard and .Net framework. 
-•	Azure Cosmos DB Table API account.
-
-
 ## Prerequisites
 
 You need the following to complete this sample successfully:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
-* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) - This library is currently available for .NET Standard and .Net framework. 
+* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) - This library is currently available for .NET Standard and .NET framework. 
 
 * [Azure Cosmos DB Table API account](create-table-dotnet.md#create-a-database-account).
 
@@ -40,9 +33,9 @@ You need the following to complete this sample successfully:
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
-## Create a .Net console project
+## Create a .NET console project
 
-In Visual Studio, create a new .Net console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 1. Select **File** > **New** > **Project**.
 
@@ -378,7 +371,7 @@ In this tutorial, you built code to perform basic CRUD operations on the data st
 
 ## Run the project
 
-Now build the solution and press f5 to run the project. When the project is run, you will see the following output in the command prompt:
+Now build the solution and press F5 to run the project. When the project is run, you will see the following output in the command prompt:
 
 ![Output from command prompt](./media/tutorial-develop-table-standard/output-from-sample.png)
 
@@ -400,4 +393,4 @@ Now you can sign into the Azure portal and verify that the data exists in the ta
 You can now proceed to the next tutorial and learn how to migrate data to Azure Cosmos DB Table API account. 
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/table-import.md)
+>[How to query data](../cosmos-db/table-import.md)
