@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/13/2019
 ---
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
@@ -476,7 +476,7 @@ Max file size of `tempdb` cannot be greather than 24GB/core on General Purpose t
 
 ### Cannot restore contained database
 
-Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). This issue will be removed soon. 
+Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore the for the existing contained databases don't work. This issue will be removed soon and in the meantime we recommend to remove continament option from your databases that are placed on Managed Instance, and do not use containment option for production databases.
 
 ### Exceeding storage space with small database files
 
