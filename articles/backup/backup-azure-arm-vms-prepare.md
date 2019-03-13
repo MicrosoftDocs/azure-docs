@@ -225,6 +225,5 @@ The initial backup will run in accordance with the schedule unless you manually 
 
 ## Next steps
 
-- [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
-- [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
-- [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+- Troubleshoot any issues that occur with the [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
+- [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
