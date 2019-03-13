@@ -1,22 +1,21 @@
 ---
 title: Regions - Speech Services
 titlesuffix: Azure Cognitive Services
-description: A list of supported regions for the Azure Speech Services.
+description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/14/2019
-ms.author: mahilleb
+ms.date: 03/12/2019
+ms.author: panosper
 ms.custom: seodec18
 ---
 
-# Speech Services supported regions
+# Speech Service supported regions
 
-The Speech Services allow your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
+The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
 Make sure that you use the endpoint that matches the region for your subscription.
 
@@ -35,11 +34,19 @@ The Speech SDK is available in these regions for **speech recognition** and **tr
  West US2 | `westus2` | https://westus2.cris.ai
  East US | `eastus` | https://eastus.cris.ai
  East US2 | `eastus2` | https://eastus2.cris.ai
+ Central US | 'centralus' | https://centralus.cris.ai
+ North Central US | 'northcentralus' | https://northcentralus.cris.ai
+ South Central US | 'southcentralus' | https://southcentralus.cris.ai
  East Asia | `eastasia` | https://eastasia.cris.ai
  South East Asia | `southeastasia` | https://southeastasia.cris.ai
+ Japan East | `japaneast` | https://japaneast.cris.ai
+ Korea Central | `koreacentral` | https://japaneast.cris.ai
+ Australia East | `australiaeast` | https://australiaeast.cris.ai
+ Canada Central | `canadacentral` | https://canadacentral.cris.ai
  North Europe | `northeurope` | https://northeurope.cris.ai
  West Europe | `westeurope` | https://westeurope.cris.ai
-
+ UK South | `uksouth` | https://uksouth.cris.ai
+ France Central | `francecentral` | https://francecentral.cris.ai
 
 ### Intent recognition
 
@@ -64,7 +71,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 ## REST APIs
 
-The Speech Services also expose REST endpoints for speech-to-text and text-to-speech requests.
+The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
 
 ### Speech-to-text
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 3/29/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -35,14 +35,14 @@ This table lists required and optional headers for speech-to-text requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
-| `Authorization` | An authorization token preceded by the word `Bearer`. For additional information, see [Authentication](#authentication). | Required |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Required |
 | `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
 | `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
-| `User-Agent` | The application name. It must be less than 255 characters. | Required |
+| `User-Agent` | The application name. The value provided must be less than 255 characters. | Required |
 
 ## Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24-KHz, 16-KHz, and 8-KHz audio outputs.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24 KHz, 16 KHz, and 8 KHz audio outputs.
 
 |||
 |-|-|
@@ -83,7 +83,7 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-See our quickstarts for language specific examples:
+See our quickstarts for language-specific examples:
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)

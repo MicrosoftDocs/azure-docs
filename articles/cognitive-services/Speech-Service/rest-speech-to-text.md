@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 3/29/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -18,7 +18,7 @@ ms.custom: seodec18
 As an alternative to the [Speech SDK](speech-sdk.md), Speech Services allow you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
 Before using the speech-to-text REST API, understand:
-* The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
+* Requests that use the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [batch transcription](batch-transcription.md).
