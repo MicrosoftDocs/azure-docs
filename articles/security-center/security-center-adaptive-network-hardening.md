@@ -18,7 +18,7 @@ ms.author: monhaber
 
 ---
 # Adaptive Network Hardening in Azure Security Center
-Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
+Learn how to configure Adaptive Network Hardening in Azure Security Center.
 
 ## What is Adaptive Network Hardening?
 Applying [network security groups (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
@@ -43,11 +43,11 @@ Adaptive Network Hardening recommendations are supported on the following ports:
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
       * **VM is not protected by ASC standard**: Only VMs that are set to Security Center’s Standard pricing tier are eligible for this feature.
 
-![unhealthy resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+    ![unhealthy resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
 2. From the **Unhealthy resources** tab, select a VM to view it’s alerts and the recommended hardening rules to apply.
 
-![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
 
 ## Review and apply Adaptive Network Hardening recommended rules
@@ -55,13 +55,12 @@ Adaptive Network Hardening recommendations are supported on the following ports:
 1. From the **Unhealthy resources** tab, select a VM. The alerts and recommended hardening rules are listed.
 
 
-![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+  ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
-   
-> [!NOTE]
+  >[!NOTE]
 The **Rules** tab lists the rules that Adaptive Network Hardening recommends you add. The **Alerts** tab lists the alerts that were generated due to traffic, flowing to the resource, which is not within the IP range allowed in the recommended rules.
 
-![hardening rules](./media/security-center-adaptive-network-hardening/hardening-rules.png)
+   ![hardening rules](./media/security-center-adaptive-network-hardening/hardening-rules.png)
 
 2. If you want to change some of the parameters of a rule, you can modify it, as explained in [Modify a rule](#modify-rule).
     > [!NOTE]
