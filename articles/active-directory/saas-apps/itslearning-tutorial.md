@@ -112,10 +112,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL as:
 	
-	   | |
-	   |--| 
-	   | `https://www.itslearning.com/index.aspx`|
-	   | `https://us1.itslearning.com/index.aspx`|
+	| |
+	|--| 
+	| `https://www.itslearning.com/index.aspx`|
+	| `https://us1.itslearning.com/index.aspx`|
 
 	b. In the **Identifier** textbox, type a URL as: `urn:mace:saml2v2.no:services:com.itslearning`
 

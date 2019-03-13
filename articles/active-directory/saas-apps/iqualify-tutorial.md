@@ -109,18 +109,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![iQualify LMS Domain and URLs single sign-on information](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: 
-	
-	   | |
-	   |--|--|
-	   | Production Environment: `https://<yourorg>.iqualify.com/`|
-	   | Test Environment: `https://<yourorg>.iqualify.io`|
+
+	| |
+	|--|--|
+	| Production Environment: `https://<yourorg>.iqualify.com/`|
+	| Test Environment: `https://<yourorg>.iqualify.io`|
 	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
-	
-	   | |
-	   |--|--|
-	   | Production Environment: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-	   | Test Environment: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+
+	| |
+	|--|--|
+	| Production Environment: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
+	| Test Environment: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
 
 1. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -128,10 +128,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
 	
-	   | |
-	   |--|--|
-	   | Production Environment: `https://<yourorg>.iqualify.com/login` |
-	   | Test Environment: `https://<yourorg>.iqualify.io/login` |
+	| |
+	|--|--|
+	| Production Environment: `https://<yourorg>.iqualify.com/login` |
+	| Test Environment: `https://<yourorg>.iqualify.io/login` |
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [iQualify LMS Client support team](https://www.iqualify.com) to get these values. 
