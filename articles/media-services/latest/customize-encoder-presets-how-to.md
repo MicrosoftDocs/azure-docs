@@ -28,6 +28,10 @@ When creating custom presets, the following considerations apply:
 * All values for height and width on AVC content must be a multiple of 4.
 * In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different from the presets with our v2 APIs, which used kilobits/second as the unit. For example, if the bitrate in v2 was specified as 128 (kilobits/second), in v3 it would be set to 128000 (bits/second).
 
+## Prerequisites 
+
+[Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+
 ## Download the sample
 
 Clone a GitHub repository that contains the full .NET Core sample to your machine using the following command:  
