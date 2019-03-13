@@ -36,7 +36,7 @@ ms.author: sajagtap
 | Czech |  Belarusian | Greek (modern)         | Polish
 | Dhivehi | Bosnian - Cyrillic | Hungarian      | Portuguese
 | Dutch | Bosnian - Latin | Italian             | Romanian
-| English | (Creole) | Breton [non-GeoPol] | Japanese  | Russian
+| English | (Creole) | Breton [non-GeoPol] | Japanese  |
 | Farsi | Bulgarian | Korean                        | Slovak
 | French | Catalan | Norwegian                        | Spanish
 | German | Central Kurdish | Polish        | Turkish

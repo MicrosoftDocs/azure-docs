@@ -65,7 +65,7 @@ If you don't already have a container registry, follow these steps to create a n
    | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
    | Admin user | Set to **Enable**. |
-   | SKU | Select **Basic**. | **Terminal**
+   | SKU | Select **Basic**. |
 
 5. Select **Create**.
 

@@ -52,7 +52,7 @@ The following table summarizes the differences in key capabilities.
 | Supported   platforms                                              | Windows, Mac, Linux                       | Web-based     |Windows, Mac, Linux     |All platforms                                                         |
 | Allowed Blob storage operations<br>for blobs and folders            | Upload<br>Download<br>Manage    | Upload<br>Download<br>Manage  |Upload<br>Download<br>Manage             | Yes, customizable                                                        |
 | Allowed Data Lake Gen1 storage<br>operations for files and folders  | Upload<br>Download<br>Manage                | No |Upload<br>Download<br>Manage                   |      No                                                   |
-| Allowed File storage operations<br>for files and directories        | Upload<br>Download<br>Manage       | Upload<br>Download<br>Manage   |Upload<br>Download<br>Manage |                                                         |Yes, customizable
+| Allowed File storage operations<br>for files and directories        | Upload<br>Download<br>Manage       | Upload<br>Download<br>Manage   |Upload<br>Download<br>Manage |                                                         |
 | Allowed Table storage operations<br>for tables                      |Manage                            | No            |Table support in AzCopy v7 |Yes, customizable|
 | Allowed Queue storage                                              | Manage                                    | No  |No | Yes, is customizable|
 

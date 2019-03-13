@@ -48,7 +48,7 @@ If you were an EA customer, you'll notice that the terms in the billing profile 
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | quantity |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -58,11 +58,11 @@ If you were an EA customer, you'll notice that the terms in the billing profile 
 | AdditionalInfo | additionalInfo |
 | Tags | tags |
 | StoreServiceIdentifier | N/A |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
 <!-- TO DO: Marketplace CSV? -->
 
