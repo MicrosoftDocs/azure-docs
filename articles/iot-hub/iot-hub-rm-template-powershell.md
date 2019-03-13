@@ -14,9 +14,7 @@ ms.date: 03/13/2019
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Learn how to use an Azure Resource Manager template to create an IoT hub. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Learn how to use an Azure Resource Manager template to create an IoT Hub and a consumer group. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -26,9 +24,9 @@ The Resource Manager template used in this quickstart is from [Azure Quickstart 
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-The template creates an Azure Iot hub with three endpoints, and a consumer group. You can find the Iot Hub schema from [here](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+The template creates an Azure Iot hub with three endpoints (eventhub, cloud-to-device, and messaging), and a consumer group. For more template samples, see [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). The Iot Hub template schema can be found  [here](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
 
-1. Select the following image to sign in to Azure and open a template. 
+1. Select the following image to sign in to Azure and open the template. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-with-consumergroup-create%2Fazuredeploy.json"><img src="./media/iot-hub-rm-template-powershell/deploy-to-azure.png" alt="deploy to azure"/></a>
 
