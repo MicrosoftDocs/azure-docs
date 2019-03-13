@@ -76,6 +76,7 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
    ```
    
    **Request headers**
+   
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |

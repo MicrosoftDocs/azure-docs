@@ -632,7 +632,7 @@ and choose **Create**.
 
 For technical details about triggers, actions, and limit, which are described
 by the connector's OpenAPI (formerly Swagger) description, review the
-connector's [reference page](/connectors/<*replace-with-api-topic-file-name*>).
+connector's reference page: [https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name>](/connectors/).
 
 ## Get support
 
