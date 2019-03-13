@@ -55,7 +55,7 @@ In this section, you create a public load balancer that helps load balance virtu
     |Availability zone| Select **Zone redundant**.    |
 3. In the **Review + create** tab, click **Create**.
 
-   ![Create a virtual network](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
+   ![Create a loa](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
 ## Create load balancer resources
 
@@ -85,10 +85,9 @@ To allow the load balancer to monitor the status of your app, you use a health p
     | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
     | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
     | Health probe | Select *myHealthProbe*. |
-
 1. Select **OK**.
 
-  ### Create a load balancer rule
+### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
 
@@ -149,14 +148,14 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
        1. In the **Configure network security group** field, select **Create new**. 
        1. Type *MyNetworkSecurityGroup*, and select **OK**.
 
-    - To make the VM a part of the load balancer's backend pool, complete the following steps:
+   - To make the VM a part of the load balancer's backend pool, complete the following steps:
         - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution?**, click **Yes**.
         - In **Load balancing settings**, for **Load balancing options**, select **Azure load balancer**.
         - For **Select a load balancer**, *myLoadBalancer*. 
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
 1. Select **Review + create**.   
 1. Review the settings, and then select **Create**.
-1. Follow the steps to create two additional VMs - *MyVM2* and *myVM3*, with a Standard SKU public IP address in **Availability zone** **2** and **3** respectively, and all the other settings the same as *MyVM1*.  
+1. Follow the steps to create two additional VMs - *MmyVM2* and *myVM3*, with a Standard SKU public IP address in **Availability zone** **2** and **3** respectively, and all the other settings the same as *MyVM1*.  
 
 ### Create network security group rule
 
@@ -211,12 +210,14 @@ To see the load balancer distribute traffic across the three VMs running your ap
 ## Remove or add VMs from the backend pool
 You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer.
 
+### Remove VM from a backend pool
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
 3. On the **myBackendPool** page, to remove *VM1* select the delete icon at the end of the row that displays *myVM1*, and then click **Save**.
 
 With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
 
+### Add VM to a backend pool
 To add *myVM1* back to the backend pool, complete the following steps:
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myVM1** from the resources list.

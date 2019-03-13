@@ -80,11 +80,9 @@ To allow the load balancer to monitor the status of your app, you use a health p
     | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
     | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
     | Health probe | Select *myHealthProbe*. |
-
 4. Select **OK**.
 
 ### Create a load balancer rule
-
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
