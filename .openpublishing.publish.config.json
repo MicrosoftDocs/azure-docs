@@ -315,8 +315,20 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-fbPageModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-fbPageModeration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "AIVisualProvision",
       "url": "https://github.com/Microsoft/AIVisualProvision",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "VideoReviewConsoleApp",
+      "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
       "branch": "master",
       "branch_mapping": {}
     }

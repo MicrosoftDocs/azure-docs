@@ -56,15 +56,17 @@ To use Azure Machine Learning Compute in a virtual network, use the following in
 
     - One load balancer
 
-   These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+ These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a id="mlcports"></a> Required ports
 
 Machine Learning Compute currently uses the Azure Batch service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service. This communication is used to schedule runs on the Machine Learning Compute nodes and to communicate with Azure Storage and other resources. Batch adds NSGs at the level of network interfaces (NICs) that are attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
-- Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses.
+- Inbound TCP traffic on ports 29876 and 29877 from a __Service Tag__ of __BatchNodeManagement__.
+
+    ![Image of the Azure portal showing an inbound rule using the BatchNodeManagement service tag](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Inbound TCP traffic on port 22 to permit remote access.
+- (optional) Inbound TCP traffic on port 22 to permit remote access. This is only needed if you want to connect using SSH on the public IP.
  
 - Outbound traffic on any port to the virtual network.
 

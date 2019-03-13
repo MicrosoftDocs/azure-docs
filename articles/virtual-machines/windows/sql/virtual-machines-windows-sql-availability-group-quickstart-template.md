@@ -34,6 +34,13 @@ To automate the setup of an Always On availability group using quickstart templa
 - An [Azure Subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Two available (not used by any entity) IP addresses, one for the Internal Load Balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, then only one available IP address is needed.  
+
+## Permissions
+The following permissions are necessary to configure the Always On availability group using Azure Quickstart Templates: 
+
+- An existing domain user account that has permission to 'Create Computer Object' in the domain.  For example, a domain admin account typically has sufficient permission (ex: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
+- The domain user account that controls the SQL Server service. 
 
 
 ## Step 1 - Create the WSFC and join SQL Server VMs to the cluster using quickstart template 

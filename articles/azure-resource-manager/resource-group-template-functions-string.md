@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
 
 ---
@@ -1028,6 +1028,8 @@ The newGuid function differs from the [guid](#guid) function because it doesn't 
 
 If you use the [option to redeploy an earlier successful deployment](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), and the earlier deployment includes a parameter that uses newGuid, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
+In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use newGuid with [uniqueString](#uniquestring) to create unique names.
+
 Be careful redeploying a template that relies on the newGuid function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
@@ -1064,6 +1066,50 @@ The output from the preceding example varies for each deployment but will be sim
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
+The following example uses the newGuid function to create a unique name for a storage account. This template might work for test environment where the storage account exists for a short time and isn't redeployed.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "West US",
+            "apiVersion": "2018-07-01",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "nameOutput": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        }
+    }
+}
+```
+
+The output from the preceding example varies for each deployment but will be similar to:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| nameOutput | string | storagenziwvyru7uxie |
+
 
 ## padLeft
 
@@ -1965,7 +2011,7 @@ The output from the preceding example with the default values is:
 
 `utcNow(format)`
 
-Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHH:mm:ssZ) format is used. **This function can only be used in the default value for a parameter.**
+Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHHmmssZ) format is used. **This function can only be used in the default value for a parameter.**
 
 ### Parameters
 
@@ -1979,9 +2025,7 @@ You can only use this function within an expression for the default value of a p
 
 If you use the [option to redeploy an earlier successful deployment](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), and the earlier deployment includes a parameter that uses utcNow, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
-In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use utcNow with [uniqueString](#uniquestring) to create unique names.
-
-However, be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
+Be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
 
@@ -2036,48 +2080,41 @@ The output from the preceding example varies for each deployment but will be sim
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
-The following example uses the utcNow function to create a unique name for a storage account. This template might work for test environment where the storage account exists for a short time and isn't redeployed.
+The next example shows how to use a value from the function when setting a tag value.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "utcValue": {
+        "utcShort": {
             "type": "string",
-            "defaultValue": "[utcNow()]"
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
         }
-    },
-    "variables": {
-        "storageName": "[concat('storage', uniqueString(parameters('utcValue')))]"
     },
     "resources": [
         {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageName')]",
-            "location": "West US",
-            "apiVersion": "2018-07-01",
-            "sku":{
-                "name": "Standard_LRS"
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "westeurope",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
             },
-            "kind": "StorageV2",
-            "properties": {}
+            "properties":{}
         }
     ],
     "outputs": {
-        "nameOutput": {
+        "utcShort": {
             "type": "string",
-            "value": "[variables('storageName')]"
+            "value": "[parameters('utcShort')]"
         }
     }
 }
 ```
-
-The output from the preceding example varies for each deployment but will be similar to:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| nameOutput | string | storagenziwvyru7uxie |
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

@@ -31,7 +31,7 @@ The next sections walk you through creating either a single or multi-service sub
 
 ### Single-service subscription
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and click **+Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -53,7 +53,7 @@ The next sections walk you through creating either a single or multi-service sub
 
 ### Multi-service subscription
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and click **+Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
     ![Select Cognitive Services APIs](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

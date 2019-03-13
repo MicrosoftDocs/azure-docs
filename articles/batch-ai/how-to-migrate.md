@@ -13,7 +13,7 @@ ms.date: 2/28/2019
 
 **The Azure Batch AI service is retiring in March.** The at-scale training and scoring capabilities of Batch AI are now available in [Azure Machine Learning service](../machine-learning/service/overview-what-is-azure-ml.md), which became generally available on December 4, 2018.
 
-Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring machine learning models. This compute target is called [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). [Start migrating and using it today](#migrate). You can interact with the Azure Machine Learning service through its [Python SDKs](../machine-learning/service/quickstart-create-workspace-with-python.md), command-line interface, and the [Azure portal](../machine-learning/service/quickstart-get-started.md).
+Along with many other machine learning capabilities, the Azure Machine Learning service includes a cloud-based managed compute target for training, deploying, and scoring machine learning models. This compute target is called [Azure Machine Learning Compute](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). Start migrating and using it today. You can interact with the Azure Machine Learning service through its [Python SDKs](../machine-learning/service/quickstart-create-workspace-with-python.md), command-line interface, and the [Azure portal](../machine-learning/service/quickstart-get-started.md).
 
 Upgrading from the Preview Batch AI to the GA'ed Azure Machine Learning service gives you a better experience through concepts that are easier to use such as Estimators and Datastores. It also guarantees GA level Azure service SLAs and customer support.
 
@@ -82,7 +82,7 @@ Learn more about the Azure Machine Learning Workspace class in the [SDK referenc
 
 
 ## Create compute clusters
-Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM. Read more about various [compute targets](../machine-learning/service/how-to-set-up-training-targets.md). The concept of creating a Azure Batch AI compute cluster maps to creating an AmlCompute cluster in Azure Machine Learning service. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in Azure Batch AI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in Azure Batch AI.
+Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM. Read more about various [compute targets](../machine-learning/service/how-to-set-up-training-targets.md). The concept of creating an Azure Batch AI compute cluster maps to creating an AmlCompute cluster in Azure Machine Learning service. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in Azure Batch AI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in Azure Batch AI.
 
 For **Batch AI**, you did it this way:
 

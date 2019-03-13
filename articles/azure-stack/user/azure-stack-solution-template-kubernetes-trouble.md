@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot your Kubernetes deployment to Azure Stackk | Microsoft Docs
+title: Troubleshoot your Kubernetes deployment to Azure Stack | Microsoft Docs
 description: Learn how to troubleshoot your Kubernetes deployment to Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -12,8 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
 
@@ -84,7 +83,7 @@ The following diagram shows the general process for deploying the cluster.
 You can collect logs on the VMs that support your Kubernetes cluster. You can also review the deployment log. You might need to talk to your Azure Stack administrator to verify the version of Azure Stack that you need to use, and to get logs from Azure Stack that are related to your deployment.
 
 1. Review the [deployment status](#review-deployment-status) and [retrieve the logs](#get-logs-from-a-vm) from the master node in your Kubernetes cluster.
-2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator. The Kubernetes cluster marketplace time 0.3.0 requires Azure Stack version 1808 or greater.
+2. Be sure that you're using the latest version of Azure Stack. If you're unsure which version you're using, contact your Azure Stack administrator.
 3.  Review your VM creation files. You might have had the following issues:  
     - The public key might be invalid. Review the key that you created.  
     - VM creation might have triggered an internal error or triggered a creation error. A number of factors can cause errors, including capacity limitations for your Azure Stack subscription.
@@ -145,21 +144,26 @@ To get logs, take the following steps:
 3. In the same session, run the following command with the parameters updated to match your environment:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. Review the parameters, and set the values based on your environment.
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | The RSA private key file to connect the Kubernetes master VM. They key must start with `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | The public IP or the fully qualified domain name (FQDN) of the Kubernetes cluster master VM. The VM name starts with `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -f, --force | Do not prompt before uploading the private key. | |
+    | -i, --identity-file | The RSA private key file to connect the Kubernetes master VM. They key must start with: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h, --help  | Print the command usage for `getkuberneteslogs.sh` script. | |
+    | -m, --master-host          | The public IP or the fully qualified domain name (FQDN) of the Kubernetes cluster master VM. The VM name starts with `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --user          | The user name of the Kubernetes cluster master VM. You set this name when you configure the marketplace item.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+
+
+
 
    When you add your parameter values, it might look something like the following code:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     A successful run creates the logs.

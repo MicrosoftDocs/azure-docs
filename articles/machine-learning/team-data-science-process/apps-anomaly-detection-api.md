@@ -27,7 +27,7 @@ These machine learning detectors track such changes in values over time and repo
 
 The Anomaly Detection offering comes with useful tools to get you started.
 
-* The [web application](http://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your data.
+* The [web application](https://anomalydetection-aml.azurewebsites.net/) helps you evaluate and visualize the results of anomaly detection APIs on your data.
 
 > [!NOTE]
 > Try **IT Anomaly Insights solution** powered by [this API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
