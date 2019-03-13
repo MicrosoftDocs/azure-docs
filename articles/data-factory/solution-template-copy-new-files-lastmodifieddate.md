@@ -16,7 +16,7 @@ ms.date: 3/8/2019
 ---
 # Copy new and changed files by LastModifiedDate with Azure Data Factory
 
-This article describes a solution template that you can use to copy new and changed files only by LastModifiedDate from a file store to a destination store. 
+This article describes a solution template that you can use to copy new and changed files only by LastModifiedDate from a file-based store to a destination store. 
 
 ## About this solution template
 
@@ -26,10 +26,10 @@ The template contains one activity:
 - **Copy** to copy new and changed files only by LastModifiedDate from a file store to a destination store.
 
 The template defines four parameters:
--  *FolderPath_Source* is the folder path where you can get the files from the source store. You need to replace the default value '/<myfolder>/<sub_folder>/' to your own folder path.
+-  *FolderPath_Source* is the folder path where you can read the files from the source store. You need to replace the default value '/<myfolder>/<sub_folder>/' to your own folder path.
 -  *FolderPath_Destination* is the folder path where you want to copy files to the destination store. You need to replace the default value '/<myfolder>/<sub_folder>/' to your own folder path.
--  *LastModified_From* is used to select the files whose LastModifiedDate attribute is after or equal to this datatime value.  In order to select the new files only which has not been copied last time, this datetime value can be the time when the pipeline was triggered last time. You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
--  *LastModified_To* is used to select the files whose LastModifiedDate attribute is before this datatime value. In order to select the new files only which has not been copied last time, this datetime value can be the present time.  You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
+-  *LastModified_From* is used to select the files whose LastModifiedDate attribute is after or equal to this datetime value.  In order to select the new files only, which has not been copied last time, this datetime value can be the time when the pipeline was triggered last time. You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
+-  *LastModified_To* is used to select the files whose LastModifiedDate attribute is before this datetime value. In order to select the new files only, which has not been copied last time, this datetime value can be the present time.  You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
 
 ## How to use this solution template
 
@@ -59,7 +59,7 @@ The template defines four parameters:
 	-  **LastModified_From** =  **2019-02-01T00:00:00Z**
     -  **LastModified_To** = **2019-03-01T00:00:00Z**
 	
-	The example is saying the files which has been last modified within the timespan between *2019-02-01T00:00:00Z* and *2019-03-01T00:00:00Z* will be copied from a folder */source/* to a folder */destination/*.  You can replace these with your own parameters.
+	The example is indicating the files which have been last modified within the timespan between *2019-02-01T00:00:00Z* and *2019-03-01T00:00:00Z* will be copied from a folder */source/* to a folder */destination/*.  You can replace these with your own parameters.
 	
     ![Run the pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -75,7 +75,7 @@ The template defines four parameters:
 
     ![Review the result](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate9.png)
 
-10. Select **Tumbling Window** for the trigger type, input **Every 15 minute(s)** as the recurrence, and then select **Next**.
+10. Select **Tumbling Window** for the trigger type, set **Every 15 minute(s)** as the recurrence (you can change to any interval time), and then select **Next**.
 
     ![Create trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)	
 	
@@ -91,9 +91,9 @@ The template defines four parameters:
 	
     ![Publish All](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png)
 
-13. Creat new files in your source folder of data source store.  You are now waiting for the pipeline to be triggered automatically and only copy the new files to the destination store.
+13. Create new files in your source folder of data source store.  You are now waiting for the pipeline to be triggered automatically and only the new files will be copied to the destination store.
 
-14. Select **Monitoring** tab in the left nevigation pannel, and wait for about 15 minutes if the recurrence of trigger has been set to every 15 minutes. 
+14. Select **Monitoring** tab in the left navigation panel, and wait for about 15 minutes if the recurrence of trigger has been set to every 15 minutes. 
 
     ![Select Monitoring](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate14.png)
 
