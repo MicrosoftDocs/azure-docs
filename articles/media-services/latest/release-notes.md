@@ -177,9 +177,9 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 ## May 2018 - Preview
 
-### .Net SDK
+### .NET SDK
 
-The following features are present in the .Net SDK:
+The following features are present in the .NET SDK:
 
 * **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
