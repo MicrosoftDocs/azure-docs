@@ -70,7 +70,13 @@ For instructions on how to install the Spark magic, the PySpark and Spark kernel
 
 In this section, you configure the Spark magic that you installed earlier to connect to an Apache Spark cluster that you must have already created in Azure HDInsight.
 
-1. The Jupyter configuration information is typically stored in the users home directory. Enter the following command to identify the home directory, and create a folder there called **.sparkmagic**.  The full path will be outputted.
+1. Start the Python shell with the following command:
+
+    ```
+    python
+    ```
+
+2. The Jupyter configuration information is typically stored in the users home directory. Enter the following command to identify the home directory, and create a folder there called **.sparkmagic**.  The full path will be outputted.
 
     ```python
     import os
@@ -80,7 +86,7 @@ In this section, you configure the Spark magic that you installed earlier to con
     exit()
     ```
 
-2. Within the folder `.sparkmagic`, create a file called **config.json** and add the following JSON snippet inside it.  
+3. Within the folder `.sparkmagic`, create a file called **config.json** and add the following JSON snippet inside it.  
 
     ```json
     {
@@ -101,7 +107,7 @@ In this section, you configure the Spark magic that you installed earlier to con
       "heartbeat_retry_seconds": 1
     }
     ```
-3. Make the following edits to the file:
+4. Make the following edits to the file:
 
     |Template value | New value |
     |---|---|
@@ -115,11 +121,11 @@ In this section, you configure the Spark magic that you installed earlier to con
    > [!TIP]  
    > Heartbeats are sent to ensure that sessions are not leaked. When a computer goes to sleep or is shut down, the heartbeat is not sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
-4. Start Jupyter. Use the following command from the command prompt.
+5. Start Jupyter. Use the following command from the command prompt.
 
         jupyter notebook
 
-5. Verify that you can use the Spark magic available with the kernels. Perform the following steps.
+6. Verify that you can use the Spark magic available with the kernels. Perform the following steps.
 
 	a. Create a new notebook. From the right-hand corner, select **New**. You should see the default kernel **Python 2** or **Python 3** and the kernels you installed. The actual values may vary depending on your installation choices.  Select **PySpark**.
 
