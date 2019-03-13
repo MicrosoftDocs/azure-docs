@@ -28,7 +28,7 @@ Azure AD password protection is a new feature in public preview that enhances pa
 
 Azure AD password protection is designed with these principles in mind:
 
-* Domain controllers never have to communicate directly with the Internet.
+* Domain controllers never have to communicate directly with the internet.
 * No new network ports are opened on domain controllers.
 * No Active Directory schema changes are required. The software uses the existing Active Directory **container** and **serviceConnectionPoint** schema objects.
 * No minimum Active Directory domain or forest functional level (DFL/FFL) is required.
@@ -36,6 +36,7 @@ Azure AD password protection is designed with these principles in mind:
 * User clear-text passwords don't leave the domain controller during password validation operations or at any other time.
 * Incremental deployment is supported. But the password policy is only enforced where the Domain Controller Agent (DC Agent) is installed.
 * We recommend that you install the DC Agent on all domain controllers to ensure universal password-protection security enforcement.
+
 ## Architectural diagram
 
 It's important to understand the underlying design and function concepts before you deploy Azure AD password protection in an on-premises Active Directory environment. The following diagram shows how the components of password protection work together:
