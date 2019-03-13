@@ -42,7 +42,7 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 >
 >For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Sign into your Azure DevOps organization (**https://dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
+1. Sign into your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 
    For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**. 
 

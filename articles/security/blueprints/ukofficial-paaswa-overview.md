@@ -214,7 +214,7 @@ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matri
 
 This blueprint has been reviewed by the UK National Cyber Security Centre (NCSC) and aligns to the NCSC 14 Cloud Security Principles
 
-The automation templates have been tested by the UK Customer Success Unit Azure Cloud Solution Architect team and by our Microsoft partner, [Ampliphae](http://www.ampliphae.com/).
+The automation templates have been tested by the UK Customer Success Unit Azure Cloud Solution Architect team and by our Microsoft partner, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## Deploy the solution

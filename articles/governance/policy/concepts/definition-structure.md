@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -114,7 +114,7 @@ A parameter has the following properties that are used in the policy definition:
   - `displayName`: The friendly name shown in the portal for the parameter.
   - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
-- `allowedValues`: (Optional) Provides the list of values that the parameter accepts during assignment.
+- `allowedValues`: (Optional) Provides an array of values that the parameter accepts during assignment.
 
 As an example, you could define a policy definition to limit the locations where resources can be
 deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
@@ -502,72 +502,69 @@ another that has **[\*]** attached to it. For example:
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-The first example is used to evaluate the entire array, where the **[\*]** alias evaluates each
-element of the array.
-
-Let's look at a policy rule as an example. This policy will **Deny** a storage account that has
-ipRules configured and if **none** of the ipRules has a value of "127.0.0.1".
+The 'normal' alias represents the field as a single value. This field is for exact match comparison
+scenarios when the entire set of values must be exactly as defined, no more and no less. Using
+**ipRules**, an example would be validating that an exact set of rules exists including the number
+of rules and makeup of each rule. This sample rule checks for exactly both **192.168.1.1** and
+**10.0.4.1** with _action_ of **Allow** in **ipRules** to apply the **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+The **[\*]** alias makes it possible to compare against the value of each element in the array and
+specific properties of each element. This approach makes it possible to compare element properties
+for 'if none of', 'if any of', or 'if all of' scenarios. Using **ipRules[\*]**, an example would be
+validating that every _action_ is _Deny_, but not worrying about how many rules exist or what the
+IP _value_ is. This sample rule checks for any matches of **ipRules[\*].value** to **10.0.4.1** and
+applies the **effectType** only if it doesn't find at least one match:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-The **ipRules** array is as follows for the example:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Here's how this example is processed:
-
-- `networkAcls.ipRules` - Check that the array is non-null. It evaluates true, so evaluation continues.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` - Checks each _value_ property in the **ipRules** array.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - As an array, each element will be processed.
-
-    - "127.0.0.1" != "127.0.0.1" evaluates as false.
-    - "127.0.0.1" != "192.168.1.1" evaluates as true.
-    - At least one _value_ property in the **ipRules** array evaluated as false, so the evaluation will stop.
-
-As a condition evaluated to false, the **Deny** effect isn't triggered.
+For more information, see [evaluating the [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## Initiatives
 

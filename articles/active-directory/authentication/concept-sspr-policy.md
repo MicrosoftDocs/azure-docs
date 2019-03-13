@@ -32,19 +32,19 @@ The two-gate policy requires two pieces of authentication data, such as an **ema
   * Billing administrator
   * Partner Tier1 Support
   * Partner Tier2 Support
-  * Exchange service administrator
-  * Lync service administrator
-  * User account administrator
+  * Exchange administrator
+  * Skype for Business administrator
+  * User administrator
   * Directory writers
   * Global administrator or company administrator
-  * SharePoint service administrator
+  * SharePoint administrator
   * Compliance administrator
   * Application administrator
   * Security administrator
   * Privileged role administrator
-  * Microsoft Intune service administrator
+  * Intune administrator
   * Application proxy service administrator
-  * CRM service administrator
+  * Dynamics 365 administrator
   * Power BI service administrator
   * Authentication administrator
   * Privileged Authentication administrator

@@ -71,7 +71,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 2. Add the Service Fabric repo to your sources list.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Add the `dotnet` repo to your sources list.
@@ -217,7 +217,7 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator from npm on your machine.
+2. Install the [Yeoman](https://yeoman.io/) template generator from npm on your machine.
 
     ```bash
     npm install -g yo
@@ -274,7 +274,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
-3. In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
+3. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
 
 4. Select **Add**.
 

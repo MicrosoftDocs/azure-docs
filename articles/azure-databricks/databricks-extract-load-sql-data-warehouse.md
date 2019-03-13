@@ -44,7 +44,7 @@ Complete these tasks before you begin this tutorial:
 
 * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Create an Azure Data Lake Storage Gen2 storage account. See [Create a Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Create an Azure Data Lake Storage Gen2 storage account. See [Create an Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
