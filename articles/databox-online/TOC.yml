@@ -82,7 +82,7 @@
     - name: Manage bandwidth schedules
       href: data-box-edge-manage-bandwidth-schedules.md
     - name: Manage power, access, connectivity
-      href: data-box-edge-manage-access-power-connectivity.md
+      href: data-box-edge-manage-access-power-connectivity-mode.md
     - name: Manage via PowerShell
       href: data-box-edge-connect-powershell-interface.md
 - name: Resources
