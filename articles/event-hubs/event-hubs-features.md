@@ -149,13 +149,15 @@ Event data:
 
 It is your responsibility to manage the offset.
 
-## Capacity
+## Scaling with Event Hubs
 
-Event Hubs has a highly scalable parallel architecture and there are several key factors to consider when sizing and scaling.
+There are two factors which influence scaling with Event Hubs.
+*	Throughput units
+*	Partitions
 
 ### Throughput units
 
-The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput unit includes the following capacity:
+The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput lets you:
 
 * Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first).
 * Egress: Up to 2 MB per second or 4096 events per second.
@@ -164,11 +166,13 @@ Beyond the capacity of the purchased throughput units, ingress is throttled and 
 
 Throughput units are pre-purchased and are billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace and are shared across all event hubs in that namespace.
 
-You can purchase more throughput units in blocks of 20, up to 100 throughput units, by contacting Azure support. Beyond that limit, you can purchase blocks of 100 throughput units.
+### Partitions
 
-We recommend that you balance equal throughput units and partitions to achieve optimal scale. A single partition has a maximum guaranteed scale of one throughput unit. We strongly recommend that the number of partitions in an event hub be greater than or equal to the number of throughput units.
+Partitions let you scale for your downstream processing. Because of the partitioned consumer model that Event Hubs offers with partitions, you can scale-out while processing your events concurrently. An Event Hub can have up to 32 partitions.
 
-The reason we recommend this is at lower throughput, multiple partitions can share a throughput unit, however at higher throughput, one partition cannot necessarily take advantage of multiple throughput units. Optimum scale is achieved by sharding across partitions with one throughput unit per partition.
+We recommend that you balance 1:1 throughput units and partitions to achieve optimal scale. A single partition has a guaranteed Ingress and Egress of up to one throughput unit. While you may be able to achieve higher throughput on a partition, preformance is not garunteed. This is why we strongly recommend that the number of partitions in an event hub be greater than or equal to the number of throughput units.
+
+Given the total throughput you plan on needing, you know the number of throughput units you require and the minimum number of partitions, but how many partitions should you have? Choose number of partitions based on the downstream parallelism you want to achieve as well as your future throuhgput needs. There is no charge for the number of partitions you have within an Event Hub.
 
 For detailed Event Hubs pricing information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
