@@ -363,7 +363,7 @@ function UserHasLicenseAssignedFromGroup
 
 This script executes those functions on each user in the tenant, using the SKU ID as input - in this example we are interested in the license for *Enterprise Mobility + Security*, which in our tenant is represented with ID *contoso:EMS*:
 ```powershell
-#the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
+#the license SKU we are interested in. use Get-MsolAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
 #find all users that have the SKU license assigned
