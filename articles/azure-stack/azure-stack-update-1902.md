@@ -109,7 +109,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - Improvements to Azure stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
 
 <!-- 1384958	Adding a Test-AzureStack group for Secret Rotation	Diagnostics -->
-- Improvements to Test-AzureStack for secret rotation readiness test.
+- Improvements to the reliability of Test-AzureStack for secret rotation readiness test.
 
 <!-- 1404751	3617292: Graph: Remove dependency on ADWS.	Identity -->
 - Improvements to increase AD Graph reliability when communicating with customer’s Active Directory environment
@@ -117,9 +117,10 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 <!-- 1391444	[ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info	System info -->
 - Improvements hardware inventory collection in Get-AzureStackStampInformation.
 
-- In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
+- To improve reliability of operations running on ERCS infrastructure, the memory for each ERCS instance increases from 8 GB to 12 GB. On an Azure Stack integrated systems installation, this results in a 12 GB increase overall.
 
-   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
+> [!IMPORTANT]
+> To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
 
 ## Common vulnerabilities and exposures
 
