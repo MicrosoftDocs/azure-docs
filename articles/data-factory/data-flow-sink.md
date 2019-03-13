@@ -3,7 +3,6 @@ title: Azure Data Factory Mapping Data Flow Sink Transformation
 description: Azure Data Factory Mapping Data Flow Sink Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
@@ -30,7 +29,7 @@ For Azure Storage Blob or Data Lake sink types, you will output the transformed 
 
 ![Sink options](media/data-flow/opt001.png "sink options")
 
-#### Field Mapping
+#### Field mapping
 
 On the Mapping tab of your Sink transformation, you can map the incoming (left side) columns to the destination (right side). When you sink data flows to files, ADF will always write new files to a folder. When you map to a database dataset, you can choose to either generate a new table with this schema (set Save Policy to "overwrite") or insert new rows to an existing table and map the fields to the existing schema.
 
@@ -67,7 +66,7 @@ With database dataset sinks, you will have additional options:
 * Recreate table (performs drop/create of your target table before completing the data flow)
 * Batch size for large data loads. Enter a number to bucket writes into chunks.
 
-![SQL Sink Options](media/data-flow/alterrow2.png "SQL Options")
+![SQL Sink Options](media/data-flow/alter-row2.png "SQL Options")
 
 ## Next steps
 
