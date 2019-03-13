@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -1116,6 +1116,56 @@ Can manage all aspects of users and groups, including resetting passwords for li
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+## Role template IDs
+
+Role template IDs are used mainly by Graph API or PowerShell users.
+
+Graph displayName | Azure portal display name | directoryRoleTemplateId
+----------------- | ------------------------- | -------------------------
+Application Administrator | Application administrator | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+Application Developer | Application developer | CF1C38E5-3621-4004-A7CB-879624DCED7C
+Billing Administrator | Billing administrator | b0f54661-2d74-4c50-afa3-1ec803f12efe
+Desktop Analytics Administrator | Desktop Analytics Administrator | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
+Cloud Application Administrator | Cloud application administrator | 158c047a-c907-4556-b7ef-446551a6b5f7
+Cloud Device Administrator | Cloud device administrator | 7698a772-787b-4ac8-901f-60d6b08affd2
+Company Administrator | Global administrator | 62e90394-69f5-4237-9190-012177145e10
+Compliance Administrator | Compliance administrator | 17315797-102d-40b4-93e0-432062caca18
+Conditional Access Administrator | Conditional access administrator | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
+CRM Service Administrator | Dynamics 365 administrator | 44367163-eba1-44c3-98af-f5787879f96a
+Customer LockBox Access Approver | Customer Lockbox access approver | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Device Administrators | Device administrators | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Device Join | Device join | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Device Managers | Device managers | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Device Users | Device users | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+Directory Synchronization Accounts | Directory synchronization accounts | d29b2b05-8046-44ba-8758-1e26182fcf32
+Directory Writers | Directory writers | 9360feb5-f418-4baa-8175-e2a00bac4301
+Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
+Helpdesk Administrator | Password administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Information Protection Administrator | Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
+Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
+License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
+Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
+Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Partner Tier1 Support | Partner tier1 support | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
+Privileged Role Administrator | Privileged role administrator | e8611ab8-c189-46e8-94e1-60213ab1f814
+Reports Reader | Reports reader | 4a5d8f65-41da-4de4-8968-e035b65339cf
+Security Administrator | Security administrator | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Security Reader | Security reader | 5d6b6bb7-de71-4623-b4af-96380a352509
+Service Support Administrator | Service administrator | f023fd81-a637-4b56-95fd-791ac0226033
+SharePoint Service Administrator | Sharepoint administrator | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Teams Communications Administrator | Teams Communications Administrator | baf37b3a-610e-45da-9e62-d9d1e5e8914b
+Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
+Teams Communications Support Specialist | Teams Communications Support Specialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Teams Service Administrator | Teams Service Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
+User | User | a0b1b346-4d3e-4e8b-98f8-753987be4970
+User Account Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1
+Workplace Device Join | Workplace device join | c34f683f-4d5a-4403-affd-6615e00e3a7f
+
 
 ## Deprecated roles
 

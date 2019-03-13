@@ -144,7 +144,7 @@ Azure AD Connect Upgrade fails if SQL Always On Availability is configured for t
 
 ### Fixed issues 
 
-- Fixed a bug where the AAD Connect server would show high CPU usage after upgrading to .Net 4.7.2
+- Fixed a bug where the AAD Connect server would show high CPU usage after upgrading to .NET 4.7.2
 - Fixed a bug that would intermittently produce an error message for an auto-resolved SQL deadlock issue
 - Fixed several accessibility issues for the Sync Rules Editor and the Sync Service Manager  
 - Fixed a bug where Azure AD Connect can not get registry setting information

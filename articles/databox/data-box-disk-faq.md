@@ -46,7 +46,7 @@ A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box ord
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
-A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#).  
+A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.

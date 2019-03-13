@@ -367,7 +367,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic, Web Forms, MVC5, MVC6 |
 | **Attributes**              | N/A  |
 | **References**              | [How to prevent Cross-site scripting in ASP.NET](https://msdn.microsoft.com/library/ms998274.aspx), [Cross-site Scripting](https://cwe.mitre.org/data/definitions/79.html), [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
-| **Steps** | Cross-site scripting (commonly abbreviated as XSS) is an attack vector for online services or any application/component that consumes input from the web. XSS vulnerabilities may allow an attacker to execute script on another user's machine through a vulnerable web application. Malicious scripts can be used to steal cookies and otherwise tamper with a victim's machine through JavaScript. XSS is prevented by validating user input, ensuring it is well formed and encoding before it is rendered in a web page. Input validation and output encoding can be done by using Web Protection Library. For Managed code (C\#, VB.net, etc.), use one or more appropriate encoding methods from the Web Protection (Anti-XSS) Library, depending on the context where the user input gets manifested:| 
+| **Steps** | Cross-site scripting (commonly abbreviated as XSS) is an attack vector for online services or any application/component that consumes input from the web. XSS vulnerabilities may allow an attacker to execute script on another user's machine through a vulnerable web application. Malicious scripts can be used to steal cookies and otherwise tamper with a victim's machine through JavaScript. XSS is prevented by validating user input, ensuring it is well formed and encoding before it is rendered in a web page. Input validation and output encoding can be done by using Web Protection Library. For Managed code (C\#, VB.NET, etc.), use one or more appropriate encoding methods from the Web Protection (Anti-XSS) Library, depending on the context where the user input gets manifested:| 
 
 ### Example
 
@@ -476,7 +476,7 @@ For example, the following configuration will throw a RegexMatchTimeoutException
 | **Applicable Technologies** | MVC5, MVC6 |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Step | ASP.Net WebPages (Razor) perform automatic HTML encoding. All strings printed by embedded code nuggets (@ blocks) are automatically HTML-encoded. However, when `HtmlHelper.Raw` Method is invoked, it returns markup that is not HTML encoded. If `Html.Raw()` helper method is used, it bypasses the automatic encoding protection that Razor provides.|
+| Step | ASP.NET WebPages (Razor) perform automatic HTML encoding. All strings printed by embedded code nuggets (@ blocks) are automatically HTML-encoded. However, when `HtmlHelper.Raw` Method is invoked, it returns markup that is not HTML encoded. If `Html.Raw()` helper method is used, it bypasses the automatic encoding protection that Razor provides.|
 
 ### Example
 Following is an insecure example: 
