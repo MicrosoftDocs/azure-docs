@@ -23,10 +23,10 @@ Similar to a role assignment, a *deny assignment* attaches a set of deny actions
 
 In some ways, deny assignments are different than role assignments. Deny assignments can exclude principals and prevent inheritance to child scopes. Deny assignments also apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments.
 
+This article describes how deny assignments are defined.
+
 > [!NOTE]
 > At this time, the only way you can add your own deny assignments is by using Azure Blueprints. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
-
-This article describes how deny assignments are defined.
 
 ## Deny assignment properties
 
