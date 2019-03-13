@@ -174,6 +174,9 @@ It is advised to use this option with caution; when triggered on a VM with an 
   * Lack of permission to perform backup related operations on the VM  
   * VM has been shut down because of which backups can’t take place
   * Network issues  
+
+    ![Re-Register VM](./media/backup-azure-sql-database/re-register-vm.png)
+
 * In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover.
 
 ### Causes
