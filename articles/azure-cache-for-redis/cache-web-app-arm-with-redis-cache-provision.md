@@ -21,8 +21,7 @@ ms.author: yegu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You will learn how to define which resources are deployed and
-how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
 For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). To learn about the JSON syntax and properties for cache resource types, see [Microsoft.Cache resource types](/azure/templates/microsoft.cache/allversions).
 
