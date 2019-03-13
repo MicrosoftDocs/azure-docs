@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Data Flow Sort Transformation
-description: Azure Data Factory Data Sort Join Transformation
+title: Azure Data Factory Mapping Data Flow Sort Transformation
+description: Azure Data Factory Mapping Data Sort Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 --- 
 
-# Azure Data Factory Data Sort Transformations
+# Azure Data Factory Data Flow Sort Transformations
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
