@@ -31,12 +31,16 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
-> [!NOTE] The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
+> [!NOTE]
+The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
 >
+
 FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking#change-tracking-data-collection-details) for Azure Change Tracking.
 
-> [!NOTE] If you remove the **Change Tracking** resource, you will also disable the File Integrity Monitoring feature in Security Center.
+> [!NOTE] 
+If you remove the **Change Tracking** resource, you will also disable the File Integrity Monitoring feature in Security Center.
 >
+
 ## Which files should I monitor?
 You should think about the files that are critical for your system and applications when choosing which files to monitor. Consider choosing files that you don’t expect to change without planning. Choosing files that are frequently changed by applications or operating system (such as log files and text files) create a lot of noise which make it difficult to identify an attack.
 

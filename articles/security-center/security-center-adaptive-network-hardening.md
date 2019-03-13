@@ -63,13 +63,13 @@ The **Rules** tab lists the rules that Adaptive Network Hardening recommends you
 
 ![hardening rules](./media/security-center-adaptive-network-hardening/hardening-rules.png)
 
-2. If you want to change some of the parameters of a rule, you can modify it, as explained in Modify a rule.
+2. If you want to change some of the parameters of a rule, you can modify it, as explained in [Modify a rule](#modify-rule).
     > [!NOTE]
 You can also [delete](#delete-rule) or [add](#add-rule) a rule.
 
 3. Select the rules that you want to apply on the NSG, and click **Enforce**. 
 
-### Modify a rule
+### Modify a rule  <a name ="modify-rule"> </a>
 
 You may want to modify the parameters of a rule that has been recommended. For example, you may want to change the recommended IP ranges.
 
@@ -81,7 +81,7 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
   > [!NOTE]
 Creating and modifying “deny” rules is done directly on the NSG (See Create, change, or delete a network security group
 
-* A **Deny all traffic** rule is listed is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, can delete it (see Delete a rule).
+* A **Deny all traffic** rule is listed is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, can delete it (see [Delete a rule](#delete-rule)).
    > [!NOTE]
 A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as “system generated”. After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, “DENY” and a random number.
 
