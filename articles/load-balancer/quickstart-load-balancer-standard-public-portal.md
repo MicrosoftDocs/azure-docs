@@ -45,7 +45,7 @@ In this section, you create a Standard Load Balancer that helps load balance vir
     | Public IP address | Select **Create new**. |
     | Public IP address name              | Type *myPublicIP* in the text box.   |
     |Availability zone| Select **Zone redundant**.    |
-3. In the **Review + create** tab, cliselect **Create**.   
+3. In the **Review + create** tab, select **Create**.   
 
     ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
