@@ -209,7 +209,7 @@ First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create
       1. IP address 10.1.1.20 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
          1. Enter the name of the new frontend IP pool (for example **frontend.QAS.ASCS**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.1.1.21**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.1.1.20**)
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
@@ -807,7 +807,7 @@ Follow these steps to install an SAP application server.
 
 ## Test the cluster setup
 
-The following tests are a copy of the test cases in the [best practices guides of SUSE](https://www.suse.com/documentation/suse-best-practices/pdfdoc/SAP_HA740_SetupGuide_color_en.pdf). They are copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
+The following tests are a copy of the test cases in the [best practices guides of SUSE][suse-ha-guide]. They are copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
 
 1. Test HAGetFailoverConfig, HACheckConfig, and HACheckFailoverConfig
 
