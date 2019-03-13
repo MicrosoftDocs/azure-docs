@@ -225,7 +225,7 @@ In the case of Cisco Umbrella, provisioning is a manual task.
 
 	c. From the **Choose Delegated Admin Role**, select your role.
   
-    d. In the **Email Address** field, enter the emailaddress of user like **Brittasimon\@contoso.com**.
+    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon\@contoso.com**.
 
     e. In the **Password** field, enter your password.
 

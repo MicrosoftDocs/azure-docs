@@ -219,7 +219,7 @@ In the case of ClickTime, provisioning is a manual task.
    
     a.  In the **full name** textbox, type full name of user like **Britta Simon**. 
   
-    b.  In the **email address** textbox, type the email of user like **Brittasimon\@contoso.com**.
+    b.  In the **email address** textbox, type the email of user like **brittasimon\@contoso.com**.
        
     > [!NOTE]
     > If you want to, you can set additional properties of the new person object.
