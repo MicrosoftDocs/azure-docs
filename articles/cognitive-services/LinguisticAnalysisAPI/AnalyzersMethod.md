@@ -36,6 +36,7 @@ specification | string | the name of the specification used for this analyzer
 implementation | string | description of the model and/or algorithm behind this analyzer
 
 <br>
+
 ## Example
 GET /analyzers
 
