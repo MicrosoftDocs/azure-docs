@@ -39,7 +39,7 @@ A VPN gateway requires the `-GatewayType` *Vpn*.
 
 Example:
 
-```powershell
+```azurepowershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
@@ -59,7 +59,7 @@ If you use the Azure portal to create a Resource Manager virtual network gateway
 
 The following PowerShell example specifies the `-GatewaySku` as VpnGw1. When using PowerShell to create a gateway, you have to first create the IP configuration, then use a variable to refer to it. In this example, the configuration variable is $gwipconfig.
 
-```powershell
+```azurepowershell
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
@@ -98,7 +98,7 @@ In the Resource Manager deployment model, each configuration requires a specific
 
 In the following PowerShell example, we create a S2S connection that requires the connection type *IPsec*.
 
-```powershell
+```azurepowershell
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -117,7 +117,7 @@ There are two VPN types:
 
 The following PowerShell example specifies the `-VpnType` as *RouteBased*. When you are creating a gateway, you must make sure that the -VpnType is correct for your configuration.
 
-```powershell
+```azurepowershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
@@ -139,7 +139,7 @@ When you create the gateway subnet, you specify the number of IP addresses that 
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
-```powershell
+```azurepowershell
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -153,7 +153,7 @@ You give the local network gateway a name, the public IP address of the on-premi
 
 The following PowerShell example creates a new local network gateway:
 
-```powershell
+```azurepowershell
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
