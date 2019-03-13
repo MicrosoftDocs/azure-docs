@@ -101,7 +101,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
    ![Run debug configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. In the **Spark Submission Advanced Configuration** part, select **Enable Spark remote debug**. Enter the SSH username, and then enter a password or use a private key file. If you want to perform remote debug, you need to set it. There is no need to set it if you just want to use remote run.
+1. In the **Advanced Configuration (Remote Debugging)** part, select **Enable Spark remote debug**. Enter the SSH username, and then enter a password or use a private key file. If you want to perform remote debug, you need to set it. There is no need to set it if you just want to use remote run.
 
    ![Enable Spark remote debug](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
