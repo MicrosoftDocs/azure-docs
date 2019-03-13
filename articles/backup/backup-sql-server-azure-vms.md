@@ -11,7 +11,7 @@ ms.author: swati
 
 
 ---
-# About SQL Server Backup on Azure VMs 
+# About SQL Server Backup on Azure VMs
 
 SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can backup SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md).
 
@@ -28,6 +28,8 @@ This solution leverages the SQL Native APIs to take backups of your SQL database
   * At the scheduled time, the coordinator communicates with the plugin and it starts streaming the backup data from the SQL server using VDI.  
   * The plugin sends the data directly to the recovery services vault, thus eliminating the need for a staging location. The data is encrypted and stored by the Azure Backup service in storage accounts.
   * When the data transfer is complete, coordinator confirms the commit with the backup service.
+
+  ![SQL Backup architecture](./media/backup-azure-sql-database/backup-sql-overview.png.png)
 
 ## Before you start
 
