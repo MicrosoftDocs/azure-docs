@@ -131,7 +131,7 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 1. **Log into Azure Pipelines** to confirm ability to create build definitions.
 
-2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
+2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .NET Core.
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image4.png)
 
