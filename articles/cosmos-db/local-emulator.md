@@ -12,7 +12,7 @@ ms.author: dech
 
 The Azure Cosmos Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos Emulator, you can switch to using an Azure Cosmos account in the cloud.
 
-You can develop using Azure Cosmos Emulator with [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api) and [Table](local-emulator.md#table-api) API accounts. However at this time the Data Explorer view in the emulator fully supports clients for SQL API only. 
+You can develop using Azure Cosmos Emulator with [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api), and [Table](local-emulator.md#table-api) API accounts. However at this time the Data Explorer view in the emulator fully supports clients for SQL API only. 
 
 ## How the emulator works
 
@@ -29,7 +29,7 @@ You can run Azure Cosmos Emulator on the Windows Docker container, see the [Dock
 Because the Azure Cosmos Emulator provides an emulated environment running on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
 
 * Currently Data Explorer in the emulator supports clients for SQL API. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
-* The Azure Cosmos Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos Emulator, however the default key can be changed using the command line option.
+* The Azure Cosmos Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos Emulator, however the default key can be changed using the command-line option.
 * The Azure Cosmos Emulator is not a scalable service and will not support a large number of containers.
 * The Azure Cosmos Emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).
@@ -178,7 +178,7 @@ Start emulator from an administrator command prompt with “/EnableGremlinEndpoi
 
 * [Install apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
 
-* In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key choose "/name"
+* In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
 * Run the following commands in a regular command prompt window:
 
@@ -223,7 +223,7 @@ The X.509 certificate can be imported into the Java certificate store by followi
 When connecting to the emulator from Python and Node.js SDKs, SSL verification is disabled.
 
 ## <a id="command-line"></a>Command-line tool reference
-From the installation location, you can use the command line to start and stop the emulator, configure options, and perform other operations.
+From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
 
 ### Command-line syntax
 
@@ -237,15 +237,15 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 |[Help] |Displays the list of supported command-line arguments.|CosmosDB.Emulator.exe /? | |
 | GetStatus |Gets the status of the Azure Cosmos Emulator. The status is indicated by the exit code: 1 = Starting, 2 = Running, 3 = Stopped. A negative exit code indicates that an error occurred. No other output is produced. | CosmosDB.Emulator.exe /GetStatus| |
 | Shutdown| Shuts down the Azure Cosmos Emulator.| CosmosDB.Emulator.exe /Shutdown | |
-|DataPath | Specifies the path in which to store data files. Default is %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: An accessible path |
-|Port | Specifies the port number to use for the emulator. Default is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<port\>: Single port number |
-| MongoPort | Specifies the port number to use for MongoDB compatibility API. Default is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: Single port number|
-| CassandraPort | Specifies the port number to use for the Cassandra endpoint. Default is 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Single port number |
-| ComputePort | Specified the port number to use for the Compute Interop Gateway service. The Gateway's HTTP endpoint probe port is calculated as ComputePort + 79. Hence, ComputePort and ComputePort + 79 must be open and available. The defaults is 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Single port number |
+|DataPath | Specifies the path in which to store data files. Default value is %LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: An accessible path |
+|Port | Specifies the port number to use for the emulator. Default value is 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<port\>: Single port number |
+| MongoPort | Specifies the port number to use for MongoDB compatibility API. Default value is 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: Single port number|
+| CassandraPort | Specifies the port number to use for the Cassandra endpoint. Default value is 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Single port number |
+| ComputePort | Specified the port number to use for the Compute Interop Gateway service. The Gateway's HTTP endpoint probe port is calculated as ComputePort + 79. Hence, ComputePort and ComputePort + 79 must be open and available. The default values are 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Single port number |
 | EnableCassandraEndpoint | Enables Cassandra API | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
 | EnableGremlinEndpoint | Enables Gremlin API | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
-| GremlinPort | Port number to use for the Gremlin Endpoint. Default is 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Single port number |
-|TablePort | Port number to use for the Azure Table Endpoint. Default is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
+| GremlinPort | Port number to use for the Gremlin Endpoint. Default value is 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Single port number |
+|TablePort | Port number to use for the Azure Table Endpoint. Default value is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
 | KeyFile | Read authorization key from the specified file. Use the /GenKeyFile option to generate a keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Path to the file |
 | ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: File path  |
 | StartTraces  |  Start collecting debug trace logs. | CosmosDB.Emulator.exe /StartTraces | |
@@ -259,17 +259,17 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 | DisableRateLimiting |Specifies that request rate limiting behavior is disabled. |CosmosDB.Emulator.exe /DisableRateLimiting | |
 | NoUI | Do not show the emulator user interface. | CosmosDB.Emulator.exe /NoUI | |
 | NoExplorer | Don't show data explorer on startup. |CosmosDB.Emulator.exe /NoExplorer | | 
-| PartitionCount | Specifies the maximum number of partitioned containers. See [Change the number of containers](#set-partitioncount) for more information. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Maximum number of allowed single partition containers. Default is 25. Maximum allowed is 250.|
-| DefaultPartitionCount| Specifies the default number of partitions for a partitioned container. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> Default is 25.|
+| PartitionCount | Specifies the maximum number of partitioned containers. See [Change the number of containers](#set-partitioncount) for more information. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Maximum number of allowed single partition containers. Default value is 25. Maximum allowed is 250.|
+| DefaultPartitionCount| Specifies the default number of partitions for a partitioned container. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> Default value is 25.|
 | AllowNetworkAccess | Enables access to the emulator over a network. You must also pass /Key=\<key_string\> or /KeyFile=\<file_name\> to enable network access. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> or  CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
-| NoFirewall | Don't adjust firewall rules when /AllowNetworkAccess is used. |CosmosDB.Emulator.exe /NoFirewall | |
+| NoFirewall | Don't adjust firewall rules when /AllowNetworkAccess option is used. |CosmosDB.Emulator.exe /NoFirewall | |
 | GenKeyFile | Generate a new authorization key and save to the specified file. The generated key can be used with the /Key or /KeyFile options. | CosmosDB.Emulator.exe /GenKeyFile=\<path to key file\> | |
 | Consistency | Set the default consistency level for the account. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<consistency\>: Value must be one of the following [consistency levels](consistency-levels.md): Session, Strong, Eventual, or BoundedStaleness. The default value is Session. |
 | ? | Show the help message.| | |
 
 ## <a id="set-partitioncount"></a>Change the number of containers
 
-By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to setup the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
+By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to set up the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
 
 
 If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
@@ -278,7 +278,7 @@ If you attempt to create a container after the current partition count has been 
 Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason. 
 ActivityId: 12345678-1234-1234-1234-123456789abc"
 
-To change the number of containers available in the Azure Cosmos Emulator, do the following:
+To change the number of containers available in the Azure Cosmos Emulator, run the following steps:
 
 1. Delete all local Azure Cosmos Emulator data by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Reset Data…**.
 2. Delete all emulator data in this folder `%LOCALAPPDATA%\CosmosDBEmulator`.
@@ -288,13 +288,13 @@ To change the number of containers available in the Azure Cosmos Emulator, do th
 
 ## Controlling the emulator
 
-The emulator comes with a PowerShell module for starting, stopping, uninstalling, and retrieving the status of the service. To use it:
+The emulator comes with a PowerShell module to start, stop, uninstall, and retrieve the status of the service. Run the following cmdlet to use the PowerShell module:
 
 ```powershell
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-or put the `PSModules` directory on your `PSModulesPath` and import it like this:
+or place the `PSModules` directory on your `PSModulesPath` and import it as shown in the following command:
 
 ```powershell
 $env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
@@ -305,41 +305,41 @@ Here is a summary of the commands for controlling the emulator from PowerShell:
 
 ### `Get-CosmosDbEmulatorStatus`
 
-#### Syntax
+**Syntax**
 
 `Get-CosmosDbEmulatorStatus`
 
-#### Remarks
+**Remarks**
 
 Returns one of these ServiceControllerStatus values: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running, or ServiceControllerStatus.Stopped.
 
 ### `Start-CosmosDbEmulator`
 
-#### Syntax
+**Syntax**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
-#### Remarks
+**Remarks**
 
 Starts the emulator. By default, the command waits until the emulator is ready to accept requests. Use the -NoWait option, if you wish the cmdlet to return as soon as it starts the emulator.
 
 ### `Stop-CosmosDbEmulator`
 
-#### Syntax
+**Syntax**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
-#### Remarks
+**Remarks**
 
 Stops the emulator. By default, this command waits until the emulator is fully shut down. Use the -NoWait option, if you wish the cmdlet to return as soon as the emulator begins to shut down.
 
 ### `Uninstall-CosmosDbEmulator`
 
-#### Syntax
+**Syntax**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
-#### Remarks
+**Remarks**
 
 Uninstalls the emulator and optionally removes the full contents of $env:LOCALAPPDATA\CosmosDbEmulator.
 The cmdlet ensures the emulator is stopped before uninstalling it.
@@ -418,7 +418,7 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 
 - If the Azure Cosmos Emulator crashes, collect dump files from '%LOCALAPPDATA%\CrashDumps' folder, compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- If you experience crashes in `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, this might be a sympton where the Performance Counters are in a corrupted state. Usually running the following command from an admin command prompt fixes the issue:
+- If you experience crashes in `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, this might be a symptom where the Performance Counters are in a corrupted state. Usually running the following command from an admin command prompt fixes the issue:
 
   ```cmd
   lodctr /R
@@ -426,9 +426,9 @@ Use the following tips to help troubleshoot issues you encounter with the Azure 
 
 - If you encounter a connectivity issue, [collect trace files](#trace-files), compress them, and attach them to an email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
-- If you receive a **Service Unavailable** message, the emulator might be failing to initialize the network stack. Check to see if you have the Pulse secure client or Juniper networks client installed, as their network filter drivers may cause the problem. Uninstalling third-party network filter drivers typically fixes the issue. Alternatively, start the emulator with /DisableRIO, which will switch the emulator network communication to regular winsocket. 
+- If you receive a **Service Unavailable** message, the emulator might be failing to initialize the network stack. Check to see if you have the Pulse secure client or Juniper networks client installed, as their network filter drivers may cause the problem. Uninstalling third-party network filter drivers typically fixes the issue. Alternatively, start the emulator with /DisableRIO, which will switch the emulator network communication to regular Winsock. 
 
-- While the emulator is running, if your computer goes to sleep mode or runs any OS updates, you might see a **Service is currently unavailable** message. Reset the emulator's data, by right clicking on the icon that appears on the windows notification tray and select **Reset Data**.
+- While the emulator is running, if your computer goes to sleep mode or runs any OS updates, you might see a **Service is currently unavailable** message. Reset the emulator's data, by right-clicking on the icon that appears on the windows notification tray and select **Reset Data**.
 
 ### <a id="trace-files"></a>Collect trace files
 
