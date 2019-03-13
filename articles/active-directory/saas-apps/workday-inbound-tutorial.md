@@ -424,7 +424,7 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
 
 8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username@tenant_name**
+   * **Admin Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
 
    * **Admin password –** Enter the password of the Workday integration system account
 
@@ -689,7 +689,7 @@ Follow these instructions to configure writeback of user email addresses from Az
 8. Complete the **Admin Credentials** section as follows:
 
    * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name
-        appended. Should look something like: *username@contoso4*
+        appended. Should look something like: *username\@contoso4*
 
    * **Admin password –** Enter the password of the Workday integration system account
 
@@ -1244,7 +1244,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 7. Set **Operation** to **Get_Workers**
 
-8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the **WS-Security UsernameToken** option selected.
+8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name\@tenant, and leave the **WS-Security UsernameToken** option selected.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

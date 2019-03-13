@@ -224,7 +224,7 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **UPN** – the user who performed the operation
 
-    -   Example – **tperkins@f128.info**
+    -   Example – **tperkins\@f128.info**
 
 -   **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
 
