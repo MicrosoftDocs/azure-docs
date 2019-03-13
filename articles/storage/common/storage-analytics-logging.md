@@ -25,11 +25,8 @@ Storage Analytics logs detailed information about successful and failed requests
  The following types of authenticated requests are logged:
 
 -   Successful requests
-
 -   Failed requests, including timeout, throttling, network, authorization, and other errors
-
 -   Requests using a Shared Access Signature (SAS) or OAuth, including failed and successful requests
-
 -   Requests to analytics data
 
  Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
@@ -38,11 +35,8 @@ Storage Analytics logs detailed information about successful and failed requests
  The following types of anonymous requests are logged:
 
 -   Successful requests
-
 -   Server errors
-
 -   Timeout errors for both client and server
-
 -   Failed GET requests with error code 304 (Not Modified)
 
  All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
@@ -92,25 +86,22 @@ Storage Analytics logs detailed information about successful and failed requests
 |`LogType`|Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas.<br /><br /> Example 1: `write`<br /><br /> Example 2: `read,write`<br /><br /> Example 3: `read,write,delete`|
 |`StartTime`|The earliest time of an entry in the log, in the form of `YYYY-MM-DDThh:mm:ssZ`. For example: `2011-07-31T18:21:46Z`|
 |`EndTime`|The latest time of an entry in the log, in the form of `YYYY-MM-DDThh:mm:ssZ`. For example: `2011-07-31T18:22:09Z`|
-|`LogVersion`|The version of the log format. Currently the only supported value is: `1.0`|
+|`LogVersion`|The version of the log format.|
 
  The following list displays complete sample metadata using the above examples:
 
 -   `LogType=write`
-
 -   `StartTime=2011-07-31T18:21:46Z`
-
 -   `EndTime=2011-07-31T18:22:09Z`
-
 -   `LogVersion=1.0`
 
 
-##  <a name="HowtoenableStorageLoggingusingtheWindowsAzureManagementPortal"></a> Enable Storage logging using the Azure portal  
-In the Azure portal, use the **Diagnostics** blade to control Storage Logging, accessible from the **MONITORING** section of a storage account's **Menu blade**.
+## Enable Storage logging using the Azure portal  
+In the Azure portal, use the **Diagnostics settings (classic)** blade to control Storage Logging, accessible from the **Monitoring (classic)** section of a storage account's **Menu blade**.
 
 You can specify the storage services that you want to log, and the retention period (in days) for the logged data.  
 
-##  <a name="HowtoenableStorageLoggingusingPowerShell"></a> Enable Storage logging using PowerShell  
+## Enable Storage logging using PowerShell  
  You can use PowerShell on your local machine to configure Storage Logging in your storage account by using the Azure PowerShell cmdlet **Get-AzureStorageServiceLoggingProperty** to retrieve the current settings, and the cmdlet **Set-AzureStorageServiceLoggingProperty** to change the current settings.  
 
  The cmdlets that control Storage Logging use a **LoggingOperations** parameter that is a string containing a comma-separated list of request types to log. The three possible request types are **read**, **write**, and **delete**. To switch off logging, use the value **none** for the **LoggingOperations** parameter.  
@@ -131,7 +122,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table
 
  For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
-##  <a name="HowtoenableStorageLoggingprogrammatically"></a> Enable Storage logging programmatically  
+## Enable Storage logging programmatically  
  In addition to using the Azure portal or the Azure PowerShell cmdlets to control Storage Logging, you can also use one of the Azure Storage APIs. For example, if you are using a .NET language you can use the Storage Client Library.  
 
  The classes **CloudBlobClient**, **CloudQueueClient**, and **CloudTableClient** all have methods such as **SetServiceProperties** and **SetServicePropertiesAsync** that take a **ServiceProperties** object as a parameter. You can use the **ServiceProperties** object to configure Storage Logging. For example, the following C# snippet shows how to change what is logged and the retention period for queue logging:  
@@ -151,7 +142,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](http://msdn.microsoft.com/library/azure/hh360996.aspx).  
 
-##  <a name="FindingyourStorageLogginglogdata"></a> Find your Storage logging log data  
+## Find your Storage logging log data  
  When you have configured Storage Logging to log request data from your storage account, it saves the log data to blobs in a container named **$logs** in your storage account. This container does not show up if you list all the containers in your account, but if you use your storage-browsing tool to navigate to the container directly, you will see all the blobs that contain your logging data. Storage Logging uses a naming convention for the blobs to make it easy to identify the blob in which you are interested. Within your **$logs** container, the blobs are named as follows:  
 
 ```  
@@ -166,9 +157,7 @@ queueClient.SetServiceProperties(serviceProperties);
  If you have a high volume of log data with multiple files for each hour, then you can use the blob metadata to determine what data the log contains by examining the blob metadata fields. This is also useful because there can sometimes be a delay while data is written to the log files: the blob metadata gives a more accurate indication of the blob content than the blob name. Blobs containing log data have the following metadata fields:  
 
 -   **StartTime** is a UST timestamp that records the time of the earliest log entry in the blob.  
-
 -   **EndTime** is a UST timestamp that records the time of the latest log entry in the blob.  
-
 -   **LogType** records the type of log entries contained in the blob as one or more of: read, write, delete.  
 
  Most storage browsing tools enable you to view the metadata of blobs; you can also read this information using PowerShell or programmatically. The following PowerShell snippet is an example of filtering the list of log blobs by name to specify a time, and by metadata to identify just those logs that contain **write** operations.  
@@ -189,7 +178,7 @@ foreach {
 
  For information about listing blobs programmatically, see [Enumerating Blob Resources](http://msdn.microsoft.com/library/azure/hh452233.aspx) and [Setting and Retrieving Properties and Metadata for Blob Resources](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
-##  <a name="DownloadingStorageLogginglogdata"></a> Download Storage logging log data  
+## Download Storage logging log data  
  To view and analyze your log data, you should download the blobs that contain the log data you are interested in to a local machine. Many storage-browsing tools enable you to download blobs from your storage account; you can also use the Azure Storage team provided command-line Azure Copy Tool (**AzCopy**) to download your log data.  
 
  To make sure you download the log data you are interested in and to avoid downloading the same log data more than once:  
@@ -213,7 +202,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse, including Microsoft Message Analyzer (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](storage-analytics-logging.md) and [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
 
-## See also
- [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md)
- [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
- [Storage Analytics Metrics](storage-analytics-metrics.md)
+## Next steps
+* [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [Storage Analytics Metrics (classic)](storage-analytics-metrics.md)
