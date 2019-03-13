@@ -29,7 +29,7 @@ Application Insights Snapshot Debugger is pre-installed as part of the App Servi
 1. Go to the **App Services** pane in the Azure portal.
 2. Navigate to **Settings > Application Insights** pane.
 
-   ![Enable App Insights on App Services portal](./media/snapshot-debugger/appinsights-appservices.png)
+   ![Enable App Insights on App Services portal](./media/snapshot-debugger/applicationinsights-appservices.png)
 
 3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your app. Also make sure both switches for Snapshot Debugger are **On**.
 
