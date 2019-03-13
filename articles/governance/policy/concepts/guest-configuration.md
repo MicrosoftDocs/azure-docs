@@ -161,17 +161,11 @@ limits the systems evaluated.
 
 ## Client log files
 
-The Guest Configuration extension writes log files in Windows to the following location:
+The Guest Configuration extension writes log files to the following locations:
 
-```
-C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log
-```
+Windows: ```C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log```
 
-For all Linux distributions, the Guest Configuration extension writes logs to:
-
-```
-/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log
-```
+Linux: ```/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log```
 
 ## Next steps
 
