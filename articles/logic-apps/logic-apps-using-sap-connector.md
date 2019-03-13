@@ -21,7 +21,7 @@ SAP Netweaver-based systems through Intermediate Document (IDoc) or
 Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
 
 The SAP ECC connector uses the 
-<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .Net Connector (NCo) library</a> and provides these operations or actions:
+<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo) library</a> and provides these operations or actions:
 
 - **Send to SAP**: Send IDoc or call BAPI functions over tRFC in SAP systems.
 - **Receive from SAP**: Receive IDoc or BAPI function calls over tRFC from SAP systems.
