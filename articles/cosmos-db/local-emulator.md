@@ -81,22 +81,24 @@ Data Explorer indicates if there is a new update available for download.
 
 ## Authenticating requests
 
-As with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos Emulator must be authenticated. The Azure Cosmos Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos  Emulator. They are:
+As with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos Emulator must be authenticated. The Azure Cosmos Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos Emulator. They are:
 
-    Account name: localhost:<port>
-    Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
+Account name: localhost:<port>
+Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 > [!NOTE]
 > The master key supported by the Azure Cosmos Emulator is intended for use only with the emulator. You cannot use your production Azure Cosmos DB account and key with the Azure Cosmos Emulator.
 
 > [!NOTE]
-> If you have started the emulator with the /Key option, then use the generated key instead of "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==". For more information about /Key option, see [Command-line tool reference.](#command-line-syntax)
+> If you have started the emulator with the /Key option, then use the generated key instead of `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. For more information about /Key option, see [Command-line tool reference.](#command-line-syntax)
 
 As with the Azure Cosmos DB, the Azure Cosmos Emulator supports only secure communication via SSL.
 
 ## Running on a local network
 
-You can run the emulator on a local network. To enable network access, specify the /AllowNetworkAccess option at the [command-line](#command-line-syntax), which also requires that you specify /Key=key_string or /KeyFile=file_name. You can use /GenKeyFile=file_name to generate a file with a random key upfront. Then you can pass that to /KeyFile=file_name or /Key=contents_of_file.
+You can run the emulator on a local network. To enable network access, specify the `/AllowNetworkAccess` option at the [command-line](#command-line-syntax), which also requires that you specify `/Key=key_string` or `/KeyFile=file_name`. You can use `/GenKeyFile=file_name` to generate a file with a random key upfront. Then you can pass that to `/KeyFile=file_name` or `/Key=contents_of_file`.
 
 To enable network access for the first time the user should shut down the emulator and delete the emulator’s data directory (%LOCALAPPDATA%\CosmosDBEmulator).
 
@@ -271,13 +273,9 @@ By default, you can create up to 25 single partition containers, or 5 partitione
 
 If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
 
-```
-    Sorry, we are currently experiencing high demand in this region,
-    and cannot fulfill your request at this time. We work continuously
-    to bring more and more capacity online, and encourage you to try again.
-    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
-    for any reason. ActivityId: 12345678-1234-1234-1234-123456789abc
-```
+"Sorry, we are currently experiencing high demand in this region, and cannot fulfill your request at this time. We work continuously to bring more and more capacity online, and encourage you to try again.
+Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason. 
+ActivityId: 12345678-1234-1234-1234-123456789abc"
 
 To change the number of container available to the Azure Cosmos Emulator, do the following:
 
@@ -353,7 +351,7 @@ Once you have [Docker for Windows](https://www.docker.com/docker-windows) instal
 
 Next, pull the emulator image from Docker Hub by running the following command from your favorite shell.
 
-```
+```bash
 docker pull microsoft/azure-cosmosdb-emulator
 ```
 To start the image, run the following commands.
