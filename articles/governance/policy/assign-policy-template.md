@@ -23,9 +23,12 @@ before you begin.
 
 ## Create a policy assignment
 
-In this quickstart, you create a policy assignment and assign a built-in policy definition called *Audit VMs that do not use managed disks*. For a partial list of available built-in policies, see [Policy samples](./samples/index.md).
+In this quickstart, you create a policy assignment and assign a built-in policy definition called
+*Audit VMs that do not use managed disks*. For a partial list of available built-in policies, see [Policy samples](./samples/index.md).
 
-There are several methods for creating policy assignments. In this quickstart, you use a [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/). Here is a copy of the template:
+There are several methods for creating policy assignments. In this quickstart, you use a
+[quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
+Here is a copy of the template:
 
 [!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
@@ -34,19 +37,19 @@ There are several methods for creating policy assignments. In this quickstart, y
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 1. Select or enter the following values:
 
-    | Name | Value |
-    |------|-------|
-    | Subscription | Select your Azure subscription. |
-    | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is *mypolicyquickstart<Date in MMDD>rg*. |
-    | Location | Select a region. For example, **Central US**. |
-    | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
-    | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** is a template function that retrieve the resource group. |
-    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
-    | I agree to the terms and conditions stated above | (Select) |
+   | Name | Value |
+   |------|-------|
+   | Subscription | Select your Azure subscription. |
+   | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is *mypolicyquickstart<Date in MMDD>rg*. |
+   | Location | Select a region. For example, **Central US**. |
+   | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
+   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** is a template function that retrieves the resource group. |
+   | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
+   | I agree to the terms and conditions stated above | (Select) |
 
 1. Select **Purchase**.
 
@@ -54,7 +57,7 @@ Some additional resources:
 
 - To find more samples templates, see [Azure Quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - To see the template reference, go to [Azure template reference](/azure/templates/microsoft.authorization/allversions).
-- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](../../azure/azure-resource-manager/index.yml).
 - To learn subscription-level deployment, see [Create resource groups and resources at the subscription level](../../azure-resource-manager/deploy-to-subscription.md).
 
 ## Identify non-compliant resources
@@ -81,9 +84,9 @@ To remove the assignment created, follow these steps:
 
 ## Next steps
 
-In this quickstart, you assigned a built-in policy definition to a scope and evaluated its compliance
-report. The policy definition validates that all the resources in the scope are compliant and
-identifies which ones aren't.
+In this quickstart, you assigned a built-in policy definition to a scope and evaluated its
+compliance report. The policy definition validates that all the resources in the scope are compliant
+and identifies which ones aren't.
 
 To learn more about assigning policies to validate that new resources are compliant, continue to
 the tutorial for:
