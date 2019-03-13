@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to update my applications in Azure Active Directory.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Update an application in Azure Active Directory
@@ -108,7 +109,7 @@ The following section shows you how to expose access scopes, by modifying the re
   ```
 
   > [!NOTE]
-  > The `id` value must be generated programatically or using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
+  > The `id` value must be generated programmatically or using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
   >
   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime, by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
 
@@ -141,7 +142,7 @@ For more info on application manifest concepts in general, see [Azure AD app man
 
 As mentioned earlier, in addition to exposing/accessing APIs for your own applications, you can register your client application to access APIs exposed by Microsoft resources. The Microsoft Graph API, referred to as “Microsoft Graph” in the portal's resource/API list, is available to all applications that are registered with Azure AD. If you are registering your client application in a tenant containing accounts that have signed up for an Office 365 subscription, you can also access the scopes exposed by the various Office 365 resources.
 
-For a complete discussion on scopes exposed by Microsoft Graph API, see the [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) article.
+For a complete discussion on scopes exposed by Microsoft Graph API, see the [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference) article.
 
 > [!NOTE]
 > Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission. This restriction does not apply for web applications.
@@ -153,7 +154,7 @@ When registering an application in Azure AD, you may want your application to be
 It’s important to note the differences between a single-tenant and multi-tenant application:  
 
 - A single-tenant application is intended for use in one organization. It's typically a line-of-business (LoB) application written by an enterprise developer. A single-tenant application can only be accessed by users with accounts in the same tenant as the application registration. As a result, it only needs to be provisioned in one directory.
-- A multi-tenant application is intended for use in many organizations. Referred to as a software-as-a-service (SaaS) web application, it's typically written by an independent software vendor (ISV). Multi-tenant applications must be provisioned in each tenant where users need access. For tenants other than the one where the application is registered, user or administrator consent is required in order to register them. Note that native client applications are multi-tenant by default as they are installed on the resource owner's device. See the preceding [Overview of the consent framework](#overview-of-the-consent-framework) section for details on the consent framework.
+- A multi-tenant application is intended for use in many organizations. Referred to as a software-as-a-service (SaaS) web application, it's typically written by an independent software vendor (ISV). Multi-tenant applications must be provisioned in each tenant where users need access. For tenants other than the one where the application is registered, user or administrator consent is required in order to register them. Note that native client applications are multi-tenant by default as they are installed on the resource owner's device. See the preceding Overview of the consent framework section for details on the consent framework.
 
 Making an application multi-tenant requires both application registration changes, as well as changes to the web application itself. The following sections cover both.
 
@@ -181,7 +182,7 @@ Support for multi-tenant applications relies heavily on the Azure AD consent fra
 Your web application may also offer:
 
 - The ability for administrators to "sign up my company." This experience, referred to as "admin consent", gives an administrator the capability to grant consent on behalf *all users* in their organization. Only a user that authenticates with an account that belongs to the Global Admin role can provide admin consent; others receive an error.
-- A sign-up experience for users. It is expected that the user is provided a "sign-up" button that will redirect the browser to the Azure AD OAuth2.0 `/authorize` endpoint or an OpenID Connect `/userinfo` endpoint. These endpoints allow the application to get information about the new user by inspecting the id_token. Following the sign-up phase the user is presented with a consent prompt, similar to the one shown in the [Overview of the consent framework](#overview-of-the-consent-framework) section.
+- A sign-up experience for users. It is expected that the user is provided a "sign-up" button that will redirect the browser to the Azure AD OAuth2.0 `/authorize` endpoint or an OpenID Connect `/userinfo` endpoint. These endpoints allow the application to get information about the new user by inspecting the id_token. Following the sign-up phase the user is presented with a consent prompt, similar to the one shown in the Overview of the consent framework section.
 
 For more information on the application changes required to support multi-tenanted access and sign-in/sign-up experiences, see:
 

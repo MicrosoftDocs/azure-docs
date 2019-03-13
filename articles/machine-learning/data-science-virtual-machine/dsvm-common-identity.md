@@ -1,16 +1,16 @@
 ---
 title: Set up a common identity for the Data Science Virtual Machine - Azure | Microsoft Docs
-description: Set up a common identity in an enterprise team's DSVM environments.
+description: Learn how to create common user accounts that can be used across multiple Data Science Virtual Machines. You can use Azure Active Directory or an on-premises Active Directory to authenticate users to the Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -28,7 +28,7 @@ Active Directory is a popular identity provider and is supported on Azure as a s
 
 If you already have Active Directory to manage the identities, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through a service called [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
 
-The documentation for [Azure AD](https://docs.microsoft.com/azure/active-directory/) provides detailed [management instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), including connecting Azure AD to your on-premises directory if you have one. 
+The documentation for [Azure AD](https://docs.microsoft.com/azure/active-directory/) provides detailed [management instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), including connecting Azure AD to your on-premises directory if you have one. 
 
 This article describes the steps to set up a fully managed Active Directory domain service on Azure by using Azure AD DS. You can then join your DSVMs to the managed Active Directory domain to enable users to access a pool of DSVMs (and other Azure resources) by using a common user account and credentials. 
 

@@ -1,14 +1,17 @@
 ---
-title: Exclude disks from protection using Azure Site Recovery | Microsoft Docs
-description: Describes why and how to exclude VM disks from replication for VMware to Azure.
-author: nsoneji
+title: Exclude disks from replication for VMware disaster recovery to Azure using Azure Site Recovery | Microsoft Docs
+description: Describes why and how to exclude VM disks from replication for VMware disaster recovery to Azure.
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: nisoneji
+ms.date: 3/3/2019
+ms.author: mayg
+ms.topic: conceptual
 
 ---
-# Exclude disks from replication for VMware to Azure scenario
+
+# Exclude disks from replication of VMware VMs to Azure
 
 This article describes how to exclude disks when replicating VMware VMs to Azure. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. If you need information about excluding disks for Hyper-V, read [this article](hyper-v-exclude-disk.md)
 
@@ -31,7 +34,7 @@ You can identify specific examples of data churn that are great candidates for e
 1. Split the single virtual disk into two virtual disks. One virtual disk has the operating system, and the other has the paging file.
 2. Exclude the paging file disk from replication.
 
-Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb fie and the system database file:
+Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb file and the system database file:
 
 1. Keep the system database and tempdb on two different disks.
 2. Exclude the tempdb disk from replication.

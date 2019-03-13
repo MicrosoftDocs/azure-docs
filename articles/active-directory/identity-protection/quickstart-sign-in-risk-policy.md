@@ -5,10 +5,10 @@ services: active-directory
 keywords: identity protection, conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
 #Customer intent: As an IT admin, I want to configure a sign-in risk conditional access policy to handle suspicious sign-ins, so that they can be automatically handled.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Block access when a session risk is detected with Azure Active Directory Identity Protection  
@@ -119,6 +120,6 @@ When no longer needed, delete the test user, the Tor Browser and disable the sig
 
 - If you don't know how to delete an Azure AD user, see [How to add or delete users](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
 
 

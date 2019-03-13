@@ -3,7 +3,7 @@ title: Automated Backup for SQL Server Virtual Machines (Classic) | Microsoft Do
 description: 'Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using Resource Manager. '
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Automated Backup for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]

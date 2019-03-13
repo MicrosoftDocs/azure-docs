@@ -6,15 +6,15 @@ author: swhite-msft
 manager: ehansen
 ms.assetid: BE2B2F8C-20B5-4E0B-AEC8-EAD505BA4C85
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
 ---
 
 # Your first images search query
 
-Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+Before you can make your first call, you need to get a Bing Search Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 To get Image search results, you'd send a GET request to the following endpoint:  
   

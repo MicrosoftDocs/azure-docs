@@ -1,18 +1,19 @@
 ---
-title: LUIS Prebuilt deprecated entities reference - Azure| Microsoft Docs
+title: Deprecated Prebuilt entities
 titleSuffix: Azure
 description: This article contains deprecated prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+ms.custom: seodec18
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 02/28/2019
 ms.author: diberry
 ---
 
-# Deprecated entities
+# Deprecated prebuilt entities in a LUIS app
 The following prebuilt entities are deprecated and can't be added to new LUIS apps.
 
 * **Datetime**: Existing LUIS apps that use **datetime** should be migrated to **datetimeV2**, although the datetime entity continues to function in pre-existing apps that use it.
@@ -39,7 +40,7 @@ Prebuilt entity   |   Example utterance   |   JSON
 #### Encyclopedia subtypes
 Encyclopedia built-in entity includes over 100 sub-types in the following table: In addition, encyclopedia entities often map to multiple types. For example, the query Ronald Reagan yields: 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"
@@ -115,7 +116,7 @@ Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.team  ```| ``` green bay packers  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.team  ```| ``` hamilton bulldogs  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.team  ```| ``` fc bayern munich  ```|
-```builtin.encyclopedia.organization.organization |builtin.encyclopedia.government.political_party|pertubuhan kebangsaan melayu singapura```|
+```builtin.encyclopedia.organization.organization``` |```builtin.encyclopedia.government.political_party```|```pertubuhan kebangsaan melayu singapura```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.time.event  ```| ``` 1740 batavia massacre   ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.sports.championship_event  ```| ``` super bowl xxxix  ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.award.competition  ```| ``` eurovision song contest 2003  ```|

@@ -1,32 +1,27 @@
 ---
-title: Author Custom R Modules in Azure Machine Learning | Microsoft Docs
-description: Quick start for authoring custom R modules in Azure Machine Learning.
+title: Define custom R modules
+titleSuffix: Azure Machine Learning Studio
+description: This topic describes how to author and deploy a custom R module in Azure Machine Learning Studio. It explains what custom R modules are and what files are used to define them. 
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.subservice: studio
+ms.topic: conceptual
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 11/29/2017
-
 ---
-# Author custom R modules in Azure Machine Learning
-This topic describes how to author and deploy a custom R module in Azure Machine Learning. It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
+# Define custom R modules for Azure Machine Learning Studio
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+This topic describes how to author and deploy a custom R module in Azure Machine Learning Studio. It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
+
+
 
 ## What is a custom R module?
-A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
+A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning Studio experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
 
-Custom modules have **first-class status** in Azure Machine Learning in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that contains custom modules can also be published into the Azure AI Gallery for easy sharing.
+Custom modules have **first-class status** in Azure Machine Learning Studio in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that contains custom modules can also be published into the Azure AI Gallery for easy sharing.
 
 ## Files in a custom R module
 A custom R module is defined by a .zip file that contains, at a minimum, two files:
@@ -37,7 +32,7 @@ A custom R module is defined by a .zip file that contains, at a minimum, two fil
 Additional auxiliary files can also be included in the .zip file that provides functionality that can be accessed from the custom module. This option is discussed in the **Arguments** part of the reference section **Elements in the XML definition file** following the quickstart example.
 
 ## Quickstart example: define, package, and register a custom R module
-This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [Download CustomAddRows.zip file](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [Download CustomAddRows.zip file](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## The source file
 Consider the example of a **Custom Add Rows** module that modifies the standard implementation of the **Add Rows** module used to concatenate rows (observations) from two datasets (data frames). The standard **Add Rows** module appends the rows of the second input dataset to the end of the first input dataset using the `rbind` algorithm. The customized `CustomAddRows` function similarly accepts two datasets, but also accepts a Boolean swap parameter as an additional input. If the swap parameter is set to **FALSE**, it returns the same data set as the standard implementation. But if the swap parameter is **TRUE**, the function appends rows of first input dataset to the end of the second dataset instead. The CustomAddRows.R file that contains the implementation of the R `CustomAddRows` function exposed by the **Custom Add Rows** module has the following R code.
@@ -55,7 +50,7 @@ Consider the example of a **Custom Add Rows** module that modifies the standard 
     } 
 
 ### The XML definition file
-To expose this `CustomAddRows` function as an Azure Machine Learning module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
+To expose this `CustomAddRows` function as an Azure Machine Learning Studio module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +100,7 @@ The **Custom Add Rows** module is now ready to be accessed by your Machine Learn
 
 ## Elements in the XML definition file
 ### Module elements
-The **Module** element is used to define a custom module in the XML file. Multiple modules can be defined in one XML file using multiple **module** elements. Each module in your workspace must have a unique name. Register a custom module with the same name as an existing custom module and it replaces the existing module with the new one. Custom modules can, however, be registered with the same name as an existing Azure Machine Learning module. If so, they appear in the **Custom** category of the module palette.
+The **Module** element is used to define a custom module in the XML file. Multiple modules can be defined in one XML file using multiple **module** elements. Each module in your workspace must have a unique name. Register a custom module with the same name as an existing custom module and it replaces the existing module with the new one. Custom modules can, however, be registered with the same name as an existing Azure Machine Learning Studio module. If so, they appear in the **Custom** category of the module palette.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -123,7 +118,7 @@ Rules for characters limits in the Module elements:
 * The content of the **Description** element must not exceed 128 characters in length.
 * The content of the **Owner** element must not exceed 32 characters in length.
 
-A module's results can be deterministic or nondeterministic.** By default, all modules are considered to be deterministic. That is, given an unchanging set of input parameters and data, the module should return the same results eacRAND or a functionh time it is run. Given this behavior, Azure Machine Learning Studio only reruns modules marked as deterministic if a parameter or the input data has changed. Returning the cached results also provides much faster execution of experiments.
+A module's results can be deterministic or nondeterministic.** By default, all modules are considered to be deterministic. That is, given an unchanging set of input parameters and data, the module should return the same results eacRAND or a function time it is run. Given this behavior, Azure Machine Learning Studio only reruns modules marked as deterministic if a parameter or the input data has changed. Returning the cached results also provides much faster execution of experiments.
 
 There are functions that are nondeterministic, such as RAND or a function that returns the current date or time. If your module uses a nondeterministic function, you can specify that the module is non-deterministic by setting the optional **isDeterministic** attribute to **FALSE**. This insures that the module is rerun whenever the experiment is run, even if the module input and parameters have not changed. 
 
@@ -332,7 +327,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
   * **default** - The value for the default property must correspond with an id value from one of the **Item** elements.
 
 ### Auxiliary Files
-Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in Azure Machine Learning execution. 
+Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in Azure Machine Learning Studio execution. 
 
 > [!NOTE]
 > Notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.

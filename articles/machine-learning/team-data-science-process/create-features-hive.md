@@ -1,33 +1,25 @@
 ---
-title: Create features for data in an Hadoop cluster using Hive queries | Microsoft Docs
+title: Create features for data in an Hadoop cluster - Team Data Science Process
 description: Examples of Hive queries that generate features in data stored in an Azure HDInsight Hadoop cluster.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Create features for data in a Hadoop cluster using Hive queries
 This document shows how to create features for data stored in an Azure HDInsight Hadoop cluster using Hive queries. These Hive queries use embedded Hive User-Defined Functions (UDFs), the scripts for which are provided.
 
 The operations needed to create features can be memory intensive. The performance of Hive queries becomes more critical in such cases and can be improved by tuning certain parameters. The tuning of these parameters is discussed in the final section.
 
-Examples of the queries that are presented are specific to the [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. In the final section, parameters that users can tune so that the performance of Hive queries can be improved are  also discussed.
+Examples of the queries that are presented are specific to the [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [GitHub repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. In the final section, parameters that users can tune so that the performance of Hive queries can be improved are  also discussed.
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## Prerequisites
 This article assumes that you have:
@@ -132,7 +124,7 @@ The fields that are used in this query are the GPS coordinates of pickup and dro
         and dropoff_latitude between 30 and 90
         limit 10;
 
-The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In this Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In this Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Create workspace](./media/create-features-hive/atan2new.png)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SciQuest Spend Director | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SciQuest Spend Director.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 9fab641b-292e-4bef-91d1-8ccc4f3a0c1f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SciQuest Spend Director
 

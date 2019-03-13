@@ -5,11 +5,11 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Close active risk events
@@ -48,7 +49,7 @@ By configuring the [user risk conditional access policy](howto-user-risk-policy.
 
 ![Reset password](./media/howto-close-active-risk-events/13.png)
 
-A password reset closes all active risks events of the related user and brings the identity back into a safe state. Using a user risk policy is the preferred method to close active risk events because this method is automated. There is now interaction required between the affected user and help desk or an administrator.
+A password reset closes all active risks events of the related user and brings the identity back into a safe state. Using a user risk policy is the preferred method to close active risk events because this method is automated. There is no interaction required between the affected user and help desk or an administrator.
 
 However, using a user risk policy is not always applicable. This applies, for example, to:
 

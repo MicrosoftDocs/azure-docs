@@ -1,13 +1,9 @@
 ---
-title: 'Introduction to Azure Cosmos DB Gremlin API | Microsoft Docs'
+title: 'Introduction to Azure Cosmos DB Gremlin API'
 description: Learn how you can use Azure Cosmos DB to store, query, and traverse massive graphs with low latency by using the Gremlin graph query language of Apache TinkerPop.
-services: cosmos-db
 author: LuisBosquez
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.devlang: na
+ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
@@ -16,7 +12,7 @@ ms.author: lbosq
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multimodel database service from Microsoft for mission-critical applications. It is a multimodel database and supports document, key-value, graph, and columnar data models. The Azure Cosmos DB Gremlin API is used to store and operate on graph data. Gremlin API supports modeling Graph data and provides APIs to traverse through the graph data.
 
-This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily. To query Azure Cosmos DB, you can use the [Apache TinkerPop](http://tinkerpop.apache.org) graph traversal language, or [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
+This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily. To query Azure Cosmos DB, you can use the [Apache TinkerPop](https://tinkerpop.apache.org) graph traversal language, or [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
 ## What is a graph database
 Data as it appears in the real world is naturally connected. Traditional data modeling focuses on entities. For many applications, there's also a need to model or to model both entities and relationships naturally.
@@ -27,7 +23,7 @@ A [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's compose
 
 * **Edges** - Edges denote relationships between vertices. For example, a person might know another person, be involved in an event, and recently been at a location. 
 
-* **Properties** -  Properties express information about the vertices and edges. Example properties include a vertex that has   name and age. An edge, which has a time stamp and/or a weight. More formally, this model is known as a [property graph](http://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB supports the property graph model.
+* **Properties** -  Properties express information about the vertices and edges. Example properties include a vertex that has   name and age. An edge, which has a time stamp and/or a weight. More formally, this model is known as a [property graph](https://tinkerpop.apache.org/docs/current/reference/#intro). Azure Cosmos DB supports the property graph model.
 
 For example, the following sample graph shows relationships among people, mobile devices, interests, and operating systems:
 
@@ -77,22 +73,22 @@ Azure Cosmos DB also can use multiple models, like document and graph, within th
 
 ## Get started
 
-You can use the Azure command-line interface (CLI), Azure PowerShell, or the Azure portal to create and access Azure Cosmos DB Gremlin API accounts. After you create an account, you can access the graph databases within that account by using a Gremlin API service endpoint  `https://<youraccount>.gremlin.cosmosdb.azure.com`, that provides a WebSocket frontend for Gremlin. You can configure your TinkerPop-compatible tools, like the [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), to connect to this endpoint and build applications in Java, Node.js, or any Gremlin client driver.
+You can use the Azure command-line interface (CLI), Azure PowerShell, or the Azure portal to create and access Azure Cosmos DB Gremlin API accounts. After you create an account, you can access the graph databases within that account by using a Gremlin API service endpoint  `https://<youraccount>.gremlin.cosmosdb.azure.com`, that provides a WebSocket frontend for Gremlin. You can configure your TinkerPop-compatible tools, like the [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), to connect to this endpoint and build applications in Java, Node.js, or any Gremlin client driver.
 
 The following table shows popular Gremlin drivers that you can use against Azure Cosmos DB:
 
-| Download | Documentation | Getting Started |
-| --- | --- | --- |
-| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/jbmusso/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) |
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) |
-| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) |
-| [Gremlin console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-gremlin-console.md) |
+| Download | Documentation | Getting Started | Supported connector version |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript on GitHub](https://github.com/jbmusso/gremlin-javascript) | [Create Graph using Node.js](create-graph-nodejs.md) | 2.6.0|
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Create Graph using Python](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP on GitHub](https://github.com/PommeVerte/gremlin-php) | [Create Graph using PHP](create-graph-php.md) | 3.1.0 |
+| [Gremlin console](https://tinkerpop.apache.org/downloads.html) | [TinkerPop docs](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Create Graph using Gremlin Console](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## Graph database design considerations
 
-During graph design, the decision of modelling an entity as a vertex of its own, as opposed to as a property of other vertex entities has performance and cost implications. The main driver for this decision relies on how the data is going to be queried, as well as the scalability of the model itself.
+During graph design, the decision of modeling an entity as a vertex of its own, as opposed to as a property of other vertex entities has performance and cost implications. The main driver for this decision relies on how the data is going to be queried, as well as the scalability of the model itself.
 
 Consider the following questions before planning on how to model the entity:
 

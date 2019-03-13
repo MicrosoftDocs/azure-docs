@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 15ce27d4-0621-4103-8a34-e72c98d72ec3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Jitbit Helpdesk
 
@@ -110,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: 
+	
 	| |     
     | ----------------------------------------|
 	| `https://<hostname>/helpdesk/User/Login`|
@@ -220,7 +222,7 @@ In order to enable Azure AD users to log into Jitbit Helpdesk, they must be prov
    
    a. In the **Username** textbox, type **BrittaSimon**, the user name as in the Azure portal.
 
-   b. In the **Email** textbox, type email of the user like **BrittaSimon@contoso.com**.
+   b. In the **Email** textbox, type email of the user like **BrittaSimon\@contoso.com**.
 
    c. In the **First Name** textbox, type first name of the user like **Britta**.
 

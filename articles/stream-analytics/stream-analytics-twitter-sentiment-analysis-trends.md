@@ -31,7 +31,7 @@ In this tutorial, you use a client application that connects to Twitter and look
 * An Azure subscription
 * A Twitter account 
 * A Twitter application, and the [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) for that application. We provide high-level instructions for how to create a Twitter application later.
-* The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## Create an event hub for Streaming Analytics input
 
@@ -53,7 +53,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace blade, click **+&nbsp;Event Hub**. 
 
-    ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Name the new event hub `socialtwitter-eh`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub.
 
@@ -230,7 +230,7 @@ To compare the number of mentions among topics, you can use a [Tumbling window](
 
 1. Close the **Inputs** blade if you haven't already.
 
-2. In the job blade, click the **Query** box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
+2. In the **Overview** blade, click **Edit Query** near the top right of the Query box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
 
 3. Make sure that the TwitterWpfClient application is running. 
 

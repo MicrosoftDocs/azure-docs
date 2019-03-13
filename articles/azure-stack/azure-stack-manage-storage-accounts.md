@@ -7,41 +7,29 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-ms.date: 05/10/2018 
+ms.topic: conceptual
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed: 01/18/2019
 
 ---
 # Manage storage accounts in Azure Stack
+
 Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
 
-## <a name="find"></a>Find a storage account
+## Find a storage account
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
-1. In an Internet browser, navigate to
-   https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the
-   credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and select the region you want to explore, for example **(local**).
-   
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Select **Storage** from the **Resource Providers** list.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Now, on the storage Resource Provider administrator pane – scroll down to
-   the **Storage accounts** tab and select it.
-   
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   The resulting page is the list of storage accounts in that region.
-   
+1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
+
+2. Select **All services** > **Storage accounts**.
+
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 By default, the first 10 accounts are displayed. You can choose to fetch
@@ -88,7 +76,7 @@ account.
 
 In Azure Stack there is a simple way to do that:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
+1. Browse to the storage accounts list. See Find a storage account in this article for more information.
 2. Locate that particular account in the list. You may need to filter.
 3. Check the *state* of the account. It should say **Deleted**.
 4. Select the account, which opens the account details pane.
@@ -98,7 +86,7 @@ In Azure Stack there is a simple way to do that:
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. The recovery is now in *process…wait* for an indication that it was
    successful.
-   You can also select the “bell” icon at the top of the portal to
+   You can also select the "bell" icon at the top of the portal to
    view progress indications.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
@@ -113,26 +101,23 @@ In Azure Stack there is a simple way to do that:
 * Your deleted account does not show in the accounts list.
   
   You account may not show in the account list when the deleted account has already been garbage
-  collected. In this case, it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
+  collected. In this case, it cannot be recovered. See [Reclaim capacity](#reclaim) in this article.
 
 ## Set the retention period
 The retention period setting allows a cloud operator to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
 potentially be recovered. The default retention period is set to 0
-days. Setting the value to “0” means that any deleted account is
+days. Setting the value to "0" means that any deleted account is
 immediately out of retention and marked for periodic garbage
 collection.
 
 **To change the retention period:**
 
-1. In an internet browser, navigate to
-   https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the
-   credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and select the region you want to explore – for example **(local**).
-4. Select **Storage** from the **Resource Providers** list.
-5. Select **Settings** at the top to open the setting pane.
-6. Select **Configuration** then edit the retention period value.
+1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
+2. Select **All services** > **Region management** under **Administration**.
+3. Select **Storage** from the **Resource Providers** list.
+4. Select **Settings** at the top to open the setting pane.
+5. Select **Configuration** then edit the retention period value.
 
    Set the number of days and then save it.
    
@@ -147,7 +132,7 @@ One of the side effects of having a retention period is that a deleted account c
 You can reclaim capacity using either the portal or PowerShell.
 
 **To reclaim capacity using the portal:**
-1. Navigate to the storage accounts pane. See [Find a storage account](#find).
+1. Navigate to the storage accounts pane. See Find a storage account.
 2. Select **Reclaim space** at the top of the pane.
 3. Read the message and then select **OK**.
 
@@ -164,21 +149,21 @@ You can also use PowerShell to explicitly override the retention period and imme
 1. Confirm that you have Azure PowerShell installed and configured. If not,
    use the following instructions: 
    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure
-   PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
    For more information about Azure Resource Manager cmdlets, see
    [Using Azure PowerShell with Azure Resource
-   Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Run the following cmdlets:
 
-> [!NOTE]
+> [!NOTE]  
 > If you run these cmdlets, you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
 ```PowerShell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
-````
+```
 
-For more information, see [Azure Stack PowerShell documentation.](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage)
+For more information, see [Azure Stack PowerShell documentation](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## Next steps

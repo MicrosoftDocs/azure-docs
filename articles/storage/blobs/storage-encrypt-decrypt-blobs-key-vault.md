@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
@@ -39,7 +39,7 @@ Here is a brief description of how client side encryption works:
 4. The encrypted data is then uploaded to the Azure Storage service.
 
 ## Set up your Azure Key Vault
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md):
+In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [What is Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Create a key vault.
 * Add a key or secret to the key vault.
@@ -204,7 +204,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
@@ -221,4 +221,4 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).

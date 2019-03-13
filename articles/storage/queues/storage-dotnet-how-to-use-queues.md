@@ -5,10 +5,10 @@ services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: tamram
-ms.component: queues
+ms.subservice: queues
 ---
 
 # Get started with Azure Queue storage using .NET
@@ -24,12 +24,12 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 
 **Estimated time to complete:** 45 minutes
 
-**Prerequisities:**
+**Prerequisites:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-* [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* An [Azure storage account](../common/storage-quickstart-create-account.md)
+* [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
+* An [Azure storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -55,7 +55,7 @@ The sample code needs to authorize access to your storage account. To authorize,
 3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.   
 4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step.
 
-    ![Screen shot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
+    ![Screenshot showing how to copy a connection string from the Azure portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -311,8 +311,8 @@ Now that you've learned the basics of Queue storage, follow these links
 to learn about more complex storage tasks.
 
 * View the Queue service reference documentation for complete details about available APIs:
-  * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+  * [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * View more feature guides to learn about additional options for storing data in Azure.
   * [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
@@ -321,7 +321,7 @@ to learn about more complex storage tasks.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
 [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

@@ -7,7 +7,6 @@ author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -16,15 +15,15 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file 
-
+#Do not delete: File is used in the Azure portal guided setup experience but not rendered as part of docs.microsoft.com
 ---
 
 ## Add the application’s registration to your code
 
 In this step, you need to add the Application / Client ID to your project.
 
-1.	Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
-2.	Replace the line starting with `final static String CLIENT_ID` with:
+1. Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
+2. Replace the line starting with `final static String CLIENT_ID` with:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
@@ -47,4 +46,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
     </intent-filter>
 </activity>
 ```
-

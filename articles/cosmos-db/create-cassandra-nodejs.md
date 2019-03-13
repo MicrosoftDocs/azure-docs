@@ -1,17 +1,15 @@
 ---
 title: 'Quickstart: Cassandra API with Node.js - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with Node.js
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ---
-# Quickstart: Build a Cassandra app with Node.js and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -30,7 +28,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 * [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -40,7 +38,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Clone the sample application
 
-Now let's clone a Cassandra API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+Now let's clone a Cassandra API app from GitHub, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
 1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
 
@@ -66,7 +64,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The username and password values were set using the connection string page in the Azure portal. The `path\to\cert` provides a path to an X509 certificate. 
 
-   ```nodejs
+   ```javascript
    var ssl_option = {
         cert : fs.readFileSync("path\to\cert"),
         rejectUnauthorized : true,
@@ -77,19 +75,19 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
 
-    ```nodejs
+    ```javascript
     const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
     ```
 
 * The `client` connects to the Azure Cosmos DB Cassandra API.
 
-    ```nodejs
+    ```javascript
     client.connect(next);
     ```
 
 * A new keyspace is created.
 
-    ```nodejs
+    ```javascript
     function createKeyspace(next) {
     	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
     	client.execute(query, next);
@@ -99,7 +97,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * A new table is created.
 
-   ```nodejs
+   ```javascript
    function createTable(next) {
    	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
     	client.execute(query, next);
@@ -109,7 +107,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * Key/value entities are inserted.
 
-    ```nodejs
+    ```javascript
     ...
        {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
@@ -121,7 +119,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * Query to get all key values.
 
-    ```nodejs
+    ```javascript
    var query = 'SELECT * FROM uprofile.user';
     client.execute(query, { prepare: true}, function (err, result) {
       if (err) return next(err);
@@ -134,7 +132,7 @@ This step is optional. If you're interested to learn how the code creates the da
     
 * Query to get a key-value.
 
-    ```nodejs
+    ```javascript
     function selectById(next) {
     	console.log("\Getting by id");
     	var query = 'SELECT * FROM uprofile.user where user_id=1';
@@ -152,7 +150,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 

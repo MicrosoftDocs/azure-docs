@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: a28bb0ba-b564-46ba-accc-e587699295d4
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Origami
 
@@ -203,7 +204,7 @@ In this section, you create a user called Britta Simon in Origami.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. In the **User Name** textbox, enter the email of user like **brittasimon@contoso.com**.
+    a. In the **User Name** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     b. In the **Password** textbox, type a password.
 

@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
 ---
 
@@ -90,7 +90,7 @@ which has these elements:
 
 | Element | Required | Description | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | No | The start time for the job with a time zone offset in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | No | The start time for the job with a time zone offset in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Yes | The details for the primary action, which can include an **errorAction** object | 
 | [**errorAction**](#error-action) | No | The details for the secondary action that runs if the primary action fails |
 | [**recurrence**](#recurrence) | No | The details such as frequency and interval for a recurring job | 
@@ -152,7 +152,7 @@ HTTP action with fuller element details described in later sections:
 ## startTime
 
 In the **startTime** object, you can specify the start time and a time 
-zone offset in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601).
+zone offset in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -361,5 +361,5 @@ For example:
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
 * [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API reference](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)

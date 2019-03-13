@@ -1,12 +1,11 @@
 ---
 title: Query Store in Azure Database for PostgreSQL
 description: This article describes the Query Store feature in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/12/2019
 ---
 # Monitor performance with the Query Store
 
@@ -27,12 +26,18 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 ### Enable Query Store using the Azure portal
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 2. Select **Server Parameters** in the **Settings** section of the menu.
-3. Search for the **pg_qs.query_capture_mode** parameter.
-4. Update the value from NONE to TOP and save.
+3. Search for the `pg_qs.query_capture_mode` parameter.
+4. Set the value to `TOP` and **Save**.
 
-Alternatively you can set this parameter using the Azure CLI.
+To enable wait statistics in your Query Store: 
+5. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+6. Set the value to `ALL` and **Save**.
+
+
+Alternatively you can set these parameters using the Azure CLI.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.
@@ -78,7 +83,7 @@ When Query Store is enabled it saves data in 15-minute aggregation windows, up t
 The following options are available for configuring Query Store parameters.
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Sets which statements are tracked. | top | none, top, all |
+| pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
@@ -111,7 +116,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |query_id	|bigint	 ||	Internal hash code, computed from the statement's parse tree|
 |query_sql_text	|Varchar(10000)	 ||	Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster.|
 |plan_id	|bigint	|	|ID of the plan corresponding to this query, not available yet|
-|start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default but configurable. This is the start time corresponding to the time bucket for this entry.|
+|start_time	|timestamp	||	Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default. This is the start time corresponding to the time bucket for this entry.|
 |end_time	|timestamp	||	End time corresponding to the time bucket for this entry.|
 |calls	|bigint	 ||	Number of times the query executed|
 |total_time	|double precision	|| 	Total query execution time, in milliseconds|
@@ -162,6 +167,10 @@ Query_store.qs_reset() returns void
 Query_store.staging_data_reset() returns void
 
 `staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
+
+## Limitations and known issues
+- If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
+- Query Store functionality can be interrupted if it encounters long Unicode queries (>= 6000 bytes).
 
 
 ## Next steps

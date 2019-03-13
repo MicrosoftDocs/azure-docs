@@ -6,13 +6,15 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with Bing Speech Service client libraries
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Besides making direct HTTP requests via a REST API, Bing Speech Service provides developers with Speech client libraries in different languages. The Speech client libraries:
 
@@ -28,9 +30,6 @@ Currently, the following Bing Speech client libraries are available:
 - [Java library for Android](GetStartedJavaAndroid.md)
 - [Objective-C library for iOS](Get-Started-ObjectiveC-iOS.md)
 
-> [!NOTE] 
-In May 2018, we also released the new [Speech Service](../../speech-service/index.yml) in public preview. We encourage you to [try it out for free](../../speech-service/get-started.md). 
-
 ## Additional resources
 
 - The [samples](../samples.md) page provides complete samples to use Speech client libraries.
@@ -39,4 +38,3 @@ In May 2018, we also released the new [Speech Service](../../speech-service/inde
 ## License
 
 All Cognitive Services SDKs and samples are licensed with the MIT License. For more information, see [License](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
-

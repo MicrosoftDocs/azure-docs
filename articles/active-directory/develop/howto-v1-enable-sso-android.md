@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Enable cross-app SSO on Android using ADAL
@@ -114,7 +115,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### Step 2: Establish a new redirect URI with your URL Scheme
 
-In order to ensure that the right application recevies the returned the credential tokens, there is a need to make sure the call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This hash of the certificate cannot be spoofed by a rogue application. Along with the URI of the broker application, Microsoft ensures that the tokens are returned to the correct application. A unique redirect URI is required to be registered on the application.
+In order to ensure that the right application receives the returned the credential tokens, there is a need to make sure the call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This hash of the certificate cannot be spoofed by a rogue application. Along with the URI of the broker application, Microsoft ensures that the tokens are returned to the correct application. A unique redirect URI is required to be registered on the application.
 
 Your redirect URI must be in the proper form of:
 
@@ -126,7 +127,7 @@ You can register this redirect URI in your app registration using the [Azure por
 
 #### Step 3: Set up the correct permissions in your application
 
-The broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. These permissions are discussed in detail in the [Google documentation for Account Manager here](http://developer.android.com/reference/android/accounts/AccountManager.html)
+The broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. These permissions are discussed in detail in the [Google documentation for Account Manager here](https://developer.android.com/reference/android/accounts/AccountManager.html)
 
 In particular, these permissions are:
 

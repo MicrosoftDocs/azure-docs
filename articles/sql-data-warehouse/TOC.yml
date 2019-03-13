@@ -2,7 +2,7 @@
   href: index.md
 - name: Overview
   items:
-  - name: About SQL Data Warehouse
+  - name: What is SQL Data Warehouse?
     href: sql-data-warehouse-overview-what-is.md
   - name: SQL Data Warehouse architecture
     href: massively-parallel-processing-mpp-architecture.md
@@ -17,17 +17,30 @@
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
+  href: release-notes.md
   items:
-    - name: August 2018 
-      href: release-notes-august-2018.md
-    - name: July 2018 
-      href: release-notes-july-2018.md
-    - name: June 2018 
-      href: release-notes-june-2018.md
-    - name: May 2018
-      href: release-notes-may-2018.md
-    - name: April 2018
-      href: release-notes-april-2018.md
+    - name: Recent Release
+      href: release-notes-10-0-10106-0.md  
+    - name: Gen2 region upgrade schedule
+      href: gen2-migration-schedule.md
+    - name: Archived Release Notes
+      items:   
+      - name: December 2018 
+        href: release-notes-december-2018.md  
+      - name: October 2018 
+        href: release-notes-october-2018.md
+      - name: September 2018 
+        href: release-notes-september-2018.md
+      - name: August 2018 
+        href: release-notes-august-2018.md
+      - name: July 2018 
+        href: release-notes-july-2018.md
+      - name: June 2018 
+        href: release-notes-june-2018.md
+      - name: May 2018
+        href: release-notes-may-2018.md
+      - name: April 2018
+        href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,6 +64,12 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: Workload Management
+    items: 
+    - name: Create workload classifier (Preview)
+      items:
+      - name: T-SQL
+        href: quickstart-create-a-workload-classifier-tsql.md
 - name: Concepts
   items:
   - name: Security
@@ -61,7 +80,7 @@
       href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Firewall rules
       href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json      
-    - name: Firewall virtual network rules
+    - name: Virtual network service endpoints
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Authentication
       href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
@@ -72,9 +91,11 @@
     - name: Multi-factor auth
       href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
-      href: sql-data-warehouse-auditing-overview.md
+      href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Column-level security
       href: column-level-security.md
+    - name: Row-level security
+      href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
   - name: Data loading
     items:
     - name: Overview
@@ -139,6 +160,10 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
+    - name: Workload Classification (Preview)
+      href: sql-data-warehouse-workload-classification.md
+    - name: Workload Importance (Preview)
+      href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
@@ -157,6 +182,14 @@
       href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
+  - name: Maintenance schedules
+    items:
+    - name: Overview
+      href: maintenance-scheduling.md
+    - name: View maintenance schedule
+      href: viewing-maintenance-schedule.md
+    - name: Change maintenance schedule
+      href: changing-maintenance-schedule.md
   - name: Integration
     items:
     - name: Overview
@@ -223,18 +256,24 @@
       href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
-    - name: Automate performance levels
-      href: manage-compute-with-azure-functions.md
   - name: Integrate
     items:
-    - name: Configure SQL Database elastic query
-      href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
-    - name: Add an Azure Stream Analytics job
-      href: sql-data-warehouse-integrate-azure-stream-analytics.md
     - name: Use machine learning
       href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-    - name: Visualize with Power BI
-      href: sql-data-warehouse-get-started-visualize-with-power-bi.md
+    - name: Build data pipelines
+      items:
+      - name: Connect with Fivetran
+        href: fivetran-quickstart.md
+      - name: Get started with Striim
+        href: striim-quickstart.md
+      - name: Add an Azure Stream Analytics job
+        href: sql-data-warehouse-integrate-azure-stream-analytics.md
+    - name: Build dashboards and reports 
+      items:
+      - name: Configure SQL Database elastic query
+        href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+      - name: Visualize with Power BI
+        href: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 - name: Reference
   items:
   - name: T-SQL
@@ -247,6 +286,8 @@
       href: sql-data-warehouse-reference-tsql-statements.md
   - name: System views
     href: sql-data-warehouse-reference-tsql-system-views.md
+  - name: Gen2 lower compute tier
+    href: gen2-lower-tier-regions.md
   - name: PowerShell cmdlets
     href: sql-data-warehouse-reference-powershell-cmdlets.md
   - name: REST APIs

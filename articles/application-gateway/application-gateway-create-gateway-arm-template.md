@@ -80,7 +80,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -117,22 +117,24 @@ You can download the existing Azure Resource Manager template to create a virtua
     }
     ```
 
-1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azure/overview) and follow the instructions to sign into Azure and select your subscription.
 
 1. Login to PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Check the subscriptions for the account.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     You are prompted to authenticate with your credentials.
@@ -140,19 +142,19 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Choose which of your Azure subscriptions to use.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
+1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -218,7 +220,7 @@ To delete all resources created in this article, complete one of the following s
 ### PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### Azure CLI

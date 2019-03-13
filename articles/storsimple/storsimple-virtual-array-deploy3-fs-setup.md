@@ -84,7 +84,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    
    In the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FDQN&gt;:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FQDN&gt;:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.
@@ -179,7 +179,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     3. A **Type** for the share. The type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
     A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
    
-    4. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in *john@contoso.com* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
+    4. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in *john\@contoso.com* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
    
     5. Click **Add** to create the share. 
     

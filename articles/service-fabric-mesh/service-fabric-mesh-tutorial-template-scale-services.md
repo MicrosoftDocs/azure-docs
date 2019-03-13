@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Scale an application running in Service Fabric Mesh
 
-This tutorial is part two of a series. Learn how to manually scale the number service instances of an application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  When you're finished, you'll have .
+This tutorial is part two of a series. Learn how to manually scale the number service instances of an application that was [previously deployed to Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). When you're finished, you'll have a front-end service running three instances and a data service running two instances.
 
 In part two of the series, you learn how to:
 
@@ -43,7 +43,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Install the Azure CLI and Service Fabric Mesh CLI locally](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## Manually scale your services in or out
 

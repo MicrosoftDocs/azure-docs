@@ -161,7 +161,9 @@ For more information about monitoring pipelines, see [Monitor and manage Azure D
 ## Azure PowerShell
 In this section you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### Create a data factory
 The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package.
@@ -176,7 +178,7 @@ The following procedure provides steps to create a data factory. You create a pi
 2. To create the Azure resource group, run the following command: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again. 
 3. Define a variable for the data factory name. 
@@ -188,10 +190,10 @@ The following procedure provides steps to create a data factory. You create a pi
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. To create the data factory, run the following **New-AzureRmDataFactory** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
+5. To create the data factory, run the following **New-AzDataFactory** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
     
     ```powershell       
-    $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
+    $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
 Note the following points:
@@ -223,16 +225,16 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
         }
     ```
 2. In **Azure PowerShell**, switch to the **C:\ADF\RunSSISPackage** folder.
-3. Run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked service: **AzureSqlDatabaseLinkedService**. 
+3. Run the **New-AzDataFactoryLinkedService** cmdlet to create the linked service: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
+    New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### Create an output dataset
 This output dataset is a dummy dataset that drives the schedule of the pipeline. Notice that the frequency is set to Hour and interval is set to 1. Therefore, the pipeline runs once an hour within the pipeline start and end times. 
 
-1. Create an OuputDataset.json file with the following content: 
+1. Create an OutputDataset.json file with the following content: 
     
     ```json
     {
@@ -248,10 +250,10 @@ This output dataset is a dummy dataset that drives the schedule of the pipeline.
         }
     }
     ```
-2. Run the **New-AzureRmDataFactoryDataset** cmdlet to create a dataset. 
+2. Run the **New-AzDataFactoryDataset** cmdlet to create a dataset. 
 
     ```powershell
-    New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
+    New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
 ### Create a pipeline with stored procedure activity 
@@ -290,24 +292,24 @@ In this step, you create a pipeline with a stored procedure activity. The activi
     }    
     ```
 
-2. To create the pipeline: **RunSSISPackagePipeline**, run the **New-AzureRmDataFactoryPipeline** cmdlet.
+2. To create the pipeline: **RunSSISPackagePipeline**, run the **New-AzDataFactoryPipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
+    $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
 ### Monitor the pipeline run
 
-2. Run **Get-AzureRmDataFactorySlice** to get details about all slices of the output dataset**, which is the output table of the pipeline.
+2. Run **Get-AzDataFactorySlice** to get details about all slices of the output dataset**, which is the output table of the pipeline.
 
 	```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
 	```
     Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. 
-3. Run **Get-AzureRmDataFactoryRun** to get the details of activity runs for a specific slice.
+3. Run **Get-AzDataFactoryRun** to get the details of activity runs for a specific slice.
 
 	```PowerShell
-	Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+	Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
 	```
 
     You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. 

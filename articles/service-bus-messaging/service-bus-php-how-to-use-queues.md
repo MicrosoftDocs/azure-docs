@@ -3,9 +3,9 @@ title: How to use Service Bus queues with PHP | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: spelluru
+ms.date: 09/10/2018
+ms.author: aschhab
 
 ---
 # How to use Service Bus queues with PHP
@@ -24,11 +24,13 @@ This guide shows you how to use Service Bus queues. The samples are written in P
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## Create a PHP application
 The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
 
 > [!NOTE]
-> Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
+> Your PHP installation must also have the [OpenSSL extension](https://php.net/openssl) installed and enabled.
 > 
 > 
 
@@ -221,6 +223,6 @@ For more information, also visit the [PHP Developer Center](https://azure.micros
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 
 

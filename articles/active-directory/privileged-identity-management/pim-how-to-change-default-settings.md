@@ -10,10 +10,11 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
-ms.date: 09/21/2018
+ms.subservice: pim
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD directory role settings in PIM
 
@@ -45,7 +46,15 @@ Use the **Activations** slider to set the maximum time, in hours, that a role st
 
 ## Notifications
 
-Use the **Notifications** switch to specify whether the system sends emails to administrators confirming that they have activated a role. This can be useful for detecting unauthorized or illegitimate activations.
+Use the **Notifications** switch to specify whether administrators will receive email notifications when roles are activated. This can be useful for detecting unauthorized or illegitimate activations.
+
+When set to **Enable**, notifications are sent to:
+
+- Privileged Role Administrator
+- Security Administrator
+- Global Administrator
+
+For more information, see [Email notifications in PIM](pim-email-notifications.md).
 
 ## Incident/Request ticket
 

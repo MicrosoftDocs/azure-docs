@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory code samples (v1.0 endpoint)
@@ -121,7 +122,7 @@ For samples and tutorials that demonstrate different usage patterns for the Micr
 
 ## See also
 
-[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
+[Azure Active Directory Developer's Guide](v1-overview.md)
 
 [Azure Active Directory Authentication libraries](active-directory-authentication-libraries.md)
 

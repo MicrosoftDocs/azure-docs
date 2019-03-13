@@ -1,12 +1,11 @@
 ---
 title: Performance recommendations in Azure Database for PostgreSQL
 description: This article describes the performance recommendations one can get in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ---
 # Performance Recommendations in Azure Database for PostgreSQL
 

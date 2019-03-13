@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -64,7 +64,7 @@ You can perform storage snapshots targeting three classes of volumes:
 - A separate snapshot over /hana/logbackups.
 - An operating system partition.
 
-Get the latest snapshot scripts and documentation from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Get the latest snapshot scripts and documentation from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). When you download the snapshot script package from the [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), you also get the PDF documentation for the scripts as part of the script package. Each script package has its own PDF documentation.
 
 ## Storage snapshot considerations
 
@@ -110,7 +110,7 @@ To set up storage snapshots with HANA Large Instances, follow these steps:
 1. Copy the scripts and configuration file from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) to the location of **hdbsql** in the SAP HANA installation.
 1. Modify the *HANABackupDetails.txt* file as necessary for the appropriate customer specifications.
 
-Get the latest snapshot scripts and documentation from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+Get the latest snapshot scripts and documentation from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). When you download the snapshot script package from the [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts), you also get the PDF documentation for the scripts as part of the script package. Each script package has its own PDF documentation.
 
 ### Consideration for MCOD scenarios
 If you're running an [MCOD scenario](https://launchpad.support.sap.com/#/notes/1681092) with multiple SAP HANA instances on one HANA Large Instance unit, you have separate storage volumes provisioned for each of the SAP HANA instances. In the current version of the self-service snapshot automation, you can't initiate separate snapshots on every HANA instance system ID (SID). The functionality delivers checks for the registered SAP HANA instances of the server in the configuration file (see later in this article), and executes a simultaneous snapshot of the volumes of all the instances registered on the unit.
@@ -684,7 +684,7 @@ The following process restores the HANA snapshot that is included in the storage
 >[!IMPORTANT]
 >Before you proceed, make sure that you have a complete and contiguous chain of transaction log backups. Without these backups, you cannot restore the current state of the database.
 
-1. Complete steps 1-6 in [Recover to the most recent HANA snapshot](#recovering-to-the-most-recent-hana-snapshot).
+1. Complete steps 1-6 in Recover to the most recent HANA snapshot.
 
 1. Select **Recover the database to its most recent state**.
 
@@ -710,7 +710,7 @@ The following process restores the HANA snapshot that is included in the storage
 To recover to a point in time between the HANA snapshot (included in the storage snapshot) and one that is later than the HANA snapshot point-in-time recovery, perform the following steps:
 
 1. Make sure that you have all the transaction log backups from the HANA snapshot for the time you want to recover to.
-1. Begin the procedure under [Recover to the most recent state](#recovering-to-the-most-recent-state).
+1. Begin the procedure under Recover to the most recent state.
 1. In step 2 of the procedure, in the **Specify Recovery Type** window, select **Recover the database to the following point in time**, and then specify the point in time. 
 1. Complete steps 3-6.
 

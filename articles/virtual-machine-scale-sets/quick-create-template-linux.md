@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
 
 ---
@@ -33,7 +33,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 ## Define a scale set in a template
 Azure Resource Manager templates let you deploy groups of related resources. Templates are written in JavaScript Object Notation (JSON) and define the entire Azure infrastructure environment for your application. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
 
-For more information on templates, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
+For more information on templates, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). For JSON syntax and properties, see [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets) template reference.
 
 To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
 
@@ -134,7 +134,7 @@ You can deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-
 
 [![Deploy template to Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-You can also use the Azure CLI to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) as follows:
+You can also use the Azure CLI to install the Python HTTP server on Linux with [az group deployment create](/cli/azure/group/deployment) as follows:
 
 ```azurecli-interactive
 # Create a resource group
@@ -150,7 +150,7 @@ Answer the prompts to provide a scale set name, instance count, and admin creden
 
 
 ## Test your scale set
-To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip) as follows:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -164,7 +164,7 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

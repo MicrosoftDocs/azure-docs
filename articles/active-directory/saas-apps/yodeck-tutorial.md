@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Yodeck | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Yodeck.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Yodeck
 
@@ -196,7 +197,7 @@ In the case of Yodeck, provisioning is a manual task.
 
 	b. In the **Last Name** textbox, type the last name of user like **Simon**.
 
-	c. In the **Email** textbox, type the email address of user like **brittasimon@contoso.com**.
+	c. In the **Email** textbox, type the email address of user like **brittasimon\@contoso.com**.
 
 	d. Select appropriate **Account Permissions** option as per your organizational requirement.
 	

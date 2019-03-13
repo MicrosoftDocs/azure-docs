@@ -3,7 +3,7 @@ title: Schedules in Azure Automation
 description: Automation schedules are used to schedule runbooks in Azure Automation to start automatically. Describes how to create and manage a schedule in so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
@@ -46,7 +46,7 @@ You can create a new schedule for runbooks in the Azure portal or with Windows P
 1. On the **New schedule** pane, type a **Name** and optionally a **Description** for the new schedule.
 1. Select whether the schedule runs one time, or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once** specify a **Start time**, and then click **Create**. If you select **Recurring**, specify a **Start time** and for **Recur every**, select the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**.
     1. If you select **week**, you are provided a list of the days of the week to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time.
-    2. If you select **month**, you are given different options. For the **Monthly occurrances** option, select either **Month days** or **Week days**. If you choose **Month days** a calendar is shown that allows you to choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule will not run. If you want the schedule to run on the last day, choose **Yes** under **Run on last day of month**. If you choose **Week days**, the **Recur every** option is presented. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally choose a day to repeat on.
+    2. If you select **month**, you are given different options. For the **Monthly occurrences** option, select either **Month days** or **Week days**. If you choose **Month days** a calendar is shown that allows you to choose as many days as you want. If you choose a date such as the 31st that doesn't occur in the current month, the schedule will not run. If you want the schedule to run on the last day, choose **Yes** under **Run on last day of month**. If you choose **Week days**, the **Recur every** option is presented. Choose **First**, **Second**, **Third**, **Fourth**, or **Last**. Finally choose a day to repeat on.
 1. When done click **Create**.
 
 ### To create a new schedule with Windows PowerShell
@@ -124,3 +124,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## Next steps
 
 * To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
+

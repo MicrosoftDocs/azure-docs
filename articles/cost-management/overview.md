@@ -5,14 +5,14 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: overview
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: benshy
+ms.custom: seodec18
 ---
 
-# What is Cloudyn?
+# What is the Cloudyn service?
 
 Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cloudyn helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
 
@@ -22,7 +22,7 @@ Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Manage
 
 ## Monitor usage and spending
 
-Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad-hoc monitoring difficult. First, projecting costs based on average usage assumes that your consumption remains consistent over a given billing period. Second, when costs are near or exceed your budget, it's important you get notifications proactively to adjust your spending. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
+Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad hoc monitoring difficult. First, projecting costs based on average usage assumes that your consumption remains consistent over a given billing period. Second, when costs are near or exceed your budget, it's important you get notifications proactively to adjust your spending. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
 
 Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies in cost analysis reports.
 

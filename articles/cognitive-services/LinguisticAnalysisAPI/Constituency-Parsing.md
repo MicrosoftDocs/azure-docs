@@ -4,16 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Learn about how constituency parsing, also known as "phrase structure parsing," identifies phrases in text.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Constituency Parsing
+
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The goal of constituency parsing (also known as "phrase structure parsing") is to identify the phrases in the text.
 This can be useful when extracting information from text.
@@ -89,4 +92,4 @@ There are several such phrases: *I*, *a new hybrid automobile*, *Bluetooth*, and
 
 ## Specification
 
-Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

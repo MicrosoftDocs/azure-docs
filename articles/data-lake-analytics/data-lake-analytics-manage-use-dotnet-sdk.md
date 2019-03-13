@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Data Lake Analytics using Azure .NET SDK
-description: This article describes how to use the Azure .Net SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
+description: This article describes how to use the Azure .NET SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -19,7 +19,7 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 ## Prerequisites
 
 * **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed**.
-* **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Required NuGet Packages**
 
 ### Install NuGet packages
@@ -125,7 +125,7 @@ If you haven't already created one, you must have an Azure Resource Group to cre
 var resourceGroup = new ResourceGroup { Location = location };
 resourceManagementClient.ResourceGroups.CreateOrUpdate(groupName, rg);
 ```
-For more information, see [Azure Resource Groups and Data Lake Analytics](#Azure-Resource-Groups-and-Data-Lake-Analytics).
+For more information, see Azure Resource Groups and Data Lake Analytics.
 
 ### Create a Data Lake Store account
 

@@ -79,7 +79,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 
    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
 
-   Permissions (`permisionLevel` attribute) can be set to one of the following values:
+   Permissions (`permissionLevel` attribute) can be set to one of the following values:
 
    | Permission Value | Description |
    | --- | --- |

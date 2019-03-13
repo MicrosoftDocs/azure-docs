@@ -4,19 +4,20 @@ description: You define the data protection strategy for your hybrid identity so
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Define data protection strategy for your hybrid identity solution
 In this task, you’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined in:
@@ -54,8 +55,6 @@ Depending on how you answered the questions in [Determine data protection requir
 ## Define content management options
 
 One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user tries to access a shared resource, the resource requires authentication, the user has to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in the background, without user interaction. 
-=======
-One advantage of using Azure AD to manage a hybrid identity infrastructure is that the process is fully transparent from the end user’s perspective. The user tries to access a shared resource, the resource requires authentication, the user has to send an authentication request to Azure AD in order to obtain the token and access the resource. This entire process happens in the background, without user interaction. 
 
 Organizations that are concern about data privacy usually require data classification for their solution. If their current on-premises infrastructure is already using data classification, it is possible to use Azure AD as the main repository for the user’s identity. A common tool that it is used on-premises for data classification is called [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) for Windows Server 2012 R2. This tool can help to identify, classify, and protect data on file servers in your private cloud. It is also possible to use the [Automatic File Classification](https://technet.microsoft.com/library/hh831672.aspx) in Windows Server 2012 to accomplish this task.
 
@@ -71,7 +70,7 @@ A vital part of content management is to understand who is accessing which resou
 * Adding or removing licenses
 
 > [!NOTE]
-> Read [Microsoft Azure Security and Audit Log Management](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
+> Read [Microsoft Azure Security and Audit Log Management](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
 > Depending on how you answered the questions in [Determine content management requirements](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), you should be able to determine how you want the content to be managed in your hybrid identity solution. While all options exposed in Table 6 are capable of integrating with Azure AD, it is important to define which is more appropriate for your business needs.
 >
 >
@@ -89,7 +88,7 @@ By leveraging the authentication, authorization and access control capabilities 
 
 Centralized management and fully integration with other directories
 
-Azure Active Directory provides single sign-on to thousands of SaaS applications and on-premises web applications. See the [Azure Active Directory federation compatibility list: third-party identity providers that can be used to implement single sign-on](https://msdn.microsoft.com/library/azure/jj679342.aspx) article for more details about the SSO third-party that were tested by Microsoft. This capability enables organization to implement a variety of B2B scenarios while keeping control of the identity and access management. However, during the B2B designing process, is important to understand the authentication method that is used by the partner and validate if this method is supported by Azure. Currently, the following methods are supported by Azure AD:
+Azure Active Directory provides single sign-on to thousands of SaaS applications and on-premises web applications. See the [Azure Active Directory federation compatibility list: third-party identity providers that can be used to implement single sign-on](how-to-connect-fed-compatibility.md) article for more details about the SSO third-party that were tested by Microsoft. This capability enables organization to implement a variety of B2B scenarios while keeping control of the identity and access management. However, during the B2B designing process, is important to understand the authentication method that is used by the partner and validate if this method is supported by Azure. Currently, the following methods are supported by Azure AD:
 
 * Security Assertion Markup Language (SAML)
 * OAuth

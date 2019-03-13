@@ -1,12 +1,11 @@
 ---
 title: Query Store usage scenarios in Azure Database for PostgreSQL
 description: This article describes some scenarios for the Query Store in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ---
 # Usage scenarios for Query Store
 

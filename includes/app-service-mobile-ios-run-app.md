@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 1. On your Mac, visit the [Azure portal]. Click **All Services** > **App Services** > the backend that you just created. In the mobile app settings, choose your preferred language:
 
     - Objective-C &ndash; **Quickstart** > **iOS (Objective-C)**
@@ -7,7 +14,7 @@
 
 1. Press the **Run** button to build the project and start the app in the iOS simulator.
 
-1. In the app, type meaningful text, such as *Complete the tutorial* and then click the plus (**+**) icon. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+1. In the app, click the plus (**+**) icon, type meaningful text, such as *Complete the tutorial*, and then click the save button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list.
 
    ![Quickstart app running on iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 

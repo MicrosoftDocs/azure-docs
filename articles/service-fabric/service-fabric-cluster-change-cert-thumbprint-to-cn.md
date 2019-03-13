@@ -13,12 +13,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 01/01/2019
 ms.author: ryanwi
 
 ---
 # Change cluster from certificate thumbprint to common name
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler. This article describes how to update a running Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
+
+>[!NOTE]
+> If you have two thumbprint's declared in your template, you need to perform two deployments.  The first deployment is done before following the steps in this article.  The first deployment sets your **thumbprint** property in the template to the certificate being used and removes the **thumbprintSecondary** property.  For the second deployment, follow the steps in this article.
  
 ## Get a certificate
 First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
@@ -40,7 +43,7 @@ $SubscriptionId  =  "<subscription ID>"
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgropu"
+$KeyVaultResourceGroupName  = "mykeyvaultgroup"
 $VaultName = "mykeyvault"
 $certFilename = "C:\users\sfuser\myclustercert.pfx"
 $certname = "myclustercert"
@@ -88,6 +91,9 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
 
+>[!NOTE]
+> Scale set secrets do not support the same resource ID for two separate secrets, as each secret is a versioned, unique resource. 
+
 ## Download and update the template from the portal
 The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and its common name.  Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
 
@@ -116,7 +122,7 @@ Next, open the template file in a text editor and make three updates to support 
 
     Also consider removing the *certificateThumbprint*, it may no longer be needed.
 
-2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -182,9 +188,6 @@ Redeploy the updated template after making the changes.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
-$clusterloc="southcentralus"
-
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
@@ -195,4 +198,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 * Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 
-[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
+[image1]: ./media/service-fabric-cluster-change-cert-thumbprint-to-cn/PortalViewTemplates.png

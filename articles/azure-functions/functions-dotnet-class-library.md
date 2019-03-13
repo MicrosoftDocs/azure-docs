@@ -46,7 +46,7 @@ When you build the project, a folder structure that looks like the following is 
  | - host.json
 ```
 
-This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md#functions-2x---c-class-libraries).
@@ -61,9 +61,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -77,9 +77,9 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the additional parameters that you can include:
 
 * [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
-* An `ILogger` or `TraceWriter` parameter for [logging](#logging).
+* An `ILogger` or `TraceWriter` ([version 1.x-only](functions-versions.md#creating-1x-apps)) parameter for [logging](#logging).
 * A `CancellationToken` parameter for [graceful shutdown](#cancellation-tokens).
-* [Binding expressions](functions-triggers-bindings.md#binding-expressions-and-patterns) parameters to get trigger metadata.
+* [Binding expressions](./functions-bindings-expressions-patterns.md) parameters to get trigger metadata.
 
 The order of parameters in the function signature does not matter. For example, you can put trigger parameters before or after other bindings, and you can put the logger parameter before or after trigger or binding parameters.
 
@@ -94,9 +94,9 @@ public static class SimpleExampleWithOutput
     public static void Run(
         [QueueTrigger("myqueue-items-source")] string myQueueItem, 
         [Queue("myqueue-items-destination")] out string myQueueItemCopy,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
         myQueueItemCopy = myQueueItem;
     }
 }
@@ -115,10 +115,10 @@ public static class BindingExpressionsExample
     public static void Run(
         [QueueTrigger("%queueappsetting%")] string myQueueItem,
         DateTimeOffset insertionTime,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"Message content: {myQueueItem}");
-        log.Info($"Created at: {insertionTime}");
+        log.LogInformation($"Message content: {myQueueItem}");
+        log.LogInformation($"Created at: {insertionTime}");
     }
 }
 ```
@@ -150,7 +150,7 @@ The generated *function.json* file includes a `configurationSource` property tha
 
 ## Microsoft.NET.Sdk.Functions
 
-The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+The *function.json* file generation is performed by the NuGet package [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 The same package is used for both version 1.x and 2.x of the Functions runtime. The target framework is what differentiates a 1.x project from a 2.x project. Here are the relevant parts of *.csproj* files, showing different target frameworks and the same `Sdk` package:
 
@@ -169,7 +169,7 @@ The same package is used for both version 1.x and 2.x of the Functions runtime. 
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netstandard2.0</TargetFramework>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
   <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 </PropertyGroup>
 <ItemGroup>
@@ -179,7 +179,7 @@ The same package is used for both version 1.x and 2.x of the Functions runtime. 
 
 Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those target the .NET Framework, while 2.x triggers and bindings target .NET Core.
 
-The `Sdk` package also depends on [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json), and indirectly on [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). These dependencies make sure that your project uses the versions of those packages that work with the Functions runtime version that the project targets. For example, `Newtonsoft.Json` has version 11 for .NET Framework 4.6.1, but the Functions runtime that targets .NET Framework 4.6.1 is only compatible with `Newtonsoft.Json` 9.0.1. So your function code in that project also has to use `Newtonsoft.Json` 9.0.1.
+The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), and indirectly on [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). These dependencies make sure that your project uses the versions of those packages that work with the Functions runtime version that the project targets. For example, `Newtonsoft.Json` has version 11 for .NET Framework 4.6.1, but the Functions runtime that targets .NET Framework 4.6.1 is only compatible with `Newtonsoft.Json` 9.0.1. So your function code in that project also has to use `Newtonsoft.Json` 9.0.1.
 
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
@@ -201,7 +201,7 @@ Each binding has its own supported types; for instance, a blob trigger attribute
 
 ## Binding to method return value
 
-You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value). 
+You can use a method return value for an output binding, by applying the attribute to the method return value. For examples, see [Triggers and bindings](./functions-bindings-return-value.md). 
 
 Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
 
@@ -218,9 +218,9 @@ public static class ICollectorExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
         [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
         myDestinationQueue.Add($"Copy 1: {myQueueItem}");
         myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
@@ -229,9 +229,7 @@ public static class ICollectorExample
 
 ## Logging
 
-To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
-
-`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host.json](functions-host-json.md).
+To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`, as in the following example:  
 
 ```csharp
 public static class SimpleExample
@@ -239,15 +237,14 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
 
-> [!NOTE]
-> For information about a newer logging framework that you can use instead of `TraceWriter`, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
+Avoid using `Console.Write` in Azure Functions. For more information, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
 
 ## Async
 
@@ -261,9 +258,9 @@ public static class AsyncExample
         [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
         [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
         CancellationToken token,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"BlobCopy function processed.");
+        log.LogInformation($"BlobCopy function processed.");
         await blobInput.CopyToAsync(blobOutput, 4096, token);
     }
 }
@@ -307,11 +304,11 @@ To get an environment variable or an app setting value, use `System.Environment.
 public static class EnvironmentVariablesExample
 {
     [FunctionName("GetEnvironmentVariables")]
-    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
     {
-        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+        log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
     public static string GetEnvironmentVariable(string name)
@@ -358,9 +355,9 @@ public static class IBinderExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
         IBinder binder,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobUsingBinder function processed: {myQueueItem}");
         using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
                     $"samples-output/{myQueueItem}", FileAccess.Write)))
         {
@@ -387,9 +384,9 @@ public static class IBinderExampleMultipleAttributes
     public async static Task RunAsync(
             [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
             Binder binder,
-            TraceWriter log)
+            ILogger log)
     {
-        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
         var attributes = new Attribute[]
         {
         new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),

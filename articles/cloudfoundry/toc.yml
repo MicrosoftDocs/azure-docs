@@ -7,8 +7,12 @@
     href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
 - name: Tutorials
   items:
+  - name: Create CF on Azure
+    href: /azure/cloudfoundry/create-cloud-foundry-on-azure
   - name: Deploy CF App to Azure
     href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+  - name: Use OSBA with an App on PCF
+    href: /azure/cloudfoundry/use-osba-pcf-app
   - name: CloudFoundry on Azure
     href: /azure/virtual-machines/linux/cloudfoundry-get-started
   - name: Deploy CF OMS Nozzle

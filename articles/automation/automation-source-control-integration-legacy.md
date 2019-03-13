@@ -3,10 +3,10 @@ title: Source Control integration in Azure Automation - Legacy
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -119,10 +119,6 @@ The sync button on the Repository Synchronization page allows you to pull all th
     > [!NOTE] 
     > A sync from source control overwrites the draft version of the runbooks that currently exist in your Automation account for **ALL** runbooks that are currently in source control. The Git equivalent command-line instruction to sync is **git pull**
 
-
-## Troubleshooting source control problems
-If there are any errors with a check in or sync job, the job status should be suspended and you can view more details about the error in the job page.  The **All Logs** part shows you all the PowerShell streams associated with that job. This provides you with the details needed to help you fix any problems with your check in or sync. It also shows you the sequence of actions that occurred while syncing or checking in a runbook.  
-
 ![AllLogs image](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 
 ## Disconnecting source control
@@ -136,4 +132,5 @@ For more information about source control integration, see the following resourc
 * [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Vote for your favorite source control system](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 * [Azure Automation: Integrating Runbook Source Control using Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

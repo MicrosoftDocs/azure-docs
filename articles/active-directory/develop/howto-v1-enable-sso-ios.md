@@ -6,7 +6,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -15,6 +15,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Enable cross-app SSO on iOS using ADAL
@@ -213,7 +214,7 @@ When you do have entitlements set up correctly you should see a file in your pro
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>keychain-access-groups</key>
@@ -225,7 +226,7 @@ When you do have entitlements set up correctly you should see a file in your pro
 </plist>
 ```
 
-Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the odentity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
+Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the identity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -245,7 +246,7 @@ The steps to follow are:
 1. Enable broker mode in your application code's call to the MS SDK.
 2. Establish a new redirect URI and provide that to both the app and your app registration.
 3. Registering a URL Scheme.
-4. iOS9 Support: Add a permission to your info.plist file.
+4. Add a permission to your info.plist file.
 
 #### Step 1: Enable broker mode in your application
 
@@ -302,12 +303,16 @@ To support cert-based authentication a second "msauth"  needs to be registered i
 
 ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### Step 4: iOS9: Add a configuration parameter to your app
+#### Step 4: Add a configuration parameter to your app
 
-ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
+ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 on, Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### You've configured SSO!

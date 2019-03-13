@@ -3,8 +3,8 @@ title: Azure CDN rules engine features | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
+ms.author: magattus
 
 ---
 
@@ -1062,7 +1062,7 @@ This feature allows a customer origin server to find out client IP addresses thr
 
 Ensure that the specified header name does not match any of the following names:
 
-- Standard request header names. A list of standard header names can be found in [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Standard request header names. A list of standard header names can be found in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Reserved header names:
     - forwarded-for
     - host
@@ -1257,7 +1257,7 @@ This URL redirection may be achieved through the following configuration:
 		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  
 	- Sample scenario #2: 
 		- Sample request (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf  Sample scenario
+		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/widgets.pdf
 	- Sample scenario #3: 
 		- Sample request (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
 		- Request URL (after redirect): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

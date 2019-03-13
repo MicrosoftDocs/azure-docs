@@ -4,7 +4,7 @@ description: Deploy the Chef Client to a virtual machine using the Chef VM Exten
 services: virtual-machines-linux
 documentationcenter: ''
 
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager

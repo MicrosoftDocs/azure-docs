@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -70,7 +70,12 @@ The following properties are supported for Zoho linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Zoho dataset.
 
-To copy data from Zoho, set the type property of the dataset to **ZohoObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Zoho, set the type property of the dataset to **ZohoObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **ZohoObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -82,7 +87,8 @@ To copy data from Zoho, set the type property of the dataset to **ZohoObject**. 
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -91,14 +97,14 @@ To copy data from Zoho, set the type property of the dataset to **ZohoObject**. 
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Zoho source.
 
-### ZohoSource as source
+### Zoho as source
 
 To copy data from Zoho, set the source type in the copy activity to **ZohoSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ZohoSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Accounts"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Accounts"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

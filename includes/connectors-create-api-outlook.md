@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 1. In the search box, enter "outlook.com" as your filter. 
 For this example, select this trigger: **When a new email arrives**
 

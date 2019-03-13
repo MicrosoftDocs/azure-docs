@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -13,7 +13,9 @@ ms.author: victorh
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources. Using metrics, you can view performance counters in the portal. 
 
-You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 In this tutorial, you learn how to:
 
@@ -43,14 +45,15 @@ It can take a few minutes for the data to appear in your logs after you complete
 
 3. To start collecting data, click **Turn on diagnostics**.
 4. The **Diagnostics settings** page provides the settings for the diagnostic logs. 
-5. In this example, Log Analytics stores the logs, so type **Firewall log analytics** for the name.
+5. In this example, Azure Monitor logs stores the logs, so type **Firewall log analytics** for the name.
 6. Click **Send to Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
 7. Under **Log Analytics**, click **Configure**.
-8. In the OMS Workspaces page, click **Create New Workspace**.
-9. On the **Log analytics workspace** page, type **firewall-oms** for the new **OMS Workspace** name.
+8. In the Log Analytics workspaces page, click **Create New Workspace**.
+9. On the **Log analytics workspace** page, type **firewall-oms** for the new **Log Analytics workspace** name.
 10. Select your subscription, use the existing firewall resource group (**Test-FW-RG**), select **East US** for the location, and select the **Free** pricing tier.
 11. Click **OK**.
    ![Starting the configuration process][1]
+   OMS workspaces are now referred to as Log Analytics workspaces.  
 12. Under **Log**, click **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** to collect logs for application and network rules.
    ![Save diagnostics settings][2]
 13. Click **Save**.
@@ -89,7 +92,9 @@ You can view and analyze activity log data by using any of the following methods
 
 ## View and analyze the network and application rule logs
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
+[Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
+
+For Azure Firewall log analytics sample queries, see [Azure Firewall log analytics samples](log-analytics-samples.md).
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -101,10 +106,10 @@ Browse to an Azure Firewall, under **Monitoring** click **Metrics**. To view the
 
 ## Next steps
 
-Now that you've configured your firewall to collect logs, you can explore Log Analytics to view your data.
+Now that you've configured your firewall to collect logs, you can explore Azure Monitor logs to view your data.
 
 > [!div class="nextstepaction"]
-> [Networking monitoring solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Networking monitoring solutions in Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

@@ -1,6 +1,6 @@
 ---
-title: Group name policy settings for Office 365 groups in Azure Active Directory (preview) | Microsoft Docs
-description: How to set up expiration for Office 365 groups in Azure Active Directory (preview)
+title: Group name policy (preview) - Office 365 groups - Azure Active Directory | Microsoft Docs
+description: How to set up naming policy for Office 365 groups in Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,13 +9,14 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 01/28/2019
 ms.author: curtand                   
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: "it-pro;seo-update-azuread-jan"
 
+ms.collection: M365-identity-device-management
 ---
 
 # Enforce a naming policy for Office 365 groups in Azure Active Directory (preview)
@@ -46,7 +47,7 @@ You can use strings to make it easier to scan and differentiate groups in the gl
 
 #### User attributes
 
-You can use attributes that can help you and your users identify which department, office or geographic region for which the group was created. For example, if you define your naming policy as `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, and `User’s department = Engineering`, then an enforced group name might be “GRP My Group Engineering." Supported Azure AD attributes are \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]. Unsupported user attributes are treated as fixed strings; for example, “\[postalCode\]”. Extension attributes and custom attributes aren't supported.
+You can use attributes that can help you and your users identify which department, office or geographic region for which the group was created. For example, if you define your naming policy as `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, and `User’s department = Engineering`, then an enforced group name might be “GRP My Group Engineering." Supported Azure AD attributes are \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion\], \[Title\]. Unsupported user attributes are treated as fixed strings; for example, “\[postalCode\]”. Extension attributes and custom attributes aren't supported.
 
 We recommend that you use attributes that have values filled in for all users in your organization and don't use attributes that have long values.
 
@@ -55,6 +56,7 @@ We recommend that you use attributes that have values filled in for all users in
 A blocked word list is a comma-separated list of phrases to be blocked in group names and aliases. No sub-string searches are performed. An exact match between the group name and one or more of the custom blocked words is required to trigger a failure. Sub-string search isn't performed so that users can use common words like ‘Class’ even if ‘lass’ is a blocked word.
 
 Blocked word list rules:
+
 - Blocked words are not case sensitive.
 - When a user enters a blocked word as part of a group name, they see an error message with the blocked word.
 - There are no character restrictions on blocked words.
@@ -67,7 +69,7 @@ Selected administrators can be exempted from these policies, across all group wo
 - Global administrator
 - Partner Tier 1 Support
 - Partner Tier 2 Support
-- User account administrator
+- User administrator
 - Directory writers
 
 ## Install PowerShell cmdlets to configure a naming policy
@@ -77,14 +79,14 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. Install the latest version of AzureADPreview.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
 
 ## Configure the group naming policy for a tenant using Azure AD PowerShell
@@ -93,10 +95,10 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
 
 2. Run the following commands to prepare to run the cmdlets.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
 3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
@@ -105,35 +107,35 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
 
 1. Fetch the current naming policy to view the current settings.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Display the current group settings.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
 ### Set the naming policy and custom blocked words
 
-1. Set the group name prefixes and suffixes in Azure AD PowerShell.
+1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Save the settings for the new policy to be effective, such as in the following example.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 That's it. You've set your naming policy and added your blocked words.
 
@@ -143,14 +145,14 @@ For more information, see the article [Azure Active Directory cmdlets for config
 
 Here is an example of a PowerShell script to export multiple blocked words:
 
-````
+```
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
-````
+```
 
 Here is an example PowerShell script to import multiple blocked words:
 
-````
+```
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -162,7 +164,28 @@ if ($Settings.Count -eq 0)
 $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
-````
+```
+
+## Remove the naming policy
+
+1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
+  
+  ```
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ```
+  
+2. Empty the custom blocked words. 
+  
+  ```
+  $Setting["CustomBlockedWordsList"]=""
+  ```
+  
+3. Save the settings.
+  
+  ```
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ```
+
 
 ## Naming policy experiences across Office 365 apps
 

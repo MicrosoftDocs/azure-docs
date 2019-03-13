@@ -3,9 +3,9 @@ title: How to use Azure Service Bus topics and subscriptions with Node.js | Micr
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: spelluru
+ms.date: 10/16/2018
+ms.author: aschhab
 
 ---
 # How to Use Service Bus topics and subscriptions with Node.js
@@ -34,6 +34,8 @@ For more information about topics
 and subscriptions, see [Next steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create a Node.js application
 Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] using Windows PowerShell, or Web Site with WebMatrix.
@@ -62,7 +64,7 @@ communicate with the Service Bus REST services.
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
 3. You can manually run the **ls** command to verify that a
-   **node\_modules** folder was created. Inside that folder find the
+   **node\_modules** folder was created. Inside that folder, find the
    **azure** package, which contains the libraries you need to access
    Service Bus topics.
 
@@ -76,7 +78,7 @@ var azure = require('azure');
 ### Set up a Service Bus connection
 The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained from the earlier step, "Obtain the credentials." If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
 
-For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
+For an example of setting the environment variables for an Azure Cloud Service, see [Set environment variables](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -139,7 +141,7 @@ function (returnObject, finalCallback, next)
 
 In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke next (if it exists) to continue processing other filters, or invoke `finalCallback` to end the service invocation.
 
-Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following code creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -289,7 +291,7 @@ the `sendTopicMessage` and any required standard properties are populated by def
 
 The following example demonstrates how to send five test messages to
 `MyTopic`. The `messagenumber` property value of each
-message varies on the iteration of the loop (this determines which
+message varies on the iteration of the loop (this property determines which
 subscriptions receive it):
 
 ```javascript
@@ -327,8 +329,7 @@ deleting it from the subscription.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
-which an application can tolerate not processing a message in the event
-of a failure. To understand this behavior, consider a scenario in which the
+which an application can tolerate not processing a message when there is a failure. To understand this behavior, consider a scenario in which the
 consumer issues the receive request and then crashes before processing
 it. Because Service Bus has marked the message as being consumed,
 then when the application restarts and begins consuming messages again,

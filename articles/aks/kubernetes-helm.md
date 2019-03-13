@@ -1,15 +1,15 @@
 ---
 title: Deploy containers with Helm in Kubernetes on Azure
-description: Use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 03/06/2019
 ms.author: iainfou
-ms.custom: mvc
+
+#Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---
 
 # Install applications with Helm in Azure Kubernetes Service (AKS)
@@ -20,34 +20,13 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-## Install Helm CLI
-
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm.
-
-If you use the Azure Cloud Shell, the Helm CLI is already installed. To install the Helm CLI on a Mac, use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Output:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+You also need the Helm CLI installed, the client that runs on your development system and allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform see, [Installing Helm][helm-install].
 
 ## Create a service account
 
-Before you can deploy Helm in an RBAC-enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your cluster is not RBAC enabled, skip this step.
+Before you can deploy Helm in an RBAC-enabled AKS cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your AKS cluster is not RBAC enabled, skip this step.
 
 Create a file named `helm-rbac.yaml` and copy in the following YAML:
 
@@ -58,7 +37,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -72,10 +51,10 @@ subjects:
     namespace: kube-system
 ```
 
-Create the service account and role binding with the `kubectl create` command:
+Create the service account and role binding with the `kubectl apply` command:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## Secure Tiller and Helm
@@ -92,7 +71,7 @@ To deploy a basic Tiller into an AKS cluster, use the [helm init][helm-init] com
 helm init --service-account tiller
 ```
 
-If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-` parameters and names of your own certificates, as shown in the following example:
+If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-*` parameters and names of your own certificates, as shown in the following example:
 
 ```console
 helm init \
@@ -118,7 +97,6 @@ The following condensed example output shows some of the Helm charts available f
 $ helm search
 
 NAME                           CHART VERSION	APP VERSION  DESCRIPTION
-stable/acs-engine-autoscaler   2.2.0         	2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7        	v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7        	0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0        	6.2.4        The server receives data from the Elastic APM a...
@@ -173,7 +151,7 @@ The following condensed example output shows the deployment status of the Kubern
 $ helm install stable/wordpress
 
 NAME:   wishful-mastiff
-LAST DEPLOYED: Thu Jul 12 15:53:56 2018
+LAST DEPLOYED: Wed Mar  6 19:11:38 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -221,8 +199,18 @@ To see a list of releases installed on your cluster, use the [helm list][helm-li
 ```console
 $ helm list
 
-NAME             REVISION	 UPDATED                 	 STATUS  	 CHART          	NAMESPACE
-wishful-mastiff  1       	 Thu Jul 12 15:53:56 2018	 DEPLOYED	 wordpress-2.1.3  default
+NAME        	    REVISION	UPDATED                 	STATUS  	CHART          	 APP VERSION	NAMESPACE
+wishful-mastiff	  1       	Wed Mar  6 19:11:38 2019	DEPLOYED	wordpress-2.1.3	 4.9.7      	default
+```
+
+## Clean up resources
+
+When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, use the `helm delete` command and specify your release name, as found in the previous `helm list` command. The following example deletes the release named *wishful mastiff*:
+
+```console
+$ helm delete wishful-mastiff
+
+release "wishful-mastiff" deleted
 ```
 
 ## Next steps
@@ -236,7 +224,7 @@ For more information about managing Kubernetes application deployments with Helm
 [helm]: https://github.com/kubernetes/helm/
 [helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
@@ -246,4 +234,6 @@ For more information about managing Kubernetes application deployments with Helm
 [helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

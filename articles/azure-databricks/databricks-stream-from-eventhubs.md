@@ -1,17 +1,12 @@
 ---
-title: 'Tutorial: Stream data into Azure Databricks using Event Hubs | Microsoft Docs'
+title: 'Tutorial: Stream data into Azure Databricks using Event Hubs '
 description: Learn to use Azure Databricks with Event Hubs to ingest streaming data from Twitter and read the data in near real time.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
-manager: cgronlun
-editor: cgronlun
-
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: "Active"
 ms.date: 06/21/2018
 ms.author: alehall
@@ -99,7 +94,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0** runtime.
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -169,7 +164,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 ## Send tweets to Event Hubs
 
-In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namesapce and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
+In the **SendTweetsToEventHub** notebook, paste the following code, and replace the placeholders with values for your Event Hubs namespace and Twitter application that you created earlier. This notebook streams tweets with the keyword "Azure" into Event Hubs in real time.
 
 ```scala
     import java.util._
@@ -368,7 +363,7 @@ After you have finished running the tutorial, you can terminate the cluster. To 
 
 ![Stop a Databricks cluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
 ## Next steps
 In this tutorial, you learned how to:
@@ -385,4 +380,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn about performing sentiment analysis on the streamed data using Azure Databricks and [Microsoft Cognitive Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Sentiment analyis on streaming data using Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Sentiment analysis on streaming data using Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

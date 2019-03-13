@@ -33,8 +33,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-* Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Add a new version
 
@@ -44,8 +45,8 @@ In this tutorial, you learn how to:
 2. Select the context menu (**...**) next to it.
 3. Select **+ Add Version**.
 
-    > [!TIP]
-    > Versions can also be enabled when you first create a new API - select **Version this API?** on the **Add API** screen.
+> [!TIP]
+> Versions can also be enabled when you first create a new API - select **Version this API?** on the **Add API** screen.
 
 ## Choose a versioning scheme
 
@@ -54,34 +55,38 @@ Azure API Management allows you to choose the way in which you allow callers to 
 ![Add version screen](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Leave **path** selected as your **versioning scheme**.
-2. Add **v1** as the **Name** and **Version identifier**.
+2. Type **demo-conference-api-v1** in the **Name** field.
+
+    > [!NOTE]
+    > Version is in fact a new API based off an API's revision. **Name** is the new API's name and it must be unique across API Management instance.
+
+3. Type **v1** in the **Version identifier** field.
 
     > [!TIP]
     > If you select **header** or **query string** as a versioning scheme, you need to provide an additional value - the name of the header or query string parameter.
 
-3. Select **Create** to set up your new version.
-4. Underneath **Demo Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
+4. Select **Create** to set up your new version.
+5. Underneath **Demo Conference API** in the API List, you now see two distinct APIs - **Original**, and **v1**.
 
     ![Versions listed under an API in the Azure portal](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > If you add a version to a non-versioned API, an **Original** will be automatically created - responding on the default URL. This ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an Original is not created.
 
-5. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
+6. You can now edit and configure **v1** as an API that is separate to **Original**. Changes to one version do not affect another.
 
 ## Add the version to a product
 
 In order for callers to see the new version, it must be added to a **product**.
 
+![API Management Products](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. Select **Products** from the classic deployment model page.
-
-    ![API Management Products](media/api-management-getstarted-publish-versions/Products.png)
-
 2. Select **Unlimited**.
 3. Select **APIs**.
 4. Select **Add**.
 5. Select **Demo Conference API, Version v1**.
-6. Navigate to the service management page and select **APIs**.
+6. Click **Select**.
 
 ## Browse the developer portal to see the version
 

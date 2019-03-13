@@ -191,7 +191,7 @@ Based on the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-In the suggested disk configuration, the HANA data volume and log volume are placed on the same set of Azure premium storage disks that are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level because Azure Premium Storage keeps three images of the disks for redundancy. To make sure that you configure enough storage, consult the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Also consider the different virtual hard disk (VHD) throughput volumes of the different Azure premium storage disks as documented in [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+In the suggested disk configuration, the HANA data volume and log volume are placed on the same set of Azure premium storage disks that are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level because Azure Premium Storage keeps three images of the disks for redundancy. To make sure that you configure enough storage, consult the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Also consider the different virtual hard disk (VHD) throughput volumes of the different Azure premium storage disks as documented in [High-performance Premium Storage and managed disks for VMs](../../windows/disks-types.md). 
 
 You can add more premium storage disks to the HANA DBMS VMs for storing database or transaction log backups.
 
@@ -202,9 +202,7 @@ For more information about the two main tools used to configure striping, see th
 
 For more information on attaching disks to Azure VMs running Linux as a guest OS, see [Add a disk to a Linux VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Premium Storage allows you to define disk caching modes. For the striped set holding /hana/data and /hana/log, disk caching should be disabled. For the other volumes (disks), the caching mode should be set to **ReadOnly**.
-
-For more information, see [Premium Storage: High-performance storage for Azure Virtual Machine workloads](../../windows/premium-storage.md).
+Azure premium SSDs allows you to define disk caching modes. For the striped set holding /hana/data and /hana/log, disk caching should be disabled. For the other volumes (disks), the caching mode should be set to **ReadOnly**.
 
 To find sample JSON templates for creating VMs, go to [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates).
 The vm-simple-sles template is a basic template. It includes a storage section, with an additional 100-GB data disk. This template can be used as a base. You can adapt the template to your specific configuration.
@@ -402,7 +400,7 @@ In addition to installing SAP HANA as part of a distributed installation by usin
 For more information about the HANA HDBLCM tool, see:
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle Management Tools](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 To avoid problems with a default group ID setting for the `\<HANA SID\>adm user` (created by the HDBLCM tool), define a new group called `sapsys` by using group ID `1001` before you install SAP HANA via HDBLCM:

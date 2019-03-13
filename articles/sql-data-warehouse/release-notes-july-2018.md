@@ -6,7 +6,7 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
@@ -25,7 +25,7 @@ Beyond runtime performance, the [Gigaom Research](https://gigaom.com/report/data
 ![Azure SQL Data Warehouse is faster and cheaper than Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>Source: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###Query concurrency
+### Query concurrency
 SQL Data Warehouse also ensures that data is accessible across your organizations. Microsoft has enhanced the service to support 128 concurrent queries so that more users can query the same database and not get blocked by other requests. In comparison, Amazon Redshift restricts maximum concurrent queries to 50, limiting data access within the organization.
 
 SQL Data Warehouse delivers these query performance and query concurrency gains without any price increase and building upon its unique architecture with decoupled storage and compute.
@@ -132,7 +132,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

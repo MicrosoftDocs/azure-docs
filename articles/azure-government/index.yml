@@ -41,7 +41,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to acess and manage the Azure Government cloud:'
+    text: 'Learn how to access and manage the Azure Government cloud:'
   - type: list
     style: icon48
     items: 

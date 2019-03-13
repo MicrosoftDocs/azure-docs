@@ -1,16 +1,16 @@
 ---
-title: MapReduce with Hadoop on HDInsight 
-description: Learn how to run MapReduce jobs on Hadoop in HDInsight clusters.
+title: MapReduce with Apache Hadoop on HDInsight 
+description: Learn how to run MapReduce jobs on Apache Hadoop in HDInsight clusters.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ---
-# Use MapReduce in Hadoop on HDInsight
+# Use MapReduce in Apache Hadoop on HDInsight
 
 Learn how to run MapReduce jobs on HDInsight clusters. Use the following table to discover the various ways that MapReduce can be used with HDInsight:
 
@@ -22,11 +22,11 @@ Learn how to run MapReduce jobs on HDInsight clusters. Use the following table t
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
+
 
 ## <a id="whatis"></a>What is MapReduce
 
-Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks. Each chunk is processed in parallel across the nodes in your cluster. A MapReduce job consists of two functions:
+Apache Hadoop MapReduce is a software framework for writing jobs that process vast amounts of data. Input data is split into independent chunks. Each chunk is processed in parallel across the nodes in your cluster. A MapReduce job consists of two functions:
 
 * **Mapper**: Consumes input data, analyzes it (usually with filter and sorting operations), and emits tuples (key-value pairs)
 
@@ -51,7 +51,7 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT.
 
     [key]/t[value]
 
-For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 For examples of using Hadoop streaming with HDInsight, see the following documents:
 
@@ -157,7 +157,7 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Next steps
@@ -168,9 +168,9 @@ To learn more about working with data in HDInsight, see the following documents:
 
 * [Develop Python streaming MapReduce programs for HDInsight](apache-hadoop-streaming-python.md)
 
-* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Apache Hive with HDInsight][hdinsight-use-hive]
 
-* [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Apache Pig with HDInsight][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

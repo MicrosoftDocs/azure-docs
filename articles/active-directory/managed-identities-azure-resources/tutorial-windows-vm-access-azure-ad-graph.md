@@ -3,23 +3,24 @@ title: Use a Windows VM system-assigned managed identity to access Azure AD Grap
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: daveba
+ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned managed identity for a Windows virtual machine (VM) to access the Microsoft Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  For this tutorial you will query your VM identity's membership in Azure AD groups. Group information is often used in authorization decisions, for example. Under the covers, your VM's managed identity is represented by a **Service Principal** in Azure AD. Before you do the group query, add the service principal representing the VM's identity to a group in Azure AD. You can do this using Azure PowerShell, Azure AD PowerShell, or the Azure CLI.
 
@@ -31,24 +32,21 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
-
 - To grant a VM identity access to Azure AD Graph, your account needs to be assigned the **Global Admin** role in Azure AD.
+- Install the latest [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) if you haven't already. 
 
 ## Connect to Azure AD
 
-You need to connect to Azure AD to assign the VM to a group as well as grant the VM permission to retrieve its group memberships.
+You need to connect to Azure AD to assign the VM to a group as well as grant the VM permission to retrieve its group memberships. You can use Connect-AzureAD cmdlet directly or with TenantId paramter in case you have multiple tenants.
 
 ```powershell
 Connect-AzureAD
+```
+OR
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
 ```
 
 ## Add your VM identity to a group in Azure AD
@@ -81,7 +79,13 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    ```powershell
    Connect-AzureAD
    ```
+   To connect to a specific Azure Active Directory, use the _TenantId_ parameter, as follows:
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. Run the following PowerShell commands to assign the ``Directory.Read.All`` application permission to the service principal that represents your VM's identity.
 
    ```powershell
@@ -96,7 +100,9 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    Output from the final command should look like this, returning the ID of the assignment:
         
    `ObjectId`:`gzR5KyLAiUOTiqFhNeWZWBtK7ZKqNJxAiWYXYVHlgMs`
+
    `ResourceDisplayName`:`Windows Azure Active Directory`
+
    `PrincipalDisplayName`:`myVM` 
 
    If the call to `New-AzureAdServiceAppRoleAssignment` fails with the error `bad request, one or more properties are invalid` the app permission may already be assigned to the VM identity's service principal. You can use the following PowerShell commands to check if the application permission already exists between your VM's identity and Azure AD Graph:
@@ -130,7 +136,7 @@ You will need Azure AD PowerShell to use this option. If you don't have it insta
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## Get an access token using the VM's identity and use it to call Azure AD Graph 
+## Get an access token using the VM's identity to call Azure AD Graph 
 
 To use the VM's system assigned managed identity for authentication to Azure AD Graph, you need to make requests from the VM.
 
@@ -158,7 +164,7 @@ To use the VM's system assigned managed identity for authentication to Azure AD 
 5. Using the Object ID of your VM identity's service principal (you can retrieve this value from the variable declared in previous steps: ``$ManagedIdentitiesServicePrincipal.ObjectId``), you can query the Azure AD Graph API to retrieve its group memberships. Replace <OBJECT ID> with the Object ID from the previous step and <ACCESS-TOKEN> with the previously obtained access token:
 
    ```powershell
-   Invoke-WebRequest -v 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"
+   Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"
    ```
    
    The response contains the `Object ID` of the group that you added your VM's service principal to in earlier steps.

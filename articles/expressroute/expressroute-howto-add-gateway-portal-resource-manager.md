@@ -1,21 +1,15 @@
 ---
-title: 'Add a virtual network gateway to a VNet for ExpressRoute: Portal: Azure | Microsoft Docs'
+title: 'Add a gateway to an Azure VNet for ExpressRoute: Portal | Microsoft Docs'
 description: This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
+
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 12/06/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Configure a virtual network gateway for ExpressRoute using the Azure portal
@@ -23,7 +17,7 @@ ms.author: cherylmc
 > * [Resource Manager - Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -45,15 +39,14 @@ The steps for this task use a VNet based on the values in the following configur
 * Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
 	* Gateway Subnet address space = "192.168.200.0/26"
 * Gateway Name = "ERGW"
-* Gateway IP Name = "MyERGWVIP"
-* Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 * Gateway Public IP Name = "MyERGWVIP"
+* Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
-You can view a [Video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
+You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
 
 ## Create the gateway subnet
 
-1. In the [portal](http://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
+1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
 2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
 3. On the **Subnets** blade, click **+Gateway subnet** to open the **Add subnet** blade. 
    
