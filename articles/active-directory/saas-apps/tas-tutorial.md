@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with TAS, perform the following steps:
     `https://taseu.combtas.com/<DOMAIN>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx,`
+    `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
