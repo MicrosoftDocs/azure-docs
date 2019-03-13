@@ -111,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: 
+	
 	| |     
     | ----------------------------------------|
 	| `https://<hostname>/helpdesk/User/Login`|
