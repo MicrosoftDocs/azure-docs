@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2019
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
 # Understand deny assignments for Azure resources
 
-Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access. Some resource providers in Azure now include deny assignments. Currently, the only way that you can add your own deny assignments is by using Azure Blueprints. For more information, see the [Azure Blueprints documentation](https://aka.ms/blueprintlocks).
+Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access. Some resource providers in Azure now include deny assignments.
 
 In some ways, deny assignments are different than role assignments. Deny assignments can exclude principals and prevent inheritance to child scopes. Deny assignments also apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments.
+
+> [!NOTE]
+> At this time, the only way that you can add your own deny assignments is by using Azure Blueprints. For more information, see the [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
 
 This article describes how deny assignments are defined.
 
