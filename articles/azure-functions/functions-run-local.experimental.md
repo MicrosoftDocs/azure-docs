@@ -10,7 +10,7 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
 experimental: false
 experiment_id: c80d19c3-428d-4b
@@ -192,22 +192,22 @@ The file local.settings.json stores app settings, connection strings, and settin
 
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings and connection strings used when running locally. These values correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to a connection string app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. <br/>As of 2.0.1-beta.26 a worker runtime setting is required. The available options for **FUNCTIONS_WORKER_RUNTIME** are: dotnet, node, java |
-| **Host** | Settings in this section customize the Functions host process when running locally. |
-| **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
-| **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
-| **ConnectionStrings** | Do not use this collection for the connection strings used by your function bindings. This collection is only used by frameworks that typically get connection strings from the **ConnectionStrings** section of a configuration file, such as [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Connection strings in this object are added to the environment with the provider type of [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in this collection are not published to Azure with other app settings. You must explicitly add these values to the **Connection strings** collection of your function app settings. If you are creating a [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in your function code, you should store the connection string value in **Application settings** with your other connections. |
+| **`IsEncrypted`** | When set to `true`, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is `false`. |
+| **`Values`** | Collection of application settings and connection strings used when running locally. These values correspond to app settings in your function app in Azure, such as [`AzureWebJobsStorage`]. Many triggers and bindings have a property that refers to a connection string app setting, such as `Connection` for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the `Values` array. <br/>[`AzureWebJobsStorage`] is a required app setting for triggers other than HTTP. <br/>Version 2.x of the Functions runtime requires the [`FUNCTIONS_WORKER_RUNTIME`] setting, which is generated for your project by Core Tools. <br/> When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
+| **`Host`** | Settings in this section customize the Functions host process when running locally. |
+| **`LocalHttpPort`** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
+| **`CORS`** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
+| **`ConnectionStrings`** | Do not use this collection for the connection strings used by your function bindings. This collection is only used by frameworks that typically get connection strings from the `ConnectionStrings` section of a configuration file, such as [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Connection strings in this object are added to the environment with the provider type of [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in this collection are not published to Azure with other app settings. You must explicitly add these values to the `Connection strings` collection of your function app settings. If you are creating a [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in your function code, you should store the connection string value in **Application Settings** in the portal with your other connections. |
 
 The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
-+ [C# precompiled](functions-dotnet-class-library.md#environment-variables)
-+ [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:
+When no valid storage connection string is set for [`AzureWebJobsStorage`] and the emulator isn't being used, the following error message is shown:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
 
@@ -490,3 +490,5 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functionsworkerruntime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
