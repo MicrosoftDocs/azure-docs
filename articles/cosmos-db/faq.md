@@ -259,6 +259,7 @@ There are some behavior differences that users coming from Azure Table storage w
 * TableQuery TakeCount isn't limited to 1000
 
 In terms of the REST API there are a number of endpoints/query options that aren't supported by Azure Cosmos DB Table API:
+
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Set Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |

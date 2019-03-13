@@ -970,6 +970,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
 * Each Workday attribute is retrieved using an underlying XPATH API expression, which is configurable in  **Attribute Mapping -> Advanced Section -> Edit attribute list for Workday**. Here is the default XPATH API expression for Workday *PreferredFirstName*, *PreferredLastName*, *Company* and *SupervisoryOrganization* attributes.
 
      [!div class="mx-tdCol2BreakAll"]
+
      | Workday Attribute | API XPATH Expression |
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |

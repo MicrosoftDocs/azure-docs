@@ -62,11 +62,13 @@ Follow the steps from the Azure portal to narrow down the sync error details and
 
 From the Azure portal, take a few steps to identify specific fixable scenarios:  
 1.	Check the **Diagnose status** column. The status shows if there's a possible way to fix a sync error directly from Azure Active Directory. In other words, a troubleshooting flow exists that can narrow down the error case and potentially fix it.
+
 | Status | What does it mean? |
 | ------------------ | -----------------|
 | Not Started | You haven't visited this diagnosis process. Depending on the diagnostic result, there's a potential way to fix the sync error directly from the portal. |
 | Manual Fix Required | The error doesn't fit the criteria of available fixes from the portal. Either conflicting object types aren't users, or you already went through the diagnostic steps, and no fix resolution was available from the portal. In the latter case, a fix from the on-premises side is still one of the solutions. [Read more about on-premises fixes](https://support.microsoft.com/help/2647098). | 
 | Pending Sync | A fix was applied. The portal is waiting for the next sync cycle to clear the error. |
+
   >[!IMPORTANT]
   > The diagnostic status column will reset after each sync cycle. 
   >

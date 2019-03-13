@@ -22,6 +22,7 @@ Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity i
 
 ## Overview of activities available in the B2C category of audit logs
 The **B2C** category in audit logs contains the following types of activities:
+
 |Activity type |Description  |
 |---------|---------|
 |Authorization |Activities concerning the authorization of a user to access B2C resources (for example, an administrator accessing a list of B2C policies)         |

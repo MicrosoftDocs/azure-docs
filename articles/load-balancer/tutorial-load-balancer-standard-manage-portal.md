@@ -53,6 +53,7 @@ In this section, you create a public load balancer that helps load balance virtu
     | Public IP address | Select **Create new**. |
     | Public IP address name              | Type *myPublicIP* in the text box.   |
     |Availability zone| Select **Zone redundant**.    |
+
 3. In the **Review + create** tab, click **Create**.   
 
   
@@ -62,6 +63,7 @@ In this section, you create a virtual network, create three virtual machines for
 
 ### Create a virtual network
 1. On the top left-hand side of the Azure portal, select **Create a resource** > **Networking** > **Virtual network** and then enter these values for the virtual network:
+
     |Setting|Value|
     |---|---|
     |Name|Enter *myVNet*.|

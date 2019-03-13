@@ -104,6 +104,7 @@ To configure Azure AD single sign-on with Qlik Sense Enterprise, perform the fol
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
