@@ -95,115 +95,115 @@ PowerShell modules can be imported into Azure Automation to make their cmdlets a
 
 We recommend you consider the following when you author a PowerShell module for use in Azure Automation:
 
-1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. The following example shows how to define a synopsis and help URI for in a .psm1 module file:
+* Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. The following example shows how to define a synopsis and help URI for in a .psm1 module file:
 
-    ```powershell
-    <#
-        .SYNOPSIS
-         Gets a Contoso User account
-    #>
-    function Get-ContosoUser {
-    [CmdletBinding](DefaultParameterSetName='UseConnectionObject', `
-    HelpUri='https://www.contoso.com/docs/information')]
-    [OutputType([String])]
-    param(
-       [Parameter(ParameterSetName='UserAccount', Mandatory=true)]
-       [ValidateNotNullOrEmpty()]
-       [string]
-       $UserName,
+  ```powershell
+  <#
+       .SYNOPSIS
+        Gets a Contoso User account
+  #>
+  function Get-ContosoUser {
+  [CmdletBinding](DefaultParameterSetName='UseConnectionObject', `
+  HelpUri='https://www.contoso.com/docs/information')]
+  [OutputType([String])]
+  param(
+     [Parameter(ParameterSetName='UserAccount', Mandatory=true)]
+     [ValidateNotNullOrEmpty()]
+     [string]
+     $UserName,
 
-       [Parameter(ParameterSetName='UserAccount', Mandatory=true)]
-       [ValidateNotNullOrEmpty()]
-       [string]
-       $Password,
+     [Parameter(ParameterSetName='UserAccount', Mandatory=true)]
+     [ValidateNotNullOrEmpty()]
+     [string]
+     $Password,
 
-       [Parameter(ParameterSetName='ConnectionObject', Mandatory=true)]
-       [ValidateNotNullOrEmpty()]
-       [Hashtable]
-       $Connection
-    )
+     [Parameter(ParameterSetName='ConnectionObject', Mandatory=true)]
+     [ValidateNotNullOrEmpty()]
+     [Hashtable]
+     $Connection
+  )
 
-    switch ($PSCmdlet.ParameterSetName) {
-       "UserAccount" {
-            $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $UserName, $Password
-            Connect-Contoso -Credential $cred
-       }
-       "ConnectionObject" {
-            Connect-Contoso -Connection $Connection
-       }
+  switch ($PSCmdlet.ParameterSetName) {
+     "UserAccount" {
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $UserName, $Password
+        Connect-Contoso -Credential $cred
+     }
+     "ConnectionObject" {
+        Connect-Contoso -Connection $Connection
     }
-    }
-    ```
+  }
+  }
+  ```
 
-   Providing this info shows this help using the **Get-Help** cmdlet in the PowerShell console. This description is also displayed in the Azure portal.
+  Providing this info shows this help using the **Get-Help** cmdlet in the PowerShell console. This description is also displayed in the Azure portal.
 
-   ![Integration Module Help](../media/modules/module-activity-description.png)
+  ![Integration Module Help](../media/modules/module-activity-description.png)
 
-2. If the module connects to an external service, it should contain a [connection type](#add-a-connection-type-to-your-module). Each cmdlet in the module should be able to take in a connection object (an instance of that connection type) as a parameter. This allows users to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses an example Contoso connection asset called ContosoConnection to access Contoso resources and return data from the external service.
+* If the module connects to an external service, it should contain a [connection type](#add-a-connection-type-to-your-module). Each cmdlet in the module should be able to take in a connection object (an instance of that connection type) as a parameter. This allows users to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses an example Contoso connection asset called ContosoConnection to access Contoso resources and return data from the external service.
 
-   In the following example, the fields are mapped to the UserName and Password properties of a `PSCredential` object and then passed to the cmdlet.
+  In the following example, the fields are mapped to the UserName and Password properties of a `PSCredential` object and then passed to the cmdlet.
 
-   ```powershell
-   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
+  ```powershell
+  $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-   $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
-   Connect-Contoso -Credential $cred
-   }
-   ```
+  $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
+  Connect-Contoso -Credential $cred
+  }
+  ```
 
-   An easier and better way to approach this behavior is directly passing the connection object to the cmdlet:
+  An easier and better way to approach this behavior is directly passing the connection object to the cmdlet:
 
-   ```powershell
-   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
+  ```powershell
+  $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
 
-   Connect-Contoso -Connection $contosoConnection
-   }
-   ```
+  Connect-Contoso -Connection $contosoConnection
+  }
+  ```
 
-   You can enable behavior like the preceding example for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount`, is used to pass the connection field properties. `ConnectionObject` lets you pass the connection straight through.
+  You can enable behavior like the preceding example for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. The parameter set `UserAccount`, is used to pass the connection field properties. `ConnectionObject` lets you pass the connection straight through.
 
-3. Define the output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It's especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.
+* Define the output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It's especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.
 
-   This can be achieved by adding `[OutputType([<MyOutputType>])]` where MyOutputType is a valid type. To learn more about OutputType, see [About Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). The following code is an example of adding `OutputType` to a cmdlet:
+  This can be achieved by adding `[OutputType([<MyOutputType>])]` where MyOutputType is a valid type. To learn more about OutputType, see [About Functions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). The following code is an example of adding `OutputType` to a cmdlet:
 
-   ```powershell
-   function Get-ContosoUser {
-   [OutputType([String])]
-   param(
-      [string]
-      $Parameter1
-   )
-   # <script location here>
-   }
-   ```
+  ```powershell
+  function Get-ContosoUser {
+  [OutputType([String])]
+  param(
+     [string]
+     $Parameter1
+  )
+  # <script location here>
+  }
+  ```
 
-   ![Graphical Runbook Output Type](../media/modules/runbook-graphical-module-output-type.png)
+  ![Graphical Runbook Output Type](../media/modules/runbook-graphical-module-output-type.png)
 
-   This behavior is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.
+  This behavior is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.
 
-   ![POSH IntelliSense](../media/modules/automation-posh-ise-intellisense.png)
+  ![POSH IntelliSense](../media/modules/automation-posh-ise-intellisense.png)
 
-Make all cmdlets in the module stateless. Multiple runbook jobs can simultaneously run in the same AppDomain and the same process and sandbox. If there is any state shared on those levels, jobs can affect each other. This behavior can lead to intermittent and hard to diagnose issues.  Here is an example of what not to do.
+* Make all cmdlets in the module stateless. Multiple runbook jobs can simultaneously run in the same AppDomain and the same process and sandbox. If there is any state shared on those levels, jobs can affect each other. This behavior can lead to intermittent and hard to diagnose issues.  Here is an example of what not to do.
 
-```powershell
-$globalNum = 0
-function Set-GlobalNum {
-   param(
-       [int] $num
-   )
+  ```powershell
+  $globalNum = 0
+  function Set-GlobalNum {
+     param(
+         [int] $num
+     )
 
-   $globalNum = $num
-}
-function Get-GlobalNumTimesTwo {
-   $output = $globalNum * 2
+     $globalNum = $num
+  }
+  function Get-GlobalNumTimesTwo {
+     $output = $globalNum * 2
 
-   $output
-}
-```
+     $output
+  }
+  ```
 
-1. The module should be fully contained in an xcopy-able package. Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute. The modules need to work independently of the host they're running on. You should be able to Zip up and move a module package and have it function as normal when imported into another host's PowerShell environment. In order for that to happen, the module shouldn't depend on any files outside the module folder. This folder is the folder that gets zipped up when the module is imported into Azure Automation. The module should also not depend on any unique registry settings on a host, such as those settings set when a product is installed. All files in the module should have a path fewer than 140 characters. Any paths over 140 characters will cause issues importing your runbook. If this best practice isn't followed, the module won't be usable in Azure Automation.  
+* The module should be fully contained in an xcopy-able package. Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute. The modules need to work independently of the host they're running on. You should be able to Zip up and move a module package and have it function as normal when imported into another host's PowerShell environment. In order for that to happen, the module shouldn't depend on any files outside the module folder. This folder is the folder that gets zipped up when the module is imported into Azure Automation. The module should also not depend on any unique registry settings on a host, such as those settings set when a product is installed. All files in the module should have a path fewer than 140 characters. Any paths over 140 characters will cause issues importing your runbook. If this best practice isn't followed, the module won't be usable in Azure Automation.  
 
-2. If referencing [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your module, ensure you aren't also referencing `AzureRM`. The `Az` module can't be used in conjunction with the `AzureRM` modules. `Az` is supported in runbooks but aren't imported by default. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](../az-modules.md).
+* If referencing [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your module, ensure you aren't also referencing `AzureRM`. The `Az` module can't be used in conjunction with the `AzureRM` modules. `Az` is supported in runbooks but aren't imported by default. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](../az-modules.md).
 
 ## Next steps
 
