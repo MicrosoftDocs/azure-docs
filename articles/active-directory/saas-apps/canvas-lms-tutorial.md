@@ -178,7 +178,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -237,9 +237,9 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
 
    a. In the **Full Name** textbox, enter the name of user like **BrittaSimon**.
 
-   b. In the **Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+   b. In the **Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
-   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon@contoso.com**.
+   c. In the **Login** textbox, enter the user’s Azure AD email address like **brittasimon\@contoso.com**.
 
    d. Select **Email the user about this account creation**.
 
