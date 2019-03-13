@@ -20,7 +20,7 @@ ms.author: yegu
 ---
 # Quickstart: Create a .NET Framework app with Azure App Configuration
 
-Azure App Configuration is a managed configuration service in Azure. It lets you easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into a .NET Framework-based Windows desktop console app.
+Azure App Configuration is a managed configuration service in Azure. You can use it to easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into a .NET Framework-based Windows desktop console app.
 
 ![Quickstart complete local](./media/quickstarts/dotnet-fx-app-run.png)
 

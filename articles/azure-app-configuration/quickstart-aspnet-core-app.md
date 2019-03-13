@@ -20,7 +20,7 @@ ms.author: yegu
 ---
 # Quickstart: Create an ASP.NET Core app with Azure App Configuration
 
-Azure App Configuration is a managed configuration service in Azure. It lets you easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into an ASP.NET Core web app. 
+Azure App Configuration is a managed configuration service in Azure. You can use it to easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into an ASP.NET Core web app. 
 
 ASP.NET Core builds a single key-value-based configuration object by using settings from one or more data sources that are specified by an application. These data sources are known as *configuration providers*. Because App Configuration's .NET Core client is implemented as such a provider, the service appears like another data source.
 

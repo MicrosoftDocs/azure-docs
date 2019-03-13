@@ -20,7 +20,7 @@ ms.author: yegu
 ---
 # Quickstart: Create an Azure function with App Configuration
 
-Azure App Configuration is a managed configuration service in Azure. It lets you easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into an Azure function. 
+Azure App Configuration is a managed configuration service in Azure. You can use it to easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into an Azure function. 
 
 You can use any code editor to complete the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
