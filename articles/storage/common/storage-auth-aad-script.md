@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -17,52 +17,53 @@ Azure Storage provides extensions for Azure CLI and PowerShell that enable you t
 
 When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
-
 ## Supported operations
 
 The extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributor role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
 
 For details about the permissions required for each Azure Storage operation on a container or queue, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
-## Call CLI commands with an Azure AD identity
+## Environment variable
 
-To install the extension for Azure CLI, make sure that you have installed Azure CLI version 2.0.46 or later. Run `az --version` to check your installed version.
+The environment variable associated with the `--auth-mode` parameter is `AZURE_STORAGE_AUTH_MODE`. You can specify the appropriate value in the environment variable to avoid including it on every call to an Azure Storage data operation.
+
+## Call CLI commands using Azure AD credentials
 
 Azure CLI supports the `--auth-mode` parameter for data operations against Azure Storage:
 
 - Set the `--auth-mode` parameter to `login` to sign in using an Azure AD security principal.
 - Set the `--auth-mode` parameter to the legacy `key` value to attempt to query for an account key if no authentication parameters for the account are provided. 
 
-The following example shows how to create a container in a new storage account from Azure CLI using your Azure AD credentials.
+The following example shows how to create a container in a new storage account from Azure CLI using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values: 
 
-1. First, run `az login` and authenticate in the browser window: 
+1. Make sure that you have installed Azure CLI version 2.0.46 or later. Run `az --version` to check your installed version.
+
+1. Run `az login` and authenticate in the browser window: 
 
     ```azurecli
     az login
     ```
     
-1. Next, set your subscription, then create a resource group and a storage account within that resource group. Make sure to replace placeholder values in angle brackets with your own values: 
+1. Next, set your subscription, then create a resource group and a storage account within that resource group: 
 
     ```azurecli
     az account set --subscription <subscription-id>
     az group create \
-        --name sample-resource-group \
+        --name sample-resource-group-cli \
         --location eastus
+
     az storage account create \
         --name <storage-account> \
-        --resource-group sample-resource-group \
+        --resource-group sample-resource-group-cli \
         --location eastus \
         --sku Standard_LRS \
         --encryption-services blob
     ```
     
-1. Before you create the container, assign RBAC permissions to the new storage account for yourself. Assign these two roles:
+1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
 
-    - Owner
-    - Storage Blob Data Contributor (preview)
-
-    For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+    > [!IMPORTANT]
+    > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
     
 1. Call the [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials:
 
@@ -73,47 +74,54 @@ The following example shows how to create a container in a new storage account f
         --auth-mode login
     ```
 
-The environment variable associated with the `--auth-mode` parameter is `AZURE_STORAGE_AUTH_MODE`. You can specify the appropriate value in the environment variable to avoid including it on every call to an Azure Storage operation.
-
-## Call PowerShell commands with an Azure AD identity
+## Call PowerShell commands using Azure AD credentials
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To use Azure PowerShell to sign in with an Azure AD identity:
+To use Azure PowerShell to sign in and run subsequent operations against Azure Storage using Azure AD credentials, create a storage context to reference the storage account, and including the `-UseConnectedAccount` parameter.
 
-1. Uninstall any previous installations of Azure PowerShell:
+The following example shows how to create a container in a new storage account from Azure PowerShell using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
-    - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
-    - Remove all **Azure*** modules from `%Program Files%\WindowsPowerShell\Modules`.
-
-1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
- 
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-1. Close and reopen the PowerShell window after installing PowerShellGet. 
-
-1. Install the latest version of Azure PowerShell:
+1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to enter your Azure AD credentials: 
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Connect-AzAccount
+    ```
+    
+1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+
+    ```powershell
+    $resourceGroup = "sample-resource-group-ps"
+    $location = "eastus"
+    New-AzResourceGroup -Name $resourceGroup -Location $location
     ```
 
-1. Install the latest Azure Storage module:
-   
-   ```powershell
-   Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
-   ```
-1. Close and reopen the PowerShell window.
-1. Call the [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 
-1. To call a cmdlet with an Azure AD identity, pass the newly created context to the cmdlet.
+1. Create a storage account by calling [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
-The following example shows how to list the blobs in a container from Azure PowerShell using an Azure AD identity. Be sure to replace the placeholder account and container names with your own values: 
+    ```powershell
+    $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
+      -Name "<storage-account>" `
+      -SkuName Standard_LRS `
+      -Location $location `
+    ```
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzStorageBlob -Container sample-container -Context $ctx 
-```
+1. Get the storage account context that specifies the new storage account. When acting on a storage account, you can reference the context instead of repeatedly passing in the credentials. Include the `-UseConnectedAccount` parameter to call subsequent data operations using your Azure AD credentials.
+
+    ```powershell
+    $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
+    ```
+
+1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+
+    > [!IMPORTANT]
+    > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
+
+1. Create a container. Because this call uses the context created in the previous steps, the container is created using your Azure AD credentials. 
+
+    ```powershell
+    $containerName = "sample-container"
+    new-AzStorageContainer -Name $containerName -Context $ctx
+    ```
 
 ## Next steps
 
