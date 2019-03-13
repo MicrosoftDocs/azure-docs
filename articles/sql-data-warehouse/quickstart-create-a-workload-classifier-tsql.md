@@ -69,7 +69,7 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
 ## View existing classifiers
 
 ```sql
-select * from sys.sys.workload_management_workload_classifiers
+select * from sys.workload_management_workload_classifiers
 ```
 
 ## Clean up resources
@@ -91,13 +91,13 @@ Follow these steps to clean up resources.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
+2. To pause compute, select the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, select **Start**.
 
-2. To remove the data warehouse so you're not charged for compute or storage, select **Delete**.
+3. To remove the data warehouse so you're not charged for compute or storage, select **Delete**.
 
-3. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+4. To remove the SQL server you created, select **mynewserver-20180430.database.windows.net** in the previous image, and then select **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
-4. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
+5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
 ## Next steps
 
