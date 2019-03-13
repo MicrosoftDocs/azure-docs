@@ -339,6 +339,9 @@ Here is an example of desired properties for this module:
     }
 
    ```
+## Logs
+
+Please follow the directions to [configure your docker logs for IoT Edge modules](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## Connect to your blob storage module
 

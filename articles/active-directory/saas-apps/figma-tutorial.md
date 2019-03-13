@@ -163,7 +163,7 @@ To configure Azure AD single sign-on with Figma, perform the following steps:
 
 	![Configure Single Sign-On](./media/figma-tutorial/configure01.png)
 
-	a. In **Email address** text box, enter the email of user like **brittasimon@contoso.com**.
+	a. In **Email address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
 	b. In **Your Name** text box, enter the name of user like **Brittasimon**.
 
@@ -193,7 +193,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
