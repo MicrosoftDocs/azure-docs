@@ -37,6 +37,10 @@ It's worth noticing that, although you'll be using Unity and an ASP.NET Core Web
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
+## Open the sample project in Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
 ## Deploy your Sharing Anchors Service
 
 Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` folder.
