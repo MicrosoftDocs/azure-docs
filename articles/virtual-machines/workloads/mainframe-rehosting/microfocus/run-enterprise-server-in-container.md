@@ -142,3 +142,30 @@ docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9
      ![Command window showing IP address](media/container_06.jpg)
 
 5.  Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. For this walkthrough it is **172.19.202.52:9040**. Yours will be similar. The Signon to CICS screen opens.
+
+    ![Signon to CICS screen](media/Container_07.jpg)
+
+6.  Log on to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
+
+7.  Clear the screen, using the emulator’s keymap. For x3270, select the **Keymap** menu option.
+
+8.  To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
+
+     ![Account Demo screen](media/Container_08.jpg)
+
+9.  Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
+
+     ![Account Demo screen](media/Container_09.jpg)
+
+10.  To display the Enterprise Server Administration console, go to the command prompt and type:
+```
+     start http:172.19.202.52:86
+```
+     ![Enterprise Server Administration console](media/Container_010.jpg)
+
+Now you are running and managing a CICS application in a Docker container.
+
+## Learn more
+
+- [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./set-up-micro-focus-on-azure.md)
+- [Mainframe application migratation](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
