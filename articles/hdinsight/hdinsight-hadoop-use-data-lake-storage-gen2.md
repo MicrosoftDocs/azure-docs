@@ -21,9 +21,9 @@ Data Lake Storage Gen2 is available as a storage option for almost all Azure HDI
 > [!Note] 
 > After you select Data Lake Storage Gen2 as your **primary storage type**, you cannot select a Data Lake Storage Gen1 account as additional storage.
 
-## Create an HDInsight cluster with Data Lake Storage Gen2
+## Create a cluster with Data Lake Storage Gen2 through the Azure portal
 
-## Use the Azure portal
+### Create a user managed identity
 
 To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a Data Lake Storage Gen2 account.
 
@@ -31,10 +31,14 @@ To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, fol
 
     ![Create a user-assigned managed identity](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
+### Create a Data Lake Storage Gen2 account
+
 1. Create an Azure Data Lake Storage Gen2 storage account. Make sure that the **Hierarchical namespace** option is enabled. For more information, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
     ![Screenshot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
- 
+
+### Setup permissions for the managed identity on the Data Lake Storage Gen2 account
+
 1. Assign the managed identity to the **Storage Blob Data Owner (Preview)** role on the storage account. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md).
 
     1. In the [Azure portal](https://portal.azure.com), go to your storage account.
@@ -60,7 +64,7 @@ To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, fol
         
             ![Identity settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
 
-### Use an Azure Resource Manager template deployed with the Azure CLI
+## Create a cluster with Data Lake Storage Gen2 through the Azure CLI
 
 You can [download a sample template file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and [download a sample parameters file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, replace the string `<SUBSCRIPTION_ID>` with your actual Azure subscription ID. Also, replace the string `<PASSWORD>` with your chosen password to set both the password that you'll use to log in to your cluster and the SSH password.
 
