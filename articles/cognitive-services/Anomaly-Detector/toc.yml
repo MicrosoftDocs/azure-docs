@@ -25,7 +25,7 @@
     - name: Identify anomalies in your data
       href: how-to/identify-anomalies.md
     - name: Install and use container images
-      href: how-to/install-and-anomaly-detector-containers.md
+      href: how-to/install-and-use-anomaly-detector-containers.md
     - name: Configure a container image
       href: how-to/configure-anomaly-detector-containers.md
 - name: Concepts
