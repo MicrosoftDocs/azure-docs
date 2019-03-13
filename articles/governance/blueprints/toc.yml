@@ -70,7 +70,10 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Update existing assignments
+  - name: Manage assignments with PowerShell
+    displayName: create, update, remove
+    href: ./how-to/manage-assignments-ps.md
+  - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
 - name: Troubleshoot
@@ -79,9 +82,11 @@
 - name: References
   expanded: true
   items:
-  - name: REST API
+  - name: REST
     href: /rest/api/blueprints/
-  - name: PowerShell (community)
+  - name: PSGallery (Az.Blueprint module)
+    href: https://www.powershellgallery.com/packages/Az.Blueprint
+  - name: PSGallery (community module)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
 - name: Resources
   items:
