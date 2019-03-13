@@ -41,10 +41,9 @@ Before creating a peering, familiarize yourself with the requirements and constr
 
 1. In the search box at the top of the Azure portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to create a peering for.
-3. From the list of virtual networks, select the virtual network you want to create a peering for.
-4. Under **SETTINGS**, select **Peerings**.
-5. Select **+ Add**. 
-6. <a name="add-peering"></a>Enter or select values for the following settings:
+3. Under **SETTINGS**, select **Peerings**.
+4. Select **+ Add**. 
+5. <a name="add-peering"></a>Enter or select values for the following settings:
     - **Name:** The name for the peering must be unique within the virtual network.
     - **Virtual network deployment model:** Select which deployment model the virtual network you want to peer with was deployed through.
     - **I know my resource ID:** If you have read access to the virtual network you want to peer with, leave this checkbox unchecked. If you don't have read access to the virtual network or subscription you want to peer with, check this box. Enter the full resource ID of the virtual network you want to peer with in the **Resource ID** box that appeared when you checked the box. The resource ID you enter must be for a virtual network that exists in the same, or [supported different](#requirements-and-constraints) Azure [region](https://azure.microsoft.com/regions) as this virtual network. The full resource ID looks similar to /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>. You can get the resource ID  for a virtual network by viewing the properties for a virtual network. To learn how to view the properties for a virtual network, see [Manage virtual networks](manage-virtual-network.md#view-virtual-networks-and-settings). If the subscription is associated to a different Azure Active Directory tenant than the subscription with the virtual network you're creating the peering from, first add a user from each tenant as a [guest user](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) in the opposite tenant.
@@ -61,7 +60,7 @@ Before creating a peering, familiarize yourself with the requirements and constr
 
         You cannot use remote gateways if you already have a gateway configured in your virtual network. You cannot enable this option if you're peering virtual networks in different regions. To learn more about using a gateway for transit, see [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-7. Select **OK** to add the peering to the virtual network you selected.
+6. Select **OK** to add the peering to the virtual network you selected.
 
 For step-by-step instructions for implementing peering between virtual networks in different subscriptions and deployment models, see [next steps](#next-steps).
 
@@ -76,11 +75,10 @@ Before changing a peering, familiarize yourself with the requirements and constr
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to change peering settings for.
-3. From the list of virtual networks, select the virtual network you want to change peering settings for.
-4. Under **SETTINGS**, select **Peerings**.
-5. Select the peering you want to view or change settings for.
-6. Change the appropriate setting. Read about the options for each setting in [step 6](#add-peering) of Create a peering.
-7. Select **Save**.
+3. Under **SETTINGS**, select **Peerings**.
+4. Select the peering you want to view or change settings for.
+5. Change the appropriate setting. Read about the options for each setting in [step 6](#add-peering) of Create a peering.
+6. Select **Save**.
 
 **Commands**
 
@@ -97,10 +95,9 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to delete a peering for.
-3. From the list of virtual networks, select the virtual network you want to delete a peering for.
-4. Under **SETTINGS**, select **Peerings**.
-5. On the right side of the peering you want to delete, select **...**, select **Delete**, then select **Yes** to delete the peering from the first virtual network.
-6. Complete the previous steps to delete the peering from the other virtual network in the peering.
+3. Under **SETTINGS**, select **Peerings**.
+4. On the right side of the peering you want to delete, select **...**, select **Delete**, then select **Yes** to delete the peering from the first virtual network.
+5. Complete the previous steps to delete the peering from the other virtual network in the peering.
 
 **Commands**
 
