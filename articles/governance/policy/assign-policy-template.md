@@ -45,7 +45,7 @@ There are several methods for creating policy assignments. In this quickstart, y
     | Location | Select a region. For example, **Central US**. |
     | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
     | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** is a template function that retrieve the resource group. |
-    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. Here is a PowerShell example on retrieving the ID: *(Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }).PolicyDefinitionID* |
+    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
     | I agree to the terms and conditions stated above | (Select) |
 
 1. Select **Purchase**.
