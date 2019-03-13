@@ -22,7 +22,7 @@ When encoding with Azure Media Services, you can get started quickly with one of
 
 ## Prerequisites 
 
-[Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
+[Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
