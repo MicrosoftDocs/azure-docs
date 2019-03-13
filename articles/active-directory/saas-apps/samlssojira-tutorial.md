@@ -127,11 +127,11 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure Ad Identifier 
 
 	c. Logout URL
 
-### Configure SAML SSO for Jira by resolution GmbH Single Sign-On
+### Configure SAML SSO for Jira by resolution GmbH Single Sign-On  
 
 1. In a different web browser window, log in to your **SAML SSO for Jira by resolution GmbH admin portal** as an administrator.
 
@@ -145,25 +145,25 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 
 4. Under Add-ons tab section, click **Find new add-ons**. Search **SAML Single Sign On (SSO) for JIRA** and click **Install** button to install the new SAML plugin.
 
-	![Configure Single Sign-On](./media/samlssojira-tutorial/addon7.png)
+	![Configure Single Sign-On](./media/samlssojira-tutorial/store.png)
 
 5. The plugin installation will start. Click **Close**.
 
-	![Configure Single Sign-On](./media/samlssojira-tutorial/addon8.png)
+	![Configure Single Sign-On](./media/samlssojira-tutorial/store-2.png)
 
-	![Configure Single Sign-On](./media/samlssojira-tutorial/addon9.png)
+	![Configure Single Sign-On](./media/samlssojira-tutorial/store-3.png)
 
 6.	Click **Manage**.
 
-	![Configure Single Sign-On](./media/samlssojira-tutorial/addon10.png)
+	![Configure Single Sign-On](./media/samlssojira-tutorial/store-4.png)
     
 8. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/samlssojira-tutorial/addon11.png)
+	![Configure Single Sign-On](./media/samlssojira-tutorial/store-5.png)
 
 9. On **SAML SingleSignOn Plugin Configuration** page, click **Add new IdP** button to configure the settings of Identity Provider.
 
-	![Configure Single Sign-On](./media/samlssojira-tutorial/addon4.png)
+	![Configure Single Sign-On](./media/samlssojira-tutorial/addon4.png) 
 
 10. On **Choose your SAML Identity Provider** page, perform the following steps:
 
@@ -173,12 +173,12 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 	
 	b. Add **Name** of the Identity Provider (e.g Azure AD).
 	
-	c. Add **Description** of the Identity Provider (e.g Azure AD).
+	c. Add an (optional) **Description** of the Identity Provider (e.g Azure AD). 
 	
 	d. Click **Next**.
 	
 11. On **Identity provider configuration** page, click **Next** button.
-
+ 
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 
 12. On **Import SAML IdP Metadata** page, perform the following steps:
@@ -188,9 +188,9 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
     a. Click **Load File** button and pick Metadata XML file you downloaded in Step 5.
 
     b. Click **Import** button.
-    
+     
     c. Wait briefly until import succeeds.
-    
+     
     d. Click **Next** button.
     
 13. On **User ID attribute and transformation** page, click **Next** button.
@@ -267,11 +267,13 @@ In SAML SSO for Jira by resolution GmbH, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your SAML SSO for Jira by resolution GmbH company site as an administrator.
+1. Log in to your SAML SSO for Jira by resolution GmbH company site as an administrator. 
 
 2. Hover on cog and click the **User management**.
 
-    ![Add Employee](./media/samlssojira-tutorial/user1.png) 
+   ![Add Employee](./media/samlssojira-tutorial/user1.png)
+
+
 
 3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button.
 
