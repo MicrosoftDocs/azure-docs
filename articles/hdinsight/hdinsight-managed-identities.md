@@ -16,9 +16,9 @@ A managed identity is an identity registered in Azure Active Directory (Azure AD
 
 Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource. Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
-## How does Azure HDInsight implement and use managed identities
+## How does HDInsight implement managed identities?
 
-In Azure HDInsight, managed identities are provisioned on each node of the cluster. Each managed identity is backed by a service principal and certificate, which are also installed on each cluster node. The service principal and thumbprint is available in the cluster manifest and the certificate is available at the `/var/lib/waagent` location.
+For many Azure services, managed identities are implemented with an endpoint that issues tokens. In Azure HDInsight, managed identities are provisioned on each node of the cluster. Each managed identity is backed by a service principal and certificate, which are also installed on each cluster node.
 
 ## Create a managed identity
 
