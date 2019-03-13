@@ -176,7 +176,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Check the links in the references section for additional details about exceptional handling and model validation in ASP.Net Web API 
+Check the links in the references section for additional details about exceptional handling and model validation in ASP.NET Web API 
 
 ## <a id="messages"></a>Do not expose security details in error messages
 

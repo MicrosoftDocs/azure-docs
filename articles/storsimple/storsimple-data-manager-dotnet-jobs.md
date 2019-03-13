@@ -17,7 +17,7 @@ ms.date: 01/16/2018
 ms.author: alkohli
 ---
 
-# Use the .Net SDK to initiate data transformation
+# Use the .NET SDK to initiate data transformation
 
 ## Overview
 
