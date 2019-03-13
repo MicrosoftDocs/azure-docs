@@ -17,7 +17,7 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
-  - name: Set and retrieve a secret - template
+  - name: Set and retrieve a secret - ARM Template
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
 - name: Tutorials
