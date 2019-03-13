@@ -4,7 +4,7 @@ description: This article walks you through the steps to use a Resource Manager 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/12/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
@@ -23,11 +23,11 @@ before you begin.
 
 ## Create a policy assignment
 
-In this quickstart, you create a policy assignment and assign a built-in policy definition called *Audit VMs that do not use managed disks*. For a partial list of available built-in policies, see [Policy samples](./samples/index).
+In this quickstart, you create a policy assignment and assign a built-in policy definition called *Audit VMs that do not use managed disks*. For a partial list of available built-in policies, see [Policy samples](./samples/index.md).
 
-There are several methods for creating policy assignments. In this quickstart, you use a [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-buildinpolicy-resourcegroup/). Here is a copy of the template:
+There are several methods for creating policy assignments. In this quickstart, you use a [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/). Here is a copy of the template:
 
-[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-buildinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 The template defines several parameters, which include the policy assignment name and the policy definition ID. Many people choose to use the policy display name as the policy assignment name. To retrieve the policy definition ID of *Audit VMs that do not use managed disks*, select **Try it** from the following code section to open the Azure Cloud shell. To paste the code, right-click the shell console, and then select **Paste**.
 
@@ -39,7 +39,7 @@ $policyDefinitionID = $definition.PolicyDefinitionId
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-buildinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values:
 
@@ -55,6 +55,12 @@ $policyDefinitionID = $definition.PolicyDefinitionId
 
 3. Select **Purchase**.
 
+Some additional resources:
+
+- To find more samples templates, see [Azure Quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
+- To see the template reference, go to [Azure template reference](/azure/templates/microsoft.authorization/allversions).
+- To learn how to develop Resource Manager templates, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+
 ## Identify non-compliant resources
 
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
@@ -64,6 +70,8 @@ managed disks** policy assignment you created.
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
+
+For more information, see [How compliance works](./how-to/get-compliance-data.md#how-compliance-works).
 
 ## Clean up resources
 
