@@ -8,12 +8,13 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: af501bd0-8ff5-468f-9b06-21e607ae25de
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 03/13/2019
 ms.author: jeedes
 
 ---
@@ -193,11 +194,11 @@ To configure Azure AD single sign-on with Citrix Netscaler, perform the followin
 
     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure07.png)
 
-    e. On the **Published Applications** tab, make the changes as shown in the screenshot below and click **OK**.
+    d. On the **Published Applications** tab, make the changes as shown in the screenshot below and click **OK**.
 
     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure08.png)
 
-    f. On the **Security** tab, make the changes as shown in the screenshot below and click **OK**.
+    e. On the **Security** tab, make the changes as shown in the screenshot below and click **OK**.
 
     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure09.png)
 
