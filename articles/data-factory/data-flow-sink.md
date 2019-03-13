@@ -71,4 +71,4 @@ With database dataset sinks, you will have additional options:
 
 ## Next steps
 
-Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline](concepts-data-flow-overview).
+Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline](concepts-data-flow-overview.md).
