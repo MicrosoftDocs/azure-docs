@@ -34,7 +34,7 @@ Because the Azure Cosmos Emulator provides an emulated environment running on th
 * The Azure Cosmos Emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).
 * As your copy of the Azure Cosmos Emulator might not always be up-to-date with the most recent changes in the Azure Cosmos DB service, you should refer to the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
-* When using the Azure Cosmos Emulator, by default, you can create up to 25 single partition containers (only supported using Azure Cosmos DB SDKs) or 5 partitioned containers. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
+* When using the Azure Cosmos Emulator, by default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
 
 ## System requirements
 
@@ -269,7 +269,8 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 
 ## <a id="set-partitioncount"></a>Change the number of containers
 
-By default, you can create up to 25 single partition containers, or 5 partitioned containers using the Azure Cosmos Emulator. By modifying the **PartitionCount** value, you can create up to 250 single partition containers or 50 partitioned containers, or any combination of the two that does not exceed 250 single partitions (where one partitioned container = 5 single partition container). However it's not recommended to setup the emulator to run with more than 200 single partition containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs. 
+By default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. By modifying the **PartitionCount** value, you can create up to 250 fixed size containers or 50 unlimited containers, or any combination of the two that does not exceed 250 fixed size containers (where one unlimited container = 5 fixed size containers). However it's not recommended to setup the emulator to run with more than 200 fixed size containers. Because of the overhead that it adds to the disk IO operations, which result in unpredictable timeouts when using the endpoint APIs.
+
 
 If you attempt to create a container after the current partition count has been exceeded, the emulator throws a ServiceUnavailable exception, with the following message.
 
