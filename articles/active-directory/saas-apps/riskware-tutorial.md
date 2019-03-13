@@ -107,6 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Riskware Domain and URLs single sign-on information](./media/riskware-tutorial/tutorial_riskware_url.png)
 
 	a. In the **Sign on URL** textbox, type a URL using the following pattern:
+
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -115,6 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|||
 
     b. In the **Identifier (Entity ID)** textbox, type a URL:
+	
 	| Environment| URL Pattern|
 	|--|--|
 	| UAT| `https://riskcloud.net/uat` |

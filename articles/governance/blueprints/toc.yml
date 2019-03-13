@@ -21,6 +21,9 @@
   - name: Create from a blueprint sample
     displayName: template, resource group, rbac, role assignment
     href: ./tutorials/create-from-sample.md
+  - name: Protect new resources with blueprint resource locks
+    displayName: read only, do not delete, lock assignment
+    href: ./tutorials/protect-new-resources.md
 - name: Concepts
   expanded: true
   items:
