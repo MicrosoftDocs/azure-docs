@@ -89,6 +89,8 @@
     displayName: recognize intent, intent recognition, language understanding service, luis
 - name: How-to guides
   items:
+  - name: Sign-up for the Speech Services
+    href: get-started.md
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech-to-text, stt
@@ -188,8 +190,6 @@
     href: regions.md
 - name: Resources
   items:
-  - name: Try the Speech Services for free
-    href: get-started.md
   - name: FAQ
     items:
     - name: Speech-to-text
