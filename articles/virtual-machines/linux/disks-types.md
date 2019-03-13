@@ -15,7 +15,7 @@ ms.subservice: disks
 
 If you would like to start using ultra SSDs, see our article on the subject: [Enabling Azure ultra SSDs](disks-enable-ultra-ssd.md).
 
-[!INCLUDE [virtual-machines-managed-disks-types-ga](../../../virtual-machines-managed-disks-types-ga.md)]
+[!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
 For more information on snapshots, see the section on snapshots in the [managed disk overview](managed-disks-overview.md).
 
