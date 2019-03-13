@@ -6,10 +6,9 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/16/2018
+ms.date: 03/12/2019
 ms.author: glenga
-ms.custom: include file
-ms.custom: fasttrack-edit
+ms.custom: include file, fasttrack-edit
 ---
 
 ## Update the function
