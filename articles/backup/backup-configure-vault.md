@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/13/2019
 ms.author: raynew
 ---
 
@@ -67,15 +67,20 @@ A Recovery Services vault stores all the backups and recovery points you create 
 
     ![Create Recovery Services Vault step 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+4. For **Name**, enter a friendly name to identify the vault.
+
+  - The name needs to be unique for the Azure subscription.
+  - It can contain 2 to 50 characters.
+  - It must start with a letter, and it can contain only letters, numbers, and hyphens.
 
 5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then click **Create**.
 
     ![Create Recovery Services Vault step 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-It can take several minutes to create the vault. Monitor status notifications in the portal. After the  vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see the vault, click **Refresh**.
+    - It can take a while for the vault to be created.
+    - Monitor the status notifications in the upper-right area of the portal. If after several minutes you don't see the vault, click **Refresh**.
 
-![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+    ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### Set storage redundancy
 
