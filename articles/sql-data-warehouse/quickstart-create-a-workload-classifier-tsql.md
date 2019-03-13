@@ -66,12 +66,19 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
       ,IMPORTANCE = HIGH);
 ```
 
+## View existing classifiers
+
+```sql
+select * from sys.sys.workload_management_workload_classifiers
+```
+
 ## Clean up resources
 
-   ```sql
-   DROP USER [TheCEO]
-   DROP WORKLOAD CLASSIFIER [wgcTheCEO];
-   ```
+```sql
+DROP WORKLOAD CLASSIFIER [wgcTheCEO]
+DROP USER [TheCEO]
+;
+```
 
 You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
 
