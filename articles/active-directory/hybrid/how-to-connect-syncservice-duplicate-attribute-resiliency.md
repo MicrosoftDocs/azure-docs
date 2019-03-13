@@ -141,9 +141,9 @@ None of these known issues causes data loss or service degradation. Several of t
 1. Objects with specific attribute configurations continue to receive export errors as opposed to the duplicate attribute(s) being quarantined.  
    For example:
    
-    a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
+    a. New user is created in AD with a UPN of **Joe\@contoso.com** and ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe@contoso.com**.
+    b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe\@contoso.com**.
    
     c. Upon export, a **ProxyAddress conflict** error is thrown instead of having the conflict attributes quarantined. The operation is retried upon each subsequent sync cycle, as it would have been before the resiliency feature was enabled.
 2. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
@@ -157,9 +157,9 @@ None of these known issues causes data loss or service degradation. Several of t
    
     b. **User B** is attempted to be synced up next with **UPN = User@contoso.com**.
    
-    c. **User B’s** UPN is changed to **User1234@contoso.onmicrosoft.com** and **User@contoso.com** is added to **DirSyncProvisioningErrors**.
+    c. **User B’s** UPN is changed to **User1234\@contoso.onmicrosoft.com** and **User\@contoso.com** is added to **DirSyncProvisioningErrors**.
    
-    d. The error message for **User B** should indicate that **User A** already has **User@contoso.com** as a UPN, but it shows **User B’s** own displayName.
+    d. The error message for **User B** should indicate that **User A** already has **User\@contoso.com** as a UPN, but it shows **User B’s** own displayName.
 
 **Identity synchronization error report**:
 

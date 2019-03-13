@@ -25,7 +25,7 @@ The Speech SDK is currently compatible with Android devices having 32/64-bit ARM
 
 ## Prerequisites
 
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
 
 ## Create and configure a project
 
@@ -132,7 +132,7 @@ The text and graphical representation of your UI should now look like this:
 
    ![Screenshot of Select Deployment Target window](media/sdk/qs-java-android-12-deploy.png)
 
-Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
+Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
 
 ![Screenshot of the Android application](media/sdk/qs-java-android-13-gui-on-device.png)
 
