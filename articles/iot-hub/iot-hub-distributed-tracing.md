@@ -167,7 +167,12 @@ These instructions are for building the sample on Windows. For other environment
 
 ### Using third-party clients
 
-If you're not using the C SDK and still would like to preview distributed tracing for IoT Hub, construct the message to contain a `tracestate` application property with the creation time of the message in the unix timestamp format. For example, `tracestate=timestamp=1539243209`. To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
+If you're not using the C SDK and still would like to preview distributed tracing for IoT Hub, add `tracestate` as **system property**. Specifically,
+
+* For MQTT, add `%24.tracestate=timestamp%3d1539243209` to the message topic, where `1539243209` should be replaced with the creation time of the message in the unix timestamp format. As an example, refer to the implementation [in C sdk](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* For AMQP, add `key("tracestate")` and `value("timestamp=1539243209")` as message annotation. For a reference implementation, see [here](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+
+To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
 
 ## Update sampling options 
 
