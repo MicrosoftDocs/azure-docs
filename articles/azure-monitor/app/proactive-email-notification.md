@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 02/13/2019
+ms.date: 03/13/2019
 ms.author: harelbr
 ---
 
