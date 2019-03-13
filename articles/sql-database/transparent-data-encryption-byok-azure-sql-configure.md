@@ -170,7 +170,7 @@ Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
 ## Troubleshooting
 
 Check the following if an issue occurs:
-- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
+- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
