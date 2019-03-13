@@ -79,7 +79,7 @@ Modify the credentials used to connect to the vCenter server or ESXi host as fol
 
 6. For changes to become effective, wait for 15 minutes or [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-## Migrate ALL protected virtual machines to a new vCenter
+## Migrate all protected virtual machines to a new vCenter
 
 To migrate all virtual machines to the new vCenter, do not add another vCenter account. This can lead to duplicate entries. Just update the IP address of the new vCenter:
 
@@ -91,7 +91,7 @@ To migrate all virtual machines to the new vCenter, do not add another vCenter a
 
 As soon as the IP address is updated, Site Recovery components will start receiving discovery information of virtual machines from the new vCenter. This will not impact the ongoing replication activities.
 
-## Migrate a FEW protected virtual machines to a new vCenter
+## Migrate few protected virtual machines to a new vCenter
 
 > [!NOTE]
 > This section is applicable only when you are migrating a few of your protected virtual machines to a new vCenter. If you want protect a new set of virtual machines from a new vCenter, [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault) and start with **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
