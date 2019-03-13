@@ -73,6 +73,54 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
+<!--
+1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
+1399240	3322580: [PNU] Optimize the DSC resource execution on the Host	PNU
+1398846	Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance	PNU
+1398818	3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context	PNU
+1381018	[1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists	PNU
+-->
+- To improve package integrity and security, as well as easier management for offline ingestion, Microsoft has changed the format of the Update package from .exe and .bin files to a .zip file. The new format adds additional reliability of the unpacking process that at times, can cause the preparation of the update to stall. The same package format also applies to update packages from your OEM.
+- To improve the Azure Stack operator experience when running Test-AzureStack, operators can now simply use, “Test-AzureStack -Group UpdateReadiness” as opposed to passing ten additional parameters after an Include statement.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
+    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
+    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
+    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
+    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
+    - Check the state of the XRP service fabric nodes and repair them as needed
+    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
+
+<!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
+- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.    
+
+<!-- 
+1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
+1396607	3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage	Diagnostics
+1404529	3835749: Enable Group Policy Diagnostic Logs	Diagnostics
+1436561	Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag	Diagnostics
+1404512	3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug	Diagnostics 
+-->
+- Improvements to Azure stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
+
+<!-- 1384958	Adding a Test-AzureStack group for Secret Rotation	Diagnostics -->
+- Improvements to Test-AzureStack for secret rotation readiness test.
+
+<!-- 1404751	3617292: Graph: Remove dependency on ADWS.	Identity -->
+- Improvements to increase AD Graph reliability when communicating with customer’s Active Directory environment
+
+<!-- 1391444	[ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info	System info -->
+- Improvements hardware inventory collection in Get-AzureStackStampInformation.
+
+- In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
+
+   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
@@ -165,10 +213,6 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
-
-- In build 1902, the memory required by the ERCS infrastructure VM was increased from 8 GB to 12 GB. On an ASDK, this results in a 4 GB increase. On an Azure Stack integrated systems installation, it is a 12 GB increase.
-
-   To make sure the patch and update process results in the least amount of tenant downtime, make sure your Azure Stack stamp has more than 12 GB of available space in the **Capacity** blade. You can see this memory increase reflected in the **Capacity** blade after a successful installation of the update.
 
 - If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set Group Policy *Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options* to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is a default value). Otherwise, you won't be able to establish a PowerShell remote session and you'll receive an *Access is denied* error:
 
