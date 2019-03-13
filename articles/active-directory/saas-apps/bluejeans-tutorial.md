@@ -241,7 +241,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	e. In **Company** text box, enter your Company.
 
-	f. In **Email Address** text box, enter the email of user like **Brittasimon\@contoso.com**.
+	f. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
 	g. In **Create a BlueJeans Meeting I.D** text box, enter your meeting ID.
 
