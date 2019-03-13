@@ -62,11 +62,11 @@ Use the steps in this section to create a custom deployment using the **appservi
 
    ![Select the appservice-fileshare-sqlserver-ha QuickStart template](media/app-service-deploy-ha/2.png)
 
-4. On the **Custom deployment** blade, select **Edit parameters** and scroll down to review the default template values. Modify these values as necessary to provide all required parameter information and then click **OK**.<br><br> At a minimum Provide complex passwords for the ADMINPASSWORD, FILESHAREOWNERPASSWORD, FILESHAREUSERPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD, and SQLLOGINPASSWORD parameters.
+4. On the **Custom deployment** blade, select **Edit parameters** and scroll down to review the default template values. Modify these values as necessary to provide all required parameter information and then click **OK**.<br><br> At a minimum, provide complex passwords for the ADMINPASSWORD, FILESHAREOWNERPASSWORD, FILESHAREUSERPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD, and SQLLOGINPASSWORD parameters.
     
    ![Edit custom deployment parameters](media/app-service-deploy-ha/3.png)
 
-5. On the **Custom deployment** blade, ensure **Default Provider Subscription** is selected as the subscription to use and then create a new resource group, or select an existing resource group, for the custom deployment.<br><br> Next, select the resource group location (**local** for ASDK installations) and then click **Create**. The custom deployment settings will be validated and then the template deployment will start.
+5. On the **Custom deployment** blade, ensure **Default Provider Subscription** is selected as the subscription to use and then create a new resource group, or select an existing resource group, for the custom deployment.<br><br> Next, select the resource group location (**local** for ASDK installations) and then click **Create**. The custom deployment settings will be validated before template deployment starts.
 
     ![Create custom deployment](media/app-service-deploy-ha/4.png)
 
@@ -79,7 +79,7 @@ Use the steps in this section to create a custom deployment using the **appservi
 
 
 ### Record template outputs
-After the template has successfully deployed, record the template deployment outputs. You will need to provide this information when running the App Service installer. 
+After the template deployment completes successfully, record the template deployment outputs. You will need to provide this information when running the App Service installer. 
 
 Ensure you record each of these output values:
 - FileSharePath
@@ -93,7 +93,7 @@ Follow these steps to discover the template output values:
 1. 
 [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
-2. In the administration portal, select **Resource groups** and then the name of the resource group you created for the custom deployment (**app-service-ha** for this example). 
+2. In the administration portal, select **Resource groups** and then the name of the resource group you created for the custom deployment (**app-service-ha** in this example). 
 
 3. Click **Deployments** and select **Microsoft.Template**.
 
@@ -104,7 +104,7 @@ Follow these steps to discover the template output values:
     ![Parameter output](media/app-service-deploy-ha/7.png)
 
 
-## Deploy Azure Stack in a highly available configuration
+## Deploy App Service in a highly available configuration
 Follow the steps in this section to deploy App Service for Azure Stack in a highly available configuration based on the [appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack Quickstart template. 
 
 After you install the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
