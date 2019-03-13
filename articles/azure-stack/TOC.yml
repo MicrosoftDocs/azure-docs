@@ -285,10 +285,12 @@
       href: azure-stack-app-service-capacity-planning.md
     - name: Before you get started
       href: azure-stack-app-service-before-you-get-started.md
-    - name: Deploy App Service resource provider
+    - name: Deploy App Service
       href: azure-stack-app-service-deploy.md
+    - name: Deploy App Service for high availability
+      href: app-service-deploy-ha.md
     - name: Deploy App Service offline
-      href: azure-stack-app-service-deploy-offline.md
+    href: azure-stack-app-service-deploy-offline.md
     - name: Update App Service
       href: azure-stack-app-service-update.md
     - name: Update App Service Offline

@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 03/12/2019
+ms.date: 03/13/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/12/2019
+ms.lastreviewed: 03/13/2019
 ---
 
 # Deploy App Service in a highly available configuration
@@ -122,6 +122,7 @@ Before you can run the App Service installer, several steps are required as desc
 - [Download the latest custom script extension to the Azure Stack marketplace](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace).
 - [Generate required certificates](azure-stack-app-service-before-you-get-started.md#get-certificates).
 - Create the ID Application based on the identify provider you've chosen for Azure Stack. An ID Application can be made for either [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application) or [Active Directory Federation Services](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) and record the application ID.
+- Ensure that you have added the Windows Server 2016 Datacenter image to the Azure Stack marketplace. This is required for App Service installation.
 
 ### Deploy App Service in highly available configuration
 Installing the App Service resource provider takes at least an hour. The length of time needed depends on how many role instances you deploy. During the deployment, the installer runs the following tasks:
@@ -173,7 +174,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![ID application certificate and root certificate](media/app-service-deploy-ha/008.png)
 
-10. Next, provide the remaining required information for the following certificates:
+10. Next, provide the remaining required information for the following certificates and click **Next**:
    - Default Azure Stack SSL certificate (in the format of **_.appservice.local.azurestack.external.pfx**)
   - API SSL certificate (in the format of **api.appservice.local.azurestack.external.pfx**)
   - Publisher certificate (in the form of **ftp.appservice.local.azurestack.external.pfx**) 
@@ -184,7 +185,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![SQL Server connection information](media/app-service-deploy-ha/10.png)
 
-12. Because the machine being used to install App Service is not located on the same VNet as the SQL server being used to host the App Service databases, you will not be able to resolve the name.  This is expected behavior.<br><br>Verify that the information entered for the SQL Server name and accounts information is correct and press **Yes** to continue App Service installation.
+12. Because the machine being used to install App Service is not located on the same VNet as the SQL server being used to host the App Service databases, you will not be able to resolve the name.  This is expected behavior.<br><br>Verify that the information entered for the SQL Server name and accounts information is correct and press **Yes** to continue App Service installation. Click **Next**.
 
     ![SQL Server connection information](media/app-service-deploy-ha/11.png)
 
