@@ -37,8 +37,8 @@ Adaptive Network Hardening recommendations are supported on the following ports:
 
 1. In Security Center, select **Networking** -> **Adaptive Network Hardening**. The network VMs are listed under three separate tabs:
    * **Unhealthy resources**: VMs that currently have recommendations and alerts that were triggered by running the Adaptive Network Hardening algorithm. 
-   * **Healthy resources: VMs without alerts and recommendations.
-   * **Unscanned resources**: VMs that the Adaptive Network Hardening algorithm cannot be run on because of one of the following reasons:
+   * **Healthy resources**: VMs without alerts and recommendations.
+   * **Unscanned resources**: VMs that the Adaptive Network Hardening algorithm cannot be run because of one of the following reasons:
       * **VMs are Classic VMs**: -Only ARM VMs are supported.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
       * **VM is not protected by ASC standard**: Only VMs that are set to Security Center’s Standard pricing tier are eligible for this feature.
@@ -53,11 +53,9 @@ Adaptive Network Hardening recommendations are supported on the following ports:
 ## Review and apply Adaptive Network Hardening recommended rules
 
 1. From the **Unhealthy resources** tab, select a VM. The alerts and recommended hardening rules are listed.
+   ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
-
-  ![hardening alerts](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
-
-  >[!NOTE]
+     >[!NOTE]
 The **Rules** tab lists the rules that Adaptive Network Hardening recommends you add. The **Alerts** tab lists the alerts that were generated due to traffic, flowing to the resource, which is not within the IP range allowed in the recommended rules.
 
    ![hardening rules](./media/security-center-adaptive-network-hardening/hardening-rules.png)
@@ -78,19 +76,17 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
 * You cannot change “allow” rules to become “deny” rules. 
 
   > [!NOTE]
-Creating and modifying “deny” rules is done directly on the NSG (See Create, change, or delete a network security group
+Creating and modifying “deny” rules is done directly on the NSG For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group).
 
-* A **Deny all traffic** rule is listed is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, can delete it (see [Delete a rule](#delete-rule)).
+* A **Deny all traffic** rule is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, can delete it (see [Delete a rule](#delete-rule)).
    > [!NOTE]
-A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as “system generated”. After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, “DENY” and a random number.
+A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as “system generated”. After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, “DENY”, and a random number.
 
 *To modify an Adaptive Network Hardening rule:*
 
 1. To modify  some of the parameters of a rule, in the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Edit rule**.
 
    ![edit rule](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
-
-2. If you want to change so
 
 1. In the **Edit rule** window, update the details that you want to change, and click **Save**.
 
