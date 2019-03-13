@@ -174,7 +174,7 @@ The container provides a full set of documentation for the endpoints as well as 
 >  http://localhost:5000/swagger
 >  ```
 
-If you run the container with an output [mount](mount-settings) and logging enabled, the container will generate log files to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](configure-anomaly-detector-containers.md#mount-settings) and logging enabled, the container will generate log files to troubleshoot issues that happen while starting or running the container. 
 
 ## Next steps
 

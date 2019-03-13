@@ -30,5 +30,5 @@
       href: how-to/configure-anomaly-detector-containers.md
 - name: Concepts
   items: 
-    - name: Best Practices
-    - href: concepts/anomaly-detection-best-practices.md
+    - name: Anomaly Detection API best practices
+      href: concepts/anomaly-detection-best-practices.md

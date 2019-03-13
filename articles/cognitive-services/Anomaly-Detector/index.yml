@@ -54,10 +54,6 @@ sections:
         href:   quickstarts/find-data-anomalies-java
         text: "Java"
       - image:
-          src: media/logo_nodejs.svg
-        href:   quickstarts/find-data-anomalies-nodejs
-        text: "Node.js"
-      - image:
           src: media/logo_python.svg
         href:   quickstarts/find-data-anomalies-python
         text: "Python"
