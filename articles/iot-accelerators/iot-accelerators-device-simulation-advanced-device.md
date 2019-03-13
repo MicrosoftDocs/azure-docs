@@ -265,7 +265,7 @@ function main(context, state) {
     // time or device details.
     // Execute some logic, updating 'state'
 
-    return state;
+    updateState(state);
 }
 ```
 
@@ -377,7 +377,7 @@ function main(context, previousState, previousProperties) {
     // Fluctuate altitude between given variation constant by more or less
     state.altitude = vary(AverageAltitude, AltitudeVariation, AverageAltitude - AltitudeVariation, AverageAltitude + AltitudeVariation).toFixed(DecimalPrecision);
 
-    return state;
+    updateState(state);
 }
 
 /**
@@ -460,13 +460,19 @@ function main(context, previousState, previousProperties) {
     //simulate the behavior of a drone when recalled
   state.latitude = 47.476075;
   state.longitude = -122.192026;
-  return state;
+  updateState(state);
 }
 ```
 
 ## Debugging script files
 
-While you can't attach a debugger to a running behavior file, it's possible to write information to the service log using the **log** function. For syntax errors, the interpreter fails and writes information about the exception to the log.
+While you can't attach a debugger to a running behavior file, it's possible to write information to the service log using the **log** function. For syntax errors, the interpreter fails and writes information about the exception to the log. The Docker logs for the simulation service will then include log messages from your script.
+
+To view Docker logs:
+1. SSH into the VM
+2. Elevate permissions by running "sudo su"
+3. Get a list of the running Docker containers and their IDs by running "docker ps"
+4. View logs for the simulation service by running "docker logs <the container id>"
 
 Logging example:
 
@@ -483,7 +489,7 @@ function main(context, state) {
 
     // ...
 
-    return state;
+    updateState(state);
 }
 ```
 
