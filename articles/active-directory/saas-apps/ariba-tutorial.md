@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Ariba, perform the following steps:
     ![Ariba Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    
 	| |
 	|--|
 	| `https://<subdomain>.sourcing.ariba.com` |
