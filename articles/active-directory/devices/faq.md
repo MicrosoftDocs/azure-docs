@@ -237,7 +237,14 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 
 **Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?**
 
-**A:** No. Ater Windows 10 hybrid Azure AD join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10 can get single sign on to Azure AD applications from anywhere with an internet connection, except when a password is changed. If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user needs to have line of sight to the domain controller before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password, which is invalidated by Azure AD and prevents single sign on. However, this issue doesn't occur when you use Windows Hello for Business. Users who sign in with Windows Hello for Business continue to get single sign on to Azure AD applications after a password change, even if they don't have line of sight to their domain controller. 
+**A:** Generally no, except when the user's password is changed. Ater Windows 10 hybrid Azure AD join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10 can get single sign on to Azure AD applications from anywhere with an internet connection, except when a password is changed. Users who sign in with Windows Hello for Business continue to get single sign on to Azure AD applications even after a password change, even if they don't have line of sight to their domain controller. 
+
+---
+
+**Q: What happens if a user changes their password and tries to login to their Windows 10 hybrid Azure AD joined device outside the corporate network ?**
+
+**A:** 
+If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user logon with the new password will fail. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device does not have line of sight to the domain controller, it is unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached logon capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign on and fails any device-based Conditional Access policies. This issue doesn't occur if you use Windows Hello for Business. 
 
 ---
 
