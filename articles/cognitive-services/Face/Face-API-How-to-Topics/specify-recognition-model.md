@@ -15,11 +15,11 @@ ms.author: longl
 
 # Specify a face recognition model
 
-This guide demonstrates how to specify a face recognition model for face detection, identification and similarity search using the Azure Face API.
+This guide shows you how to specify a face recognition model for face detection, identification and similarity search using the Azure Face API.
 
-The Face API uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in deep learning research, and we deliver these improvements as model updates. Developers have the option to specify which version of face recognition model they'd like to use; they can choose the model that best fits their use case.
+The Face API uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face recognition model they'd like to use; they can choose the model that best fits their use case.
 
-If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set.
+If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations while avoiding model conflicts. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
 ## Prerequisites
 
@@ -34,20 +34,18 @@ Face detection identifies the visual landmarks of human faces and finds their bo
 
 The recognition model is used when the face features are extracted, so you can specify a model version when performing the Detect operation.
 
-When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter.
-
-Available values:
+When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter. The available values are:
 
 * `recognition_v01`
 * `recognition_v02`
 
-So, a request URL for the [Face - Detect] API will look like this:
+So, a request URL for the [Face - Detect] REST API will look like this:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel]
 &subscription-key=<Subscription key>`
 
 If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
-If you leave it unassigned, the default model version (_recognition_v01_) will be used.
+If you leave it unassigned, the default model version (_recognition_v01_) will be used. See the following code example for the .NET client library.
 
 ```csharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
