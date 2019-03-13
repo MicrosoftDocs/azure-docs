@@ -20,6 +20,17 @@ Azure services have two types of managed identities: system-assigned and user-as
 
 In Azure HDInsight, managed identities are provisioned on each node of the cluster. Each managed identity is backed by a service principal and certificate, which are also installed on each cluster node. The service principal and thumbprint is available in the cluster manifest and the certificate is available at the `/var/lib/waagent` location.
 
+## Create a managed identity
+
+Managed identities can be created with any of the following methods:
+
+* [Azure Portal](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md)
+* [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md)
+* [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md)
+* [Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md)
+
+The remaining steps for configuring the managed identity depend on the scenario where it will be used.
+
 ## Managed identity scenarios in Azure HDInsight
 
 Managed identities are used in Azure HDInsight in multiple scenarios. See the related documents for detailed setup and configuration instructions:
