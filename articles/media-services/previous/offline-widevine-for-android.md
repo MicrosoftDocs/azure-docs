@@ -19,6 +19,10 @@ ms.author: willzhan, dwgeo
 ---
 # Offline Widevine streaming for Android  
 
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 3](../latest/offline-widevine-for-android.md)
+> * [Version 2](offline-widevine-for-android.md)
+
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
 - Some content providers may disallow DRM license delivery beyond a country's border. If a user wants to watch content while traveling abroad, offline download is needed.

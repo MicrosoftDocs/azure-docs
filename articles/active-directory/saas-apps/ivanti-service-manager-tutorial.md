@@ -103,6 +103,7 @@ To configure Azure AD single sign-on with Ivanti Service Manager (ISM), perform 
     ![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+    
 	| |
 	|--|
 	| `https://<customer>.saasit.com/` |

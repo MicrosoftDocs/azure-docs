@@ -8,17 +8,21 @@ author: willzhan
 manager: steveng
 editor: ''
 
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/12/2019
 ms.author: willzhan, dwgeo
 
 ---
 # Offline FairPlay Streaming for iOS 
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 3](../latest/offline-fairplay-for-ios.md)
+> * [Version 2](media-services-protect-hls-with-offline-fairplay.md)
+
  Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/services/media-services/content-protection/) that cover:
 
 - Microsoft PlayReady

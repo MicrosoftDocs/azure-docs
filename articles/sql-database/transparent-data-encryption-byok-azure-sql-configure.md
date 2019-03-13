@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 
 # PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
@@ -21,6 +21,8 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 ## Prerequisites for PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 - You must have an Azure subscription and be an administrator on that subscription.
 - [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
@@ -170,7 +172,7 @@ Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
 ## Troubleshooting
 
 Check the following if an issue occurs:
-- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
+- If the key vault cannot be found, make sure you're in the right subscription using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `

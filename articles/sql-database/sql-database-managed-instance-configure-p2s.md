@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 01/17/2019
+ms.date: 03/12/2019
 ---
 # Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises
 
@@ -27,7 +27,7 @@ This quickstart:
 
 ## Attach a VPN gateway to your Managed Instance virtual network
 
-1. Open Powershell on your on-premises client computer.
+1. Open PowerShell on your on-premises client computer.
 2. Copy this PowerShell script. This script attaches a VPN Gateway to the Managed Instance virtual network that you created in the [Create a Managed Instance](sql-database-managed-instance-get-started.md) quickstart. This script does the following:
 
    - Creates and install certificates on client machine
