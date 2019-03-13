@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
 ---
 
@@ -100,6 +100,9 @@ You can go to the **Essentials** section in the **Overview** page of the project
   - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
 4. If the deployment still fails, contact Azure Migrate support.
 
+### Unable to select the Azure cloud in the appliance
+
+This is a known issue and a fix is available for the issue. Please download the [latest upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) for the appliance and update the appliance to apply the fix.
 
 ### Collector is not able to connect to the internet
 

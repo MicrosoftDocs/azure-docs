@@ -8,6 +8,20 @@ ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
 ---
+# How to upgrade the appliance
+
+You can upgrade the Collector to the latest version without downloading the OVA again.
+
+1. Close all browser windows and any open files/folders in the appliance
+2. Download the latest upgrade package from the list of updates mentioned below in this article.
+3. To ensure that the downloaded package is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
+
+	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+
+    Example: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
+4. Copy the zip file to the Collector appliance VM.
+5. Right-click on the zip file > **Extract All**.
+6. Right-click on **Setup.ps1** > **Run with PowerShell**, and follow the installation instructions.
 
 # Collector update release history
 
@@ -65,21 +79,6 @@ Hash values for upgrade [package 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_
 MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
-
-
-## Run an upgrade
-
-You can upgrade the Collector to the latest version without downloading the OVA again.
-
-1. You download the latest upgrade package in the list below.
-2. To ensure that the downloaded hotfix is secure, you open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
-
-	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-
-    Example: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
-3. Copy the zip file to the Collector appliance VM.
-4. Right-click on the zip file > **Extract All**.
-5. Right-click on **Setup.ps1** > **Run with PowerShell**, and follow the installation instructions.
 
 
 ## Next steps
