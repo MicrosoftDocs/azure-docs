@@ -256,6 +256,7 @@ Azure Cosmos DB output from Stream Analytics is currently not available in the A
 > Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored.
 
 The following table describes the properties for creating an Azure Cosmos DB output.
+
 | Property name | description |
 | --- | --- |
 | Output alias | An alias to refer this output in your Stream Analytics query. |
