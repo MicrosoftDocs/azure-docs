@@ -77,7 +77,7 @@ Before changing a peering, familiarize yourself with the requirements and constr
 2. Select the virtual network in the list that you want to change peering settings for.
 3. Under **SETTINGS**, select **Peerings**.
 4. Select the peering you want to view or change settings for.
-5. Change the appropriate setting. Read about the options for each setting in [step 6](#add-peering) of Create a peering.
+5. Change the appropriate setting. Read about the options for each setting in [step 5](#add-peering) of Create a peering.
 6. Select **Save**.
 
 **Commands**
