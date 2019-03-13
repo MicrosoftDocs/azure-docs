@@ -123,6 +123,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus**: 
+
 | Value	| Description	|
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. ||
@@ -153,6 +154,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus** for each VM instance: 
+
 | Value	| Description	|
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time. ||
