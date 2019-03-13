@@ -135,7 +135,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
   ![Workspace configuration][12]
 
-2. Select an identityprotection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
+2. Select an identity protection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
 
   ![Edit or change tracking][13]
 

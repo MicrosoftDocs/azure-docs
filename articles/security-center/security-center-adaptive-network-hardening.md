@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/12/2019
+ms.date: 03/13/2019
 ms.author: monhaber
 
 ---
@@ -21,7 +21,7 @@ ms.author: monhaber
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
 
 ## What is Adaptive Network Hardening?
-Applying [network security groups (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
+Applying [network security groups (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
 Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise, and then provides recommendations to allow traffic only from specific IP/port tuples.
 
@@ -39,7 +39,7 @@ Adaptive Network Hardening recommendations are supported on the following ports:
    * **Unhealthy resources**: VMs that currently have recommendations and alerts that were triggered by running the Adaptive Network Hardening algorithm. 
    * **Healthy resources**: VMs without alerts and recommendations.
    * **Unscanned resources**: VMs that the Adaptive Network Hardening algorithm cannot be run because of one of the following reasons:
-      * **VMs are Classic VMs**: -Only ARM VMs are supported.
+      * **VMs are Classic VMs**: -Only Azure Resource Manager VMs are supported.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
       * **VM is not protected by ASC standard**: Only VMs that are set to Security Center’s Standard pricing tier are eligible for this feature.
 
@@ -76,7 +76,7 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
 * You cannot change “allow” rules to become “deny” rules. 
 
   > [!NOTE]
-Creating and modifying “deny” rules is done directly on the NSG For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group).
+Creating and modifying “deny” rules is done directly on the NSG For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * A **Deny all traffic** rule is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, can delete it (see [Delete a rule](#delete-rule)).
    > [!NOTE]
@@ -101,7 +101,7 @@ After clicking **Save**, you have successfully changed the rule. *However, you h
 You can add an “allow” rule that was not recommended by Security Center.
 
 >[!NOTE]
-Only “allow” rules can be added here. If you want to add “deny” rules, you can do so directly on the NSG. For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group).
+Only “allow” rules can be added here. If you want to add “deny” rules, you can do so directly on the NSG. For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *To add an Adaptive Network Hardening rule:*
 
