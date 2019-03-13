@@ -276,7 +276,7 @@ To properly assist you, we ask that you provide as much detail as possible when 
 
     * If you're on a page without a support code at the bottom, select F12 and search for the SID and CID and send those two results to the support engineer.
 * **Date, time, and time zone**: Include the precise date and time *with the time zone* that the error occurred.
-* **User ID**: Who was the user who saw the error? An example is *user@contoso.com*.
+* **User ID**: Who was the user who saw the error? An example is *user\@contoso.com*.
     * Is this a federated user?
     * Is this a pass-through authentication user?
     * Is this a password-hash-synchronized user?
