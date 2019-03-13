@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Manage compute on your Azure Data Box Edge
 
-This article describes how to manage Edge compute on your Azure Data Box Edge. You can manage the Edge compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
+This article describes how to manage compute on your Azure Data Box Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
 
 > [!IMPORTANT]
 > Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
@@ -27,7 +27,7 @@ In this article, you learn how to:
 
 ## Manage triggers
 
-Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in an Edge share, it is an event. Triggers are response to those events. Triggers can help execute a function whenever the event is fired. For your Data Box Edge, triggers can be in response to file events or a schedule.
+Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers are response to those events. Triggers can help execute a function whenever the event is fired. For your Data Box Edge, triggers can be in response to file events or a schedule.
 
 - **File**: These triggers are in response to file events such as creation of a file, modification of a file.
 - **Scheduled**: These triggers are in response to a schedule that you can define with a start date, start time, and the repeat interval.
@@ -81,16 +81,17 @@ The list of triggers updates to reflect the deletion.
 
 ## Manage compute configuration
 
+Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Data Box Edge.
 
 ### View compute configuration
 
-Take the following steps in the Azure portal to view the Edge compute configuration for your device.
+Take the following steps in the Azure portal to view the compute configuration for your device.
 
 1. In the Azure portal, go to your Data Box Edge resource and then go to **Edge compute > Modules**. Select **View compute** on the command bar.
 
     ![Select View compute](media/data-box-edge-manage-compute/view-compute-1.png)
 
-2. Make a note of the Edge compute configuration on your device. When you configured compute, you created an IoT Hub resource. Under that IoT Hub resource, an IoT device and an IoT Edge device are configured. Only the Linux modules are supported to run on the IoT Edge device.
+2. Make a note of the compute configuration on your device. When you configured compute, you created an IoT Hub resource. Under that IoT Hub resource, an IoT device and an IoT Edge device are configured. Only the Linux modules are supported to run on the IoT Edge device.
 
     ![View configuration](media/data-box-edge-manage-compute/view-compute-2.png)
 
@@ -103,7 +104,7 @@ Take the following steps in the Azure portal to remove the existing Edge compute
 
     ![Select Remove compute](media/data-box-edge-manage-compute/remove-compute-1.png)
 
-2. If you remove the Edge compute configuration, you will need to reconfigure your device in case you need to use compute again. When prompted for confirmation, select **Yes**.
+2. If you remove the compute configuration, you will need to reconfigure your device in case you need to use compute again. When prompted for confirmation, select **Yes**.
 
     ![Select Remove compute](media/data-box-edge-manage-compute/remove-compute-2.png)
 
@@ -126,6 +127,7 @@ Take the following steps in the Azure portal to sync the access keys for your de
      ![Select Yes when prompted](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Exit out of the dialog once the sync is complete.
+
 
 ## Next steps
 
