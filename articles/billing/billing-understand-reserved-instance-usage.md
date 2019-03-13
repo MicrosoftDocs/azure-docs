@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
 
 ---
@@ -60,7 +60,7 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 
 ## Usage for SQL Database & Cosmos DB reserved capacity reservations
 
-The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well. 
+The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well.
 
 Assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
 

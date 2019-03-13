@@ -1,6 +1,6 @@
 ---
-title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK.
-description: This tutorial describes how to create an ASP .Net MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
+title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .NET preview SDK.
+description: This tutorial describes how to create an ASP .NET MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,7 +10,7 @@ ms.date: 12/03/2018
 ms.author: dech
 ---
 
-# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK 
+# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB by using .NET preview SDK 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -21,7 +21,7 @@ ms.author: dech
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .Net SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .NET SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
  
 ![Screenshot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 

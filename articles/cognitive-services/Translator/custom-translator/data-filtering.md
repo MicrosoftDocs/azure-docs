@@ -41,7 +41,7 @@ Custom Translator removes the sentences that are present in test and tuning docu
 Replace multiple sentence end punctuation characters with a single instance.  
 
 ## Japanese character normalization
-Normalize duplicate Japanese characters: Convert half width to full width characters.
+Convert full width letters and digits to half-width characters.
 
 ## Unescaped XML tags
 Filtering transforms unescaped tags into escaped tags:

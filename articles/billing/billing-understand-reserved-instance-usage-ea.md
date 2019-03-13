@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
 
 ---
@@ -49,7 +49,7 @@ You can download the Enterprise usage CSV file from the Enterprise portal. In th
 
 ## Usage for SQL Database & Cosmos DB reserved capacity reservations
 
-The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well. 
+The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well.
 
 Assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
 
@@ -60,7 +60,7 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 |Product| SQL Database Gen 4 (2 Core)|
 |Region | eastus |
 
-### Usage in CSV file 
+### Usage in CSV file
 
 Filter on **Additional Info** and type in your **Reservation ID**, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. The following screenshot shows the fields related to the reservation.
 
@@ -84,7 +84,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md) 
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
