@@ -213,7 +213,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![Infrastructure role credentials](media/app-service-deploy-ha/14.png)
 
-16. Review the information to be used to deploy APp Service and click **Next** to begin deployment. 
+16. Review the information to be used to deploy App Service and click **Next** to begin deployment. 
 
     ![Review installation summary](media/app-service-deploy-ha/15.png)
 
