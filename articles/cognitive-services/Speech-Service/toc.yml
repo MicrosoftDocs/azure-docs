@@ -94,8 +94,6 @@
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech-to-text, stt
-  - name: Prepare transcripts for customization
-    href: prepare-transcription.md
   - name: Consume audio input streams (SDK)
     href: how-to-use-audio-input-streams.md
   - name: Select an audio input device (SDK)
@@ -105,6 +103,8 @@
     items:
     - name: Speech-to-text
       items:
+      - name: Prepare transcripts for customization
+        href: prepare-transcription.md
       - name: Customize acoustic models
         href: how-to-customize-acoustic-models.md
       - name: Customize language models
