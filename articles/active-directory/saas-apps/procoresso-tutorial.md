@@ -201,7 +201,7 @@ Please follow the below steps to create a Procore test user on Procore SSOc side
 
     b. In the **Last name** textbox, type user's last name like **Simon**.
 
-	c. In the **Email Address** textbox, type user's email address like **Brittasimon\@contoso.com**.
+	c. In the **Email Address** textbox, type user's email address like **BrittaSimon\@contoso.com**.
 
     d. Select **Permission Template** as **Apply Permission Template Later**.
 

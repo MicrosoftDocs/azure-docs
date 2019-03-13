@@ -204,7 +204,7 @@ In this section, you create a user called Britta Simon in Origami.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. In the **User Name** textbox, enter the email of user like **Brittasimon\@contoso.com**.
+    a. In the **User Name** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     b. In the **Password** textbox, type a password.
 

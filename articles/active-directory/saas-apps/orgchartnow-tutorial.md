@@ -197,9 +197,9 @@ To enable Azure AD users to log in to OrgChart Now, they must be provisioned int
 
 	![OrgChart Now manage](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-	* In the **User ID** textbox, enter the User ID like **Brittasimon\@contoso.com**.
+	* In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
 
-	* In **Email Address** text box, enter the email of user like **Brittasimon\@contoso.com**.
+	* In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
 	* Click **Add**.
 	

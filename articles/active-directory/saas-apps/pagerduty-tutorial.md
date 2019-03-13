@@ -208,7 +208,7 @@ In the case of PagerDuty, provisioning is a manual task.
 
     a. Type the **First and Last Name** of user like **Britta Simon**. 
    
-    b. Enter **Email** address of user like **Brittasimon\@contoso.com**.
+    b. Enter **Email** address of user like **brittasimon\@contoso.com**.
    
     c. Click **Add**, and then click **Send Invites**.
    
