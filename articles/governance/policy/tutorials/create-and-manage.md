@@ -92,32 +92,32 @@ series, the request is denied.
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-    Here's what the JSON should look like. Paste your revised code into the Azure portal.
+   Here's what the JSON should look like. Paste your revised code into the Azure portal.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    The *field* property in the policy rule must be one of the following values: Name, Type, Location, Tags, or an alias. An example of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
+   The *field* property in the policy rule must be one of the following values: Name, Type, Location, Tags, or an alias. An example of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
 
 1. Select **Save**.
 

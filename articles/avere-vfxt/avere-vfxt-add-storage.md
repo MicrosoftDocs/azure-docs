@@ -3,7 +3,7 @@ title: Configure Avere vFXT storage - Azure
 description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ---
@@ -67,7 +67,7 @@ Next, proceed to [Create a junction](#create-a-junction).
 To use Azure Blob storage as your vFXT cluster's backend storage, you need an empty container to add as a core filer.
 
 > [!TIP] 
-> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. 
+> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The template also creates a storage service endpoint inside the cluster's virtual network. 
 
 Adding Blob storage to your cluster requires these tasks:
 

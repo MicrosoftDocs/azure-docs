@@ -158,4 +158,4 @@ You can override Azure's default system route for the 0.0.0.0/0 address prefix w
 ## Next steps
 - Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
 - Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
-- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

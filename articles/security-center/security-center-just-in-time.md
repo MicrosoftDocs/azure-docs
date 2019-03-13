@@ -3,7 +3,7 @@ title: Just-in-time virtual machine access in Azure Security Center | Microsoft 
 description: This document demonstrates how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
+ms.date: 2/28/2019
+ms.author: monhaber
 
 ---
 # Manage virtual machine access using just-in-time
@@ -140,11 +140,11 @@ This enables just-in-time access for the VM using the following settings:
 - Windows servers:
     - RDP port 3389
     - 3 hours of maximum allowed access
-    - Allowed source IP addresses is set to Per request
+    - Allowed source IP addresses is set to Any
 - Linux servers:
     - SSH port 22
     - 3 hours of maximum allowed access
-    - Allowed source IP addresses is set to Per request
+    - Allowed source IP addresses is set to Any
      
 If a VM already has just-in-time enabled, when you go to its configuration page you will be able to see that just-in-time is enabled and you can use the link to open the policy in Azure Security Center to view and change the settings.
 

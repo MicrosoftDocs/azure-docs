@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
 ---
@@ -33,28 +33,29 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to the Azure portal
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Standard Load Balancer
 
 In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
-2. In the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Create**:
-    
+2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
+
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type *MyResourceGroupSLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
-    | Type          | Public                                        |
-    | SKU           | Standard                          |
-    | Public IP address | Select **Create new** and type *myPublicIP* in the text box. The Standard SKU for the Public IP address is selected by default. For **Availability zone**, select **Zone-redundant**. |
-    | Subscription               | Select your subscription.    |
-    |Resource group | Select **Create new**, and then type *myResourceGroupSLB*.    |
-    | Location           | Select **West Europe**.                          |
-    
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Standard**.                          |
+    | Public IP address | Select **Create new**. |
+    | Public IP address name              | Type *myPublicIP* in the text box.   |
+    |Availability zone| Select **Zone redundant**.    |
+3. In the **Review + create** tab, click **Create**.   
 
-![Create a load balancer](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## Create backend servers
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.

@@ -5,7 +5,7 @@ description: Use data from an on-premises SQL Server database to perform advance
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -68,7 +68,7 @@ Consider the following when setting up and using a Data Factory Self-hosted Inte
 You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the article [Integration Runtime in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
-In this walkthrough, you will set up a Azure Data Factory Integration Runtime in an Azure
+In this walkthrough, you will set up an Azure Data Factory Integration Runtime in an Azure
 Machine Learning workspace, configure it, and then read data from an
 on-premises SQL Server database.
 

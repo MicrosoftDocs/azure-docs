@@ -69,7 +69,7 @@ For Enterprise agreement:
 
 For more information, see the following resources:
 
- - [Azure Hybrid Use Benefit overview ](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Azure Hybrid Use Benefit overview](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Downloadable FAQ](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

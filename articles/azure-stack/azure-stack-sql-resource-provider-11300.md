@@ -45,7 +45,7 @@ This version of the Azure Stack SQL resource provider includes the following imp
 
 ### Fixes
 
-- **SQL resource provider Azure Stack PowerShell compatability**. The SQL resource provider has been updated to work with the Azure Stack 2018-03-01-hybrid PowerShell profile and to provide compatibility with AzureRM 1.3.0 and later.
+- **SQL resource provider Azure Stack PowerShell compatibility**. The SQL resource provider has been updated to work with the Azure Stack 2018-03-01-hybrid PowerShell profile and to provide compatibility with AzureRM 1.3.0 and later.
 
 - **SQL login change password blade**. Fixed an issue where the password can’t be changed on the change password blade. Removed links from password change notifications.
 

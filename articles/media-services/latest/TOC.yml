@@ -25,6 +25,8 @@
   - name: Analyze your video - .NET
     displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
+  - name: AES-128 dynamic encryption - .NET
+    href: protect-with-aes128.md       
 - name: Samples
   items:
   - name: Azure code samples
@@ -32,10 +34,12 @@
   - name: Azure CLI
     href: cli-samples.md        
 - name: Concepts
+  href: concepts-overview.md
   items:
   - name: Cloud upload and storage
-    href: storage-account-concept.md     
-    items:
+    items:    
+    - name: Storage
+      href: storage-account-concept.md    
     - name: Assets
       href: assets-concept.md    
   - name: Encoding
@@ -61,14 +65,16 @@
     - name: Packaging
       items:
       - name: Dynamic packaging
+        displayName: packager      
         href: dynamic-packaging-overview.md
+      - name: Dynamic manifests
+        href: filters-dynamic-manifest-overview.md 
       - name: Filters
         href: filters-concept.md
-      - name: Dynamic manifests
-        href: filters-dynamic-manifest-overview.md       
     - name: Content protection
-      href: content-protection-overview.md  
       items:
+      - name: Overview      
+        href: content-protection-overview.md  
       - name: Multi-DRM system with access control
         href: design-multi-drm-system-with-access-control.md  
       - name: DRM licenses
@@ -90,8 +96,9 @@
     - name: Content Key Policies
       href: content-key-policy-concept.md              
   - name: Live streaming 
-    href: live-streaming-overview.md
     items:
+    - name: Overview
+      href: live-streaming-overview.md
     - name: Live Events and Live Outputs
       href: live-events-outputs-concept.md    
     - name: Recommended live encoders
@@ -109,7 +116,11 @@
     - name: Events with Event Grid
       href: reacting-to-media-services-events.md  
     - name: Event Grid schemas
-      href: media-services-event-schemas.md      
+      href: media-services-event-schemas.md    
+    - name: Metrics and diagnostic logs
+      href: media-services-metrics-diagnostic-logs.md      
+    - name: Diagnostic logs schemas
+      href: media-services-diagnostic-logs-schema.md          
   - name: Player clients
     items:
     - name: Azure Media Player
@@ -153,9 +164,14 @@
     - name: Local file as Job input - .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
-    - name: Use a custom Transform - .NET
-      displayName: encode, encoding, tranform
-      href: customize-encoder-presets-how-to.md
+    - name: Encode with a custom Transform
+      items:
+      - name: With .NET
+        href: customize-encoder-presets-how-to.md
+      - name: With CLI
+        href: custom-preset-cli-howto.md
+      - name: With REST
+        href: custom-preset-rest-howto.md      
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
@@ -164,12 +180,10 @@
       href: job-state-events-cli-how-to.md 
   - name: Protect content
     items:
-    - name: AES-128 dynamic encryption - .NET
-      href: protect-with-aes128.md    
-    - name: DRM dynamic encryption - .NET
-      href: protect-with-drm.md
     - name: Get content key policy - .NET
       href: get-content-key-policy-dotnet-howto.md
+    - name: DRM dynamic encryption - .NET
+      href: protect-with-drm.md      
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
@@ -240,4 +254,3 @@
     href: frequently-asked-questions.md
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
-

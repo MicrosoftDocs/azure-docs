@@ -99,8 +99,8 @@ You can delete your Google federation setup. If you do so, Google guest users wh
 ### To delete Google federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
 2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then click the **Google** button.
-4. Select **Google**, and then select **Delete**. 
+3. Select **Identity providers**.
+4. On the **Google** line, select the context menu (**...**) and then select **Delete**. 
    
    ![Deleted the social identity provider](media/google-federation/google-social-identity-providers.png)
 

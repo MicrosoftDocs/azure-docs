@@ -80,7 +80,7 @@ This example covers the "Remediate security configurations" recommendation under
    ![Listed workspaces][4]
 
 5. Select a workspace.  
-  A Log Analytics search query opens filtered to the workspace with the security configurations mismatch.
+  An Azure Monitor logs search query opens filtered to the workspace with the security configurations mismatch.
 
    ![Workspace with OS vulnerability][5]
 

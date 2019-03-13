@@ -42,11 +42,13 @@ The following diagram shows a typical CDN core analytics view of data.
 
 For more information about diagnostic logs, see [Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Enable logging with the Azure portal
 
 Follow these steps enable logging with CDN core analytics:
 
-Sign in to the [Azure portal](http://portal.azure.com). If you don't already have enabled CDN for your workflow, [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
+Sign in to the [Azure portal](https://portal.azure.com). If you don't already have enabled CDN for your workflow, [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
 1. In the Azure portal, navigate to **CDN profile**.
 
@@ -165,7 +167,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
-Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](http://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
+Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
 1.	Open **Microsoft Azure Storage Explorer**
 2.	Locate the storage account
@@ -201,7 +203,7 @@ To make it easy to access core analytics, sample code for a tool is provided. Th
 
 Here's how you can use the tool:
 
-1.	Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.	Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.	Download the code.
 3.	Follow the instructions to compile and configure.
 4.	Run the tool.
@@ -222,11 +224,11 @@ To use Azure Monitor, you must [enable logging](#enable-logging-with-azure-stora
 
 You can display the data in a variety of ways by using Management Solutions. You can obtain Management Solutions from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-You can install management solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
+You can install monitoring solutions from Azure marketplace by selecting the **Get it now** link at the bottom of each solution.
 
-### Add a Azure Monitor CDN Management Solution
+### Add an Azure Monitor CDN monitoring solution
 
-Follow these steps to add a Azure Monitor Management Solution:
+Follow these steps to add an Azure Monitor monitoring solution:
 
 1.   Sign in to the Azure portal using your Azure subscription and go to your dashboard.
     ![Azure dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)

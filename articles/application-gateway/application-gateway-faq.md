@@ -12,6 +12,8 @@ ms.author: victorh
 
 # Frequently asked questions for Application Gateway
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General
 
 ### What is Application Gateway?
@@ -36,10 +38,10 @@ HTTP/2 protocol support is available to clients connecting to application gatewa
 
 By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### What resources are supported today as part of backend pool?
@@ -65,6 +67,10 @@ Listeners are processed in the order they are shown. For that reason if a basic 
 ### Where do I find Application Gateway’s IP and DNS?
 
 When using a public IP address as an endpoint, this information can be found on the public IP address resource or on the Overview page for the application gateway in the portal. For internal IP addresses, this can be found on the Overview page.
+
+### What is Keep-Alive timeout and TCP idle timeout setting on Application Gateway?
+
+Keep-Alive timeout on v1 SKU is 120 sec. Keep-Alive timeout on v2 SKU is 75 sec. TCP idle timeout is 4 min default on the frontend VIP of Application Gateway.
 
 ### Does the IP or DNS name change over the lifetime of the Application Gateway?
 
@@ -121,7 +127,7 @@ Network Security Groups (NSGs) are supported on the application gateway subnet w
 
 * Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, are not able to initiate any changes on those endpoints.
 
-* Outbound internet connectivity can't be blocked.
+* Outbound internet connectivity can't be blocked. Default outbound rules in the NSG already allow internet connectivity. We recommend that you don't remove the default outbound rules and that you don't create other outbound rules that deny outbound internet connectivity.
 
 * Traffic from the AzureLoadBalancer tag must be allowed.
 
@@ -215,7 +221,7 @@ Yes, Azure distributes instances across update and fault domains to ensure that 
 
 ### What certificates are supported on Application Gateway?
 
-Self-Signed certs, CA certs, and wild-card certs are supported. EV certs are not supported.
+Self-Signed certs, CA certs, EV certs, and wild-card certs are supported.
 
 ### What are the current cipher suites supported by Application Gateway?
 
@@ -337,7 +343,7 @@ There are three logs available for Application Gateway. For more information on 
 
 ### How do I know if my backend pool members are healthy?
 
-You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+You can use the PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 ### What is the retention policy on the diagnostics logs?
 

@@ -34,8 +34,7 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
-
+Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both device and service side.
 
 ## Create an IoT hub
 
@@ -81,18 +80,17 @@ A device must be registered with your IoT hub before it can connect. In this qui
     Make a note of the returned value, which looks like this:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## Communicate between device and service via device streams
 
 ### Run the service-side application
 
-Navigate to `device-streams-echo/service` in your unzipped project folder. You will need the following information handy:
+Navigate to `iot-hub/Quickstarts/device-streams-echo/service` in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `ServiceConnectionString` | The service connection string of your IoT Hub. |
-| `DeviceId` | The identifier of the device you created earlier. |
+| `ServiceConnectionString` | Provide the service connection string of your IoT Hub. |
+| `DeviceId` | Provide the ID of the device you created earlier, for example, MyDevice. |
 
 Compile and run the code as follows:
 
@@ -104,19 +102,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> A timeout occurs if the device-side application doesn't respond in time.
 
 ### Run the device-side application
 
-Navigate to `device-streams-echo/device` directory in your unzipped project folder. You will need the following information handy:
+Navigate to `iot-hub/Quickstarts/device-streams-echo/device` directory in your unzipped project folder. You will need the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `DeviceConnectionString` | The connection string of the device you created earlier. |
+| `DeviceConnectionString` | Provide the device connection string of your IoT Hub. |
 
 Compile and run the code as follows:
 
@@ -128,30 +129,25 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
-At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echos back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
+At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echoes back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
 
 Console output on the device-side:
 ![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Console output on the device-side")
 
-
 Console output on the service-side:
 ![alt text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Console output on the service-side")
 
-
-
 The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## Next steps
 

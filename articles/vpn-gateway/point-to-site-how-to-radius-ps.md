@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
 
 ---
@@ -16,7 +16,7 @@ This article shows you how to create a VNet with a Point-to-Site connection that
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such as when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
-A P2S VPN connection is started from Windows and Mac devices. Connecting clients can use the following authentication methods:
+A P2S VPN connection is started from Windows and Mac devices. Connecting clients can use the following authentication methods: 
 
 * RADIUS server
 * VPN Gateway native certificate authentication
@@ -60,10 +60,6 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-### Sign in
-
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
-
 ### <a name="example"></a>Example values
 
 You can use the example values to create a test environment, or refer to these values to better understand the examples in this article. You can either use the steps as a walk-through and use the values without changing them, or change them to reflect your environment.
@@ -83,7 +79,34 @@ You can use the example values to create a test environment, or refer to these v
 * **DNS Server: IP address** of the DNS server that you want to use for name resolution for your VNet. (optional)
 * **GW Name: Vnet1GW**
 * **Public IP name: VNet1GWPIP**
-* **VpnType: RouteBased** 
+* **VpnType: RouteBased**
+
+
+## <a name="signin"></a>Sign in and set variables
+
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+
+### Declare variables
+
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to re-declare the variables.
+
+  ```azurepowershell-interactive
+  $VNetName  = "VNet1"
+  $FESubName = "FrontEnd"
+  $BESubName = "Backend"
+  $GWSubName = "GatewaySubnet"
+  $VNetPrefix1 = "192.168.0.0/16"
+  $VNetPrefix2 = "10.254.0.0/16"
+  $FESubPrefix = "192.168.1.0/24"
+  $BESubPrefix = "10.254.1.0/24"
+  $GWSubPrefix = "192.168.200.0/26"
+  $VPNClientAddressPool = "172.16.201.0/24"
+  $RG = "TestRG"
+  $Location = "East US"
+  $GWName = "VNet1GW"
+  $GWIPName = "VNet1GWPIP"
+  $GWIPconfName = "gwipconf"
+  ```
 
 ## 1. <a name="vnet"></a>Create the resource group, VNet, and Public IP address
 

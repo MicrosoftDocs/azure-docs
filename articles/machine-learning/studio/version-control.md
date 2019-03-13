@@ -5,7 +5,7 @@ description: Apply Application Lifecycle Management best practices in Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -37,7 +37,7 @@ The run history snapshots keep an immutable version of the experiment in Azure M
 The JSON file is a textual representation of the experiment graph, which might include a reference to assets in the workspace such as a dataset or a trained model. It doesn't contain a serialized version of the asset. If you attempt to import the JSON document back into the workspace, the referenced assets must already exist with the same asset IDs that are referenced in the experiment. Otherwise you cannot access the imported experiment.
 
 ## Versioning trained model
-A trained model in Azure Machine Learning Studio is serialized into a format known as an iLearner file (`.iLearner`), and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the iLearner file is through the retraining API. [This article](retrain-models-programmatically.md) explains how the retraining API works. The high-level steps:
+A trained model in Azure Machine Learning Studio is serialized into a format known as an iLearner file (`.iLearner`), and is stored in the Azure Blob storage account associated with the workspace. One way to get a copy of the iLearner file is through the retraining API. [This article](/azure/machine-learning/studio/retrain-machine-learning-model) explains how the retraining API works. The high-level steps:
 
 1. Set up your training experiment.
 2. Add a web service output port to the Train Model module, or the module that produces the trained model, such as Tune Model Hyperparameter or Create R Model.

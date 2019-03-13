@@ -38,7 +38,7 @@ This topic lists these steps.
 > For example (pseudocode), you define **10.4.5.6** as your on-premises host:
 > 
 > **The following scenario works:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **The following scenario doesn't work:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`

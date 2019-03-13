@@ -230,6 +230,7 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
+| Brazil South | Sao Paolo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
@@ -237,6 +238,8 @@ Azure File Sync is available only in the following regions:
 | East Asia | Hong Kong |
 | East US | Virginia |
 | East US2 | Virginia |
+| Japan East | Tokyo, Saitama |
+| Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
 | South Central US | Texas |

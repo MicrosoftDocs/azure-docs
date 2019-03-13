@@ -239,6 +239,12 @@
       href: troubleshoot-azure-files.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+  - name: Monitor Azure Backup workloads
+    items:
+    - name: Using Azure Portal
+      href: backup-azure-monitoring-built-in-monitor.md
+    - name: Using Azure Monitor
+      href: backup-azure-monitoring-use-azuremonitor.md
 - name: Reference
   items:
   - name: .NET

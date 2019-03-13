@@ -82,7 +82,7 @@ From the portal:
     ![Set the storage account settings for HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
    > [!IMPORTANT]  
-   > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log ins only require the SSH credentials.
+   > Regardless of the method used, the first time you log in you need to authenticate twice.  For the first authentication prompt, provide the *cluster Admin userid* and *password*. For the second authentication prompt, provide the *SSH userid* and *password*. Subsequent log-ins only require the SSH credentials.
 
 Once you are connected, your screen should resemble the following screenshot:
 

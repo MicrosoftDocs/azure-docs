@@ -18,6 +18,10 @@ This article summarizes all the features currently in preview for Azure Stream A
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
 
+### Anomaly Detection
+
+Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection. For more information, visit [Anomaly detection in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
+
 ### SQL Database reference data
 
 Azure Stream Analytics supports Azure SQL Database as a source of input for reference data. You can use SQL Database as reference data for your Stream Analytics job in the Azure portal and in Visual Studio with Stream Analytics tools. For more information, visit, [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md).
@@ -42,10 +46,6 @@ With .NET standard user-defined functions, you can run .NET Standard code as par
 
 The following features are in private preview.
 
-### Anomaly Detection
-
-Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection.
-
 ### C# custom deserializer for Azure Stream Analytics on IoT Edge
 
 Developers can now implement custom deserializers in C# to deserialize events received by Azure Stream Analytics. Examples of formats that can be deserialized include Parquet, Protobuf, XML, or any binary format.
@@ -56,7 +56,7 @@ You can now operationalize your real-time pipelines with managed identities for 
 
 ### Visual Studio Code for Azure Stream Analytics
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code.
+Azure Stream Analytics jobs can be authored in Visual Studio Code. For access to tooling private preview features, contact to *ASAToolsfeedback@microsoft.com*.
 
 ## Next steps
 

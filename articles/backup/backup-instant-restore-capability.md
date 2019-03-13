@@ -15,6 +15,8 @@ ms.author: sogup
 > [!NOTE]
 > Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
@@ -22,7 +24,6 @@ The new model for Instant Restore provides the following feature enhancements:
 * Supports disk sizes up to 4 TB.
 * Supports Standard SSD disks.
 *	Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations
-
 
 
 ## What's new in this feature
@@ -44,6 +45,7 @@ By default, snapshots are retained for two days. This feature allows restores op
 * Incremental snapshots are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you will see costs corresponding to blob snapshot pricing and they are incremental.
 * For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention if you don’t perform restores frequently.
+* This is a one directional upgrade, once upgraded to Instant restore, you cannot go back.
 
 
 >[!NOTE]
@@ -72,7 +74,7 @@ Alternatively, you can go to **Properties** page of the vault to get the **Upgra
 
 
 ## Configure snapshot retention using Azure portal
-This option is currently available in West Central US, India South and Australia East.
+All the users across all **public geos** have been upgraded to Instant restore.
 
 For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
@@ -85,19 +87,19 @@ If you wish to self-serve and upgrade to Instant Restore, run the following cmdl
 1.	Sign in to your Azure account:
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.	Select the subscription that you want to register:
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.	Register this subscription:
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## Upgrade to Instant Restore using CLI
@@ -128,7 +130,7 @@ Run the following commands from a shell:
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### CLI

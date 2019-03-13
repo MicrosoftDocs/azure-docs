@@ -129,7 +129,7 @@ After you complete basic setup, you're ready to perform post-installation and va
   > If monitoring wasn't enabled when the virtual machine was created, you can enable it as shown in the preceding image.
 
 5. Now, go back to the Azure Log Integration machine. Verify that you have connectivity to the storage account from the system where you installed Azure Log Integration. The computer running the Azure Log Integration service needs access to the storage account to retrieve information that's logged by Azure Diagnostics on each of the monitored systems. To verify connectivity: 
-  1. [Download Azure Storage Explorer](http://storageexplorer.com/).
+  1. [Download Azure Storage Explorer](https://storageexplorer.com/).
   2. Complete setup.
   3. When installation is finished, select **Next**. Leave the **Launch Microsoft Azure Storage Explorer** check box selected.  
   4. Sign in to Azure.
@@ -152,7 +152,7 @@ To complete this step, you need a few things:
 * **StorageKey**: The storage key for the storage account where the Azure Diagnostics information is stored for this virtual machine.  
 
 To obtain the storage key, complete the following steps:
-1. Go to the [Azure portal](http://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 2. In the navigation pane, select **All services**.
 3. In the **Filter** box, enter **Storage**. Then, select **Storage accounts**.
 
@@ -226,9 +226,9 @@ The Azure Activity Log is a subscription log that provides insight into subscrip
 3.	Run the following command to authorize the Azure Log Integration service principal created in the previous step access to the read the Activity Log for the subscription. You need to be an Owner on the subscription to run the command.
 
     ```Azlog.exe authorize subscriptionId```
-Example:
+   Example:
 
-```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+   ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
 4.	Check the following folders to confirm that the Azure Active Directory audit log JSON files are created in them:
     - C:\Users\azlog\AzureResourceManagerJson
@@ -249,5 +249,5 @@ Before you attempt the steps in this article, you must review the Get started ar
 * [Introduction to Azure Log Integration](security-azure-log-integration-overview.md). This article introduces you to Azure Log Integration, its key capabilities, and how it works.
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). This blog post shows you how to configure Azure Log Integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar. It describes our current guidance about how to configure the SIEM components. Check with your SIEM vendor for additional details.
 * [Azure Log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md). This FAQ answers common questions about Azure Log Integration.
-* [Integrating Azure Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). This article shows you how to sync Security Center alerts and virtual machine security events that are collected by Azure Diagnostics and Azure activity logs. You sync the logs by using your Azure Log Analytics or SIEM solution.
+* [Integrating Azure Security Center alerts with Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). This article shows you how to sync Security Center alerts and virtual machine security events that are collected by Azure Diagnostics and Azure activity logs. You sync the logs by using your Azure Monitor logs or SIEM solution.
 * [New features for Azure Diagnostics and Azure audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). This blog post introduces you to Azure audit logs and other features that can help you gain insight into the operations of your Azure resources.

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 # Overview of Azure Cloud Shell
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.

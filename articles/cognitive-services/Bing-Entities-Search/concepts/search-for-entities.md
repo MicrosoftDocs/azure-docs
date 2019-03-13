@@ -67,7 +67,7 @@ The following shows a response that includes a dominant and disambiguation entit
                 "mustBeCloseToContent": true,
                 "license": {
                     "name": "CC-BY-SA",
-                    "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+                    "url": "https://creativecommons.org/licenses/by-sa/3.0/"
                 },
                 "licenseNotice": "Text under CC-BY-SA license"
             },
@@ -146,7 +146,7 @@ The entity includes a `name`, `description`, and `image` field. When you display
     "mustBeCloseToContent": true,
     "license": {
         "name": "CC-BY-SA",
-        "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/"
     },
     "licenseNotice": "Text under CC-BY-SA license"
 },

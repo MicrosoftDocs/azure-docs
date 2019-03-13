@@ -332,7 +332,7 @@ In your local MEAN.js repository, open _modules/articles/server/models/article.s
 In `ArticleSchema`, add a `String` type called `comment`. When you're done, your schema code should look like this:
 
 ```javascript
-var ArticleSchema = new Schema({
+let ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -358,7 +358,7 @@ In the `update` function, add an assignment for `article.comment`. The following
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;

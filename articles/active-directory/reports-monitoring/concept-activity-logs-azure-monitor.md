@@ -32,6 +32,8 @@ You can now route Azure Active Directory (Azure AD) activity logs to several end
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Supported reports
 
 You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, Azure Monitor logs or custom solution by using this feature. 
@@ -117,7 +119,7 @@ This section answers frequently asked questions and discusses known issues with 
 
 -----
 
-**Q: What happens if an Adminstrator changes the retention period of a diagnostic setting?**
+**Q: What happens if an Administrator changes the retention period of a diagnostic setting?**
 
 **A**: The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected.
 

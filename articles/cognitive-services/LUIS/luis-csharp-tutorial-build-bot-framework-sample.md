@@ -125,7 +125,7 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 ## Build the bot
 In the code editor, right-click on `build.cmd` and select **Run from Console**.
 
-![Build Web bot ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Build Web bot](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 The code view is replaced with a terminal window showing the progress and results of the build.
 

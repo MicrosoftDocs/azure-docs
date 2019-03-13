@@ -96,8 +96,6 @@
       href: security-center-managing-and-responding-alerts.md
     - name: Security incidents
       href: security-center-incident.md
-      name: Export Azure Security Center alerts
-      href: security-center-alert-export.md   
     - name: Understanding security alerts
       href: security-center-alerts-type.md
     - name: Alert validation
@@ -186,7 +184,7 @@
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Azure Security, Privacy, & Compliance blog
-    href: http://blogs.msdn.com/b/azuresecurity/
+    href: https://blogs.msdn.com/b/azuresecurity/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=security-center
   - name: Videos

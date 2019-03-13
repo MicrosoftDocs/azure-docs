@@ -20,7 +20,7 @@ This article describes how to set up your source on-premises environment, to rep
 The article assumes that you have already:
 
 - Planned your deployment with the help of [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). This helps you to allocate sufficient bandwidth, based on your daily data-change rate, to meet your desired recovery point objective (RPO).
-- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](http://portal.azure.com).
+- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](https://portal.azure.com).
 - [Set up on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md), including a dedicated account for automatic discovery.
 
 ## Choose your protection goals
@@ -37,7 +37,7 @@ You can set up the configuration server as an on-premises VMware VM through an O
 
 1. Learn about the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites) for configuration server deployment.
 2. [Check capacity numbers](vmware-azure-deploy-configuration-server.md#capacity-planning) for deployment.
-3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) and [import](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) the OVA template to set up an on-premises VMware VM that runs the configuration server. The licence provided with the template is an evaluation licence and is valid for 180 days. Post this period, customer needs to activate the windows with a procured licence.
+3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) and [import](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) the OVA template to set up an on-premises VMware VM that runs the configuration server. The license provided with the template is an evaluation license and is valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
 4. Turn on the VMware VM, and [register it](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) in the Recovery Services vault.
 
 ## Azure Site Recovery folder exclusions from Antivirus program
