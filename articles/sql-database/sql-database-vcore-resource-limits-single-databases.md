@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -162,7 +162,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Log rate limits (MBps)|42|48|48|48|48|48|
+|Log rate limits (MBps)|42|48|54|60|64|64|
 |Max concurrent workers (requests)|1400|1600|1800|2000|3200|4800|
 |Max concurrent logins (requests)|1400|1600|1800|2000|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -210,7 +210,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Log rate limits (MBps)|48|48|48|48|48|48|48|
+|Log rate limits (MBps)|48|54|60|72|96|96|96|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent logins|1600|1800|2000|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|

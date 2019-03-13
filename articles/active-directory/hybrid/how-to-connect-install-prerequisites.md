@@ -45,7 +45,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### Azure AD Connect server
 * Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.
 * The Azure AD Connect server must have a full GUI installed. It is **not supported** to install on server core.
-* Azure AD Connect must be installed on Windows Server 2008 R2 or later. This server may be a domain controller or a member server when using express settings. If you use custom settings, then the server can also be stand-alone and does not have to be joined to a domain.
+* Azure AD Connect must be installed on Windows Server 2008 R2 or later. This server must be domain joined and may be a domain controller or a member server.
 * If you install Azure AD Connect on Windows Server 2008 R2, then make sure to apply the latest hotfixes from Windows Update. The installation is not able to start with an unpatched server.
 * If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 * If you plan to use a **group managed service account**, then the Azure AD Connect server must be on Windows Server 2012 or later.

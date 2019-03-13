@@ -8,7 +8,7 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/12/2019
 ---
 
 # Test logic apps with mock data by setting up static results
@@ -83,6 +83,12 @@ static results, follow these steps:
 
    ![Icon showing enabled static results](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
+   After your logic app runs, in your logic app's run history, 
+   the **Static Results** column shows whether a specific run 
+   includes actions that have static results enabled, for example:
+
+   ![Run history - static results column](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
 <a name="reuse-sample-outputs"></a>
 
 ## Reuse previous outputs
@@ -127,7 +133,7 @@ box for your action in [Set up static results](#set-up-static-results).
 
    ![JSON mode](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. If you're finished, choose **Done**. Or, to return 
+1. When you're finished, choose **Done**. Or, to return 
 to the designer, choose **Switch Editor Mode** 
 (![Choose "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 

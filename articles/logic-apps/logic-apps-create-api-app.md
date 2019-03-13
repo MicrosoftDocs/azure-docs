@@ -26,7 +26,7 @@ that you can call from logic app workflows:
 * Expand the reach, discoverability, and use for your service.
 
 Basically, connectors are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+[Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language, 
 like .NET, Java, or Node.js, for building connectors. 
@@ -64,14 +64,14 @@ easy API hosting.
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](http://github.com/logicappsio) 
+> [Azure Logic Apps GitHub repository](https://github.com/logicappsio) 
 > or [blog](https://aka.ms/logicappsblog).
 
 ## How do custom APIs differ from custom connectors?
 
 Custom APIs and [custom connectors](../logic-apps/custom-connector-overview.md) 
 are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](http://swagger.io/specification/) for documentation, 
+[Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. And because these APIs and connectors 
 are REST APIs that communicate through HTTP endpoints, you can use any language, 
 like .NET, Java, or Node.js, for building custom APIs and connectors.
@@ -100,7 +100,7 @@ For more information about custom connectors, see
 ## Helpful tools
 
 A custom API works best with logic apps when the API also has a 
-[Swagger document](http://swagger.io/specification/) 
+[Swagger document](https://swagger.io/specification/) 
 that describes the API's operations and parameters.
 Many libraries, like [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), 
 can automatically generate the Swagger file for you. 

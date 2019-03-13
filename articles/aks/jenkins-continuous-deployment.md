@@ -237,8 +237,8 @@ Click **OK** and return to the Jenkins portal.
 From the home page of your Jenkins portal, select **New item** on the left-hand side:
 
 1. Enter *azure-vote* as job name. Choose **Freestyle project**, then select **OK**
-1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
+1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis.git*
 
 1. Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**
 1. Under **Build Environment**, select **Use secret texts or files**
