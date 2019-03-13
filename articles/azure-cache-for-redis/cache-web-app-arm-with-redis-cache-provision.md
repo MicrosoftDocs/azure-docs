@@ -83,7 +83,7 @@ The template creates the cache in the same location as the resource group.
 ### Web app
 Creates the web app with name specified in the **webSiteName** variable.
 
-Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. This app settings are dynamically created based on values provided during deployment.
+Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. These app settings are dynamically created based on values provided during deployment.
 
     {
       "apiVersion": "2015-08-01",
