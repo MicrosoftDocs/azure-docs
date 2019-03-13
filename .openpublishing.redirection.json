@@ -4505,6 +4505,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-integration-modules.md",
+      "redirect_url": "/azure/automation/shared-resources/modules",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-runbook-input-parameters.md",
       "redirect_url": "/azure/automation/runbook-input-parameters",
       "redirect_document_id": false
