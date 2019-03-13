@@ -1,6 +1,6 @@
 ---
-title: Encode custom transform using Media Services v3 - Azure | Microsoft Docs
-description: This topic shows how to use Azure Media Services v3 to encode a custom transform.
+title: Encode custom transform using Media Services v3 .NET - Azure | Microsoft Docs
+description: This topic shows how to use Azure Media Services v3 to encode a custom transform using .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 ---
 
-# How to encode with a custom Transform
+# How to encode with a custom transform by using .NET
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 
