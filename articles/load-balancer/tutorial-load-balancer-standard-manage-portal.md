@@ -6,7 +6,7 @@ services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: twooley
-Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
+Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -23,11 +23,11 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 
 > [!div class="checklist"]
-> * Create an Azure load balancer
+> * Create an Azure Load Balancer
+> * Create Load Balancer resources
 > * Create virtual machines and install IIS server
-> * Create load balancer resources
-> * View a load balancer in action
-> * Add and remove VMs from a load balancer
+> * View Load Balancer in action
+> * Add and remove VMs from a Load Balancer
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -37,7 +37,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a Standard Load Balancer
 
-In this section, you create a public load balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
+In this section, you create a Standard Load Balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. 
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
@@ -55,15 +55,15 @@ In this section, you create a public load balancer that helps load balance virtu
     |Availability zone| Select **Zone redundant**.    |
 3. In the **Review + create** tab, click **Create**.
 
-   ![Create a loa](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
+   ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
 
-## Create load balancer resources
+## Create Load Balancer resources
 
-In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
+In this section, you configure Load Balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
 ### Create a backend address pool
 
-To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. Create the backend address pool *myBackendPool* to include virtual machines for load balancing internet traffic.
+To distribute traffic to the VMs, a backend address pool contains the IP addresses of the virtual (NICs) connected to the Load Balancer. Create the backend address pool *myBackendPool* to include virtual machines for load-balancing internet traffic.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
@@ -71,7 +71,7 @@ To distribute traffic to the VMs, a backend address pool contains the IP address
 
 ### Create a health probe
 
-To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
+To allow the Load Balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the Load Balancer rotation based on their response to health checks. Create a health probe *myHealthProbe* to monitor the health of the VMs.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Health probes**, then click **Add**.
@@ -87,13 +87,13 @@ To allow the load balancer to monitor the status of your app, you use a health p
     | Health probe | Select *myHealthProbe*. |
 1. Select **OK**.
 
-### Create a load balancer rule
+### Create a Load Balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
+A Load Balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a Load Balancer rule *myLoadBalancerRuleWeb* for listening to port 80 in the frontend *FrontendLoadBalancer* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Load balancing rules**, then click **Add**.
-3. Use these values to configure the load balancing rule:
+3. Use these values to configure the load-balancing rule:
 
     | Setting | Value |
     | ------- | ----- |
@@ -107,7 +107,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 ## Create backend servers
 
-In this section, you create a virtual network, create three virtual machines for the backend pool of your load balancer, and then install IIS on the virtual machines to help test the load balancer.
+In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
 ### Create a virtual network
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
@@ -126,7 +126,7 @@ In this section, you create a virtual network, create three virtual machines for
 
 ### Create virtual machines
 
-Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2*, and *myVM3*) with a Standard public IP address (*myPublicIP*)in three different zones (*Zone 1*, *Zone2*, and *Zone3*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
+Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2*, and *myVM3*) with a Standard public IP address (*myPublicIP*) in three different zones (*Zone 1*, *Zone2*, and *Zone3*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
@@ -148,8 +148,8 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
        1. In the **Configure network security group** field, select **Create new**. 
        1. Type *MyNetworkSecurityGroup*, and select **OK**.
 
-   - To make the VM a part of the load balancer's backend pool, complete the following steps:
-        - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution?**, click **Yes**.
+   - To make the VM a part of the Load Balancer's backend pool, complete the following steps:
+        - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution?**, select **Yes**.
         - In **Load balancing settings**, for **Load balancing options**, select **Azure load balancer**.
         - For **Select a load balancer**, *myLoadBalancer*. 
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
@@ -159,7 +159,7 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 
 ### Create network security group rule
 
-In this section, you create a NSG rule to allow inbound connections using HTTP.
+In this section, you create a network security group rule to allow inbound connections using HTTP.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
 2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
@@ -198,19 +198,21 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
 6. Close the RDP session with *myVM1*.
 7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
 
-## Test the load balancer
+## Test the Load Balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then click **myPublicIP**.
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
       ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-To see the load balancer distribute traffic across the three VMs running your app, you can force-refresh your web browser.
+To see the Load Balancer distribute traffic across the three VMs running your app, you can force-refresh your web browser.
 
 ## Remove or add VMs from the backend pool
-You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer.
+You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM (*myVM1*) from the Load Balancer.
 
 ### Remove VM from a backend pool
+To remove *myVM1* from the backend pool, complete the following steps:
+
 1. Select **All services** in the left-hand menu, select **All resources**, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
 3. On the **myBackendPool** page, to remove *VM1* select the delete icon at the end of the row that displays *myVM1*, and then click **Save**.
@@ -224,17 +226,17 @@ To add *myVM1* back to the backend pool, complete the following steps:
 2. In the **VM1** page, under **Settings**, select **Networking**.
 3. In the **Networking** page, select the **Load balancing** tab, and then select **Add load balancing**.
 4. In the **Add load balancing** page, do the following:
-    a. For **Load balancing options**, select **Azure load balancer**.
-    b. For **Select a load balancer**, select *myLoadBalancer*.
-    c. For **Select a backend pool**, select *myBackendPool*. 
+   1. For **Load balancing options**, select **Azure load balancer**.
+   2. For **Select a load balancer**, select *myLoadBalancer*.
+   3. For **Select a backend pool**, select *myBackendPool*. 
 
 ## Clean up resources
 
-When they are no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When they are no longer needed, delete the resource group, Load Balancer, and all related resources. To do so, select the *myResouceGroupSLB* resource group that contains the Load Balancer, and then select  **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. You also removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
