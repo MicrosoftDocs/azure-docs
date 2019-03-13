@@ -47,7 +47,7 @@ $policyDefinitionID = $definition.PolicyDefinitionId
     |------|-------|
     | Subscription | Select your Azure subscription. |
     | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is *mypolicyquickstart<Date in MMDD>rg*. |
-    | Location | Select a region. For exammple, **Central US**. |
+    | Location | Select a region. For example, **Central US**. |
     | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
     | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **resourceGroup()** is a template function that retrieve the resource group. |
     | Policy Definition ID | Specify the policy definition ID you retrieved by using the PowerShell script at the beginning of this section. |
