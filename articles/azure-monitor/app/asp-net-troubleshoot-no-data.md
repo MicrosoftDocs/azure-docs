@@ -201,7 +201,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 4. Revert these changes when you are finished.
 
-### .Net Core
+### .NET Core
 
 1. Install the [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsights`
 
