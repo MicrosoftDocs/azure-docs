@@ -54,10 +54,10 @@ ms.author: radeltch
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files (ANF)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
 In the example configurations, installation commands etc., the ASCS instance is number 00, the ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
 
-This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. In the interest of brevity, we'll also refer to Azure NetApp Files as ANF. The database layer isn't covered in detail in this article.
+This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. The database layer isn't covered in detail in this article.
 
 Read the following SAP Notes and papers first:
 
@@ -89,7 +89,7 @@ Read the following SAP Notes and papers first:
 High availability(HA) for SAP Netweaver central services requires shared storage.
 To achieve that on SUSE Linux so far it was necessary to build separate highly available NFS cluster. 
 
-Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using ANF for the shared storage eliminates the need for additional [NFS cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
+Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for additional [NFS cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
 
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
@@ -130,23 +130,23 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 ## Setting up the Azure NetApp Files infrastructure 
 
 SAP NetWeaver requires shared storage for the transport and profile directory.  Before proceeding with the setup for Azure NetApp files infrastructure, familiarize yourself with the [Azure NetApp Files documentation][anf-azure-doc]. 
-Check if your selected Azure region offers ANF(Azure NetApp Files). The following link shows the availability of ANF by Azure region: [ANF Availability by Azure Region][anf-avail-matrix].
+Check if your selected Azure region offers Azure NetApp Files. The following link shows the availability of Azure NetApp Files by Azure region: [Azure NetApp Files Availability by Azure Region][anf-avail-matrix].
 
-The Azure NetApp files feature is in public preview in several Azure regions. Before deploying Azure NetApp Files, sign up for ANF preview, following the [Register for Azure NetApp files instructions][anf-register]. 
+The Azure NetApp files feature is in public preview in several Azure regions. Before deploying Azure NetApp Files, sign up for Azure NetApp Files preview, following the [Register for Azure NetApp files instructions][anf-register]. 
 
-### Deploy Azure NetApp File(ANF) resources  
+### Deploy Azure NetApp Files resources  
 
-The steps assume that you have already deployed [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Keep in mind that the ANF resources and the VMs, where the ANF resources will be mounted must be deployed in the same Azure Virtual Network.  
+The steps assume that you have already deployed [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). Keep in mind that the Azure NetApp Files resources and the VMs, where the Azure NetApp Files resources will be mounted must be deployed in the same Azure Virtual Network.  
 
-1. If you haven't done that already, request to [enroll in the Azure NetApp(ANF) preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
+1. If you haven't done that already, request to [enroll in the Azure NetApp preview](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-register).  
 
 2. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
-3. Set up ANF capacity pool, following the [instructions on how to set up ANF capacity pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
-The SAP Netweaver architecture presented in this article uses single ANF capacity pool, Premium SKU. We recommend ANF Premium SKU for SAP Netweaver application workload on Azure.  
+3. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
+The SAP Netweaver architecture presented in this article uses single Azure NetApp Files capacity pool, Premium SKU. We recommend Azure NetApp Files Premium SKU for SAP Netweaver application workload on Azure.  
 
 4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Deploy ANF volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated ANF [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Keep in mind that the ANF resources and the Azure VMs must be in the same Azure Virtual Network. For example sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. are the volume names and sapmnt<b>qas</b>, usrsap<b>qas</b>, etc. are the filepaths for the ANF volumes.  
+5. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated Azure NetApp Files [subnet](https://docs.microsoft.com/en-us/rest/api/virtualnetwork/subnets). Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network. For example sapmnt<b>QAS</b>, usrsap<b>QAS</b>, etc. are the volume names and sapmnt<b>qas</b>, usrsap<b>qas</b>, etc. are the filepaths for the Azure NetApp Files volumes.  
 
    1. volume sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. volume usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -156,26 +156,26 @@ The SAP Netweaver architecture presented in this article uses single ANF capacit
    6. volume usrsap<b>QAS</b>pas (nfs://10.1.0.5/usrsap<b>qas</b>pas)
    7. volume usrsap<b>QAS</b>aas (nfs://10.1.0.4/usrsap<b>qas</b>aas)
    
-In this example, we used ANF for all SAP Netweaver file systems to demonstrate how ANF can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . In this example <b>a-e</b> must be on ANF and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
+In this example, we used Azure NetApp Files for all SAP Netweaver file systems to demonstrate how Azure NetApp Files can be used. The SAP file systems that don't need to be mounted via NFS can also be deployed as [Azure disk storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd) . In this example <b>a-e</b> must be on Azure NetApp Files and <b>f-g</b> (that is, /usr/sap/<b>QAS</b>/D<b>02</b>, /usr/sap/<b>QAS</b>/D<b>03</b>) could be deployed as Azure disk storage. 
 
 ### Important considerations
 
-When considering ANF for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
+When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
 
-- The minimum ANF capacity pool is 4 TiB. The ANF capacity pool size must be in multiples of 4 TiB.
-- The minimum ANF volume is 100 GiB
-- ANF and all virtual machines, where ANF volumes will be mounted must be in the same Azure Virtual Network. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) isn't supported yet by ANF.
-- The selected virtual network must have a subnet, delegated to ANF.
-- ANF currently supports only NFSv3 
-- ANF offers [export policy](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
-- ANF isn't zone aware yet. Currently ANF isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
+- The minimum capacity pool is 4 TiB. The capacity pool size must be in multiples of 4 TiB.
+- The minimum volume is 100 GiB
+- Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted must be in the same Azure Virtual Network. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) isn't supported yet by Azure NetApp Files.
+- The selected virtual network must have a subnet, delegated to Azure NetApp Files.
+- Azure NetApp Files currently supports only NFSv3 
+- Azure NetApp Files offers [export policy](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
+- Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 
    > [!NOTE]
-   > Be aware that Azure NetApp Files doesn't support Virtual Network peering yet. Deploy the VMs and the ANF volumes in the same virtual network.
+   > Be aware that Azure NetApp Files doesn't support Virtual Network peering yet. Deploy the VMs and the Azure NetApp Files volumes in the same virtual network.
 
 ## Deploy Linux VMs manually via Azure portal
 
-First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
 
 1. Create a Resource Group
 1. Create a Virtual Network
@@ -202,7 +202,7 @@ In this example, the resources were deployed manually via the [Azure portal](htt
 
 ### Deploy Azure Load Balancer manually via Azure portal
 
-First you need to create the ANF volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
 
 1. Create a Load Balancer (internal)  
    1. Create the frontend IP addresses
@@ -355,7 +355,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
    
    > [!NOTE]
-   > Currently ANF supports only NFSv3. Don't omit the nfsvers=3 switch.
+   > Currently Azure NetApp Files supports only NFSv3. Don't omit the nfsvers=3 switch.
 
    
    Restart autofs to mount the new shares
@@ -364,6 +364,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
+
 
 3. **[A]** Configure SWAP file
 
@@ -754,7 +755,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
 
 In this example, SAP NetWeaver is installed on SAP HANA. You can use every supported database for this installation. For more information on how to install SAP HANA in Azure, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
-1. Run the SAP database instance installation
+* Run the SAP database instance installation
 
    Install the SAP NetWeaver database instance as root using a virtual hostname that maps to the IP address of the load balancer frontend configuration for the database.
 
