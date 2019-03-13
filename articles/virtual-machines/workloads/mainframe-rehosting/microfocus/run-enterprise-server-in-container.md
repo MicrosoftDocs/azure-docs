@@ -98,7 +98,8 @@ Now the VM is running and attached via RDP, and you are logged on.
 ```
 >   At the time of this walkthrough, the version was 18.09.0 as the following shows:
 
-     ![Version output in commmand window](media/Container_03.jpg)
+
+     ![Version output in the command windows](media/Container_03.jpg)
 
 3.  To change the directory, type:
 ```
