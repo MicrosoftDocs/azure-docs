@@ -23,7 +23,7 @@ When encoding with Azure Media Services, you can get started quickly with one of
 ## Considerations
 
 When creating custom presets, the following considerations apply:
-i
+
 * All values for height and width on AVC content must be a multiple of 4.
 * In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different from the presets with our v2 APIs, which used kilobits/second as the unit. For example, if the bitrate in v2 was specified as 128 (kilobits/second), in v3 it would be set to 128000 (bits/second).
 
@@ -130,7 +130,7 @@ In this example, we first add an AacAudio layer for the audio encoding and two H
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if a Transform with the desired name and "recipe" already exist. If it does, reuse it. 
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if one already exists. If it does, reuse it. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 
