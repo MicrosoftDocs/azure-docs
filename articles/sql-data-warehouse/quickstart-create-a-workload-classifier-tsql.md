@@ -69,7 +69,7 @@ WITH (WORKLOAD_GROUP = 'xlargerc'
 ## View existing classifiers
 
 ```sql
-select * from sys.workload_management_workload_classifiers
+SELECT * FROM sys.workload_management_workload_classifiers
 ```
 
 ## Clean up resources
@@ -80,7 +80,7 @@ DROP USER [TheCEO]
 ;
 ```
 
-You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
+You're being charged for data warehouse units and data stored in your data warehouse. These compute and storage resources are billed separately.
 
 - If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. When you're ready to work with the data, resume compute.
 - If you want to remove future charges, you can delete the data warehouse.
