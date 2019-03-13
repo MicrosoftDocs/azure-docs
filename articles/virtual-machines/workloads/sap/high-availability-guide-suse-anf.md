@@ -357,14 +357,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > [!NOTE]
    > Currently Azure NetApp Files supports only NFSv3. Don't omit the nfsvers=3 switch.
    
-   
-      Restart autofs to mount the new shares
-
-      <pre><code>
+   Restart autofs to mount the new shares
+    <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
-      </code></pre>
-
+     </code></pre>
 
 3. **[A]** Configure SWAP file
 
