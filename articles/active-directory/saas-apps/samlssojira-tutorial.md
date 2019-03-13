@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
     `https://<server-base-url>/plugins/servlet/samlsso`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [SAML SSO for Jira by resolution GmbH Client support team](https://www.resolution.de/go/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> For the Identifier, Reply URL and Sign-on URL,  substitute **\<server-base-url>** with the base URL of your Jira instance. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. If you have problems, do not hesitate to contact us at [SAML SSO for Jira by resolution GmbH Client support team](https://www.resolution.de/go/support). 
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -185,7 +185,7 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon5c.png)
 
-    a. Click **Load File** button and pick Metadata XML file you downloaded in Step 5.
+    a. Click **Select Metadata XML File** button and pick Metadata XML file you downloaded in Step 5.
 
     b. Click **Import** button.
      
