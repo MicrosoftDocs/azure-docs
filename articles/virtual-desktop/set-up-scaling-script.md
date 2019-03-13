@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Automatically scale session hosts (Preview)
+# Automatically scale session hosts
 
 For many Windows Virtual Desktop deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
 
-This sample Windows Virtual Desktop scaling script does just that, and can be used as a starting point for developing your own customized solution to automatically scale session host virtual machines in your Windows Virtual Desktop environment.
+This sample Windows Virtual Desktop scaling script does just that. This script can be your starting point to develop your own customized solution to automatically scale session host virtual machines in your Windows Virtual Desktop environment.
 
 ## How this scaling script works
 
@@ -21,11 +21,11 @@ This scaling script reads settings from a config.xml file, including the start a
 
 During peak usage time, this script checks the current number of sessions and the current running RDSH capacity for each collection. It calculates if the running RDSH servers have enough capacity to support existing sessions based on the SessionThresholdPerCPU parameter defined in the config.xml file. If not, this script starts additional RDSH servers in the collection.
 
-During the off-peak usage time, this script determines which RDSH servers should shut down based on the MinimumNumberOfRDSH parameter in the config.xml file. This script will set the RDSH servers to drain mode to prevent new sessions connecting to the hosts. If the LimitSecondsToForceLogOffUser parameter in the config.xml file is set to a non-zero positive value, this script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on an RDSH server, this script will shut down the server.
+During the off-peak usage time, this script determines which RDSH servers should shut down based on the MinimumNumberOfRDSH parameter in the config.xml file. This script will set the RDSH servers to drain mode to prevent new sessions connecting to the hosts. If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to a non-zero positive value, this script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on an RDSH server, this script will shut down the server.
 
-If the LimitSecondsToForceLogOffUser parameter in the config.xml file is set to zero, this script will allow the session configuration setting in the collection properties to handle signing off user sessions. If there are any sessions on an RDSH server, it will leave the RDSH server running. If there are no sessions, this script will shut down the RDSH server.
+If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to zero, this script will allow the session configuration setting in the collection properties to handle signing off user sessions. If there are any sessions on an RDSH server, it will leave the RDSH server running. If there aren't any sessions, this script will shut down the RDSH server.
 
-This script is designed to run periodically on the scaler VM server using Task Scheduler. You should select the appropriate time interval based on the size of your Remote Desktop Services environment, as starting and shutting down virtual machines can take some time. We recommend running the scaling script every 15 minutes.
+This script is designed to run periodically on the scaler VM server using Task Scheduler. Select the appropriate time interval based on the size of your Remote Desktop Services environment, and remember that starting and shutting down virtual machines can take some time. We recommend running the scaling script every 15 minutes.
 
 ## Prerequisites
 
@@ -39,13 +39,13 @@ The environment where you run this script must have the following things:
 
 ## Recommendations and limitations
 
-When running the scaling script, you should take the following things into account:
+When running the scaling script, keep the following things in mind:
 
-1. This scaling script can only handle one host pool per instance of the scheduled task that is running this script.
-2. The scheduled tasks that run scaling scripts must to be on a VM that is always on.
-3. Create a separate folder for each instance of the scaling script and its configuration.
-4. Accounts with multi-factor authentication are not supported. We recommend you use service principals to access the Windows Virtual Desktop service and Azure.
-5. Azure's SLA guarantee applies only to VMs in an availability set. The current version of the document describes an environment with a single VM doing the scaling, which may not meet availability requirements.
+- This scaling script can only handle one host pool per instance of the scheduled task that is running this script.
+- The scheduled tasks that run scaling scripts must be on a VM that is always on.
+- Create a separate folder for each instance of the scaling script and its configuration.
+- This script doesn't support accounts with multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure.
+- Azure's SLA guarantee applies only to VMs in an availability set. The current version of the document describes an environment with a single VM doing the scaling, which may not meet availability requirements.
 
 ## Deploy the scaling script
 
@@ -72,7 +72,7 @@ Next, you'll need to create the securely stored credentials:
     ```
     
     For example, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-4. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. This will ask you to enter Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
+4. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
     - If you use different service principals or standard account, run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet once for each account to create local stored credentials.
 5. Run **Get-StoredCredentials -List** to confirm the credentials were created successfully.
 
@@ -118,7 +118,7 @@ After configuring the configuration .xml file, you'll need to configure the Task
 
 The scaling script creates two log files, **WVDTenantScale.log** and **WVDTenantUsage.log**. The **WVDTenantScale.log** file will log the events and errors (if any) during each execution of this script.
 
-The **WVDTenantUsage.log** file will record the active number of cores and active number of virtual machines each time you execute the scaling script. You can use this information to estimate the actual usage of Microsoft Azure VMs and the cost. The file is formatted as comma separated values, with each item containing the following information:
+The **WVDTenantUsage.log** file will record the active number of cores and active number of virtual machines each time you execute the scaling script. You can use this information to estimate the actual usage of Microsoft Azure VMs and the cost. The file is formatted as comma-separated values, with each item containing the following information:
 
 >time, collection, cores, VMs
 

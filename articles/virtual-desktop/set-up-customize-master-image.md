@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Prepare and customize a master VHD image (Preview)
+# Prepare and customize a master VHD image
 
-This article will tell you how to prepare a master VHD image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them, to help set up your Windows Virtual Desktop (preview) deployment. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -19,7 +19,7 @@ Windows 10 Enterprise multi-session is available in the Azure Image Gallery. The
 
 The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
-The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we will cover in the following section.
+The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we'll cover in the following section.
 
 ### Local image creation
 
@@ -59,7 +59,7 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 This section covers how to prepare and install Office365 ProPlus, OneDrive, FSLogix, Windows Defender, and other common applications. If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 
-This section assumes you have elevated access on the VM, regardless of whether VM is provisioned in Azure or Hyper-V Manager.
+This section assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager.
 
 ### Install Office in shared computer activation mode
 
@@ -177,7 +177,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 ### Install OneDrive in per-machine mode
 
-OneDrive is normally installed per-user. In this environment it should be installed per-machine.
+OneDrive is normally installed per-user. In this environment, it should be installed per-machine.
 
 Here's how to install OneDrive in per-machine mode:
 
@@ -235,7 +235,7 @@ When configuring the file share registry key, use the file share you created in 
 
 If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment of the same.
 
-Please note that this only removes scanning of VHD and VHDX files during attachment. This won't affect real-time scanning.
+This configuration only removes scanning of VHD and VHDX files during attachment, but won't affect real-time scanning.
 
 For more detailed instructions for how to configure Windows Defender on Windows Server, see [Configure Windows Defender Antivirus exclusions on Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
 
@@ -250,7 +250,7 @@ To configure remote session policies:
 1. Navigate to **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
 2. In the panel on the right side, select the **Set time limit for active but idle Remote Desktop Services sessions** policy.
 3. After the modal window appears, change the policy option from **Not configured** to **Enabled** to activate the policy.
-4. In the drop-down menu beneath the policy option, set the desired amount of time as **4 hours**.
+4. In the drop-down menu beneath the policy option, set the amount of time to **4 hours**.
 
 You can also configure remote session policies manually by running the following commands:
 
@@ -275,7 +275,7 @@ To redirect time zones:
 4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Horizon View RDSH Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
 5. Enable the **Allow time zone redirection** setting.
 
-Alternatively, you can run this command on the master image:
+You can also run this command on the master image to redirect time zones:
 
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
@@ -283,7 +283,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### Disable Storage Sense
 
-For Windows Virtual Desktop session host that use Windows 10 Enterpise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
 ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
 
@@ -321,7 +321,7 @@ Run the following command to fix Watson crashes:
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
-Enter the following commands into the registry editor to fix 5k resolution support. You need to do this before you can enable the side-by-side stack.
+Enter the following commands into the registry editor to fix 5k resolution support. You must run the commands before you can enable the side-by-side stack.
 
 ```batch
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp]
@@ -347,15 +347,15 @@ This section only applies when the master image was created locally.
 
 The following instructions will tell you how to upload your master image into an Azure storage account. If you don’t already have an Azure storage account, follow the instructions in [this article](https://code.visualstudio.com/tutorials/static-website/create-storage) to create one.
 
-1. Convert the VM image (VHD) to Fixed if you haven’t already. If you don’t do this, you won’t be able to successfully create the image.
+1. Convert the VM image (VHD) to Fixed if you haven’t already. If you don’t convert the image to Fixed, you can't successfully create the image.
 
-2. Upload the VHD to a blob container in your storage account. You can do this quickly with the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/). To learn more about the Storage Explorer tool, see [this article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Upload the VHD to a blob container in your storage account. You can upload quickly with the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/). To learn more about the Storage Explorer tool, see [this article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
     ![A screenshot of the Microsoft Azure Storage Explorer Tool's search window. The "Upload .vhd or vhdx files as page blobs (recommended)" check box is selected.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Next, go to the Azure portal in your browser and search for “Images.” Your search should lead you to the **Create image** page, as shown in the following screenshot:
 
-    ![A screen shot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    ![A screenshot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Once you’ve created the image, you should see a notification like the one in the following screenshot:
 
