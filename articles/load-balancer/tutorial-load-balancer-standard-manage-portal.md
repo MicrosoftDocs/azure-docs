@@ -62,6 +62,7 @@ In this section, you create a virtual network, create three virtual machines for
 
 ### Create a virtual network
 1. On the top left-hand side of the Azure portal, select **Create a resource** > **Networking** > **Virtual network** and then enter these values for the virtual network:
+
     |Setting|Value|
     |---|---|
     |Name|Enter *myVNet*.|

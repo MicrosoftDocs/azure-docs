@@ -397,6 +397,7 @@ ActivityLogsRecords
 ```
 
 Query results:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |
