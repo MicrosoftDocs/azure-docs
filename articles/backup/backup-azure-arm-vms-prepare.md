@@ -151,32 +151,6 @@ You can set up the Azure Firewall to allow outbound access for network traffic t
 - [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
 - [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
 
-## Create a vault
-
-A vault stores backups and recovery points created over time, and stores backup policies associated with backed up machines. Create a vault as follows:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the **Hub** menu, select **Browse**, and type **Recovery Services**. Select **Recovery Services vaults**.
-
-    ![Typing in the box and selecting "Recovery Services vaults" in the results](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
-
-3. On the **Recovery Services vaults** menu, select **Add**.
-
-    ![Create Recovery Services Vault step 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
-
-    !["Recovery Services vaults" pane](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. In **Recovery Services vaults** >  **Name**, enter a friendly name to identify the vault.
-    - The name needs to be unique for the Azure subscription.
-    - It can contain 2 to 50 characters.
-    - It must start with a letter, and it can contain only letters, numbers, and hyphens.
-5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then click **Create**.
-    - It can take a while for the vault to be created.
-    - Monitor the status notifications in the upper-right area of the portal.
-
-    ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
-
-After your vault is created, it appears in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
-
 ## Set up storage replication
 
 By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). We recommend GRS for your primary backup, but you can use[locally-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
@@ -251,5 +225,6 @@ The initial backup will run in accordance with the schedule unless you manually 
 
 ## Next steps
 
-- Troubleshoot any issues that occur with the [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
-- [Back up Azure VMs](backup-azure-vms-first-look-arm.md)
+- [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
+- [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
+- [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.

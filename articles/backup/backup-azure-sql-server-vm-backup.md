@@ -21,7 +21,7 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-pre
 
 This solution leverages the SQL Native APIs to take backups of your SQL databases.
 
-  * Once you specify the SQL Server VM that you want to protect and query for the databases in the it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
+  * Once you specify the SQL Server VM that you want to protect and query for the databases in it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
   * This extension consists a Coordinator and a SQL plugin. While the coordinator is responsible for triggering workflows for various operations like configure backup, backup and restore, the plugin is responsible for actual data flow.
   * To be able to discover databases on this VM, Azure Backup creates the account `NT SERVICE\AzureWLBackupPluginSvc`. This account is used for backup and restore and requires SQL sysadmin permissions. Azure Backup leverages the `NT AUTHORITY\SYSTEM` account for database discovery/inquiry, so this account need to be a public login on SQL. If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md).
   * Once you trigger configure protection on the selected databases, the backup service sets up the coordinator with the backup schedules and other policy details, which the extension caches locally on the VM 
@@ -141,6 +141,5 @@ Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#ena
 
 ## Next steps
 
-- [Learn about](backup-sql-database-azure-vm.md) backing up SQL Server databases.
 - [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
 - [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
