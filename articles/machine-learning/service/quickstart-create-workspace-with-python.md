@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
 
@@ -45,7 +45,7 @@ The following Azure resources are added automatically to your workspace when the
 > Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.8.
 
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## Install the SDK
 
@@ -90,9 +90,9 @@ The instructions in this quickstart will install all the packages you need to ru
 
 ### Install the SDK
 
-1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities.  The installation takes a few minutes to finish based on the configuration of your machine.
+1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities. The installation takes a few minutes to finish based on the configuration of your machine.
 
-  ```shell
+    ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
@@ -107,6 +107,13 @@ The instructions in this quickstart will install all the packages you need to ru
     ```shell
     pip install --upgrade azureml-sdk[automl]
     ```
+
+> [!IMPORTANT]
+> In some command-line tools, you might need to add quotation marks as follows:
+>      *  'azureml-sdk[notebooks]'
+>      * 'azureml-sdk[automl]'
+>
+
 
 ## Create a workspace
 

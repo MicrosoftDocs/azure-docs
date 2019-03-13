@@ -37,7 +37,7 @@ Sort									|`SELECT name, timestamp FROM dependencies ORDER BY timestamp asc`	
 Distinct								|`SELECT DISTINCT name, type  FROM dependencies`													|<code>dependencies <br>&#124; summarize by name, type </code>
 Grouping, Aggregation					|`SELECT name, AVG(duration) FROM dependencies GROUP BY name`										|<code>dependencies <br>&#124; summarize avg(duration) by name </code>
 Column aliases, Extend					|`SELECT operation_Name as Name, AVG(duration) as AvgD FROM dependencies GROUP BY name`				|<code>dependencies <br>&#124; summarize AvgD=avg(duration) by operation_Name <br>&#124; project Name=operation_Name, AvgD</code>
-Top n recrods by measure				|`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`		|<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
+Top n records by measure				|`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`		|<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 Union									|`SELECT * FROM dependencies UNION SELECT * FROM exceptions`					 					|<code>union dependencies, exceptions</code>
 Union: with conditions					|`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions value < 5`				|<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
 Join									|`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>

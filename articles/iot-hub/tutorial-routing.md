@@ -272,7 +272,7 @@ You are going to route messages to different resources based on properties attac
 
 Now set up the routing for the storage account. You go to the Message Routing pane, then add a route. When adding the route, define a new endpoint for the route. After this is set up, messages where the **level** property is set to **storage** are written to a storage account automatically. 
 
-The data is written to blob storage in the Avro format.
+The data is written to blob storage in the Avro format by default.
 
 1. In the [Azure portal](https://portal.azure.com), click **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**. 
 
@@ -297,7 +297,9 @@ The data is written to blob storage in the Avro format.
    > 
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > The blobs are written in the Avro format.
+   > The blobs are written in the Avro format by default. You can choose to write files in JSON format. The capability to encode JSON format is in preview in all regions IoT Hub is available in, except East US, West US and West Europe. See [guidance on routing to blob storage] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover-preview). To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
    >
 
 8. Click **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.

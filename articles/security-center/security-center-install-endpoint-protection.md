@@ -56,7 +56,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
    - Installed endpoint protection providers - Lists the different providers identified by Security Center.
    - Installed endpoint protection health state - Shows the health state of VMs and computers that have an endpoint protection solution installed. The chart shows the number of VMs and computers that are healthy and the number with insufficient protection.
    - Malware detected – Shows the number of VMs and computers where Security Center is reporting detected malware.
-   - Attacked computers – Shows the number of VMs and computers where Security Center is reporting attacks by malwares.
+   - Attacked computers – Shows the number of VMs and computers where Security Center is reporting attacks by malware.
 
    At the bottom of the dashboard there is a list of endpoint protection issues which includes the following information:  
 

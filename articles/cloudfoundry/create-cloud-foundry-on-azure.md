@@ -11,7 +11,7 @@ ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018
 ms.devlang: 
-ms.service: Cloud Foundry
+ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web

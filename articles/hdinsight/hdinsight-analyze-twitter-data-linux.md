@@ -66,7 +66,7 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
 
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Use the following commands to install [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2), and other required packages:
+3. Use the following commands to install [Tweepy](https://www.tweepy.org/), [Progress bar](https://pypi.python.org/pypi/progressbar/2.2), and other required packages:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev

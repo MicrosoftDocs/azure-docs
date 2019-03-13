@@ -695,7 +695,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   MAP pdb1.test.*, TARGET pdb1.test.*;
   ```
 
-5. Set up a replicat checkpoint:
+5. Set up a replicate checkpoint:
 
   ```bash
   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt

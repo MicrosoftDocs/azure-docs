@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ---
 # Azure SQL Database and SQL Data Warehouse IP firewall rules
 
@@ -76,7 +76,7 @@ To allow applications from Azure to connect to your Azure SQL server, Azure conn
 
 ## Creating and managing IP firewall rules
 
-The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), or the [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Subsequent server-level IP firewall rules can be created and managed using these methods, and through Transact-SQL.
+The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.com/) or programmatically using [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), or the [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Subsequent server-level IP firewall rules can be created and managed using these methods, and through Transact-SQL.
 
 > [!IMPORTANT]
 > Database-level IP firewall rules can only be created and managed using Transact-SQL.
@@ -144,6 +144,8 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ## Manage server-level IP firewall rules using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 | Cmdlet | Level | Description |
 | --- | --- | --- |

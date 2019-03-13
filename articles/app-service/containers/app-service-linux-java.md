@@ -43,7 +43,7 @@ See [Application performance monitoring tools with Java apps on Azure App Servic
 
 ### SSH console access
 
-SSH connectivity to the Linux environment running your app is avaialble. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect to the Linux system through your web browser or local terminal.
+SSH connectivity to the Linux environment running your app is available. See [SSH support for Azure App Service on Linux](/azure/app-service/containers/app-service-linux-ssh-support) for full instructions to connect to the Linux system through your web browser or local terminal.
 
 ### Streaming logs
 
@@ -154,9 +154,6 @@ Follow the instructions in the [Bind an existing custom SSL certificate](/azure/
 ## Data sources
 
 ### Tomcat
-
->[!NOTE]
-> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
 
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 

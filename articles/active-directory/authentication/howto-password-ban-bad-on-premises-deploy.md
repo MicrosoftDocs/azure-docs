@@ -121,7 +121,7 @@ There are two required installers for Azure AD Password Protection that can be d
 
          ```PowerShell
          $globalAdminCredentials = Get-Credential
-         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
+         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
          ```
 
          > [!NOTE]
