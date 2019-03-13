@@ -90,7 +90,7 @@ Service Fabric application upgrades using the Service Fabric CLI use the [sfctl 
 
 | Parameter | Description |
 | --- | --- |
-| application-id  |ID of the application that is being upgraded. <br> This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '~' character. For example, if the application name is 'fabric:/myapp/app1', the application identity would be 'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
+| application-id  |ID of the application that is being upgraded. <br> This is typically the full name of the application without the 'fabric:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '\~' character. For example, if the application name is 'fabric:/myapp/app1', the application identity would be 'myapp\~app1' in 6.0+ and 'myapp/app1' in previous versions.|
 application-version |The version of the application type that the upgrade targets.|
 parameters  |A JSON encoded list of application parameter overrides to be applied when upgrading the application.|
 
