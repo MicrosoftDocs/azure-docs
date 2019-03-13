@@ -46,11 +46,11 @@ The following table lists the major features of SQL Server and provides informat
 | [Built-in functions](https://docs.microsoft.com/sql/t-sql/functions/functions) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Change data capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No | Yes |
 | [Change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Yes |Yes |
-| [Collation - database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Yes | Yes (not in RESTORE statement) |
+| [Collation - database](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Yes | Yes |
 | [Collation - server/instance](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | No | Yes, in [public preview](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, and Business Critical tiers](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes - see [CLR differences](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | Yes |
+| [Contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Yes | No [due to defect in RESTORE including point-in-time RESTORE](sql-database-managed-instance-transact-sql-information.md#cannot-restore-contained-database) |
 | [Contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Yes | Yes |
 | [Control of flow language keywords](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Yes | Yes |
 | [Cross-database queries](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](sql-database-elastic-query-overview.md) | Yes, plus [Elastic queries](sql-database-elastic-query-overview.md) |
