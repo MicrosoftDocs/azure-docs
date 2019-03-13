@@ -32,7 +32,7 @@ ms.custom: include file
 
 5. After the deployment is finished, select **Settings** > **Access Keys**. Make a note of either the primary read-only or primary read-write key connection string. You use this connection string later to configure your application to communicate with the app configuration store you created.
 
-6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs.
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
