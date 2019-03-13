@@ -91,7 +91,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**meterDetails** | Detailed information about the use. |
 |**nextLink**| When set, specifies a URL for the next "page" of details. Blank when the page is the last one. |
 
-This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) for a complete description of each response field.
+This example is abbreviated; see [List usage details](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) for a complete description of each response field.
 
 Other status codes indicate error conditions. In these cases, the response object explains why the request failed.
 

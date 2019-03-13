@@ -100,4 +100,4 @@ To add or update tax ID, visit [**Profile** in Azure Account Center](https://acc
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).

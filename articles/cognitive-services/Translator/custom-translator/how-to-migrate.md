@@ -25,10 +25,6 @@ These actions are performed during migration:
 >[!Note]
 For a training to succeed, Custom Translator requires a minimum of 10,000 unique extracted sentences. Custom Translator can't conduct a training with fewer than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
-## Enable account migration
-
-In order to use the Migration Tool, you'll need to have your Hub account migration enabled. To do this, email [custommt@microsoft.com](mailto:custommt@microsoft.com) with a list of all live id accounts that you would like enabled. These accounts should be the email addresses that you log in with.
-
 ## Find Custom Translator Workspace ID
 
 To migrate [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace, you need destination Workspace ID in Custom Translator. The destination workspace in Custom Translator is where all your Hub workspaces and projects shall be migrated to.

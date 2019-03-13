@@ -139,7 +139,7 @@ For more information, see the following documents:
 ### How do I enable WAD logging for Cloud Services?
 You can enable Windows Azure Diagnostics (WAD) logging through following options:
 1. [Enable from Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Enable through .Net code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Enable through .NET code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.

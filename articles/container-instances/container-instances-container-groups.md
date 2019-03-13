@@ -7,10 +7,10 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/20/2018
 ms.author: danlep
-ms.custom:
----
+ms.custom: mvc
+
 
 # Container groups in Azure Container Instances
 

@@ -122,7 +122,7 @@ After determining your target cluster VM size, scale, and type, check the curren
 
 You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## Next steps
 
