@@ -33,6 +33,12 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "quickstart-templates",
+      "url": "https://github.com/Azure/azure-quickstart-templates",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",

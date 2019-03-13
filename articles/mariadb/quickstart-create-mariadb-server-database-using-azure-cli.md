@@ -212,7 +212,7 @@ To connect to the server by using the mysql command-line tool:
   | Connection Method | **Standard (TCP/IP)** | Use the TCP/IP protocol to connect to Azure Database for MariaDB |
   | Hostname | **mydemoserver.mariadb.database.azure.com** | The server name that you noted earlier. |
   | Port | **3306** | The default port for Azure Database for MariaDB. |
-  | Username | **myadmin@mydemoserver** | The server admin login that you noted earlier. |
+  | Username | **myadmin\@mydemoserver** | The server admin login that you noted earlier. |
   | Password | *your password* | Use the admin account password that you set up earlier. |
 
 3. To check whether all parameters are configured correctly, select **Test Connection**.

@@ -3,9 +3,9 @@ title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
 description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
+ms.date: 03/13/2019
+ms.author: monhaber
 
 ---
 # File Integrity Monitoring in Azure Security Center
@@ -32,14 +32,13 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
 > [!NOTE]
-> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [log analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
->
+The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
 >
 
-> [!NOTE]
-> FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type Solution. If you remove the **Change Tracking** resource, you disable the File Integrity Monitoring feature in Security Center.
->
+FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) for Azure Change Tracking.
+
+> [!NOTE] 
+If you remove the **Change Tracking** resource, you will also disable the File Integrity Monitoring feature in Security Center.
 >
 
 ## Which files should I monitor?
@@ -136,7 +135,7 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
   ![Workspace configuration][12]
 
-2. Select an identityprotection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
+2. Select an identity protection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
 
   ![Edit or change tracking][13]
 
