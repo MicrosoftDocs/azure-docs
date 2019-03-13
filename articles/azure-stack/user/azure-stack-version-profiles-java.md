@@ -121,6 +121,8 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
 
+#### Windows
+
 1. Export the Azure Stack Self-Signed certificate to your desktop
 
 1. In a cmd shell, change directory to %JAVA_HOME%\bin
