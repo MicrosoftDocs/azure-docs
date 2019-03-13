@@ -523,7 +523,7 @@ A Managed Instance places verbose information in error logs and many of them are
 
 ### Transaction Scope on two databases within the same instance isn't supported
 
-`TransactionScope` class in .Net doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
+`TransactionScope` class in .NET doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
 
 ```C#
 using (var scope = new TransactionScope())
