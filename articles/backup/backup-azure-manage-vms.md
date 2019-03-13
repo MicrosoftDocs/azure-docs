@@ -64,7 +64,7 @@ To manage a backup policy:
 
     ![View the Backup Items blade](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-4. From the vault item's dashboard, you can select backup policy,
+4. From the vault item's dashboard, you can select a backup policy.
 
    * To switch policies, select a different policy and then select **Save**. The new policy is immediately applied to the vault.
 

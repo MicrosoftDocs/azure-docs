@@ -32,6 +32,8 @@ If you use security questions, we recommend using them in conjunction with anoth
 
 >If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
+>Administrator accounts are not allowed to use Security Questions as a password reset method. If you are logged in as an admin level account you will not see these options.
+
 ### To set up your security questions
 
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
