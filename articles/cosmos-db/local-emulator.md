@@ -12,29 +12,29 @@ ms.author: dech
 
 The Azure Cosmos Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos Emulator, you can switch to using an Azure Cosmos account in the cloud.
 
-You can develop using Azure Cosmos Emulator with [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api) and [Table](local-emulator.md#table-api) API accounts. However at this time the Data Explorer view in the emulator fully supports clients for SQL API only. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
+You can develop using Azure Cosmos Emulator with [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api) and [Table](local-emulator.md#table-api) API accounts. However at this time the Data Explorer view in the emulator fully supports clients for SQL API only. 
 
 ## How the emulator works
 
-The Azure Cosmos Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON items, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
+The Azure Cosmos Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
 While emulation of the Azure Cosmos DB service is faithful, the emulator's implementation is different than the service. For example, the emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not applicable.
 
 You can migrate data between the Azure Cosmos Emulator and the Azure Cosmos DB service by using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-You can run Azure Cosmos Emulator on Windows Docker container, see the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) for the docker pull command and [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the emulator source code.
+You can run Azure Cosmos Emulator on the Windows Docker container, see the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) for the docker pull command and [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the emulator source code.
 
 ## Differences between the emulator and the service
 
-Because the Azure Cosmos Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
+Because the Azure Cosmos Emulator provides an emulated environment running on the local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos account in the cloud:
 
 * Currently Data Explorer in the emulator supports clients for SQL API. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 * The Azure Cosmos Emulator supports only a single fixed account and a well-known master key. Key regeneration is not possible in the Azure Cosmos Emulator, however the default key can be changed using the command line option.
 * The Azure Cosmos Emulator is not a scalable service and will not support a large number of containers.
-* The Azure Cosmos Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
-* The Azure Cosmos Emulator does not simulate [multi-region replication](distribute-data-globally.md).
-* As your copy of the Azure Cosmos Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB, you should use the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
-* Using the Azure Cosmos Emulator, by default, you can create up to 25 single partition containers (only supported using Azure Cosmos DB SDKs) or 5 partitioned containers. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
+* The Azure Cosmos Emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md).
+* The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).
+* As your copy of the Azure Cosmos Emulator might not always be up-to-date with the most recent changes in the Azure Cosmos DB service, you should refer to the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
+* When using the Azure Cosmos Emulator, by default, you can create up to 25 single partition containers (only supported using Azure Cosmos DB SDKs) or 5 partitioned containers. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
 
 ## System requirements
 
@@ -117,7 +117,7 @@ DocumentClient client = new DocumentClient(
 
 ### Azure Cosmos DB's API for MongoDB
 
-If you're using [Azure Cosmos DB wire protocol support for MongoDB](mongodb-introduction.md), use the following connection string:
+If you're using [Azure Cosmos DB for MongoDB](mongodb-introduction.md), use the following connection string:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -146,9 +146,9 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 Start emulator from an administrator command prompt with “/EnableCassandraEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`.
 
-* Install Python 2.7
+* [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* Install Cassandra CLI/CQLSH
+* [Install Cassandra CLI/CQLSH](http://cassandra.apache.org/download/)
 
 * Run the following commands in a regular command prompt window:
 
@@ -176,7 +176,7 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* Install apache-tinkerpop-gremlin-console-3.3.4
+* [Install apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
 
 * In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key choose "/name"
 
@@ -277,7 +277,7 @@ If you attempt to create a container after the current partition count has been 
 Please do not hesitate to email askcosmosdb@microsoft.com at any time or for any reason. 
 ActivityId: 12345678-1234-1234-1234-123456789abc"
 
-To change the number of container available to the Azure Cosmos Emulator, do the following:
+To change the number of containers available in the Azure Cosmos Emulator, do the following:
 
 1. Delete all local Azure Cosmos Emulator data by right-clicking the **Azure Cosmos DB Emulator** icon on the system tray, and then clicking **Reset Data…**.
 2. Delete all emulator data in this folder `%LOCALAPPDATA%\CosmosDBEmulator`.
