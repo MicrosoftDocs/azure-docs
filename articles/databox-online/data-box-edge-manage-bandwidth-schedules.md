@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Edge manage users | Microsoft Docs 
+title: Azure Data Box Edge manage bandwidth schedules | Microsoft Docs 
 description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Data Box Edge.
 services: databox
 author: alkohli
@@ -17,7 +17,7 @@ This article describes how to manage users on your Azure Data Box Edge. Bandwidt
 You can add, modify, or delete the bandwidth schedules for your Data Box Edge via the Azure portal.
 
 > [!IMPORTANT]
-> - Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
+> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 In this article, you learn how to:
 

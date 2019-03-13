@@ -87,3 +87,7 @@ You can shut down or restart your physical device using the local web UI. We rec
 
 > [!NOTE]
 > If you shut down the physical device, you will need to push the power button on the device to turn it on.
+
+## Next steps
+
+- Learn how to [Manage shares](data-box-edge-manage-shares.md).
