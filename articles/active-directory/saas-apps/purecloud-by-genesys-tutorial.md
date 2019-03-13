@@ -101,6 +101,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
     ![PureCloud by Genesys Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL as per your region:
+
 	| |
 	|--|
 	| `https://login.mypurecloud.com/saml` |
@@ -110,6 +111,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 	| `https://login.mypurecloud.au/saml` |
 
     b. In the **Reply URL** text box, type a URL as per your region:
+
 	| |
 	|--|
     | `https://login.mypurecloud.com/saml` |
@@ -123,6 +125,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
     ![PureCloud by Genesys Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL as per your region:
+	
 	| |
 	|--|
 	| `https://login.mypurecloud.com` |
