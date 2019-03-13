@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
@@ -48,7 +48,7 @@ You can also import modules from the PowerShell Gallery directly from your Autom
 
 ## Internal cmdlets
 
-The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. Additionally, the internal cmdlets allow you to retrieve secrets from encrypted **Variable** values, **Credentials**, and encrypted **Connection** fields. These cmdlets do not require you to implicitly connect to Azure when using them. This is beneficial for scenarios where you have a connection, such as a Run As Account that you need to use to authenticate to Azure.
+The following is a listing of cmdlets in the internal `Orchestrator.AssetManagement.Cmdlets` module that is imported into every Automation Account. These cmdlets are accessible in your runbooks and DSC configurations and allow you to interact with your assets within your Automation Account. Additionally, the internal cmdlets allow you to retrieve secrets from encrypted **Variable** values, **Credentials**, and encrypted **Connection** fields. The Azure PowerShell cmdlets are not able to retrieve these secrets. These cmdlets do not require you to implicitly connect to Azure when using them. This is beneficial for scenarios where you have a connection, such as a Run As Account that you need to use to authenticate to Azure.
 
 |Name|Description|
 |---|---|
