@@ -40,10 +40,11 @@ The following example shows how to create a container in a new storage account f
     az login
     ```
     
-1. Next, set your subscription, then create a resource group and a storage account within that resource group: 
+1. Specify your desired subscription. Create a resource group using [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). Create a storage account within that resource group using [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create): 
 
     ```azurecli
     az account set --subscription <subscription-id>
+
     az group create \
         --name sample-resource-group-cli \
         --location eastus
@@ -103,7 +104,7 @@ The following example shows how to create a container in a new storage account f
       -Location $location `
     ```
 
-1. Get the storage account context that specifies the new storage account. When acting on a storage account, you can reference the context instead of repeatedly passing in the credentials. Include the `-UseConnectedAccount` parameter to call subsequent data operations using your Azure AD credentials.
+1. Get the storage account context that specifies the new storage account by calling [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). When acting on a storage account, you can reference the context instead of repeatedly passing in the credentials. Include the `-UseConnectedAccount` parameter to call any subsequent data operations using your Azure AD credentials:
 
     ```powershell
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
@@ -114,11 +115,11 @@ The following example shows how to create a container in a new storage account f
     > [!IMPORTANT]
     > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
 
-1. Create a container. Because this call uses the context created in the previous steps, the container is created using your Azure AD credentials. 
+1. Create a container by calling [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Because this call uses the context created in the previous steps, the container is created using your Azure AD credentials. 
 
     ```powershell
     $containerName = "sample-container"
-    new-AzStorageContainer -Name $containerName -Context $ctx
+    New-AzStorageContainer -Name $containerName -Context $ctx
     ```
 
 ## Next steps
@@ -126,4 +127,3 @@ The following example shows how to create a container in a new storage account f
 - To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
 - To learn about using managed identities for Azure resources with Azure Storage, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).
-- For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
