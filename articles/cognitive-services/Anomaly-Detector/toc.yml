@@ -16,15 +16,19 @@
           href: quickstarts/find-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/find-data-anomalies-python.md
-- name: How-to/identify-anomalies.md
-  items:
-    - name: Detect anomalies in your data
-    href: how-to/
 - name: Tutorials
   items:
     - name: Visualize Anomalies Using Python.md
       href: ./tutorials/visualize-anomalies-using-python.md
-- name: How-to guides
+- name: How-to
   items:
-    - name: Identifying Anomalies
+    - name: Identify anomalies in your data
       href: how-to/identify-anomalies.md
+    - name: Install and use container images
+      href: how-to/install-and-anomaly-detector-containers.md
+    - name: Configure a container image
+      href: how-to/configure-anomaly-detector-containers.md
+- name: Concepts
+  items: 
+    - name: Best Practices
+    - href: concepts/anomaly-detection-best-practices.md
