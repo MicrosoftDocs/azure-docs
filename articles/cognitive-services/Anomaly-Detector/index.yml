@@ -28,16 +28,16 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is the Anomaly Detector API?
-        - href: /azure/cognitive-services/anomaly-detector/quickstarts/find-data-anomalies-batch-csharp
-          html: <p>Find anomalies throughout your time series data by submitting a batch of data points.</p>
+        - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+          html: <p>Optimize your anomaly detection results by using best practices with the API</p>
           image:
             src: ../media/index/i_guidelines.svg
-          title: Detect anomalies for a batch of data points 
-        - href: /azure/cognitive-services/anomaly-detector/quickstarts/find-data-anomalies-streaming-csharp
-          html: <p>Use your data set's previous points to find anomalies as they occur.</p>
+          title: Best practices when using the Anomaly Detector API
+        - href: /azure/cognitive-services/anomaly-detector/how-to/install-and-use-anomaly-detector-containers
+          html: <p>Use the Anomaly Detector API locally or in the cloud with Docker containers.</p>
           image:
             src: ../media/index/i_guidelines.svg
-          title: Continusouly detect anomalies on streaming data
+          title: Install and use an Anomaly Detector Docker container
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
