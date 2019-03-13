@@ -39,6 +39,8 @@ After the feature has been running in audit mode for a reasonable period, you ca
 
 * All domain controllers that get the DC Agent service for Azure AD password protection installed must run Windows Server 2012 or later.
 * All machines that get the proxy service for Azure AD password protection installed must run Windows Server 2012 R2 or later.
+* All machines where the Azure AD Password Protection Proxy service will be installed must have .NET 4.7 installed.
+  .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * All machines, including domain controllers, that get Azure AD password protection components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for password protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service. By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
 * All machines that host the proxy service must have network access to the following endpoints:
@@ -73,15 +75,15 @@ There are two required installers for Azure AD password protection. They're avai
    * You can run the proxy service on a domain controller for testing. But that domain controller then requires internet connectivity, which can be a security concern. We recommend this configuration for testing only.
    * We recommend at least two proxy servers for redundancy. See [High availability](howto-password-ban-bad-on-premises-deploy.md#high-availability).
 
-2. Install the proxy service by using the AzureADPasswordProtectionProxySetup.msi package.
-   * The installation doesn't require a restart. You can automate it by using standard MSI procedures. For example:
+1. Install the  Azure AD Password Protection Proxy service using the `AzureADPasswordProtectionProxySetup.exe` software installer.
+   * The software installation does not require a reboot. The software installation may be automated using standard MSI procedures, for example:
 
-     `msiexec.exe /i AzureADPasswordProtectionProxySetup.msi /quiet /qn`
+      `AzureADPasswordProtectionProxySetup.exe /quiet`
 
       > [!NOTE]
       > The Windows Firewall service must be running before you install the AzureADPasswordProtectionProxySetup.msi package to avoid an installation error. If Windows Firewall is configured to not run, the workaround is to temporarily enable and run the Firewall service during the installation. The proxy software has no specific dependency on Windows Firewall after installation. If you're using a third-party firewall, it must still be configured to satisfy the deployment requirements. These include allowing inbound access to port 135 and the proxy RPC server port. See [Deployment requirements](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
 
-3. Open a PowerShell window as an administrator.
+1. Open a PowerShell window as an administrator.
    * The password protection proxy software includes a new PowerShell module, *AzureADPasswordProtection*. The following steps run various cmdlets from this PowerShell module. Import the new module as follows:
 
       ```PowerShell
@@ -94,7 +96,7 @@ There are two required installers for Azure AD password protection. They're avai
 
      The result should show a **Status** of "Running."
 
-4. Register the proxy.
+1. Register the proxy.
    * After step 3 is completed, the proxy service is running on the machine. But the service doesn't yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required:
 
      `Register-AzureADPasswordProtectionProxy`
@@ -138,7 +140,7 @@ There are two required installers for Azure AD password protection. They're avai
    > [!TIP]
    > There might be a noticeable delay before completion the first time that this cmdlet is run for a specific Azure tenant. Unless a failure is reported, don't worry about this delay.
 
-5. Register the forest.
+1. Register the forest.
    * You must initialize the on-premises Active Directory forest with the necessary credentials to communicate with Azure by using the `Register-AzureADPasswordProtectionForest` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant. It also requires on-premises Active Directory domain administrator privileges in the forest root domain. This step is run once per forest.
 
       The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes.
@@ -181,9 +183,9 @@ There are two required installers for Azure AD password protection. They're avai
 
    For `Register-AzureADPasswordProtectionForest` to succeed, at least one domain controller running Windows Server 2012 or later must be available in the proxy server's domain. But the DC Agent software doesn't have to be installed on any domain controllers before this step.
 
-6. Configure the proxy service for password protection to communicate through an HTTP proxy.
+1. Configure the proxy service for password protection to communicate through an HTTP proxy.
 
-   If your environment requires the use of a specific HTTP proxy to communicate with Azure, use this method: Create a *proxyservice.exe.config* file in the %ProgramFiles%\Azure AD Password Protection Proxy\Service folder. Include the following content:
+   If your environment requires the use of a specific HTTP proxy to communicate with Azure, use this method: Create a *AzureADPasswordProtectionProxy.exe.config* file in the %ProgramFiles%\Azure AD Password Protection Proxy\Service folder. Include the following content:
 
       ```xml
       <configuration>
@@ -213,11 +215,11 @@ There are two required installers for Azure AD password protection. They're avai
 
    If your HTTP proxy is configured to us an authorization policy, you must grant access to the Active Directory computer account of the machine that hosts the proxy service for password protection.
 
-   We recommend that you stop and restart the proxy service after you create or update the proxyservice.exe.config file.
+   We recommend that you stop and restart the proxy service after you create or update the *AzureADPasswordProtectionProxy.exe.config* file.
 
    The proxy service doesn't support the use of specific credentials for connecting to an HTTP proxy.
 
-7. Optional: Configure the proxy service for password protection to listen on a specific port.
+1. Optional: Configure the proxy service for password protection to listen on a specific port.
    * The DC Agent software for password protection on the domain controllers uses RPC over TCP to communicate with the proxy service. By default, the proxy service listens on any available dynamic RPC endpoint. But you can configure the service to listen on a specific TCP port, if this is necessary because of networking topology or firewall requirements in your environment.
       * <a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
          ```PowerShell
@@ -250,15 +252,15 @@ There are two required installers for Azure AD password protection. They're avai
 
 ### Install the DC Agent service
 
-   Install the DC Agent service for password protection by using the AzureADPasswordProtectionDCAgent.msi package.
+   Install the DC Agent service for password protection by using the `AzureADPasswordProtectionDCAgentSetup.msi` package.
 
-   The software installation, or uninstallation, requires a restart. This is because password filter DLLs are only loaded or unloaded by a restart.
+   The software installation, or un-installation, requires a restart. This is because password filter DLLs are only loaded or unloaded by a restart.
 
-   You can install the DC Agent service on a machine that's not yet a domain-controller. In this case, the service will start and run but remain inactive until the machine is promoted to domain controller.
+   You can install the DC Agent service on a machine that's not yet a domain controller. In this case, the service will start and run but remain inactive until the machine is promoted to be a domain controller.
 
    You can automate the software installation by using standard MSI procedures. For example:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn` 
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 
    > [!WARNING]
    > The example msiexec command here causes an immediate reboot. To avoid that, use the `/norestart` flag.
