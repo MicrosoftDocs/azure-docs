@@ -197,7 +197,7 @@ The expression language is VBA (Visual Basic for Applications), so people with e
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL
