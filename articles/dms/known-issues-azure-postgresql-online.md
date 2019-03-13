@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
+ms.date: 03/12/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for PostgreSQL

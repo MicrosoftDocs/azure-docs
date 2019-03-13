@@ -5,7 +5,7 @@ services: storage
 author: roygara
 
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues

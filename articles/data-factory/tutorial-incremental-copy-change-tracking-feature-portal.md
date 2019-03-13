@@ -256,7 +256,7 @@ In this step, you create a dataset to represent the data that is copied from the
 
     1. Select **AzureStorageLinkedService** for **Linked service**.
     2. Enter **adftutorial/incchgtracking** for **folder** part of the **filePath**.
-    3. Enter **@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
+    3. Enter **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
 
        ![Sink dataset - connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 

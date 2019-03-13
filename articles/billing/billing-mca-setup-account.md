@@ -43,7 +43,7 @@ Before you start the setup, we recommend you do the following:
 - **Understand changes to your billing administrators' access**
   - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account.[Understand changes to their access](#understand-changes-to-your-billing-administrators-access).
 - **View Enterprise Agreement features that are replaced by the new account**
-  - View features of the Enterprise Agreement enrollment that are [replaced by features in the new account](#review-features-replaced-by-the-new-billing-account).
+  - View features of the Enterprise Agreement enrollment that are replaced by features in the new account.
 - **View answers to most common questions**
   - View [additional information](#additional-information) to learn more about the setup.
 

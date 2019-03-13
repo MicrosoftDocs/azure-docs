@@ -5,7 +5,7 @@ services: storage
 author: alkohli
 
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli

@@ -10,19 +10,19 @@ ms.author: dech
 ---
 # Use the Azure Cosmos Emulator for local development and testing
 
-|**Binaries**|[Download MSI](https://aka.ms/cosmosdb-emulator)|
-|**Docker**|[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)|
-|**Docker source** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
-
 The Azure Cosmos Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos Emulator, you can switch to using an Azure Cosmos account in the cloud.
 
-At this time the Data Explorer in the emulator only fully supports clients for SQL API. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
+You can develop using Azure Cosmos Emulator with [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api) and [Table](local-emulator.md#table-api) API accounts. However at this time the Data Explorer view in the emulator fully supports clients for SQL API only. The Data Explorer view and operations for Azure Cosmos DB APIs such as MongoDB, Table, Graph, and Cassandra APIs are not fully supported.
 
 ## How the emulator works
 
 The Azure Cosmos Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON items, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
 While emulation of the Azure Cosmos DB service is faithful, the emulator's implementation is different than the service. For example, the emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not applicable.
+
+You can also migrate data between the Azure Cosmos Emulator and the Azure Cosmos DB service by using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
+
+You can also run Azure Cosmos Emulator on Windows Docker container, see the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) for the docker pull command and [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the emulator source code.
 
 ## Differences between the emulator and the service
 
@@ -34,6 +34,7 @@ Because the Azure Cosmos Emulator provides an emulated environment running on a 
 * The Azure Cosmos Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos Emulator does not simulate [multi-region replication](distribute-data-globally.md).
 * As your copy of the Azure Cosmos Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB, you should use the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
+* Using the Azure Cosmos Emulator, by default, you can create up to 25 single partition containers (only supported using Azure Cosmos DB SDKs) or 5 partitioned containers. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
 
 ## System requirements
 
@@ -106,10 +107,9 @@ To enable network access for the first time the user should shut down the emulat
 Once you have the Azure Cosmos Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos Emulator also includes a built-in Data Explorer that lets you create containers for SQL API or Cosmos DB for Mongo DB API, and view and edit items without writing any code.
 
 ```csharp
-    // Connect to the Azure Cosmos Emulator running locally
-    DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:8081"),
-        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+// Connect to the Azure Cosmos Emulator running locally
+DocumentClient client = new DocumentClient(
+   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -118,7 +118,7 @@ Once you have the Azure Cosmos Emulator running on your desktop, you can use any
 If you're using [Azure Cosmos DB wire protocol support for MongoDB](mongodb-introduction.md), use the following connection string:
 
 ```bash
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
+mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 ```
 
 ### Table API
@@ -130,13 +130,14 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using CloudTable = Microsoft.WindowsAzure.Storage.Table.CloudTable;
 using CloudTableClient = Microsoft.WindowsAzure.Storage.Table.CloudTableClient;
-                string connectionString =
-                                "DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;";
-                CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
-                CloudTableClient tableClient = account.CreateCloudTableClient();
-                CloudTable table = tableClient.GetTableReference("testtable");
-                table.CreateIfNotExists();
-                table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
+
+string connectionString = "DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;";
+
+CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
+CloudTableClient tableClient = account.CreateCloudTableClient();
+CloudTable table = tableClient.GetTableReference("testtable");
+table.CreateIfNotExists();
+table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowKey")));
 ```
 
 ### Cassandra API
@@ -148,11 +149,14 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 * Install Cassandra CLI/CQLSH
 
 * Run the following commands in a regular command prompt window:
-  * set Path=c:\Python27;%Path%
-  * cd /d C:\sdk\apache-cassandra-3.11.3\bin
-  * set SSL_VERSION=TLSv1_2
-  * set SSL_VALIDATE=false
-  * cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+
+  ```bash
+  set Path=c:\Python27;%Path%
+  cd /d C:\sdk\apache-cassandra-3.11.3\bin
+  set SSL_VERSION=TLSv1_2
+  set SSL_VALIDATE=false
+  cqlsh localhost 10350 -u localhost -p C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw== --ssl
+  ```
 
 * In the CQLSH shell, run the following commands to connect to the Cassandra endpoint:
 
@@ -171,12 +175,16 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * Install apache-tinkerpop-gremlin-console-3.3.4
-* In the emulator’s Data Explorer create a database “db1” and a collection “coll1”; for the partition key choose “/name”
-* In a regular command prompt window:
 
-  * cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
-  * copy /y conf\remote.yaml conf\remote-localcompute.yaml
-  * notepad.exe conf\remote-localcompute.yaml
+* In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key choose "/name"
+
+* Run the following commands in a regular command prompt window:
+
+  ```bash
+  cd /d C:\sdk\apache-tinkerpop-gremlin-console-3.3.4-bin\apache-tinkerpop-gremlin-console-3.3.4
+  
+  copy /y conf\remote.yaml conf\remote-localcompute.yaml
+  notepad.exe conf\remote-localcompute.yaml
     hosts: [localhost]
     port: 8901
     username: /dbs/db1/colls/coll1
@@ -185,19 +193,20 @@ Start emulator from an administrator command prompt with “/EnableGremlinEndpoi
     enableSsl: false}
     serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
     config: { serializeResultToString: true  }}
-  * bin\gremlin.bat
+
+  bin\gremlin.bat
+  ```
+
 * In the Gremlin shell run the following commands to connect to the Gremlin endpoint:
 
+  ```bash
   :remote connect tinkerpop.server conf/remote-localcompute.yaml
   :remote console
   :> g.V()
   :> g.addV('person1').property(id, '1').property('name', 'somename1')
   :> g.addV('person2').property(id, '2').property('name', 'somename2')
   :> g.V()
-
-You can also migrate data between the Azure Cosmos Emulator and the Azure Cosmos DB service using the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
-
-Using the Azure Cosmos Emulator, by default, you can create up to 25 single partition containers (only supported using Azure Cosmos SDKs) or 5 partitioned containers. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
+  ```
 
 ## Export the SSL certificate
 

@@ -128,8 +128,8 @@ Azure Cosmos item supports the following operations that can be performed using 
 
 You can now proceed to learn how to provision throughput on Azure Cosmos account or see other concepts:
 
-* [How to configure provisioned throughput on a Azure Cosmos database](how-to-provision-database-throughput.md)
-* [How to configure provisioned throughput on a Azure Cosmos container](how-to-provision-container-throughput.md)
+* [How to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md)
+* [How to configure provisioned throughput on an Azure Cosmos container](how-to-provision-container-throughput.md)
 * [Logical partitions](partition-data.md)
 * [How to configure TTL on Azure Cosmos container](how-to-time-to-live.md)
 * [How to build reactive applications using Change Feed](change-feed.md)

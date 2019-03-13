@@ -148,9 +148,6 @@
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
     maintainContext: true
-  - name: High performance computing
-    href: ../virtual-machines/windows/high-performance-computing.md
-    maintainContext: true
   - name: Deployment considerations
     items:
     - name: vCPU quotas

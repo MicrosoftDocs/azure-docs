@@ -91,7 +91,7 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 ##### Version 2.x
 
 ```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
