@@ -96,7 +96,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## Handle the response
 
-Next, let's add some code to parse the response and print the results. The `name` and `url` for the first web page, image, news article, and video are printed if present in the response object.
+Next, let's add some code to parse the response and print the results. The `Name` and `Url` for the first web page, image, news article, and video are printed if present in the response object.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -229,7 +229,7 @@ Now that you've made your first call to the Bing Web Search API, let's look at a
 
 ### Limit the number of results returned by Bing
 
-This sample uses the `count` and `offset` parameters to limit the number of results returned for "Best restaurants in Seattle". The `name` and `URL` for the first result are printed.
+This sample uses the `count` and `offset` parameters to limit the number of results returned for "Best restaurants in Seattle". The `Name` and `Url` for the first result are printed.
 
 1. Add this code to your console project:
 
@@ -288,7 +288,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
 
 ### Filter for news
 
-This sample uses the `response_filter` parameter to filter search results. The search results returned are limited to news articles for "Microsoft". The `name` and `URL` for the first result are printed.
+This sample uses the `response_filter` parameter to filter search results. The search results returned are limited to news articles for "Microsoft". The `Name` and `Url` for the first result are printed.
 
 1. Add this code to your console project:
 
@@ -351,7 +351,7 @@ This sample uses the `response_filter` parameter to filter search results. The s
 
 ### Use safe search, answer count, and the promote filter
 
-This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results for "Music Videos". The `name` and `URL` for the first result are displayed.
+This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results for "Music Videos". The `Name` and `ContentUrl` for the first result are displayed.
 
 1. Add this code to your console project:
 
