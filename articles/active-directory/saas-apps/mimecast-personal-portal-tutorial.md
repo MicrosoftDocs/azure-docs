@@ -263,7 +263,7 @@ You need to register a domain before you can create users.
    
     ![Save](./media/mimecast-personal-portal-tutorial/ic795006.png "Save")
    
-    a. In the **Email Address** textbox, type **Email Address** of the user as **Brittasimon\@contoso.com**.
+    a. In the **Email Address** textbox, type **Email Address** of the user as **BrittaSimon\@contoso.com**.
 	
 	b. In the **Global Name** textbox, type the **username** as **BrittaSimon**.
 

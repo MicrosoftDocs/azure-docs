@@ -256,7 +256,7 @@ In order to enable Azure AD users to log in to Druva, they must be provisioned i
    
 	![Create NewUser](./media/druva-tutorial/ic795099.png "Create NewUser")
    
-    a. In the **Email address** textbox, enter the email of user like **Brittasimon\@contoso.com**.
+    a. In the **Email address** textbox, enter the email of user like **brittasimon\@contoso.com**.
    
     b. In the **Name** textbox, enter the name of user like **BrittaSimon**.
    
