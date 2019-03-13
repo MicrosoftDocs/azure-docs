@@ -4,7 +4,7 @@ description: This article describes how add and manage VMware vCenter for disast
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/13/2019
 ms.author: ramamill
 
 ---
@@ -67,5 +67,41 @@ Modify the credentials used to connect to the vCenter server or ESXi host as fol
 
   ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
+## Modify vCenter IP address, port
+
+1. Sign in to Azure Portal.
+2. Navigate to **Recovery Services vault** > **Site Recovery Infrastructure** > **Configuration Servers**.
+3. Click on respective configuration server to which the vCenter is assigned to.
+4. Under **vCenter servers** section, click on the respective vCenter.
+5. On vCenter summary page, update the IP address/port of vCenter in respective fields and save.
+
+![Add_IP_new_vCenter](media/vmware-azure-manage-vcenter/Add_IP.png)
+
+6. For changes to become effective wait for 15 minutes or [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+## Migrate ALL protected virtual machines to a new vCenter
+
+For migration of all virtual machines to the new vCenter, do not add another vCenter account. This can lead to duplicate entries. Just update the IP address of new vCenter by following the guidelines below.
+
+1. Sign in to Azure Portal.
+2. Navigate to **Recovery Services vault** > **Site Recovery Infrastructure** > **Configuration Servers**.
+3. Click on respective configuration server to which the old vCenter is assigned to.
+4. Under **vCenter servers** section, click on the vCenter you are planning to migrate from.
+5. On vCenter summary page, update the IP address of new vCenter in the field "vCenter server/vSphere hostname or IP address" and save.
+
+As soon as the IP address is updated, Site Recovery components will start receiving discovery information of virtual machines from new vCenter. This will not impact the ongoing replication activities.
+
+## Migrate FEW protected virtual machines to a new vCenter
+
 > [!NOTE]
-If you need to modify the vCenter IP address, FQDN, or port, then you need to delete the vCenter server, and add it back to the portal.
+> This section is applicable only when you are migrating few of the protected virtual machines to a new vCenter. If you want protect new set of virtual machines from a new vCenter, [add new vCenter details to configuration server](#add-vmware-server-to-the-vault) and start with "[Enable protection](vmware-azure-tutorial.md#enable-replication)".
+
+To move few virtual machines to a new vCenter, follow the below given steps
+
+1. [Add new vCenter details to the configuration server](#add-vmware-server-to-the-vault)
+2. [Disable replication of virtual machines](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) you are planning to migrate.
+3. Complete the migration of selected virtual machines to new vCenter.
+4. Now, protect migrated virtual machines by [selecting new vCenter during Enable protection](vmware-azure-tutorial.md#enable-replication).
+
+> [!TIP]
+> If the number of virtual machines being migrated is **higher** that the number of number of virtual machines retained in the old vCenter, update IP address of new vCenter using the instruction given [here](#modify-vcenter-ip-address-port). For the few virtual machines that are retained on old vCenter, [disable the replication](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [add new vCenter details to configuration server](#add-vmware-server-to-the-vault) and start "[Enable protection](vmware-azure-tutorial.md#enable-replication)."
