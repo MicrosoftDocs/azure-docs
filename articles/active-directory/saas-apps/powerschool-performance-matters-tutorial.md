@@ -97,25 +97,15 @@ To configure Azure AD single sign-on with Powerschool Performance Matters, perfo
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. Click **Upload metadata file**.
+    ![[Application Name] Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    ![Upload metadata file](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
-
-	![Powerschool Performance Matters Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://ola.performancematters.com/ola/?clientcode=<Client Code>,https://unify.performancematters.com/?idp=<IDP>`
 
-	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Powerschool Performance Matters Client support team](mailto:pmsupport@powerschoo.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> [!NOTE]
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Powerschool Performance Matters Client support team](mailto:pmsupport@powerschoo.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
