@@ -105,3 +105,13 @@ To move a few virtual machines to a new vCenter:
 
 > [!TIP]
 > If the number of virtual machines being migrated is **higher** that the number of number of virtual machines retained in the old vCenter, update the IP address of the new vCenter using the instructions given [here](#modify-vcenter-ip-address-port). For the few virtual machines that are retained on the old vCenter, [disable replication](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [add new vCenter details to the configuration server](#add-vmware-server-to-the-vault), and start **[Enable protection](vmware-azure-tutorial.md#enable-replication)**.
+
+## Frequently asked questions
+
+1. If protected virtual machines are moved from one ESXi host to another, will it impact replication?
+
+    No, this will not impact the ongoing replication. However, [ensure to deploy the master target server with sufficient privileges](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+
+2. What are the port numbers used to for communication between vCenter and other Site Recovery components?
+
+    The default port is 443. Configuration server will access vCenter/vSphere host information through this port. If you wish to update this information, click [here](#modify-the-vcenter-ip-address-and-port).
