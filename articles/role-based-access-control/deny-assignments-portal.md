@@ -22,7 +22,7 @@ ms.reviewer: bagovind
 [Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to use the Azure portal to view deny assignments.
 
 > [!NOTE]
-> At this time, the only way that you can add your own deny assignments is by using Azure Blueprints. For more information, see the [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
+> At this time, the only way you can add your own deny assignments is by using Azure Blueprints. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## Prerequisites
 
