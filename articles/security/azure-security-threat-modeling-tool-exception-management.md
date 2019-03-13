@@ -68,7 +68,7 @@ Disable debugging information in the service. This can be accomplished by removi
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5, MVC 6 |
 | **Attributes**              | N/A  |
-| **References**              | [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model Validation in ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **References**              | [Exception Handling in ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [Model Validation in ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Steps** | By default, most uncaught exceptions in ASP.NET Web API are translated into an HTTP response with status code `500, Internal Server Error`|
 
 ### Example
@@ -176,7 +176,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Check the links in the references section for additional details about exceptional handling and model validation in ASP.Net Web API 
+Check the links in the references section for additional details about exceptional handling and model validation in ASP.NET Web API 
 
 ## <a id="messages"></a>Do not expose security details in error messages
 

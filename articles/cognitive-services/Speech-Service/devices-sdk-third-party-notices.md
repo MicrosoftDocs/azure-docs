@@ -179,7 +179,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * 3. All advertising materials mentioning features or use of this
     *    software must display the following acknowledgment:
     *    "This product includes software developed by the OpenSSL Project
-    *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+    *    for use in the OpenSSL Toolkit. (https://www.openssl.org/)"
     *
     * 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
     *    endorse or promote products derived from this software without
@@ -193,7 +193,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * 6. Redistributions of any form whatsoever must retain the following
     *    acknowledgment:
     *    "This product includes software developed by the OpenSSL Project
-    *    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+    *    for use in the OpenSSL Toolkit (https://www.openssl.org/)"
     *
     * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
     * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -490,7 +490,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use these files except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -508,7 +508,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use these files except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

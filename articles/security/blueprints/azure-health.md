@@ -405,7 +405,7 @@ When using the demo script. .\\HealthcareDemo.ps1 with the **BulkPatientadmissio
 
 **2. Key Vault** requested for a secret that is associated to the requested token.
 
-**3. Azure Roles validate the request, and authorize access request to the Key Vault.
+**3. Azure Roles** validate the request, and authorize access request to the Key Vault.
 
 **4. Key Vault** returns the secret, in this case the SQL DB Connection string.
 

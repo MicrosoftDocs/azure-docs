@@ -63,7 +63,7 @@ The following image illustrates the Media Services content protection workflow:
 
 ![Protect content](./media/content-protection/content-protection.svg)
 
-&#42; *dynamic encryption supports AES-128 "clear key", CBCS, and CENC. 
+&#42; dynamic encryption supports AES-128 "clear key", CBCS, and CENC. 
 
 You can use Media Services **Dynamic Manifests** to stream only a specific rendition or subclips of your video. In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, MPEG DASH, and Smooth.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1 Mbps, which resulted in the bottom two quality levels being stripped off in the response. In the bottom right, the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
 

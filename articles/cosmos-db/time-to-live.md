@@ -43,6 +43,6 @@ Deleting items based on TTL is free. There is no additional cost (that is, no ad
 
 ## Next steps
 
-Learn how to configure Tile to Live in the following articles:
+Learn how to configure Time to Live in the following articles:
 
 * [How to configure Time to Live](how-to-time-to-live.md)

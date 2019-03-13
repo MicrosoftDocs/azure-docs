@@ -2,7 +2,7 @@
 title: Article about known issues/migration limitations with online migrations to Azure SQL Database | Microsoft Docs
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl

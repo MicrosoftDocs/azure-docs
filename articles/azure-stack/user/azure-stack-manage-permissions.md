@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
 
 ---
 
@@ -90,8 +90,8 @@ The following steps describe how to configure permissions for a user.
 2. In the left navigation pane, choose **Resource groups**.
 3. Choose the name of the resource group that you want to set permissions on.
 4. In the resource group navigation pane, choose **Access control (IAM)**. The **Role Assignments** view lists the items that have access to the resource group. You can filter and group the results.
-5. On the **Access control** menu bar, choose **Add role assignment**.
-6. On **Add role assignment** pane:
+5. On the **Access control** menu bar, choose **Add**.
+6. On **Add permissions** pane:
 
    * Choose the role you want to assign from the **Role** drop-down list.
    * Choose the resource you want to assign from the **Assign access to** drop-down list.
