@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 
 # Azure PowerShell samples for Azure SQL Database

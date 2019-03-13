@@ -27,7 +27,7 @@ Here are a few things that you'll need before running this quickstart:
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [NuGet Package Manager](https://github.com/jmrog/vscode-nuget-package-manager)
-* [.Net Core SDK](https://www.microsoft.com/net/download)
+* [.NET Core SDK](https://www.microsoft.com/net/download)
 
 ## Create a project and install dependencies
 
