@@ -11,7 +11,7 @@ ms.author: raynew
 
 
 ---
-# Manage and monitor backed up SQL Server databases 
+# Manage and monitor backed up SQL Server databases
 
 
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
@@ -23,7 +23,7 @@ This article describes common tasks for managing and monitoring SQL Server datab
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
-##  Monitor manual backup jobs in the portal
+## Monitor manual backup jobs in the portal
 
 Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. The jobs you see in this portal include database discovery and registering, and backup and restore operations.
 
@@ -33,7 +33,7 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. Th
 > The **Backup jobs** portal doesn't show scheduled backup jobs. Use SQL Server Management Studio to monitor scheduled backup jobs, as described in the next section.
 >
 
-## Monitor scheduled backup jobs in SQL Server Management Studio 
+## Monitor scheduled backup jobs in SQL Server Management Studio
 
 Azure Backup uses SQL native APIs for all backup operations. Use the native APIs to fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database.
 
@@ -66,17 +66,17 @@ Because log backups occur every 15 minutes, monitoring backup jobs can be tediou
 
 - Triggered for all backup failures.
 - Consolidated at the database level by error code.
-- Sent only for a database's first backup failure. 
+- Sent only for a database's first backup failure.
 
 To monitor database backup alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the vault dashboard, select **Alerts and Events**.
+2. On the vault dashboard, select **Alerts and Events**.
 
    ![Select Alerts and Events](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-1. In **Alerts and Events**, select **Backup Alerts**.
+3. In **Alerts and Events**, select **Backup Alerts**.
 
    ![Select Backup Alerts](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -89,38 +89,35 @@ You can stop backing up a SQL Server database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-* Any recovery points you leave will be cleaned up according to the backup policy. 
+* Any recovery points you leave will be cleaned up according to the backup policy.
 * Until all recovery points are cleaned up, you'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-* Azure Backup always keeps one last recovery point until you delete the backup data. 
-* If you delete a data source without stopping backups, new backups will fail. 
+* Azure Backup always keeps one last recovery point until you delete the backup data.
+* If you delete a data source without stopping backups, new backups will fail.
 * If your database is enabled for autoprotection, you can't stop backups unless you disable autoprotection.
 
 To stop protection for a database:
 
 1. On the vault dashboard, under **Usage**, select **Backup Items**.
 
-1. Under **Backup Management Type**, select **SQL in Azure VM**.
+2. Under **Backup Management Type**, select **SQL in Azure VM**.
 
     ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-
-1. Select the database for which you want to stop protection.
+3. Select the database for which you want to stop protection.
 
     ![Select the database to stop protection](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-
-1. On the database menu, select **Stop backup**.
+4. On the database menu, select **Stop backup**.
 
     ![Select Stop backup](./media/backup-azure-sql-database/stop-db-button.png)
 
 
-1. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
+5. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
 
     ![Retain or delete data on the Stop Backup menu](./media/backup-azure-sql-database/stop-backup-button.png)
 
-1. Select **Stop backup**.
+6. Select **Stop backup**.
 
-  
 
 ## Resume protection for a SQL database
 
@@ -157,12 +154,39 @@ Unregister a SQL Server instance after you disable protection but before you del
 
    ![Select Protected Servers](./media/backup-azure-sql-database/protected-servers.png)
 
-
 3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
 
 4. Right-click the protected server, and select **Delete**.
 
    ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## Re-register extension on the SQL Server VM
+
+Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. Re-register operation re-installs the workload backup extension on the VM for operations to continue.  <br>
+
+It is advised to use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the following [symptoms](#symptoms) before triggering the re-register operation:  
+
+### Symptoms
+
+* ALL operations such as backup, restore and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* The **Backup Status** for the Backup item is showing **Not reachable**. Although, you must rule out all the other reasons that may also result in the same status:
+
+  * Lack of permission to perform backup related operations on the VM  
+  * VM has been shut down because of which backups can’t take place
+  * Network issues  
+* In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover.
+
+### Causes
+These symptoms may arise due to one or more of the following reasons:
+
+  * Extension was deleted or uninstalled from portal 
+  * Extension was uninstalled from the **Control Panel** of the VM under **Uninstall or Change a Program** UI
+  * VM was restored back in time using in-place disk(s) restore
+  * VM was shut down for an extended period because of which the extension configuration on it expired
+  * VM was deleted and another VM was created with the same name and in the same resource group as the deleted VM
+  * One of the AG nodes didn't receive the complete backup configuration, this may happen either at the time of availability group registration to the vault or when a new node gets added.  
+   
+In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the UX as well.
 
 
 ## Next steps
