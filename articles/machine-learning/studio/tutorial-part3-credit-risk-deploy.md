@@ -66,7 +66,7 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Highlights which modules to delete to remove the the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
+![Highlights which modules to delete to remove the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Our model should now look something like this:
 

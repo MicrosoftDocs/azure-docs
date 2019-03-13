@@ -157,7 +157,7 @@ namespace CallRequestResponseService
                 client.BaseAddress = new Uri(apiUri);
 
                 // WARNING: The 'await' statement below can result in a deadlock
-                // if you are calling this code from the UI thread of an ASP.Net application.
+                // if you are calling this code from the UI thread of an ASP.NET application.
                 // One way to address this would be to call ConfigureAwait(false)
                 // so that the execution does not attempt to resume on the original context.
                 // For instance, replace code such as:

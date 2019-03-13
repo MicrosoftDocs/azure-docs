@@ -193,7 +193,7 @@ For a synchronized user, the UserPrincipalName suffix was changed from one feder
 4. Bob's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
 
 #### How to fix
-If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
+If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob\@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
 
 1. Update the user's UserPrincipalName in Azure AD from bob@contoso.com to bob@contoso.onmicrosoft.com. You can use the following PowerShell command with the Azure AD PowerShell Module:
    `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`

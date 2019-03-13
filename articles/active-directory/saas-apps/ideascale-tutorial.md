@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with IdeaScale, perform the following steps
     `https://<companyname>.ideascale.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    
 	| |
 	|--|
 	| `http://<companyname>.ideascale.com`  |

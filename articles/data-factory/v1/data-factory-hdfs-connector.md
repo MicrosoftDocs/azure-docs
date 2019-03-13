@@ -439,7 +439,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **On domain controller:**
 

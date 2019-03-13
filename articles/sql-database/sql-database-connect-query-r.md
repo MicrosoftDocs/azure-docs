@@ -153,7 +153,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     ![Output from R script that returns data from a table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *@input_data_1* variable.
+3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *\@input_data_1* variable.
 
     In this script, the names of the output and input variables for the stored procedure have been changed to *SQL_out* and *SQL_in*:
 
