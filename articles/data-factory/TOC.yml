@@ -545,6 +545,8 @@
       href: solution-template-delta-copy-with-control-table.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
+	- name: Copy new files by LastModifiedDate
+      href: solution-template-copy-new-files-lastmodifieddate.md	  
 - name: Reference
   items:
   - name: .NET
