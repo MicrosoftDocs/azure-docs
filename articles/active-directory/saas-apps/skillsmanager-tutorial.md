@@ -102,10 +102,10 @@ To configure Azure AD single sign-on with Skills Manager, perform the following 
     ![Skills Manager Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://subdomain.skills-manager.com/kennametal`
+    `https://<SUBDOMAIN>.skills-manager.com/kennametal`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
+    `https://<SUBDOMAIN>.skills-manager.com/public/SamlLogin2.aspx`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Skills Manager Client support team](https://www.ibm.com/support/uk/?lnk=msu_uk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
