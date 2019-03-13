@@ -24,7 +24,7 @@ Before getting started, check out these prerequisites:
 
 2.  Create the VM. To do this, open Azure portal, select **Create a resource** from the top left, and filter by *Docker*. In the restuls, select **Windows Server 2016 Datacenter – with Containers**.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture131.jpg](media/7268ae54dbf2da6e19fce72e73fca54d.jpg)
+![Azure portal search results](media/container-01.jpg)
 
 1.  To configure the properties for the VM, choose instance details:
 
@@ -38,7 +38,7 @@ Before getting started, check out these prerequisites:
 
     5.  Make sure **port 3389 RDP** is open. This is the only port you need to publicly expose. You need it to log on to the VM. After this you can accept all of the default values and click **Review+ create**.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture14.jpg](media/a6faa936ccf3fb8c73f75542adfef019.jpg)
+![Create a virtual machine pane](media/Container_02.jpg)
 
 1.  The deployment could take a couple of minutes. When it is complete you are presented with a message stating your VM has been created.
 
@@ -78,20 +78,20 @@ Now the VM is running and attached via RDP, and you are logged.
 1.  Open a command prompt.
 
 2.  Check that Docker is installed by typing the following at the command prompt:
-
-docker version
-
+```
+     docker version
+```
 >   At the time of this walkthrough, the version was 18.09.0 as the following screenshow shows:
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture3.jpg](media/36c96fcf335e0126a8564bf02909abd2.jpg)
+![Commmand prompt](media/Container_03.jpg)
 
-1.  To change the directory, type: 
-  ```cd\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\EnterpriseServer
-  ```
-
+1.  To change the directory, type:
+```
+     cd \Sandbox\ent_server_dockerfiles_4.0_windows\EnterpriseServer
+```
 2.  Type **bld.bat IacceptEULA** to begin the build process for the initial base image. This process takes a few minutes to run. When it is done, the results are displayed as follows. Notice the two images that have been created, one for x64 and one for x86.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture4.jpg](media/435363034c83347fb38b3cce9d901e80.jpg)
+![Command window showing images](media/Container_04.jpg)
 
 1.  To create the final image for the CICS demonstration, switch to the CICS directory by typing **cd\\Sandbox\\ent\_server\_dockerfiles\_4.0\_windows\\Examples\\CICS**.
 
@@ -99,19 +99,18 @@ docker version
 
 3.  To confirm this, type **docker images** to display a list of all of the Docker images installed on the VM. Make sure **microfocus/es-acctdemo** is one of them.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture15-1024x512.jpg](media/b1b8c4cc2bfc564f9814f8e4c57c09f1.jpg)
+![Command window showing es-acctdemo image](media/Container_05.jpg)
 
 ## Run the image 
 
-1.  To launch Enterprise Server 4.0 and the acctdemo application, at the command
-    prompt type:
+1.  To launch Enterprise Server 4.0 and the acctdemo application, at the command prompt type:
 ```
 docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win\_4.0\_x64
 ```
 
-1.  Install a 3270 terminal emulator such as [x3270](http://x3270.bgp.nu/) and use it to attach, via port 9040, to the image that’s running.
+2.  Install a 3270 terminal emulator such as [x3270](http://x3270.bgp.nu/) and use it to attach, via port 9040, to the image that’s running.
 
-2.  Get the IP address of the acctdemo container so Docker can acts as a DHCP server for the containers it manages. To do this:
+3.  Get the IP address of the acctdemo container so Docker can acts as a DHCP server for the containers it manages. To do this:
 
     1.  Get the ID of the running container. Type **Docker ps** at the command prompt and note the ID. In this example, it is **22a0fe3159d0**. You need this for the next step.
 
@@ -123,33 +122,31 @@ docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9
 ```   
     docker inspect 22a0fe3159d0 --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
 ```
-1.  Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
+4.  Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture16.jpg](media/6fdd889e767927d21f701f477122bff0.jpg)
+![Command window showing IP address](media/Container_06.jpg)
 
-1.  Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. For this walkthrough it is
- **172.19.202.52:9040**. Yours will be similar. The Signon to CICS screen opens.
+5.  Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. For this walkthrough it is **172.19.202.52:9040**. Yours will be similar. The Signon to CICS screen opens.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture17.jpg](media/ce1b1b1aca58ec7ba99ba30750fa379e.jpg)
+![Signon to CICS screen](media/Container_07.jpg)
 
-1.  Log on to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
+6.  Log on to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
 
-2.  Clear the screen, using the emulator’s keymap. For x3270, select the **Keymap** menu option.
+7.  Clear the screen, using the emulator’s keymap. For x3270, select the **Keymap** menu option.
 
-3.  To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
+8.  To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture18.jpg](media/c7abe42d1c3e44f439c7109fd035982a.jpg)
+![Account Demo File Menu screen](media/Container_08.jpg)
 
-1.  Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are
-    22222, 33333, and so on.
+9.  Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
 
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture19.jpg](media/d80655f2b7308ff33ecff03f225c77b1.jpg)
+![Account File Record Display in 3270 emulator](media/Container_09.jpg)
 
 1.  To display the Enterprise Server Administration console, go to the command prompt and type:
 ```
 start http:172.19.202.52:86.
 ```
-![https://msdnshared.blob.core.windows.net/media/2019/02/Capture20-1024x380.jpg](media/2babcf279534abfdf698317758480c1b.jpg)
+![Enterprise Server Administration console](media/Container_010.jpg)
 
 Now you are running and managing a CICS application in a Docker container.
 
