@@ -19,7 +19,7 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 - **Machine configuration**
   - Windows 7, Windows Server 2008 R2, or a newer Windows operating system
-  - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .Net Framework is installed on the machine.
+  - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .NET Framework is installed on the machine.
 - **Storage account key** - You need at least one of the account keys for the storage account.
 
 ### Preparing disk for import job
