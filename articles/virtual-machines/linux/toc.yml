@@ -543,6 +543,7 @@
 - name: Resources
   items:
   - name: Author templates
+    displayName: Azure Resource Manager, ARM
     href: /azure/azure-resource-manager/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
