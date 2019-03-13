@@ -3,7 +3,7 @@ title: Troubleshoot problems with Azure Application Insights Snapshot Debugger |
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Snapshot Debugger.
 services: application-insights
 documentationcenter: ''
-author: bfung
+author: brahmnes
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -14,6 +14,7 @@ ms.date: 03/07/2019
 ms.author: mbullwin
 ---
 #<a id="troubleshooting"></a> Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots
+If you enabled Application Insights Snapshot Debugger for your application, but are not seeing snapshots for exceptions, you can use these instructions to troubleshoot. There can be many different reasons why snapshots are not generated. You can run the snapshot health check to identify some of the possible common causes.
 
 ## Use the snapshot health check
 Several common problems result in the Open Debug Snapshot not showing up. Using an outdated Snapshot Collector, for example; reaching the daily upload limit; or perhaps the snapshot is just taking a long time to upload. Use the Snapshot Health Check to troubleshoot common problems.

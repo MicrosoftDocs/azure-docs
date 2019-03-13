@@ -293,10 +293,10 @@
             href: app/snapshot-debugger.md 
           - name: Enable Snapshot Debugger for an App Service
             href: app/snapshot-debugger-appservice.md
-          - name: Enable the Snapshot Debugger for Other Environments
+          - name: Enable Snapshot Debugger for other environments
             href: app/snapshot-debugger-vm.md
-          - name: Snapshot Debugger Troubleshooting
-            href: app/snapshot-debugger-troubleshooting.md 
+          - name: Snapshot Debugger troubleshooting
+            href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews

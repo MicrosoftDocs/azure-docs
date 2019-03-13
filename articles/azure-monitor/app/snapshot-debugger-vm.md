@@ -3,7 +3,7 @@ title: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Ser
 description: Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines 
 services: application-insights
 documentationcenter: ''
-author: bfung
+author: brahmnes
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
-ms.author: bfung
+ms.author: brahmnes
 ---
 # Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
 
@@ -167,4 +167,4 @@ If your ASP.NET or ASP.NET core application runs in Azure App Service, the instr
 
 - Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
 - See [snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-- For help with troubleshooting Profiler issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+- For help with troubleshooting Profiler issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

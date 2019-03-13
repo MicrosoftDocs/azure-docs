@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: bfung
+ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ---
 # Debug snapshots on exceptions in .NET apps
-## Enable Application Insights Snapshot Debugger for your application
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the Application Insights portal.
 
 You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
 
 Debug snapshots are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
+## Enable Application Insights Snapshot Debugger for your application
 Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
 * .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
@@ -36,7 +36,7 @@ The following environments are supported:
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) are not supported.
 
-If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](snapshot-debugger-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 ## Grant permissions
 
