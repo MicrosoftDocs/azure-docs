@@ -11,11 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 02/25/2019
+ms.date: 03/12/2019
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 **Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica.
 
