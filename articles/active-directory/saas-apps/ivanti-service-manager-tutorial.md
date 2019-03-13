@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 14297c74-0d57-4146-97fa-7a055fb73057
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,6 +103,7 @@ To configure Azure AD single sign-on with Ivanti Service Manager (ISM), perform 
     ![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+    
 	| |
 	|--|
 	| `https://<customer>.saasit.com/` |

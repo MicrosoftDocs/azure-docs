@@ -44,7 +44,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Prerequisites
 
-- An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+- An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 - An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
 
@@ -323,7 +323,7 @@ print(aks_target.provisioning_errors)
 
 #### Use an existing cluster
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.11.*, you can use it to deploy your image. The following code demonstrates how to attach an existing cluster to your workspace:
+If you already have AKS cluster in your Azure subscription, and it is version 1.11.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.11.## cluster to your workspace:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -341,6 +341,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **Time estimate**: Approximately 3 minutes.
+
+For more information on creating an AKS cluster outside of the Azure Machine Learning SDK, see the following articles:
+
+* [Create an AKS clsuter](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### Deploy the image
 

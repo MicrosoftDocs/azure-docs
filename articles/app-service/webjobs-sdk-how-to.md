@@ -49,7 +49,7 @@ This is a key difference between using the WebJobs SDK directly and using it ind
 
 The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the local.settings.json file when you run locally, or in the environment of the WebJob  when you run in Azure. By default, a storage connection string setting named `AzureWebJobsStorage` is required.  
 
-Version 2.*x* of the SDK lets you use your own names for these connection strings or store them elsewhere. You can set names in code, as shown here:
+Version 2.*x* of the SDK lets you use your own names for these connection strings or store them elsewhere. You can set names in code using the [`JobHostConfiguration`], as shown here:
 
 ```cs
 static void Main(string[] args)
@@ -367,7 +367,7 @@ You can configure the following bindings:
 
 * [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
-* [Queue storage trigger](#queue-trigger-configuration)
+* Queue storage trigger
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
 
@@ -1012,3 +1012,4 @@ This article has provided code snippets that show how to handle common scenarios
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

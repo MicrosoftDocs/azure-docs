@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
@@ -361,7 +361,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 2. Navigate to the **Build Web Application** page for the project.
 
-3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
+3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .NET Core.
 
     ![Add argument build pipeline](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

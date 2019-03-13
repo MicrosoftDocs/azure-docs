@@ -8,19 +8,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
+ms.date: 3/11/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
 ---
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
 
-This article shows you how to enable Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory (ADF) and use it instead of SQL authentication to create an Azure-SSIS Integration Runtime (IR) that will in turn create SSIS catalog database (SSISDB) in Azure SQL Database server/Managed Instance on your behalf.
+This article shows you how to enable Azure Active Directory (Azure AD) authentication with the managed identity for your Azure Data Factory (ADF) and use it instead of SQL authentication to create an Azure-SSIS Integration Runtime (IR) that will in turn provision SSIS catalog database (SSISDB) in Azure SQL Database server/Managed Instance on your behalf.
 
 For more info about the managed identity for your ADF, see [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> If you have already created an Azure-SSIS IR using SQL authentication, you can not reconfigure your IR to use Azure AD authentication with PowerShell at this time, but you can do so in Azure portal/ADF app. 
+>-  In this scenario, Azure AD authentication with the managed identity for your ADF is only used in the creation and subsequent starting operations of your SSIS IR that will in turn provision and connect to SSISDB. For SSIS package executions, your SSIS IR will still connect to SSISDB using SQL authentication with fully managed accounts that are created during SSISDB provisioning.
+>-  If you have already created your SSIS IR using SQL authentication, you can not reconfigure it to use Azure AD authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -69,17 +70,17 @@ You can use an existing Azure AD group or create a new one using Azure AD PowerS
 
 You can [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) using the following steps:
 
-1.  In Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
+1.  In Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
 
 2.  Select your Azure SQL Database server to be configured with Azure AD authentication.
 
-3.  In the **Settings** section of the blade, select **Active Directory admin**.
+3.  In the **Settings** section of the blade, select **Active Directory admin**.
 
-4.  In the command bar, select **Set admin**.
+4.  In the command bar, select **Set admin**.
 
-5.  Select an Azure AD user account to be made administrator of the server, and then select **Select.**
+5.  Select an Azure AD user account to be made administrator of the server, and then select **Select.**
 
-6.  In the command bar, select **Save.**
+6.  In the command bar, select **Save.**
 
 ### Create a contained user in Azure SQL Database server representing the Azure AD group
 
@@ -87,20 +88,20 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
 1.  Start SSMS.
 
-2.  In the **Connect to Server** dialog, enter your Azure SQL Database server name in
-    the **Server name** field.
+2.  In the **Connect to Server** dialog, enter your Azure SQL Database server name in
+    the **Server name** field.
 
-3.  In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3.  In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
+4.  In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
 
-5.  select **Connect** and complete the sign-in process.
+5.  select **Connect** and complete the sign-in process.
 
-6.  In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
+6.  In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
 
-7.  Right-click on **master** database and select **New query**.
+7.  Right-click on **master** database and select **New query**.
 
-8.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+8.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -116,9 +117,9 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
     The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
 
-10.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+10.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
 
-11.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+11.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -185,9 +186,9 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
     
     The command should complete successfully, granting the managed identity for your ADF the ability to create a database (SSISDB).
 
-8.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+8.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
 
-9.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+9.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo

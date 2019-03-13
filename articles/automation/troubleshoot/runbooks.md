@@ -33,7 +33,7 @@ This error occurs if the credential asset name isn't valid. This error may also 
 
 To determine what's wrong, take the following steps:  
 
-1. Make sure that you don’t have any special characters. These characters include the **@** character in the Automation credential asset name that you're using to connect to Azure.  
+1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.  
 2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
 
    ```powershell

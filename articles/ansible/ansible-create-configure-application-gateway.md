@@ -1,7 +1,7 @@
 ---
 title: Manage web traffic with Azure Application Gateway by using Ansible
 description: Learn how to use Ansible to create and configure an Azure Application Gateway to manage web traffic
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
 author: tomarchermsft
 manager: jeconnoc
