@@ -91,9 +91,9 @@ When deciding on the number of shared web worker roles to use, review these cons
 
 ### Additional considerations for dedicated workers during upgrade and maintenance
 
-During upgrade and maintenance of workers, Azure App Service on Azure Stack will perform maintenance on 20% of each worker tier at any one time.  Therefore cloud administrators must always maintain a 20% pool of unallocated workers per worker tier to ensure their tenants do not experience any loss of service during upgrade and maintenance.  For example if you have 10 workers in a worker tier you should ensure that 2 are unallocated to allow upgrade and maintenance, if the full 10 workers become allocated you should scale the worker tier up to maintain a pool of unallocated workers. During upgrade and maintenance Azure App Service will move workloads to unallocated workers to ensure the workloads will continue to operate however if there are no unallocated workers available during upgrade then there will be the potential for tenant workload downtime.  For shared workers customers do not need to provision additional workers as the service will allocate tenant applications within available workers automatically, for high availability however there is a minimum requirement for two workers in this tier.
+During upgrade and maintenance of workers, Azure App Service on Azure Stack will perform maintenance on 20% of each worker tier at any one time.  Therefore cloud administrators must always maintain a 20% pool of unallocated workers per worker tier to ensure their tenants do not experience any loss of service during upgrade and maintenance.  For example, if you have 10 workers in a worker tier you should ensure that 2 are unallocated to allow upgrade and maintenance, if the full 10 workers become allocated you should scale the worker tier up to maintain a pool of unallocated workers. During upgrade and maintenance Azure App Service will move workloads to unallocated workers to ensure the workloads will continue to operate however if there are no unallocated workers available during upgrade then there will be the potential for tenant workload downtime.  With regards to shared workers, customers do not need to provision additional workers as the service will allocate tenant applications within available workers automatically, for high availability however there is a minimum requirement for two workers in this tier.
 
-Cloud admins can monitor their worker tier allocation in the App Service Administration area in the Azure Stack administration portal.  Navigate to App Service and then select Worker Tiers in the left hand pane.  The Worker Tiers table shows worker tier name, size, image used, number of available workers (unallocated), total number of workers in each tier and the overall state of the worker tier.
+Cloud admins can monitor their worker tier allocation in the App Service Administration area in the Azure Stack administration portal.  Navigate to App Service and then select Worker Tiers in the left-hand pane.  The Worker Tiers table shows worker tier name, size, image used, number of available workers (unallocated), total number of workers in each tier and the overall state of the worker tier.
 
 ![App Service Administration - Worker Tiers][1]
 
@@ -109,7 +109,7 @@ In production environments, the file server role experiences intensive disk I/O.
 - Non-Windows file server cluster
 - NAS (Network Attached Storage) device
 
-For more information, see [Provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+See the following article for more information, [Provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## Next steps
 
