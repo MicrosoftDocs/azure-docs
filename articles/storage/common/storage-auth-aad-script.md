@@ -23,10 +23,6 @@ The extensions are supported for operations on containers and queues. Which oper
 
 For details about the permissions required for each Azure Storage operation on a container or queue, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
-## Environment variable
-
-The environment variable associated with the `--auth-mode` parameter is `AZURE_STORAGE_AUTH_MODE`. You can specify the appropriate value in the environment variable to avoid including it on every call to an Azure Storage data operation.
-
 ## Call CLI commands using Azure AD credentials
 
 Azure CLI supports the `--auth-mode` parameter for data operations against Azure Storage:
@@ -73,6 +69,8 @@ The following example shows how to create a container in a new storage account f
         --name sample-container \
         --auth-mode login
     ```
+
+The environment variable associated with the `--auth-mode` parameter is `AZURE_STORAGE_AUTH_MODE`. You can specify the appropriate value in the environment variable to avoid including it on every call to an Azure Storage data operation.
 
 ## Call PowerShell commands using Azure AD credentials
 
