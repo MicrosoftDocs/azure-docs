@@ -233,7 +233,7 @@ To provision a user account:
 
 	d. In the **DISPLAY NAME** box, enter the full name of the user, like **Britta Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like **Brittasimon\@contoso.com**.
+	e. In the **E-MAIL** box, enter the email address of the user, like **brittasimon\@contoso.com**.
 
 	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 

@@ -226,7 +226,7 @@ To enable Azure AD users to log in to N2F - Expense reports, they must be provis
 
 	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/user3.png)
 
-	a. In the **Email address** textbox, enter the email address of user like **Brittasimon\@contoso.com**.
+	a. In the **Email address** textbox, enter the email address of user like **brittasimon\@contoso.com**.
 
 	b. In the **First name** textbox, enter the first name of user like **Britta**.
 
