@@ -1,6 +1,6 @@
 ---
-title: Encode custom transform using Media Services v3 - Azure | Microsoft Docs
-description: This topic shows how to use Azure Media Services v3 to encode a custom transform.
+title: Encode custom transform using Media Services v3 .NET - Azure | Microsoft Docs
+description: This topic shows how to use Azure Media Services v3 to encode a custom transform using .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +11,26 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
-# How to encode with a custom Transform
+# How to encode with a custom transform by using .NET
 
-When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial, or you can choose to build a custom preset to target your specific scenario or device requirements. 
+When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets based on industry best practices as demonstrated in the [Streaming files](stream-files-tutorial-with-api.md) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 
-> [!Note]
-> In Azure Media Services v3, all of the encoding bit rates are in bits per second. This is different than the REST v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128, but in v3 it would be 128000.
+## Considerations
+
+When creating custom presets, the following considerations apply:
+
+* All values for height and width on AVC content must be a multiple of 4.
+* In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different from the presets with our v2 APIs, which used kilobits/second as the unit. For example, if the bitrate in v2 was specified as 128 (kilobits/second), in v3 it would be set to 128000 (bits/second).
+
+## Prerequisites 
+
+[Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
 
 ## Download the sample
 
