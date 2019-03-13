@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/03/2019
 --- 
 
-# Azure Data Factory Mapping Data Flow Filter Transformation
+# Azure Data FactoryFilter Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
