@@ -2116,7 +2116,7 @@ If a query's results cannot fit within a single page of results, then the REST A
 
 To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for containers the index is always current with the item contents and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB Consistency Levels][consistency-levels].
 
-If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries for paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
+If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
 
 You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
 
