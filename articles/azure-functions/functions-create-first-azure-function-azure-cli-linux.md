@@ -15,7 +15,7 @@ manager: jeconnoc
 
 # Create your first function hosted on Linux using Core Tools and the Azure CLI (preview)
 
-Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.0 runtime](functions-versions.md). Running your function apps on Linux in the serverless [Consumption plan](functions-scale.md#consumption-plan) is currently in preview. To learn more, see [this preview considerations article](https://aka.ms/funclinux).
+Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting requires [the Functions 2.0 runtime](functions-versions.md). Support to run a function app on Linux in the serverless [Consumption plan](functions-scale.md#consumption-plan) is currently in preview. To learn more, see [this preview considerations article](https://aka.ms/funclinux).
 
 This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
@@ -76,7 +76,7 @@ cd MyFunctionProj
 
 You must have a function app to host the execution of your functions on Linux. The function app provides a serverless environment for executing your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app running on Linux by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command.
 
-In the following command, use a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure. You should also set the `<language>` runtime for your function app, from `dotnet` (C#), `node` (JavaScript), or `python`.
+In the following command, use a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure. You should also set the `<language>` runtime for your function app, from `dotnet` (C#), `node` (JavaScript/TypeScript), or `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
