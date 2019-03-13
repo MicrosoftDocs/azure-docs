@@ -5,6 +5,6 @@ ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
 ---
-The next step is to configure the app to use your account identifier and account key. You copied them into Notepad when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
+The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
 In the **Hierarchy** pane, select the **AzureSpatialAnchors** game object. Then, in the **Inspector** pane, enter the `Account Key` as the value for `Spatial Anchors Account Key` and the `Account ID` as the value for `Spatial Anchors Account Id`.

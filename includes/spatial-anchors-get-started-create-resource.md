@@ -29,10 +29,10 @@ ms.author: crtreasu
    ![Create a resource](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
 6. After the resource creation has completed successfully, the resource properties can be viewed. Copy the
-   resource's **Account ID** value into Notepad, as it will be required later.
+   resource's **Account ID** value into a text editor, as it will be required later.
 
    ![View resource properties](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-7. Under **Settings**, select **Key**, and copy into Notepad the **Primary key** value. This value is the `Account Key` and will be used later.
+7. Under **Settings**, select **Key**, and copy into a text editor the **Primary key** value. This value is the `Account Key` and will be used later.
 
    ![View account key](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
