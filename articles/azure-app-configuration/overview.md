@@ -18,9 +18,9 @@ ms.author: yegu
 
 # What is Azure App Configuration
 
-Azure App Configuration provides a service to centrally manage application settings. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. App Configuration lets you store all settings for your application and secure their accesses in one place.
+Azure App Configuration provides a service to centrally manage application settings. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
-App Configuration is free to use during the preview period. If you're interested in trying it, [register](https://aka.ms/azconfig/register) for the preview.
+App Configuration is free to use during the preview period. If you want to try it, [register](https://aka.ms/azconfig/register) for the preview.
 
 ## Why use App Configuration
 
@@ -57,9 +57,9 @@ The easiest way to add an app configuration store to your application is through
 
 | Programming language and framework | How to connect |
 |---|---|
-| .NET Core and ASP.NET Core | App Configuration configuration provider for .NET Core |
-| .NET and ASP.NET | App Configuration configuration builder for .NET |
-| Java Spring | App Configuration configuration client for Spring Cloud |
+| .NET Core and ASP.NET Core | App Configuration provider for .NET Core |
+| .NET and ASP.NET | App Configuration builder for .NET |
+| Java Spring | App Configuration client for Spring Cloud |
 | Others | App Configuration REST API |
 
 ## Next steps

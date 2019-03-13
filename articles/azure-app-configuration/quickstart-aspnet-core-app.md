@@ -24,7 +24,7 @@ Azure App Configuration is a managed configuration service in Azure. You can use
 
 ASP.NET Core builds a single key-value-based configuration object by using settings from one or more data sources that are specified by an application. These data sources are known as *configuration providers*. Because App Configuration's .NET Core client is implemented as such a provider, the service appears like another data source.
 
-You can use any code editor to complete the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
+You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
 ## Prerequisites
 
