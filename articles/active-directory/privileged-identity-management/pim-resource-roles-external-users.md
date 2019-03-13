@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Invite guest users and assign Azure resource access in PIM
 
-Azure Activity Directory (Azure AD) business-to-business (B2B) is a set of capabilities within Azure AD that enables organizations to collaborate with external guest users (guests) and vendors using any account. When you combine B2B with Azure AD Privileged Identity Management (PIM), you can continue to apply your compliance and governance requirements to guests. For example, you can use these PIM features for Azure identity tasks with guests:
+Azure Active Directory (Azure AD) business-to-business (B2B) is a set of capabilities within Azure AD that enables organizations to collaborate with external guest users (guests) and vendors using any account. When you combine B2B with Azure AD Privileged Identity Management (PIM), you can continue to apply your compliance and governance requirements to guests. For example, you can use these PIM features for Azure identity tasks with guests:
 
 - Assign access to specific Azure resources
 - Enable just-in-time access
