@@ -181,7 +181,7 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
  
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 
-12. On **Import SAML IdP Metadata** page, perform the following steps:
+12. On **Import SAML IdP Metadata** page, perform the following steps: 
 
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon5c.png)
 
@@ -189,7 +189,7 @@ To configure Azure AD single sign-on with SAML SSO for Jira by resolution GmbH, 
 
     b. Click **Import** button.
      
-    c. Wait briefly until import succeeds.
+    c. Wait briefly until import succeeds.  
      
     d. Click **Next** button.
     
@@ -275,23 +275,23 @@ In SAML SSO for Jira by resolution GmbH, provisioning is a manual task.
 
 
 
-3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button.
+3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button. 
 
 	![Add Employee](./media/samlssojira-tutorial/user2.png) 
 
 4. Under **User management** tab section, click **create user**.
 
-	![Add Employee](./media/samlssojira-tutorial/user3.png) 
+	![Add Employee](./media/samlssojira-tutorial/user3-new.png) 
 
 5. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](./media/samlssojira-tutorial/user4.png) 
+	![Add Employee](./media/samlssojira-tutorial/user4-new.png) 
 
 	a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
 
 	b. In the **Full Name** textbox, type full name of the user like Britta Simon.
 
-	c. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
+	c. In the **Username** textbox, type the email of user like BrittaSimon@contoso.com.
 
 	d. In the **Password** textbox, type the password of user.
 
