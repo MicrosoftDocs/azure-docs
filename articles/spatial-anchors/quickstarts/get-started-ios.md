@@ -36,6 +36,8 @@ To complete this quickstart, make sure you have:
 
 ## Open the sample project
 
+Use the Terminal to perform the following actions.
+
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 Install the necessary pods using CocoaPods:

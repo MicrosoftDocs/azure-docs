@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.reviewer: paulgarn
 manager: daveba
 ms.component: hybrid
-ms.service: active-directory    
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2019
@@ -21,8 +21,8 @@ Azure Active Directory can provide a users group membership information in token
 - Groups identified by their Azure Active Directory object identifier (OID) (Generally Available)
 - Groups identified by SAMAccountName or GroupSID for Active Directory (AD) synchronized groups and users (Public Preview)
 
->[!Note]
->Support for use of names and on-premises security identifiers (SIDs) is designed to enable moving existing applications from AD FS.    Groups managed in Azure AD don’t contain the attributes necessary to emit these claims.
+> [!Note]
+> Support for use of names and on-premises security identifiers (SIDs) is designed to enable moving existing applications from AD FS.    Groups managed in Azure AD don’t contain the attributes necessary to emit these claims.
 
 ## Group Claims for applications migrating from AD FS and other IDPs
 
@@ -37,8 +37,8 @@ The supported formats for group claims are:
 - **NetbiosDomain\samAccountName** (Available for groups synchronized from Active Directory)
 - **DNSDomainName\samAccountName** (Available for groups synchronized from Active Directory)
 
->[!NOTE]
->SAMAccountName and OnPremisesGroupSID attributes are only available on Group objects synced from Active Directory.   They aren't available on groups created in Azure Active Directory or Office365.   Applications which depend on on-premises Group attributes get them for synced groups only.
+> [!NOTE]
+> SAMAccountName and OnPremisesGroupSID attributes are only available on Group objects synced from Active Directory.   They aren't available on groups created in Azure Active Directory or Office365.   Applications which depend on on-premises Group attributes get them for synced groups only.
 
 ## Options for applications to consume Group information
 
@@ -52,7 +52,7 @@ However, if an existing application already expects to consume group information
 - If the application is configured to get group attributes that are synced from Active Directory and a Group doesn't contain those attributes it won't be included in the claims.
 - Group claims in tokens include nested groups.   If a user is a member of GroupB and GroupB is a member of GroupA, then the group claims for the user will contain both GroupA and GroupB. For organizations with heavy usage of nested groups and users with large numbers of group memberships the number of groups listed in the token can grow the token size.   Azure Active Directory limits the number of groups it will emit in a token to 150 for SAML assertions, and 200 for JWT.
 
->Prerequisites for using Group attributes synchronized from Active Directory:   The groups must be synchronized from Active Directory using Azure AD Connect.
+> Prerequisites for using Group attributes synchronized from Active Directory:   The groups must be synchronized from Active Directory using Azure AD Connect.
 
 There are two steps to configuring Azure Active Directory to emit group names for Active Directory Groups.
 
@@ -97,21 +97,21 @@ To emit groups using Active Directory attributes instead of Azure AD objectIDs c
 
 ![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
-Some applications require the group membership information to appear in the 'role' claim. You can optionally emit the user's groups as roles by checking the 'Emit groups a role claims' box.  
+Some applications require the group membership information to appear in the 'role' claim. You can optionally emit the user's groups as roles by checking the 'Emit groups a role claims' box.
 
 ![claims UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
->[!NOTE]
->If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
+> [!NOTE]
+> If the option to emit group data as roles is used, only groups will appear in the role claim.  Any Application Roles the user is assigned will not appear in the role claim.
 
-## Configure the Azure AD Application Registration for group attributes  
+## Configure the Azure AD Application Registration for group attributes
 
 Group claims can also be configured in the [Optional Claims](../../active-directory/develop/active-directory-optional-claims.md) section of the [Application Manifest](../../active-directory/develop/reference-app-manifest.md).
 
  1. In the portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
 
  2. Enable group membership claims by changing the groupMembershipClaim
- 
+
     The valid values are:
 
     - "All"
@@ -121,10 +121,10 @@ Group claims can also be configured in the [Optional Claims](../../active-direct
 
     For example:
 
-    ```
+    ```json
     "groupMembershipClaims": "SecurityGroup"
     ```
- 
+
     By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
 
  3. Set group name configuration optional claims.
@@ -135,12 +135,12 @@ Group claims can also be configured in the [Optional Claims](../../active-direct
     - accessToken for the OAuth/OIDC access token
     - Saml2Token for SAML tokens.
 
-    >[!NOTE]
-    >The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens  
+    > [!NOTE]
+    > The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens
 
-    For each relevant token type, modify the the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
+    For each relevant token type, modify the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
 
- ```
+ ```json
  {
     "name": "groups",
     "source": null,
@@ -160,14 +160,14 @@ Group claims can also be configured in the [Optional Claims](../../active-direct
 
  Some applications require group information about the user in the role claim.  To change the claim type to from a group claim to a role claim, add “emit_as_roles” to additional properties.  The group values will be emitted in the role claim.
 
- >[!NOTE]
- >If "emit_as_roles" is used any Application Roles configured that the user is assigned will not appear in the role claim
+ > [!NOTE]
+ > If "emit_as_roles" is used any Application Roles configured that the user is assigned will not appear in the role claim
 
 ### Examples
 
 Emit groups as group names in OAuth access tokens in dnsDomainName\SAMAccountName format
 
-```
+```json
 "optionalClaims": {
     "accessToken": [{
         "name": "groups",
@@ -178,7 +178,7 @@ Emit groups as group names in OAuth access tokens in dnsDomainName\SAMAccountNam
 
 To emit group names to be returned in netbiosDomain\samAccountName format as the roles claim in SAML and OIDC ID Tokens:
 
-```
+```json
 "optionalClaims": {
     "saml2Token": [{
         "name": "groups",

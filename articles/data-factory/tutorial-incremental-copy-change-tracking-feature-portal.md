@@ -140,7 +140,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Create a data factory
 
@@ -253,7 +256,7 @@ In this step, you create a dataset to represent the data that is copied from the
 
     1. Select **AzureStorageLinkedService** for **Linked service**.
     2. Enter **adftutorial/incchgtracking** for **folder** part of the **filePath**.
-    3. Enter **@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
+    3. Enter **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
 
        ![Sink dataset - connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 

@@ -105,7 +105,7 @@ Open a PowerShell session in Administrator mode and run the following commands t
 
 ```powershell-interactive
 cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-Import-Module HybridRegistration.psd1
+Import-Module .\HybridRegistration.psd1
 ```
 
 Then run the **Add-HybridRunbookWorker** cmdlet by using the following syntax:

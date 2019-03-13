@@ -3,7 +3,7 @@ title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
 description: Quickstart for Bash in Cloud Shell
 services: 
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Quickstart for Bash in Azure Cloud Shell

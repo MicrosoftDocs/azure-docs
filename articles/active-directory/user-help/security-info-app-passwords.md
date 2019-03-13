@@ -43,11 +43,11 @@ If you use two-step verification with your work or school account and your admin
 ### To create a new app password
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
-    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile.png)
+    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
 2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. On the **Add a method** page, select **App password** from the drop-down list, and then select **Add**.
 

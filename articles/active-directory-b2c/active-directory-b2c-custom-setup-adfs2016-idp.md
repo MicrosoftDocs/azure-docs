@@ -163,7 +163,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 10. In **Claim rule template**, select **Send LDAP attributes as claims**.
 11. Provide a **Claim rule name**. For the **Attribute store**, select **Select Active Directory**, add the following claims, then click **Finish** and **OK**.
 
-    | LDAP attrubute | Outgoing claim type |
+    | LDAP attribute | Outgoing claim type |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
     | Surname | family_name |

@@ -25,7 +25,7 @@ To make videos in the output Asset available to clients for playback, you have t
 
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 This topic gives you guidance on how to encode your content with Media Services v3.
 

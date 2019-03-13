@@ -108,7 +108,7 @@ The VM Access Extension for Linux reads in a json file that defines actions to c
 Create a file named `settings.json` with the following content:
 
 ```json
-{  
+{
     "reset_ssh":"True"
 }
 ```

@@ -36,7 +36,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
   </dependencies> 
 ```
 
-## Create and initalize a project
+## Create and initialize a project
 
 
 Create a new Java project in your favorite IDE or editor, and import the following libraries.
@@ -110,7 +110,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
         //...
         ```
 
-## Send a search request and recieve the response 
+## Send a search request and receive the response 
 
 1. Create a function called `VideoSearch()` that takes your subscription key as a string. Instantiate the search client created earlier.
     

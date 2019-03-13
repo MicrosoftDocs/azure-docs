@@ -26,7 +26,7 @@ After you enable metric collection, you can:
 For example, you might want to monitor the CPU % and Memory % of your Azure VMs. The Azure VM metrics correspond to _[Host] Percentage CPU_ and _[Guest] Memory percentage_.
 
 > [!NOTE]
-> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the log analytics VM extension.
+> Extended metric data collection is only supported with Azure guest-level monitoring. Cloudyn is not compatible with the Azure Monitor logs VM extension.
 
 ## Determine whether extended metrics are enabled
 

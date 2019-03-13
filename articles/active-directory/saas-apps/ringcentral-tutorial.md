@@ -124,6 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
 	d. In the **Sign on URL** textbox, type a URL:
+
 	| |
 	|--|
 	| `https://service.ringcentral.com` |
@@ -134,9 +135,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> You get the **Service Provider metadata file** on the RingCentral SSO Configuration page which is explained later in the tutorial.
 
-6. If you dont have **Service Provider metadata file**, perform the following steps:
+6. If you don't have **Service Provider metadata file**, perform the following steps:
 
 	a. In the **Sign on URL** textbox, type a URL:
+
 	| |
 	|--|
 	| `https://service.ringcentral.com` |
@@ -145,12 +147,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://service.ringcentral.eu` |
 
 	b. In the **Identifier** textbox, type a URL:
+
 	| |
 	|--|
 	|  `https://sso.ringcentral.com` |
 	| `https://ssoeuro.ringcentral.com` |
 
 	c. In the **Reply URL** textbox, type a URL:
+	
 	| |
 	|--|
 	| `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -188,7 +192,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Save**.
 
-	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
 
 	![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
