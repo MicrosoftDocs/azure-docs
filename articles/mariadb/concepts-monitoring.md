@@ -20,7 +20,7 @@ For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 These metrics are available for Azure Database for MariaDB:
 
 |Metric|Metric Display Name|Unit|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|

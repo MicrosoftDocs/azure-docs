@@ -71,7 +71,7 @@ Heartbeat
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
 | computer3 | "antiMalware", "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 Use `mvexpand` to show each value in a separate row instead of a comma-separated list:
 
@@ -91,7 +91,7 @@ Heartbeat
 | computer2 | "updates" |
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 
 You could then use `makelist` again to group items together, and this time see the list of computers per solution:

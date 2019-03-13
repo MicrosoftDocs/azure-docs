@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Backup Exec | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas Backup Exec.
 services: storsimple
@@ -308,7 +308,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 |---|---|---|
 | Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
-| Yearly | Saturday  |   |   |
+| Yearly | Saturday  |   |
 
 
 ### Assign StorSimple volumes to a Backup Exec backup job
@@ -381,7 +381,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Week 3 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Monthly | StorSimple monthly |   |   |   |   |   |
-| Yearly | StorSimple yearly  |   |   |   |   |   |   |
+| Yearly | StorSimple yearly  |   |   |   |   |   |
 
 
 ### Assign StorSimple volumes to a Backup Exec archive and deduplication job

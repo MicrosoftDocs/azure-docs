@@ -12,7 +12,7 @@ ms.custom: include file
 ---
 
 | Resource | Basic | Standard | Premium |
-|---|---|---|---|---|
+|---|---|---|---|
 | Storage<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Maximum image layer size | 20 GiB | 20 GiB | 50 GiB |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |

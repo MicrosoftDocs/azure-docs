@@ -49,7 +49,7 @@ Text-to-speech voice customization enables you to create a recognizable, one-of-
 A lot of the capabilities of the **text-to-speech** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).
 
 | Use case | REST | SDKs |
-|-----|-----|-----|----|
+|-----|-----|-----|
 | Upload datasets for voice adaptation | Yes | No |
 | Create & manage voice font models | Yes | No |
 | Create & manage voice font deployments | Yes | No |

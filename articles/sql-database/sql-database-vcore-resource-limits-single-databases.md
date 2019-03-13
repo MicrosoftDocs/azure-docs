@@ -48,7 +48,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -78,7 +78,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ### General Purpose service tier: Generation 5 compute platform (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -101,7 +101,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ### General Purpose service tier: Generation 5 compute platform (part 2)
 
 |Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -174,7 +174,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ### Business Critical service tier: Generation 5 compute platform (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -198,7 +198,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ### Business Critical service tier: Generation 5 compute platform (part 2)
 
 |Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -224,7 +224,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ### Generation 4 compute platform: Storage sizes and compute sizes
 
 |Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
 |Memory (GB)|7|14|28|56|112|168|
@@ -247,7 +247,7 @@ You can set the service tier, compute size, and storage amount for a single data
 ### Generation 5 compute platform
 
 |Performance level|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
 |Memory (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|

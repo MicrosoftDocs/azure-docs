@@ -68,11 +68,11 @@ This table summarizes our recommendations for integrating SQL Server BCDR techno
 | **Version** | **Edition** | **Deployment** | **On-prem to on premises** | **On-prem to Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
-|| Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups | |
-|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror | |
-|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+|| Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups |
+|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication |
 | SQL Server 2008 R2 or 2008 |Enterprise or Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
-|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication |
 | SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC application |Site Recovery replication |Not Supported |
 
 ## Deployment prerequisites

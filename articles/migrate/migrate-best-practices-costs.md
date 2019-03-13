@@ -92,7 +92,7 @@ Azure provides different types of storage data.
 
 **Data type** | **Details** | **Usage** 
 --- | --- |  ---
-**Blobs** | Optimized to store massive amounts of unstructured objects, such as text or binary data<br/><br/> | Access data from everywhere over HTTP/HTTPS. | Use for streaming and random access scenarios. For example, to serve images and documents directly to a browser, stream video and audio, and store backup and disaster recovery data.
+**Blobs** | Optimized to store massive amounts of unstructured objects, such as text or binary data<br/><br/> | Access data from everywhere over HTTP/HTTPS. 
 **Files** | Managed file shares accessed over SMB 3.0 | Use when migrating on-premises file shares, and to provide multiple access/connections to file data.
 **Disks** | Based on page blobs.<br/><br/> Disk type (speed): Standard (HDD or SSD) or Premium (SSD).<br/><br/>Disk management: Unmanaged (you manage disk settings and storage) or Managed (you select the disk type and Azure manages the disk for you). | Use Premium disks for VMs. Use managed disks for simple management and scaling.
 **Queues** | Store and retrieve large numbers of messages accessed via authenticated calls (HTTP or HTTPS) | Connect app components with asynchronous message queueing.

@@ -28,7 +28,7 @@ You can configure a custom domain for accessing blob data in your Azure storage 
 The following table shows a few sample URLs for blob data that's located in a storage account named *mystorageaccount*. The custom subdomain that's registered for the storage account is *www.contoso.com*:
 
 | Resource type | Default URL | Custom domain URL |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Storage account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Root container | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |

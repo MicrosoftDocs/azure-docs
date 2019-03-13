@@ -196,13 +196,13 @@ This table provides details about policy-related fields.
 | YearlyRetentionMonthsOfTheYear_s |Text |Months of the year selected for yearly retention |
 | YearlyRetentionFormat_s |Text |Type of configuration for yearly retention, for example, daily for day based, weekly for week based |
 | YearlyRetentionDaysOfTheMonth_s |Text |Dates of the month selected for yearly retention |
-| SynchronisationFrequencyPerDay_s |Whole Number |v2|Number of times in a day a file backup is synchronized for SC DPM and MABS |
-| DiffBackupFormat_s |Text |v2|Format for Differential backups for SQL in Azure VM backup |
-| DiffBackupTime_s |Time |v2|Time for Differential backups for SQL in Azure VM Backup|
-| DiffBackupRetentionDuration_s |Decimal Number |v2|Retention duration for Differential backups for SQL in Azure VM Backup|
-| LogBackupFrequency_s |Decimal Number |v2|Frequency for Log backups for SQL|
-| LogBackupRetentionDuration_s |Decimal Number |v2|Retention duration for Log backups for SQL in Azure VM Backup|
-| DiffBackupDaysofTheWeek_s |Text |v2|Days of the week for Differential backups for SQL in Azure VM Backup|
+| SynchronisationFrequencyPerDay_s |Whole Number |v2|
+| DiffBackupFormat_s |Text |v2|
+| DiffBackupTime_s |Time |v2|
+| DiffBackupRetentionDuration_s |Decimal Number |v2|
+| LogBackupFrequency_s |Decimal Number |v2|
+| LogBackupRetentionDuration_s |Decimal Number |v2|
+| DiffBackupDaysofTheWeek_s |Text |v2|
 | SourceSystem |Text |Source system of the current data - Azure |
 | ResourceId |Text |Resource identifier for data being collected. For example, Recovery Services vault resource id |
 | SubscriptionId |Text |Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
@@ -225,7 +225,7 @@ This table provides details about policy associations with various entities.
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text |Unique Id to identify the policy |
 | VaultUniqueId_s |Text |Unique Id of the vault to which this policy belongs to |
-| BackupManagementServerUniqueId_s |Text |v2 |Field to uniquely identify the Backup Management Server the Backup Item is protected through, if applicable        |
+| BackupManagementServerUniqueId_s |Text |v2 |
 | SourceSystem |Text |Source system of the current data - Azure |
 | ResourceId |Text |Resource identifier for data being collected. For example, Recovery Services vault resource id |
 | SubscriptionId |Text |Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
@@ -349,7 +349,7 @@ This table provides basic protected instances related fields.
 This table provides basic recovery point related fields.
 
 | Field | Data Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | BackupItemUniqueId_s |Text |Unique Id used to identify the backup item for VMs backed up using DPM, MABS|
 | OldestRecoveryPointTime_s |Text |Date time of the oldest recovery point for the backup item|
 | OldestRecoveryPointLocation_s |Text |Location of the oldest recovery point for the backup item|

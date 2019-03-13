@@ -148,7 +148,7 @@ The following tables show what role you need to complete tasks in the context of
 |View all permissions on invoice section|✔|✔|✔|✔|✔|✔|✔|
 |Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|✘|
 |View invoice section properties|✔|✔|✔|✔|✔|✔|✔|
-|Update invoice section properties|✔|✔|✘|✘|✘|✘|✘|✘|
+|Update invoice section properties|✔|✔|✘|✘|✘|✘|✘
 
 ### Manage products for invoice section
 

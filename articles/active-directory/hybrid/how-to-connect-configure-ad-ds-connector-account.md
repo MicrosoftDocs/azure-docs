@@ -154,7 +154,7 @@ This cmdlet will set the following permissions:
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
-|Allow|AD DS Connector Account|Read/Write property|MS-DS-Consistency-Guid|Descendant User objects|
+|Allow|AD DS Connector Account|Read/Write property|MS-DS-Consistency-Guid|
 
 ### Permissions for Password Hash Synchronization 
 To set permissions for the AD DS Connector account when using Password Hash Synchronization, run: 

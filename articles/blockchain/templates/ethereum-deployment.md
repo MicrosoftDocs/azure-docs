@@ -90,8 +90,8 @@ Operations Management Suite (OMS) allows you to configure an OMS resource for yo
 
 Parameter Name|Description| Allowed Values|Default Values
 ---|---|---|---
-Connect to existing OMS|Create a new Azure Monitor logs instance or join an existing instance|Create new Join existing|Create new Azure Monitor logs location|The region where the new Azure Monitor logs will be deployed (Visible if *Create new* is selected)
-Existing OMS Workspace Id|Workspace ID of the existing instance (Visible if *Join Existing* is selected) OMS Service Tier|Choose the pricing tier for the new instance. More Info at https://azure.microsoft.com/pricing/details/log-analytics/ (Visible if *Join Existing* is selected)|Free Standalone Per Node|Free
+Connect to existing OMS|Create a new Azure Monitor logs instance or join an existing instance|Create new Join existing|Create new Azure Monitor logs location
+Existing OMS Workspace Id|Workspace ID of the existing instance (Visible if *Join Existing* is selected) OMS Service Tier|Choose the pricing tier for the new instance. More Info at https://azure.microsoft.com/pricing/details/log-analytics/ (Visible if *Join Existing* is selected)|Free Standalone Per Node
 Existing OMS Primary Key|The primary key used to connect to the existing OMS instance (Visible if *Join Existing* is selected)
 
 ### Deployment regions

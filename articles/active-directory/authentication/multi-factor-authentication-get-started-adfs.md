@@ -27,7 +27,7 @@ If your organization has federated your on-premises Active Directory with Azure 
 The following table summarizes the verification experience between securing resources with Azure Multi-Factor Authentication and AD FS
 
 | Verification Experience - Browser-based Apps | Verification Experience - Non-Browser-based Apps |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Securing Azure AD resources using Azure Multi-Factor Authentication |<li>The first verification step is performed on-premises using AD FS.</li> <li>The second step is a phone-based method carried out using cloud authentication.</li> |
 | Securing Azure AD resources using Active Directory Federation Services |<li>The first verification step is performed on-premises using AD FS.</li><li>The second step is performed on-premises by honoring the claim.</li> |
 

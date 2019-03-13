@@ -38,7 +38,7 @@ The **Speech to Text** API offers the following features:
 Some of the capabilities of the **Speech to Text** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).
 
 | Use case | REST | SDKs |
-|-----|-----|-----|----|
+|-----|-----|-----|
 | Transcribe a short utterance, such as a command (length < 15 s); no interim results | Yes | Yes |
 | Transcribe a longer utterance (> 15 s) | No | Yes |
 | Transcribe streaming audio with optional interim results | No | Yes |

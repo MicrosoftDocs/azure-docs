@@ -27,8 +27,8 @@ The following Azure services support managed identities for Azure resources:
 
 |Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| System assigned | Available | Preview | Preview | Preview | Preview |
-| User assigned | Preview | Preview | Preview | Preview | Preview |
+| System assigned | Available | Preview | Preview | Preview |
+| User assigned | Preview | Preview | Preview | Preview |
 
 Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
 
@@ -148,7 +148,7 @@ Refer to the following list to configure managed identity for Azure Container In
 The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
 
 | Service | Resource ID | Status | Assign access |
-| ------- | ----------- | ------ | ---- | ------------- |
+| ------- | ----------- | ------ | ---- |
 | Azure Resource Manager | `https://management.azure.com/` | Available | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Available |  
 | Azure Data Lake | `https://datalake.azure.net/` | Available |

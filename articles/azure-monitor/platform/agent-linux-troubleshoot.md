@@ -52,7 +52,7 @@ If none of these steps work for you, the following support channels are also ava
 
 | Error Code | Meaning |
 | --- | --- |
-| NOT_DEFINED | Because the necessary dependencies are not installed, the auoms auditd plugin will not be installed | Installation of auoms failed, install package auditd. |
+| NOT_DEFINED | Because the necessary dependencies are not installed, the auoms auditd plugin will not be installed |
 | 2 | Invalid option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage |
 | 3 | No option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage. |
 | 4 | Invalid package type OR invalid proxy settings; omsagent-*rpm*.sh packages can only be installed on RPM-based systems, and omsagent-*deb*.sh packages can only be installed on Debian-based systems. It is recommend you use the universal installer from the [latest release](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Also review to verify your proxy settings. |

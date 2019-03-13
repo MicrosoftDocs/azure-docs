@@ -45,7 +45,7 @@ The goals of this article are to:
 The following table summarizes native DRM support on different platforms and EME support in different browsers.
 
 | **Client platform** | **Native DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Smart TVs, STBs** | PlayReady, Widevine, and/or other | Embedded browser/EME for PlayReady and/or Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
