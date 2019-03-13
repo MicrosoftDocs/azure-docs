@@ -118,4 +118,4 @@ See the following article for more information:
 [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
-[1]: ./media/azure-stack-app-service-capacity-planning/Worker-Tier-Allocation.png
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png
