@@ -18,7 +18,7 @@ ms.author: areddish
 After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 > [!NOTE]
-> This tutorial applies only to image classification project models.
+> This tutorial applies only to models exported from image classification projects.
 
 ## Install required components
 
