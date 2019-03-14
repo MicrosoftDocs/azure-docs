@@ -17,6 +17,9 @@
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
+  - name: Assign a policy - template
+    displayName: assign, compliance, resource manager, ARM
+    href: assign-policy-template.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
@@ -178,7 +181,7 @@
       - name: Allowed ExpressRoute SKUs
         displayName: deny
         href: samples/allowed-express-route-skus.md
-      - name: Allowed ExpressRoute peerling locations
+      - name: Allowed ExpressRoute peering locations
         displayName: deny, Location
         href: samples/allowed-express-route-peering.md
     - name: Network Watchers
@@ -267,7 +270,7 @@
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
   - name: Determine causes of non-compliance
-    displayName: reasons, comliance details
+    displayName: reasons, compliance details
     href: ./how-to/determine-non-compliance.md
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds

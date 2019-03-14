@@ -71,6 +71,7 @@ The IP address for each NIC on a target virtual machine is configured as follows
 **Source and target subnets** | **Details**
 --- | ---
 Same address space | IP address of the source VM NIC is set as the target VM NIC IP address.<br/><br/> If the address isn't available, the next available IP address is set as the target.
+
 Different address space<br/><br/> The next available IP address in the target subnet is set as the target VM NIC address.
 
 

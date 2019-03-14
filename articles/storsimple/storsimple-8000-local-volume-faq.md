@@ -41,6 +41,7 @@ Questions and answers are arranged into the following categories
 Because some local space on the device is used to host the working set of tiered volumes, the available space for creating a locally pinned volume is reduced if the device has tiered volumes. Conversely, creating a locally pinned volume proportionally reduces the available space for tiered volumes. The following tables summarizes the available tiered capacity on the 8100 and 8600 devices when locally pinned volumes are created.
 
 #### Update 3.0 
+
 | Locally pinned volumes provisioned capacity | Available capacity to be provisioned for tiered volumes - 8100 | Available capacity to be provisioned for tiered volumes - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |

@@ -82,7 +82,7 @@ When you create a VM, Azure allows and denies network traffic to and from the VM
     | Direction         | Outbound                                                                                          |
     | Local IP address  | 10.0.0.4                                                                                          |
     | Local port      | 60000                                                                                                |
-    | Remote IP address | 13.107.21.200 - One of the addresses for www.bing.com.                                             |
+    | Remote IP address | 13.107.21.200 - One of the addresses for <www.bing.com>.                                             |
     | Remote port       | 80                                                                                                |
 
     ![IP flow verify](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
