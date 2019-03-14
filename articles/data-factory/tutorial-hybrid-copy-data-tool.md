@@ -161,7 +161,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
    ![SQL Server selection](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-1. Under New Linked Service (SQL Server) **Name****, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
+1. Under New Linked Service (SQL Server) **Name**, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
 
    ![Create self-hosted integration runtime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 

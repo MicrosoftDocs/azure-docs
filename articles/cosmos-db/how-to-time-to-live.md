@@ -156,7 +156,6 @@ const itemDefinition = {
           key: "value", 
           ttl: 2
         };
-}
 ```
 
 

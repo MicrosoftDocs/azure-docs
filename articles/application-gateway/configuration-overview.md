@@ -16,7 +16,7 @@ Application gateway comprises of several components that can be configured in di
 
 ![application-gateway-components](.\media\configuration-overview\configuration-overview1.png)
 
-The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for http://acme.com/* and http://fabrikam.com/*, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
+The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ A listener is a logical entity which checks for the incoming connection requests
 
 You can choose between [basic or multi-site listener](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners) while creating a new listener. 
 
-- If you are hosting a single site behind an Application gateway, choose basic listener. Learn [how to create an application gateway with with basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- If you are hosting a single site behind an Application gateway, choose basic listener. Learn [how to create an application gateway with basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
 - If you are configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, then choose multi-site listener. For multi-site listener, you will additionally need to enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.![1551057450710](C:\Users\absha\AppData\Roaming\Typora\typora-user-images\1551057450710.png)
 

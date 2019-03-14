@@ -8,9 +8,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 
 ms.collection: M365-identity-device-management
 ---
@@ -31,14 +31,14 @@ There are several ways to configure an application for single sign-on. Choosing 
 
 This flowchart helps you decide which single sign-on method is best for your situation. 
 
-![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 The following table summarizes the single sign-on methods, and links to more details. 
 
 | Single sign-on method | Application types | When to use |
 | :------ | :------- | :----- |
 | [OpenID Connect and OAuth](#openid-connect-and-oauth) | cloud only | Use OpenID Connect and OAuth when developing a new application. This protocol simplifies application configuration, has easy-to-use SDKs, and enables your application to use MS Graph.
-| [SAML](#saml-sso) | cloud only | Choose SAML whenever possible for existing applications that do not use OpenID Connect or OAuth. SAML works for applications that authenticate using one of the SAML protocols.|
+| [SAML](#saml-sso) | cloud and on-premises | Choose SAML whenever possible for existing applications that do not use OpenID Connect or OAuth. SAML works for applications that authenticate using one of the SAML protocols.|
 | [Password-based](#password-based-sso) | cloud and on-premises | Choose password-based when the application authenticates with username and password. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. |
 | [Linked](#linked-sso) | cloud and on-premises | Choose linked single sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
 | [Disabled](#disabled-sso) | cloud and on-premises | Choose disabled single sign-on when the app isn't ready to be configured for single sign-on. Users need to enter their username and password every time they launch this application.|

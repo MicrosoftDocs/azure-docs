@@ -136,7 +136,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-notificationhub
+    href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature
     href: https://feedback.azure.com/forums/218849-notification-hubs
   - name: Region availability

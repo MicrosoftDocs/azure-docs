@@ -76,6 +76,7 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
    ```
    
    **Request headers**
+   
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
@@ -164,6 +165,7 @@ To enable system-assigned managed identity on a VM that was originally provision
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Request headers**
+
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
@@ -235,6 +237,7 @@ To enable system-assigned managed identity on a VM that was originally provision
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+
    **Request body**
 
    ```JSON
@@ -503,6 +506,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Request headers**
+
    |Request header  |Description  |
    |---------|---------|
    |*Authorization*     | Required. Set to a valid `Bearer` access token.
@@ -671,6 +675,7 @@ To remove a user-assigned identity to a VM, your account needs the [Virtual Mach
    ```
 
    **Request headers**
+
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |

@@ -57,7 +57,7 @@ The following terms are specific to this document:
 
 >   **decode time:** The time a sample is required to be decoded on the client,
 >   as defined in
->   [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEChttps://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 **fragment:** An independently downloadable unit of **media** that comprises one
 or more **samples**.
@@ -101,42 +101,42 @@ or more **samples**.
 >   "Information technology -- Coding of audio-visual objects -- Part 12: ISO
 >   Base Media File Format", ISO/IEC 14496-12:2014, Edition 4, Plus Corrigendum
 >   1, Amendments 1 & 2.
->   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
+>   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
 
 >   [ISO/IEC 14496-15] International Organization for Standardization,
 >   "Information technology -- Coding of audio-visual objects -- Part 15:
 >   Carriage of NAL unit structured video in the ISO Base Media File Format",
 >   ISO 14496-15:2015, Edition 3.
->   <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
+>   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 
 >   [ISO/IEC 23008-2] Information technology -- High efficiency coding and media
 >   delivery in heterogeneous environments -- Part 2: High efficiency video
 >   coding: 2013 or newest edition
->   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
+>   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c035424_ISO_IEC_23008-2_2013.zip>
 
 >   [ISO/IEC 23001-7] Information technology — MPEG systems technologies — Part
 >   7: Common encryption in ISO base media file format files, CENC Edition
->   2:2015 <http://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for
->   "Bucket" Media Types” <http://tools.ietf.org/html/rfc6381>
+>   "Bucket" Media Types” <https://tools.ietf.org/html/rfc6381>
 
 >   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
 >   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement
 >   Levels", BCP 14, RFC 2119, March 1997,
->   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### 1.2.2 Informative References 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 
 >   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data
->   Encodings", RFC 3548, July 2003, [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   Encodings", RFC 3548, July 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
 >   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax
 >   Specifications: ABNF", STD 68, RFC 5234, January 2008,
->   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## 1.3 Overview 

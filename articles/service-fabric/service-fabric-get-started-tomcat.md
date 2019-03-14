@@ -21,7 +21,7 @@ ms.author: v-jamebr
 # Create Service Fabric container running Apache Tomcat server on Linux
 Apache Tomcat is a popular, open-source implementation of the Java Servlet and Java Server technologies. This article shows you how to build a container with Apache Tomcat and a simple Web application, deploy the container to a Service Fabric cluster running Linux, and connect to the Web application.  
 
-To learn more about Apache Tomcat, see the [Apache Tomcat homepage](http://tomcat.apache.org/). 
+To learn more about Apache Tomcat, see the [Apache Tomcat homepage](https://tomcat.apache.org/). 
 
 ## Prerequisites
 * A development computer running:
@@ -92,9 +92,9 @@ Follow the steps in this section to build a Docker image based on an Apache Tomc
 
 1. To test your container, open a browser and enter one of the following URLs. You will see a variant of the "Hello World!" welcome screen for each URL.
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Hello world /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -208,8 +208,8 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
 
     After you have run the install script, open a browser and navigate to Service Fabric Explorer:
     
-    * On a local cluster, use http://localhost:19080/Explorer (replace *localhost* with the private IP of the VM if using Vagrant on Mac OS X).
-    * On a secure Azure cluster, use https://PublicIPorFQDN:19080/Explorer. 
+    * On a local cluster, use `http://localhost:19080/Explorer` (replace *localhost* with the private IP of the VM if using Vagrant on Mac OS X).
+    * On a secure Azure cluster, use `https://PublicIPorFQDN:19080/Explorer`. 
     
     Expand the **Applications** node and note that there is now an entry for your application type, **ServiceFabricTomcatType**, and another for the first instance of that type. It may take a few minutes for the application to fully deploy, so be patient.
 

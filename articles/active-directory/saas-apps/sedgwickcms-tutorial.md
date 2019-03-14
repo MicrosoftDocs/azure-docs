@@ -109,12 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Sedgwick CMS Domain and URLs single sign-on information](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
     a. In the **Identifier** textbox, type the URL: 
+
 	| |
 	|--|
 	| `expresspreview.sedgwickcms.net/voe/sso` |
 	| `claimlookup.com/Voe/sso` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<subdomain>.sedgwickcms.net/voe/sso` |

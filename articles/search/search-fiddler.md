@@ -26,7 +26,7 @@ One of the easiest ways to explore the [Azure Search REST API](https://docs.micr
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
 
-## Download and install tools
+## Download tools
 
 The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this article should still apply.
 
@@ -44,7 +44,7 @@ REST calls require the service URL and an access key on every request. A search 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
 
-## Configure request headers
+## Configure headers
 
 Each tool persists request header information for the session, which means you only have to enter the URL endpoint, api-version, api-key, and content-type once.
 
@@ -78,7 +78,7 @@ Formulate a request that looks like the following screenshot. Choose **PUT** as 
 > [!Tip]
 > Turn off web traffic to hide extraneous, unrelated HTTP activity. In Fiddler's **File** menu, turn off **Capture Traffic**. 
 
-## Create the index
+## 1 - Create the index
 
 The body of the request contains the index definition. Adding the request body completes the request that produces your index.
 
@@ -121,7 +121,7 @@ Copy the index definition to the request body, similar to the following screensh
 
 ![Fiddler request body][7]
 
-## Load documents
+## 2 - Load documents
 
 Creating the index and populating the index are separate steps. In Azure Search, the index contains all searchable data, which you can provide as JSON documents. To review the API for this operation, see [Add, update, or delete documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -212,7 +212,7 @@ Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the d
 
 ![Fiddler request payload][9]
 
-## Query the index
+## 3 - Query the index
 Now that an index and documents are loaded, you can issue queries against them using [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
 
 + Change the verb to **GET** for this step.
@@ -235,7 +235,7 @@ The following example query is from the [Search Index operation (Azure Search AP
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
-## Query index properties
+## Get index properties
 You can also query system information to get document counts and storage consumption: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.

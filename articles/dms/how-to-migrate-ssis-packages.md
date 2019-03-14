@@ -2,7 +2,7 @@
 title: Migrate SQL Server Integration Services packages to Azure | Microsoft Docs
 description: Learn how to migrate SQL Server Integration Services packages to Azure.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/15/2018
+ms.date: 03/12/2019
 ---
 
 # Migrate SQL Server Integration Services packages to Azure

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access Azure Data Lake Storage Gen2 data with Azure Databricks using Spark | Microsoft Docs'
-description: This tutorial shows how to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
+description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
@@ -28,7 +28,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Create an Azure Data Lake Storage Gen2 account.
 
-  See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 
 * Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
@@ -178,7 +178,7 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. Replace the `storage-account-name` placeholder value in this code snippet with the name of the folder that you saved the csv file to.
+In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.

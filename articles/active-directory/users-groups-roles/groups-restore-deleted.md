@@ -25,13 +25,13 @@ The permissions required to restore a group can be any of the following:
 
 Role | Permissions
 --------- | ---------
-Company Administrator, Partner Tier2 support, and Intune Service Admins | Can restore any deleted Office 365 group
-User Account Administrator and Partner Tier1 support | Can restore any deleted Office 365 group except those groups assigned to the Company Administrator role
-User | Can restore any deleted Office 365 group that they owned
+Global administrator, Partner Tier2 support, and Intune administrator | Can restore any deleted Office 365 group
+User administrator and Partner Tier1 support | Can restore any deleted Office 365 group except those groups assigned to the Company Administrator role
+User | Can restore any deleted Office 365 group that they own
 
 ## View and manage the deleted Office 365 groups that are available to restore
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an Administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
 
 2. Select **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore.
 
