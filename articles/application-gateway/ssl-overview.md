@@ -24,7 +24,9 @@ Application Gateway supports SSL termination at the gateway, after which traffic
 
 To configure SSL termination, an SSL certificate is required to be added to the listener to enable the application gateway to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
-> [!NOTE] Application gateway does not provide any capability to create a new certificate or send a certificate request to a certification authority.
+> [!NOTE] 
+>
+> Application gateway does not provide any capability to create a new certificate or send a certificate request to a certification authority.
 
 For the SSL connection to work, you need to ensure that the SSL certificate meets the following conditions:
 
@@ -56,9 +58,13 @@ Application gateway only communicates with those backend instances that have eit
 
 If the certificates of the members in the backend pool are not signed by well known CA authorities, then each instance in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
 
-> [!NOTE] Authentication certificate setup is not required for trusted Azure services such as Azure App service web apps and Azure API Management.
+> [!NOTE] 
+>
+> Authentication certificate setup is not required for trusted Azure services such as Azure App service web apps and Azure API Management.
 
-> [!NOTE] The certificate added to **Backend HTTP Setting** to authenticate the backend servers can be the same as the certificate added to the **listener** for SSL termination at application gateway or different for enhanced security.
+> [!NOTE] 
+>
+> The certificate added to **Backend HTTP Setting** to authenticate the backend servers can be the same as the certificate added to the **listener** for SSL termination at application gateway or different for enhanced security.
 
 ![end to end ssl scenario][1]
 
