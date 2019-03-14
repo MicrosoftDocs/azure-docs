@@ -20,7 +20,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search [index](what-is-an-index.md) using PowerShell and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and content is contained in the request body as well-formed JSON content.
+This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using PowerShell and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and content is contained in the request body as well-formed JSON content.
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ The index definition above uses a language analyzer for the `description_fr` fie
 
 2. In the request headers, specify the `Content-Type` as `application/json`. You will also need to provide your service's admin key that you identified in Step I in the `api-key` header.
 
-You will have to provide your own service name and api key to issue the request below:
+You will have to provide your own service name and API-key to issue the request below:
 
     POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
@@ -105,7 +105,7 @@ In order to push documents into your index using the REST API, you will issue an
 ### Decide which indexing action to use
 When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
 
-Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete, etc). Depending on which of the below actions you choose, only certain fields must be included for each document:
+Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete). Depending on which of the below actions you choose, only certain fields must be included for each document:
 
 | @search.action | Description | Necessary fields for each document | Notes |
 | --- | --- | --- | --- |
