@@ -30,8 +30,8 @@ The subject of the email follows the following pattern:
 You're invited to the &lt;tenantname&gt; organization
 
 ### From address
-We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is: Microsoft Invitations  &lt;invites@microsoft.com&gt; or 
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) &lt;invites@microsoft.com&gt;.
+We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is: Microsoft Invitations <invites@microsoft.com> or 
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.
