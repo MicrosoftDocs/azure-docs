@@ -213,7 +213,7 @@ The route table for *Subnet1* in the picture contains the following routes:
 |8   |Default|Invalid|10.10.0.0/16        |Virtual network gateway|[X.X.X.X]          |              |
 |9   |User   |Active |10.10.0.0/16        |Virtual appliance      |10.0.100.4         |To-On-Prem    |
 |10  |Default|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Default|Invalid|0.0.0.0/0           |Internet|              |                   |
+|11  |Default|Invalid|0.0.0.0/0           |Internet               |                   |              |
 |12  |User   |Active |0.0.0.0/0           |Virtual appliance      |10.0.100.4         |Default-NVA   |
 
 An explanation of each route ID follows:
