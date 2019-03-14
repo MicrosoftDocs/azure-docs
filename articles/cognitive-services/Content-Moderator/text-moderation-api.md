@@ -3,10 +3,10 @@ title: Text Moderation - Content Moderator
 description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ZenQMS
 
@@ -115,6 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![ZenQMS Domain and URLs single sign-on information](./media/zenqms-tutorial/tutorial_zenqms_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
     | |
 	|-|-|
 	| `https://<INSTANCE>.zenqms.com/<ID>`|

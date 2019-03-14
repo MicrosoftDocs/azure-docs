@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Node.js, and process the response.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
@@ -30,7 +30,7 @@ To set up a console application using the Bing News Search SDK:
 
 ## Create and initialize the application
 
-1. Create an instance of the `CognitiveServicesCredentials`. Create variables for your susbcription key, and a search term.
+1. Create an instance of the `CognitiveServicesCredentials`. Create variables for your subscription key, and a search term.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;

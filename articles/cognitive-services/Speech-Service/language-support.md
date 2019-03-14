@@ -1,19 +1,19 @@
 ---
-title: Language support - Speech Service API
+title: Language support - Speech Services
 titleSuffix: Azure Cognitive Services
 description: The Azure Speech Services support numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Language and region support for Speech Service API
+# Language and region support for the Speech Services
 
 Different languages are supported for different Speech Services functions. The following tables summarize language support.
 
@@ -74,6 +74,10 @@ For a full list of neural voices and regional availability, see [regions](region
 |--------|----------|---------|--------------------|
 | en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| zh-CN | Chinese | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
+
+> [!IMPORTANT]
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) is only available via the Southeast Asia endpoint: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### Standard voices
 
@@ -170,7 +174,7 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 Voice customization is available for US English (en-US), mainland Chinese (zh-CN), French (fr-FR), German (de-DE) and Italian (it-IT).
 
 > [!NOTE]
-> French, German and Italian voice training starts with a data set of 2,000+ utterances. Chinese-English bilingual models also are supported with an initial data set of 2,000+ utterances.
+> French, German, and Italian voice training starts with a data set of 2,000+ utterances. Chinese-English bilingual models also are supported with an initial data set of 2,000+ utterances.
 
 ## Speech translation
 
@@ -246,5 +250,5 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Get your Speech Services trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

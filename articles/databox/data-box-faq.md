@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 01/25/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -31,7 +31,7 @@ Questions and answers are arranged in the following categories:
 A.  Azure Data Box service is designed for offline data ingestion. This service manages an array of products of differing storage capacities, all tailored for data transport. 
 
 ### Q. What is Azure Data Box?
-A. The Azure Data Box allows a quick, inexpensive, and secure transfer of terabytes of data into and out of Azure. You order the Data Box device via the Azure portal. Microsoft ships you a storage device of 80 TB usable capacity through a regional carrier. 
+A. The Azure Data Box allows a quick, inexpensive, and secure transfer of terabytes of data into and out of Azure. You order the Data Box device via the Azure portal. Microsoft ships you a storage device of 80-TB usable capacity through a regional carrier. 
 
 Once the device is received, you quickly set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is automatically uploaded from the device to Azure. The entire process is tracked end-to-end by the Data Box service in the Azure portal.
 
@@ -53,6 +53,9 @@ A. Data Box is supported for all regions within US, West Europe, North Europe, F
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
+### Q. I have lost my Data Box. Is there a lost device charge?
+A. Yes. There is a lost or damaged device charge. This charge is covered in the [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/) as well as in the [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).
+
 
 ## Order device
 
@@ -62,21 +65,21 @@ A.  To get Azure Data Box, sign into the Azure portal and create a Data Box orde
 ### Q. I was not able to create a Data Box order in the Azure portal. Why would this be?
 A. If you were not able to create a Data Box order, there is a problem with either your subscription type or access. 
 
-Check your subscription. Data Box is only available for Enterprise Agreement (EA), Cloud solution provider (CSP), or Pay-as-you-go subscription offers. If your subscription does not fall in any of the above types, contact Microsoft Support to upgrade your subscription.
+Check your subscription. Data Box is only available for Enterprise Agreement (EA) and Cloud solution provider (CSP) subscription offers. If your subscription does not fall in any of the above types, contact Microsoft Support to upgrade your subscription.
 
 If you have a supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 
 ### Q. I ordered a couple of Data Box devices. I am not able to create any additional orders. Why would this be?
-A. We allow for a maximum of 5 active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
+A. We allow for a maximum of five active orders per subscription per commerce boundary (combination of country and the region selected). If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription.
 
 ### Q. When I try to create an order, I receive a notification that the Data Box service is not available. What does this mean?
 A. What this means is that the Data Box service is not available for the combination of country and region you have selected. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability).
 
 ### Q. I placed my Data Box order few days back. When will I receive my Data Box?
-A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you can track the status change in the Azure portal. If your order is not fulfilled in 90 days, the order is automatically canceled. 
+A. When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you can track the status change in the Azure portal. If your order is not fulfilled in 90 days, the order is automatically canceled.
 
 ### Q. I have filled up my Data Box with Data and need to order another one. Is there a way to quickly place the order?
-A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details. 
+A. You can clone your previous order. Cloning creates the same order as before and allow you to edit order details only without the need to type in address, contact, and notification details.
 
 ## Configure and connect
 
@@ -91,6 +94,9 @@ A.  You can only cancel the order after the Data Box is ordered and before the o
 
 ### Q. Can I connect a Data Box at the same to multiple host computers to transfer data?
 A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel. For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
+
+### Q. Can I connect to both the 10-GbE interfaces on the Data Box to transfer data?
+A. Yes. Both the 10-GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -197,19 +203,19 @@ A. If your device is not booting, go to your order in the Azure portal. Download
 A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
-A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following path in your Azure Storage account.
+A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following paths in your Azure Storage account.
  - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
  -	`https://<storage_account_name>.file.core.windows.net/<sharename>`
  
  Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
-A.  If the container names have uppercase letter, then those are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more information on best practices for naming shares, containers, files, go to: 
+A.  If the container names have uppercase letter, then those names are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more information on best practices for naming shares, containers, files, go to:
 - [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### Q. How do I verify the data I copied onto Data Box?
-A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify that against files in the source data. For more information, go to [Prepare to ship](data-box-deploy-copy-data.md#prepare-to-ship).
+A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
 ### Q. What happens to my data after I have returned the Data Box?
 A.  Once the data copy to Azure is complete, the data from the disks on the Data Box is securely erased as per the NIST SP 800-88 Revision 1 guidelines. For more information, go to [Erasure of data from Data Box](data-box-deploy-picked-up.md#erasure-of-data-from-data-box).

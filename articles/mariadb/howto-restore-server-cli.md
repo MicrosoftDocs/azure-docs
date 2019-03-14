@@ -64,6 +64,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 The `az mariadb server restore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the source server exists.  |

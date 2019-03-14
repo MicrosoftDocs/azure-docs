@@ -90,6 +90,7 @@ The following tables show the device model-to-architecture initial guidance.
 |------------------------|---------------|-----------------|
 | Local storage capacity | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloud storage capacity | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Storage size assumes no deduplication or compression.
 
 **StorSimple capacities for primary and secondary backups**
@@ -253,6 +254,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 | Yearly full | 1  | 10 | 10 |
 | GFS requirement |   | 38 |   |
 | Additional quota  | 4  |   | 42 total GFS requirement  |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Set up NetBackup storage
@@ -288,7 +290,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores are from a StorSimple tiered volume.
 
-![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Primary backup target configuration logical diagram](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### StorSimple as a primary backup target GFS schedule example
 
@@ -396,6 +398,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
 | Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
 |GFS volumes size requirement |  |  |  | 18*|
+
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
@@ -470,6 +473,7 @@ After you've defined the initial disk pools, you need to define three additional
 | Yearly full | 1  | 10 | 10 |
 | GFS requirement  |     |     | 38 |
 | Additional quota  | 4  |    | 42 total GFS requirement |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## StorSimple cloud snapshots

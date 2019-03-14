@@ -4,7 +4,7 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/26/2018
 
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication settings
 
@@ -60,7 +61,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
 3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username@domain.com**. Enter a comment in the **Reason** field.
+4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
 5. Select **Add** to finish blocking the user.
 
 ### Unblock a user
@@ -150,7 +151,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
+5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
 6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
 
 ### View the one-time bypass report

@@ -51,7 +51,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    > [!IMPORTANT]
    > The server admin login and password that you specify here are required to log in to the server and its databases later in this tutorial. Remember or record this information for later use.
 
-4.	Click **Pricing tier** to specify the pricing tier for your new server. For this tutorial, select **General Purpose**, **Gen 4** compute generation, 2 **vCores**, 5 GB of **storage** and 7 days **backup retention period**. Select the **Geographically Redundant** backup redundancy option to have your server's automatic backups stored in geo-redundant storage.
+4.	Click **Pricing tier** to specify the pricing tier for your new server. For this tutorial, select **General Purpose**, **Gen 5** compute generation, 2 **vCores**, 5 GB of **storage** and 7 days **backup retention period**. Select the **Geographically Redundant** backup redundancy option to have your server's automatic backups stored in geo-redundant storage.
  ![Azure Database for PostgreSQL - pick the pricing tier](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.	Click **Ok**.
@@ -72,7 +72,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mydemoserver** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
 
-   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database for PostgreSQL - Search for server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.	In the server page, select **Connection security**. 
 
@@ -92,7 +92,7 @@ When you created the Azure Database for PostgreSQL server, the default **postgre
 
 1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created.
 
-   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database for PostgreSQL - Search for server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. Click the server name **mydemoserver**.
 

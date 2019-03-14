@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
@@ -46,11 +46,11 @@ In order to capture the LUIS request and response, the web app bot needs the **[
 
 1. In the Azure portal, in the web app bot service, select **Build** under the **Bot Management** section. 
 
-    ![In the Azure portal, in the web app bot service, select "Build" under the "Bot Management" section. ](./media/luis-tutorial-appinsights/build.png)
+    ![In the Azure portal, in the web app bot service, select "Build" under the "Bot Management" section.](./media/luis-tutorial-appinsights/build.png)
 
 2. A new browser tab opens with the App Service Editor. Select the app name in the top bar, then select **Open Kudu Console**. 
 
-    ![Select the app name in the top bar, then select "Open Kudu Console". ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Select the app name in the top bar, then select "Open Kudu Console".](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. In the console, enter the following command to install Application Insights and the Underscore packages:
 

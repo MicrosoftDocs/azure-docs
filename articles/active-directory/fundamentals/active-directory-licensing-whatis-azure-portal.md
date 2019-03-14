@@ -7,13 +7,14 @@ author: eross-msft
 manager: daveba
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # What is group-based licensing in Azure Active Directory?

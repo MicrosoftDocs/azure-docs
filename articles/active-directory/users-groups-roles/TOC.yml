@@ -126,8 +126,12 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Delegate app admin roles
+      href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
       href: roles-delegate-by-task.md
+    - name: Microsoft 365 roles   
+      href: roles-m365-workload-docs.md
     - name: Administrator role security    
       items:   
       - name: Role security planning    

@@ -1,5 +1,5 @@
 ---
-title: Azure Management Overview
+title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
 author: DCtheGeek
 manager: carmonm
@@ -28,9 +28,9 @@ with the initial deployment, through continued operation, and finally when retir
 
 No single Azure service completely fills the requirements of a particular management area. Instead,
 each is realized by several services working together. Some services, such as Application Insights,
-provide targeted monitoring functionality for web applications. Others, like Log Analytics, store
-management data for other services. This feature allows you to analyze data of different types
-collected by different services.
+provide targeted monitoring functionality for web applications. Others, like Azure Monitor logs,
+store management data for other services. This feature allows you to analyze data of different
+types collected by different services.
 
 The following sections briefly describe the different management areas and provide links to
 detailed content on the main Azure services intended to address them.

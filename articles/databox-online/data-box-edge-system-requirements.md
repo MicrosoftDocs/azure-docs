@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge system requirements (preview)
@@ -42,13 +42,15 @@ The system requirements for the Data Box Edge include:
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## Port configuration for Data Box Edge
+## Networking port requirements
+
+### Port requirements for Data Box Edge
 
 The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Edge device sends data externally, beyond the deployment, for example, outbound to the internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## Port configuration for IoT Edge
+### Port requirements for IoT Edge
 
 Azure IoT Edge allows outbound communication from an on-premises Edge device to Azure cloud using supported IoT Hub protocols. Inbound communication is only required for specific scenarios where Azure IoT Hub needs to push down messages to the Azure IoT Edge device (for example, Cloud To Device messaging).
 
@@ -75,25 +77,14 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ### URL patterns for gateway feature
 
-|    URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Component or functionality                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge service<br>Azure Service Bus<br>Authentication Service                           |
-|    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    Device activation                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    Certificate revocation                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure storage accounts and monitoring                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Microsoft Update servers                                                                             |
-|    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Support package                                                                                      |
-|    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Telemetry service in Windows, see the update   for customer experience and diagnostic telemetry      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### URL patterns for compute feature
 
 | URL pattern                      | Component or functionality                     |   |
 |----------------------------------|---------------------------------------------|---|
 | `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |   |
-| https://\*.azurecr.io                     | Personal and 3rd party container registries (optional) |   |
+| https://\*.azurecr.io                     | Personal and third-party container registries (optional) |   |
 | https://\*.azure-devices.net              | IoT Hub access (required)                             |   |
 
 ## Internet bandwidth
@@ -102,4 +93,4 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ## Next step
 
-* [Deploy your Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Deploy your Azure Data Box Edge](data-box-Edge-deploy-prep.md)

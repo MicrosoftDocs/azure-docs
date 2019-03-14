@@ -135,10 +135,10 @@ For replication, a Hyper-V VM must be running a supported operating system. In a
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
 
 ###Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?
-This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
 Yes, you can exclude disks from replication. 
@@ -184,7 +184,7 @@ After failover, you can access Azure VMs over a secure Internet connection, over
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
 
 ### Is failover automatic?
-[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [ PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
+[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
 
 ### How do I fail back?
 

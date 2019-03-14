@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
@@ -74,7 +74,7 @@ This article and its companion articles provide details for using the Visual Stu
       }
    ```
 
-1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Face API page](https://azure.microsoft.com/services/cognitive-services/face/). Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choosee **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer:
+1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Face API page](https://azure.microsoft.com/services/cognitive-services/face/). Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choose **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer:
  
    ![images folder with image file](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 

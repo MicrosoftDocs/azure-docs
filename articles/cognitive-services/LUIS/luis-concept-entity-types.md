@@ -4,10 +4,10 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
@@ -195,7 +195,7 @@ Some of these prebuilt entities are defined in the open-source [Recognizers-Text
 
 ## Regular expression entity 
 
-A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level. If the regular expression is too complex, such as using many brackets, you're not able to add the expression to the model. Uses part but not all of the [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library. 
+A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level. If the regular expression is too complex, such as using many brackets, you're not able to add the expression to the model. Uses part but not all of the [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) library. 
 
 The entity is a good fit when:
 

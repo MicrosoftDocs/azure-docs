@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Check usage of free services included with your Azure free account 
@@ -66,4 +66,4 @@ The usage file has usage information for both free and paid services. Free servi
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).

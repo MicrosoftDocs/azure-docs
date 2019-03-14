@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -125,7 +125,7 @@ With the data file ready and the project environment set, you can now create and
 1. Because you have a *requirements.txt* file in the environment settings, you see the message, "Waiting for your container to finish being prepared." You can select **OK** to close the message and continue working in the notebook; you can't run code cells, however, until the environment is set up fully.
 1. The notebook opens in the Jupyter interface with a single empty code cell as the default.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Initial view of a new notebook in Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Initial view of a new notebook in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## Tour the notebook interface
 
@@ -141,7 +141,7 @@ Along the top of the window you see the following items:
 (F) indicator of whether the notebook is trusted (default is **Not Trusted**).
 (G) the kernel used to run the notebook along with an activity indicator.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Primary UI areas of the Jupyter interface")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primary UI areas of the Jupyter interface](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter provides a built-in tour of the primary UI elements. Start the tour by selecting the **Help** > **User Interface Tour** command and clicking through the popups.
 
@@ -178,7 +178,7 @@ You use a number of these commands as you populate the notebook in the sections 
     ```markdown
     # Example Linear Regression
 
-    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
+    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](https://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
 
     In this example we're using the count of chirps per minute as the independent varible to then predict the dependent variable, temperature. In short, we're using a little data science to make ourselves a cricket thermometer. (You could also reverse the data and use temperature to predict the number of chirps, but it's more fun to use crickets as the thermometer itself!)
 

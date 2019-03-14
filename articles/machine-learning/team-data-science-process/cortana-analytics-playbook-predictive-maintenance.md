@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
@@ -343,7 +343,7 @@ When time-series are stationary and easy to predict, both random and time-depend
 ### Time-dependent split
 This section describes best practices to implement time-dependent split. A time-dependent two-way split between training and test sets is described below.
 
-Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature engineering](#Feature-engineering) and [modeling techniques](#Modeling-techniques-applied-to-PdM-use-cases)). Thus, the labeling time frame of an example comes later than the time frame of its features.
+Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature engineering](#Feature-engineering) and modeling techniques). Thus, the labeling time frame of an example comes later than the time frame of its features.
 
 For time-dependent split, pick a _training cutoff time T<sub>c</sub>_ at which to train a model, with hyperparameters tuned using historical data up to T<sub>c</sub>. To prevent leakage of future labels that are beyond T<sub>c</sub> into the training data, choose the latest time to label training examples to be X units before T<sub>c</sub>. In the example shown in Figure 7, each square represents a record in the data set where features and labels are computed as described above. The figure shows the records that should go into training and testing sets for X=2 and W=3:
 
@@ -420,13 +420,13 @@ The above process is stated in many ways in academic and industry literature. Bu
 
 As stated earlier, model operationalization for PdM is different from its peers. Scenarios involving anomaly detection and failure detection typically implement _online scoring_ (also called _real time scoring_). Here, the model _scores_ each incoming record, and returns a prediction. For anomaly detection, the prediction is an indication that an anomaly occurred (Example: One-class SVM). For failure detection, it would be the type or class of failure.
 
-In contrast, PdM involves _batch scoring_. To conform to the model signature, the features in the new data must be engineered in the same manner as the training data. For the large datasets that is typical for new data, features are aggregated over time windows and scored in batch. Batch scoring is typically done in distributed systems like [Spark](http://spark.apache.org/) or [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). There are a couple of alternatives - both suboptimal:
+In contrast, PdM involves _batch scoring_. To conform to the model signature, the features in the new data must be engineered in the same manner as the training data. For the large datasets that is typical for new data, features are aggregated over time windows and scored in batch. Batch scoring is typically done in distributed systems like [Spark](https://spark.apache.org/) or [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). There are a couple of alternatives - both suboptimal:
 - Streaming data engines support aggregation over windows in memory. So it could be argued that they support online scoring. But these systems are suitable for dense data in narrow windows of time, or sparse elements over wider windows. They may not scale well for the dense data over wider time windows, as seen in PdM scenarios.
 - If batch scoring is not available, the solution is to adapt online scoring to handle new data in small batches at a time.
 
 ## Solution templates for predictive maintenance
 
-The final section of this guide provides a list of PdM solution templates, tutorials, and experiments implemented in Azure. These PdM applications can be deployed into an Azure subscription within minutes in some cases. They can be used as proof-of-concept demos, sandboxes to experiment with alternatives, or accelerators for actual production implementations. These templates are located in the [Azure AI Gallery](http://gallery.azure.ai) or [Azure GitHub](https://github.com/Azure). These different samples will be rolled into this solution template over time.
+The final section of this guide provides a list of PdM solution templates, tutorials, and experiments implemented in Azure. These PdM applications can be deployed into an Azure subscription within minutes in some cases. They can be used as proof-of-concept demos, sandboxes to experiment with alternatives, or accelerators for actual production implementations. These templates are located in the [Azure AI Gallery](https://gallery.azure.ai) or [Azure GitHub](https://github.com/Azure). These different samples will be rolled into this solution template over time.
 
 | # | Title | Description |
 |--:|:------|-------------|
@@ -450,9 +450,9 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 | [AI Developer on Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
-| [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
-| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Public |
+| [Microsoft AI YouTube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Public |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |
 

@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
@@ -91,16 +91,24 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 + West Central US
 + South Central US
++ North Central US
 + East US
 + East US 2
++ West US
 + West US 2
++ Central US
 + Canada Central
 + West Europe
-+ UK South
 + North Europe
++ UK South
++ France Central
 + Brazil South
++ East Asia
 + Southeast Asia
 + Central India
++ Japan West
++ Japan East
++ Korea Central
 + Australia East
 
 **Step 2: Hands-on experience to master the workflow**

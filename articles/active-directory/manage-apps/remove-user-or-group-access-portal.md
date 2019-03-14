@@ -3,21 +3,21 @@ title: Remove a user or group assignment from an enterprise app in Azure Active 
 description: How to remove the access assignment of a user or group from an enterprise app in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/14/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Remove a user or group assignment from an enterprise app in Azure Active Directory
 It's easy to remove a user or a group from being assigned access to one of your enterprise applications in Azure Active Directory (Azure AD). You must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
@@ -47,7 +47,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
 	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 
 2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-3. Use the following script to assign a user and role to an application:
+3. Use the following script to remove a user and role from an application:
 
     ```powershell
     # Store the proper parameters

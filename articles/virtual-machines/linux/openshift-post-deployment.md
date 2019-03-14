@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: 02/02/2019
 ms.author: haroldw
 ---
 
@@ -23,7 +23,7 @@ ms.author: haroldw
 After you deploy an OpenShift cluster, you can configure additional items. This article covers:
 
 - How to configure single sign-on by using Azure Active Directory (Azure AD)
-- How to configure Log Analytics to monitor OpenShift
+- How to configure Azure Monitor logs to monitor OpenShift
 - How to configure metrics and logging
 - How to install Open Service Broker for Azure (OSBA)
 
@@ -175,11 +175,11 @@ sudo systemctl restart origin-master
 
 In the OpenShift console, you now see two options for authentication: htpasswd_auth and [App Registration].
 
-## Monitor OpenShift with Log Analytics
+## Monitor OpenShift with Azure Monitor logs
 
 There are three ways to add the Log Analytics agent to OpenShift.
 - Install the Log Analytics agent for Linux directly on each OpenShift node
-- Enable Log Analytics VM Extension on each OpenShift node
+- Enable Azure Monitor VM Extension on each OpenShift node
 - Install the Log Analytics agent as a OpenShift daemon-set
 
 The full instructions are located here: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.

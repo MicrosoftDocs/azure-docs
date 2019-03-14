@@ -5,7 +5,7 @@ description: A guide to help you develop more secure applications for the cloud.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor:
 
 ms.assetid:

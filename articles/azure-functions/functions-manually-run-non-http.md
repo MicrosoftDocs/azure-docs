@@ -32,6 +32,9 @@ To run a non HTTP-triggered function, you need to a way to send a request to Azu
 
 You use this request location in Postman along with the function's master key in the request to Azure to run the function.
 
+> [!NOTE]
+> When running locally, the function's master key is not required. You can directly [call the function](#call-the-function) omitting the `x-functions-key` header.
+
 ## Get the function's master key
 
 Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.

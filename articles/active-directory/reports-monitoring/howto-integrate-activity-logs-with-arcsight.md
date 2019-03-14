@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with ArcSight us
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 12/03/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate Azure Active Directory logs with ArcSight using Azure Monitor (preview)

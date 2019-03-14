@@ -318,7 +318,7 @@ As mentioned earlier, the activities could be in different pipelines. In such a 
 
 ![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-See the [copy sequentially](#copy-sequentially) section in the appendix for an example.
+See the copy sequentially section in the appendix for an example.
 
 ## Model datasets with different frequencies
 In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.

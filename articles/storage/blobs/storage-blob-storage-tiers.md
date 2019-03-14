@@ -6,9 +6,9 @@ author: kuhussai
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers
@@ -53,15 +53,7 @@ Available in preview is a Premium access tier, which makes frequently accessed d
 
 This tier is ideal for workloads that require fast and consistent response times. Data that involves end-users such as interactive video editing, static web content, online transactions and the like are good candidates for the Premium access tier. This tier is tailored for workloads that perform many small transactions, such as capturing telemetry data, messaging, and data transformation.
 
-To use this tier, provision a new Block Blob storage account and start creating containers and blobs using the [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-During preview, the Premium access tier:
-
-- Is available as locally redundant storage (LRS)
-- Is only available in the following regions: US East 2, US Central, and US West
-- Does not support object level tiering or automated tiering with data lifecycle management
-
-To learn how to register for the Premium access tier preview, see [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
+For more information about the preview, see [Azure Premium Blob Storage public preview](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## Hot access tier
 

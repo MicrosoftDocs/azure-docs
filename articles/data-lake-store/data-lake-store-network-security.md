@@ -9,14 +9,14 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 
 ---
-# Virtual network integration for Azure Data Lake Storage Gen1 - Preview
+# Virtual network integration for Azure Data Lake Storage Gen1
 
 This article introduces virtual network integration for Azure Data Lake Storage Gen1. With virtual network integration, you can configure your accounts to accept traffic only from specific virtual networks and subnets. 
 
@@ -83,7 +83,7 @@ Some available options are:
 
 1.	Go to the Azure portal, and sign in to your account.
  
-2.	[Create a new virtual network ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
+2.	[Create a new virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
  
 3.	On the **Virtual network** blade, select **Service endpoints**.
  

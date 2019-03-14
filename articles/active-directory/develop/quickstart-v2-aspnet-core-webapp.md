@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.date: 12/05/2018
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app
@@ -139,7 +140,7 @@ The line containing `.AddAzureAd` adds the Azure AD authentication to your appli
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | Application (client) ID from the application registered in the Azure portal. |
-> | Authority | The STS endpoint for the user to authenticate. Usually, this is https://login.microsoftonline.com/{tenant}/v2.0 for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
+> | Authority | The STS endpoint for the user to authenticate. Usually, this is <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
 > | TokenValidationParameters | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, or work or school accounts. |
 
 ### Protect a controller or a controller's method

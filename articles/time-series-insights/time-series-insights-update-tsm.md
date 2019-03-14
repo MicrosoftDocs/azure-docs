@@ -67,7 +67,7 @@ Sample:
         }
     }
 }
-``````
+```
 
 For more information about Time Series Model types, see the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
@@ -147,9 +147,11 @@ In the preceding example, ID1 and ID4 shows as part of hierarchy H1 in the Azure
 
 Instances are the time series themselves. In most cases, the *deviceId* or *assetId* is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
 
-Instances are defined by *timeSeriesId*, *typeId*, *hierarchyId*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, and additional *instanceFields* can be added for further instance property definition.
+Instances are defined by *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, and additional *instanceFields* can be added for further instance property definition.
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
+
+The *name* property is optional and case sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer). 
 
 ## Time Series Model instance JSON example
 
@@ -159,6 +161,7 @@ Sample:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

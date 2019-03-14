@@ -3,9 +3,9 @@ title: Use PowerShell to manage Azure Service Bus resources | Microsoft Docs
 description: Use PowerShell module to create and manage Service Bus resources
 services: service-bus-messaging
 documentationcenter: .NET
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Use PowerShell to manage Service Bus resources
@@ -171,6 +171,6 @@ There are some alternate ways to manage Service Bus entities, as described in th
 
 <!--Anchors-->
 
-[purchase options]: http://azure.microsoft.com/pricing/purchase-options/
-[member offers]: http://azure.microsoft.com/pricing/member-offers/
-[free account]: http://azure.microsoft.com/pricing/free-trial/
+[purchase options]: https://azure.microsoft.com/pricing/purchase-options/
+[member offers]: https://azure.microsoft.com/pricing/member-offers/
+[free account]: https://azure.microsoft.com/pricing/free-trial/

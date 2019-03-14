@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/18
+ms.date: 02/02/2018
 ms.author: jeconnoc
 ---
 

@@ -64,7 +64,7 @@ This approach is a template that you can modify for the size and scale of your o
 
 ### Compute considerations
 
-This architecture runs the application, storage, and data tiers on Azure virtual machines. The [deployment setup scripts](http://aka.ms/db2onazure) create the following:
+This architecture runs the application, storage, and data tiers on Azure virtual machines. The [deployment setup scripts](https://aka.ms/db2onazure) create the following:
 
 -   A DB2 pureScale cluster. The type of compute resources you need on Azure depends on your setup. In general, you can use two approaches:
 
@@ -87,7 +87,7 @@ This architecture runs the application, storage, and data tiers on Azure virtual
 
 ### Storage considerations
 
-Like Oracle RAC, DB2 pureScale is a high-performance block I/O, scale-out database. We recommend using the largest [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) option that suits your needs. Smaller storage options might be suitable for development and test environments, while production environments often need more storage capacity. The example architecture uses [P30](https://azure.microsoft.com/pricing/details/managed-disks/) because of its ratio of IOPS to size and price. Regardless of size, use Premium Storage for best performance.
+Like Oracle RAC, DB2 pureScale is a high-performance block I/O, scale-out database. We recommend using the largest [Azure premium SSD](disks-types.md) option that suits your needs. Smaller storage options might be suitable for development and test environments, while production environments often need more storage capacity. The example architecture uses [P30](https://azure.microsoft.com/pricing/details/managed-disks/) because of its ratio of IOPS to size and price. Regardless of size, use Premium Storage for best performance.
 
 DB2 pureScale uses a shared-everything architecture, where all data is accessible from all cluster nodes. Premium storage must be shared across instances, whether on demand or on dedicated instances.
 

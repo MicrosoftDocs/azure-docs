@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.component: common
+ms.subservice: common
 ---
 # Migrating to Azure Premium Storage (Unmanaged Disks)
 
@@ -26,7 +26,7 @@ The purpose of this guide is to help new users of Azure Premium Storage better p
 You can either migrate VMs from other platforms to Azure Premium Storage or migrate existing Azure VMs from Standard Storage to Premium Storage. This guide covers steps for both two scenarios. Follow the steps specified in the relevant section depending on your scenario.
 
 > [!NOTE]
-> You can find a feature overview and pricing of Premium Storage in Premium Storage: [High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md). We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
+> You can find a feature overview and pricing of premium SSDs in: [Select a disk type for IaaS VMs](../../virtual-machines/windows/disks-types.md#premium-ssd). We recommend migrating any virtual machine disk requiring high IOPS to Azure Premium Storage for the best performance for your application. If your disk does not require high IOPS, you can limit costs by maintaining it in Standard Storage, which stores virtual machine disk data on Hard Disk Drives (HDDs) instead of SSDs.
 >
 
 Completing the migration process in its entirety may require additional actions both before and after the steps provided in this guide. Examples include configuring virtual networks or endpoints or making code changes within the application itself which may require some downtime in your application. These actions are unique to each application, and you should complete them along with the steps provided in this guide to make the full transition to Premium Storage as seamless as possible.
@@ -63,7 +63,7 @@ Premium Storage accounts have the following scalability targets in addition to t
 |:--- |:--- |
 | Disk capacity: 35TB<br />Snapshot capacity: 10 TB |Up to 50 gigabits per second for Inbound + Outbound |
 
-For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+For the more information on Premium Storage specifications, check out [Azure Storage scalability and performance targets](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### Disk caching policy
 By default, disk caching policy is *Read-Only* for all the Premium data disks, and *Read-Write* for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application's IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated using [Azure Portal](https://portal.azure.com) or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
@@ -132,7 +132,7 @@ If you are uploading a VHD that will be used to create multiple generic Azure VM
 
     ![][1]
 
-For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](http://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.
+For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](https://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](https://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.
 
 ##### Use a unique Operating System VHD to create a single VM instance
 If you have an application running on the VM which requires the machine specific data, do not generalize the VHD. A non-generalized VHD can be used to create a unique Azure VM instance. For example, if you have Domain Controller on your VHD, executing sysprep will make it ineffective as a Domain Controller. Review the applications running on your VM and the impact of running sysprep on them before generalizing the VHD.
@@ -436,7 +436,7 @@ The automation script is provided below. Replace text with your information and 
 >
 >
 
-```
+```powershell
     <#
     .Synopsis
     This script is provided as an EXAMPLE to show how to migrate a VM from a standard storage account to a premium storage account. You can customize it according to your specific requirements.
@@ -461,9 +461,9 @@ The automation script is provided below. Replace text with your information and 
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
-    http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-    http://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
-    http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
+    https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+    https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
+    https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
 
     #>
 
@@ -500,7 +500,7 @@ The automation script is provided below. Replace text with your information and 
     [Parameter(Mandatory = $false)]
     [Bool] $DataDiskOnly = $true,
 
-    # how frequently to report the copy status in sceconds
+    # how frequently to report the copy status in seconds
     [Parameter(Mandatory = $false)]
     [Int32] $CopyStatusReportInterval = 15,
 
@@ -531,7 +531,7 @@ The automation script is provided below. Replace text with your information and 
 
 
     #Check the Azure PowerShell module version
-    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module verion" -ForegroundColor Yellow
+    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module version" -ForegroundColor Yellow
     If ($azureModule.Version -ge (New-Object System.Version -ArgumentList "0.8.14"))
     {
         Write-Host "`tSuccess" -ForegroundColor Green
@@ -552,7 +552,7 @@ The automation script is provided below. Replace text with your information and 
     }
     else
     {
-        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article http://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
+        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article https://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
         Exit
     }
 
@@ -587,7 +587,7 @@ The automation script is provided below. Replace text with your information and 
         }
     }
 
-    # exporting the sourve vm to a configuration file, you can restore the original VM by importing this config file
+    # exporting the source vm to a configuration file, you can restore the original VM by importing this config file
     # see more information for Import-AzureVM
     $workingDir = (Get-Location).Path
     $vmConfigurationPath = $env:HOMEPATH + "\VM-" + $SourceVMName + ".xml"
@@ -635,7 +635,7 @@ The automation script is provided below. Replace text with your information and 
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
-        Write-Host "`n[WORKITEM] - Waiting utill the OS disk is released by source VM. This may take up to several minutes."
+        Write-Host "`n[WORKITEM] - Waiting until the OS disk is released by source VM. This may take up to several minutes."
         $diskAttachedTo = (Get-AzureDisk -DiskName $sourceOSDisk.DiskName).AttachedTo
         while ($diskAttachedTo -ne $null)
         {
@@ -722,7 +722,7 @@ The automation script is provided below. Replace text with your information and 
         $vm | Add-AzureDataDisk -ImportFrom -DiskLabel $diskLabel -LUN $dataDisk.Lun -MediaLocation $dataDisk.MediaLink
     }
 
-    # Edit this if you want to add more custimization to the new VM
+    # Edit this if you want to add more customization to the new VM
     # $vm | Add-AzureEndpoint -Protocol tcp -LocalPort 443 -PublicPort 443 -Name 'HTTPs'
     # $vm | Set-AzureSubnet "PubSubnet","PrivSubnet"
 
@@ -742,7 +742,7 @@ Your current VM configuration may be customized specifically to work well with S
 2. Login to the VM and copy the data from the current volume to the new disk that maps to that volume. Do this for all the current volumes that need to map to a new disk.
 3. Next, change the application settings to switch to the new disks, and detach the old volumes.
 
-For tuning the application for better disk performance, please refer to [Optimizing Application Performance](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+For tuning the application for better disk performance, please refer to the optimizing application performance section of our [designing for high performance](../../virtual-machines/windows/premium-storage-performance.md) article.
 
 ### Application migrations
 Databases and other complex applications may require special steps as defined by the application provider for the migration. Please refer to respective application documentation. E.g. typically databases can be migrated through backup and restore.
@@ -753,15 +753,15 @@ See the following resources for specific scenarios for migrating virtual machine
 * [Migrate Azure Virtual Machines between Storage Accounts](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Create and upload a Windows Server VHD to Azure.](../../virtual-machines/windows/upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Creating and Uploading a Linux VHD to Azure](../../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Also, see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md)
+* [Select a disk type for IaaS VMs](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
-[4]: http://technet.microsoft.com/library/hh831739.aspx
+[4]: https://technet.microsoft.com/library/hh831739.aspx

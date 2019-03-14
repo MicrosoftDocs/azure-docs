@@ -6,7 +6,7 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
 ---
 
@@ -59,7 +59,7 @@ The following supported Ubuntu kernels are supported.
 Take the following the steps to install the Ubuntu 16.04.2 64-bit
 operating system.
 
-1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror anddownload an Ubuntu 16.04.2 minimal 64-bit ISO.
+1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror and download an Ubuntu 16.04.2 minimal 64-bit ISO.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
@@ -127,7 +127,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
     ![Select software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. In the selction for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
+1. In the selection for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
      
     ![GRUB boot installer](./media/vmware-azure-install-linux-master-target/image20.png)
 
@@ -182,7 +182,7 @@ Azure Site Recovery master target server requires a specific version of the Ubun
 #### Download and install additional packages
 
 > [!NOTE]
-> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these RPM packages and install them.
+> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these Deb packages and install them.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
@@ -284,7 +284,6 @@ Use the following steps to create a retention disk:
 2. Note down the configuration server's IP address. Run the following command to install the master target server and register the server with the configuration server.
 
  	```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
 	```
 

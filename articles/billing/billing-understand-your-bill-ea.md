@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Understand your bill for Azure customers with an Enterprise Agreement
@@ -88,4 +88,4 @@ Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the E
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).

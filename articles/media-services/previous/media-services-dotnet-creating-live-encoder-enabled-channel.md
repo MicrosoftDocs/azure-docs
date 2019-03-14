@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: juliako;anilmur
 
@@ -122,8 +122,8 @@ namespace EncodeLiveStreamWithAmsClear
     class Program
     {
         private const string ChannelName = "channel001";
-        private const string AssetlName = "asset001";
-        private const string ProgramlName = "program001";
+        private const string AssetName = "asset001";
+        private const string ProgramName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
@@ -192,7 +192,7 @@ namespace EncodeLiveStreamWithAmsClear
         public static IChannel CreateAndStartChannel()
         {
             var channelInput = CreateChannelInput();
-            var channePreview = CreateChannelPreview();
+            var channelPreview = CreateChannelPreview();
             var channelEncoding = CreateChannelEncoding();
 
             ChannelCreationOptions options = new ChannelCreationOptions
@@ -200,7 +200,7 @@ namespace EncodeLiveStreamWithAmsClear
                 EncodingType = ChannelEncodingType.Standard,
                 Name = ChannelName,
                 Input = channelInput,
-                Preview = channePreview,
+                Preview = channelPreview,
                 Encoding = channelEncoding
             };
 
@@ -292,7 +292,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         public static IAsset CreateAndConfigureAsset()
         {
-            IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+            IAsset asset = _context.Assets.Create(AssetName, AssetCreationOptions.None);
 
             IAssetDeliveryPolicy policy =
             _context.AssetDeliveryPolicies.Create("Clear Policy",
@@ -313,7 +313,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <returns></returns>
         public static IProgram CreateAndStartProgram(IChannel channel, IAsset asset)
         {
-            IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+            IProgram program = channel.Programs.Create(ProgramName, TimeSpan.FromHours(3), asset.Id);
             Log("Program created", program.Id);
 
             Log("Starting program");
@@ -458,7 +458,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <param name="operationId">The operation Id.</param> 
         /// <param name="channel">
         /// If the operation succeeded, 
-        /// the entity Id associated with the sucessful operation is returned in the out parameter.</param>
+        /// the entity Id associated with the successful operation is returned in the out parameter.</param>
         /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
         private static bool IsCompleted(IOperation operation, out string entityId)
         {

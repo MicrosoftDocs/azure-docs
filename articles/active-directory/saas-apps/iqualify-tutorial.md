@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with iQualify LMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iQualify LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with iQualify LMS
 
@@ -108,12 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![iQualify LMS Domain and URLs single sign-on information](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: 
+
 	| |
 	|--|--|
 	| Production Environment: `https://<yourorg>.iqualify.com/`|
 	| Test Environment: `https://<yourorg>.iqualify.io`|
 	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
+
 	| |
 	|--|--|
 	| Production Environment: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -124,6 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![iQualify LMS Domain and URLs single sign-on information](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| Production Environment: `https://<yourorg>.iqualify.com/login` |

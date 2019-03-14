@@ -31,7 +31,7 @@ Azure App Service content is stored on Azure Storage and is surfaced up in a dur
 * The content is shared across multiple virtual machine (VM) instances of the app.
 * The content is durable and can be modified by running apps.
 * Log files and diagnostic data files are available under the same shared content folder.
-* Publishing new content directly updates the content folder. You can immediately view the same content through the SCM website and the running app (typically some technologies such as ASP.NET do initiate a app restart on some file changes to get the latest content).
+* Publishing new content directly updates the content folder. You can immediately view the same content through the SCM website and the running app (typically some technologies such as ASP.NET do initiate an app restart on some file changes to get the latest content).
 
 While many apps use one or all of these features, some apps just need a high-performance, read-only content store that they can run from with high availability. These apps can benefit from a VM instance of a specific local cache.
 
@@ -69,7 +69,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 ### Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
 
-```
+```json
 
 ...
 
@@ -81,7 +81,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
 
-"properties": {
+    "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }

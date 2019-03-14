@@ -22,6 +22,8 @@ ms.author: jowargo
 
 If you have a scenario in which you want to send a notification at some point in the future, but do not have an easy way to wake up your back-end code to send the notification. Standard tier notification hubs support a feature that enables you to schedule notifications up to seven days in the future.
 
+
+## Schedule your notifications
 When sending a notification, simply use the [`ScheduledNotification` class](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) in the Notification Hubs SDK as shown in the following example:
 
 ```c#
@@ -29,6 +31,7 @@ Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy b
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
 
+## Cancel scheduled notifications
 Also, you can cancel a previously scheduled notification using its notificationId:
 
 ```c#
@@ -36,3 +39,13 @@ await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 ```
 
 There are no limits on the number of scheduled notifications you can send.
+
+## Next steps
+
+See the following tutorials:
+
+ - [Push notifications to all registered devices](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+ - [Push notifications to specific devices](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
+ - [Push localized notifications](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+ - [Push notifications to specific users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
+ - [Push location-based notifications](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

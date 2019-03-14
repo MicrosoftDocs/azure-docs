@@ -3,7 +3,7 @@ title: Time sync for Windows VMs in Azure| Microsoft Docs
 description: Time sync for Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/017/2018
-ms.author: zarhoads
+ms.date: 09/17/2018
+ms.author: cynthn
 ---
 
 # Time sync for Windows VMs in Azure

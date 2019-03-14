@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with SilkRoad Life Suite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SilkRoad Life Suite.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 3cd92319-7964-41eb-8712-444f5c8b4d15
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SilkRoad Life Suite
 
@@ -110,12 +111,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. In the **Identifier** textbox, type a URL using the following pattern: 
+
 	| |
 	|--|
 	| `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
 	| `https://<subdomain>.silkroad.com/Authentication/SP` |
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern: 
+	
 	| |
 	|--|
 	| `https://<subdomain>.silkroad-eng.com/Authentication/` |

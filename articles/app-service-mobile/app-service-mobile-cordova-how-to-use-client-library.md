@@ -56,7 +56,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Add the following lines to `app.component.ts` to create the client object:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -141,7 +141,7 @@ Install the [phonegap-plugin-push] to handle push notifications.  This plugin ca
 `cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The
 following code in your Apache Cordova app registers your device for push notifications:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'

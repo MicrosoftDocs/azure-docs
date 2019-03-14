@@ -6,7 +6,7 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines 
@@ -21,7 +21,7 @@ When you create a virtual machine (VM), restart stopped (deallocated) VMs, or re
 
 **Error code**: AllocationFailed or ZonalAllocationFailed
 
-**Error message**: "Allocation failed. We do not have sufficient capacity for the requested VM size in this region. Read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance"
+**Error message**: "Allocation failed. We do not have sufficient capacity for the requested VM size in this region. Read more about improving likelihood of allocation success at https://aka.ms/allocation-guidance"
 
 This article explains the causes of some of the common allocation failures and suggests possible remedies.
 

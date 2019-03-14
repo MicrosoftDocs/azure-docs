@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 02/20/2019
 ms.author: jingwang
-
 ---
-# Create an Azure data factory and pipeline by using the REST API
+# Quickstart: Create an Azure data factory and pipeline by using the REST API
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-rest-api.md)
@@ -29,10 +29,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
-* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). This quickstart uses PowerShell to invoke REST API calls.
+* Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps). This quickstart uses PowerShell to invoke REST API calls.
 * **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role.
 
 ## Set global variables
@@ -42,17 +44,17 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
     
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
     Run the following command to view all the subscriptions for this account:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. Run the following commands after replacing the places-holders with your own values, to set global variables to be used in later steps.
 
@@ -63,7 +65,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     $subsId = "<your subscription ID to create the factory>"
     $resourceGroup = "<your resource group to create the factory>"
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-    $apiVersion = "2017-09-01-preview"
+    $apiVersion = "2018-06-01"
     ```
 
 ## Authenticate with Azure AD
@@ -121,7 +123,7 @@ Here is the sample response:
         "provisioningState":  "Succeeded",
         "loggingStorageAccountKey":  "**********",
         "createTime":  "2017-09-14T06:22:59.9106216Z",
-        "version":  "2017-09-01-preview"
+        "version":  "2018-06-01"
     },
     "identity":  {
         "type":  "SystemAssigned",
@@ -433,13 +435,13 @@ You can clean up the resources that you created in the Quickstart in two ways. Y
 
 Run the following command to delete the entire resource group:
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 Run the following command to delete only the data factory:
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+Remove-AzDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## Next steps

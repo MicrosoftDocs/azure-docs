@@ -5,6 +5,13 @@
   items:
   - name: About Azure Blockchain Workbench
     href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Create blockchain app
+    href: create-app.md
+  - name: Use blockchain app
+    href: use.md
 - name: Concepts
   items:
   - name: Architecture
@@ -16,12 +23,8 @@
   items: 
   - name: Deploy Workbench
     href: deploy.md
-  - name: Create blockchain app
-    href: create-app.md
   - name: Manage Workbench users
     href: manage-users.md
-  - name: Use blockchain app
-    href: use.md
   - name: Versioning apps
     href: version-app.md
   - name: Use Workbench API
@@ -64,9 +67,7 @@
     href: https://aka.ms/blockchainuservoice
 - name: Solution templates
   items:
-  - name: Ethereum Proof-of-Authority Consortium
+  - name: Ethereum Proof-of-Authority consortium
     href: ../templates/ethereum-poa-deployment.md
-  - name: Ethereum Proof-of-Work Consortium
-    href: ../templates/ethereum-deployment.md
-  - name: Hyperledger Fabric Consortium
-    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+  - name: Hyperledger Fabric consortium
+    href: ../templates/hyperledger-fabric-consortium-blockchain.md

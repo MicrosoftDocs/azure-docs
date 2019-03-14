@@ -50,7 +50,7 @@ This tutorial assumes that you have created and configured your notification hub
 
 2. In the `Main.storyboard` file, add the components shown in the screenshot from the object library.
 
-    ![Edit storybard in Xcode interface builder][1]
+    ![Edit storyboard in Xcode interface builder][1]
 
    * **Username**: A UITextField with placeholder text, *Enter Username*, immediately beneath the send results label and constrained to the left and right margins and beneath the send results label.
    * **Password**: A UITextField with placeholder text, *Enter Password*, immediately beneath the username text field and constrained to the left and right margins and beneath the username text field. Check the **Secure Text Entry** option in the Attribute Inspector, under *Return Key*.
@@ -82,7 +82,7 @@ This tutorial assumes that you have created and configured your notification hub
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Enter Your Backend Endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, *http://your_backend.azurewebsites.net*.
+4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Enter Your Backend Endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"

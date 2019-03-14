@@ -10,7 +10,11 @@ ms.date: 01/09/2019
 ms.custom: mvc
 ---
 
-# Create an Azure Database for MySQL server using Azure CLI
+# Quickstart: Create an Azure Database for MySQL server using Azure CLI
+
+> [!TIP]
+> Consider using the simpler [az mysql up](/cli/azure/ext/db-up/postgres#ext-db-up-az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+
 This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -40,7 +44,7 @@ Create an Azure Database for MySQL server with the **[az mysql server create](/c
 ---|---|---
 name | mydemoserver | Choose a unique name that identifies your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
-sku-name | GP_Gen4_2 | The name of the sku. Follows the convention {pricing tier}_{compute generation}_{vCores} in shorthand. See below this table for more information about the sku-name parameter.
+sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. See below this table for more information about the sku-name parameter.
 backup-retention | 7 | How long a backup should be retained. Unit is days. Range is 7-35. 
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
 location | westus | The Azure location for the server.
@@ -52,7 +56,7 @@ admin-password | *secure password* | The password of the administrator user. It 
 
 
 The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
-+ `--sku-name B_Gen4_1` maps to Basic, Gen 4, and 1 vCore. This option is the smallest SKU available.
++ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
 + `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
@@ -61,7 +65,7 @@ Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to und
 The following example creates a MySQL 5.7 server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with **2 vCores**. Substitute the `<server_admin_password>` with your own value.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 > [!NOTE]
@@ -111,8 +115,8 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

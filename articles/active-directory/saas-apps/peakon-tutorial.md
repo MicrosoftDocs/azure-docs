@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Peakon
 
@@ -186,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -216,7 +217,7 @@ In the case of Peakon, provisioning is a manual task.
 
 	a. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
 
-	b. In the **Email** textbox, type the email address like **Brittasimon@contoso.com**.
+	b. In the **Email** textbox, type the email address like **Brittasimon\@contoso.com**.
 
 	c. Click **Create employee**.
 

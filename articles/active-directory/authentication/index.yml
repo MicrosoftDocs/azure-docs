@@ -6,7 +6,7 @@ metadata:
   title: Azure Active Directory Authentication Documentation
   description: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
   services: active-directory
-  ms.component: authentication
+  ms.subservice: authentication
   author: MicrosoftGuyJFlo
   manager: daveba
   ms.service: active-directory

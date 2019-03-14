@@ -57,7 +57,7 @@ Complete the following steps to achieve the scenario outlined in this article.
 
 For each VM in your virtual network, add the IP configuration for the secondary NIC:  
 
-1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
+1. Browse to the Azure portal: https://portal.azure.com. Sign in with your Azure account.
 
 2. In the upper left of the screen, select the **Resource Group** icon. Then select the resource group where your VMs are located (for example, **contosofabrikam**). The **Resource groups** pane displays all of the resources and NICs for the VMs.
 
@@ -81,7 +81,7 @@ After the second IP configuration for the secondary NIC is complete, it's displa
 
 Create your load balancer for the configuration:
 
-1. Browse to the Azure portal: http://portal.azure.com. Sign in with your Azure account.
+1. Browse to the Azure portal: https://portal.azure.com. Sign in with your Azure account.
 
 2. In the upper left of the screen, select **Create a resource** > **Networking** > **Load Balancer**. Next, select **Create**.
 
@@ -189,4 +189,4 @@ As the last step, configure your DNS resource records to point to the respective
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Learn how you can use different types of logs to manage and troubleshoot load balancer in [Azure Monitor logs for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
 ---
 
@@ -19,7 +19,7 @@ This article introduces the core concepts that help you scale applications in AK
 - [Manually scale](#manually-scale-pods-or-nodes)
 - [Horizontal pod autoscaler (HPA)](#horizontal-pod-autoscaler)
 - [Cluster autoscaler](#cluster-autoscaler)
-- [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instance)
+- [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instances)
 
 ## Manually scale pods or nodes
 
@@ -47,7 +47,7 @@ You may need to tune these cooldown values. The default cooldown values may give
 
 ## Cluster autoscaler
 
-To respond to changing pod demands, Kubernetes has a cluster autoscaler that adjusts the number of nodes based on the requested compute resources in the node pool. By default, the cluster autoscaler checks the API server every 10 seconds for any required changes in node count. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. The cluster autoscaler works with RBAC-enabled AKS clusters that run Kubernetes 1.10.x or higher.
+To respond to changing pod demands, Kubernetes has a cluster autoscaler that adjusts the number of nodes based on the requested compute resources in the node pool. The cluster autoscaler uses startup parameters for things like time intervals between scale events and resource thresholds. If the cluster autoscale determines that a change is required, the number of nodes in your AKS cluster is increased or decreased accordingly. AKS clusters that use the cluster autoscaler run on virtual machine scale sets to manage the scale up and scale down events of the AKS nodes.
 
 ![Kubernetes cluster autoscaler](media/concepts-scale/cluster-autoscaler.png)
 
@@ -61,7 +61,7 @@ If a node does not have sufficient compute resources to run a requested pod, tha
 
 When the cluster autoscaler notices pods that cannot be scheduled due to node pool resource constraints, the number of nodes within the node pool is increased to provide the additional compute resources. When those additional nodes are successfully deployed and available for use within the node pool, the pods are then scheduled to run on them.
 
-If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can [scale with virtual nodes and Azure Container Instances](#burst-to-azure-container-instance).
+If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can scale with virtual nodes and Azure Container Instances.
 
 ### Scale down events
 

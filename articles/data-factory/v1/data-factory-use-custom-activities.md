@@ -3,19 +3,15 @@ title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
-
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
-
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
 ---
 # Use custom activities in an Azure Data Factory pipeline
@@ -50,7 +46,7 @@ In the walkthrough, you run your custom .NET activities using Azure Batch as a c
 
 For the tutorial, create an Azure Batch account with a pool of VMs. Here are the steps:
 
-1. Create an **Azure Batch account** using the [Azure portal](http://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
+1. Create an **Azure Batch account** using the [Azure portal](https://portal.azure.com). See [Create and manage an Azure Batch account][batch-create-account] article for instructions.
 2. Note down the Azure Batch account name, account key, URI, and pool name. You need them to create an Azure Batch linked service.
 	1. On the home page for Azure Batch account, you see a **URL** in the following format: `https://myaccount.westus.batch.azure.com`. In this example, **myaccount** is the name of the Azure Batch account. URI you use in the linked service definition is the URL without the name of the account. For example: `https://<region>.batch.azure.com`.
 	2. Click **Keys** on the left menu, and copy the **PRIMARY ACCESS KEY**.
@@ -166,7 +162,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	/// Execute method is the only method of IDotNetActivity interface you must implement.
 	/// In this sample, the method invokes the Calculate method to perform the core logic.
 	/// </summary>
-	
+
 	public IDictionary<string, string> Execute(
 	    IEnumerable<LinkedService> linkedServices,
 	    IEnumerable<Dataset> datasets,
@@ -199,7 +195,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 
 		// get type properties from the dataset object
 	    inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-	
+
 		// log linked services passed in linkedServices parameter
 		// you will see two linked services of type: AzureStorage
 		// one for input dataset and the other for output dataset
@@ -237,7 +233,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	                                 continuationToken,
 	                                 null,
 	                                 null);
-	
+
 	        // Calculate method returns the number of occurrences of
 	        // the search term (“Microsoft”) in each blob associated
 	        // with the data slice. definition of the method is shown in the next step.
@@ -255,7 +251,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 		// get the folder path from the output dataset definition
 	    folderPath = GetFolderPath(outputDataset);
 
-		// log the output folder path	
+		// log the output folder path
 	    logger.Write("Writing blob to the folder: {0}", folderPath);
 
 	    // create a storage object for the output blob.
@@ -291,7 +287,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	        return null;
 	    }
 
-		// get type properties of the dataset	
+		// get type properties of the dataset
 	    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	    if (blobDataset == null)
 	    {
@@ -305,30 +301,30 @@ The method returns a dictionary that can be used to chain custom activities toge
 	/// <summary>
 	/// Gets the fileName value from the input/output dataset.
 	/// </summary>
-	
+
 	private static string GetFileName(Dataset dataArtifact)
 	{
 	    if (dataArtifact == null || dataArtifact.Properties == null)
 	    {
 	        return null;
 	    }
-	
+
 		// get type properties of the dataset
 	    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	    if (blobDataset == null)
 	    {
 	        return null;
 	    }
-	
+
 		// return the blob/file name in the type properties
 	    return blobDataset.FileName;
 	}
-	
+
 	/// <summary>
 	/// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
 	/// and prepares the output text that is written to the output blob.
 	/// </summary>
-	
+
 	public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
 	{
 	    string output = string.Empty;
@@ -377,7 +373,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	> All the files in the zip file for the custom activity must be at the **top level** with no sub folders.
 
     ![Binary output files](./media/data-factory-use-custom-activities/Binaries.png)
-14. Create a blob container named **customactivitycontainer** if it does not already exist.	
+14. Create a blob container named **customactivitycontainer** if it does not already exist.
 15. Upload MyDotNetActivity.zip as a blob to the customactivitycontainer in a **general-purpose** Azure blob storage (not hot/cool Blob storage) that is referred by AzureStorageLinkedService.
 
 > [!IMPORTANT]
@@ -418,7 +414,7 @@ Here are the steps you perform in this section:
    1. Click **Create a resource** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
-   
+
 	![New Azure Data Factory menu](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. In the **New data factory** blade, enter **CustomActivityFactory** for the Name. The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “CustomActivityFactory” is not available**, change the name of the data factory (for example, **yournameCustomActivityFactory**) and try creating again.
 
@@ -428,7 +424,7 @@ Here are the steps you perform in this section:
 5. Click **Create** on the **New data factory** blade.
 6. You see the data factory being created in the **Dashboard** of the Azure portal.
 7. After the data factory has been created successfully, you see the Data Factory blade, which shows you the contents of the data factory.
-	
+
 	![Data Factory blade](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### Step 2: Create linked services
@@ -437,7 +433,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 #### Create Azure Storage linked service
 1. Click the **Author and deploy** tile on the **DATA FACTORY** blade for **CustomActivityFactory**. You see the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
-	
+
 	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
@@ -1023,7 +1019,7 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 | Sample | What custom activity does |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |
-| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure ML model and do sentiment analysis, scoring, prediction etc. |
+| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure Machine Learning studio model and do sentiment analysis, scoring, prediction etc. |
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 | [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
@@ -1038,15 +1034,15 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 [new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
 [new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[azure-batch-blog]: https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
-[nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
+[adf-developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

@@ -9,16 +9,17 @@ editor: ''
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a dev environment
@@ -61,8 +62,11 @@ If you don't have an existing tenant associated with your account, you'll see a 
 If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
-- **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later. 
+- **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.
 - **Country or region**
+
+> [!NOTE]
+> When naming your tenant, use alphanumeric characters. Special characters are not allowed. The name must not exceed 256 characters.
 
 ## Social and local accounts
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Proxyclick | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Proxyclick.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 5c58a859-71c2-4542-ae92-e5f16a8e7f18
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Proxyclick
 
@@ -210,7 +211,7 @@ To enable Azure AD users to log in to Proxyclick, they must be provisioned into 
 
 	![Add Employee](./media/proxyclick-tutorial/user3.png)
 
-	a. In the **Email** textbox, type the email address of user like **brittasimon@contoso.com**.
+	a. In the **Email** textbox, type the email address of user like **brittasimon\@contoso.com**.
 
 	b. In the **First Name** textbox, type the first name of user like Britta.
 

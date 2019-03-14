@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
@@ -21,7 +21,7 @@ To learn more about the IoT Edge runtime, see [Understand the Azure IoT Edge run
 This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. Windows support is currently in Preview.
 
 >[!NOTE]
-Using Linux containers on Windows sytems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
 
 ## Prerequisites
 
@@ -208,6 +208,34 @@ And, list running modules with:
 ```powershell
 iotedge list
 ```
+
+After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md), you will see others. 
+
+## Manage module containers
+
+The IoT Edge service requires a container engine running on your device. When you deploy a module to a device, the IoT Edge runtime uses the container engine to pull the container image from a registry in the cloud. The IoT Edge service enables you to interact with your modules and retrieve logs, but sometimes you may want to use the container engine to interact with the container itself. 
+
+For more information about module concepts, see [Understand Azure IoT Edge modules](iot-edge-modules.md). 
+
+If you're running Windows containers on your Windows IoT Edge device, then the IoT Edge installation included the Moby container engine. If you're developing Linux containers on your Windows development machine, you're probably using Docker Desktop. The Moby engine was based on the same standards as Docker, and was designed to run in parallel on the same machine as Docker Desktop. For that reason, if you want to target containers managed by the Moby engine, you have to specifically target that engine instead of Docker. 
+
+For example, to list all Docker images, use the following command:
+
+```powershell
+docker images
+```
+
+To list all Moby images, modify the same command with a pointer to the Moby engine: 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+The engine URI is listed in the output of the installation script, or you can find it in the container runtime settings section for the config.yaml file. 
+
+![moby_runtime uri in config.yaml](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+For more information about commands you can use to interact with containers and images running on your device, see [Docker command-line interfaces](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## Uninstall IoT Edge
 

@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Pingboard | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Pingboard.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Pingboard
 
@@ -198,7 +199,7 @@ The objective of this section is to create a user called Britta Simon in Pingboa
 
 	a. In the **Full Name** textbox, type the full name of user like **Britta Simon**.
 
-	b. In the **Email** textbox, type the email address of user like **brittasimon@contoso.com**.
+	b. In the **Email** textbox, type the email address of user like **brittasimon\@contoso.com**.
 
 	c. In the **Job Title** textbox, type the job title of Britta Simon.
 

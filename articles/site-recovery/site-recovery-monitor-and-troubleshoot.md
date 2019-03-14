@@ -6,7 +6,7 @@ manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: bsiva
+ms.author: bsiva  
 
 ---
 
@@ -80,7 +80,7 @@ The **Error summary** section shows currently active error symptoms that may imp
 The **Infrastructure view** shows the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
 
 - A green line indicates that connection is healthy.
-- A red line with the verlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
+- A red line with the overlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
 -  Hover the mouse pointer over the error icon to show the error and the number of impacted entities. Click the icon for a filtered list of impacted entities.
 
     ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -145,7 +145,7 @@ In addition dashboard, you can monitor machines in the virtual machines page.
     ![Site Recovery replicated items list view](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. On the **Replicated items** page,  you can view and filter information. On the action menu at the top, you can perform actions for a particular machine, including running a test failover, or viewing specific errors.
-3.  Click **Columns** to show additional colums,  For example to show RPO, target configuration issues, and replication errors.
+3.  Click **Columns** to show additional columns,  For example to show RPO, target configuration issues, and replication errors.
 4. Click **Filter** to view information based on specific parameters such as replication health, or a particular replication policy.
 5. Right-click a machine to initiate operations such as test failover for it, or to view specific error details associated with it.
 6. Click a machine to drill into more details for it. Details include:

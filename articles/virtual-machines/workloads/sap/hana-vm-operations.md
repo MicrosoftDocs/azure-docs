@@ -3,7 +3,7 @@ title: SAP HANA infrastructure configurations and operations on Azure | Microsof
 description: Operations guide for SAP HANA systems that are deployed on Azure virtual machines.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -65,10 +65,10 @@ Deploy the VMs in Azure by using:
 You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) or with the automation released [here](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### Choose Azure Storage type
-Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA:
+Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA: Standard hard disk drives (HDD) and premium solid state drives (SSD). To learn about these disk types, see our article [Select a disk type](../../windows/disks-types.md)
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Standard hard disk drives (HDD)
+- Premium solid state drives (SSD)
 
 Azure offers two deployment methods for VHDs on Azure Standard and Premium Storage. If the overall scenario permits, take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) deployments.
 
@@ -414,7 +414,7 @@ Azure VM types, which are supported for DT 2.0 one will see the maximum disk IO 
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
-- Details about available Azure disk types can be found [here](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Details about available Azure disk types can be found [here](../../windows/disks-types.md)
 - Details about creating software raid via mdadm can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Details about configuring LVM to create a striped volume for max throughput can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 
@@ -460,7 +460,7 @@ enough storage capacity to act as a backup server.
 ### Links to DT 2.0 documentation 
 
 - [SAP HANA Dynamic Tiering installation and update guide](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
-- [SAP HANA Dynamic Tiering tutorials and resources](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA Dynamic Tiering tutorials and resources](https://help.sap.com/viewer/fb9c3779f9d1412b8de6dd0788fa167b/2.0.03/en-US)
 - [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
 - [SAP HANA 2.0 SPS 02 dynamic tiering enhancements](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
 

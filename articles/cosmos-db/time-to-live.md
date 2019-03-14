@@ -9,7 +9,7 @@ ms.author: mjbrown
 ms.reviewer: sngun
 
 ---
-# Time to Live for Azure Cosmos DB data
+# Time to live in Azure Cosmos DB 
 
 With "Time to Live" or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, unlike a delete operation that is explicitly issued by the client application.
 
@@ -25,7 +25,7 @@ The time to live value is set in seconds and it is interpreted as a delta from t
 
    - If present and the value is set to some number ("n") – items expire "n" seconds after their last modified time.
 
-2. **Time to Live on an item** (set using `TimeToLive`):
+2. **Time to Live on an item** (set using `ttl`):
 
    - This Property is applicable only if `DefaultTimeToLive` is present and it is not set to null for the parent container.
 
@@ -43,6 +43,6 @@ Deleting items based on TTL is free. There is no additional cost (that is, no ad
 
 ## Next steps
 
-Learn how to configure Tile to Live in the following articles:
+Learn how to configure Time to Live in the following articles:
 
 * [How to configure Time to Live](how-to-time-to-live.md)

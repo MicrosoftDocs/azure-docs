@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ---
 
@@ -78,11 +78,9 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
-### Performance data for disks and networks adapters shows as zeros
+### Performance data for CPU, memory and disks is showing up as zeroes
 
-This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
-
-To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it.
+Azure Migrate continuously profiles the on-premises environment to collect performance data of the on-premises VMs. If you have just started the discovery of your environment, you need to wait for at least a day for the performance data collection to be done. If an assessment is created without waiting for one day, the performance metrics will show up as zeroes. After waiting for a day, you can either create a new assessment or update the existing assessment by using the 'Recalculate' option in the assessment report.
 
 ### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
 
@@ -115,7 +113,7 @@ If you are using any URL-based firewall proxy to control outbound connectivity, 
 
 **The collector can't connect to the internet because of a certificate validation failure**
 
-This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
+This can happen if you are using an intercepting proxy to connect to the Internet, and if you have not imported the proxy certificate on to the collector VM. You can import the proxy certificate using the steps detailed [here](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**
 
@@ -151,14 +149,51 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
 1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
-2. If you already have the latest collector version, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
-3. If the above does not resolve the issue, navigate to the C:\Program Files\ProfilerService folder and remove the VMware.dll and VimService65.dll files present in the folder and then restart the 'Azure Migrate Collector' service in Windows Services Manage (Open 'Run' and type 'services.msc' to open Windows Service Manager).
+2. If you already have the latest collector version, follow the below steps to do a clean installation of PowerCLI :
+
+   a. Close the web browser in the appliance.
+
+   b. Stop the 'Azure Migrate Collector' service by going to Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Stop.
+
+   c. Delete all folders starting with 'VMware' from the following locations:
+        C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules
+
+   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+
+3. If the above does not resolve the issue, follow steps a to c above and then manually install PowerCLI in the appliance using the following steps:
+
+   a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
+
+   b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
+
+   c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+
+   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
+
+4. If you are unable to download the module in the appliance due to firewall issues, download and install the module in a machine that has access to internet using the following steps:
+
+    a. Clean up all incomplete PowerCLI installation files by following steps #a to #c in step #2 above.
+
+    b. Go to Start > Run > Open Windows PowerShell(x86) in administrator mode
+
+    c. Run the command:  Install-Module "VMWare.VimAutomation.Core" -RequiredVersion "6.5.2.6234650" (type 'A' when it asks for confirmation)
+
+    d. Copy all modules starting with "VMware" from “C:\Program Files (x86)\WindowsPowerShell\Modules” to the same location on the collector VM.
+
+    e. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+
+    f. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version of PowerCLI.
 
 ### Error UnableToConnectToServer
 
 Unable to connect to vCenter Server "Servername.com:9443" due to error: There was no endpoint listening at https://Servername.com:9443/sdk that could accept the message.
 
-Check if you are running the latest version of the collector appliance, if not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+Check if you are running the latest version of the collector appliance, if not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 If the issue still happens in the latest version, it could be because the collector machine is unable to resolve the vCenter Server name specified or the port specified is wrong. By default, if the port is not specified, collector will try to connect to the port number 443.
 
@@ -173,7 +208,7 @@ To harden the Azure Migrate appliance, you need to exclude the following folders
 
 - Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
   %ProgramFiles%\ProfilerService  
-- Azure Migrate Web Applciation. Exclude all sub-folders.
+- Azure Migrate Web Application. Exclude all sub-folders.
   %SystemDrive%\inetpub\wwwroot
 - Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
   %SystemDrive%\Profiler
@@ -208,14 +243,14 @@ The list of Windows operating systems supported by dependency agent is [here](ht
 The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I am unable to visualize dependencies in Azure Migrate for more than one hour duration?
-Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window.
+Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ### I am unable to visualize dependencies for groups with more than 10 VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
 
 ### I installed agents and used the dependency visualization to create groups. Now post failover, the machines show "Install agent" action instead of "View dependencies"
 * Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
-* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
+* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Azure Monitor logs traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
 ## Troubleshoot Azure readiness issues
 
@@ -284,7 +319,7 @@ To collect Event Tracing for Windows, do the following:
 | 751       | UnableToConnectToServer        | Unable to connect to vCenter Server '%Name;' due to error: %ErrorMessage;     | Check the error message for more details.                                                             | Resolve the issue and try again.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | The server '%Name;' is not a vCenter Server.                                  | Provide vCenter Server details.                                                                       | Retry the operation with correct vCenter Server details.                                                                                   |
 | 753       | InvalidLoginCredentials        | Unable to connect to the vCenter Server '%Name;' due to error: %ErrorMessage; | Connection to the vCenter Server failed due to invalid login credentials.                             | Ensure that the login credentials provided are correct.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Performance data not available.                                               | Check Statistics Level in vCenter Server. It should be set to 3 for performance data to be available. | Change Statistics Level to 3 (for 5 minutes, 30 minutes, and 2 hours duration) and try after waiting at least for a day.                   |
+| 754       | NoPerfDataAvailable           | Performance data not available.                                               | Check Statistics Level in vCenter Server. It should be set to 3 for performance data to be available. | Change Statistics Level to 3 (for 5 minutes, 30 minutes, and 2 hours duration) and try after waiting at least for a day.                   |
 | 756       | NullInstanceUUID               | Encountered a machine with null InstanceUUID                                  | vCenter Server may have an inappropriate object.                                                      | Resolve the issue and try again.                                                                                                           |
 | 757       | VMNotFound                     | Virtual machine is not found                                                  | Virtual machine may be deleted: %VMID;                                                                | Ensure that the virtual machines selected while scoping vCenter inventory exists during the discovery                                      |
 | 758       | GetPerfDataTimeout             | VCenter request timed out. Message %Message;                                  | vCenter Server credentials are incorrect                                                              | Check vCenter Server credentials and ensure that vCenter Server is reachable. Retry the operation. If the issue persists, contact support. |

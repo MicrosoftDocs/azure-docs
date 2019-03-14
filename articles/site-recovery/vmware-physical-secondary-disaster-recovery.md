@@ -46,11 +46,11 @@ o	For physical machines, follow this [tutorial](./physical-azure-disaster-recove
 --|--|--
 **Required components** |Mobility service on replicated machines. On-premises configuration server, process server, master target server.Temporary process server in Azure for failback.|Mobility service, Process Server, Configuration Server and Master Target
 **Configuration and orchestration** |Recovery Services vault in the Azure portal | Using vContinuum 
-**Replicated**|Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
-**Shared disk cluster**|Not supported|Supported
+**Replicated** |Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
+**Shared disk cluster** |Not supported|Supported
 **Data churn limits (average)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Learn more](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
 **Monitoring** |From Azure portal|From CX (Configuration Server)
-**Support Matrix**| [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
+**Support Matrix** | [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
 
 
 ## Prerequisites
@@ -156,7 +156,7 @@ Scout Update 7 is a full installer which can be used for fresh installation as w
 #### Manual Upgrade for PHP and MySQL on CS,PS, and RX
 The PHP scripting platform should be upgraded to version 7.2.10 on Configuration Server, Process Server and RX Server.
 The MySQL database management system should be upgraded to version 5.7.23 on Configuration Server, Process Server and RX Server.
-Please follow the manaual steps given in the [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide) to upgrade PHP and MySQL versions.
+Please follow the manual steps given in the [Quick installation guide](https://aka.ms/asr-scout-quick-install-guide) to upgrade PHP and MySQL versions.
 
 ### Site Recovery Scout 8.0.1 Update 6 
 Updated: October 12, 2017
@@ -215,7 +215,7 @@ Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Up
 
 #### New platform support
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
-* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA.zip**). Download the GA package from the portal, as described in [create a vault](#create-a-vault).
+* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA.zip**). Download the GA package from the portal, as described in create a vault.
 
 
 #### Bug fixes and enhancements
@@ -249,7 +249,7 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the Scout GA package from the portal as described in [create a vault](#create-a-vault).
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the Scout GA package from the portal as described in create a vault.
 
 #### Bug fixes and enhancements
 

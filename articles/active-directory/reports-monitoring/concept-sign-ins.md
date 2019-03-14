@@ -4,7 +4,7 @@ description: Introduction to sign-in activity reports in the Azure Active Direct
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in activity reports in the Azure Active Directory portal
 
@@ -144,23 +145,13 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to [generate a script to download your data](tutorial-signin-logs-download-script.md).  
+You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSCON file of the most recent 250,000 records.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
-
-If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
 
 > [!IMPORTANT]
 > The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
-### Running the script on a Windows 10 machine
-
-If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
-
-1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
-2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
-3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
-4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
 
 ## Sign-ins data shortcuts
 

@@ -50,7 +50,7 @@ To restore a database, you must locate the required backup file(s) in the storag
 
 For more information on how to configure Automated Backup for SQL VMs, see one of the following articles:
 
-- **SQL Server 2016/2017**: [Automated Backup v2 for Azure Virtual Machines ](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2016/2017**: [Automated Backup v2 for Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [Automated Backup for SQL Server 2014 Virtual Machines](virtual-machines-windows-sql-automated-backup.md)
 
 ## <a id="azbackup"></a> Azure Backup for SQL VMs (Public Preview)
@@ -138,7 +138,7 @@ The following table summarizes the capabilities of each backup and restore optio
 | Backup to attached disks on the VM |   |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Central customizable backup reports |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Consolidated email alerts for failures |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Customize monitoring based on Log Analytics |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Customize monitoring based on Azure Monitor logs |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Monitor backup jobs with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Restore databases with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

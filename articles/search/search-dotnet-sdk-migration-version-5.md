@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ---
@@ -38,17 +38,26 @@ Version 5 of the Azure Search .NET SDK targets the latest generally available ve
 ## Steps to upgrade
 First, update your NuGet reference for `Microsoft.Azure.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
 
-Once NuGet has downloaded the new packages and their dependencies, rebuild your project. Unless you're using a preview feature that is not in the new GA SDK, it should rebuild successfully (if not, let us know on [GitHub](https://github.com/azure/azure-sdk-for-net/issues)). If so, you're ready to go!
+Once NuGet has downloaded the new packages and their dependencies, rebuild your project. Depending on how your code is structured, it may rebuild successfully. If so, you're ready to go!
+
+If your build fails, you should see a build error like the following:
+
+    The name 'SuggesterSearchMode' does not exist in the current context
+
+The next step is to fix this build error. See [Breaking changes in version 5](#ListOfChanges) for details on what causes the error and how to fix it.
 
 Please note that due to changes in the packaging of the Azure Search .NET SDK, you must rebuild your application in order to use version 5. These changes are detailed in [Breaking changes in version 5](#ListOfChanges).
 
 You may see additional build warnings related to obsolete methods or properties. The warnings will include instructions on what to use instead of the deprecated feature. For example, if your application uses the `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` method, you should get a warning that says "This behavior is now enabled by default, so calling this method is no longer necessary."
 
-Once you've fixed any build warnings, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 5](#WhatsNew).
+Once you've fixed any build errors or warnings, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
 ## Breaking changes in version 5
+
+### New Package Structure
+
 The most substantial breaking change in version 5 is that the `Microsoft.Azure.Search` assembly and its contents have been divided into four separate assemblies that are now distributed as four separate NuGet packages:
 
  - `Microsoft.Azure.Search`: This is a meta-package that includes all the other Azure Search packages as dependencies. If you're upgrading from an earlier version of the SDK, simply upgrading this package and re-building should be enough to start using the new version.
@@ -59,6 +68,10 @@ The most substantial breaking change in version 5 is that the `Microsoft.Azure.S
 This change is technically breaking since many types were moved between assemblies. This is why rebuilding your application is necessary in order to upgrade to version 5 of the SDK.
 
 There a small number of other breaking changes in version 5 that may require code changes in addition to rebuilding your application.
+
+### Change to Suggesters 
+
+The `Suggester` constructor no longer has an `enum` parameter for `SuggesterSearchMode`. This enum only had one value, and was therefore redundant. If you see build errors as a result of this, simply remove references to the `SuggesterSearchMode` parameter.
 
 ### Removed obsolete members
 

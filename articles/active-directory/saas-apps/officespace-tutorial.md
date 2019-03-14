@@ -4,12 +4,12 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 95d8413f-db98-4e2c-8097-9142ef1af823
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with OfficeSpace Software
 
@@ -129,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 
-	![Configure Add ](./media/officespace-tutorial/tutorial_attribute_04.png)
+	![Configure Add](./media/officespace-tutorial/tutorial_attribute_04.png)
 
 	![Configure attribute](./media/officespace-tutorial/tutorial_attribute_05.png)
 	

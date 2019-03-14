@@ -2,11 +2,11 @@
 title: 'Tutorial: Manage compute with Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
 description: How to use Azure functions to manage the compute of your data warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
@@ -54,7 +54,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
   ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
+  The value of `schedule` is a [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
   ```json
   {second} {minute} {hour} {day} {month} {day-of-week}
   ```

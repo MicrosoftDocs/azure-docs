@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
+ms.lastreviewed: 02/28/2019
 
 ---
 
@@ -83,6 +84,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
     During the installation of this update, the Azure Stack user portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
 
+- When Azure Stack is managed by System Center Operations Manager (SCOM), be sure to update the Management Pack for Microsoft Azure Stack to version 1.0.3.11 before applying 1811.
+
 ## New features
 
 This update includes the following new features and improvements for Azure Stack:
@@ -114,6 +117,18 @@ This update includes the following new features and improvements for Azure Stack
 - Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. See the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert that you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+
+- Updates to the update experience in Azure Stack. The update enhancements include: 
+    - Tabs that split the Updates from Update history for better tracking updates in progress and completed updates.
+    - Enhanced state visualizations in the essentials section with new icons and layout for Current and OEM versions as well as Last updated date.
+    - **View** link for the Release notes column takes the user directly to the documentation specific to that update rather than the generic update page.
+    - The **Update history** tab used to determine run times for each of the updates as well as enhanced filtering capabilities.  
+    - Azure Stack scale units that are connected will still automatically receive **Update available** as they become available.
+    - Azure Stack scale units that are not connected can import the updates just like before. 
+    - There are no changes in the process to download the JSON logs from the portal. Azure Stack operators will see expanding steps expressing progress.
+
+    For more information, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+
 
 ## Fixed issues
 
@@ -150,6 +165,9 @@ This update includes the following new features and improvements for Azure Stack
 <!-- 3190553 - IS ASDK -->
 - Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
 
+<!-- 2724961 - IS ASDK -->
+- Fiexed an issue in which the VM overview page cannot correctly show the VM metrics chart. 
+
 ## Changes
 
 - A new way to view and edit the quotas in a plan is introduced in 1811. For more information, see [View an existing quota](azure-stack-quota-types.md#view-an-existing-quota).
@@ -183,10 +201,11 @@ This update installs the following security updates:
 - [CVE-2018-8566](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8566)
 - [CVE-2018-8584](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2018-8584)
 
-
-For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4467684](https://support.microsoft.com/help/4467684).
+For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4478877](https://support.microsoft.com/help/4478877).
 
 ## Known issues with the update process
+
+- When you run the **Get-AzureStackLog** PowerShell cmdlet after running **Test-AzureStack** in the same privileged endpoint (PEP) session, **Get-AzureStackLog** fails. To work around this issue, close the PEP session in which you executed **Test-AzureStack**, and then open a new session to run **Get-AzureStackLog**.
 
 - During installation of the 1811 update, ensure that all instances of the administrator portal are closed during this time. The user portal can remain open, but the admin portal must be closed.
 
@@ -293,11 +312,6 @@ The following are post-installation known issues for this build version.
 <!-- 1662991 IS ASDK --> 
 - Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
-<!-- 2724961- IS ASDK --> 
-- When you register the **Microsoft.Insight** resource provider in the subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page does not show metrics data.
-
-   To find metrics data, such as the CPU Percentage chart for the VM, go to the **Metrics** window and show all the supported Windows VM guest metrics.
-
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
 
@@ -309,7 +323,7 @@ The following are post-installation known issues for this build version.
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that the **AzureStack-DiskRP-Client** role is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
@@ -348,6 +362,8 @@ The following are post-installation known issues for this build version.
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 
 - The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
+
+- Network security groups (NSGs) do not work in Azure Stack in the same way as global Azure. In Azure, you can set multiple ports on one NSG rule (using the portal, PowerShell, and Resource Manager templates). In Azure Stack, you cannot set multiple ports on one NSG rule via the portal. To work around this issue, use a Resource Manager template to set these additional rules.
 
 ### Infrastructure backup
 

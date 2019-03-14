@@ -4,7 +4,7 @@ description: This document introduces the integration between Azure Security Cen
 services: security-center
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.service: security-center

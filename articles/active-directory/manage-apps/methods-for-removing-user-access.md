@@ -3,19 +3,20 @@ title: How to remove a user's access to an application | Microsoft Docs
 description: Understand how to remove a user's access to an application
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to remove a user's access to an application
@@ -52,7 +53,7 @@ To **delete an application**, follow these instructions:
 
 ## I want to disable all future user consent operations to any application
 
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalves. For more information about application consent, and why you may or may not wish to do this, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). See also, [Permissions and consent](../develop/v2-permissions-and-consent.md).
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. For more information about application consent, and why you may or may not wish to do this, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). See also, [Permissions and consent](../develop/v2-permissions-and-consent.md).
 
 To **disable all future user consent operations in your entire directory**, follow these instructions:
 

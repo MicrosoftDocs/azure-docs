@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Set up an application to analyze and classify product images with specified labels (using Azure Computer Vision and Custom Vision), and tag objectionable images to be further reviewed (using Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
@@ -41,7 +41,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create a review team
 
-Refer to the [Get familiar with Content Moderator](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
 
 ## Create custom moderation tags
 

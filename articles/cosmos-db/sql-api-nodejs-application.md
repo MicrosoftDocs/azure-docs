@@ -95,7 +95,7 @@ The **package.json** file is one of the files created in the root of the project
    npm install async --save
    ```
 
-2. Install the **@azure/cosmos** module via npm. 
+2. Install the **\@azure/cosmos** module via npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -111,7 +111,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 3. Copy the following code into the **taskDao.js** file:
 
-   ```nodejs
+   ```javascript
    // @ts-check
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const debug = require("debug")("todo:taskDao");
@@ -191,7 +191,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 2. Add the following code to **tasklist.js**. This code loads the CosmosClient and async modules, which are used by **tasklist.js**. This code also defines the **TaskList** class, which is passed as an instance of the **TaskDao** object we defined earlier:
    
-   ```nodejs
+   ```javascript
    const TaskDao = require("../models/TaskDao");
 
    class TaskList {
@@ -252,7 +252,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 2. Add the following code to **config.js** file. This code defines configuration settings and values needed for our application.
    
-   ```nodejs
+   ```javascript
    const config = {};
 
    config.host = process.env.HOST || "[the endpoint URI of your Azure Cosmos DB account]";
@@ -281,7 +281,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 2. Add the following code to the **app.js** file. This code defines the config file to be used, and loads the values into some variables that you will use in the next sections. 
    
-   ```nodejs
+   ```javascript
    const CosmosClient = require("@azure/cosmos").CosmosClient;
    const config = require("./config");
    const TaskList = require("./routes/tasklist");

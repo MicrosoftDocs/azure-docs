@@ -1,6 +1,6 @@
 ---
 title: Install Istio in Azure Kubernetes Service (AKS)
-description: Learn how to install and ise Istio to create a service mesh in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to install and use Istio to create a service mesh in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: paulbouwer
 
@@ -78,7 +78,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 The `istioctl` client binary runs on your client machine and allows you to manage Istio routing rules and policies. Again, the install steps are a little different between client operating systems. Choose one of the following install steps for your preferred environment.
 
 > [!IMPORTANT]
-> Run all of the remaining steps from the top-level folder of the Istio release that you downloaded and extracted in the previous section.
+> Ensure that you run the steps in this section, from the top-level folder of the Istio release that you downloaded and extracted.
 
 ### MacOS
 
@@ -94,7 +94,7 @@ If you'd like command-line completion for the Istio `istioctl` client binary, th
 
 ```bash
 # Generate the bash completion file and source it in your current shell
-istioctl collateral --bash -o ~/completions
+mkdir -p ~/completions && istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
 # Source the bash completion file in your .bashrc so that the command-line completions
@@ -118,7 +118,7 @@ If you'd like command-line completion for the Istio `istioctl` client binary, th
 
 ```bash
 # Generate the bash completion file and source it in your current shell
-istioctl collateral --bash -o ~/completions
+mkdir -p ~/completions && istioctl collateral --bash -o ~/completions
 source ~/completions/istioctl.bash
 
 # Source the bash completion file in your .bashrc so that the command-line completions
@@ -137,10 +137,13 @@ cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:/Program Files/Istio"
 mv ./bin/istioctl.exe "C:/Program Files/Istio/"
 $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:/Program Files/Istio/", "User")
+[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Program Files\Istio\", "User")
 ```
 
 ## Install the Istio Kubernetes components
+
+> [!IMPORTANT]
+> Ensure that you run the steps in this section, from the top-level folder of the Istio release that you downloaded and extracted.
 
 To install the Istio components into your AKS cluster, use Helm. Install the Istio resources into the `istio-system` namespace, and enable additional options for security and monitoring as follows:
 

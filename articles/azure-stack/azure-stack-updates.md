@@ -7,14 +7,14 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
+ms.lastreviewed: 01/22/2019
 
 ---
 # Manage updates in Azure Stack overview
@@ -42,18 +42,17 @@ As updates install, you can view high-level status as the update process targets
 
 We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours if possible. Maintenance operations can affect both tenant workloads and portal operations.
 
-
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
 
   ```PowerShell
-  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  Test-AzureStack -Group UpdateReadiness
   ``` 
 
 ## Using the Update tile to manage updates
 You manage updates from the administrator portal. As an Azure Stack operator you can use the Update tile in the dashboard to:
 
 - view important information such as the current version.
-- install updates, and monitor progress.
+- install updates and monitor progress.
 - review update history for previously installed updates.
  
 ## Determine the current version

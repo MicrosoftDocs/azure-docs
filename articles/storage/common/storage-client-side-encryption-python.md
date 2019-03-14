@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
+ms.subservice: common
 ---
 # Client-Side Encryption with Python for Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -42,7 +42,7 @@ Decryption via the envelope technique works in the following way:
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
-The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
+The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
 The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **create*** methods. For downloads, both complete and range downloads are supported, and parallelization of both upload and download is available.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Sign up for an Office 365 subscription with your Azure account
@@ -68,4 +68,4 @@ After you sign up, the Office 365 subscription is added to the same Azure Active
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo). 

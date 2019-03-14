@@ -3,18 +3,19 @@ title: How to configure system and user-assigned managed identities on an Azure 
 description: Step by step instructions for configuring a system and user-assigned managed identities on an Azure VM using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: daveba
+ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Configure Managed identities for Azure resources on an Azure VM using REST API calls
@@ -75,6 +76,7 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
    ```
    
    **Request headers**
+   
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
@@ -163,6 +165,7 @@ To enable system-assigned managed identity on a VM that was originally provision
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Request headers**
+
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
@@ -234,6 +237,7 @@ To enable system-assigned managed identity on a VM that was originally provision
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token.        | 
+   
    **Request body**
 
    ```JSON
@@ -506,7 +510,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    |---------|---------|
    |*Authorization*     | Required. Set to a valid `Bearer` access token.
 
-    If you have any user or system-assigned managed identities assigned to the VM as identified in the `identity` value in the response, skip to step 5 that shows you how to retain thr system-assigned managed identity while adding a user-assigned managed identity on your VM.
+    If you have any user or system-assigned managed identities assigned to the VM as identified in the `identity` value in the response, skip to step 5 that shows you how to retain the system-assigned managed identity while adding a user-assigned managed identity on your VM.
 
 4. If you don't have any user-assigned managed identities assigned to your VM, use the following CURL command to call the Azure Resource Manager REST endpoint to assign the first user-assigned managed identity to the VM.
 

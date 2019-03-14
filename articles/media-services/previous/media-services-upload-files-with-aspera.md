@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of uploading files into a
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/17/2017
+ms.topic: conceptual
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure
+# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure 
 
 ## Overview
 
@@ -95,8 +95,8 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
 1. Download and install the Aspera client software:
 	
-	* [Browser plugin](http://downloads.asperasoft.com/connect2/)
-	* [Rich client](http://downloads.asperasoft.com/en/downloads/2)
+	* [Browser plugin](https://downloads.asperasoft.com/connect2/)
+	* [Rich client](https://downloads.asperasoft.com/en/downloads/2)
 
 2. Make your first transfer. In order to use the Aspera client to transfer with the Aspera transfer service, you need to complete the following: 
 
@@ -119,14 +119,14 @@ Once you have logged into Azure Marketplace,  follow these basic steps to comple
 
 The following resources were mentioned in this article. 
 
-* [Connect Browser Plugin](http://downloads.asperasoft.com/connect2/)
-* [Connect Guide](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera Client](http://downloads.asperasoft.com/en/downloads/2)
-* [Client Guide](http://downloads.asperasoft.com/en/documentation/2)
+* [Connect Browser Plugin](https://downloads.asperasoft.com/connect2/)
+* [Connect Guide](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera Client](https://downloads.asperasoft.com/en/downloads/2)
+* [Client Guide](https://downloads.asperasoft.com/en/documentation/2)
 
 ## Next steps
 
-You can now [copy blobs from a storage account into an AMS account ](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
+You can now [copy blobs from a storage account into an AMS account](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

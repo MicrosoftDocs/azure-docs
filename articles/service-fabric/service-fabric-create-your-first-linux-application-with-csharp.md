@@ -19,7 +19,6 @@ ms.author: subramar
 ---
 # Create your first Azure Service Fabric application
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux (Preview)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (Preview)](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
@@ -41,7 +40,7 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Install [Yeoman](http://yeoman.io/) template generator on your machine from NPM
+2. Install [Yeoman](https://yeoman.io/) template generator on your machine from NPM
 
   ```bash
   npm install -g yo
@@ -53,7 +52,7 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
   ```
 
 ## Create the application
-A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](http://yeoman.io/) generator for C#, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
+A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric [Yeoman](https://yeoman.io/) generator for C#, which you installed in last step, makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
 
 1. In a terminal, type the following command to start building the scaffolding: `yo azuresfcsharp`
 2. Name your application.

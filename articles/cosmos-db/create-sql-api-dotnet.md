@@ -9,7 +9,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
 ---
-# Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
+# Quickstart: Build a .NET web app using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

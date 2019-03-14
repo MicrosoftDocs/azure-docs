@@ -2,7 +2,7 @@
 title: Test Terraform modules in Azure by using Terratest
 description: Learn how to use Terratest to test your Terraform modules.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
 author: tomarchermsft
 manager: jeconnoc
@@ -294,7 +294,7 @@ Let's start with the samples. A new sample folder named `hello-world/` is create
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demonstrate Terratest.</p>
+    <p>This is a sample web page to demonstrate Terratest.</p>
 </body>
 </html>
 ```

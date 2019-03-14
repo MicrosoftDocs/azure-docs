@@ -78,6 +78,7 @@ Custom Linux images     | To enable the serial console for your custom Linux VM 
 > If you are not seeing anything in the serial console, make sure that boot diagnostics is enabled on your VM.
 
 ## Common scenarios for accessing the serial console
+
 Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Broken *FSTAB* file | Press the **Enter** key to continue and use a text editor to fix the *FSTAB* file. You might need to be in single user mode to do so. For more information, see [How to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
@@ -85,7 +86,7 @@ Incorrect firewall rules | Access the serial console and fix iptables.
 Filesystem corruption/check | Access the serial console and recover the filesystem.
 SSH/RDP configuration issues | Access the serial console and change the settings.
 Network lock down system| Access the serial console from the Azure portal to manage the system.
-Interacting with bootloader | Access GRUB from the serial console. For more information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
+Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 
 ## Disable the serial console
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level.
@@ -184,7 +185,7 @@ Serial console does not work with a storage account firewall. | Serial console b
 
 **Q. How can I send feedback?**
 
-A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
+A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of https://feedback.azure.com.
 
 **Q. Does the serial console support copy/paste?**
 

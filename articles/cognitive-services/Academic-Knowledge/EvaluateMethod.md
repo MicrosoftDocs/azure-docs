@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Use the Evaluate method to return a set of academic entities based on a query expression.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
@@ -24,6 +24,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## Request Parameters  
+
 Name     | Value | Required?  | Description
 -----------|-----------|---------|--------
 **expr**       | Text string | Yes | A query expression that specifies which entities should be returned.
@@ -35,6 +36,7 @@ Name     | Value | Required?  | Description
   
  <br>
 ## Response (JSON)
+
 Name | Description
 -------|-----   
 **expr** |	The *expr* parameter from the request.

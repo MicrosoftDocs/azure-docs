@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
+ms.lastreviewed: 01/25/2019
 ---
 
 # Deploy a Service Fabric cluster in Azure Stack
@@ -23,7 +24,7 @@ Use the **Service Fabric Cluster** item from the Azure Marketplace to deploy a s
 
 For more information about working with Service Fabric, see [Overview of Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) and [Service Fabric cluster security scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in the Azure documentation.
 
-The Service Fabric cluster in Azure Stack is not using the resource provider Microsoft.ServiceFabric. Rather, in Azure Stack, the Service Fabric cluster is a virtual machine scale set with pre installed software set using Desired State Configuration (DSC).
+The Service Fabric cluster in Azure Stack is not using the resource provider Microsoft.ServiceFabric. Rather, in Azure Stack, the Service Fabric cluster is a virtual machine scale set with preinstalled software set using Desired State Configuration (DSC).
 
 ## Prerequisites
 
@@ -208,7 +209,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
 1. After changing the order of the environment variables, restart PowerShell and then run the following PowerShell script to gain access to the Service Fabric cluster:
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -219,8 +220,11 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > There is no *https://* before the name of the cluster in the script. Port 19000 is required.
- 
+
+## Next steps
+
+[Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

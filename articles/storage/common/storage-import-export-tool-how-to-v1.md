@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Using the Azure Import/Export Tool (classic deployment model)

@@ -1,13 +1,13 @@
-﻿---
+---
 title: What is Project Answer Search?
 titlesuffix: Azure Cognitive Services
 description: Introduction to the Project Answer Search.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
@@ -24,10 +24,10 @@ To get answers to a question or information about a person, place, or thing, sen
 The following query gets answers to the question: "What is the circumference of the earth?"
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 The URL parameter `q=` is required to specify the object of search.
 
@@ -35,7 +35,7 @@ The URL parameter `q=` is required to specify the object of search.
 
 The response includes HTTP headers, webpages, facts, and/or entities.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -116,7 +116,7 @@ JSON Response:
             "mustBeCloseToContent": true,
             "license": {
               "name": "CC-BY-SA",
-              "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/"
             },
             "licenseNotice": "Text under CC-BY-SA license"
           },
@@ -125,13 +125,13 @@ JSON Response:
             "targetPropertyName": "description",
             "mustBeCloseToContent": true,
             "text": "Wikipedia",
-            "url": "http://en.wikipedia.org/wiki/Earth"
+            "url": "https://en.wikipedia.org/wiki/Earth"
           },
           {
             "_type": "ContractualRules/MediaAttribution",
             "targetPropertyName": "image",
             "mustBeCloseToContent": true,
-            "url": "http://en.wikipedia.org/wiki/Earth"
+            "url": "https://en.wikipedia.org/wiki/Earth"
           }
         ],
         "webSearchUrl": "https://www.bing.com/entityexplore?q\u003dEarth\u0026filters\u003dsid:%226ddb3372-4801-5567-321e-e8a53bd774a4%22\u0026elv\u003dAXXfrEiqqD9r3GuelwApulpmymQx!ODfuQu*veOQHkvP0!Zbvi5F5tVcMSDJvDEWiQWwrdueYTtIszgj03oFQHykYYLYgq3q5!Sf00QxXGIS",
@@ -142,10 +142,10 @@ JSON Response:
           "provider": [
             {
               "_type": "Organization",
-              "url": "http://en.wikipedia.org/wiki/Earth"
+              "url": "https://en.wikipedia.org/wiki/Earth"
             }
           ],
-          "hostPageUrl": "http://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+          "hostPageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
           "width": 110,
           "height": 110,
           "sourceWidth": 799,
@@ -232,7 +232,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## Terms of use
 Project Answer Search and Project Video Trends are subject to the [Bing Search Use and Display Requirements](use-display-requirements.md).

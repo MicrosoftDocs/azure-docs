@@ -8,7 +8,7 @@ metadata:
   author: CelesteDG
   manager: mtillman
   ms.service: active-directory
-  ms.component: develop
+  ms.subservice: develop
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -179,7 +179,7 @@ sections:
       rows:
         - title: v1.0
           values:
-          - href: sample-v1-code.md#server-or-daemon-application-to-web-api
+          - href: sample-v1-code.md
         - title: v2.0
           values:
           - href: quickstart-v2-netcore-daemon.md

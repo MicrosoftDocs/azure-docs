@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Create a resource group
 
-Create a resource group using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 
 ```azurecli-interactive 
@@ -31,7 +31,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="vnet"></a>Create a virtual network
 
-Create a virtual network using the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
+Create a virtual network using the [az network vnet create](/cli/azure/network/vnet) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create) command.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group) command.
 
 If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It does not mean that the VPN gateway is created immediately.
 
@@ -168,7 +168,7 @@ Example response:
 ```
 ## Clean up resources
 
-When you no longer need the resources you created, use [az group delete](/cli/azure/group#az_group_delete) to delete the resource group. This will delete the resource group and all of the resources it contains.
+When you no longer need the resources you created, use [az group delete](/cli/azure/group) to delete the resource group. This will delete the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

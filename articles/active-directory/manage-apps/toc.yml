@@ -67,6 +67,8 @@
         href: manage-certificates-for-federated-single-sign-on.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Configure SAML token encryption (Preview)
+        href: howto-saml-token-encryption.md
     - name: Single sign-on
       href: what-is-single-sign-on.md
     - name: End-user portals
@@ -219,6 +221,8 @@
           href: application-proxy-configure-single-sign-on-password-vaulting.md
         - name: Headers
           href: application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: SAML SSO
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Access panel
       items:
       - name: Manage browser extension

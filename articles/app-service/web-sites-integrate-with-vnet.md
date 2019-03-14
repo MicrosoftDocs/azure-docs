@@ -77,7 +77,7 @@ To create a gateway:
 * 172.16.0.0/12 - This means an IP address range from  172.16.0.0 to 172.31.255.255 
 * 192.168.0.0/16 - This means an IP address range from  192.168.0.0 to 192.168.255.255
 
-If your are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
+If you are just creating the gateway for use with App Service VNet Integration, then you do not need to upload a certificate. Creating the gateway can take 30 minutes. You will not be able to integrate your app with your VNet until the gateway is provisioned. 
 
 ### Configure VNet Integration with your app ###
 
@@ -274,7 +274,8 @@ The new version is in Preview and has the following characteristics.
 * The new VNet Integration feature doesn't work for apps in an App Service Environment.
 * You cannot delete a VNet with an integrated app.  
 * Route tables and global peering are not yet available with the new VNet Integration.  
-* One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.  You can consume Service Endpoint secured resources using the new VNet Integration capability. To do so, enable service endpoints on the subnet used for VNet Integration.
+* One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
+* You can consume Service Endpoint secured resources using the new VNet Integration capability. To do so, enable service endpoints on the subnet used for VNet Integration.
 
 To use the new feature:
 

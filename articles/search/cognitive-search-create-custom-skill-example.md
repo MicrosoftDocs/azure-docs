@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -149,7 +149,7 @@ namespace TranslateFunction
 
 
         /// <summary>
-        /// Use Cognitive Service to translate text from one language to antoher.
+        /// Use Cognitive Service to translate text from one language to another.
         /// </summary>
         /// <param name="originalText">The text to translate.</param>
         /// <param name="toLanguage">The language you want to translate to.</param>
@@ -301,7 +301,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-## Next Steps
+## Next steps
 Congratulations! You have created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
 
 + [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)

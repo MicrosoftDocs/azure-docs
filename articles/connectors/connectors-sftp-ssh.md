@@ -29,7 +29,9 @@ any reliable data stream. Here are some example tasks you can automate:
 * Extract archives to folders.
 
 Compared to the [SFTP connector](../connectors/connectors-create-api-sftp.md), 
-the SFTP-SSH connector can read or write files up to *1 GB* in size. 
+the SFTP-SSH connector can read or write files up to *1 GB* in size by managing 
+data in 50 MB pieces. For files larger than 1 GB, actions can use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 For more differences, review [Compare SFTP-SSH versus SFTP](#comparison) 
 later in this article.
 
@@ -67,7 +69,9 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector, but handles data in 50 MB pieces, 
-not 1 GB pieces.
+not 1 GB pieces. For files larger than 1 GB, actions can 
+also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
+Currently, triggers don't support chunking.
 
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.
@@ -78,7 +82,7 @@ which renames a file on the SFTP server.
 * Caches the connection to SFTP server *for up to 1 hour*, which improves 
 performance and reduces the number of attempts at connecting to the server. 
 To set the duration for this caching behavior, edit the 
-<a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
+<a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
 property in the SSH configuration on your SFTP server. 
 
 ## Prerequisites
@@ -199,15 +203,20 @@ immediately return that file. The trigger returns the file only when polling the
 server again. Sometimes, this behavior might cause a delay that is up to twice 
 the trigger's polling interval. 
 
-When requesting file content, the trigger doesn't retrieve files larger than 50 MB. 
-To get files larger than 50 MB, follow this pattern:
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
 
 * Use a trigger that returns file properties, 
-such as **When a file is added or modified (properties only)**. 
+such as **When a file is added or modified (properties only)**.
+
 * Follow the trigger with an action that reads the complete file, 
-such as **Get file content using path**.
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Examples
+
+<a name="file-added-modified"></a>
 
 ### SFTP - SSH trigger: When a file is added or modified
 
@@ -224,12 +233,36 @@ You can then use an SFTP action such as **Get file content**
 so you get the order's contents for further processing 
 and store that order in an orders database.
 
-### SFTP - SSH action: Get content
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### SFTP - SSH action: Get content using path
 
 This action gets the content from a file on an SFTP server. 
 So for example, you can add the trigger from the previous 
 example and a condition that the file's content must meet. 
 If the condition is true, the action that gets the content can run. 
+
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Connector reference
 

@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 # Enabling Azure Storage metrics and viewing metrics data
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -107,7 +107,7 @@ Many third-party storage-browsing tools are aware of these tables and enable you
 See [Azure Storage Client Tools](storage-explorers.md) for a list of available tools.
 
 > [!NOTE]
-> Starting with version 0.8.0 of the [Microsoft Azure Storage Explorer](http://storageexplorer.com/), you can view and download the analytics metrics tables.
+> Starting with version 0.8.0 of the [Microsoft Azure Storage Explorer](https://storageexplorer.com/), you can view and download the analytics metrics tables.
 >
 >
 

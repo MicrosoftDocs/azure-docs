@@ -3,20 +3,21 @@ title: Problems signing in to a Microsoft application | Microsoft Docs
 description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Office 365)
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to a Microsoft application
@@ -29,13 +30,13 @@ There are three main ways that a user can get access to a Microsoft-published ap
 
 -   For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This0 means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 
--   For applications that Microsoft or a 3rd Party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
+-   For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
-To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the [Walkthrough: Steps to troubleshoot Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) to get into the details.
+To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the Walkthrough: Steps to troubleshoot Microsoft Application access to get into the details.
 
 ## General Problem Areas with Application Access to consider
 
-Following is a list of the general problem areas that you can drill into if you have an idea of where to start, but we recommend you read the walkthrough to get going quickly: [Walkthrough: Steps to troubleshoot Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Following is a list of the general problem areas that you can drill into if you have an idea of where to start, but we recommend you read the walkthrough to get going quickly: Walkthrough: Steps to troubleshoot Microsoft Application access.
 
 -   [Problems with the user’s account](#problems-with-the-users-account)
 
@@ -175,9 +176,9 @@ To reset a user’s password, follow these steps:
 
 To enable self-service password reset, follow the deployment steps below:
 
--   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### Check a user’s multi-factor authentication status
 

@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
-ms.author: cwatson
+ms.author: banders
 ---
 # View reservations for Azure in the Azure portal
 
@@ -68,4 +68,4 @@ To learn more about Azure reservations, see the following articles:
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).

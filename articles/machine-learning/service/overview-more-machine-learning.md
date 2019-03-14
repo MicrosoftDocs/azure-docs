@@ -1,16 +1,16 @@
 ---
-title: Compare machine learning product options
-titleSuffix: Microsoft
-description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. Decide which products to choose for your solution.
+title: Choose a machine learning technology at Microsoft
+titleSuffix: Azure Machine Learning service
+description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: overview
 
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
+ms.date: 1/30/2019
 
 ---
 
@@ -25,7 +25,7 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure Machine Learning service](#azure-machine-learning-service) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms  (Python and R)|
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
@@ -57,11 +57,11 @@ The following development tools are available for machine learning.
 
 ## Azure Machine Learning service
 
-[Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service used to train, deploy, and manage ML models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](http://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
+[Azure Machine Learning service](overview-what-is-azure-ml.md) is a fully managed cloud service used to train, deploy, and manage ML models at scale. It fully supports open-source technologies, so you can use tens of thousands of open-source Python packages such as TensorFlow, PyTorch, and scikit-learn. Rich tools are also available, such as [Azure notebooks](https://notebooks.azure.com/), [Jupyter notebooks](https://jupyter.org), or the [Azure Machine Learning for Visual Studio Code](https://aka.ms/vscodetoolsforai) extension to make it easy to explore and transform data, and then train and deploy models. Azure Machine Learning service includes features that automate model generation and tuning with ease, efficiency, and accuracy.
 
 Use Azure Machine Learning service to train, deploy, and manage ML models using Python and CLI at cloud scale.
 
-Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## Azure Machine Learning Studio
 

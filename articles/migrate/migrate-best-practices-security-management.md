@@ -62,12 +62,12 @@ In addition to assessments and recommendations, the Security Center provides a n
 
 ## Best practice: Encrypt data 
 
-Encryption's an important part of Azure security practices. Ensuring that encryption is enabled at all levels helps prevent unauthorized parties from gaining access to sensitive data, including data in transit and at rest. 
+Encryption is an important part of Azure security practices. Ensuring that encryption is enabled at all levels helps prevent unauthorized parties from gaining access to sensitive data, including data in transit and at rest. 
 
 ### Encryption for IaaS
 
 - **VMs**: For VMs you can use Azure Disk Encryption to encrypt your Windows and Linux IaaS VM disks.
-    - Disk encryption leverages Bitlocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
+    - Disk encryption leverages BitLocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
     - You can use an encryption key created by Azure, or you can supply your own encryption keys, safeguarded in Azure Key Vault. 
     - With Disk Encryption, IaaS VM data is secured at rest (on the disk) and during VM boot. 
     - Azure Security Center alerts you if you have VMs that aren't encrypted.
@@ -263,7 +263,7 @@ Often, using only a resource group name related to resources won't provide enoug
 
 - [Learn about](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) tagging and tag limitations.
 - [Review](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell and CLI examples to set up tagging, and to apply tags from a resource group to its resources.
-- [Read](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
+- [Read](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
 
 
 ## Best practice: Implement blueprints
@@ -367,7 +367,7 @@ Azure Backup backs up creates data recovery points that are stored in Azure stor
 You can use Azure Backup to back up VMs in a couple of ways.
 
 - **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), no agent is installed on the VM.
-- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to isntall the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
+- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
 - **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequently and retention. You can back up at the app level. For example by backing up SQL Server or SharePoint.
 
 For security, Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
@@ -396,8 +396,7 @@ Azure VMs are stored as page blobs in Azure Storage.
 - [Learn how to](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) create a blob snapshot.
 - [Review a sample scenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) for blob storage backup.
 - [Read about](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) soft delete.
-- [Review](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) What to do if an Azure Storage outage occurs?
-
+- [Disaster recovery and forced failover (preview) in Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### Third-party backup
 
@@ -513,7 +512,7 @@ You can use failover groups and active geo-replication to provide resilience aga
 - [Read](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL Databases 101 for disaster recovery.
 - [Get an overview](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) of active geo-replication and failover groups.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) designing for disaster recovery.
-- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity) for failover groups.
+- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) for failover groups.
 - [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) for security after geo-restore or failover.
 - [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) zone redundancy
 - [Learn how to](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) perform a disaster recovery drill for SQL database.
@@ -585,7 +584,7 @@ Azure resources generate a fair number of logging metrics and telemetry data.
 
 - By default, most resource types don't have diagnostic logging enabled.
 - By enabling diagnostic logging across your resources, you can query logging data, and build alerts and playbooks based on it.
-- When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Log Analytics. 
+- When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Azure Monitor logs. 
 
 
 ![Diagnostic logging](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -676,7 +675,7 @@ As with any production system, making any type of change can impact your environ
 Azure has a Change Tracking solution in Azure automation:
 
 - The solution tracks changes to Windows and Linux software and files, Windows registry keys, Windows services, and Linux daemons.
-- Changes on monitored servers are sent to the Log Analytics service in the cloud for processing.
+- Changes on monitored servers are sent to the Azure Monitor service in the cloud for processing.
 - Logic is applied to the received data and the cloud service records the data.
 - On the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 

@@ -31,8 +31,8 @@ The service manifest declaratively defines the service type and version. It spec
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -49,7 +49,7 @@ The service manifest declaratively defines the service type and version. It spec
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -84,7 +84,7 @@ For more information on how to configure the SetupEntryPoint, see [Configure the
 **ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. The settings file contains sections of user-defined, key-value pair settings that the process reads back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml* file:
 
 ```xml
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
@@ -92,7 +92,7 @@ For more information on how to configure the SetupEntryPoint, see [Configure the
 </Settings>
 ```
 
-**Resources**, such as endpoints, that are used by the service to be declared/changed without changing the compiled code.  Access to the resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest.  When an **Endpoint** resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly.  Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
+A Service Fabric Service **Endpoint** is an example of an Service Fabric Resource; A Service Fabric Resource can be declared/changed without changing the compiled code. Access to the Service Fabric Resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest. When an Endpoint Resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -111,7 +111,7 @@ Thus, an application manifest describes elements at the application level and re
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />

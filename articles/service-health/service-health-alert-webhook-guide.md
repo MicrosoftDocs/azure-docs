@@ -1,20 +1,13 @@
 ---
 title: Configure health notifications for existing problem management systems using a webhook | Microsoft Docs
 description: Get personalized notifications about service health events to your existing problem management system.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.workload: Supportability
+
 ms.date: 3/27/2018
-ms.author: shtabriz
 
 ---
 
@@ -63,7 +56,7 @@ From lowest severity to highest severity, the `level` property in the payload ca
 
 ## Parsing the impacted services to understand the full scope of the incident
 Service health alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](http://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
+The content inside is a [JSON escaped](https://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

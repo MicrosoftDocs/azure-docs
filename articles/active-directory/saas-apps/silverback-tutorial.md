@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Silverback
 
@@ -127,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. On the **Authentication Provider Settings** page, perform the following steps:
 
-	![The admin ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+	![The admin](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
 	c. 	Click on **Import from URL**.
  	
@@ -191,7 +192,7 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 3. On the **Basic** page, perform the following steps:
 
-	![The user ](./media/silverback-tutorial/tutorial_silverback_user.png)
+	![The user](./media/silverback-tutorial/tutorial_silverback_user.png)
 
 	a. In **Username** text box, enter the name of user like **Britta**.
 
@@ -199,7 +200,7 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 	c. In **Last Name** text box, enter the last name of user like **Simon**.
 
-	d. In **E-mail Address** text box, enter the email of user like **Brittasimon@contoso.com**.
+	d. In **E-mail Address** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	e. In the **Password** text box, enter your password.
 	

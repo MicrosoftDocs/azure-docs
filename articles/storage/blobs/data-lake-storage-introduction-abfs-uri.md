@@ -1,18 +1,18 @@
 ---
-title: Use the Azure Data Lake Storage Gen2 Preview URI
-description: Use the Azure Data Lake Storage Gen2 Preview URI
+title: Use the Azure Data Lake Storage Gen2 URI
+description: Use the Azure Data Lake Storage Gen2 URI
 services: storage
 author: jamesbak
 ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
 # Use the Azure Data Lake Storage Gen2 URI
 
-The [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 Preview is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage Gen2 capable account.
+The [Hadoop Filesystem](https://www.aosabook.org/en/hdfs.html) driver that is compatible with Azure Data Lake Storage Gen2 is known by its scheme identifier `abfs` (Azure Blob File System). Consistent with other Hadoop Filesystem drivers, the ABFS driver employs a URI format to address files and directories within a Data Lake Storage Gen2 capable account.
 
 ## URI syntax
 

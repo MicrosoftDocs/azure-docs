@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Install Azure AD Connect using an existing ADSync database
@@ -54,6 +55,10 @@ Important notes to take note of before you proceed:
 2.	Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
 ![Welcome](./media/how-to-connect-install-existing-database/db1.png)
 3.	Start a new command prompt or PowerShell session. Navigate to folder <drive>\program files\Microsoft Azure AD Connect. Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
+
+> [!NOTE]
+> Use the switch **/UseExistingDatabase** only when the database already contains data from an earlier Azure AD Connect installation. For instance, when you are moving from a local database to a full SQL Server database or when the Azure AD Connect server was rebuilt and you restored a SQL backup of the ADSync database from an earlier installation of Azure AD Connect. If the database is empty, that is, it doesn't contain any data from a previous Azure AD Connect installation, skip this step.
+
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 4.	You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
 ![Welcome](./media/how-to-connect-install-existing-database/db3.png)
@@ -92,6 +97,7 @@ Use the table below to verify any additional steps that are required.
 |Federation with AD FS|Azure authentications will continue to use the AD FS policy configured for your active synchronization server.  If you use Azure AD Connect to manage your AD FS farm, you may optionally change the sign-in method to AD FS federation in preparation for your standby server becoming the active synchronization instance.   If device options are enabled on the active synchronization server, configure those options on this server by running the "Configure device options" task.|
 |Pass-through authentication and Desktop Single Sign-On|Update the sign in method to match the configuration on your active synchronization server.  If this is not followed before promoting the server to primary, pass-through authentication along with Seamless Single Sign on will be disabled and your tenant might be locked out if you don’t have password hash sync as back-up sign in option. Also note that when you enable pass-through authentication in staging mode, a new authentication agent will be installed, registered and will run as a high-availability agent which will accept sign in requests.|
 |Federation with PingFederate|Azure authentications will continue to use the PingFederate policy configured for your active synchronization server.  You may optionally change the sign-in method to PingFederate in preparation for your standby server becoming the active synchronization instance.  This step may be deferred until you need to federate additional domains with PingFederate.|
+
 ## Next steps
 
 - Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](how-to-connect-post-installation.md).

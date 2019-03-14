@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
 ---
+
 # Use Apache Oozie with Apache Hadoop to define and run a workflow in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
@@ -117,26 +118,23 @@ There are two actions defined in the workflow. The start-to action is *RunHiveSc
 
 The RunHiveScript has several variables. You pass the values when you submit the Oozie job from your workstation by using Azure PowerShell.
 
-<table border = "1">
-<tr><th>Workflow variables</th><th>Description</th></tr>
-<tr><td>${jobTracker}</td><td>Specifies the URL of the Hadoop job tracker. Use <strong>jobtrackerhost:9010</strong> in HDInsight version 3.0 and 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Specifies the URL of the Hadoop name node. Use the default file system address, for example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Specifies the queue name that the job is submitted to. Use the <strong>default</strong>.</td></tr>
-</table>
+|Workflow variables|Description|
+|---|---|
+|${jobTracker}|Specifies the URL of the Hadoop job tracker. Use **jobtrackerhost:9010** in HDInsight version 3.0 and 2.1.|
+|${nameNode}|Specifies the URL of the Hadoop name node. Use the default file system address, for example, *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+|${queueName}|Specifies the queue name that the job is submitted to. Use the **default**.|
 
-<table border = "1">
-<tr><th>Hive action variable</th><th>Description</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Specifies the source directory for the Hive Create Table command.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Specifies the output folder for the INSERT OVERWRITE statement.</td></tr>
-<tr><td>${hiveTableName}</td><td>Specifies the name of the Hive table that references the log4j data files.</td></tr>
-</table>
+|Hive action variable|Description|
+|---|---|
+|${hiveDataFolder}|Specifies the source directory for the Hive Create Table command.|
+|${hiveOutputFolder}|Specifies the output folder for the INSERT OVERWRITE statement.|
+|${hiveTableName}|Specifies the name of the Hive table that references the log4j data files.|
 
-<table border = "1">
-<tr><th>Sqoop action variable</th><th>Description</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Specifies the Azure SQL database connection string.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Specifies the Azure SQL database table where the data is exported to.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Specifies the output folder for the Hive INSERT OVERWRITE statement. This is the same folder for the Sqoop export (export-dir).</td></tr>
-</table>
+|Sqoop action variable|Description|
+|---|---|
+|${sqlDatabaseConnectionString}|Specifies the Azure SQL database connection string.|
+|${sqlDatabaseTableName}|Specifies the Azure SQL database table where the data is exported to.|
+|${hiveOutputFolder}|Specifies the output folder for the Hive INSERT OVERWRITE statement. This is the same folder for the Sqoop export (export-dir).|
 
 For more information about Oozie workflow and using workflow actions, see [Apache Oozie 4.0 documentation][apache-oozie-400] (for HDInsight version 3.0) or [Apache Oozie 3.3.2 documentation][apache-oozie-332] (for HDInsight version 2.1).
 

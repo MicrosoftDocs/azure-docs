@@ -3,7 +3,7 @@ title: Understand your Azure detailed usage | Microsoft Docs
 description: Learn how to read and understand the sections of your detailed usage CSV for your Azure subscription
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 
@@ -97,4 +97,4 @@ External services (also known as Marketplace orders) are provided by independent
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).

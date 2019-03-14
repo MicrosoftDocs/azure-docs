@@ -2,7 +2,7 @@
 title: Use Terraform modules to create a VM cluster on Azure
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, network, modules
 author: tomarchermsft
 manager: jeconnoc
@@ -26,7 +26,7 @@ For more information on Terraform, see the [Terraform documentation](https://www
 ## Set up authentication with Azure
 
 > [!TIP]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
+> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure) or run this tutorial in the [Azure Cloud Shell](/azure/cloud-shell/overview), skip this step.
 
  Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 

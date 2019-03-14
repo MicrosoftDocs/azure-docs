@@ -3,14 +3,14 @@ title: Define a technical profile for a JWT token issuer in a custom policy in A
 description: Define a technical profile for a JWT token issuer in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Define a technical profile for a JWT token issuer in an Azure Active Directory B2C custom policy

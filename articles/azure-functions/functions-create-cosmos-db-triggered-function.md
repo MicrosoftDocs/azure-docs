@@ -7,7 +7,7 @@ author: ggailey777
 manager: jeconnoc
 
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
@@ -135,8 +135,6 @@ After the collection specified in the function binding exists, you can test the 
 
 ## Next steps
 
-You have created a function that runs when a document is added or modified in your Azure Cosmos DB.
+You have created a function that runs when a document is added or modified in your Azure Cosmos DB. For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information about Azure Cosmos DB triggers, see [Azure Cosmos DB bindings for Azure Functions](functions-bindings-cosmosdb.md).

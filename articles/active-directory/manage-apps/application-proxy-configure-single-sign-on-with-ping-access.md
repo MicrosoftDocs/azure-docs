@@ -3,19 +3,20 @@ title: Header-based authentication with PingAccess for Azure AD Application Prox
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess

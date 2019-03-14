@@ -133,6 +133,13 @@ Function keys are enabled for usage for serial console in Windows VMs. The F8 in
 ### Use WSL in serial console
 The Windows Subsystem for Linux (WSL) has been enabled for Windows Server 2019 or later, so it is also possible to enable WSL for use within the serial console if you are running Windows Server 2019 or later. This may be beneficial for users that also have a familiarity with Linux commands. For instructions to enable WSL for Windows Server, see the [Installation guide](https://docs.microsoft.com/windows/wsl/install-on-server).
 
+### Restart your Windows VM within serial console
+You can restart your VM within the serial console by navigating to the power button and clicking "Restart VM". This will initiate a VM restart, and you will see a notification within the Azure portal regarding the restart.
+
+This is useful in situations where you may want to access the boot menu of your VM without leaving the serial console experience.
+
+![Windows Serial Console Restart](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
+
 ## Disable serial console
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or the VM level.
 
@@ -204,6 +211,7 @@ Use the **Tab** key on your keyboard to navigate in the serial console interface
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Common scenarios for accessing the serial console
+
 Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Incorrect firewall rules | Access serial console and fix Windows firewall rules.
@@ -243,7 +251,7 @@ Serial console does not work with a storage account firewall. | Serial console b
 
 **Q. How can I send feedback?**
 
-A. Provide feedback by creating a GitHub issue at https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
+A. Provide feedback by creating a GitHub issue at https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of https://feedback.azure.com.
 
 **Q. Does the serial console support copy/paste?**
 

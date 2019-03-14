@@ -3,8 +3,9 @@ title: How to use Azure Service Bus queues with Java | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
@@ -13,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # How to use Service Bus queues with Java
@@ -26,10 +27,8 @@ This article describes how to use Service Bus queues. The samples are written in
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Create a Service Bus namespace
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a Service Bus queue
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Configure your application to use Service Bus
@@ -228,7 +227,7 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

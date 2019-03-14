@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Insignia SAML SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Insignia SAML SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 828c981c-c3dd-4eb2-8699-0f732baa43f6
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Insignia SAML SSO
 
@@ -108,6 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Insignia SAML SSO Domain and URLs single sign-on information](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<customername>.insigniails.com/ils` |

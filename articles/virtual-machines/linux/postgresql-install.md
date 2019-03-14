@@ -3,7 +3,7 @@ title: Set up PostgreSQL on a Linux VM | Microsoft Docs
 description: Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # Install and configure PostgreSQL on Azure
@@ -235,5 +235,5 @@ Use the following command to update data in a table. For this one, Sandy has con
 
 
 ## Get more information about PostgreSQL
-Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](http://www.postgresql.org/).
+Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](https://www.postgresql.org/).
 

@@ -4,11 +4,11 @@ description:  Understand how indexing works in Azure Cosmos DB. Learn how to con
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
 ---
 
-# Indexing policy in Azure Cosmos DB
+# Index policy in Azure Cosmos DB
 
 You can override the default indexing policy on an Azure Cosmos container by configuring the following parameters:
 
@@ -18,9 +18,9 @@ You can override the default indexing policy on an Azure Cosmos container by con
 
 * **Configure index modes**: By using the indexing policy on a container, you can configure different indexing modes such as *Consistent* or *None*.
 
-## Indexing modes 
+## Indexing modes
 
-Azure Cosmos DB supports two indexing modes that you can configure on an Azure Cosmos container. You can configure the following two indexing modes through the indexing policy: 
+Azure Cosmos DB supports two indexing modes that you can configure on an Azure Cosmos container. You can configure the following two indexing modes through the indexing policy:
 
 * **Consistent**: If an Azure Cosmos container’s policy is set to Consistent, the queries on a specific container follow the same consistency level as the one specified for point-reads (for example, strong, bounded-staleness, session, or eventual). 
 

@@ -7,9 +7,9 @@ author: heatherbshapiro
 ms.author: hshapiro
 
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 
 ms.custom: seodec18
@@ -28,7 +28,7 @@ The following metrics can be added to a run while training an experiment. To vie
 |----|:----|:----|
 |Scalar values |Function:<br>`run.log(name, value, description='')`<br><br>Example:<br>run.log("accuracy", 0.95) |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
 |Lists|Function:<br>`run.log_list(name, value, description='')`<br><br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
-|Row|Function:<br>`run.log_row(name, description=None, **kwargs)<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
+|Row|Function:<br>`run.log_row(name, description=None, **kwargs)`<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
 |Table|Function:<br>`run.log_table(name, value, description='')`<br><br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
 |Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>run.log_image("ROC", plt) | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
 |Tag a run|Function:<br>`run.tag(key, value=None)`<br><br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
@@ -121,14 +121,14 @@ The script ends with ```run.complete()```, which marks the run as completed.  Th
 
 ## Option 2: Use ScriptRunConfig
 
-**ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
+[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
 
 This example expands on the basic sklearn Ridge model from above. It does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
-1. Create a training script. This code uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
+1. Create a training script `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -179,10 +179,11 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   
   ```
 
-2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
+2. The `train.py` script references `mylib.py` which allows you to get the list of alpha values to use in the ridge model.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -213,7 +214,37 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## Cancel a run
+Ater a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run id. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can cancel a run if it hasn't completed or failed
+if r.get_status() not in ['Complete', 'Failed']:
+    r.cancel()
+```
+Please note that currently only ScriptRun and PipelineRun types support cancel operation.
+
+Additionally, you can cancel a run through the CLI using the following command:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
+
 ## View run details
 
 ### Monitor run with Jupyter notebook widgets
@@ -231,7 +262,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
 2. **[For automated machine learning runs]** To access the charts from a previous run. Please replace `<<experiment_name>>` with the appropriate experiment name:
 
    ``` 
-   from azureml.train.widgets import RunDetails
+   from azureml.widgets import RunDetails
    from azureml.core.run import Run
 
    experiment = Experiment (workspace, <<experiment_name>>)

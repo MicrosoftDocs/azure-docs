@@ -32,7 +32,7 @@ The following are required to complete the tutorial:
 * An Azure account.
 * A Media Services account.    To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
-* A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
+* A webcam. For example, [Telestream Wirecast encoder](https://www.telestream.net/wirecast/overview.htm).
 
 Recommended to review the following articles:
 
@@ -80,8 +80,8 @@ namespace AMSLiveTest
     {
         private const string StreamingEndpointName = "streamingendpoint001";
         private const string ChannelName = "channel001";
-        private const string AssetlName = "asset001";
-        private const string ProgramlName = "program001";
+        private const string AssetName = "asset001";
+        private const string ProgramName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
@@ -224,11 +224,11 @@ namespace AMSLiveTest
 
         public static IProgram CreateAndStartProgram(IChannel channel)
         {
-            IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
+            IAsset asset = _context.Assets.Create(AssetName, AssetCreationOptions.None);
 
             // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
             // however each Program must have a unique name within your Media Services account.
-            IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
+            IProgram program = channel.Programs.Create(ProgramName, TimeSpan.FromHours(3), asset.Id);
             program.Start();
 
             return program;

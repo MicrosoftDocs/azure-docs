@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Azure Files scalability and performance targets

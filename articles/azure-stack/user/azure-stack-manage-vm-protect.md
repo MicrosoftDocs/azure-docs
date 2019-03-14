@@ -12,10 +12,11 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 12/10/2018
 ---
 
 # Protect virtual machines deployed on Azure Stack

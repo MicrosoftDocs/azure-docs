@@ -3,19 +3,20 @@ title: Problem configuring password single sign-on for a non-gallery application
 description: Understand the common problems people face when configuring Password Single Sign-on for custom non-gallery applications that are not listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem configuring password single sign-on for a non-gallery application
@@ -223,7 +224,7 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **UPN** – the user who performed the operation
 
-    -   Example – **tperkins@f128.info**
+    -   Example – **tperkins\@f128.info**
 
 -   **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
 

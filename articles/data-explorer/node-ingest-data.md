@@ -53,10 +53,12 @@ To authenticate an application, Azure Data Explorer uses your Azure Active Direc
 Set the values for `authorityId`, `kustoUri`, `kustoIngestUri` and `kustoDatabase` before running this code.
 
 ```javascript
-const authorityId = "<TenantId>";
-const kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443";
-const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443";
-const kustoDatabase  = "<DatabaseName>";
+const cluster = "MyCluster";
+const region = "westus";
+const authorityId = "microsoft.com";
+const kustoUri = `https://${cluster}.${region}.kusto.windows.net:443`;
+const kustoIngestUri = `https://ingest-${cluster}.${region}.kusto.windows.net:443`;
+const kustoDatabase  = "Weather";
 ```
 
 Now construct the connection string. This example uses device authentication to access the cluster. You can also use Azure Active Directory application certificate, application key, and user and password.
@@ -91,7 +93,7 @@ const kustoClient = new KustoClient(kcsbData);
 const createTableCommand = `.create table ${destTable} (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)`;
 
 kustoClient.executeMgmt(kustoDatabase, createTableCommand, (err, results) => {
-	console.log(result.primaryResults[0]);
+	console.log(results.primaryResults[0][0].toString());
 });
 ```
 
@@ -103,7 +105,7 @@ Map incoming CSV data to the column names and data types used when creating the 
 const createMappingCommand = `.create table ${destTable} ingestion csv mapping '${destTableMapping}' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'`;
 
 kustoClient.executeMgmt(kustoDatabase, createMappingCommand, (err, results) => {
-	console.log(result.primaryResults[0]);
+	console.log(results.primaryResults[0][0].toString());
 });
 ```
 
@@ -131,7 +133,7 @@ const query = `${destTable} | count`;
 
 kustoClient.execute(kustoDatabase, query, (err, results) => {
 	if (err) throw new Error(err);	
-	console.log(results.primaryResults[0].toString());
+	console.log(results.primaryResults[0][0].toString());
 });
 ```
 

@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Get started with delivering content on demand using REST
+# Get started with delivering content on demand using REST  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs.
@@ -36,7 +37,7 @@ The following prerequisites are required to start developing with Media Services
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
-* An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler).
+* An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](https://www.telerik.com/download/fiddler).
 
 The following tasks are shown in this quickstart.
 
@@ -454,7 +455,7 @@ The following code requests the encoder's id.
     }
 
 ### Create a job
-Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this article, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this article, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](https://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
@@ -907,7 +908,7 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 
 
 ## <a id="play"></a>Play your content
-To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+To stream you video, use [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
