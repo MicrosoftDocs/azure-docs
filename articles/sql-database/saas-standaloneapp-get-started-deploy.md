@@ -90,7 +90,7 @@ In a production environment, typically you create a CNAME DNS record to [*point 
 
 Let’s look at some of the resources that were deployed:
 
-1. In the [Azure portal](http://portal.azure.com), browse to the list of resource groups.
+1. In the [Azure portal](https://portal.azure.com), browse to the list of resource groups.
 2. You should see the three tenant resource groups.
 3. Open the **wingtip-sa-fabrikam-&lt;user&gt;** resource group, which contains the resources for the Fabrikam Jazz Club deployment.  The **fabrikamjazzclub-&lt;user&gt;** server contains the **fabrikamjazzclub** database.
 

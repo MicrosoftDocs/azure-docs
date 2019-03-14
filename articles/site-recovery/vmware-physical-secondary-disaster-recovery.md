@@ -46,11 +46,11 @@ o	For physical machines, follow this [tutorial](./physical-azure-disaster-recove
 --|--|--
 **Required components** |Mobility service on replicated machines. On-premises configuration server, process server, master target server.Temporary process server in Azure for failback.|Mobility service, Process Server, Configuration Server and Master Target
 **Configuration and orchestration** |Recovery Services vault in the Azure portal | Using vContinuum 
-**Replicated**|Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
-**Shared disk cluster**|Not supported|Supported
+**Replicated** |Disk (Windows and Linux) |Volume-Windows<br> Disk-Linux
+**Shared disk cluster** |Not supported|Supported
 **Data churn limits (average)** |10 MB/s data per disk<br> 25MB/s data per VM<br> [Learn more](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s data per disk  <br> > 25 MB/s data per VM
 **Monitoring** |From Azure portal|From CX (Configuration Server)
-**Support Matrix**| [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
+**Support Matrix** | [Click here for details](./vmware-physical-azure-support-matrix.md)|[Download ASR Scout compatible matrix](https://aka.ms/asr-scout-cm)
 
 
 ## Prerequisites
