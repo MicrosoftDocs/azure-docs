@@ -25,6 +25,8 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "maxConcurrentOrchestratorFunctions": 10,
     "maxQueuePollingInterval": "00:00:30",
     "azureStorageConnectionStringName": "AzureWebJobsStorage",
+    "trackingStoreConnectionStringName": "TrackingStorage",
+    "trackingStoreNamePrefix": "DurableTask",
     "traceInputsAndOutputs": false,
     "logReplayEvents": false,
     "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
@@ -49,6 +51,8 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |maxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of orchestrator functions that can be processed concurrently on a single host instance.|
 |maxQueuePollingInterval|30 seconds|The maximum control and work-item queue polling interval in the *hh:mm:ss* format. Note that setting this to a higher value could result in higher message processing latencies. Setting this to a lower value could result in higher storage costs due to increased storage transactions.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
+|trackingStoreConnectionStringName||The name of a connection string to use for the History and Instances tables. If not specified, the `azureStorageConnectionStringName` connection is used.|
+|trackingStoreNamePrefix||The prefix to use for the History and Instances tables when `trackingStoreConnectionStringName` is specified. If this property is not set, then the default prefix value will be `DurableTask`. Note that if `trackingStoreConnectionStringName` is not specified, then the History and Instances tables will use the `hubName` value as their prefix, and any setting for `trackingStoreNamePrefix` will be ignored.|
 |traceInputsAndOutputs |false|A value indicating whether to trace the inputs and outputs of function calls. The default behavior when tracing function execution events is to include the number of bytes in the serialized inputs and outputs for function calls. This provides minimal information about what the inputs and outputs look like without bloating the logs or inadvertently exposing sensitive information to the logs. Setting this property to true causes the default function logging to log the entire contents of function inputs and outputs.|
 |logReplayEvents|false|A value indicating whether to write orchestration replay events to Application Insights.|
 |eventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint. This property supports App Settings resolution.|
