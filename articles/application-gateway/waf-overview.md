@@ -9,19 +9,17 @@ ms.author: amsriva
 ms.topic: conceptual
 ---
 
-# Web application firewall
+# Introduction to Web application firewall
 
-Web application firewall (WAF) is a feature of Azure Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities.
+Web application firewall (WAF) is a feature of Azure Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL-injection and cross-site scripting attacks are among the most common attacks.
 
-Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL-injection and cross-site scripting attacks are among the most common attacks.
-
-Preventing such attacks in application code is challenging. It can require rigorous maintenance, patching, and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler. A WAF also gives application administrators better assurance of protection against threats and intrusions.
+Preventing such attacks in application code is challenging. It can require rigorous maintenance, patching, and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler. WAF also gives application administrators better assurance of protection against threats and intrusions.
 
 A WAF solution can  react to a security threat faster by centrally patching a known vulnerability, instead of securing each individual web application. You can easily convert existing application gateways into a web application firewall-enabled application gateway.
 
-A WAF instance is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9 from the Open Web Application Security Project (OWASP). A WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
+WAF is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 or 2.2.9 from the Open Web Application Security Project (OWASP). WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
 
-![Diagram of Application Gateway WAF shown between incoming traffic and websites](./media/waf-overview/WAF1.png)
+![Application Gateway WAF diagram](./media/waf-overview/WAF1.png)
 
 Application Gateway operates as an application delivery controller (ADC). It offers Secure Sockets Layer (SSL) termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites, and security enhancements.
 
@@ -65,7 +63,7 @@ Application Gateway supports two rule sets, CRS 3.0 and CRS 2.2.9. These rules p
 
 Web application firewall comes preconfigured with CRS 3.0 by default. But you can choose to use CRS 2.2.9 instead. CRS 3.0 offers reduced false positives compared with CRS 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
 
-These are common web vulnerabilities that Application Gateway WAP protects against:
+These are web vulnerabilities that Application Gateway WAP protects against:
 
 - SQL-injection attacks
 - Cross-site scripting attacks
@@ -73,7 +71,7 @@ These are common web vulnerabilities that Application Gateway WAP protects again
 - HTTP protocol violations
 - HTTP protocol anomalies, such as missing host user-agent and accept headers
 - Bots, crawlers, and scanners
-- Common application misconfigurations (for example, of Apache or Internet Information Services)
+- Common application misconfigurations (for example, of Apache or Internet Information Services software)
 
 #### OWASP CRS 3.0
 
@@ -82,16 +80,16 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Lock-down methods (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Protect against port and environment scanners|
+|**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protect against protocol and encoding issues|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Protect against header injection, request smuggling, and response splitting|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](application-gateway-crs-rulegroups-rules.md#crs930)**|Protect against file and path attacks|
 |**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Protect against remote file inclusion (RFI) attacks|
 |**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Protect again remote code execution attacks|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|Protect against PHP injection attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|Protect against PHP-injection attacks|
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](application-gateway-crs-rulegroups-rules.md#crs941)**|Protect against cross-site scripting attacks|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|Protect against SQL-injection attacks|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Protect against session fixation attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Protect against session-fixation attacks|
 
 #### OWASP CRS 2.2.9
 
@@ -104,7 +102,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_23_request_limits](application-gateway-crs-rulegroups-rules.md#crs23)**|Protect against arguments or files that exceed limitations|
 |**[crs_30_http_policy](application-gateway-crs-rulegroups-rules.md#crs30)**|Protect against restricted methods, headers, and file types|
 |**[crs_35_bad_robots](application-gateway-crs-rulegroups-rules.md#crs35)**|Protect against web crawlers and scanners|
-|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Protect against generic attacks (such as session fixation, remote file inclusion, as PHP injection)|
+|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Protect against generic attacks (such as session fixation, remote file inclusion, and PHP injection)|
 |**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|Protect against SQL-injection attacks|
 |**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Protect against cross-site scripting  attacks|
 |**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Protect against path-traversal attacks|
@@ -114,7 +112,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 Application Gateway WAF can be configured to run in the following two modes:
 
-* **Detection mode**: Monitors and logs all threat alerts to a log file. You turn on logging diagnostics for Application Gateway in the **Diagnostics** section. You also need to ensure that the WAF log is selected and turned on. Web application firewall doesn't block incoming requests when it's operating in Detection mode.
+* **Detection mode**: Monitors and logs all threat alerts. You turn on logging diagnostics for Application Gateway in the **Diagnostics** section. You must also make sure that the WAF log is selected and turned on. Web application firewall doesn't block incoming requests when it's operating in Detection mode.
 * **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is terminated. Prevention mode records such attacks in the WAF logs.
 
 ### Anomaly Scoring mode
@@ -123,7 +121,7 @@ OWASP has two modes for deciding whether to blocking traffic: Traditional mode a
 
 In Traditional mode, traffic that matches any rule is considered independently of any other rule matches. This mode is easy to understand. But the lack of information about how many rules are matched by a specific request is a limitation. So, Anomaly Scoring mode was introduced. It's the default for OWASP 3.*x*.
 
-In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a certain severity: Critical, Error, Warning, or Notice. That severity affects a numeric value for the request, which is called the Anomaly Score. For example, matching one Warning rule contributes a value of 3 to the score. Matching one matching Critical rule contributes a value of 5.
+In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a certain severity: Critical, Error, Warning, or Notice. That severity affects a numeric value for the request, which is called the Anomaly Score. For example, one Warning rule match contributes 3 to the score. One Critical rule match contributes 5.
 
 There's a threshold of 5 for the Anomaly Score to block traffic. So, a single Critical rule match is enough for Application Gateway WAF to block a request, even in Prevention mode. But one Warning-level match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
 
@@ -134,7 +132,7 @@ There's a threshold of 5 for the Anomaly Score to block traffic. So, a single Cr
 
 Monitoring the health of your application gateway is important. Monitoring the health of your WAF and the applications that it protects is supported by integration with Azure Security Center, Azure Monitor, and Azure Monitor logs.
 
-![Diagram of Application Gateway and WAF diagnostics](./media/waf-overview/diagnostics.png)
+![Diagram of Application Gateway WAF diagnostics](./media/waf-overview/diagnostics.png)
 
 #### Azure Monitor
 
@@ -142,9 +140,9 @@ Application Gateway logs are integrated with [Azure Monitor](../monitoring-and-d
 
 #### Azure Security Center
 
-[Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway now [integrates into Security Center](application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend an Application Gateway WAF to protect these vulnerable resources. You can directly create firewalls from Security Center. These WAF instances are integrated with Security Center. The WAF sends alerts and health information to Security Center for reporting.
+[Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway now [integrates with Security Center](application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You can directly create firewalls from Security Center. These WAF instances are integrated with Security Center. The WAF sends alerts and health information to Security Center for reporting.
 
-![Sample Security Center overview window](./media/waf-overview/figure1.png)
+![Security Center overview window](./media/waf-overview/figure1.png)
 
 #### Logging
 
@@ -184,7 +182,7 @@ Application Gateway WAF provides detailed reporting on each threat that it detec
 
 Web application firewall is available under a new a SKU. This SKU is available only in the Azure Resource Manager provisioning model, not in the classic deployment model. Additionally, the WAF SKU comes only in medium and large Application Gateway instance sizes. All the limits for Application Gateway also apply to the WAF SKU.
 
-Pricing is based on a per hour gateway instance charge and a data processing charge. [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) for the WAF SKU differs from standard SKU charges. Data processing charges are the same. There are no per rule or rule group charges. You can protect multiple web applications behind the same web application firewall. You aren't charged for supporting multiple applications.
+Pricing is based on an hourly gateway instance charge and a data-processing charge. [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) for the WAF SKU differs from standard SKU charges. Data-processing charges are the same. There are no per-rule or rule-group charges. You can protect multiple web applications behind the same web application firewall. You aren't charged for supporting multiple applications.
 
 ## Next steps
 
