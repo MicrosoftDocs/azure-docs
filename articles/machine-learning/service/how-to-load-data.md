@@ -83,7 +83,7 @@ dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-|-----|-----|-----|-------|-------|----------------------|
+|-----|-------|---------| -------|------|-----|------|-----|
 |0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Hale County|10171002158| |
 |2|ALABAMA|1|101710|Hale County|10171002162| |
