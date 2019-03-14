@@ -83,11 +83,11 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
-> > ```javascript
-> > "client_id" : "Enter_the_Application_Id_Here",
-> > "type": "Enter_the_Audience_Info_Here",
-> > "tenant_id" : "Enter_the_Tenant_Info_Here"
-> > ```
+    > ```javascript
+    > "client_id" : "Enter_the_Application_Id_Here",
+    > "type": "Enter_the_Audience_Info_Here",
+    > "tenant_id" : "Enter_the_Tenant_Info_Here"
+    > ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Add the following activity to the **manifest\application** node. This code allows Microsoft to callback to your app:	
     > ```xml
@@ -111,13 +111,12 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace the `client_id`:
-> > ```javascript
-> > "client_id" : "ENTER_YOUR_APPLICATION_ID",
-> > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
-> > ```
+    >  ```javascript
+    > "client_id" : "ENTER_YOUR_APPLICATION_ID",
+    > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
+    >  ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
-	> [!div renderon="docs"]
 	> ```xml
     > <!--Intent filter to catch Microsoft's callback after Sign In-->
     > <activity
