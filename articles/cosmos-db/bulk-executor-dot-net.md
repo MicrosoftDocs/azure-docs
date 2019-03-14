@@ -194,4 +194,4 @@ Consider the following points for better performance when using bulk executor li
 ```
 
 ## Next steps
-* To learn about Nuget package details and release notes of bulk executor .Net library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .NET library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

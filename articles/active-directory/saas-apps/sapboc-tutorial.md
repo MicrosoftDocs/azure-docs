@@ -174,7 +174,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -233,7 +233,7 @@ To provision a user account:
 
 	d. In the **DISPLAY NAME** box, enter the full name of the user, like **Britta Simon**.
 
-	e. In the **E-MAIL** box, enter the email address of the user, like **brittasimon@contoso.com**.
+	e. In the **E-MAIL** box, enter the email address of the user, like **brittasimon\@contoso.com**.
 
 	f. On the **Select Roles** page, select the appropriate role for the user, and then select **OK**.
 
