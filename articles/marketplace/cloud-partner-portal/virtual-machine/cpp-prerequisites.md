@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
 ---
 
 # Virtual machine prerequisites
 
-This article lists both the technical and business requirements that you must meet before you can publish a VM offer to the Azure Marketplace.
+This article lists both the technical and business requirements that you must meet before you can publish a VM offer to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).  If you have not already done so, review the [Virtual Machine Offer Publishing Guide](../../marketplace-virtual-machines.md).
 
 
 ## Technical requirements
@@ -51,5 +51,9 @@ The business requirements include procedural, contractual, and legal obligations
 * You are responsible for licensing your software and any third-party software dependencies.
 * You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal. <!-- TD: Meaning/links? -->
 * You must agree to the terms of the [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) and Publisher Agreement.​
-* You must comply with the [Microsoft Azure Website Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement) and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+* You must comply with the [Microsoft Azure Website Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
+
+## Next steps
+
+After you have met these prerequisites, you can [create your VM offer](./cpp-create-offer.md).
