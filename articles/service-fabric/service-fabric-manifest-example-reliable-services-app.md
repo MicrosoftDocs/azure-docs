@@ -20,6 +20,7 @@ ms.author: ryanwi
 The following are examples of the application and service manifests for a Service Fabric application with an ASP.NET Core web front-end and a stateful back-end. The purpose of these examples is to show what settings are available and how to use them. These application and service manifests are based on the [Service Fabric .NET Quickstart](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifests.
 
 The following features are shown:
+
 |Manifest|Features|
 |---|---|
 |[Application manifest](#application-manifest)| [resource governance](service-fabric-resource-governance.md), [run a service as a local admin account](service-fabric-application-runas-security.md), [apply a default policy to all service code packages](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [create user and group principals](service-fabric-application-runas-security.md), share a data package between service instances, [override service endpoints](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 

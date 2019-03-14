@@ -9319,7 +9319,12 @@
     },
     {
       "source_path": "articles/blockchain-workbench/ethereum-deployment-guide.md",
-      "redirect_url": "/azure/blockchain/templates/ethereum-deployment",
+      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain-workbench/ethereum-deployment.md",
+      "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
       "redirect_document_id": false
     },
     {
@@ -36273,6 +36278,11 @@
     {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/service-maintenance.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
     }
   ]

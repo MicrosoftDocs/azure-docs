@@ -27,7 +27,7 @@ To secure an IIS web application that uses form-based authentication, install th
 1. In the Azure Multi-Factor Authentication Server, click the IIS Authentication icon in the left menu.
 2. Click the **Form-Based** tab.
 3. Click **Add**.
-4. To detect username, password and domain variables automatically, enter the Login URL (like https://localhost/contoso/auth/login.aspx) within the Auto-Configure Form-Based Website dialog box and click **OK**.
+4. To detect username, password and domain variables automatically, enter the Login URL (like `https://localhost/contoso/auth/login.aspx`) within the Auto-Configure Form-Based Website dialog box and click **OK**.
 5. Check the **Require Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.
 6. If the page variables cannot be detected automatically, click **Specify Manually** in the Auto-Configure Form-Based Website dialog box.
 7. In the Add Form-Based Website dialog box, enter the URL to the login page in the Submit URL field and enter an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.

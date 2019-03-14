@@ -46,7 +46,7 @@ This table is updated when there are service updates and or new supported versio
 > [!NOTE]
 > 2018-10-01 is currently getting rolled out and will be available in other shortly. 
 
-To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](http://portal.azure.com) in the above regions and follow the examples below.
+To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
 
 ## Usage
 
@@ -338,6 +338,7 @@ Api-version is a mandatory field and the version supported for attested data is 
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
+
 > [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
@@ -352,6 +353,7 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 #### Retrieving attested metadata in Windows Virtual Machine
 
  **Request**
+
 Instance metadata can be retrieved in Windows via the PowerShell utility `curl`:
 
  ```bash
@@ -368,6 +370,7 @@ Api-version is a mandatory field and the version supported for attested data is 
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
+
 > [!NOTE]
 > The response is a JSON string. The following example response  is pretty-printed for readability.
 
@@ -495,6 +498,8 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
   base64 -d signature > decodedsignature
   #Get PKCS7 format
   openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
   #Get the intermediate certificate
   wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
   openssl x509 -inform der -in intermediate.cer -out intermediate.pem
@@ -633,7 +638,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. Why am I getting the error `500 Internal Server Error`?
    * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
 6. Where do I share additional questions/comments?
-   * Send your comments on http://feedback.azure.com.
+   * Send your comments on https://feedback.azure.com.
 7. Would this work for Virtual Machine Scale Set Instance?
    * Yes Metadata service is available for Scale Set Instances.
 8. How do I get support for the service?

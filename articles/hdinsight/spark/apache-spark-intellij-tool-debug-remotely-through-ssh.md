@@ -4,8 +4,8 @@ description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolki
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 services: hdinsight
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed
+ms.author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
@@ -164,7 +164,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
 ### Create and run applications
 * [Create a standalone application using Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster](apache-spark-intellij-tool-plugin.md)

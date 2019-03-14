@@ -342,7 +342,7 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
 ```       
 
 4. Press CTRL+F5 to run the application.
-5. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to http://localhost:53370/trace.axd).
+5. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to `http://localhost:53370/trace.axd`).
 6. On the **Application Trace** page, click **View Details** on the first line (not the BrowserLink line).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)

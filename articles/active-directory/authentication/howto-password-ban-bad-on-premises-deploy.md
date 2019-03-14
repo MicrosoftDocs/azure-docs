@@ -21,6 +21,7 @@ ms.collection: M365-identity-device-management
 | --- |
 | Azure Active Directory (Azure AD) password protection is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
 Now that you understand [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
 
 ## Deployment strategy
@@ -29,11 +30,11 @@ We recommend that you start deployments in audit mode. Audit mode is the default
 
 During the audit stage, many organizations find out that:
 
-* They need to improve existing operational processes to use more-secure passwords.
+* They need to improve existing operational processes to use more secure passwords.
 * Users often use unsecure passwords.
-* They need to inform users about the upcoming change in security enforcement, possible impact on them, and how to choose more-secure passwords.
+* They need to inform users about the upcoming change in security enforcement, possible impact on them, and how to choose more secure passwords.
 
-After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more-secure passwords. Focused monitoring during this time is a good idea.
+After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more secure passwords. Focused monitoring during this time is a good idea.
 
 ## Deployment requirements
 
