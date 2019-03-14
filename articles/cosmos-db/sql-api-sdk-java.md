@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
 
 
@@ -38,6 +38,17 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## Release notes
+
+### <a name="2.1.0"/>2.1.3
+* Fixed bud in PartitionKey for Hash V2.
+
+### <a name="2.1.0"/>2.1.2
+* Added support for Composite Indexes
+* Fixed bug in Global Endpoint Manager to force refresh.
+* Fixed bug for Upserts with pre-conditions in DirectMode.
+
+### <a name="2.1.0"/>2.1.1
+* Fixed bug in Gateway Address Cache.
 
 ### <a name="2.1.0"/>2.1.0
 * Multi-region write support added for direct mode.
@@ -208,7 +219,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| 2.1.1 |Nov 21, 2018 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
+| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
+| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
 | [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
 | [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
