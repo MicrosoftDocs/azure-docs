@@ -460,6 +460,7 @@ If you're using disks based on Azure page blob storage or Managed Disks, the sta
 To identify the supported Azure VM types, see SAP Note [1928533].
 
 Minimum configuration:
+
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
 | /oracle/<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
@@ -473,6 +474,7 @@ Minimum configuration:
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements. 
 
 Performance configuration:
+
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
 | /oracle/<SID>/origlogaA | Premium | None | Can be used  |

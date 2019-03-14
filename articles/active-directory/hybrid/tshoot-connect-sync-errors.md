@@ -184,7 +184,7 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 This case results in a **"FederatedDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
 
 #### Scenarios
-For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob@contoso.com* was changed to *UserPrincipalName = bob@fabrikam.com*.
+For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob\@contoso.com* was changed to *UserPrincipalName = bob\@fabrikam.com*.
 
 #### Example
 1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
