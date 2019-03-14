@@ -29,7 +29,7 @@ For Azure Storage Blob or Data Lake sink types, you will output the transformed 
 
 ![Sink options](media/data-flow/opt001.png "sink options")
 
-#### Field mapping
+## Field mapping
 
 On the Mapping tab of your Sink transformation, you can map the incoming (left side) columns to the destination (right side). When you sink data flows to files, ADF will always write new files to a folder. When you map to a database dataset, you can choose to either generate a new table with this schema (set Save Policy to "overwrite") or insert new rows to an existing table and map the fields to the existing schema.
 
@@ -64,7 +64,8 @@ With database dataset sinks, you will have additional options:
 * Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
 * Truncate table (removes all rows from your target table before completing the data flow)
 * Recreate table (performs drop/create of your target table before completing the data flow)
-* Batch size for large data loads. Enter a number to bucket writes into chunks.
+* Batch size for large data loads. Enter a number to bucket writes into chunks
+* Enable staging: This will instruct ADF to use Polybase when loading Azure Data Warehouse as your sink dataset
 
 ![SQL Sink Options](media/data-flow/alter-row2.png "SQL Options")
 
