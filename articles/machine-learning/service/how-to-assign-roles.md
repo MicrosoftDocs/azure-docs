@@ -27,7 +27,7 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 | --- | --- |
 | **Reader** | Read-only actions in the workspace. Readers can list and view assets in a workspace, but can't create or update these assets. |
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
-| **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can |change role assignments. |
+| **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workgroup may not have owner access to the resource group that contains the workgroup. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
@@ -36,14 +36,14 @@ For more information on specific built-in roles, see [Built-in roles for Azure](
 
 ## Manage workspace access
 
-If you're an owner of a workspace, you can add and remove roles for the workspace. You can also manage users that are assigned to the roles. Use the following links to discover how to manage access:
+If you're an owner of a workspace, you can add and remove roles for the workspace. You can also assign roles to users. Use the following links to discover how to manage access:
 - [Azure portal UI](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)
 
-If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a CLI command to assign users to roles.
+If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a CLI command to assign roles to users.
 
 ```azurecli-interactive 
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -98,7 +98,7 @@ To deploy this custom role, use the following Azure CLI command:
 az role definition create --role-definition data_scientist_role.json
 ```
 
-After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can add a user with this role by using the `az ml workspace share` CLI command:
+After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
 
 ```azurecli-interactive
 az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
