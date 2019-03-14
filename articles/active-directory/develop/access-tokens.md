@@ -222,15 +222,15 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 
 ### Revocation
 
-|   | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token| |
-|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|-|
-| Password expires | Stays alive| Stays alive | Stays alive | Stays alive | Stays alive | |
-| Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive | |
-| User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive | |
-| Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive | |
+|   | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token|
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+| Password expires | Stays alive| Stays alive | Stays alive | Stays alive | Stays alive |
+| Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
+| User does SSPR | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
+| Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
 | Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
-| [Single sign-out](v1-protocols-openid-connect-code.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive | |
+| [Single sign-out](v1-protocols-openid-connect-code.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 > [!NOTE]
 > A "Non-password based" login is one where the user didn't type in a password to get it. For example, using your face with Windows Hello, a FIDO key, or a PIN. 
