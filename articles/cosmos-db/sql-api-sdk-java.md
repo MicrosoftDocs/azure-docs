@@ -40,7 +40,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 ## Release notes
 
 ### <a name="2.1.0"/>2.1.3
-* Fixed bud in PartitionKey for Hash V2.
+* Fixed bug in PartitionKey for Hash V2.
 
 ### <a name="2.1.0"/>2.1.2
 * Added support for Composite Indexes.
