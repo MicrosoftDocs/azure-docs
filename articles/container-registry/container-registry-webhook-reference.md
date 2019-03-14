@@ -98,7 +98,7 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 Webhook triggered when a Helm chart is pushed to a repository.
 
-### Push event payload
+### Chart push event payload
 
 |Element|Type|Description|
 |-------------|----------|-----------|
@@ -220,8 +220,10 @@ Webhook triggered when a Helm chart or repository is deleted.
 |Element|Type|Description|
 |------------------|----------|-----------|
 |`mediaType`|String|The MIME type of the referenced object.|
+|`size`|Int32|The number of bytes of the content.|
 |`digest`|String|The digest of the content, as defined by the Registry V2 HTTP API Specification.|
 |`repository`|String|The repository name.|
+|`tag`|String|The chart tag name.|
 
 ### Payload example: chart delete event
 

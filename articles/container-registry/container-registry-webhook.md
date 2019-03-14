@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/14/2019
 ms.author: danlep
 ---
 
@@ -34,7 +34,7 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 | Name | The name you want to give to the webhook. It may contain only letters and numbers, and must be 5-50 characters in length. |
 | Service URI | The URI where the webhook should send POST notifications. |
 | Custom headers | Headers you want to pass along with the POST request. They should be in "key: value" format. |
-| Trigger actions | Actions that trigger the webhook. Actions include image push, image delete, Helm chart push, and Helm chart delete. You can choose one or more actions to trigger the webhook. |
+| Trigger actions | Actions that trigger the webhook. Actions include image push, image delete, Helm chart push, Helm chart delete, and image quarantine. You can choose one or more actions to trigger the webhook. |
 | Status | The status for the webhook after it's created. It's enabled by default. |
 | Scope | The scope at which the webhook works. If not specified, the scope is for all events in the registry. It can be specified for a repository or a tag by using the format "repository:tag", or "repository:*" for all tags under a repository. |
 
