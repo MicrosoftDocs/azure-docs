@@ -112,8 +112,7 @@ To configure Azure AD single sign-on with OrgChart Now, perform the following st
     `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
 	> [!NOTE]
-	> > [!NOTE]
-	> `<YourEntityID>` is the Azure AD Identifier copied from the **Set up OrgChart Now** section, described later in tutorial.
+	> `<YourEntityID>` is the **Azure AD Identifier** copied from the **Set up OrgChart Now** section, described later in tutorial.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
