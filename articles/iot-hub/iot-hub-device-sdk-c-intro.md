@@ -346,7 +346,7 @@ As with the previous sample, this one includes several NuGet packages:
 
 You've seen most of these packages in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This package is required when you use the **serializer** library.
 
-You can find the implementation of the sample application in the ***iothub_client\_samples\_iothub_convenience_sample** file.
+You can find the implementation of the sample application in the **iothub_client\_samples\_iothub_convenience_sample** file.
 
 The following sections walk you through the key parts of this sample.
 

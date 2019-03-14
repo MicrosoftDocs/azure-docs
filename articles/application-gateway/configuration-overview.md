@@ -16,7 +16,7 @@ Application gateway comprises of several components that can be configured in di
 
 ![application-gateway-components](.\media\configuration-overview\configuration-overview1.png)
 
-The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for http://acme.com/* and http://fabrikam.com/*, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
+The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
 
 ## Prerequisites
 

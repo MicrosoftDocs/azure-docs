@@ -147,7 +147,7 @@ The configuration parameters are:
 |Parameter|Description|
 |---|---|
 |**Name** |Reference name for custom probe. |
-* **Protocol** | Protocol used (possible values are HTTP or HTTPS).|
+| **Protocol** | Protocol used (possible values are HTTP or HTTPS).|
 | **Host** and **Path** | Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.|
 | **Interval** | Configures the probe interval checks in seconds.|
 | **Timeout** | Defines the probe time-out for an HTTP response check.|

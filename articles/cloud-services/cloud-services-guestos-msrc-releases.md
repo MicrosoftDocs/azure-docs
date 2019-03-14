@@ -12,12 +12,58 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/20/2019
+ms.date: 3/14/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+>[!NOTE]
+>The March Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the March OS. This list is subject to change.
+
+
+## March 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | March 12, 2019 |
+| Rel 19-03 | [4489907] | Flash | 3.71, 4.64, 5.29, 6.5 | March 12, 2019 |
+| Rel 19-03 | [4489885] | Windows Security | 2.84 | March 12, 2019 |
+| Rel 19-03 | [4489884] | Windows Security | 3.71 | March 12, 2019 |
+| Rel 19-03 | [4489883] | Windows Security | 4.64 | March 12, 2019 |
+| Rel 19-03 | [4489882] | Windows 10 Security | 5.29 | March 12, 2019 |
+| Rel 19-03 | [4489899] | Windows 10 Security | 6.5 | March 12, 2019 |
+| Rel 19-03 | [4486563] | February Non-Security rollup | 2.84 | February 12, 2019 |
+| Rel 19-03 | [4483458] | February Non-Security rollup .NET 3.x | 2.84 | February 12, 2019 |
+| Rel 19-03 | [4483455] | February Non-Security rollup .NET 4.x | 2.84 | February 12, 2019 |
+| Rel 19-03 | [4487025] | February Non-Security rollup | 3.71 | February 12, 2019 |
+| Rel 19-03 | [4483456] | February Non-Security rollup .NET 3.x | 3.71 | February 12, 2019 |
+| Rel 19-03 | [4483454] | February Non-Security rollup .NET 4.x | 3.71 | February 12, 2019 |
+| Rel 19-03 | [4487000] | February Non-Security rollup | 4.64 | February 12, 2019 |
+| Rel 19-03 | [4483459] | February Non-Security rollup .NET 3.x | 4.64 | February 12, 2019 |
+| Rel 19-03 | [4483453] | February Non-Security rollup .NET 4.x | 4.64 | February 12, 2019 |
+| Rel 19-03 | [4485447] | February Servicing Stack Update | 5.29 | February 12, 2019 |
+| Rel 19-03 | [4486459] | Timezone update | 2.84, 3.71, 4.64 | February 12, 2019 |
+
+[4489873]: https://support.microsoft.com/kb/4489873
+[4489907]: https://support.microsoft.com/kb/4489907
+[4489885]: https://support.microsoft.com/kb/4489885
+[4489884]: https://support.microsoft.com/kb/4489884
+[4489883]: https://support.microsoft.com/kb/4489883
+[4489882]: https://support.microsoft.com/kb/4489882
+[4489899]: https://support.microsoft.com/kb/4489899
+[4486563]: https://support.microsoft.com/kb/4486563
+[4483458]: https://support.microsoft.com/kb/4483458
+[4483455]: https://support.microsoft.com/kb/4483455
+[4487025]: https://support.microsoft.com/kb/4487025
+[4483456]: https://support.microsoft.com/kb/4483456
+[4483454]: https://support.microsoft.com/kb/4483454
+[4487000]: https://support.microsoft.com/kb/4487000
+[4483459]: https://support.microsoft.com/kb/4483459
+[4483453]: https://support.microsoft.com/kb/4483453
+[4485447]: https://support.microsoft.com/kb/4485447
+[4486459]: https://support.microsoft.com/kb/4486459
 
 ## February 2019 Guest OS
 

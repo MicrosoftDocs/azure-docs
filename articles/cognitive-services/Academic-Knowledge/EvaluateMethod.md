@@ -24,6 +24,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## Request Parameters  
+
 Name     | Value | Required?  | Description
 -----------|-----------|---------|--------
 **expr**       | Text string | Yes | A query expression that specifies which entities should be returned.
@@ -35,6 +36,7 @@ Name     | Value | Required?  | Description
   
  <br>
 ## Response (JSON)
+
 Name | Description
 -------|-----   
 **expr** |	The *expr* parameter from the request.
