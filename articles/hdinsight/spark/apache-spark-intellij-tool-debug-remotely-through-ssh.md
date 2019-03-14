@@ -4,8 +4,8 @@ description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolki
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 services: hdinsight
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed
+ms.author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
