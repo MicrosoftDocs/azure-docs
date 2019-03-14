@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-
+#This should redirect to the workflow section of "Reviews, Workflows, and Jobs concepts" doc.
 ---
 
 # Automate moderation reviews with workflows
@@ -206,35 +206,6 @@ After you test the workflow again, you find that no review is created. To confir
 The workflow did not create the review because it failed to detect profanity in the extracted text.
 
 ![Content Moderator - modified workflow output](images/ocr-workflow-2-result.PNG)
-
-
-## The Workflow API
-
-The [Workflow operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) provide the programming interface to the workflow capabilities. You create workflows, get workflow details, and update workflow definitions using the Workflow API.
-
-### Get [All] workflow details
-
-The **Workflow-Get** operation accepts the following inputs:
-
-- **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: The name of your workflow. Use `default` to begin with.
-- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
-
-If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the workflow definition in the JSON format.
-To learn more, read the [Workflow API console quickstart](try-review-api-job.md).
-
-### Create or update workflow
-
-The creation and update operation allows creating workflow from the API.
-
-The **Workflow-Create or Update** operation accepts the following inputs:
-
-- **team**: The team ID that you created when you set up your [review tool account](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: The name of your workflow. Use `default` to begin with.
-- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
-
-If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`. 
-To learn more, [test drive the `Create` operation](try-review-api-job.md).
 
 ## Next steps
 

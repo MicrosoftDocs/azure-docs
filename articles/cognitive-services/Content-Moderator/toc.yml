@@ -37,7 +37,7 @@
     href: text-moderation-api.md
   - name: Video moderation
     href: video-moderation-human-review.md
-  - name: Jobs and reviews
+  - name: Reviews, workflows, and jobs
     href: review-api.md
   - name: Workflows
     href: workflow-api.md
@@ -85,8 +85,6 @@
           href: try-review-api-job.md
         - name: Reviews - API console
           href: try-review-api-review.md
-        - name: Workflows - API console
-          href: try-review-api-workflow.md
     - name: Review tool overview
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: Review tool settings
@@ -103,10 +101,14 @@
       href: Review-Tool-User-Guide/Credentials.md
     - name: Use connectors
       href: Review-Tool-User-Guide/Connectors.md
-    - name: Use workflows
-      href: Review-Tool-User-Guide/Workflows.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: Define and use Workflows
+    items:
+    - name: Review tool (browser)
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: REST API
+      href: try-review-api-workflow.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Azure webinar series

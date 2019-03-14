@@ -1,21 +1,22 @@
 ---
-title: Define and use content moderation workflows - Content Moderator
+title: Define and use content moderation workflows from the Review tool - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: You can use the Azure Content Moderator workflow designer and APIs to define custom workflows and thresholds based on your content policies.
+description: You can use the Azure Content Moderator workflow designer to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
+
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-
+#Customer intent: use workflows from the Review tool
 ---
 
-# Define, test, and use moderation workflows
+# Define and use moderation workflows
 
-Content workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario.
+Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario.
 
 ## Create a new workflow
 
@@ -65,7 +66,7 @@ Save this [sample image](https://moderatorsampleimages.blob.core.windows.net/sam
 
 ![a woman in a bathing suit](images/sample-racy.PNG)
 
-### Track the workflow
+### Track progress
 
 You can view the progress of the workflow in the next popup window.
 
@@ -77,32 +78,9 @@ Go to the **Image** tab under **Review** and verify that there is a newly create
 
 ![Review images](images/image-workflow-review.PNG)
 
-## Use the Workflow API
-
-The Workflow APIs provide a programming interface for the workflow capabilities. You can create workflows, get workflow details, and update workflow definitions programmatically using the Workflow API.
-
-### Create or update workflow programmatically
-
-The [Workflow - Create or Update](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) operation accepts the following inputs:
-
-- **team**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account.
-- **workflowname**: The name of your workflow. Use a new name to create a new workflow.
-- **Ocp-Apim-Subscription-Key**: Your Content Moderator key (located on the **Settings** tab).
-
-If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays `true`.
-
-### Get workflow details
-
-The **Workflow-Get** operation accepts the following inputs:
-
-- **team**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account.
-- **workflowname**: The name of your workflow.
-- **Ocp-Apim-Subscription-Key**: Your Content Moderator key (located on the **Settings** tab).
-
-If the operation succeeds, the **Response status** is `200 OK` and the **Response content** box displays the workflow definition in JSON format.
-
 ## Next steps
 
-See the Jobs guide [Workflow API console](../try-review-api-job.md) to test the workflow APIs in the web console.
+In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, learn how to use workflows programmatically.
 
-To invoke the workflow from code, use custom workflows with the [`Job` API console quickstart](../try-review-api-job.md) and the [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md).
+- [`Job` API console quickstart](../try-review-api-job.md)
+- [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md)
