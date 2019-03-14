@@ -25,15 +25,13 @@ Alert Logic Log Manager collects VM, application, and Azure platform logs for se
 
 ## AppDynamics
 
-![AppDynamics Logo](./media/partners/appdynamics2.png)
+![AppDynamics Logo](./media/partners/appdynamics.png)
 
 AppDynamics Application Performance Management (APM) enables application owners to rapidly troubleshoot performance bottlenecks and optimize the performance of their applications running in Azure environment. It can monitor Azure Cloud Services (PaaS), web & worker roles, Virtual Machines (IaaS), Remote Service Detection (Microsoft Azure Service Bus), Microsoft Azure Queue, Microsoft Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), Data Storage, and Microsoft Azure Blob Storage. AppDynamics APM is available in the Azure Marketplace.
 
 [Go to the documentation.][appdynamics-doc]
 
 ## Microfocus ArcSight
-
-[**ArcSight**][arcsight-anchor]
 
 ArcSight has a smart connector for Azure Monitor event hubs.
 
@@ -205,7 +203,7 @@ SIGNL4 - the mobile alerting app for operations teams - is the fastest way to ro
 
 [Learn more.][solarwinds-doc]
 
-## Azure Monitor Add-on for Splunk
+## Splunk
 
 ![Splunk Logo](./media/partners/splunk.png)
 
