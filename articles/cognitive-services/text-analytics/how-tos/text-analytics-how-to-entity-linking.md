@@ -60,6 +60,7 @@ Using entity linking in various languages requires using a corresponding knowled
 | DateTime      | TimeZone      |    | 
 | URL           | N/A\*         | "https://www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
+
 \* Depending on the input and extracted entities, certain entities may omit the `SubType`.
 
 

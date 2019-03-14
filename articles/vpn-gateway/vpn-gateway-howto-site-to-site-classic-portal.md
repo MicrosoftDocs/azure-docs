@@ -67,7 +67,7 @@ When you create a virtual network to use for a S2S connection, you need to make 
 
 ### To create a virtual network
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. Click **+**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** page.
 
   ![Search for virtual network page](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)

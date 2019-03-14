@@ -155,7 +155,7 @@ ms.custom: H1Hack27Feb2017
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -169,7 +169,7 @@ ms.custom: H1Hack27Feb2017
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -311,7 +311,7 @@ This document covers several different areas to consider when you're deploying O
 You can find information about Oracle versions and corresponding OS versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619].
 
 General information about running SAP Business Suite on Oracle can be found at [SAP on Oracle](https://www.sap.com/community/topic/oracle.html).
-Oracle software is supported by Oracle to run on Microsoft Azure. For more information about general support for Windows Hyper-V and Azure, check the [Oracle and Microsoft Azure FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software is supported by Oracle to run on Microsoft Azure. For more information about general support for Windows Hyper-V and Azure, check the [Oracle and Microsoft Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## SAP Notes relevant for Oracle, SAP, and Azure 
 
@@ -423,7 +423,7 @@ For Oracle deployments on Windows, we strongly recommend accelerated networking 
 [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) describes other important concepts related to deployments of VMs with Oracle Database, including Azure availability sets and SAP monitoring.
 
 ## Specifics for Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Azure and Oracle FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Azure and Oracle FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 The specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are discussed in the next part of the document.
 
@@ -460,6 +460,7 @@ If you're using disks based on Azure page blob storage or Managed Disks, the sta
 To identify the supported Azure VM types, see SAP Note [1928533].
 
 Minimum configuration:
+
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
 | /oracle/<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
@@ -473,6 +474,7 @@ Minimum configuration:
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements. 
 
 Performance configuration:
+
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
 | /oracle/<SID>/origlogaA | Premium | None | Can be used  |

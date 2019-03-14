@@ -19,6 +19,7 @@ ms.author: jegeib
 ---
 
 # Security Frame: Auditing and Logging | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identify sensitive entities in your solution and implement change auditing](#sensitive-entities)</li></ul> |

@@ -137,25 +137,28 @@ This article includes answers to frequently asked questions about Azure Active D
 **Q: How do I get started?**
 
 **A:** To get started:
-    * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com). 
-    * Click on the sign-in that you want to troubleshoot.
-    * Navigate to the **Conditional access** tab.
-    Here, you can view all the policies that impacted the sign-in and the result for each policy. 
+
+* Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com).
+* Click on the sign-in that you want to troubleshoot.
+* Navigate to the **Conditional access** tab.
+Here, you can view all the policies that impacted the sign-in and the result for each policy. 
     
 **Q: What are all possible values for the conditional access status?**
 
 **A:** Conditional access status can have the following values:
-    * **Not Applied**: This means that there was no CA policy with the user and app in scope. 
-    * **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
-    * **Failure**: This means that there was a CA policy with the user and app in scope and CA policies were not satisfied. 
+
+* **Not Applied**: This means that there was no CA policy with the user and app in scope. 
+* **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
+* **Failure**: This means that there was a CA policy with the user and app in scope and CA policies were not satisfied. 
     
 **Q: What are all possible values for the conditional access policy result?**
 
 **A:** A conditional access policy can have the following results:
-    * **Success**: The policy was successfully satisfied.
-    * **Failure**: The policy was not satisfied.
-    * **Not applied**: This might be because the policy conditions did not meet.
-    * **Not enabled**: This is due to the policy in disabled state. 
+
+* **Success**: The policy was successfully satisfied.
+* **Failure**: The policy was not satisfied.
+* **Not applied**: This might be because the policy conditions did not meet.
+* **Not enabled**: This is due to the policy in disabled state. 
     
 **Q: The policy name in the all sign-in report does not match the policy name in CA. Why?**
 

@@ -14,7 +14,7 @@ ms.author: hrasheed
 ---
 # Run MapReduce jobs with Apache Hadoop on HDInsight using REST
 
-Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on a Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
+Learn how to use the Apache Hive WebHCat REST API to run MapReduce jobs on an Apache Hadoop on HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs.
 
 > [!NOTE]  
 > If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see the [What you need to know about Linux-based Apache Hadoop on HDInsight](../hdinsight-hadoop-linux-information.md) document.

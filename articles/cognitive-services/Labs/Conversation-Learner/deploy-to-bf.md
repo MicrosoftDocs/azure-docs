@@ -40,7 +40,7 @@ Here's how to obtain the model ID:
     npm run ui
     ```
 
-2. Open browser to http://localhost:5050 
+2. Open browser to `http://localhost:5050` 
 
 3. Click on the Conversation Learner model you want to get the ID for
 

@@ -54,7 +54,7 @@ To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodej
 
 ### Install GraphViz
 
-To use the Terraform visualize function, you need to [install GraphViz](http://graphviz.org/).
+To use the Terraform visualize function, you need to [install GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >To verify if GraphViz is installed, open a terminal window and enter `dot -V`.

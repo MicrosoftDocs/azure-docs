@@ -10,7 +10,7 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 
 | Name | Data type | Description |
 |--|--|--|
-|HTTP_PROXY|string|the proxy to use, for example, http://proxy:8888|
+|HTTP_PROXY|string|the proxy to use, for example, `http://proxy:8888`|
 |HTTP_PROXY_CREDS|string|any credentials needed to authenticate against the proxy, for example, username:password.|
 
 ```bash
