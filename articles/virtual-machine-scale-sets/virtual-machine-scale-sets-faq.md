@@ -306,7 +306,7 @@ The Azure Key Vault documentation states that the Get Secret REST API should ret
 
 Method | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Replace {*secret-name*} with the name, and replace {*secret-version*} with the version of the secret you want to retrieve. The secret version might be excluded. In that case, the current version is retrieved.
 

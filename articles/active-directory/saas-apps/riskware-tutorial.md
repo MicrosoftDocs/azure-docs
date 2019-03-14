@@ -246,7 +246,7 @@ To enable Azure AD users to sign in to Riskware, they must be provisioned into R
 
 	a. Under **Authentication** section, select the **Authentication** mode, which you have setup like AZURE Configuration for SSO.
 
-	b. Under **Logon Details** section, in the **User ID** textbox, enter the email of user like **brittasimon@contoso.com**.
+	b. Under **Logon Details** section, in the **User ID** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
 	c. In the **Password** textbox, enter password of the user.
 

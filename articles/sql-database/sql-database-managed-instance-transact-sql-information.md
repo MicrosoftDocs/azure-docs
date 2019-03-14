@@ -476,7 +476,7 @@ Max file size of `tempdb` cannot be greather than 24GB/core on General Purpose t
 
 ### Cannot restore contained database
 
-Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases don't work on Managed Instance. This issue will be removed soon and in the meantime we recommend to remove continament option from your databases that are placed on Managed Instance, and do not use containment option for production databases.
+Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases don't work on Managed Instance. This issue will be removed soon and in the meantime we recommend to remove containment option from your databases that are placed on Managed Instance, and do not use containment option for the production databases.
 
 ### Exceeding storage space with small database files
 
@@ -523,7 +523,7 @@ A Managed Instance places verbose information in error logs and many of them are
 
 ### Transaction Scope on two databases within the same instance isn't supported
 
-`TransactionScope` class in .Net doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
+`TransactionScope` class in .NET doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
 
 ```C#
 using (var scope = new TransactionScope())

@@ -119,10 +119,6 @@ The sync button on the Repository Synchronization page allows you to pull all th
     > [!NOTE] 
     > A sync from source control overwrites the draft version of the runbooks that currently exist in your Automation account for **ALL** runbooks that are currently in source control. The Git equivalent command-line instruction to sync is **git pull**
 
-
-## Troubleshooting source control problems
-If there are any errors with a check in or sync job, the job status should be suspended and you can view more details about the error in the job page.  The **All Logs** part shows you all the PowerShell streams associated with that job. This provides you with the details needed to help you fix any problems with your check in or sync. It also shows you the sequence of actions that occurred while syncing or checking in a runbook.  
-
 ![AllLogs image](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 
 ## Disconnecting source control
