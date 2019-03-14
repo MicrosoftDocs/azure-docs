@@ -14,11 +14,13 @@ ms.author: hrasheed
 
 A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD or maintain credentials such as certificates.
 
-Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource. Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
+There are two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource. Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
 ## How does HDInsight implement managed identities?
 
-For many Azure services, managed identities are implemented with an endpoint that issues tokens. In Azure HDInsight, managed identities are provisioned on each node of the cluster. Each managed identity is backed by a service principal and certificate, which are also installed on each cluster node.
+In Azure HDInsight, managed identities are provisioned on each node of the cluster. Each managed identity is backed by a service principal and certificate, which are also installed on each cluster node.
+
+For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens for interacting with other Azure services on your own. In Azure HDInsight, however, managed identity components are only usable by the HDInsight service. There is currently no supported method for you to generate access tokens using the managed identities installed on HDInsight cluster nodes.
 
 ## Create a managed identity
 
