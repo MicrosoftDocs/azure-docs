@@ -151,7 +151,7 @@
 - name: Resources
   items:
   - name: Azure Maps terms of use
-    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31. 
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Pricing calculator

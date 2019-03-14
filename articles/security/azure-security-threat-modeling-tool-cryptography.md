@@ -19,6 +19,7 @@ ms.author: jegeib
 ---
 
 # Security Frame: Cryptography | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application** | <ul><li>[Use only approved symmetric block ciphers and key lengths](#cipher-length)</li><li>[Use approved block cipher modes and initialization vectors for symmetric ciphers](#vector-ciphers)</li><li>[Use approved asymmetric algorithms, key lengths, and padding](#padding)</li><li>[Use approved random number generators](#numgen)</li><li>[Do not use symmetric stream ciphers](#stream-ciphers)</li><li>[Use approved MAC/HMAC/keyed hash algorithms](#mac-hash)</li><li>[Use only approved cryptographic hash functions](#hash-functions)</li></ul> |
