@@ -188,7 +188,7 @@ Disabled | The Age response header is excluded from the response sent to the req
 
 [Back to top](#azure-cdn-rules-engine-features)
 
-</br>
+<br>
 
 ---
 ### Bandwidth Parameters
