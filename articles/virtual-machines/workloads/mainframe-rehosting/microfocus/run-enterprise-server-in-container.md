@@ -118,7 +118,7 @@ Now the VM is running and attached via RDP, and you are logged on.
 
 1.  To launch Enterprise Server 4.0 and the acctdemo application, at the command prompt type:
 ```
-docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win\_4.0\_x64
+     docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win_4.0_x64
 ```
 
 2.  Install a 3270 terminal emulator such as [x3270](http://x3270.bgp.nu/) and use it to attach, via port 9040, to the image that’s running.
@@ -129,9 +129,11 @@ docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9
 
     2.  To get the IP address for the acctdemo container, type the following, using the container ID from the previous step:
 ```
-   docker inspect \<containerID\> --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
+   docker inspect <containerID> --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
 ```
+
        For example:
+
 ```   
     docker inspect 22a0fe3159d0 --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
 ```
