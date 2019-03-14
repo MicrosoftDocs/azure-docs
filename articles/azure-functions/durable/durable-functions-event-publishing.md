@@ -84,7 +84,7 @@ Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` pr
 }
 ```
 
-The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). Once you configure the `host.json` file, Your Durable Functions project starts to send lifecycle events to the Event Grid topic. This works when you run in the Function App and when you run locally.
+The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the Event Grid topic. This works when you run your function app both locally and in Azure.```
 
 Set the app setting for the topic key in the Function App and `local.setting.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
 
