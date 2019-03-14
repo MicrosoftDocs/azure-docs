@@ -77,7 +77,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ### Deploying an ultra SSD enabled VM with a disk attached using CLI
 
-In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. The following CLI command will create one such VM:
+In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following CLI command to create one such VM:
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password xxxx --admin-username ultrauser --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
@@ -109,20 +109,17 @@ az disk update --subscription $sub --resource-group $resourceGroup --name $diskN
 
 ## Deploying an ultra SSD using PowerShell
 
-In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. The following PowerShell command will create one such VM:
+In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following PowerShell command to create one such VM:
 
 ```powershell
 New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
-    -Location "East US 2" `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
-    -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
     -Image "Win2016Datacenter" `
     -EnableUltraSSD `
     -size "Standard_D4s_v3" `
+    -zone $zone
 ```
 
 ### Create an ultra SSD using PowerShell
@@ -130,7 +127,7 @@ New-AzVm `
 Now that you have a VM which is capable of using ultra SSDs, you can create and attach an ultra SSD to it:
 
 ```powershell
-New-AzDiskConfig -Location 'EastUS2euap' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone 3;
+New-AzDiskConfig -Location 'EastUS2' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone 3;
 New-AzDisk -ResourceGroupName $resourceGroup -DiskName 'Disk02' -Disk $diskconfig;
 ```
 
