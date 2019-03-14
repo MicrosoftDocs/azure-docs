@@ -317,20 +317,20 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Property | Type | Description | Example |
-| --- | --- | --- | --- |
-| Level |String | Level of the diagnostic logs. Level 4 is the case for activity run logs. | `4`  |
-| correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` |
-|runId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` |
-|level| String | Level of the diagnostic logs. Set this property to  "Informational" | `Informational` |
-|operationName| String |Name of the pipeline with status. "Pipeline - Succeeded" with final status when pipeline run is completed| `MyPipeline - Succeeded` |
-|pipelineName| String | Name of the pipeline | `MyPipeline` |
-|start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
-|end| String | End of the activity runs in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
-|status| String | Final status of the pipeline run (Succeeded or Failed) | `Succeeded`|
+| Property | Type | Description | Example | |
+| --- | --- | --- | --- | --- |
+| Level |String | Level of the diagnostic logs. Level 4 is the case for activity run logs. | `4`  | |
+| correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` | |
+| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|runId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` | |
+|resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` | |
+|category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` | |
+|level| String | Level of the diagnostic logs. Set this property to  "Informational" | `Informational` | |
+|operationName| String |Name of the pipeline with status. "Pipeline - Succeeded" with final status when pipeline run is completed| `MyPipeline - Succeeded` | |
+|pipelineName| String | Name of the pipeline | `MyPipeline` | |
+|start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`| |
+|end| String | End of the activity runs in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` | |
+|status| String | Final status of the pipeline run (Succeeded or Failed) | `Succeeded`| |
 
 
 ### Trigger Run Logs Attributes
@@ -362,21 +362,21 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```
 
-| Property | Type | Description | Example |
-| --- | --- | --- | --- |
-| Level |String | Level of the diagnostic logs. Set to level 4 for activity run logs. | `4`  |
-| correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` |
-|triggerId| String| ID of the trigger run | `08587023010602533858661257311` |
-|resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` |
-|level| String | Level of the diagnostic logs. Set this property to "Informational" | `Informational` |
-|operationName| String |Name of the trigger with final status whether it successfully fired. "MyTrigger - Succeeded" if the heartbeat was successful| `MyTrigger - Succeeded` |
-|triggerName| String | Name of the trigger | `MyTrigger` |
-|triggerType| String | Type of the trigger (Manual trigger or Schedule Trigger) | `ScheduleTrigger` |
-|triggerEvent| String | Event of the trigger | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|start| String | Start of trigger fire in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
-|status| String | Final status of whether trigger successfully fired (Succeeded or Failed) | `Succeeded`|
+| Property | Type | Description | Example | |
+| --- | --- | --- | --- | --- |
+| Level |String | Level of the diagnostic logs. Set to level 4 for activity run logs. | `4`  | |
+| correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` | |
+| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|triggerId| String| ID of the trigger run | `08587023010602533858661257311` | |
+|resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` | |
+|category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` | |
+|level| String | Level of the diagnostic logs. Set this property to "Informational" | `Informational` | |
+|operationName| String |Name of the trigger with final status whether it successfully fired. "MyTrigger - Succeeded" if the heartbeat was successful| `MyTrigger - Succeeded` | |
+|triggerName| String | Name of the trigger | `MyTrigger` | |
+|triggerType| String | Type of the trigger (Manual trigger or Schedule Trigger) | `ScheduleTrigger` | |
+|triggerEvent| String | Event of the trigger | `ScheduleTime - 2017-07-06T01:50:25Z` | |
+|start| String | Start of trigger fire in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`| |
+|status| String | Final status of whether trigger successfully fired (Succeeded or Failed) | `Succeeded`| |
 
 ## Metrics
 
