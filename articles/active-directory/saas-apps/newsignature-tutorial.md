@@ -102,23 +102,26 @@ To configure Azure AD single sign-on with Cloud Management Portal for Microsoft 
     ![Cloud Management Portal for Microsoft Azure Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://portal.newsignature.com/<instancename>` |   
 	| `https://portal.igcm.com/<instancename>` |
 
     b. In the **Identifier** box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://<subdomain>.igcm.com` |
 	| `https://<subdomain>.newsignature.com` |
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://<subdomain>.igcm.com/<instancename>` |
 	| `https://<subdomain>.newsignature.com` |
-	| `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+	| `https://<subdomain>.newsignature.com/<instancename>` |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Cloud Management Portal for Microsoft Azure Client support team](mailto:jczernuszka@newsignature.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
