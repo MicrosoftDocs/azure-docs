@@ -199,28 +199,29 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 {
   "compute": {
     "azEnvironment": "AZUREPUBLICCLOUD",
-    "location": "westus",
-    "name": "avset2",
-    "offer": "UbuntuServer",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
     "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
-    "platformFaultDomain": "1",
-    "platformUpdateDomain": "1",
+    "platformFaultDomain": "0",
+    "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
-    "publisher": "Canonical",
+    "publicKeys": [],
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
-    "sku": "16.04-LTS",
+    "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "",
-    "version": "16.04.201708030",
+    "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_D1",
+    "vmSize": "Standard_A1_v2",
     "zone": "1"
   },
   "network": {
@@ -275,28 +276,30 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 {
   "compute": {
     "azEnvironment": "AZUREPUBLICCLOUD",
-    "location": "westus",
-    "name": "SQLTest",
-    "offer": "SQL2016SP1-WS2016",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
-    "publisher": "MicrosoftSQLServer",
+    "publicKeys": [],
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
-    "sku": "Enterprise",
+    "sku": "5-6",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "",
-    "version": "13.0.400110",
-    "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_DS2",
-    "zone": ""
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
   },
   "network": {
     "interface": [
