@@ -354,7 +354,7 @@ Managed instance supports the impersonation of Azure AD server-level principals 
     GO
     ```
 
-1. Use the following command to see that the user you're impersonating when executing the stored procedure is **bob@aadsqlmi.net**.
+1. Use the following command to see that the user you're impersonating when executing the stored procedure is **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

@@ -9,7 +9,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 01/30/2019
+  ms.date: 03/13/2019
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
@@ -26,7 +26,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Deploy your first IoT Edge module and process data on a simulated device:'
+    text: 'Create an Azure virtual machine, configure it to run as an IoT Edge device, and deploy code to it:'
   - type: list
     style: icon48
     items: 

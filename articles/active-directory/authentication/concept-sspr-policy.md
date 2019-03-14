@@ -106,7 +106,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
 1. Connect to Windows PowerShell by using your company administrator credentials.
 1. Execute one of the following commands:
 
-   * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr@contoso.onmicrosoft.com*) or the user ID of the user you want to check: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr\@contoso.onmicrosoft.com*) or the user ID of the user you want to check: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * To see the **Password never expires** setting for all users, run the following cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### Set a password to expire
