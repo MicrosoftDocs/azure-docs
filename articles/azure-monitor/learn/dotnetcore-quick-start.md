@@ -1,6 +1,6 @@
 ---
 title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly setup an ASP.NET Core Web App for monitoring with Application Insights
+description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Application Insights
 services: application-insights
 keywords:
 author: mrbullwinkle
