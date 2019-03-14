@@ -26,7 +26,7 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) for more details on the CloudSpatialAnchorSession class.
+Learn more about the [CloudSpatialAnchorSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) class.
 
 ```csharp
     CloudSpatialAnchorSession cloudSession;
@@ -36,7 +36,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) for more details on the SessionConfiguration class.
+Learn more about the [SessionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) class.
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -50,7 +50,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) for more details on the TokenRequiredDelegate delegate.
+Learn more about the [TokenRequiredDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) delegate.
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -100,7 +100,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) for more details on the Start method.
+Learn more about the [Start](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) method.
 
 ```csharp
 #if UNITY_IOS
@@ -120,7 +120,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) for more details on the ProcessFrame method.
+Learn more about the [ProcessFrame](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) method.
 
 ```csharp
 #if UNITY_ANDROID
@@ -144,7 +144,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) for more details on the SessionUpdatedDelegate delegate.
+Learn more about the [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) delegate.
 
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
@@ -158,7 +158,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) for more details on the CloudSpatialAnchor class.
+Learn more about the [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) class.
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -208,7 +208,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) for more details on the GetSessionStatusAsync method.
+Learn more about the [GetSessionStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) method.
 
 ```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
@@ -218,7 +218,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) for more details on the AppProperties property.
+Learn more about the [AppProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) property.
 
 ```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
@@ -229,7 +229,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) for more details on the UpdateAnchorPropertiesAsync method.
+Learn more about the [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) method.
 
 ```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -239,7 +239,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) for more details on the GetAnchorPropertiesAsync method.
+Learn more about the [GetAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) method.
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
@@ -252,7 +252,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) for more details on the Expiration property.
+Learn more about the [Expiration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) property.
 
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
@@ -260,7 +260,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) for more details on the CreateWatcher method.
+Learn more about the [CreateWatcher](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) method.
 
 ```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -270,7 +270,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) for more details on the AnchorLocatedDelegate delegate.
+Learn more about the [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) delegate.
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -299,7 +299,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) for more details on the DeleteAnchorAsync method.
+Learn more about the [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) method.
 
 ```csharp
     await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
@@ -308,7 +308,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) for more details on the Stop method.
+Learn more about the [Stop](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) method.
 
 ```csharp
     this.cloudSession.Stop();
@@ -316,7 +316,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) for more details on the Reset method.
+Learn more about the [Reset](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) method.
 
 ```csharp
     this.cloudSession.Reset();
@@ -324,7 +324,7 @@ Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchor
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
 
-Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) for more details on the Dispose method.
+Learn more about the [Dispose](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) method.
 
 ```csharp
     this.cloudSession.Dispose();
