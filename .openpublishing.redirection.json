@@ -9323,7 +9323,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/blockchain-workbench/ethereum-deployment.md",
+      "source_path": "articles/blockchain/templates/ethereum-deployment.md",
       "redirect_url": "/azure/blockchain/templates/ethereum-poa-deployment",
       "redirect_document_id": false
     },
