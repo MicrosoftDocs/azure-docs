@@ -63,7 +63,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
 1. Select **src** > **main** > **scala** to open your code in the project. This example uses the **SparkCore_wasbloTest** script.
 
-### Prerequisite for windows
+### Prerequisite for Windows
 While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows. 
 
 To resolve this error, [download the executable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
