@@ -19,9 +19,9 @@ ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
-# Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go
+# Upgrade your Free Trial or Azure for Students Starter subscription to Pay-As-You-Go
 
-If you have a [Free Trial](https://azure.microsoft.com/free/), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription in the Azure portal. If you have a [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) subscription, you can upgrade to [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure Account Center.
+If you have a [Free Trial](https://azure.microsoft.com/free/), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription in the Azure portal. If you have an [Azure for Students Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) subscription, you can upgrade to [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) in the Azure Account Center.
 
 <a id="freetrial"></a>
 
@@ -54,12 +54,13 @@ If you want to [transfer the subscription](billing-subscription-transfer.md) aft
 * You consume all the remaining credit, or
 * 30 days pass since the start of the free trial
 
-<a id="imagine"></a>
+<a id="student"></a>
 
-## Upgrade your Microsoft Imagine subscription to Pay-As-You-Go
+## Upgrade your Azure for Students Starter subscription to Pay-As-You-Go
 
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/subscriptions).
-1. Under **Subscription status**, select the **Upgrade now** banner.
+1. Select your Azure for Students Starter subscription.
+1. Under **Subscription status**, click **Upgrade now**.
 
     ![Screenshot that shows upgrade for student](./media/billing-upgrade-azure-subscription/student-upgrade.png)
 
