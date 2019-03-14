@@ -148,6 +148,7 @@ To get logs, take the following steps:
     ```
 
 4. Review the parameters, and set the values based on your environment.
+
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |

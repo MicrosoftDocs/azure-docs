@@ -147,6 +147,7 @@ In this section, you create a VM (*UserVMUS* and *UserVMEurope*) in each Azure r
 
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, then select **OK**:
+
     |Setting|Value|
     |---|---|
     |Virtual network| Select **Virtual network**, in **Create virtual network**, for **Name**, enter *myVNet3*, for subnet, enter *mySubnet3*.|

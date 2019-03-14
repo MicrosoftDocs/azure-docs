@@ -27,6 +27,7 @@ None
 <br>
 
 ## Response parameters
+
 Name | Type | Description
 -----|------|--------------
 languages | list of strings | list of two letter ISO language codes for which this analyzer can be used.

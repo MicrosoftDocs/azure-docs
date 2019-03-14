@@ -5,14 +5,14 @@
  author: vhorne
  ms.service: firewall
  ms.topic: include
- ms.date: 2/4/2019
+ ms.date: 3/14/2019
  ms.author: victorh
  ms.custom: include file
 ---
 
 | Resource | Default limit |
 | --- | --- |
-| Data processed |1,000 TB/firewall/month.<sup>1</sup> |
+| Data throughput |30 Gbps<sup>1</sup> |
 |Rules|10,000, all rule types combined.|
 |Global peering|Not supported. You should have at least one firewall deployment per region.|
 |Minimum AzureFirewallSubnet size |/26|

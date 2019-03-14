@@ -38,6 +38,7 @@ The configuration parameters that control autovacuum are based on answers to two
 - How much should it clean after it starts?
 
 Here are some autovacuum configuration parameters that you can update based on the previous questions, along with some guidance.
+
 Parameter|Description|Default value
 ---|---|---
 autovacuum_vacuum_threshold|Specifies the minimum number of updated or deleted tuples needed to trigger a vacuum operation in any one table. The default is 50 tuples. Set this parameter only in the postgresql.conf file or on the server command line. To override the setting for individual tables, change the table storage parameters.|50

@@ -211,6 +211,7 @@ Use the **Tab** key on your keyboard to navigate in the serial console interface
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Common scenarios for accessing the serial console
+
 Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Incorrect firewall rules | Access serial console and fix Windows firewall rules.

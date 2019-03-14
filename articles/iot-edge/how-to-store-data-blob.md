@@ -225,6 +225,7 @@ Use desired properties to set auto-tiering and auto-expiration properties. They 
 
 ### Auto-tiering properties 
 The name of this setting is `tieringSettings`
+
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | tieringOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
@@ -234,6 +235,7 @@ The name of this setting is `tieringSettings`
 
 ### Auto-expiration properties
 The name of this setting is `ttlSettings`
+
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
@@ -339,6 +341,9 @@ Here is an example of desired properties for this module:
     }
 
    ```
+## Logs
+
+Please follow the directions to [configure your docker logs for IoT Edge modules](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## Connect to your blob storage module
 

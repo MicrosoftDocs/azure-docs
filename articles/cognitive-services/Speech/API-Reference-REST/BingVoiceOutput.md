@@ -264,6 +264,7 @@ zh-HK | Male | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apol
 zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)"
 zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)"
 zh-TW | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)"
+
  *ar-EG supports Modern Standard Arabic (MSA).
 
 > [!NOTE]
