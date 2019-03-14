@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
+ms.lastreviewed: 03/14/2019
 
 ---
 # Enable backup for Azure Stack from the administration portal
