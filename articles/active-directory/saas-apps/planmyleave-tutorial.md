@@ -142,7 +142,7 @@ To configure Azure AD single sign-on with PlanMyLeave, perform the following ste
 
 	![Configure Single Sign-On On App Side](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-	a.  In the **Login URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+	a.  In the **Login URL** textbox, paste **Login URL** which you have copied from Azure portal.
 
     b.  Open your downloaded metadata, copy  **X509Certificate** value and then paste it to the **Certificate** textbox.
 
