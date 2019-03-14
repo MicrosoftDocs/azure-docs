@@ -11,7 +11,7 @@ ms.author: swati
 
 
 ---
-# About SQL Server Backup on Azure VMs
+# About SQL Server Backup in Azure VMs
 
 SQL Server databases are critical workloads that require a low recovery point objective (RPO) and long-term retention. You can backup SQL Server databases running on Azure VMs using [Azure Backup](backup-overview.md).
 
