@@ -59,9 +59,9 @@ Operator       |Description                         |Case-Sensitive|Example (yie
 `hasprefix_cs`    |Right-hand-side is a term prefix in left-hand-side         |Yes            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Right-hand-side isn't a term prefix in left-hand-side     |Yes            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Right-hand-side is a term suffix in left-hand-side         |No            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Right-hand-side isn't a term suffix in left-hand-side     |No            |`"North America" !hassuffix "americ"
+`!hassuffix`   |Right-hand-side isn't a term suffix in left-hand-side     |No            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Right-hand-side is a term suffix in left-hand-side         |Yes            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Right-hand-side isn't a term suffix in left-hand-side     |Yes            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |Right-hand-side isn't a term suffix in left-hand-side     |Yes            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Right-hand-side occurs as a subsequence of left-hand-side  |No            |`"FabriKam" contains "BRik"`
 `!contains`    |Right-hand-side doesn't occur in left-hand-side           |No            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Right-hand-side occurs as a subsequence of left-hand-side  |Yes           |`"FabriKam" contains_cs "Kam"`
