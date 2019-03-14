@@ -251,18 +251,6 @@ The following are post-installation known issues for this build version.
 <!-- 3203799 - IS, ASDK -->
 - Azure Stack does not support attaching more than 4 Network Interfaces (NICs) to a VM instance today, regardless of the instance size.
 
-- An issue has been identified in which packets over 1450 bytes to an Internal Load Balancer (ILB) are dropped. The issue is due to the MTU setting on the host being too low to accommodate VXLAN encapsulated packets that traverse the role, which as of 1901 has been moved to the host. There are at least two scenarios that you might encounter in which we have seen this issue manifest itself:
-
-  - SQL queries to SQL Always-On that is behind an Internal Load Balancer (ILB), and are over 660 bytes.
-  - Kubernetes deployments fail if you attempt to enable multiple masters.  
-
-  The issue occurs when you have communication between a VM and an ILB in the same virtual network but on different subnets. You can work around this issue by running the following commands in an elevated command prompt on the ASDK host:
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```
-
 <!-- ### SQL and MySQL-->
 
 ### App Service

@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language - Speech Services
+title: Speech Synthesis Markup Language (SSML) - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Speech Synthesis Markup Language
+# Speech Synthesis Markup Language (SSML)
 
 The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more. For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 

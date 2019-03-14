@@ -237,7 +237,7 @@ SQL Database customers will have the following rights associated with Azure Hybr
 ## Engage with the SQL Server engineering team
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ask database administration questions
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ask development questions
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ask development questions
 - [MSDN Forums](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ask technical questions
 - [Feedback](https://aka.ms/sqlfeedback): Report bugs and request feature
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuss SQL Server

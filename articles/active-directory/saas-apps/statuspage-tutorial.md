@@ -111,12 +111,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<subdomain>.statuspagestaging.com/` |
 	| `https://<subdomain>.statuspage.io/` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
+	
 	| |
 	|--|
 	| `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |

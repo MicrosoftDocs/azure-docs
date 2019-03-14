@@ -36,7 +36,7 @@ If there is an attempt to provision a new object with a UPN or ProxyAddress valu
 
 ## Behavior with Duplicate Attribute Resiliency
 Instead of completely failing to provision or update an object with a duplicate attribute, Azure Active Directory “quarantines” the duplicate attribute which would violate the uniqueness constraint. If this attribute is required for provisioning, like UserPrincipalName, the service assigns a placeholder value. The format of these temporary values is  
-“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+“***<OriginalPrefix>+<4DigitNumber>\@<InitialTenantDomain>.onmicrosoft.com***”.  
 If the attribute is not required, like a  **ProxyAddress**, Azure Active Directory simply quarantines the conflict attribute and proceeds with the object creation or update.
 
 Upon quarantining the attribute, information about the conflict is sent in the same error report email used in the old behavior. However, this info only appears in the error report one time, when the quarantine happens, it does not continue to be logged in future emails. Also, since the export for this object has succeeded, the sync client does not log an error and does not retry the create / update operation upon subsequent sync cycles.
@@ -153,9 +153,9 @@ None of these known issues causes data loss or service degradation. Several of t
 1. The detailed error message for two objects in a UPN conflict set is the same. This indicates that they have both had their UPN changed / quarantined, when in fact only a one of them had any data changed.
 2. The detailed error message for a UPN conflict shows the wrong displayName for a user who has had their UPN changed/quarantined. For example:
    
-    a. **User A** syncs up first with **UPN = User@contoso.com**.
+    a. **User A** syncs up first with **UPN = User\@contoso.com**.
    
-    b. **User B** is attempted to be synced up next with **UPN = User@contoso.com**.
+    b. **User B** is attempted to be synced up next with **UPN = User\@contoso.com**.
    
     c. **User B’s** UPN is changed to **User1234\@contoso.onmicrosoft.com** and **User\@contoso.com** is added to **DirSyncProvisioningErrors**.
    

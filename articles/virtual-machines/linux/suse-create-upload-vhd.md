@@ -115,7 +115,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     If the command returns "No repositories defined..." then use the following commands to add these repos:
    
         # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-        # sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+        # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
     You can then verify the repositories have been added by running the command '`zypper lr`' again. In case one of the relevant update repositories is not enabled, enable it with following command:

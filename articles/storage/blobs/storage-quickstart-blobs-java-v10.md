@@ -21,7 +21,7 @@ In this quickstart, you learn how to use the new Java Storage SDK to upload, dow
 
 Make sure you have the following additional prerequisites installed:
 
-* [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer.
+* [Maven](https://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer.
 * [JDK](https://aka.ms/azure-jdks)
 
 ## Download the sample application
@@ -96,7 +96,7 @@ Cleaning up the sample and exiting!
 
 You control the sample, so enter commands to have it run the code. Inputs are case sensitive.
 
-You can also use a tool like the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that gives you access to your storage account information. 
+You can also use a tool like the [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that gives you access to your storage account information. 
 
 Verify the files. Then select **E** and select **Enter** to finish the demo and delete the test files. Now that you know what the sample does, open the **Quickstart.java** file to look at the code. 
 

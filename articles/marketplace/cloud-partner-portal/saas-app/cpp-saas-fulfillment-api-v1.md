@@ -537,6 +537,7 @@ The Get action on subscribe endpoint allows a user to retrieve a subscription wi
     "lastModified": ""
 }
 ```
+
 | **Parameter name**     | **Data type** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | ID of SaaS subscription resource in Azure.    |

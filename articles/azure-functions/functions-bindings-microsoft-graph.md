@@ -356,6 +356,7 @@ The following table explains the binding configuration properties that you set i
 ### Excel input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -660,6 +661,7 @@ The following table explains the binding configuration properties that you set i
 ### File input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|

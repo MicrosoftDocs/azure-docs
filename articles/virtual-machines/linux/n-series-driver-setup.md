@@ -35,7 +35,7 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 Here are steps to install CUDA drivers from the NVIDIA CUDA Toolkit on N-series VMs. 
 
 
-C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+C and C++ developers can optionally install the full Toolkit to build GPU-accelerated applications. For more information, see the [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 To install CUDA drivers, make an SSH connection to each VM. To verify that the system has a CUDA-capable GPU, run the following command:
 
@@ -58,7 +58,7 @@ Then run installation commands specific for your distribution.
 
   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+  sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
   rm -f /tmp/${CUDA_REPO_PKG}
 
