@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 03/14/2019
 ms.author: rezas
 ---
 

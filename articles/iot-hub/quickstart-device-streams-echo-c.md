@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 03/14/2019
 ms.author: rezas
 ---
 
@@ -16,14 +16,9 @@ ms.author: rezas
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
+Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!IMPORTANT]
-> Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The preview is supported only on IoT hubs created in the following regions:
->
-> * **Central US**
-> * **Central US EUAP**
->
+[IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -39,13 +34,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
+* The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+
+  * **Central US**
+  * **Central US EUAP**
+
 * Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Install the latest version of [Git](https://git-scm.com/download/).
 
 ## Prepare the development environment
 
 For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). You will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub. The SDK on GitHub includes the sample code used in this quickstart. 
-
 
 1. Download version 3.13.4 of the [CMake build system](https://cmake.org/download/). Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.13.4 of the x64 MSI distribution:
 
@@ -167,15 +166,13 @@ To run the device-side application, you need to perform the following steps:
 
    ```bash
    # In Linux
-   # Go to sample's folder
-   cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
+   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_sample
    ./iothub_client_c2d_streaming_sample
    ```
 
    ```cmd
    rem In Windows
-   rem Go to sample's release folder
-   cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
+   rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_sample\Release
    iothub_client_c2d_streaming_sample.exe
    ```
 
