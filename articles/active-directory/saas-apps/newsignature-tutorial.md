@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Cloud Management Portal for Microsoft 
     | |
 	|--|
 	| `https://<subdomain>.igcm.com/<instancename>` |
-	| `https://<subdomain>.newsignature.com` |
+	| `https://<subdomain>.newsignature.com` |<instancename>`
 	| `https://<subdomain>.newsignature.com/<instancename>` |
 
 	> [!NOTE]
