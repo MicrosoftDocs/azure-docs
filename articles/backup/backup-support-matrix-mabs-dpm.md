@@ -78,6 +78,7 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 
 
 ## Management support
+
 **Issue** | **Details**
 --- | ---
 **Installation** | Install DPM/MABS on a single-purpose machine.<br/><br/> Don't install DPM/MABS on a domain controller, on a machine with the Application Server role installation, on a machine that is running Microsoft Exchange Server or System Center Operations Manager, or on a cluster node.<br/><br/> [Review all DPM system requirements](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
