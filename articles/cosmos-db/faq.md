@@ -723,7 +723,7 @@ Apache Cassandra API is a platform service that makes capacity planning, respond
 
 ### What happens with respect to various config settings for keyspace creation like simple/network?
 
-Azure Cosmos DB provides global distribution out of the box for availability and low latency reasons. You don't need to setup replicas or other things. All writes are always durably quorum committed in a any region where you write while providing performance guarantees.
+Azure Cosmos DB provides global distribution out of the box for availability and low latency reasons. You don't need to setup replicas or other things. All writes are always durably quorum committed in an any region where you write while providing performance guarantees.
 
 ### What happens with respect to various settings for table metadata like bloom filter, caching, read repair change, gc_grace, compression memtable_flush_period, and more?
 
