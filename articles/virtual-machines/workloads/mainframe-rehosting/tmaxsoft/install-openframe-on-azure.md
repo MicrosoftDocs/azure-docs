@@ -446,14 +446,14 @@ ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
 
 6.  Use vi to edit the bash profile and add the following:
 ```
-[oframe7@ofdemo unixODBC-2.3.4]$ vi ~/.bash_profile
+    [oframe7@ofdemo unixODBC-2.3.4]$ vi ~/.bash_profile
 
-# UNIX ODBC ENV 
-export ODBC_HOME=$HOME/unixODBC 
-export PATH=$ODBC_HOME/bin:$PATH 
-export LD_LIBRARY_PATH=$ODBC_HOME/lib:$LD_LIBRARY_PATH 
-export ODBCINI=$HOME/unixODBC/etc/odbc.ini 
-export ODBCSYSINI=$HOME
+    # UNIX ODBC ENV 
+    export ODBC_HOME=$HOME/unixODBC 
+    export PATH=$ODBC_HOME/bin:$PATH 
+    export LD_LIBRARY_PATH=$ODBC_HOME/lib:$LD_LIBRARY_PATH 
+    export ODBCINI=$HOME/unixODBC/etc/odbc.ini 
+    export ODBCSYSINI=$HOME
 ```
 7.  Apply the ODBC. Edit the following files accordingly:
 ```
@@ -500,12 +500,12 @@ password = tmax
 
 ```
 8.  Create a symbolic link and validate the Tibero database connection:
-```
-[oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbc.so $ODBC_HOME/lib/libodbc.so.1 [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbcinst.so 
-$ODBC_HOME/lib/libodbcinst.so.1
-
-[oframe7@ofdemo lib]$ isql TVSAM tibero tmax
-```
+     ```
+     [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbc.so $ODBC_HOME/lib/libodbc.so.1 [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbcinst.so 
+     $ODBC_HOME/lib/libodbcinst.so.1
+     
+     [oframe7@ofdemo lib]$ isql TVSAM tibero tmax
+     ```
 
 Output:
 
