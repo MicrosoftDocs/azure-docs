@@ -1,6 +1,6 @@
 ---
-title: Automatically scale session hosts in Windows Virtual Desktop (preview) - Azure
-description: Describes what the automatic scaling script for Windows Virtual Desktop session hosts is and how it works.
+title: Automatically scale session hosts - Azure
+description: Describes how to set up the automatic scaling script for Windows Virtual Desktop (preview) session hosts.
 services: virtual-desktop
 author: Heidilohr
 
@@ -13,23 +13,11 @@ ms.author: helohr
 
 For many Windows Virtual Desktop deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
 
-This sample Windows Virtual Desktop scaling script does just that. This script can be your starting point to develop your own customized solution to automatically scale session host virtual machines in your Windows Virtual Desktop environment.
-
-## How this scaling script works
-
-This scaling script reads settings from a config.xml file, including the start and end of the peak usage period during the day.
-
-During peak usage time, this script checks the current number of sessions and the current running RDSH capacity for each collection. It calculates if the running RDSH servers have enough capacity to support existing sessions based on the SessionThresholdPerCPU parameter defined in the config.xml file. If not, this script starts additional RDSH servers in the collection.
-
-During the off-peak usage time, this script determines which RDSH servers should shut down based on the MinimumNumberOfRDSH parameter in the config.xml file. This script will set the RDSH servers to drain mode to prevent new sessions connecting to the hosts. If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to a non-zero positive value, this script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on an RDSH server, this script will shut down the server.
-
-If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to zero, this script will allow the session configuration setting in the collection properties to handle signing off user sessions. If there are any sessions on an RDSH server, it will leave the RDSH server running. If there aren't any sessions, this script will shut down the RDSH server.
-
-This script is designed to run periodically on the scaler VM server using Task Scheduler. Select the appropriate time interval based on the size of your Remote Desktop Services environment, and remember that starting and shutting down virtual machines can take some time. We recommend running the scaling script every 15 minutes.
+This article uses a simple scaling script to automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn more about how the scaling script works, see the [How the scaling script works](#how-the-scaling-script-works) section.
 
 ## Prerequisites
 
-The environment where you run this script must have the following things:
+The environment where you run the script must have the following things:
 
 - A Windows Virtual Desktop tenant and account or a service principal with permissions to query that tenant (such as RDS Contributor).
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service.
@@ -41,7 +29,7 @@ The environment where you run this script must have the following things:
 
 When running the scaling script, keep the following things in mind:
 
-- This scaling script can only handle one host pool per instance of the scheduled task that is running this script.
+- This scaling script can only handle one host pool per instance of the scheduled task that is running the scaling script.
 - The scheduled tasks that run scaling scripts must be on a VM that is always on.
 - Create a separate folder for each instance of the scaling script and its configuration.
 - This script doesn't support accounts with multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure.
@@ -49,11 +37,11 @@ When running the scaling script, keep the following things in mind:
 
 ## Deploy the scaling script
 
-The following procedures will tell you how to deploy this script.
+The following procedures will tell you how to deploy the scaling script.
 
 ### Prepare your environment for the scaling script
 
-First, prepare your environment for this script:
+First, prepare your environment for the scaling script:
 
 1. Sign in to the VM (**scaling VM**) that will run the scheduled task with a domain administrative account.
 2. Create a folder on the scaling VM to hold the scaling script and its configuration (for example, **C:\\scaling-HostPool1**).
@@ -112,11 +100,23 @@ After configuring the configuration .xml file, you'll need to configure the Task
 6. Select the **Actions** tab and **New…**
 7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\RDSScaler.ps1** into the **Add arguments (optional)** field.
 8. Go to the **Conditions** and **Settings** tabs and select **OK** to accept the default settings for each.
-9. Enter the password for the administrative account where you plan to run this script.
+9. Enter the password for the administrative account where you plan to run the scaling script.
+
+## How the scaling script works
+
+This scaling script reads settings from a config.xml file, including the start and end of the peak usage period during the day.
+
+During peak usage time, the script checks the current number of sessions and the current running RDSH capacity for each collection. It calculates if the running RDSH servers have enough capacity to support existing sessions based on the SessionThresholdPerCPU parameter defined in the config.xml file. If not, the script starts additional RDSH servers in the collection.
+
+During the off-peak usage time, the script determines which RDSH servers should shut down based on the MinimumNumberOfRDSH parameter in the config.xml file. The script will set the RDSH servers to drain mode to prevent new sessions connecting to the hosts. If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to a non-zero positive value, the script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on an RDSH server, the script will shut down the server.
+
+If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to zero, the script will allow the session configuration setting in the collection properties to handle signing off user sessions. If there are any sessions on an RDSH server, it will leave the RDSH server running. If there aren't any sessions, the script will shut down the RDSH server.
+
+The script is designed to run periodically on the scaler VM server using Task Scheduler. Select the appropriate time interval based on the size of your Remote Desktop Services environment, and remember that starting and shutting down virtual machines can take some time. We recommend running the scaling script every 15 minutes.
 
 ## Log files
 
-The scaling script creates two log files, **WVDTenantScale.log** and **WVDTenantUsage.log**. The **WVDTenantScale.log** file will log the events and errors (if any) during each execution of this script.
+The scaling script creates two log files, **WVDTenantScale.log** and **WVDTenantUsage.log**. The **WVDTenantScale.log** file will log the events and errors (if any) during each execution of the scaling script.
 
 The **WVDTenantUsage.log** file will record the active number of cores and active number of virtual machines each time you execute the scaling script. You can use this information to estimate the actual usage of Microsoft Azure VMs and the cost. The file is formatted as comma-separated values, with each item containing the following information:
 

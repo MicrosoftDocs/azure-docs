@@ -1,6 +1,6 @@
 ---
-title: Prepare and customize a master VHD image (preview) - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
+title: Prepare and customize a master VHD image - Azure
+description: How to prepare, customize and upload a Windows Virtual Desktop (preview) master image to Azure.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop-specific (preview) configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -335,11 +335,11 @@ Enter the following commands into the registry editor to fix 5k resolution suppo
 "MaxYResolution"=dword:00000b40
 ```
 
-## Sysprep the image
+## Prepare the image for upload to Azure
 
-After you've finished configuration and installed all applications, follow the instructions in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) to sysprep the image.
+After you've finished configuration and installed all applications, follow the instructions in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) to prepare the image.
 
-After the sysprep, make sure the VM remains in the off or deallocated state.
+After preparing the image for upload, make sure the VM remains in the off or deallocated state.
 
 ## Upload master image to a storage account in Azure
 
@@ -361,7 +361,7 @@ The following instructions will tell you how to upload your master image into an
 
     ![A screenshot of the "successfully created image" notification.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## Create or update host pools
+## Next steps
 
 Now that you have an image, you can create or update host pools. To learn more about how to create and update host pools, see the following articles:
 
