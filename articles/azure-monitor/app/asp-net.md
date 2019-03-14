@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
 
 ---
@@ -27,8 +27,6 @@ To add Application Insights to your ASP.NET website, you need to:
 - Install [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
-
-
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
