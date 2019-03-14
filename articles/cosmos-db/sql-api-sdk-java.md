@@ -43,7 +43,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Fixed bud in PartitionKey for Hash V2.
 
 ### <a name="2.1.0"/>2.1.2
-* Added support for Composite Indexes
+* Added support for Composite Indexes.
 * Fixed bug in Global Endpoint Manager to force refresh.
 * Fixed bug for Upserts with pre-conditions in DirectMode.
 
