@@ -21,6 +21,7 @@ This article provides answers to common questions about deploying disaster recov
 1.  **[Multi-VM consistency](#multi-vm-consistency)** 
 1.  **[Recovery plan](#recovery-plan)** 
 1.  **[Reprotection and failback](#reprotection-and-failback)** 
+2.  **[Capacity](#capacity)**
 1.  **[Security](#security)** 
 
 
@@ -216,7 +217,12 @@ It depends on the situation. For example, if the source region VM exists, only c
 ### How much time does it take to fail back?
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
 
-## <a name="security">Security
+## <a name="capacity"></a>Capacity
+### Does Site Recovery work with Reserved Instance?
+Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR failover operations will use them. </br> No additional configuration is required from the customers.
+
+
+## <a name="security"></a>Security
 ### Is replication data sent to the Site Recovery service?
 No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your virtual machines. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
 Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.

@@ -17,7 +17,7 @@ ms.subservice: common
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
-> 
+>
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
 
@@ -45,12 +45,12 @@ A default set of metrics is displayed in charts on the storage account blade, as
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](../common/storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage uses [table storage](../common/storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](../common/storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## Customize metrics charts
 
-Use the following procedure to choose which storage metrics to view in a metrics chart. 
+Use the following procedure to choose which storage metrics to view in a metrics chart.
 
 1. Start by displaying a storage metric chart in the Azure portal. You can find charts on the **storage account blade** and in the **Metrics** blade for an individual service (blob, queue, table, file).
 
@@ -124,7 +124,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)

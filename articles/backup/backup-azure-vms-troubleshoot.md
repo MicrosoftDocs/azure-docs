@@ -41,6 +41,7 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 
 
 ## Jobs
+
 | Error details | Workaround |
 | --- | --- |
 | Cancellation isn't supported for this job type: <br>Wait until the job finishes. |None |

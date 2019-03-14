@@ -66,7 +66,7 @@ The following table lists the files used in this tutorial:
 
 |Files|Description|  
 |----|----|   
-|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|The HiveQL script file used by the Hive job. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.|
+|wasb://flightdelay\@hditutorialdata.blob.core.windows.net/flightdelays.hql|The HiveQL script file used by the Hive job. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.|
 |wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.|
 |\tutorials\flightdelays\output|The output path for the Hive job. The default container is used for storing the output data.|
 |\tutorials\flightdelays\jobstatus|The Hive job status folder on the default container.|
