@@ -157,10 +157,7 @@ Now the VM is running and attached via RDP, and you are logged on.
 
      ![Account Demo screen](media/Container_09.jpg)
 
-10.  To display the Enterprise Server Administration console, go to the command prompt and type:
-```
-     start http:172.19.202.52:86
-```
+10.  To display the Enterprise Server Administration console, go to the command prompt and type **start http:172.19.202.52:86**
 
      ![Enterprise Server Administration console](media/Container_010.jpg)
 
