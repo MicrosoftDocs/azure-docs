@@ -766,7 +766,7 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 Follow these steps to install an SAP application server.
 
 1. **[A]** Prepare application server
-   Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse-netappfiles.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
+   Follow the steps in the chapter [SAP NetWeaver application server preparation](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) above to prepare the application server.
 
 2. **[A]** Install SAP NetWeaver application server
    Install a primary or additional SAP NetWeaver applications server.
