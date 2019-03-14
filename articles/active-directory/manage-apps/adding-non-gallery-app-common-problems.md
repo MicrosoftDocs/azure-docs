@@ -119,7 +119,7 @@ See the following descriptions for more details about the notifications.
 
 -   **Details** – the detailed description of what occurred as a result of the operation
 
-   *  Example – **Internal url 'https://bing.com/' is invalid since it is already in use**
+   *  Example – **Internal url `https://bing.com/` is invalid since it is already in use**
 
 -   **Copy error** – Click the **copy icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group 
 -   engineer
