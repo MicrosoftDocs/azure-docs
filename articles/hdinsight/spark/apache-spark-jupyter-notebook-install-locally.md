@@ -23,36 +23,24 @@ There are four key steps involved in installing Jupyter and connecting to Apache
 
 For more information about the custom kernels and the Spark magic available for Jupyter notebooks with HDInsight cluster, see [Kernels available for Jupyter notebooks with Apache Spark Linux clusters on HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
+> [!IMPORTANT]  
+> The steps in the article only work up to Spark version 2.1.0.
+
 ## Prerequisites
 The prerequisites listed here are not for installing Jupyter. These are for connecting the Jupyter notebook to an HDInsight cluster once the notebook is installed.
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster (ver 2.1.0 or lower) on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## Configure Spark cluster
 
-Restarting some services while the cluster is running may generate alerts. To avoid alerts, you can use the Service Actions button to enable Maintenance mode for the service before performing a restart.
-
-1. Use the [Ambari UI](/../hdinsight/hdinsight-hadoop-manage-ambari.md) to connect to your Spark cluster.
-
-2. From the menu bar, navigate to **Services** > **Spark2**.
-
-3. From the main window, select the **Configs** tab.
-
-4. From the list of configurations, expand **Advanced livy2-conf**.
-
-5. Review the configuration variable **livy.server.csrf_protection.enabled** and set to **false** if **true**.
-
-6. Select **Save**.  Enter a reason in the **Save Configuration** dialog, and then select **Save**.  You may receive an additional **Configurations** dialog, if so, select **Proceed Anyway**.
-
-7. A **Restart** drop-down list will appear.  Navigate to **Restart** > **Restart All Affected**.  At the **Confirmation** dialog, select **Confirm Restart All**.
 
 ## Install Jupyter notebook on your computer
 
 You  must install Python before you can install Jupyter notebooks. Both Python and Jupyter are available as part of the [Anaconda distribution](https://www.anaconda.com/download/). When you install Anaconda, you install a distribution of Python. Once Anaconda is installed, you add the Jupyter installation by running appropriate commands.
 
 1. Download the [Anaconda installer](https://www.anaconda.com/download/) for your platform and run the setup. While running the setup wizard, make sure you select the option to add Anaconda to your PATH variable.
-1. Run the following command to install Jupyter.
+
+2. Run the following command to install Jupyter.
 
         conda install jupyter
 
