@@ -127,9 +127,9 @@ To enable JVM Agent Logging update the [AI-Agent.xml file](java-agent.md).
 
 ```xml
 <AgentLogger type = "FILE">
-        <Level>TRACE</Level>
-        <UniquePrefix>AI</UniquePrefix>
-        <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
 </AgentLogger>
 ```
 
