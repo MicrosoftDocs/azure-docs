@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: 
 ---
 
 # Start developing with Media Services v3 API using SDKs/tools
 
-As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-sdk) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The Media Services v3 API is based on the OpenAPI specification (formerly known as a Swagger).
+As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This topic provides links to the SDKs, tools, documentation. It also provides some useful information for different dev env.
 
@@ -91,6 +91,7 @@ Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) document
 - [Use DRM dynamic encryption and license delivery service - .NET](protect-with-drm.md)
 - [Get a signing key from the existing policy - .NET](get-content-key-policy-dotnet-howto.md)
 - [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
 
 ## Java
 

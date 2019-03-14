@@ -84,6 +84,10 @@ In each REST API URI, there are variables that are used that you need to replace
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
+> [!NOTE]
+> Blueprints may also be created at the subscription level. To see an example, see
+> [create blueprint at subscription example](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
 blueprint, any resource groups to create, and all of the blueprint level parameters. The parameters
 are set during assignment and used by the artifacts added in later steps.
@@ -297,7 +301,7 @@ artifact.
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -381,7 +385,7 @@ In each REST API URI, there are variables that are used that you need to replace
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
-1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID various by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
+1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
 
    - REST API URI
 

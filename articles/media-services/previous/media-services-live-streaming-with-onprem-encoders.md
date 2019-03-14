@@ -41,7 +41,7 @@ Starting with the Media Services 2.10 release, when you create a channel, you ca
 > [!NOTE]
 > This article discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 >
->For information about recommended on-prem encoders, see [Recommended on-prem encoders](media-services-recommended-encoders.md).
+>For information about recommended on premises encoders, see [Recommended on premises encoders](media-services-recommended-encoders.md).
 
 The following diagram represents a live-streaming workflow that uses an on-premises live encoder to have multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) streams as output.
 
@@ -142,7 +142,7 @@ Channels provide a preview endpoint (preview URL) that you use to preview and va
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
 
-Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
+Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address is allowed. An allowed IP address can be specified as one of the following:
@@ -225,7 +225,7 @@ Here are other considerations related to working with channels and related compo
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics
-[Recommended on-prem encoders](media-services-recommended-encoders.md)
+[Recommended on premises encoders](media-services-recommended-encoders.md)
 
 [Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
 

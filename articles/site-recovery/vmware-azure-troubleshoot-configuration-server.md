@@ -79,7 +79,7 @@ A certificate that's required to authenticate Site Recovery can't be created. Re
 
 ## Failure to activate Windows Licence from Server Standard EVALUATION to Server Standard
 
-1. As part of Configuration server deployment through OVF, an evaluation licence is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+1. As part of Configuration server deployment through OVF, an evaluation license is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
 2. If you are unable to activate Windows license, reach out to [Windows support team](https://aka.ms/Windows_Support) to resolve the issue.
 
 ## Register source machine with configuration server

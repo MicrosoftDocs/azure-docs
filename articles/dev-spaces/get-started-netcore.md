@@ -1,15 +1,14 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and VS Code | Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud using .NET Core and VS Code"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "09/26/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 # Get started on Azure Dev Spaces with .NET Core
 
@@ -57,7 +56,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -66,7 +65,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -90,7 +89,7 @@ Rich features like Kubernetes debugging are available for .NET Core and Node.js 
 
 ## Create a web app running in a container
 
-In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
+In this section, you'll create an ASP.NET Core web app and get it running in a container in Kubernetes.
 
 ### Create an ASP.NET Core web app
 Clone or download the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces). This article uses the code in the *samples/dotnetcore/getting-started/webfrontend* directory.

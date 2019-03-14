@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/21/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -154,7 +154,7 @@ dotnet run
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```

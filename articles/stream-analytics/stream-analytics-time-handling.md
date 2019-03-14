@@ -6,12 +6,12 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/05/2018
 ---
 
 # Understand time handling in Azure Stream Analytics
 
-In this article, we discuss how you can make design choices to solve practical time handling problems in the Azure Stream Analytics service. Time handling design decisions are closely related to event ordering factors. For more information, see this related article: [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
+In this article, we discuss how you can make design choices to solve practical time handling problems in the Azure Stream Analytics service. Time handling design decisions are closely related to event ordering factors.
 
 ## Background time concepts
 
@@ -158,7 +158,7 @@ Azure Stream Analytics uses watermark progress as the only trigger to produce ou
 
 When using [windowed aggregates](stream-analytics-window-functions.md), the service only produces outputs at the end of the windows. In some cases, users may want to see partial aggregates generated from the windows. Partial aggregates are not supported currently in Azure Stream Analytics.
 
-In other streaming solutions, output events could be materialized at various trigger points, depending on external circumstances. It's possible in some solutions that the output events for a given time window couple be generated multiple times. As the input values are refined, the aggregate results become more accurate. Events could be speculated at first, and revised over time. For example, when a certain device is offline from the network, an estimated value could be used by a system. Later on, the same device comes online to the network. Then the actual event data could be included in the input stream. The output results from processing that time window produces more accurate output.
+In other streaming solutions, output events could be materialized at various trigger points, depending on external circumstances. It's possible in some solutions that the output events for a given time window could be generated multiple times. As the input values are refined, the aggregate results become more accurate. Events could be speculated at first, and revised over time. For example, when a certain device is offline from the network, an estimated value could be used by a system. Later on, the same device comes online to the network. Then the actual event data could be included in the input stream. The output results from processing that time window produces more accurate output.
 
 ## Illustrated example of watermarks
 

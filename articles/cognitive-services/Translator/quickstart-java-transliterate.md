@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 # Quickstart: Use the Translator Text API to transliterate text using Java
@@ -68,7 +68,7 @@ Take note that this sample has dependencies on OkHttp for HTTP requests, and Gso
 Let's create a folder for your sample app. From your working directory, run:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Next, in this folder, create a file named `Transliterate.java`.
@@ -178,7 +178,7 @@ gradle run
 ```json
 [
   {
-    "text": "konnnichiha",
+    "text": "konnichiwa",
     "script": "latn"
   }
 ]

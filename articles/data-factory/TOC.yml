@@ -72,6 +72,14 @@
         href: tutorial-incremental-copy-change-tracking-feature-portal.md
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+    - name: 4 - Copy new files by lastmodifieddate
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+    - name: 5 - Copy new files by time partitioned file name
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -295,6 +303,9 @@
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
       href: connector-sap-business-warehouse-open-hub.md
+      items:
+      - name: Load SAP BW data
+        href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
@@ -327,7 +338,7 @@
       href: connector-xero.md
     - name: Zoho
       href: connector-zoho.md
-  - name: Copy data
+  - name: Move data
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
@@ -344,6 +355,8 @@
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Storage Gen1
       href: load-azure-data-lake-store.md 
+    - name: Load SAP BW data
+      href: load-sap-bw-data.md
     - name: Load Office 365 data
       href: load-office-365-data.md
     - name: Read or write partitioned data
@@ -393,8 +406,10 @@
       href: control-flow-append-variable-activity.md
     - name: Azure Function Activity
       href: control-flow-azure-function-activity.md
+    - name: Execute Data Flow Activity
+      href: control-flow-execute-data-flow-activity.md
     - name: Execute Pipeline Activity
-      href: control-flow-execute-pipeline-activity.md
+      href: control-flow-execute-pipeline-activity.md      
     - name: Filter Activity
       href: control-flow-filter-activity.md
     - name: For Each Activity
@@ -417,6 +432,8 @@
     items:
     - name: Aggregate
       href: data-flow-aggregate.md
+    - name: Alter row
+      href: data-flow-alter-row.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
@@ -465,7 +482,7 @@
       href: store-credentials-in-key-vault.md
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
-    - name: Data factory service identity
+    - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:
@@ -533,6 +550,8 @@
       href: solution-templates-introduction.md
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
+    - name: Copy new files by LastModifiedDate
+      href: solution-template-copy-new-files-lastmodifieddate.md	  
     - name: Bulk copy with control table
       href: solution-template-bulk-copy-with-control-table.md
     - name: Delta copy with control table
@@ -544,7 +563,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactoryv2/
+    href: /powershell/module/az.datafactory/
   - name: REST API
     href: /rest/api/datafactory
   - name: Resource Manager template

@@ -17,6 +17,9 @@
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
+  - name: Assign a policy - template
+    displayName: assign, compliance, resource manager, ARM
+    href: assign-policy-template.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
@@ -170,15 +173,15 @@
       - name: NSG X on every subnet
         displayName: deny, all
         href: samples/nsg-on-subnet.md
-    - name: Express Routes
+    - name: ExpressRoute
       items:
-      - name: Allowed Express Route bandwidth
+      - name: Allowed ExpressRoute bandwidth
         displayName: deny
         href: samples/allowed-express-route-bandwidth.md
-      - name: Allowed Express Route SKUs
+      - name: Allowed ExpressRoute SKUs
         displayName: deny
         href: samples/allowed-express-route-skus.md
-      - name: Allowed Express Route peerling locations
+      - name: Allowed ExpressRoute peering locations
         displayName: deny, Location
         href: samples/allowed-express-route-peering.md
     - name: Network Watchers
@@ -260,9 +263,15 @@
   - name: Programmatically create policies
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
+  - name: Author policies for array properties
+    displayName: array property, alias, aliases, in, notIn, type, defaultValue
+    href: ./how-to/author-policies-for-arrays.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
+  - name: Determine causes of non-compliance
+    displayName: reasons, compliance details
+    href: ./how-to/determine-non-compliance.md
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
@@ -274,6 +283,8 @@
     items:
     - name: Policy
       href: /powershell/module/az.resources/#policies
+    - name: Policy Insights
+      href: /powershell/module/az.policyinsights#policy_insights
     - name: Guest Configuration (preview)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API

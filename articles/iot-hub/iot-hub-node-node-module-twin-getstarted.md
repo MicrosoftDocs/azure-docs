@@ -1,14 +1,14 @@
 ---
 title: Get started with Azure IoT Hub module identity and module twin (Node.js) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
-author: chrissie926
-manager: 
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: menchi
 ---
 
 # Get started with IoT Hub module identity and module twin using Node.js back end and Node.js device
@@ -38,7 +38,7 @@ In this section, you create a Node.js app that creates a device identity and a m
 
 1. Create a directory to hold your code.
 2. Inside of that directory, first run **npm init -y** to create an empty package.json with defaults. This is the project file for your code.
-3. Run **npm install -S azure-iothub@modules-preview** to install the service SDK inside the **node_modules** subdirectory.
+3. Run **npm install -S azure-iothub\@modules-preview** to install the service SDK inside the **node_modules** subdirectory.
 
     > [!NOTE]
     > The subdirectory name node_modules uses the word module to mean "a node library". The term here has nothing to do with IoT Hub modules.
@@ -115,7 +115,7 @@ In this section, you create a Node.js app on your simulated device that updates 
 
     ![Azure portal module detail][15]
 
-2. Similar to you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp@modules-preview**).
+2. Similar to you did in the step above, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
     > [!NOTE]
     > The npm install command may feel slow. Be patient, it's pulling down lots of code from the package repository.
@@ -198,7 +198,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md

@@ -230,7 +230,7 @@ Key information:
 
 </br>
 
---- 
+---
 ### Country
 You can specify a country through its country code. 
 
@@ -385,7 +385,7 @@ Key information:
 
 </br>
 
----  
+---
 ### Request Header Literal
 The **Matches**/**Does Not Match** option determines the conditions under which the Request Header Literal match condition is met.
 - **Matches**: Requires the request to contain the specified header. Its value must match the one that's defined in this match condition.
@@ -406,7 +406,7 @@ Key information:
 
 </br>
 
----  
+---
 ### Request Header Regex
 The **Matches**/**Does Not Match** option determines the conditions under which the Request Header Regex match condition is met.
 - **Matches**: Requires the request to contain the specified header. Its value must match the pattern that's defined in the specified [regular expression](cdn-rules-engine-reference.md#regular-expressions).

@@ -2,7 +2,7 @@
 title: Article about known issues/migration limitations with online migrations to Azure SQL Database | Microsoft Docs
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 03/05/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL DB
@@ -84,7 +84,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Workaround**
 
-If you have an LOB column that is bigger than 32 KB, contact the engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+If you have an LOB column that is bigger than 32 KB, contact the engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### Issues with timestamp columns
 
@@ -94,7 +94,7 @@ DMS doesn't migrate the source timestamp value; instead, DMS generates a new tim
 
 **Workaround**
 
-If you need DMS to migrate the exact timestamp value stored in the source table, contact the engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+If you need DMS to migrate the exact timestamp value stored in the source table, contact the engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### Data migration errors do not provide additional details on the Database detailed status blade.
 

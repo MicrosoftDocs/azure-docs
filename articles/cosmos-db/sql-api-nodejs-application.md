@@ -95,7 +95,7 @@ The **package.json** file is one of the files created in the root of the project
    npm install async --save
    ```
 
-2. Install the **@azure/cosmos** module via npm. 
+2. Install the **\@azure/cosmos** module via npm. 
 
    ```bash
    npm install @azure/cosmos

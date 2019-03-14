@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 ms.author: juliako
 
 ---
 # Define account filters and asset filters  
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
 Filters are server-side rules that allow your customers to do things like: 
 
@@ -34,10 +34,9 @@ The following table shows some examples of URLs with filters:
 
 |Protocol|Example|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>For HLS v3, use: `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## Define filters
 
@@ -58,29 +57,29 @@ You use the following properties to describe the filters.
 |presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#PresentationTimeRange).|
 |tracks|The tracks selection conditions. For more information, see [tracks](#tracks)|
 
-### PresentationTimeRange
+### presentationTimeRange
 
 Use this property with **Asset Filters**. It is not recommended to set the property with **Account Filters**.
 
 |Name|Description|
 |---|---|
-|**endTimestamp**|The absolute end time boundary. Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.<br/><br/>Also, see the **forceEndTimestamp** definition that follows.|
-|**forceEndTimestamp**|Applies to Live filters.<br/><br/>**forceEndTimestamp** is a boolean that indicates whether or not **endTimestamp** was set to a valid value. <br/><br/>If the value is **true**, the **endTimestamp** value should be specified. If it is not specified, then a bad request is returned.<br/><br/>If for example, you want to define a filter that starts at 5 minutes into the input video, and lasts until the end of the stream, you would set **forceEndTimestamp** to false and omit setting **endTimestamp**.|
-|**liveBackoffDuration**|Applies to Live only. The property is used to define live playback position. Using this rule, you can delay live playback position and create a server-side buffer for players. LiveBackoffDuration is relative to the live position. The maximum live backoff duration is 300 seconds.|
-|**presentationWindowDuration**|Applies to Live. Use **presentationWindowDuration** to apply a sliding window to the playlist. For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.|
-|**startTimestamp**|Applies to VoD or Live streams. The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use **startTimestamp** and **endTimestamp** to trim the playlist (manifest). For example, startTimestamp=40000000 and endTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|**timescale**|Applies to VoD or Live streams. The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used. Default is 10000000 HNS (hundred nanosecond).|
+|**endTimestamp**|Applies to Video on Demand (VoD).<br/>For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/>This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is the timescale, so an endTimestamp of 1800000000 would be for 3 minutes.<br/>Use startTimestamp and endTimestamp to trim the fragments that will be in the playlist (manifest).<br/>For example, startTimestamp=40000000 and endTimestamp=100000000 using the default timescale will generate a playlist that contains fragments from between 4 seconds and 10 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|**forceEndTimestamp**|Applies to Live Streaming only.<br/>Indicates whether the endTimestamp property must be present. If true, endTimestamp must be specified or a bad request code is returned.<br/>Allowed values: false, true.|
+|**liveBackoffDuration**|Applies to Live Streaming only.<br/> This value defines the latest live position that a client can seek to.<br/>Using this property, you can delay live playback position and create a server-side buffer for players.<br/>The unit for this property is timescale (see below).<br/>The maximum live back off duration is 300 seconds (3000000000).<br/>For example, a value of 2000000000 means that the latest available content is 20 seconds delayed from the real live edge.|
+|**presentationWindowDuration**|Applies to Live Streaming only.<br/>Use presentationWindowDuration to apply a sliding window of fragments to include in a playlist.<br/>The unit for this property is timescale (see below).<br/>For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.|
+|**startTimestamp**|Applies to Video on Demand (VoD) or Live Streaming.<br/>This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is the timescale, so a startTimestamp of 150000000 would be for 15 seconds.<br/>Use startTimestamp and endTimestampp to trim the fragments that will be in the playlist (manifest).<br/>For example, startTimestamp=40000000 and endTimestamp=100000000 using the default timescale will generate a playlist that contains fragments from between 4 seconds and 10 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|**timescale**|Applies to all timestamps and durations in a Presentation Time Range, specified as the number of increments in one second.<br/>Default is 10000000 -  ten million increments in one second, where each increment would be 100 nanoseconds long.<br/>For example, if you want to set a startTimestamp at 30 seconds, you would use a value of 300000000 when using the default timescale.|
 
 ### Tracks
 
-You specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
+You specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live Streaming or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
 
 Filter track property conditions describe track types, values (described in the following table), and operations (Equal, NotEqual). 
 
 |Name|Description|
 |---|---|
 |**Bitrate**|Use the bitrate of the track for filtering.<br/><br/>The recommended value is a range of bitrates, in bits per second. For example, "0-2427000".<br/><br/>Note: while you can use a specific bitrate value, like 250000 (bits per second), this approach is not recommended, as the exact bitrates can fluctuate from one Asset to another.|
-|**FourCC**|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in [RFC 6381](https://tools.ietf.org/html/rfc6381). Currently, the following codecs are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).|
+|**FourCC**|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in [RFC 6381](https://tools.ietf.org/html/rfc6381). Currently, the following codecs are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, get and examine the manifest file.|
 |**Language**|Use the language of the track for filtering.<br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, "en".|
 |**Name**|Use the name of the track for filtering.|
 |**Type**|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|

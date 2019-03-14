@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # How to implement custom synchronization to optimize for higher availability and performance
 
-Azure Cosmos DB offers five well-defined consistency levels for you to choose from to balance the tradeoff between the consistency, performance, and availability. Strong consistency ensures data is synchronously replicated and durability persisted in every region where the Azure Cosmos account is available. This configuration though provides the highest level of durability comes at the cost of performance and availability. If an application wants to control/relax the data durability to suit the application need without compromising availability, it can employ custom synchronization at the application layer to achieve the desired level of durability.
+Azure Cosmos DB offers five well-defined consistency levels for you to choose from to balance the tradeoff between the consistency, performance, and availability. Strong consistency ensures data is synchronously replicated and durably persisted in every region where the Azure Cosmos account is available. This configuration, while providing the highest level of durability, comes at the cost of performance and availability. If an application wants to control/relax the data durability to suit the application need without compromising availability, it can employ custom synchronization at the application layer to achieve the desired level of durability.
 
 The diagram below visually depicts the custom synchronization model.
 

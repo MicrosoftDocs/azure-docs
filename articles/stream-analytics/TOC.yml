@@ -31,15 +31,17 @@
 - name: Concepts
   items:
   - name: Input types for a job
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Inputs overview
+      href: stream-analytics-add-inputs.md
     - name: Streaming data inputs
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
   - name: Output types for a job
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Outputs overview
+      href: stream-analytics-define-outputs.md
     - name: Output to Cosmos DB
       href: stream-analytics-documentdb-output.md
     - name: Output to Azure SQL DB
@@ -60,8 +62,6 @@
     href: stream-analytics-parsing-json.md
   - name: Time handling considerations
     href: stream-analytics-time-handling.md
-  - name: Event ordering considerations
-    href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
@@ -74,6 +74,8 @@
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
+    - name: Start a job
+      href: start-job.md
     - name: Test a job
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
@@ -121,9 +123,10 @@
     items:
     - name: Scale with streaming units
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Scale with query parallelization
-      href: stream-analytics-parallelization.md
+    - name: Scale with parallelization
       items:
+      - name: Query parallelization
+        href: stream-analytics-parallelization.md
       - name: Increase throughput
         href: stream-analytics-scale-jobs.md
     - name: Scale with ML functions
@@ -401,7 +404,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.streamanalytics
+    href: /powershell/module/az.streamanalytics
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST

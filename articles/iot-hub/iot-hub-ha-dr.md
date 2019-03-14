@@ -59,6 +59,7 @@ Once the failover operation for the IoT hub completes, all operations from the d
 >
 > - After failover, the events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available.
 >
+> - When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### Microsoft-initiated failover
 

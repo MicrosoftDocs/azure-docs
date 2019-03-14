@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
+ms.date: 2/17/2019
+ms.author: monhaber
 ---
 
 # Working with security policies
@@ -95,6 +95,20 @@ You can edit the default security policy for each of your Azure subscriptions an
 For instructions on how to edit a security policy in Azure Policy, see and [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell. The following example provides instructions for editing using REST API.
+
+
+## Disable security policies
+If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation. This is done via the Azure Policy portal (and not the Security Center portal), as explained here.
+For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md). 
+1. Go to Azure Policy and click **Assignments**.
+2. In the **ASC Default** row, click the three dots and click **View definition**. The **Initiative Definition** page opens.
+   ![view definition](./media/tutorial-security-policy/view-definition.png)
+3. Click **Edit intitiative**. The **Edit Initiative Definition** page opens.
+   ![edit initiative](./media/tutorial-security-policy/edit-initiative.png)
+4. In the **POLICIES AND PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**.
+   ![disable policy](./media/tutorial-security-policy/disable-policy.png)
+1. Click **Save** (located at the bottom of the page).
+
 
 ### Configure a security policy using the REST API
 

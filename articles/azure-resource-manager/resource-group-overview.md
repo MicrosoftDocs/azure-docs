@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
 
 ---
@@ -47,7 +47,16 @@ Resource Manager provides several benefits:
 * You can apply tags to resources to logically organize all the resources in your subscription.
 * You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
+## Understand management scope
+
+Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. [Management groups](../governance/management-groups/index.md) are in a preview release. The following image shows an example of these layers.
+
+![Scope](./media/resource-group-overview/scope-levels.png)
+
+You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied the resource group and all its resources. However, another resource group does not have that policy assignment.
+
 ## Guidance
+
 The following suggestions help you take full advantage of Resource Manager when working with your solutions.
 
 * Define and deploy your infrastructure through the declarative syntax in Resource Manager templates, rather than through imperative commands.
@@ -144,7 +153,7 @@ You can also use the template for updates to the infrastructure. For example, yo
 
 Resource Manager provides extensions for scenarios when you need additional operations such as installing particular software that isn't included in the setup. If you're already using a configuration management service, like DSC, Chef or Puppet, you can continue working with that service by using extensions. For information about virtual machine extensions, see [About virtual machine extensions and features](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-When you create a solution from the portal, the solution automatically includes a deployment template. You don't have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. For a sample, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). You can also retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](resource-manager-export-template.md) is a helpful way to learn about the template syntax.
+When you create a solution from the portal, the solution automatically includes a deployment template. You don't have to create your template from scratch because you can start with the template for your solution and customize it to meet your specific needs. For a sample, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). You can also retrieve a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](./manage-resource-groups-portal.md#export-resource-groups-to-templates) is a helpful way to learn about the template syntax.
 
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 

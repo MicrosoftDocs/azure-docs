@@ -6,6 +6,8 @@
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Release notes
+    href: sql-database-release-notes.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -246,12 +248,12 @@
       href: sql-database-aad-authentication.md
     - name: Auditing
       items:
-      - name: Auditing - Single databases and elastic pools
+      - name: Get started with SQL Database auditing
         href: sql-database-auditing.md
       - name: Auditing - Managed instance
         href: sql-database-managed-instance-auditing.md
-      - name: Table auditing (deprecated)
-        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+      - name: Audit Log Format
+        href: sql-database-audit-log-format.md
     - name: Dynamic data masking
       href: sql-database-dynamic-data-masking-get-started.md
     - name: Always encrypted
@@ -322,6 +324,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
+    - name: Overview
+      href: sql-database-features-index.yml
     - name: SQL features comparison
       href: sql-database-features.md
     - name: Multi-model capabilities
@@ -380,8 +384,6 @@
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: Configure backup retention using Azure vault (deprecated)
-      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
@@ -530,6 +532,8 @@
       href: sql-database-develop-overview.md
     - name: Working with JSON data
       href: sql-database-json-features.md
+    - name: Use Azure Functions
+      href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
     - name: Authenticate app 
@@ -594,7 +598,7 @@
             href: saas-dbpertenant-provision-and-catalog.md
           - name: Monitor database performance
             href: saas-dbpertenant-performance-monitoring.md
-          - name: Monitor with log analytics
+          - name: Monitor with Azure Monitor logs
             href: saas-dbpertenant-log-analytics.md
           - name: Restore one tenant
             href: saas-dbpertenant-restore-single-tenant.md
@@ -629,7 +633,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.sql/#sql
+    href: /powershell/module/az.sql
   - name: Azure CLI
     href: /cli/azure/sql
   - name: .NET

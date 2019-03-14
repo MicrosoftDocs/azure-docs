@@ -3,7 +3,7 @@ title: Create virtual nodes using the Azure CLI in Azure Kubernetes Services (AK
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 author: iainfoulds
-
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
@@ -39,6 +39,16 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
+
+## Preview limitations
+
+While this feature is in preview, the following regions are supported for deployments:
+
+* Australia East (australiaeast)
+* East US (eastus)
+* West Central US (westcentralus)
+* West Europe (westeurope)
+* West US (westus)
 
 ## Launch Azure Cloud Shell
 

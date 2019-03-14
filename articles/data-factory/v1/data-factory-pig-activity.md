@@ -80,6 +80,7 @@ The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipe
 ```
 
 ## Syntax details
+
 | Property | Description | Required |
 | --- | --- | --- |
 | name |Name of the activity |Yes |

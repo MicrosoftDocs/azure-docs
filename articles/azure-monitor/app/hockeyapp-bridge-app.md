@@ -50,7 +50,7 @@ That's it! Custom and trace data collected in your HockeyApp-instrumented app fr
 Let's briefly review each of these features now available to you.
 
 ## Analytics
-Analytics is a powerful tool for ad-hoc querying of your data, allowing you to diagnose and analyze your telemetry and quickly discover root causes and patterns.
+Analytics is a powerful tool for ad hoc querying of your data, allowing you to diagnose and analyze your telemetry and quickly discover root causes and patterns.
 
 ![Analytics](./media/hockeyapp-bridge-app/05.png)
 

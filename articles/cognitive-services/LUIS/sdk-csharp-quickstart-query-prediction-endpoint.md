@@ -5,6 +5,7 @@ description: Use the C# SDK to send a user utterance to LUIS and receive a predi
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 02/14/2019

@@ -12,7 +12,7 @@ ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
@@ -52,7 +52,7 @@ You enable logging from the [Azure Machine Learning Studio Web Services](https:/
 
    3. If the container **ml-diagnostics** doesn't exist, click **+Container**, give the container the name "ml-diagnostics", and select the **Access type** as "Blob". Click **OK**.
 
-      ![Select logging level](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Create a new container to store your diagnostic logs](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

@@ -3,7 +3,7 @@ title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
+ms.date: 02/25/2019
+ms.author: monhaber
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
@@ -38,7 +38,7 @@ Security Center is offered in two tiers:
 
 The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tierfree trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -50,8 +50,8 @@ See [Permissions in Azure Security Center](security-center-permissions.md) to le
 ## Data collection, agents, and workspaces
 Security Center collects data from your Azure virtual machines (VMs) and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
-### Am I billed for Log Analytics on the workspaces created by Security Center?
-No. Workspaces created by Security Center, while configured for Log Analytics per node billing, do not incur Log Analytics charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
+### Am I billed for Azure Monitor logs on the workspaces created by Security Center?
+No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, do not incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
 - **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You are not billed for the Free tier.
 - **Standard tier** – Security Center enables the 'Security' solution on the default workspace.
@@ -59,9 +59,11 @@ No. Workspaces created by Security Center, while configured for Log Analytics pe
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/). The pricing page addresses changes to security data storage and prorated billing starting in June 2017.
 
 > [!NOTE]
-> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
+> The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### What qualifies a VM for automatic provisioning of the Microsoft Monitoring Agent installation?
 Windows or Linux IaaS VMs qualify if:
@@ -213,7 +215,7 @@ The agent consumes a nominal amount of system resources and should have little i
 ### Where is my data stored?
 Data collected from this agent is stored in either an existing Log Analytics workspace associated with your subscription or a new workspace. For more information, see [Data Security](security-center-data-security.md).
 
-## Existing Log Analytics customers<a name="existingloganalyticscust"></a>
+## Existing Azure Monitor logs customers<a name="existingloganalyticscust"></a>
 
 ### Does Security Center override any existing connections between VMs and workspaces?
 If a VM already has the Microsoft Monitoring Agent installed as an Azure extension, Security Center does not override the existing workspace connection. Instead, Security Center uses the existing workspace.
@@ -270,6 +272,9 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Advanced malware detected using Windows error reporting
 * Brute force attacks against virtual machines
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
+
+### Why did secure scores values change? <a name="secure-score-faq"></a>
+As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall secure score values.  For more information about secure score, see [Secure score calculation](security-center-secure-score.md).
 
 ### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contacts specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.

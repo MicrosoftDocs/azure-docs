@@ -40,8 +40,8 @@ It is important that any testing of self-service password reset be done with non
       * Ensure the users in the group you picked have been appropriately licensed.
    * Click **Save**
 1. On the **Authentication methods** page
-   * Set the **Number of methods required to reset** to **2**
-   * Choose which **Methods available to users** your organization wants to allow. For this tutorial check the boxes to enable **Email**, **Mobile phone**, and **Office phone**.
+   * Set the **Number of methods required to reset** to **1**
+   * Choose which **Methods available to users** your organization wants to allow. For this tutorial check the boxes to enable **Email** and **Mobile app code (preview)**.
    * Click **Save**
 1. On the **Registration** page
    * Select **Yes** for **Require users to register when signing in**.

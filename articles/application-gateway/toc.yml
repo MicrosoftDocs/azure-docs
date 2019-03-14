@@ -39,14 +39,24 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: End to end SSL
-    href: ssl-overview.md
-  - name: SSL policy overview
-    href: application-gateway-ssl-policy-overview.md
-  - name: Web application firewall
-    href: waf-overview.md
-  - name: WAF configuration
-    href: application-gateway-waf-configuration.md 
+  - name: How Application Gateway works
+    href: how-application-gateway-works.md
+  - name: Application Gateway components
+    href: application-gateway-components.md
+  - name: Configuration overview
+    href: configuration-overview.md    
+  - name: SSL
+    items:
+    - name: SSL policy overview
+      href: application-gateway-ssl-policy-overview.md
+    - name: End to end SSL
+      href: ssl-overview.md
+  - name: WAF
+    items:
+    - name: Web application firewall
+      href: waf-overview.md
+    - name: WAF configuration
+      href: application-gateway-waf-configuration.md 
   - name: URL routing
     href: url-route-overview.md
   - name: Multiple site hosting
@@ -69,14 +79,16 @@
   items:
   - name: Manage web traffic
     items:
-    - name: Azure PowerShell
+    - name: Azure portal
       href: tutorial-manage-web-traffic-powershell.md
     - name: Template
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
+    - name: Azure portal
+      href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md
+      href: application-gateway-ilb-arm.md      
   - name: Configure SSL termination
     items:
     - name: SSL termination - portal
@@ -157,9 +169,13 @@
         href: application-gateway-create-probe-ps.md
   - name: Troubleshoot
     items:
-      - name: Troubleshoot an Application Gateway – ILB ASE
+      - name: ILB with an App Service Environment
         href: create-gateway-internal-load-balancer-app-service-environment.md
-      - name: Troubleshoot Bad Gateway (502) errors
+      - name: Redirection to App Service’s URL
+        href: troubleshoot-app-service-redirection-app-service-url.md
+      - name: Session affinity issues
+        href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
+      - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
       - name: Diagnostics
         href: application-gateway-diagnostics.md

@@ -44,7 +44,7 @@ Follow these steps to create an Azure Database for MySQL server:
     Confirm password | *Your choice*| Confirm the admin account password.
     Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
     Version | *The latest major version*| The latest major version (unless you have specific requirements that require another version).
-    Pricing tier | **General Purpose**, **Gen 4**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information.
@@ -87,7 +87,7 @@ To find these values, take the following steps:
 
 2. Hover your cursor over each field, and the copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
 
-In this example, the server name is **mydemoserver.mysql.database.azure.com**, and the server admin sign-in is **myadmin@mydemoserver**.
+In this example, the server name is **mydemoserver.mysql.database.azure.com**, and the server admin sign-in is **myadmin\@mydemoserver**.
 
 ## Connect to MySQL by using the mysql command-line tool
 Connect to your server using the **mysql.exe** command-line tool. You can download MySQL from [here](https://dev.mysql.com/downloads/) and install it on your computer. 
@@ -107,7 +107,7 @@ Connect to your server using the **mysql.exe** command-line tool. You can downlo
     mysql parameter |Suggested value|Description
     ---|---|---
     --host | *Server name* | The server name value that you used earlier when you created the Azure Database for MySQL server. Our example server is **mydemoserver.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
-    --user | *Server admin login name* |The server admin login username that you supplied when you created the Azure Database for MySQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
+    --user | *Server admin login name* |The server admin login username that you supplied when you created the Azure Database for MySQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     -p | *Wait until prompted* |When prompted, provide the same password that you provided when you created the server. Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter**.
 
    After it's connected, the mysql utility displays a `mysql>` prompt at which you can type commands. 
@@ -180,7 +180,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
     Connection method | Standard (TCP/IP) | Standard (TCP/IP) is sufficient. |
     Hostname | *Server name* | The server name value that you used when you created the Azure Database for MySQL server earlier. Our example server is **mydemoserver.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information.|
      Port | 3306 | The port to use when connecting to your Azure Database for MySQL server. |
-    Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL server earlier. Our example username is **myadmin@mydemoserver**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
+    Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL server earlier. Our example username is **myadmin\@mydemoserver**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
 4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
