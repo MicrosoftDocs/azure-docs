@@ -26,7 +26,7 @@ The following image shows the workflow you will implement:
 
 The workflow contains two actions:
 
-1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in a Apache log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
+1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in an Apache log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
