@@ -152,9 +152,9 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 This cmdlet will set the following permissions: 
 
-|Type |Name |Access |Applies To| |
-|-----|-----|-----|-----|-|
-|Allow|AD DS Connector Account|Read/Write property|MS-DS-Consistency-Guid|Descendant User objects|
+|Type |Name |Access |Applies To|
+|-----|-----|-----|-----| 
+|Allow|AD DS Connector Account|Read/Write property|Descendant User objects|
 
 ### Permissions for Password Hash Synchronization 
 To set permissions for the AD DS Connector account when using Password Hash Synchronization, run: 

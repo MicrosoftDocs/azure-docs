@@ -28,18 +28,18 @@ There are two main options to migrate data from on-premises to Azure environment
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 
-|**Data Qty**|**Network Bandwidth**||| |
+|**Data Qty**|**Network Bandwidth**||||
 |---|---|---|---|---|
 || **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
-|1 TB|2 days|1 day| 2 hours| 14 minutes |
-|10 TB|22 days|10 days|1 day| 2 hours |
-|35 TB|76 days|34 days|3 days| 8 hours |
-|80 TB|173 days|78 days|8 days| 19 hours |
-|100 TB|216 days|97 days|10 days| 1 day |
-|200 TB|1 year|194 days|19 days| 2 days |
-|500 TB|3 years|1 year|49 days| 5 days |
-|1 PB|6 years|3 years|97 days| 10 days |
-|2 PB|12 years|5 years|194 days| 19 days |
+|1 TB|2 days|1 day| 2 hours|14 minutes|
+|10 TB|22 days|10 days|1 day|2 hours|
+|35 TB|76 days|34 days|3 days|8 hours|
+|80 TB|173 days|78 days|8 days|19 hours|
+|100 TB|216 days|97 days|10 days|1 day|
+|200 TB|1 year|194 days|19 days|2 days|
+|500 TB|3 years|1 year|49 days|5 days|
+|1 PB|6 years|3 years|97 days|10 days|
+|2 PB|12 years|5 years|194 days|19 days|
 
 Tools native to Azure, like Apache Hadoop  DistCp, Azure Data Factory, and AzureCp, can be used to transfer data over the network. The third-party tool WANDisco can also be used for the same purpose. Apache Kafka Mirrormaker and Apache Sqoop can be used for ongoing data transfer from on-premises to Azure storage systems.
 
