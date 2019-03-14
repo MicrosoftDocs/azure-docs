@@ -42,6 +42,7 @@ To configure Azure AD integration with Innotas, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Innotas supports **SP** initiated SSO
+* Innotas supports **Just In Time** user provisioning
 
 ## Adding Innotas from the gallery
 
