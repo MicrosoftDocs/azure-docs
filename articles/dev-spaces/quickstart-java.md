@@ -50,7 +50,7 @@ In this guide, you will learn how to:
 
    ```output
     (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-    Service 'webfrontend' port 80 (TCP) is available at `http://localhost:<port>`
+    Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
    ```
 
    Open this URL in a browser window, and you should see the web app load.
