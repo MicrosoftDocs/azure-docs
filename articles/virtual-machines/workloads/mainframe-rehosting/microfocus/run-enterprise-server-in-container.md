@@ -96,10 +96,7 @@ Now the VM is running and attached via RDP, and you are logged on.
 ```
      docker version
 ```
->   At the time of this walkthrough, the version was 18.09.0 as the following shows:
-
-
-     ![Version output in the command windows](media/Container_03.jpg)
+>   For example, at the time of this walkthrough, the version was 18.09.0.
 
 3.  To change the directory, type:
 ```
@@ -134,7 +131,7 @@ docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9
 ```
    docker inspect \<containerID\> --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
 ```
->   For example:
+       For example:
 ```   
     docker inspect 22a0fe3159d0 --format="{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
 ```
