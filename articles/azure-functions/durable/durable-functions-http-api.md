@@ -129,7 +129,7 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field             | Parameter type  | Description |
 |-------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | The ID of the orchestration instance. |
+| instanceId        | URL             | The ID of the orchestration instance. |
 | showInput         | Query string    | Optional parameter. If set to `false`, the function input will not be included in the response payload.|
 | showHistory       | Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
 | showHistoryOutput | Query string    | Optional parameter. If set to `true`, the function outputs will be included in the orchestration execution history.|
@@ -225,7 +225,7 @@ If you don't want to use a different storage connection string other than define
 
 #### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances
@@ -239,7 +239,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &top={integer}
 ```
 
-The Functions 2.0 format has all the same parameters but a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 GET /runtime/webhooks/durableTask/instances?
@@ -333,7 +333,7 @@ Deletes the history and related artifacts for a specified orchestration instance
 
 #### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -342,7 +342,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &code={systemKey}
 ```
 
-The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances/{instanceId}
@@ -384,7 +384,7 @@ You can also delete the history and related artifacts for multiple instances wit
 
 #### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances
@@ -396,7 +396,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
 ```
 
-The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances
@@ -448,7 +448,7 @@ Sends an event notification message to a running orchestration instance.
 
 #### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}
@@ -457,7 +457,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
     &code={systemKey}
 ```
 
-The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
@@ -501,7 +501,7 @@ Terminates a running orchestration instance.
 
 #### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
@@ -511,7 +511,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
     &reason={text}
 ```
 
-The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
@@ -550,7 +550,7 @@ Restores a failed orchestration instance into a running state by replaying the m
 
 ### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
@@ -560,7 +560,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
     &reason={text}
 ```
 
-The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
