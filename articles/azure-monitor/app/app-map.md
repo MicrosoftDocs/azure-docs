@@ -38,13 +38,13 @@ On clicking "Update map components", the map is refreshed with all components di
 
 If all of the components are roles within a single Application Insights resource, then this discovery step is not required. The initial load for such an application will have all its components.
 
-![Application Map Screenshot](media/app-map/001.png)
+![Application Map Screenshot](media/app-map/app-map-001.png)
 
 One of the key objectives with this experience is to be able to visualize complex topologies with hundreds of components.
 
 Click on any component to see related insights and go to the performance and failure triage experience for that component.
 
-![Flyout](media/app-map/application-map-001.png)
+![Flyout](media/app-map/application-map-002.png)
 
 ### Investigate failures
 
