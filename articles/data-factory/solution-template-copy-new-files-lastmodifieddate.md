@@ -26,8 +26,8 @@ The template contains one activity:
 - **Copy** to copy new and changed files only by LastModifiedDate from a file store to a destination store.
 
 The template defines four parameters:
--  *FolderPath_Source* is the folder path where you can read the files from the source store. You need to replace the default value '/<myfolder>/<sub_folder>/' to your own folder path.
--  *FolderPath_Destination* is the folder path where you want to copy files to the destination store. You need to replace the default value '/<myfolder>/<sub_folder>/' to your own folder path.
+-  *FolderPath_Source* is the folder path where you can read the files from the source store. You need to replace the default value */<myfolder>/<sub_folder>/* to your own folder path.
+-  *FolderPath_Destination* is the folder path where you want to copy files to the destination store. You need to replace the default value */<myfolder>/<sub_folder>/* to your own folder path.
 -  *LastModified_From* is used to select the files whose LastModifiedDate attribute is after or equal to this datetime value.  In order to select the new files only, which has not been copied last time, this datetime value can be the time when the pipeline was triggered last time. You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
 -  *LastModified_To* is used to select the files whose LastModifiedDate attribute is before this datetime value. In order to select the new files only, which has not been copied last time, this datetime value can be the present time.  You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
 
@@ -53,10 +53,10 @@ The template defines four parameters:
 
     ![Show the pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
-6. Select **Debug**, write the value for the **Parameters** and select **Finish**.  In the picture below, we set the parameters as following:
-	-  **FolderPath_Source** = **/source/**
+6. Select **Debug**, write the value for the **Parameters** and select **Finish**.  In the picture below, we set the parameters as following.
+    -  **FolderPath_Source** = **/source/**
     -  **FolderPath_Destination** = **/destination/**
-	-  **LastModified_From** =  **2019-02-01T00:00:00Z**
+    -  **LastModified_From** =  **2019-02-01T00:00:00Z**
     -  **LastModified_To** = **2019-03-01T00:00:00Z**
 	
 	The example is indicating the files which have been last modified within the timespan between *2019-02-01T00:00:00Z* and *2019-03-01T00:00:00Z* will be copied from a folder */source/* to a folder */destination/*.  You can replace these with your own parameters.
@@ -80,10 +80,10 @@ The template defines four parameters:
     ![Create trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)	
 	
 11. Write the value for the **Trigger Run Parameters** as following, and select **Finish**.
-	-  **FolderPath_Source** = **/source/**.  You can replace with your folder in source data store.
+    -  **FolderPath_Source** = **/source/**.  You can replace with your folder in source data store.
     -  **FolderPath_Destination** = **/destination/**.  You can replace with your folder in destination data store.
-	-  **LastModified_From** =  **@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determines the time when the pipeline was triggered last time.
-    -  **LastModified_To** = **@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determines the time when the pipeline is triggered this time.
+    -  **LastModified_From** =  **@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determining the time when the pipeline was triggered last time.
+    -  **LastModified_To** = **@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determining the time when the pipeline is triggered this time.
 	
     ![Input parameters](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
 	

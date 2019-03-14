@@ -41,6 +41,8 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 -   Copy templates:
 
     -   [Bulk copy from Database](solution-template-bulk-copy-with-control-table.md)
+	
+    -   [Copy new files by LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copy multiple file containers between file-based stores](solution-template-copy-files-multiple-containers.md)
 
