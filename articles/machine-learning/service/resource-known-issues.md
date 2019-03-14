@@ -59,6 +59,12 @@ When using automated machine learning capabilities on Databricks, if you want to
 ### >10 iterations for automated ML
 In automated ml settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
 
+### Widget for AML SDK/automated ML
+AML SDK Widget is not supported in Databricks notebook because it cannot parse HTML widget. Its support is a roadmap item for Databricks. Until then you can view it in the portal by using thie python code in your Databricks notebook cell.
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
 
 ## Azure portal
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
