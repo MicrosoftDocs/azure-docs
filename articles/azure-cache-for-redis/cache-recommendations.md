@@ -76,3 +76,11 @@ To situations where network bandwidth utilization is close to maximum capacity:
 1. Change client call behavior to reduce network demand.
 1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 1. [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity.
+
+## Next steps
+
+Learn more about which cache offering is right for you and how to manage your existing cache.
+
+- [Planning FAQs](cache-faq.md#planning-faqs)
+- [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
+- [How to troubleshoot Azure Cache for Redis](cache-how-to-troubleshoot.md)
