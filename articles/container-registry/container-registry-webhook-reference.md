@@ -116,6 +116,8 @@ Webhook triggered when a Helm chart is pushed to a repository.
 |`digest`|String|The digest of the content, as defined by the Registry V2 HTTP API Specification.|
 |`repository`|String|The repository name.|
 |`tag`|String|The chart tag name.|
+|`name`|String|The chart name.|
+|`version`|String|The chart version.|
 
 ### Payload example: chart push event
 
@@ -129,7 +131,9 @@ Webhook triggered when a Helm chart is pushed to a repository.
     "size": 25265,
     "digest": "sha256:xxxx8075264b5ba7c14c23672xxxx52ae6a3ebac1c47916e4efe19cd624dxxxx",
     "repository": "repo",
-    "tag": "wordpress-5.4.0.tgz"
+    "tag": "wordpress-5.4.0.tgz",
+    "name": "wordpress",
+    "version": "5.4.0.tgz"
   }
 }
 ```
@@ -224,6 +228,8 @@ Webhook triggered when a Helm chart or repository is deleted.
 |`digest`|String|The digest of the content, as defined by the Registry V2 HTTP API Specification.|
 |`repository`|String|The repository name.|
 |`tag`|String|The chart tag name.|
+|`name`|String|The chart name.|
+|`version`|String|The chart version.|
 
 ### Payload example: chart delete event
 
@@ -237,7 +243,9 @@ Webhook triggered when a Helm chart or repository is deleted.
     "size": 25265,
     "digest": "sha256:xxxx8075264b5ba7c14c23672xxxx52ae6a3ebac1c47916e4efe19cd624dxxxx",
     "repository": "repo",
-    "tag": "wordpress-5.4.0.tgz"
+    "tag": "wordpress-5.4.0.tgz",
+    "name": "wordpress",
+    "version": "5.4.0.tgz"
   }
 }
 ```
