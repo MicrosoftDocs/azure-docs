@@ -88,7 +88,7 @@ Allow access to the following URLs:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates |
-| login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
+| login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | The connector uses these URLs during the registration process. |
 
 If your firewall or proxy allows DNS whitelisting, you can whitelist connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
 
