@@ -31,16 +31,8 @@ Here are examples of queries that Range, and Spatial indexes can be used to serv
 
 | **Index kind** | **Description/use case** |
 | ---------- | ---------------- |
-| Range      | Range over /prop/? (or /) can be used to serve the following queries efficiently: |
-|            | SELECT FROM collection c WHERE c.prop = "value" |
-|            | SELECT FROM collection c WHERE c.prop > 5 |
-|            | SELECT FROM collection c ORDER BY c.prop   |
-|            | Range over /props/[]/? (or / or /props/) can be used to serve the following queries efficiently:
-|            | SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
-| Spatial    | Range over /prop/? (or /) can be used to serve the following queries efficiently: |
-|            | SELECT FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40 |
-|            | SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point", ... }) --with indexing on points enabled |
-|            | SELECT FROM collection c WHERE ST_WITHIN({"type": "Polygon", ... }, c.prop) --with indexing on polygons enabled. |
+| Range      | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop<br><br>Range over /props/[]/? (or / or /props/) can be used to serve the following queries efficiently:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
+| Spatial    | Range over /prop/? (or /) can be used to serve the following queries efficiently:<br><br>SELECT FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Polygon", ... }, c.prop) --with indexing on polygons enabled. |
 
 ## Default behavior of index kinds
 
