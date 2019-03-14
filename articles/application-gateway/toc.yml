@@ -97,6 +97,8 @@
       href: tutorial-ssl-powershell.md
     - name: End to end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Export certificates for whitelisting backend
+      href: certificates-for-backend-authentication.md      
     - name: Renew certificates
       href: renew-certificates.md
     - name: Configure SSL policy
