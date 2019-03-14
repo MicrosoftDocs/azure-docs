@@ -76,12 +76,12 @@ ssh <adminUsername>@<ipAddress>
 
 ## Next steps
 
-In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure quickstart templates gallery](https://azure.microsoft.com/documentation/templates/).
+In this example, you created a basic Linux VM. For more Resource Manager templates that include application frameworks or create more complex environments, browse the [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 
 To learn more about creating templates, view the JSON syntax and properties for the resources types you deployed:
 
-* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/2018-11-01/networksecuritygroups)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/2018-11-01/publicipaddresses)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/2018-11-01/virtualnetworks)
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/2018-11-01/networkinterfaces)
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/2018/10/01/virtualmachines)
