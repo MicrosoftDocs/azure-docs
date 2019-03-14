@@ -82,6 +82,7 @@ Before you install, create a passphrase that will be used during installation.
   ```
 
 #### Installation settings
+
 **Setting** | **Details**
 --- | ---
 Usage | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
@@ -92,6 +93,7 @@ Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
+
 **Setting** | **Details**
 --- | ---
 Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
@@ -121,6 +123,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 
 
 #### Installation settings
+
 **Setting** | **Details**
 --- | ---
 Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
@@ -130,6 +133,7 @@ Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -q | Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
+
 **Setting** | **Details**
 --- | ---
 Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>

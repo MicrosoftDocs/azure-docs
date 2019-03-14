@@ -115,6 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| `https://bs1.scc.com/<entity>`|

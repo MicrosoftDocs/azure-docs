@@ -52,7 +52,7 @@ To connect to an Azure Database for MariaDB server by using MySQL Workbench:
     | Connection Method | **Standard (TCP/IP)** | Standard (TCP/IP) is sufficient. |
     | Hostname | *server name* | Specify the server name value that you used to create the Azure Database for MariaDB instance. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (\*.mariadb.database.azure.com) as shown in the example. If you don't remember your server name, complete the steps in the preceding section to get the connection information.  |
     | Port | **3306** | Always use port 3306 when you connect to Azure Database for MariaDB. |
-    | Username |  *server admin login name* | Enter the server admin login user name you used to create the Azure Database for MariaDB instance. Our example user name is **myadmin@mydemoserver**. If you don't remember the server admin login name, complete the steps in the preceding section to get the connection information. The format is *username@servername*.
+    | Username |  *server admin login name* | Enter the server admin login user name you used to create the Azure Database for MariaDB instance. Our example user name is **myadmin\@mydemoserver**. If you don't remember the server admin login name, complete the steps in the preceding section to get the connection information. The format is *username\@servername*.
     | Password | *your password* | To save the password, select **Store in Vault**. |
 
     ![Set up a new connection](./media/connect-workbench/2-setup-new-connection.png)

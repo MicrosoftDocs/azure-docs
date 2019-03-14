@@ -179,6 +179,7 @@ Azure Monitor imposes the following usage limits on custom metrics:
 |Active time series/subscriptions/region|50,000|
 |Dimension keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
+
 An active time series is defined as any unique combination of metric, dimension key, or dimension value that has had metric values published in the past 12 hours.
 
 ## Next steps

@@ -57,8 +57,8 @@ To access Media Services API, you need to collect the following data points.
 
 |Setting|Example|Description|
 |---|-------|-----|
-|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
-|REST API endpoint|https://amshelloworld.restv2.westus.media.azure.net/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
+|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD issues a JWT in order to access resources (an access token).|
+|REST API endpoint|<https://amshelloworld.restv2.westus.media.azure.net/api/>|This is the endpoint against which all Media Services REST API calls in your application are made.|
 |Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
 

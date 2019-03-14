@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
 
 ---
@@ -16,7 +16,6 @@ Azure VPN Gateway no longer issues Azure-level self-signed certificates to its g
 
 >[!NOTE]
 > * Self-signed certificates used for P2S client authentication are not affected by this Azure-level certificate change. You can continue to issue and use self-signed certificates as normal.
-> * Web Apps are not affected by this change.
 >
 
 The certificates in this context are an additional Azure-level certificate. They are not the certificate chains that you use when generating your own self-signed root certificates and client certificates for authentication. Those certificates remain unaffected and will expire on the dates that you generated them to do so.
@@ -35,7 +34,7 @@ Only older gateways are affected by this change. If your gateway certificate nee
 >
 > **All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
 >
-> The gateway transition process will take up to 2 hours to complete. Customers will receive an email when their gateway completes the transition process.
+> Customers will receive an email when their gateway completes the transition process.
 > 
 
 ## 1. Verify your certificate
