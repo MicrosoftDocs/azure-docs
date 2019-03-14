@@ -111,7 +111,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > 1. Edit **auth_config.json** and replace the `client_id`:
-    >  ```javascript
+    > ```javascript
     > "client_id" : "ENTER_YOUR_APPLICATION_ID",
     > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
     >  ```
