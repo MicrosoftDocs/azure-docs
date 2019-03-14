@@ -135,39 +135,15 @@ To run the ROOBO tests and validate your development kit setup, build and instal
 
     You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To install the wake word you want to use:
+    To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-    * Create a keyword folder in the data folder on the device by running the following commands in a Command Prompt window:
-
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
-
-    * Copy the files kws.table, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_k.fst, and words_kw.txt files. For a custom wake word, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
-
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * Reference these files in the sample application. Find the following lines in MainActivity.java. Make sure that the keyword specified is the one you're using, and that the path points to the `kws.table` file that you pushed to the device.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > In your own code, you can use the kws.table file to create a keyword model instance and start recognition:
-        >
-        > ```java
-    	> KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
+    * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+    * Update the MainActivity.java with the keyword and the package name: 
+    
+    ```java
+    private static final String Keyword = "Machine";
+    private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+    ```
 
 1.	Update the following lines, which contain the microphone array geometry settings:
 
