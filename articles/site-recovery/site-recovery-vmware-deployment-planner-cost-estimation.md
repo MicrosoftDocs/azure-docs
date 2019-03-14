@@ -5,13 +5,21 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
 
 ---
 # Review the cost estimation report in the Site Recovery Deployment Planner for VMware disaster recovery to Azure
 
 The deployment planner report provides the cost estimation summary in [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sheets and detailed cost analysis in Cost Estimation sheet. It has the detailed cost analysis per VM. 
+
+>[!Note]
+>The current version of Deployment planner tool does not provide cost estimation for VMs replicating to Managed Disks.
+>* DR Drill cost estimates are the same for storage accounts and managed disks, when 'Use Managed Disks' parameter is set to "Yes" on "Compute and Network" blade.
+>* To get an approximate yearly cost estimate for replication, make the following temporary settings on **Cost Estimation** sheet:
+>    * Set the "Cost duration" parameter in **Settings** table to "Year"
+>    * In **Detailed cost analysis** table, set the "Number of DR-Drills in a year" column to 12 and "Each DR-Drill duration (Days)" to 30 
+>    * The replication cost will be similar to the cost populated in column 'R' i.e. DR-Drill storage cost per year in **DR-Drill cost per year** sub-section.
 
 ### Cost estimation summary 
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.

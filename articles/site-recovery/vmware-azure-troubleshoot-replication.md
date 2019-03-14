@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/14/2019
 ms.author: mayg
 
 ---
@@ -62,7 +62,7 @@ Ensure that the StartType of all the services is set to **Automatic or Automatic
 
 Initial and ongoing replication failures often are caused by connectivity issues between the source server and the process server or between the process server and Azure. In most cases, you can troubleshoot these issues by completing the steps in the following sections.
 
->**[!Note]** Ensure that:
+>[!Note] Ensure that:
 >1. The system date time for the protected item is in sync.
 >2. No anti-virus software is blocking Azure Site Recovery. Learn [more](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) on folder exclusions required for Azure Site Recovery.
 
