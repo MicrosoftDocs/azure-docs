@@ -11,7 +11,7 @@ tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
@@ -86,7 +86,7 @@ Before you begin, verify that you have an Azure subscription. If you don't alrea
 
 If you don't already have a virtual network (VNet), create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal, use the following steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com) and select **Create a resource**. The **New** page opens. 
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. The **New** page opens. 
 
 2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
 

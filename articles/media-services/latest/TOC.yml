@@ -37,9 +37,11 @@
   href: concepts-overview.md
   items:
   - name: Cloud upload and storage
-    href: storage-account-concept.md     
-  - name: Assets
-    href: assets-concept.md    
+    items:    
+    - name: Storage
+      href: storage-account-concept.md    
+    - name: Assets
+      href: assets-concept.md    
   - name: Encoding
     items:
     - name: Overview
@@ -114,7 +116,11 @@
     - name: Events with Event Grid
       href: reacting-to-media-services-events.md  
     - name: Event Grid schemas
-      href: media-services-event-schemas.md      
+      href: media-services-event-schemas.md    
+    - name: Metrics and diagnostic logs
+      href: media-services-metrics-diagnostic-logs.md      
+    - name: Diagnostic logs schemas
+      href: media-services-diagnostic-logs-schema.md          
   - name: Player clients
     items:
     - name: Azure Media Player
@@ -158,9 +164,14 @@
     - name: Local file as Job input - .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
-    - name: Use a custom Transform - .NET
-      displayName: encode, encoding, tranform
-      href: customize-encoder-presets-how-to.md
+    - name: Encode with a custom Transform
+      items:
+      - name: With .NET
+        href: customize-encoder-presets-how-to.md
+      - name: With CLI
+        href: custom-preset-cli-howto.md
+      - name: With REST
+        href: custom-preset-rest-howto.md      
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
@@ -243,4 +254,3 @@
     href: frequently-asked-questions.md
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
-

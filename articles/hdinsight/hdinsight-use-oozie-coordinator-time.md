@@ -186,7 +186,7 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
     |Workflow variables|Description|
     |---|---|
     |${jobTracker}|Specify the URL of the Hadoop job tracker. Use **jobtrackerhost:9010** on HDInsight cluster version 3.0 and 2.0.|
-    |${nameNode}|Specify the URL of the Hadoop name node. Use the default file system wasb:// address, for example, *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+    |${nameNode}|Specify the URL of the Hadoop name node. Use the default file system wasb:// address, for example, *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
     |${queueName}|Specifies the queue name that the job will be submitted to. Use **default**.|
 
     Hive action variables

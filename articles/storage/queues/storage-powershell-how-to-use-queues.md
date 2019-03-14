@@ -5,7 +5,7 @@ services: storage
 author: roygara
 
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
@@ -118,7 +118,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-If you use the [Azure Storage Explorer](http://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into a queue to view the messages on the queue. 
+If you use the [Azure Storage Explorer](https://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into a queue to view the messages on the queue. 
 
 ## Read a message from the queue, then delete it
 

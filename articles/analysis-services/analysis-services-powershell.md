@@ -47,7 +47,7 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 |Cmdlet|Description| 
 |------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-AzAnalysisServicesaccount)|Adds an authenticated account to use for Azure Analysis Services server cmdlet requests.| 
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Adds an authenticated account to use for Azure Analysis Services server cmdlet requests.| 
 |[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exports a log from an instance of Analysis Services server in the currently logged in Environment as specified in Add-AzAnalysisServicesAccount command|  
 |[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Restarts an instance of Analysis Services server in the currently logged in environment; specified in Add-AzAnalysisServicesAccount command.|  
 |[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synchronizes a specified database on the specified instance of Analysis Services server to all the query scale-out instances in the currently logged in Environment as specified in Add-AzAnalysisServicesAccount command|  

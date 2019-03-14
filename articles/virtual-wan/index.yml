@@ -35,7 +35,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2005000">REST API Reference</a></p>
       

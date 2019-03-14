@@ -7,7 +7,7 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim

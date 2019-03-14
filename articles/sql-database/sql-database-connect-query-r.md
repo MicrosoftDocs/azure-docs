@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 02/12/2019
+ms.date: 03/01/2019
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
@@ -24,8 +24,12 @@ Machine Learning Services includes a base distribution of R, overlaid with enter
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-> [!NOTE]
-> Machine Learning Services (with R) in Azure SQL Database is currently in public preview. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 ## Prerequisites
 
@@ -149,7 +153,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     ![Output from R script that returns data from a table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *@input_data_1* variable.
+3. Let's change the name of the input or output variables. The script above used the default input and output variable names, _InputDataSet_ and _OutputDataSet_. To define the input data associated with  _InputDatSet_, you use the *\@input_data_1* variable.
 
     In this script, the names of the output and input variables for the stored procedure have been changed to *SQL_out* and *SQL_in*:
 
@@ -165,7 +169,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     Note that R is case-sensitive, so the case of the input and output variables in `@input_data_1_name` and `@output_data_1_name` have to match the ones in the R code in `@script`. 
 
-    Also, the order of the parameters is important. You must specify the required parameters *@input_data_1* and *@output_data_1* first, in order to use the optional parameters *@input_data_1_name* and *@output_data_1_name*.
+    Also, the order of the parameters is important. You must specify the required parameters *\@input_data_1* and *\@output_data_1* first, in order to use the optional parameters *\@input_data_1_name* and *\@output_data_1_name*.
 
     Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results. 
 

@@ -3,7 +3,7 @@ title: SQL Server availability groups - Azure virtual machines - Prereqs | Micro
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure VMs."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -39,7 +39,7 @@ This tutorial assumes that you have a basic understanding of SQL Server Always O
 You need an Azure account. You can [open a free Azure account](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) or [activate Visual Studio subscriber benefits](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## Create a resource group
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **+** to create a new object in the portal.
 
    ![New object](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)

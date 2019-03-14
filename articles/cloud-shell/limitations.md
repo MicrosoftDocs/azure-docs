@@ -3,7 +3,7 @@ title: Azure Cloud Shell limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Limitations of Azure Cloud Shell

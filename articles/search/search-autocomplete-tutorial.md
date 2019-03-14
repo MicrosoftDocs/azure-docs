@@ -31,7 +31,7 @@ You'll perform the following tasks:
 > * Add search service information to application settings
 > * Implement a search input box
 > * Add support for an autocomplete list that pulls from a remote source 
-> * Retrieve suggestions and autocomplete using the .Net SDK and REST API
+> * Retrieve suggestions and autocomplete using the .NET SDK and REST API
 > * Support client-side caching to improve performance 
 
 ## Prerequisites
@@ -61,7 +61,7 @@ Follow the steps in this section if you would like to import the data for the NY
 
 ### Running the sample
 
-You are now ready to run the tutorial sample application.  Open the AutocompleteTutorial.sln solution file in Visual Studio to run the tutorial.  The solution contains an ASP.NET MVC project.  Press F5 to run the project and load the page in your browser of choice.  At the top, you'll see an option to select C# or JavaScript.  The C# option calls into the HomeController from the browser and uses the Azure Search .Net SDK to retrieve results.  The JavaScript option calls the Azure Search REST API directly from the browser.  This option will typically have noticeably better performance since it takes the controller out of the flow.  You can choose the option that suits your needs and language preferences.  There are several autocomplete examples on the page with some guidance for each.  Each example has some recommended sample text you can try.  Try typing in a few letters in each search box to see what happens.
+You are now ready to run the tutorial sample application.  Open the AutocompleteTutorial.sln solution file in Visual Studio to run the tutorial.  The solution contains an ASP.NET MVC project.  Press F5 to run the project and load the page in your browser of choice.  At the top, you'll see an option to select C# or JavaScript.  The C# option calls into the HomeController from the browser and uses the Azure Search .NET SDK to retrieve results.  The JavaScript option calls the Azure Search REST API directly from the browser.  This option will typically have noticeably better performance since it takes the controller out of the flow.  You can choose the option that suits your needs and language preferences.  There are several autocomplete examples on the page with some guidance for each.  Each example has some recommended sample text you can try.  Try typing in a few letters in each search box to see what happens.
 
 ## How this works in code
 
@@ -209,11 +209,11 @@ If you compare this to the example above that calls the Home controller, you'll 
 
 ## Takeaways
 
-This tutorial demonstrates the basic steps for building a search box that supports autocomplete and suggestions.  You saw how you could build an ASP.NET MVC application and use either the Azure Search .Net SDK or REST API to retrieve suggestions.
+This tutorial demonstrates the basic steps for building a search box that supports autocomplete and suggestions.  You saw how you could build an ASP.NET MVC application and use either the Azure Search .NET SDK or REST API to retrieve suggestions.
 
 ## Next steps
 
-Integrate suggestions and autocomplete into your search experience.  Consider how using the .Net SDK or the REST API directly can help bring the power of Azure Search to your users as they type to make them more productive.
+Integrate suggestions and autocomplete into your search experience.  Consider how using the .NET SDK or the REST API directly can help bring the power of Azure Search to your users as they type to make them more productive.
 
 > [!div class="nextstepaction"]
 > [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

@@ -352,7 +352,7 @@ The specifics of each rule required to complete this example are described as fo
   
     This Pass rule allows any IIS server on the Frontend subnet to reach the AppVM01 (IP Address 10.0.2.5) on Any port, using any Protocol to access data needed by the web application.
   
-    In this screen shot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the administrator of the firewall as to which method will be used. To add 10.0.2.5 as an Explict Destination, double-click on the first blank row under \<explicit-dest\> and enter the address in the window that pops up.
+    In this screenshot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the administrator of the firewall as to which method will be used. To add 10.0.2.5 as an Explicit Destination, double-click on the first blank row under \<explicit-dest\> and enter the address in the window that pops up.
   
     With this Pass Rule, no NAT is needed since this is internal traffic, so the Connection Method can be set to "No SNAT".
   
@@ -377,7 +377,7 @@ The specifics of each rule required to complete this example are described as fo
   
     ![Firewall DNS Rule][15]
   
-    **Note**: In this screen shot the Connection Method is included. Because this rule is for internal IP to internal IP address traffic, no NATing is required, this the Connection Method is set to “No SNAT” for this Pass rule.
+    **Note**: In this screenshot the Connection Method is included. Because this rule is for internal IP to internal IP address traffic, no NATing is required, this the Connection Method is set to “No SNAT” for this Pass rule.
 * **Subnet to Subnet Rule**: This Pass rule is a default rule that has been activated and modified to allow any server on the back end subnet to connect to any server on the front end subnet. This rule is all internal traffic so the Connection Method can be set to No SNAT.
   
     ![Firewall Intra-VNet Rule][16]
@@ -944,7 +944,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the script above.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

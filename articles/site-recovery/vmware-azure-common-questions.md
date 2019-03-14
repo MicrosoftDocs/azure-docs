@@ -43,7 +43,7 @@ Please refer to our FAQ on licensing [here](https://aka.ms/asr_pricing_FAQ) for 
 
 ### How can I calculate approximate charges during the use of Site Recovery?
 
-You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyse the [cost estimation report](https://aka.ms/asr_DP_costreport).
+You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyze the [cost estimation report](https://aka.ms/asr_DP_costreport).
 
 ### Is there any difference in cost when I replicate directly to managed disk?
 
@@ -159,7 +159,7 @@ No, switching from managed to unmanaged is not supported.
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of a Azure Storage, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
 
 ### What are the replicated VM requirements?
 
@@ -172,10 +172,10 @@ Replication is continuous when replicating VMware VMs to Azure.
 Yes, you can retain the IP address on failover. Ensure that you mention the target IP address on 'Compute and Network' blade before failover. Also, ensure to shut down the machines at the time of failover to avoid IP conflicts at the time of failback.
 
 ### Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?
-This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
 Yes, you can exclude disks from replication.
@@ -193,7 +193,7 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 
 For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
 
-### Can I migrate on-prem machines to a new Vcenter without impacting ongoing replication?
+### Can I migrate on premises machines to a new Vcenter without impacting ongoing replication?
 No, change of Vcenter or migration will impact ongoing replication. You need to set up ASR with the new Vcenter and enable replication for machines.
 
 ### Can I replicate to cache/target storage account which has a Vnet (with Azure storage firewalls) configured on it?

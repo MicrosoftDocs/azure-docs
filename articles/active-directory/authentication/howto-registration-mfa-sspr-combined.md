@@ -36,8 +36,11 @@ Complete the following steps to enable combined registration:
 
 ![Enable the combined security info preview experience for All users in the Azure AD portal](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 > [!NOTE]
-> Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) will be required to perform multi-factor authentication before they can access the page.
+> Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https:/aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
 
 ## Next steps
 

@@ -66,7 +66,7 @@ The service levels for Gen1 range from DW100 to DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. Importance (link to topic on importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 ### Gen2
  

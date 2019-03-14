@@ -8,10 +8,9 @@ ms.date: 12/5/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
 ---
@@ -116,7 +115,7 @@ You can find the IP address of your VM in the Azure portal.
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
-1. [Download and install PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Run PuTTY.
 

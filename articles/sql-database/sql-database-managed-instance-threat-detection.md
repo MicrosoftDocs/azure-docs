@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto

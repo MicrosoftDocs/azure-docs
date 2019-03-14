@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -175,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

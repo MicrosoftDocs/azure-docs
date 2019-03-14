@@ -31,7 +31,7 @@ Keep in mind the following points about the preview:
 - Azure Storage supports both built-in and custom RBAC roles. You can assign roles scoped to the subscription, the resource group, the storage account, or an individual container or queue.
 - The Azure Storage client libraries that currently support Azure AD integration include:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
+    - [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
         - [Blob, Queue and Files](https://github.com/Azure/azure-storage-python)
     - [Node.js](https://www.npmjs.com/package/azure-storage)
@@ -53,9 +53,11 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
+To learn how to assign a built-in role in the Azure portal, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+
 ### Access permissions granted by RBAC roles 
 
-The following table summarizes the access rights granted by the built-in roles, depending on scope:
+The following table summarizes the access rights granted by the built-in roles for different levels of scope:
 
 |Scope|Blob Data Owner|Blob Data Contributor|Blob Data Reader|Queue Data Contributor|Queue Data Reader|
 |---|---|---|---|---|---|

@@ -289,7 +289,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 
     | Flow type | Target attribute | Source | Apply once | Merge type |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
 
 7. Click **Add** to create the inbound rule.
 

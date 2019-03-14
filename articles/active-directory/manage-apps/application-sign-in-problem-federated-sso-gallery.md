@@ -90,7 +90,7 @@ After you've updated the Reply URL value in Azure AD, and it matches the value s
 
 ## User not assigned a role
 
-*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*.
+*Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application*.
 
 **Possible cause**
 

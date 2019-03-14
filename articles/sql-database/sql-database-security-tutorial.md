@@ -84,7 +84,7 @@ You can now connect to any database in the server with the specified IP address 
 
 ### Setup database firewall rules
 
-Database-level firewall rules only apply to individual databases. These rules are portable and will follow the database during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
+Database-level firewall rules only apply to individual databases. The database will retain these rules during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
 
 To setup a database-level firewall rule:
 
@@ -136,7 +136,7 @@ For information about configuring Azure AD, see:
 
 - [Integrate your on-premises identities with Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administer your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md)
 - [Manage Azure AD using PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Hybrid identity required ports and protocols](../active-directory/hybrid/reference-connect-ports.md)
@@ -258,7 +258,7 @@ If anomalous activities are detected, you receive an email with information on t
 
 ### Auditing
 
-The auditing feature tracks database events and writes events to an audit log in either Azure storage, log analytics, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
+The auditing feature tracks database events and writes events to an audit log in either Azure storage, Azure Monitor logs, or to an event hub. Auditing helps maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate potential security violations.
 
 To enable auditing:
 
@@ -280,7 +280,7 @@ To enable auditing:
         - **Log Analytics**, which automatically stores events for query or further analysis
 
             > [!NOTE]
-            > A **Log analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
+            > A **Log Analytics workspace** is required to support advanced features such as analytics, custom alert rules, and Excel or Power BI exports. Without a workspace, only the query editor is available.
 
         - **Event Hub**, which allows events to be routed for use in other applications
 
@@ -328,7 +328,7 @@ To enable or verify encryption:
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) view. A state of `3` indicates the database is encrypted.
+> To view encryption status, connect to the database using [SSMS](./sql-database-connect-query-ssms.md) and query the `encryption_state` column of the [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) view. A state of `3` indicates the database is encrypted.
 
 ## Next steps
 

@@ -23,7 +23,7 @@ ms.author: hermannd
 This article describes how to deploy S/4HANA on Azure by using the SAP Cloud Appliance Library (SAP CAL) 3.0. To deploy other SAP HANA-based solutions, such as BW/4HANA, follow the same steps.
 
 > [!NOTE]
-For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 > [!NOTE]
 As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.

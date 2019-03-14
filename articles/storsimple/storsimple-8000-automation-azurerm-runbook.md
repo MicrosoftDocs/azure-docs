@@ -46,7 +46,7 @@ To create an automation module for the StorSimple 8000 series device management,
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Download NuGet CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
+2. [Download NuGet CLI](https://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
     You can also run the following command to download and store the script in the same folder that you created earlier.
     

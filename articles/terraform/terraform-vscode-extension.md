@@ -2,7 +2,7 @@
 title: Install and use the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, extension
 author: tomarchermsft
 manager: jeconnoc
@@ -54,7 +54,7 @@ To use Terraform in the Cloud Shell, you need to [install Node.js](https://nodej
 
 ### Install GraphViz
 
-To use the Terraform visualize function, you need to [install GraphViz](http://graphviz.org/).
+To use the Terraform visualize function, you need to [install GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >To verify if GraphViz is installed, open a terminal window and enter `dot -V`.
