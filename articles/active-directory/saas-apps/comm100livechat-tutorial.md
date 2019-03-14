@@ -193,7 +193,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -246,7 +246,7 @@ To enable Azure AD users to log in to Comm100 Live Chat, they must be provisione
 
 	![Comm100 Live Chat new agent](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-	a. a. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	a. a. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	b. In **First Name** text box, enter the first name of user like **Britta**.
 

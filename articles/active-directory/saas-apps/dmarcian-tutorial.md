@@ -182,7 +182,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -235,7 +235,7 @@ To enable Azure AD users to sign in to dmarcian, they must be provisioned into d
 
 	![The new user](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-	a. In the **New User Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+	a. In the **New User Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
 	b. If you want to give admin rights to the user, select **Make User an Admin**.
 
