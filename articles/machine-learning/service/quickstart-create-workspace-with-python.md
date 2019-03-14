@@ -54,6 +54,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 > * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
+>[!NOTE]
+> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote computer, you will need to set up remote desktop or X terminal session. 
+
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 The instructions in this quickstart will install all the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
