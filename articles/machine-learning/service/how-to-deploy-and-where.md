@@ -15,17 +15,14 @@ ms.custom: seodec18
 
 # Deploy models with the Azure Machine Learning service
 
-The Azure Machine Learning service provides several ways you can deploy your trained model using the SDK. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices.
-
-> [!IMPORTANT]
-> Cross-origin resource sharing (CORS) is not currently supported when deploying a model as a web service.
+The Azure Machine Learning SDK provides several ways you can deploy your trained model. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices.
 
 You can deploy models to the following compute targets:
 
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure ML Compute](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low priority VMs. |
+| [Azure ML Compute](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
@@ -36,6 +33,8 @@ The process of deploying a model is similar for all compute targets:
 1. Configure and register an image that uses the model.
 1. Deploy the image to a compute target.
 1. Test the deployment
+
+The following video demonstrates deploying to Azure Container Instances:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
@@ -51,13 +50,13 @@ For more information on the concepts involved in the deployment workflow, see [M
 - A trained model. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
 
     > [!NOTE]
-    > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document demonstrate using a model stored in pickle format.
+    > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document demonstrate using a model stored in Python pickle format.
     > 
     > For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
 ## <a id="registermodel"></a> Register a trained model
 
-The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or another service. To register a model from file, use the following code:
+The model registry is a way to store and organize your trained models in the Azure cloud. Models are registered in your Azure Machine Learning service workspace. The model can be trained using Azure Machine Learning, or another service. The following code demonstrates how to register a model from file, set a name, tags, and a description:
 
 ```python
 from azureml.core.model import Model
@@ -70,6 +69,8 @@ model = Model.register(model_path = "model.pkl",
 ```
 
 **Time estimate**: Approximately 10 seconds.
+
+For an example of registering a model, see [Train an image classifier](tutorial-train-models-with-aml.md).
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -103,15 +104,19 @@ The important parameters in this example described in the following table:
 | `runtime` | Indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark. |
 | `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
+For an example of creating an image configuration, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
+
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
 ### <a id="script"></a> Execution script
 
-The execution script receives data submitted to a deployed image, and passes it to the model. It then takes the response returned by the model and returns that to the client. The script is specific to your model; it must understand the data that the model expects and returns. The script usually contains two functions that load and run the model:
+The execution script receives data submitted to a deployed image, and passes it to the model. It then takes the response returned by the model and returns that to the client. **The script is specific to your model**; it must understand the data that the model expects and returns. For an example script that works with an image classification model, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
 
-* `init()`: Typically this function loads the model into a global object. This function is run only once when the Docker container is started. 
+The script contains two functions that load and run the model:
 
-* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client. 
+* `init()`: Typically this function loads the model into a global object. This function is run only once when the Docker container is started.
+
+* `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
 #### Working with JSON data
 
@@ -205,21 +210,18 @@ For more information, see the reference documentation for [ContainerImage class]
 
 When you get to deployment, the process is slightly different depending on the compute target that you deploy to. Use the information in the following sections to learn how to deploy to:
 
-* [Azure Container Instances](#aci)
-* [Azure Kubernetes Services](#aks)
-* [Project Brainwave (field-programmable gate arrays)](#fpga)
-* [Azure IoT Edge devices](#iotedge)
+| Compute target | Deployment type | Description |
+| ----- | ----- | ----- |
+| [Azure Kubernetes Service (AKS)](#aks) | Web service (Real-time inference)| Good for high-scale production deployments. Provides autoscaling, and fast response times. |
+| [Azure ML Compute](#azuremlcompute) | Web service (Batch inference)| Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
+| [Azure Container Instances (ACI)](#aci) | Web service (Dev/test)| Good for development or testing. **Not suitable for production workloads.** |
+| [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
+| [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
 
-> [!NOTE]
-> When **deploying as a web service**, there are three deployment methods you can use:
->
-> | Method | Notes |
-> | ----- | ----- |
-> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | You must register the model and create an image before using this method. |
-> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | When using this method, you do not need to register the model or create the image. However you cannot control the name of the model or image, or associated tags and descriptions. |
-> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | When using this method, you do not need to create an image. But you do not have control over the name of the image that is created. |
->
-> The examples in this document use `deploy_from_image`.
+> [!IMPORTANT]
+> Cross-origin resource sharing (CORS) is not currently supported when deploying a model as a web service.
+
+The examples in this section use [deploy_from_image](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), which requires you to register the model and image before doing a deployment. For more information on other deployment methods, see [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) and [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
 
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
 
@@ -230,7 +232,7 @@ Use Azure Container Instances for deploying your models as a web service if one 
 
 To deploy to Azure Container Instances, use the following steps:
 
-1. Define the deployment configuration. The following example defines a configuration that uses one CPU core and 1 GB of memory:
+1. Define the deployment configuration. This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and 1 GB of memory:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configAci)]
 
@@ -238,7 +240,7 @@ To deploy to Azure Container Instances, use the following steps:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Time estimate**: Approximately 3 minutes.
+    **Time estimate**: Approximately 5 minutes.
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
@@ -246,7 +248,10 @@ For more information, see the reference documentation for the [AciWebservice](ht
 
 To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
 
-Creating an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster, then you must create a new cluster the next time you need to deploy.
+Creating an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. 
+
+> [!IMPORTANT]
+> If you delete the cluster, then you must create a new cluster the next time you need to deploy.
 
 Azure Kubernetes Service provides the following capabilities:
 
@@ -270,7 +275,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
 
 Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds the target utilization, then more replicas are created. If it is lower, then replicas are reduced. By default, the target utilization is 70%.
 
-Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute).
+Decisions to add replicas are made and implemented quickly (around 1 second). Decisions to remove replicas take longer (around 1 minute). This behavior keeps idle replicas around for a minute in case new requests arrive that they can handle.
 
 You can calculate the required replicas by using the following code:
 
@@ -291,7 +296,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
 
 #### Create a new cluster
 
@@ -344,7 +349,7 @@ aks_target.wait_for_completion(True)
 
 For more information on creating an AKS cluster outside of the Azure Machine Learning SDK, see the following articles:
 
-* [Create an AKS clsuter](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Create an AKS cluster](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### Deploy the image
@@ -451,7 +456,7 @@ You can get the credentials in two ways:
 
 #### Prepare the IoT device
 
-You must register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
+Register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
 
 Other methods of registering a device are:
 
