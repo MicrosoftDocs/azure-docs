@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 03/15/2019
 ---
 # Use PowerShell to create an Azure SQL Database managed instance
 
