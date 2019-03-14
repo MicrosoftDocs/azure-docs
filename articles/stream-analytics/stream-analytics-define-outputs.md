@@ -181,7 +181,7 @@ Previous/Current | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | String | String | String |  
+String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
 
