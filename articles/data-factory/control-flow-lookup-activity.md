@@ -50,6 +50,7 @@ The following data sources are supported for Lookup activity. The largest number
 ```
 
 ## Type properties
+
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
 dataset | Provides the dataset reference for the lookup. Get details from the **Dataset properties** section in each corresponding connector article. | Key/value pair | Yes

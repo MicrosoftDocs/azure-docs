@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Korn Ferry ALP, perform the following 
     ![Korn Ferry ALP Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
@@ -109,6 +110,7 @@ To configure Azure AD single sign-on with Korn Ferry ALP, perform the following 
 	| `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |

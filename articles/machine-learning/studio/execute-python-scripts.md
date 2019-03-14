@@ -57,6 +57,7 @@ Studio datasets are not the same as Panda DataFrames. As a result, input dataset
 | Index vectors | Unsupported* |
 | Non-string column names | Call `str` on column names |
 | Duplicate column names | Add numeric suffix: (1), (2), (3), and so on.
+
 **All input data frames in the Python function always have a 64-bit numerical index from 0 to the number of rows minus 1*
 
 ## <a id="import-modules"></a>Importing existing Python script modules

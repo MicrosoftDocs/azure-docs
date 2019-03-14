@@ -123,6 +123,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Enseo, Inc.
 * FilmFlex Movies Limited
 * Fluendo S.A.
+* FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -154,7 +155,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-* FUNAI ELECTRIC CO., LTD
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
