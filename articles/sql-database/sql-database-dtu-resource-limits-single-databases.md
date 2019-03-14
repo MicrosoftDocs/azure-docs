@@ -19,9 +19,6 @@ This article provides the detailed resource limits for Azure SQL Database single
 
 For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](sql-database-purchase-models.md).
 
-> [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
@@ -83,6 +80,8 @@ The following tables show the resources available for a single database at each 
 
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see P11-P15 current limitations.  
+> [!NOTE]
+> For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## Next steps
 

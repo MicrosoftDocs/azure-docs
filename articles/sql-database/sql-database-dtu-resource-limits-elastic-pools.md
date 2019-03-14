@@ -11,7 +11,7 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/14/2019
 ---
 # Resources limits for elastic pools using the DTU-based purchasing model
 
@@ -19,8 +19,8 @@ This article provides the detailed resource limits for Azure SQL Database elasti
 
 For DTU-based purchasing model resource limits for single databases, see [DTU-based resource limits - single databases](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
-> [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+> [!NOTE]
+> For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## Elastic pool: Storage sizes and compute sizes
 
