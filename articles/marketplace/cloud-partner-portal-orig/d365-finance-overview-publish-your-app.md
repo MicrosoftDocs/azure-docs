@@ -43,7 +43,7 @@ The typical application process and timeline is depicted in the following diagra
 ![Publishing Sequence for a Dynamics 365 Business Central app](./media/d365-financials/image001.png)
 
 
-# Next steps
+## Next steps
 
 To learn more about this application type, see [Announcing Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).  Also, if you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../appsource-offer-publishing-guide.md)
 
