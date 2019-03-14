@@ -106,24 +106,24 @@ Simple entities need many examples in order to have a high confidence of predict
  
 1. Add more utterances and mark the job words or phrases as **Job** entity. 
 
-    |Utterance|Job entity|
-    |:--|:--|
-    |I'm applying for the Program Manager desk in R&D|Program Manager|
-    |Here is my line cook application.|line cook|
-    |My resume for camp counselor is attached.|camp counselor|
-    |This is my c.v. for administrative assistant.|administrative assistant|
-    |I want to apply for the management job in sales.|management, sales|
-    |This is my resume for the new accounting position.|accounting|
-    |My application for barback is included.|barback|
-    |I'm submitting my application for roofer and framer.|roofer, framer|
-    |My c.v. for bus driver is here.|bus driver|
-    |I'm a registered nurse. Here is my resume.|registered nurse|
-    |I would like to submit my paperwork for the teaching position I saw in the paper.|teaching|
-    |This is my c.v. for the stocker post in fruits and vegetables.|stocker|
-    |Apply for tile work.|tile|
-    |Attached resume for landscape architect.|landscape architect|
-    |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|
+    |Utterance|Job entity| |
+    |:--|:--|--|
+    |I'm applying for the Program Manager desk in R&D|Program Manager| |
+    |Here is my line cook application.|line cook| |
+    |My resume for camp counselor is attached.|camp counselor| |
+    |This is my c.v. for administrative assistant.|administrative assistant| |
+    |I want to apply for the management job in sales.|management, sales| |
+    |This is my resume for the new accounting position.|accounting| |
+    |My application for barback is included.|barback| |
+    |I'm submitting my application for roofer and framer.|roofer, framer| |
+    |My c.v. for bus driver is here.|bus driver| |
+    |I'm a registered nurse. Here is my resume.|registered nurse| |
+    |I would like to submit my paperwork for the teaching position I saw in the paper.|teaching| |
+    |This is my c.v. for the stocker post in fruits and vegetables.|stocker| |
+    |Apply for tile work.|tile| |
+    |Attached resume for landscape architect.|landscape architect| |
+    |My curriculum vitae for professor of biology is enclosed.|professor of biology| |
+    |I would like to apply for the position in photography.|photography|git |
 
 ## Mark job entity in other intents
 
