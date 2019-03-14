@@ -47,23 +47,32 @@ You will not be able to deploy models on FPGAs until you have requested and been
 Databricks and Azure Machine Learning issues.
 
 ### Failure when installing packages
-Azure Machine Learning SDK installation failures on Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not the Azure Machine Learning service SDK - you may face it with other libs too. Example:
+Azure Machine Learning SDK installation failures on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not the Azure Machine Learning service SDK - you may face it with other libs too. Example:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
 Alternatively, you can use init scripts if you keep facing install issues with Python libs. This approach is not an officially supported approach. You can refer to [this doc](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
 ### Cancel an automated ML run
-When using automated machine learning capabilities on Databricks, if you want to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
+When using automated machine learning capabilities on Azure Databricks, if you want to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
 
 ### >10 iterations for automated ML
 In automated ml settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
 
 ### Widget for AML SDK/automated ML
-AML SDK Widget is not supported in Databricks notebook because it cannot parse HTML widget. Its support is a roadmap item for Databricks. Until then you can view it in the portal by using thie python code in your Databricks notebook cell.
+AML SDK Widget is not supported in Databricks notebook because it cannot parse HTML widget. Its support is a roadmap item for Databricks. Until then you can view it in the portal by using thie python code in your Azure Databricks notebook cell.
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
+
+### Import error: No module named 'pandas.core.indexes'
+In case you see this error when using automl: 
+1) please install these two packages in your Azure Databricks cluster 
+```
+scikit-learn== 0.19.1
+pandas==0.22.0
+```
+2) detach/reattach the cluster to your notebook. If this doesnt solve, please try restarting the cluster.
 
 
 ## Azure portal
