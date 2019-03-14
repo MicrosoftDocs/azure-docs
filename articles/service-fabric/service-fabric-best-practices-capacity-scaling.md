@@ -156,10 +156,11 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> When you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state in the Service Fabric Explorer. [Here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer) is the explanation for this behavior.
+> When you scale a cluster down you will see the removed node/VM instance displayed in an unhealthy state in the Service Fabric Explorer. For an explanation of this behavior, see [Behaviors you may observe in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
 > 
-> You can either call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/en-us/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.
-> Or, you can deploy [service fabric autoscale helper application](https://github.com/Azure/service-fabric-autoscale-helper/) on your cluster which ensures the scaled down nodes are cleared from the Service Fabric Explorer.
+> You can:
+> * Call [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) with the appropriate node name.
+> * Deploy [service fabric autoscale helper application](https://github.com/Azure/service-fabric-autoscale-helper/) on your cluster which ensures the scaled down nodes are cleared from the Service Fabric Explorer.
 
 ## Reliability levels
 
