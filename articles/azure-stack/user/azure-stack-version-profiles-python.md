@@ -53,7 +53,7 @@ In order to use the Python Azure SDK with Azure Stack, you must supply the follo
 | Client ID | AZURE_CLIENT_ID | The service principal application ID saved when service principal was created in the previous section of this article. |
 | Subscription ID | AZURE_SUBSCRIPTION_ID | The [subscription ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack. |
 | Client Secret | AZURE_CLIENT_SECRET | The service principal application secret saved when the service principal was created. |
-| Resource Manager Endpoint | ARM_ENDPOINT | See the [Azure Stack resource manager endpoint](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager Endpoint | ARM_ENDPOINT | See the [Azure Stack Resource Manager endpoint](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Resource Location | AZURE_RESOURCE_LOCATION | The resource location of your Azure Stack Environment.
 
 ### Trust the Azure Stack CA root certificate
@@ -64,15 +64,16 @@ If you are using the ASDK, you will need to trust the CA root certificate on you
 
 1. Find the python certificate store location on your machine. The location may vary depending on where you have installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
-```PowerShell  
+    ```PowerShell  
       python -c "import certifi; print(certifi.where())"
-```
+    ```
+
 
     Make a note of the certificate store location. For example, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your particular path will depend on your OS and the version of Python that you have installed.
 
 2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
-```powershell
+    ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
 
     $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
@@ -100,7 +101,7 @@ If you are using the ASDK, you will need to trust the CA root certificate on you
 
     Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
 
-```
+    ```
 
 > [!NOTE]  
 > If you are using virtualenv for developing with Python SDK as mentioned below, you will need to add the above cert to your virtual environment's cert store as well. The path might look similar to: "..\mytestenv\Lib\site-packages\certifi\cacert.pem"

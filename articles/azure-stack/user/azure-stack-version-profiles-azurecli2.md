@@ -43,7 +43,7 @@ To export the ASDK root certificate in PEM format:
 
 2. Sign in to the machine, open an elevated PowerShell prompt, and then run the following script:
 
-```powershell  
+    ```powershell  
       $label = "AzureStackSelfSignedRootCert"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
@@ -58,7 +58,7 @@ To export the ASDK root certificate in PEM format:
 
     Write-Host "Converting certificate to PEM format"
     certutil -encode root.cer root.pem
-```
+    ```
 
 3. Copy the certificate to your local machine.
 
@@ -147,7 +147,7 @@ This section will walk you through setting up CLI if you are using Azure AD as y
 
 ### Trust the Azure Stack CA root certificate
 
-If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the intregrated systems.
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
 
 To trust the Azure Stack CA root certificate, append it to the existing Python certificate.
 
@@ -205,8 +205,8 @@ To trust the Azure Stack CA root certificate, append it to the existing Python c
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
-    | Resource manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
-    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an intregrated system, you will want to use an endpoint for your system.  |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, you will want to use an endpoint for your system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an  integrated system, you will want to use an endpoint for your system.  |
     | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document which contains virtual machine image aliases. For more information, see [### Set up the virtual machine aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -324,8 +324,8 @@ If you are using the ASDK, you will need to trust the CA root certificate on you
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
-    | Resource manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
-    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an intregrated system, you will want to use an endpoint for your system.  |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, you will want to use an endpoint for your system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an  integrated system, you will want to use an endpoint for your system.  |
     | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document which contains virtual machine image aliases. For more information, see [### Set up the virtual machine aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -398,7 +398,7 @@ This section will walk you through setting up CLI if you are using Azure AD as y
 
 ### Trust the Azure Stack CA root certificate
 
-If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the intregrated systems.
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
 
 Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
@@ -439,8 +439,8 @@ Use the following steps to connect to Azure Stack:
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
-    | Resource manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
-    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an intregrated system, you will want to use an endpoint for your system.  |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, you will want to use an endpoint for your system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an  integrated system, you will want to use an endpoint for your system.  |
     | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document which contains virtual machine image aliases. For more information, see [### Set up the virtual machine aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -508,7 +508,7 @@ This section will walk you through setting up CLI if you are using Active Direct
 
 ### Trust the Azure Stack CA root certificate
 
-If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the intregrated systems.
+If you are using the ASDK, you will need to trust the CA root certificate on your remote machine. You will not need to do this with the integrated systems.
 
 Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
@@ -549,8 +549,8 @@ Use the following steps to connect to Azure Stack:
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
-    | Resource manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
-    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an intregrated system, you will want to use an endpoint for your system.  |
+    | Resource Manager endpoint | https://management.local.azurestack.external | The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/` The **ResourceManagerUrl** in integrated systems is: `https://management.<region>.<fqdn>/` To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` If you have a question about the integrated system endpoint, contact your cloud operator. |
+    | Storage endpoint | local.azurestack.external | `local.azurestack.external` is for the ASDK. For an integrated system, you will want to use an endpoint for your system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` is for the ASDK. For an  integrated system, you will want to use an endpoint for your system.  |
     | VM image alias doc endpoint- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI of the document which contains virtual machine image aliases. For more information, see [### Set up the virtual machine aliases endpoint](#set-up-the-virtual-machine-aliases-endpoint). |
 
