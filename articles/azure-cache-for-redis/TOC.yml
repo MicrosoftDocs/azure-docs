@@ -90,8 +90,6 @@
       href: cache-how-to-troubleshoot.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
-    - name: Advisor recommendations
-      href: cache-recommendations.md
   - name: Scale
     items:
     - name: Update to a different size and tier

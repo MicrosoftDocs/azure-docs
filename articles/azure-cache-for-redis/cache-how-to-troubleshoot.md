@@ -127,50 +127,59 @@ See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d9
 This section discusses troubleshooting issues that occur because of a condition on the cache server.
 
 * [Memory Pressure on the server](#memory-pressure-on-the-server)
-* High CPU usage / Server Load
+* [High CPU usage / Server Load](#high-cpu-usage--server-load)
 * [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded)
 
 ### Memory Pressure on the server
-#### Problem
-Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system typically has to page data from physical memory to virtual memory, which is on disk. This *page faulting* causes the system to slow down significantly. There are several possible causes of this memory pressure: 
 
-1. You have filled the cache to full capacity with data. 
-2. Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - See the [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details). 
+Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system may page data to disk. This _page faulting_ causes the system to slow down significantly. There are several possible causes of this memory pressure:
 
-#### Measurement
-Redis exposes two metrics that can help you identify this issue. The first is `used_memory` and the other is `used_memory_rss`. [These metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) are available in the Azure Portal or through the [Redis INFO](https://redis.io/commands/info) command.
+1. The cache is filled with data near its maximum capacity.
+1. Redis is seeing high memory fragmentation. This fragmentation is most often caused by storing large objects since Redis is optimized for small objects.
 
-#### Resolution
-There are several possible changes that you can make to help keep memory usage healthy:
+Redis exposes two stats through the [INFO](https://redis.io/commands/info) command that can help you identify this issue: "used_memory" and "used_memory_rss". You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) using the portal.
 
-1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This configuration may not be sufficient if you have fragmentation.
-2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
-3. Break up your large cached objects into smaller related objects.
-4. [Scale](cache-how-to-scale.md) to a larger cache size.
-5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md), you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+There are several possible changes you can make to help keep memory usage healthy:
+
+1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
+1. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation. For more information, see the additional [considerations for memory reservations](#considerations-for-memory-reservations) below.
+1. Break up your large cached objects into smaller related objects.
+1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity.
+
+#### Considerations for Memory Reservations
+
+Updating memory reservation values, like maxmemory-reserved, can affect cache performance. Suppose you have a 53-GB cache that is filled with 49 GB of data. Changing the reservation value to 8 GB drops the system's max available memory to 45 GB. If _used_memory_ or _used_memory_rss_ values are higher than 45 GB, the system may evict data until both _used_memory_ and _used_memory_rss_ are below 45 GB. Eviction can increase server load and memory fragmentation.
 
 ### High CPU usage / Server Load
-#### Problem
-High CPU usage can mean that the client side can fail to process a response from Redis in a timely fashion even though Redis sent the response quickly.
 
-#### Measurement
-Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
+A high server load or CPU usage means the server can't process requests in a timely fashion. The server may be slow to respond and unable to keep up with request rates.
 
-#### Resolution
-* Review any advice and alerts mentioned in the [Azure Cache for Redis Advisor](cache-configure.md#azure-cache-for-redis-advisor).
-* Also review the other recommendations in this topic, and [Best Practices for Azure Redis](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f) to see if you have employed all options to further optimize your cache and your client. 
-* Review the [Azure Cache for Redis performance](cache-faq.md#azure-cache-for-redis-performance) charts and see if you may be near the upper thresholds of your current tier. If necessary, [Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity. If you are using Premium tier already, you might want to [scale out with clustering](cache-how-to-premium-clustering.md)
+[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
 
+There are several changes you can make to mitigate high server load:
+
+1. Investigate what is causing CPU spikes such as running [expensive commands](#expensive-commands) or page faulting because of high memory pressure.
+1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more CPU capacity.
+
+#### Expensive commands
+
+Not all Redis commands are created equally - some are more expensive to run than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. It's recommended you review the commands you're running on your cache to understand the performance impact of those commands. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
+
+Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure expensive commands being executed against the server.
 
 ### Server Side Bandwidth Exceeded
-#### Problem
-Depending on the size of the cache instances, they may have limitations on how much network bandwidth they have available. If the server exceeds the available bandwidth, then data is not sent to the client as quickly. This situation can lead to timeouts.
 
-#### Measurement
-You can monitor the `Cache Read` metric, which is the amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, you can create them using this `Cache Read` counter. Compare your readings with the values in [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
+Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Clients requests could timeout because the server can't push data to the client fast enough.
 
-#### Resolution
-If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider [scaling](cache-how-to-scale.md) to a pricing tier or size that has greater network bandwidth, using the values in [this table](cache-faq.md#cache-performance) as a guide.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) in the portal.
+
+To situations where network bandwidth utilization is close to maximum capacity:
+
+1. Change client call behavior to reduce network demand.
+1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity.
 
 ## StackExchange.Redis timeout exceptions
 StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations, which have a default value of 1000 ms. If a synchronous call doesn’t complete in the stipulated time, the StackExchange.Redis client throws a timeout error similar to the following example:
@@ -258,4 +267,3 @@ This error message contains metrics that can help point you to the cause and pos
 * [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
 * [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
-
