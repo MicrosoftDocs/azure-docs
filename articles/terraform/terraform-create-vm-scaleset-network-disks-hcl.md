@@ -2,7 +2,7 @@
 title: Use Terraform to create an Azure virtual machine scale set
 description: Tutorial about using Terraform to configure and version an Azure virtual machine scale set complete with a virtual network and managed attached disks
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
 author: tomarchermsft
 ms.author: tarcher
@@ -36,7 +36,7 @@ In this tutorial, you learn how to use [Azure Cloud Shell](/azure/cloud-shell/ov
 
 ## Create the directory structure
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
@@ -233,7 +233,7 @@ In this section, you learn how to add the following resources to the template:
 - An Azure backend address pool and assign it to the load balancer
 - A health probe port used by the application and configured on the load balancer
 - A virtual machine scale set sitting behind the load balancer that runs on the VNET deployed earlier in this article
-- [Nginx](http://nginx.org/) on the nodes of the virtual machine scale using [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
+- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale using [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
 In Cloud Shell, perform the following steps:
 

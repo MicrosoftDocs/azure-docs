@@ -69,7 +69,7 @@ After you install Enterprise Developer 4.0 on the VM, you must configure the ins
     - TCP Activation
     - TCP Port Sharing
 
-     ![](media/01-demo-roles.png)
+     ![Add Roles and Features Wizard: Role Services](media/01-demo-roles.png)
 
 8. When you have selected all the options, click **Next** to install.
 
@@ -97,7 +97,7 @@ Some Enterprise Server processes need to be able to log on to SQL Server and cre
 
 4. Select **Server Roles** and check **sysadmin**.
 
-     ![](media/02-demo-explorer.png)
+     ![SSMS Object Explorer window: Login Properties](media/02-demo-explorer.png)
 
 ## Create the BankDemo database and all its objects
 
@@ -113,7 +113,7 @@ Some Enterprise Server processes need to be able to log on to SQL Server and cre
 
 The query should run with no errors. When it is complete, you have the sample database for the BankDemo application.
 
-![](media/03-demo-query.png)
+![SQLQuery1.sql output](media/03-demo-query.png)
 
 ## Verify that the database tables and objects have been created
 
@@ -121,7 +121,7 @@ The query should run with no errors. When it is complete, you have the sample da
 
 2. Expand the **Database** and select **Tables**. You should see something like the following.
 
-     ![](media/04-demo-explorer.png)
+     ![BANKDEMO table expanded in Object Explorer](media/04-demo-explorer.png)
 
 ## Build the application in Enterprise Developer
 
@@ -143,7 +143,7 @@ The query should run with no errors. When it is complete, you have the sample da
 
 6. When the Project is built, examine the **Output** window. It should look like the image below.
 
-     ![](media/05-demo-output.png)
+     ![Output window showing successful build](media/05-demo-output.png)
 
 ## Deploy the BankDemo application into the Region database
 
@@ -160,7 +160,7 @@ The query should run with no errors. When it is complete, you have the sample da
 > [!NOTE]
 > Make sure to use a forward slash (/) not a backward slash(\\). This script runs for a while.
 
-![](media/06-demo-cmd.png)
+![Administration: Enterprise Developer Command Prompt window](media/06-demo-cmd.png)
 
 ## Create the BankDemo Region in Enterprise Administrator for .NET
 
@@ -174,11 +174,11 @@ The query should run with no errors. When it is complete, you have the sample da
 
 5. Supply the database server instance, click **Next**, and then enter the region name **BANKDEMO**.
 
-     ![](media/07-demo-cics.png)
+     ![Define Region dialog box](media/07-demo-cics.png)
 
 6. To select the region definition file for the cross-region database, locate **region\_bankdemo\_db.config** in **C:\\Users\\Public\\Documents\\Micro Focus\\Enterprise Developer\\Samples\\Mainframe\\CICS\\DotNet\\BankDemo**.
 
-     ![](media/08-demo-cics.png)
+     ![Define Region - Region name: BANKDEMO](media/08-demo-cics.png)
 
 7. Click **Finish**.
 
@@ -194,11 +194,11 @@ The query should run with no errors. When it is complete, you have the sample da
 
 5. Select **Database XA Resource Definition** and then type **BANKDEMO** for the **Name** and **Region**.
 
-     ![](media/09-demo-xa.png)
+     ![New Database XA Resource Definition screen](media/09-demo-xa.png)
 
 6. Click the ellipses (**…**) to bring up the Connection String wizard. For **Server Name**, type **(local)\\SQLEXPRESS**. For **Logon**, select **Windows Authentication**. For database name, type **BANKDEMO**
 
-     ![](media/10-demo-string.png)
+     ![Edit Connection String screen](media/10-demo-string.png)
 
 7. Test the connection.
 
@@ -213,11 +213,11 @@ The query should run with no errors. When it is complete, you have the sample da
 
 3. Right-click **BANKDEMO CICS Region** in the **Console** pane, and select **Start/Stop Region**.
 
-4. In the bottom of the **Start / Stop** box that appears in the middle pane, select **Start**. After a few seconds, the Region starts.
+4. In the bottom of the **Start/Stop Region** box that appears in the middle pane, select **Start**. After a few seconds, the region starts.
 
-     ![](/media/11-demo-sql.png)
+     ![SQL Start/Stop box](/media/11-demo-sql.png)
 
-     ![](media/12-demo-cics.png)
+     ![CICS Region BANKDEMO - Started screen](media/12-demo-cics.png)
 
 ## Create a listener
 
@@ -241,7 +241,7 @@ You need to create a listener for the TN3270 sessions that access the BankDemo a
 
 9. To start the listener, click the **Start Listener** icon or choose **Options** \> **Start Listener**.
 
-     ![](media/13-demo-listener.png)
+     ![Listener Configuration Editor windows](media/13-demo-listener.png)
 
 
 ## Configure Rumba to access the BankDemo application
@@ -260,8 +260,8 @@ The final thing you need to do is configure a 3270 session using Rumba, a 3270 e
 
 6. For User ID, type **B0001** and for the password, type anything. The first screen BANK20 opens.
 
-![](media/14-demo.png)
-![](media/15-demo.png)
+![Mainframe Display Welcome screen](media/14-demo.png)
+![Mainframe Display - Rumba - Subsystem Demonstration screen](media/15-demo.png)
 
 Congratulations! You are now running a CICS application in Azure using Micro Focus Enterprise Server.
 

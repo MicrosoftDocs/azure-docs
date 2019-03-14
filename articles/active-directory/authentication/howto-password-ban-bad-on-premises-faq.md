@@ -84,6 +84,10 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
 
+**Q: In what order should the DC agents and proxies be installed and registered?**
+
+Any ordering of Proxy agent installation, DC agent installation, forest registration, and Proxy registration  is supported.
+
 **Q: Should I be concerned about the performance hit on my domain controllers from deploying this feature?**
 
 The Azure AD Password Protection DC Agent service shouldn't significantly impact domain controller performance in an existing healthy Active Directory deployment.

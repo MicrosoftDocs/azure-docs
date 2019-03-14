@@ -5,7 +5,7 @@ description: Parallel documents are pairs of documents where one is the translat
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
@@ -23,7 +23,7 @@ system in either direction.
 
 ## Requirements
 
-You will need a minimum of 10,000 parallel sentences to train a system. As a
+You will need a minimum of 10,000 unique parallel sentences to train a system. As a
 best practice, you can continuously add more parallel content and retrain, to
 improve the quality of your translation system.
 

@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ---
 # SQL Database dynamic data masking
 
@@ -49,10 +49,10 @@ Dynamic data masking can be configured by the Azure SQL Database admin, server a
 
 The DDM recommendations engine, flags certain fields from your database as potentially sensitive fields, which may be good candidates for masking. In the Dynamic Data Masking blade in the portal, you will see the recommended columns for your database. All you need to do is click **Add Mask** for one or more columns and then **Save** to apply a mask for these fields.
 
-## Set up dynamic data masking for your database using Powershell cmdlets
+## Set up dynamic data masking for your database using PowerShell cmdlets
 
-See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql).
+See [Azure SQL Database Cmdlets](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## Set up dynamic data masking for your database using REST API
 
-See [Operations for Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
+See [Operations for Azure SQL Database](https://docs.microsoft.com/rest/api/sql/).

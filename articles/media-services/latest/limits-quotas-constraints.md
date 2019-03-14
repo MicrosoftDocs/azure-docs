@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: juliako
 ---
 
@@ -33,10 +33,11 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Media Services accounts in a single subscription | 25 (fixed) |
 | Live Outputs in running state per LiveEvent |3|
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
-| Streaming Endpoints (stopped or running) per Media Services account|2|
+| Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
 | Streaming Policies | 100 <sup>(3)</sup> |
 | Transforms per Media Services account | 100  (fixed)|
 | Unique Streaming Locators associated with an Asset at one time | 100<sup>(5)</sup> (fixed) |
+| Content Key Policy |30 | 
 
 <sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. However, additional limits apply in Azure Media Services based on the VM sizes that are used by the service. If your source file is larger than 260-GB, your Job will likely fail. If you have 4K content that is larger than 260-GB limit, contact us at amshelp@microsoft.com for potential mitigations to support your scenario.
 

@@ -15,7 +15,7 @@ ms.date: 07/13/2017
 ms.author: magoedte
 ---
 
-# Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (Preview)
+# Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (deprecated)
 
 ![Capacity and Performance symbol](./media/capacity-performance/capacity-solution.png)
 

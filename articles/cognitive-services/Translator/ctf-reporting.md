@@ -28,7 +28,7 @@ The Collaborative Translation Framework (CTF) Reporting API returns statistics a
 
 ## Endpoint
 The endpoint of the CTF Reporting API is
-http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
+https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
 
 
 ## Methods

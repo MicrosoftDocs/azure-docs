@@ -16,6 +16,9 @@ ms.author: magoedte
 ---
 
 # Log Analytics FAQ
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Azure. If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 
@@ -64,7 +67,7 @@ A: To access a workspace in Azure, you must have Azure permissions assigned. The
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
 
 ### Q. Can I still use the Analytics portal outside of Azure?
-A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https:\/\/portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
@@ -165,7 +168,7 @@ Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
 ### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
 
-A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+A. The `Move-AzResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 This change can also be made in the Azure portal.
 

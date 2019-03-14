@@ -29,7 +29,7 @@ In order to best depict the process, we require that you complete our [Azure Sto
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, right-click your filesystem, and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
+You can set permissions at the root of your filesystem. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your filesystem and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

@@ -185,6 +185,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
    |Event Hub namespace  |  asa-eh-ns-demo |  Enter the name of the Event Hub namespace.   |
    |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
    |Event Hub policy name  | asa-policy-manage-demo | Select the access policy that you created earlier.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -353,6 +354,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

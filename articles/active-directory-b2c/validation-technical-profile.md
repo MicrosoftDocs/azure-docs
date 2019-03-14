@@ -1,6 +1,6 @@
 ---
 title: Define a validation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define a Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -48,7 +48,7 @@ The **ValidationTechnicalProfile** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validaiton technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
 |ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:

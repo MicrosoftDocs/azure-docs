@@ -6,8 +6,8 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
+ms.date: 03/06/2019
+ms.author: ramamill
 ---
 
 # Deploy a configuration server
@@ -69,7 +69,7 @@ If you're replicating more than one VMware VM, read [capacity planning considera
 >You can also download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-The licence provided with OVA template is an evaluation licence valid for 180 days. Post this period, customer needs to activate the windows with a procured licence.
+The license provided with OVA template is an evaluation license valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
 
@@ -108,8 +108,8 @@ If you want to add an additional NIC to the configuration server, add it before 
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, within few seconds the Azure Site Recovery Configuration Tool starts.
 5. Enter a name that's used to register the configuration server with Site Recovery. Then select **Next**.
-6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.
-    a. The credentials must have access to the vault in which you want to register the configuration server.
+6. The tool checks that the VM can connect to Azure. After the connection is established, select **Sign in** to sign in to your Azure subscription.</br>
+    a. The credentials must have access to the vault in which you want to register the configuration server.</br>
     b. Ensure that chosen user account has permissions to create an application in Azure. To enable required permissions, follow guidelines given [here](#azure-active-directory-permission-requirements).
 7. The tool performs some configuration tasks, and then reboots.
 8. Sign in to the machine again. The configuration server management wizard starts **automatically** in few seconds.
@@ -131,6 +131,7 @@ If you want to add an additional NIC to the configuration server, add it before 
     |Can I download & install MySQL manually?     |  Yes. Download MySQL application & place it in the folder **C:\Temp\ASRSetup**, then install manually. Now, when you accept the terms > click on **Download and install**, the portal says *Already installed*. You can proceed to the next step.       |
     |Can I avoid download of MySQL online?     |   Yes. Place your MySQL installer application in the folder **C:\Temp\ASRSetup**. Accept the terms > click on **Download and install**, the portal will use the installer added by you and installs the application. You can proceed to the next step post installation.    |
     |I would like to download & install MySQL through Azure Site Recovery     |  Accept the license agreement & click on **Download and Install**. Then you can proceed to the next step post installation.       |
+
 5. In **Validate appliance configuration**, prerequisites are verified before you continue.
 6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 7. Enter credentials to be used by the configuration server to connect to the VMware server. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then **Continue**. The credentials entered here are locally saved.
@@ -150,7 +151,7 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 
 1. How long is the Licence provided on configuration server deployed through OVF is valid? What happens if I do not reactivate the License?
 
-    The licence provided with OVA template is an evaluation licence valid for 180 days. Before expiry, you need to activate the license. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+    The license provided with OVA template is an evaluation license valid for 180 days. Before expiry, you need to activate the license. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
 
 2. Can I use the VM, where the configuration server is installed, for different purposes?
 

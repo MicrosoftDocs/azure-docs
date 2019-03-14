@@ -89,7 +89,7 @@ To connect to your database server, you need the full server name and admin sign
 
 2. To copy the values, place your cursor over the field you want to copy. The copy icon appears to the right of the text. Select the copy icon as needed to copy the values.
 
-In our example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login name is **myadmin@mydemoserver**.
+In our example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login name is **myadmin\@mydemoserver**.
 
 ## Connect to Azure Database for MariaDB by using the mysql command line
 
@@ -121,7 +121,7 @@ First, we'll use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)
     mysql parameter |Suggested value|Description
     ---|---|---
     --host | *server name* | The server name value that you used to create the Azure Database for MariaDB server. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, complete the steps in the preceding section to get the connection information.
-    --user | *server admin login name* |The server admin login user name that you used to create the Azure Database for MariaDB server. If you don't remember the user name, complete the steps in the preceding section to get the connection information. The format is *username@servername*.
+    --user | *server admin login name* |The server admin login user name that you used to create the Azure Database for MariaDB server. If you don't remember the user name, complete the steps in the preceding section to get the connection information. The format is *username\@servername*.
     -p | *your password*<br>(wait until prompted) |When prompted, enter the password that you used to create the server. The typed password characters are not shown on the bash prompt when you type them. After you enter the password, press Enter.
 
    When the mysql utility is connected, it displays a `mysql>` prompt. You can enter commands at the prompt. 
@@ -197,7 +197,7 @@ To connect to the server by using MySQL Workbench:
     Connection method | **Standard (TCP/IP)** | Standard (TCP/IP) is sufficient. |
     Hostname | *server name* | The server name value that you used to create the Azure Database for MariaDB server. Our example server is **mydemoserver.mariadb.database.azure.com**. Use the fully qualified domain name (**\*.mariadb.database.azure.com**) as shown in the example. If you don't remember your server name, complete the steps earlier in this article to get the connection information.|
      Port | 3306 | The port to use when you connect to your Azure Database for MariaDB server. |
-    Username |  *server admin login name* | The server admin sign-in information that you used to create the Azure Database for MariaDB server. Our example user name is **myadmin@mydemoserver**. If you don't remember the user name, complete the steps earlier in this article to get the connection information. The format is *username@servername*.
+    Username |  *server admin login name* | The server admin sign-in information that you used to create the Azure Database for MariaDB server. Our example user name is **myadmin\@mydemoserver**. If you don't remember the user name, complete the steps earlier in this article to get the connection information. The format is *username\@servername*.
     Password | *your password* | To save the password, select **Store in Vault**. |
 
 4. To check that all parameters are configured correctly, select **Test Connection**. Then, select **OK** to save the connection. 

@@ -32,7 +32,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> When you install the *aks-preview* extension, every AKS cluster you create uses the scale set preview deployment model. To opt out and create regular, fully supported clusters, remove the extension using `az extension remove --name aks-preview`.
+> If you have previously installed the *aks-preview* extension, install any available updates using the the `az extension update --name aks-preview` command.
 
 ### Register scale set feature provider
 
@@ -95,7 +95,7 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.4 \
+  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

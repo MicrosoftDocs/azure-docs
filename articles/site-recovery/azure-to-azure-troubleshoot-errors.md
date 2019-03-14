@@ -74,7 +74,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 4. If the Baltimore root CA cert is not found, download the certificate.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
 5. Check if the DigiCert_Global_Root_CA cert is present.
 
@@ -168,7 +168,10 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
     If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-
+	    
+>[!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article] (https://aka.ms/lboutboundrulescli).
+>
 
 ### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
@@ -274,6 +277,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 
 ## COM+/Volume Shadow Copy service error (error code 151025)
+
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
 151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
@@ -331,7 +335,7 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
 Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
  *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>

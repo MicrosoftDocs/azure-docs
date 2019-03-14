@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 03/12/2019
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
@@ -35,8 +35,17 @@ To complete this tutorial, you need to:
 
 - Download and install [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.6 or 5.7. The on-premises MySQL version must match with Azure Database for MySQL version. For example, MySQL 5.6 can only migrate to Azure Database for MySQL 5.6 and not upgraded to 5.7.
 - [Create an instance in Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Refer to the article [Use MySQL Workbench to connect and query data](https://docs.microsoft.com/azure/mysql/connect-workbench) for details about how to connect and create a database using the Azure portal.  
-- Create a VNET for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Ensure that your Azure Virtual Network (VNET) Network Security Group rules do not block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > During VNET setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Storage endpoint
+    > - Service bus endpoint
+    >
+    > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
+ 
+- Ensure that your VNET Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source MySQL Server, which by default is TCP port 3306.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
@@ -54,7 +63,7 @@ To complete this tutorial, you need to:
 
         For example: log-bin = E:\MySQL_logs\BinLog
     - **binlog_format** = row
-    - **Expire_logs_days** = 5 (it is recommended to not use zero; relevant only for MySQL 5.6)
+    - **Expire_logs_days** = 5 (it's recommended to not use zero; relevant only for MySQL 5.6)
     - **Binlog_row_image** = full (relevant only for MySQL 5.6)
     - **log_slave_updates** = 1
  
@@ -147,7 +156,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    If you need help in choosing the right Azure Database Migration Service tier, refer to the recommendations in the blog posting [Choosing an Azure Database Migration Service (Azure DMS) tier](https://go.microsoft.com/fwlink/?linkid=861067). 
+    If you need help with choosing the right Azure Database Migration Service tier, refer to the recommendations in the blog posting [Choosing an Azure Database Migration Service (Azure DMS) tier](https://go.microsoft.com/fwlink/?linkid=861067). 
 
      ![Configure Azure Database Migration Service instance settings](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 

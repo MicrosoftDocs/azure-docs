@@ -64,11 +64,11 @@ When you are optimizing your application to get higher IOPS and Throughput, it w
 
 The following control plane operations on Managed Disks may involve movement of the Disk from one Storage location to another. This is orchestrated via background copy of data that can take several hours to complete, typically less than 24 hours depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.
 
-1. [Update the storage type](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Detach and attach a disk from one VM to another](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Create a managed disk from a VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Create a managed disk from a snapshot](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Convert unmanaged disks to managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Update the storage type.
+- Detach and attach a disk from one VM to another.
+- Create a managed disk from a VHD.
+- Create a managed disk from a snapshot.
+- Convert unmanaged disks to managed disks.
 
 # Performance Application Checklist for disks
 
