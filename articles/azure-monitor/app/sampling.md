@@ -315,28 +315,28 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 2. **Enable the fixed-rate sampling module** by adding the following snippet to ApplicationInsights.xml file.
 
-```XML
-    <TelemetryProcessors>
-        <BuiltInProcessors>
-            <Processor type = "FixedRateSamplingTelemetryProcessor">
-                <!-- Set a percentage close to 100/N where N is an integer. -->
-                <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-                <Add name = "SamplingPercentage" value = "50" />
-            </Processor>
-        </BuiltInProcessors>
-    <TelemetryProcessors/>
-```
+    ```XML
+        <TelemetryProcessors>
+            <BuiltInProcessors>
+                <Processor type = "FixedRateSamplingTelemetryProcessor">
+                    <!-- Set a percentage close to 100/N where N is an integer. -->
+                    <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+                    <Add name = "SamplingPercentage" value = "50" />
+                </Processor>
+            </BuiltInProcessors>
+        <TelemetryProcessors/>
+    ```
 
 3. You can Include or Exclude specific types of telemetry from Sampling using the following tags inside the Processor tag "FixedRateSamplingTelemetryProcessor"
-```XML
-    <ExcludedTypes>
-        <ExcludedType>Request</ExcludedType>
-    </ExcludedTypes>
+    ```XML
+        <ExcludedTypes>
+            <ExcludedType>Request</ExcludedType>
+        </ExcludedTypes>
 
-    <IncludedTypes>
-        <IncludedType>Exception</IncludedType>
-    </IncludedTypes>
-```
+        <IncludedTypes>
+            <IncludedType>Exception</IncludedType>
+        </IncludedTypes>
+    ```
 
 The telemetry types that can be included or excluded from sampling are: Dependency, Event, Exception, PageView, Request, and Trace.
 
