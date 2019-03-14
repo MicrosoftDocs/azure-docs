@@ -209,7 +209,7 @@ The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer tha
 
 ### How do I connect to my database?
 
-The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quick Start is the best way to get code snippets to connect to your database.
+The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. QuickStart is the best way to get code snippets to connect to your database.
 
 Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
 
@@ -629,11 +629,11 @@ g.V('mary').out('knows').executionProfile()
 ]
 ```
 
-The output of the above profile shows how much time is spent obtaining the Vertex objects, the Edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
+The output of the above profile shows how much time is spent obtaining the vertex objects, the edge objects, and the size of the working data set. This is related to the standard cost measurements for Azure Cosmos DB queries.
 
 ## <a id="cassandra"></a> Cassandra API
 
-### What is the protocol version supported in the private preview? Is there a plan to support other protocols?
+### What is the protocol version supported by Azure Cosmso DB Cassandra API? Is there a plan to support other protocols?
 
 Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
@@ -738,7 +738,7 @@ Use [Diagnostic logs](logging.md).
 
 ### Which client SDKs can work with Apache Cassandra API of Azure Cosmos DB?
 
-In private preview Apache Cassandra SDK's client drivers that use CQLv3 were used for client programs. If you have other drivers that you use or if you're facing issues, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Apache Cassandra SDK's client drivers that use CQLv3 were used for client programs. If you have other drivers that you use or if you're facing issues, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
 ### Is composite partition key supported?
 
@@ -775,7 +775,7 @@ Yes, Azure Cosmos DB provides automatic indexing of all attributes without any s
 
 We plan to support this capability in future.
 
-### Azure Cosmos DB as a platform seems to have lot of capabilities, such as changefeed and other functionality. Will these capabilities be added to the Cassandra API?
+### Azure Cosmos DB as a platform seems to have lot of capabilities, such as change feed and other functionality. Will these capabilities be added to the Cassandra API?
 
 The Apache Cassandra API provides the same CQL functionality as Apache Cassandra. We do plan to look into feasibility of supporting various capabilities in future.
 
