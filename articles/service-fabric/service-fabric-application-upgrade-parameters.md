@@ -95,6 +95,7 @@ application-version |The version of the application type that the upgrade target
 parameters  |A JSON encoded list of application parameter overrides to be applied when upgrading the application.|
 
 ### Optional parameters
+
 | Parameter | Description |
 | --- | --- |
 default-service-health-policy | [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) encoded specification of the health policy used by default to evaluate the health of a service type. The map is empty by default. |

@@ -115,11 +115,13 @@ A saved search can have one or more schedules with each schedule representing a 
 		}
 	}
 The properties for schedule resources are described in the following table.
+
 | Element name | Required | Description |
 |:--|:--|:--|
 | enabled       | Yes | Specifies whether the alert is enabled when it's created. |
 | interval      | Yes | How often the query runs in minutes. |
 | queryTimeSpan | Yes | Length of time in minutes over which to evaluate results. |
+
 The schedule resource should depend on the saved search so that it's created before the schedule.
 > [!NOTE]
 > Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.

@@ -56,6 +56,7 @@ The Execute Pipeline activity allows a Data Factory pipeline to invoke another p
 ```
 
 ## Type properties
+
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the execute pipeline activity. | String | Yes

@@ -254,6 +254,7 @@ SecurityEvent
 ```
 
 Can have the following results:
+
 Activity                                        |replaced
 ------------------------------------------------|----------------------------------------------------------
 4663 - An attempt was made to access an object  |Activity ID 4663: An attempt was made to access an object.
