@@ -222,7 +222,7 @@ To remove *myVM1* from the backend pool, complete the following steps:
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
 3. On the **myBackendPool** page, to remove *VM1* select the delete icon at the end of the row that displays *myVM1*, and then click **Save**.
 
-With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
+With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1*, the load is now balanced across *myVM2* and *myVM3*. 
 
 ### Add VM to a backend pool
 To add *myVM1* back to the backend pool, complete the following steps:
