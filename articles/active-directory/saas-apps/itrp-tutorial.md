@@ -146,7 +146,7 @@ To configure Azure AD single sign-on with ITRP, perform the following steps:
 
     ![Single Sign-On](./media/itrp-tutorial/ic775573.png "Single Sign-On")
 
-	a. Click **Enable**.
+	a. Click **Enabled**.
 
 	b. In **Remote Log Out URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
