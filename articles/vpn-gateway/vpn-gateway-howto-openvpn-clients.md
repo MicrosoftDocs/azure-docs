@@ -90,7 +90,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
 
 	```
-	openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+	openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
 	```
   The *profileinfo.txt* file will contain the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
