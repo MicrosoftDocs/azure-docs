@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Password management frequently asked questions
 
@@ -97,7 +98,7 @@ This FAQ is split into the following sections:
     >If you don't receive the notification in this time frame:
         > * Check your junk folder.
         > * Check that the number or email being contacted is the one you expect.
-        > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user@contoso.com*. 
+        > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user\@contoso.com*. 
   >
   >
 * **Q:  What languages are supported by password reset?**

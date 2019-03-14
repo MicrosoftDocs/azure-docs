@@ -3,7 +3,7 @@ title: Provision a simulated X.509 device to Azure IoT Hub using C# | Microsoft 
 description: Azure Quickstart - Create and provision a simulated X.509 device using C# device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/18
+ms.date: 04/09/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -30,7 +30,7 @@ This article will demonstrate individual enrollments.
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
 
-1. Make sure you have the [.Net Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. 
+1. Make sure you have the [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows) installed on your machine. 
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 

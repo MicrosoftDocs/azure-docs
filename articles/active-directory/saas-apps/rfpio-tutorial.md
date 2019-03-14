@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with RFPIO
 
@@ -84,11 +85,11 @@ In RFPIO, assign the value of **user name** in Azure AD as the value of  **Usern
 
 To configure and test Azure AD single sign-on with RFPIO, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**--to enable your users to use this feature.
-1. **[Create an Azure AD test user](#creating-an-azure-ad-test-user)**-- to test Azure AD single sign-on with Britta Simon.
-1. **[Create a RFPIO test user](#creating-a-rfpio-test-user)** --to have a counterpart of Britta Simon in RFPIO that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assigning-the-azure-ad-test-user)**--to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test Single Sign-On](#testing-single-sign-on)** --to verify if the configuration works.
+1. **Configure Azure AD Single Sign-On**--to enable your users to use this feature.
+1. **Create an Azure AD test user**-- to test Azure AD single sign-on with Britta Simon.
+1. **Create a RFPIO test user** --to have a counterpart of Britta Simon in RFPIO that is linked to the Azure AD representation of user.
+1. **Assign the Azure AD test user**--to enable Britta Simon to use Azure AD single sign-on.
+1. **Test Single Sign-On** --to verify if the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -229,7 +230,7 @@ In the case of RFPIO, provisioning is a manual task.
 
 	a. Enter **Email address** in the **Enter one email per line** field.
 
-	b. Plese select **Role** according your requirements.
+	b. Please select **Role** according your requirements.
 
 	c. Click **ADD MEMBERS**.
 		

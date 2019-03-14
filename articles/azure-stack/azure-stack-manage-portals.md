@@ -7,18 +7,17 @@ author: jeffgilb
 manager: femila
 editor: ''
 
-ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.custom: mvc
-ms.reviewer: 
-ms.lastreviewed:  01/07/2019
+ms.reviewer: efemmano
+ms.lastreviewed: 02/25/2019
 
 ---
 # Quickstart: use the Azure Stack administration portal

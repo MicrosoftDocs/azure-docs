@@ -195,9 +195,9 @@ Here is an example of a configuration with the counter for the *Total Processor 
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Once the upgrade finishes rolling out (takes between 15-45 minutes depending on whether it's the first deployment and the size of your resource group), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Once the upgrade finishes rolling out (takes between 15-45 minutes depending on whether it's the first deployment and the size of your resource group), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## Next steps
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
 * [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
-* Visit the [WadCfg builder](http://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.
+* Visit the [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.

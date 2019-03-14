@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the Python SDK.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
@@ -45,7 +45,7 @@ Add the following code to your script to create a new Custom Vision service proj
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
 
 ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
@@ -80,14 +80,28 @@ To add the sample images to the project, insert the following code after the tag
 ```Python
 base_image_url = "<path to project>"
 
-print ("Adding images...")
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ hemlock_tag.id ] ) ])
+print("Adding images...")
 
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
+image_entry = lambda image_path, tag_id: ImageFileCreateEntry(
+    name=image_path.split("/")[-1], contents=image_path, tag_ids=[tag_id]
+)
+
+image_list = [
+    image_entry(
+        base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num),
+        hemlock_tag.id,
+    )
+    for image_num in range(1, 10)
+] + [
+    image_entry(
+        base_image_url
+        + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num),
+        cherry_tag.id,
+    )
+    for image_num in range(1, 10)
+]
+
+trainer.create_images_from_files(project.id, images=image_list)
 ```
 
 ### Train the classifier

@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ---
 
@@ -27,14 +27,14 @@ Here are a few things that you'll need before running this quickstart:
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [NuGet Package Manager](https://github.com/jmrog/vscode-nuget-package-manager)
-* [.Net Core SDK](https://www.microsoft.com/net/download)
+* [.NET Core SDK](https://www.microsoft.com/net/download)
 
 ## Create a project and install dependencies
 
 > [!TIP]
 > Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-The first step is to create a new console project. If you need help setting up a console project, see [Hello World -- Your First Program (C# Programming Guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). To use the Bing Web Search SDK in your application, you'll need to install `Microsoft.Azure.CognitiveServices.Search.WebSearch` using the NuGet Package Manager.
+The first step is to create a new console project. If you need help with setting up a console project, see [Hello World -- Your First Program (C# Programming Guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). To use the Bing Web Search SDK in your application, you'll need to install `Microsoft.Azure.CognitiveServices.Search.WebSearch` using the NuGet Package Manager.
 
 The [Web Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) also installs:
 
@@ -56,7 +56,7 @@ using System.Linq;
 
 ## Create project scaffolding
 
-When you created your new console project, a namespace and class for your application should have been created. Your program should look like this:
+When you created your new console project, a namespace and class for your application should have been created. Your program should look like this example:
 
 ```csharp
 namespace WebSearchSDK
@@ -96,7 +96,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## Handle the response
 
-Next, let's add some code to parse the response and print the results. The `name` and `url` for the first web page, image, news article, and video are printed if present in the response object.
+Next, let's add some code to parse the response and print the results. The `Name` and `Url` for the first web page, image, news article, and video are printed if present in the response object.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -229,9 +229,10 @@ Now that you've made your first call to the Bing Web Search API, let's look at a
 
 ### Limit the number of results returned by Bing
 
-This sample uses the `count` and `offset` parameters to limit the number of results returned for "Best restaurants in Seattle". The `name` and `URL` for the first result are printed.
+This sample uses the `count` and `offset` parameters to limit the number of results returned for "Best restaurants in Seattle". The `Name` and `Url` for the first result are printed.
 
 1. Add this code to your console project:
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -266,7 +267,9 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
         }
     }
     ```
+
 2. Add `WebResultsWithCountAndOffset` to `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -280,13 +283,15 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
         Console.ReadKey();
     }
     ```
+
 3. Run the application.
 
 ### Filter for news
 
-This sample uses the `response_filter` parameter to filter search results. The search results returned are limited to news articles for "Microsoft". The `name` and `URL` for the first result are printed.
+This sample uses the `response_filter` parameter to filter search results. The search results returned are limited to news articles for "Microsoft". The `Name` and `Url` for the first result are printed.
 
 1. Add this code to your console project:
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -323,7 +328,9 @@ This sample uses the `response_filter` parameter to filter search results. The s
         }
     }
     ```
+
 2. Add `WebResultsWithCountAndOffset` to `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -339,13 +346,15 @@ This sample uses the `response_filter` parameter to filter search results. The s
         Console.ReadKey();
     }
     ```
+
 3. Run the application.
 
 ### Use safe search, answer count, and the promote filter
 
-This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results for "Music Videos". The `name` and `URL` for the first result are displayed.
+This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results for "Music Videos". The `Name` and `ContentUrl` for the first result are displayed.
 
 1. Add this code to your console project:
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -381,7 +390,9 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
         }
     }
     ```
+
 2. Add `WebResultsWithCountAndOffset` to `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -399,6 +410,7 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
         Console.ReadKey();
     }
     ```
+
 3. Run the application.
 
 ## Clean up resources

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
+ms.collection: M365-identity-device-management
 ---
 
 # Understanding Azure AD application consent experiences
@@ -79,5 +80,5 @@ Here are the consent experiences that a user may see in the common consent scena
     1. Non-admin users will see the same screen as 2.ii shown above.
 
 ## Next steps
-- Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
+- Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - For more depth, learn [how a multi-tenant application can use the consent framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.

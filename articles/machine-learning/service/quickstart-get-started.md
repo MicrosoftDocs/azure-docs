@@ -21,8 +21,8 @@ Use the Azure portal to create an Azure Machine Learning workspace. This workspa
 In this quickstart, you take the following actions:
 
 * Create a workspace in your Azure subscription.
-* Try it out with Python in a Jupyter notebook and log values across multiple iterations.
-* View the logged values in your workspace.
+* Try it out with Python in a Jupyter notebook. The notebook contains code to estimate pi and logs errors at each iteration. 
+* View the logged error values in your workspace.
 
 The following Azure resources are added automatically to your workspace when they're regionally available:
 
@@ -33,7 +33,7 @@ The following Azure resources are added automatically to your workspace when the
 
 The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is compute cluster size. Learn more about the [default limits and how to increase your quota](how-to-manage-quotas.md).
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 
 ## Create a workspace 
@@ -77,7 +77,7 @@ This example shows how the workspace can help you keep track of information gene
 
  ![Clone a library](./media/quickstart-get-started/clone.png)
 
-1. If you see that the project status is stopped, click on **Run on Free Compute** to use the free notebook server.
+1. If you see that the project status is stopped, click on **Run on Free Computer** to use the free notebook server.
 
     ![Run a project on free compute](./media/quickstart-get-started/run-project.png)
 

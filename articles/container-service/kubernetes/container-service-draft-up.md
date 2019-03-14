@@ -26,7 +26,7 @@ You can use Draft with any Docker image registry and any Kubernetes cluster, inc
 ## Create an Azure Container Registry
 You can easily [create a new Azure Container Registry](../../container-registry/container-registry-get-started-azure-cli.md), but the steps are as follows:
 
-1. Create a Azure resource group to manage your ACR registry and the Kubernetes cluster in ACS.
+1. Create an Azure resource group to manage your ACR registry and the Kubernetes cluster in ACS.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -164,7 +164,7 @@ Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 == Spark has ignited ...
 >> Listening on 0.0.0.0:4567
 ```
@@ -186,7 +186,7 @@ stable/traefik	1.3.0  	A Traefik based Kubernetes ingress controller w...
 
 $ helm install stable/traefik --name ingress
 ```
-Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
+Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one mapped to your deployment domain in the next section.
 
 ```bash
 $ kubectl get svc -w

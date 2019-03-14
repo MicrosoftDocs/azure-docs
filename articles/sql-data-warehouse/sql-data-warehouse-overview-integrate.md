@@ -28,7 +28,7 @@ Power BI integration allows you to combine the compute power of SQL Data Warehou
 * **Direct Connect**: A more advanced connection with logical pushdown against SQL Data Warehouse. Pushdown provides faster analysis on a larger scale.
 * **Open in Power BI**: The 'Open in Power BI' button passes instance information to Power BI for a simplified way to connect.
 
-For more information, see [Integrate with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), or the [Power BI documentation](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
+For more information, see [Integrate with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), or the [Power BI documentation](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
 
 ## Azure Data Factory
 Azure Data Factory gives users a managed platform to create complex extract and load pipelines. SQL Data Warehouse's integration with Azure Data Factory includes:
@@ -36,7 +36,7 @@ Azure Data Factory gives users a managed platform to create complex extract and 
 * **Stored Procedures**: Orchestrate the execution of stored procedures on SQL Data Warehouse.
 * **Copy**: Use ADF to move data into SQL Data Warehouse. This operation can use ADF's standard data movement mechanism or PolyBase under the covers. 
 
-For more information, see [Integrate with Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
+For more information, see [Integrate with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## Azure Machine Learning
 Azure Machine Learning is a fully managed analytics service, which allows you to create intricate models using a large set of predictive tools. SQL Data Warehouse is supported as both a source and destination for these models with the following functionality:

@@ -5,13 +5,13 @@ services: azure-stack
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/02/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 11/02/2018
+ms.lastreviewed: 02/04/2019
 
 ---
 # Deploy an Ethereum blockchain network on Azure Stack
@@ -20,7 +20,7 @@ The Ethereum solution template is designed to make it easier and quicker to depl
 
 With a handful of user inputs and a single-click deployment through the Azure Stack tenant portal, each member can provision their network footprint. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a Network Virtual Appliance (NVA). A subsequent connection step connects the NVAs to create a fully configured multi-member blockchain network.
 
-To set this up, you:
+To set up:
 
 - Choose a deployment architecture
 - Deploy a standalone, consortium leader, or consortium member network
@@ -34,7 +34,7 @@ Download the latest items [from the Marketplace](../azure-stack-download-azure-m
 - Custom Script for Linux 2.0
 - Custom Script Extension for Windows
 
-For more information about blockchain scenarios, see [Ethereum proof-of-work consortium solution template](../../blockchain/templates/ethereum-deployment.md).
+For more information about blockchain scenarios, see [Ethereum proof-of-authority consortium solution template](../../blockchain/templates/ethereum-poa-deployment.md).
 
 ## Deployment architecture
 
@@ -152,7 +152,7 @@ To verify member’s deployment, browse member’s admin site. You can find admi
 
 ![Member deployment summary](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-As shown in the picture, member’s nodes status is **Not running**. This is because the connection between member and leader is not established. The connection between member and leader is a two-way connection. When you deploy member, template automatically creates the connection from member to the leader. To create the connection from leader to member, go to the next step.
+As shown in the picture, member’s nodes status is **Not running**. This status is because the connection between member and leader is not established. The connection between member and leader is a two-way connection. When you deploy member, template automatically creates the connection from member to the leader. To create the connection from leader to member, go to the next step.
 
 ### Connect member and leader
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Network FAQ
 titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
 
 ---
@@ -50,7 +50,7 @@ You can use the following tools to create or configure a VNet:
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 
 ### What address ranges can I use in my VNets?
-Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
+Any IP address range defined in [RFC 1918](https://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
 You cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
@@ -220,7 +220,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  
 
 ## VNet peering
@@ -229,7 +229,27 @@ Yes. Learn more about using:
 VNet peering (or virtual network peering) enables you to connect virtual networks. A VNet peering connection between virtual networks enables you to route traffic between them privately through IPv4 addresses. Virtual machines in the peered VNets can communicate with each other as if they are within the same network. These virtual networks can be in the same region or in different regions (also known as Global VNet Peering). VNet peering connections can also be created across Azure subscriptions.
 
 ### Can I create a peering connection to a VNet in a different region?
-Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions. You cannot globally peer from Azure public regions to National clouds. Global peering is not currently available in national clouds.
+Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions and China cloud regions. You cannot globally peer from Azure public regions to National cloud regions. Global peering is not currently available in Government cloud.
+
+### What are the constraints related to Global VNet Peering and Load Balancers?
+If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
+The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
+- VMs behind Basic Load Balancers
+- VM Scale Sets with Basic Load Balancers 
+- Redis Cache 
+- Application Gateway (v1) SKU
+- Service Fabric
+- SQL Always-on
+- SQL MI
+- API Managemenet
+- ADDS
+- Logic Apps
+- HD Insight
+-	Azure Batch
+- AKS
+- App Service Environment
+
+You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
 Yes. It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants. You can do this via PowerShell or CLI. Portal is not yet supported.
@@ -328,7 +348,7 @@ By default, Azure service resources secured to virtual networks are not reachabl
 To secure Azure services to multiple subnets within a virtual network or across multiple virtual networks, enable service endpoints on network side on each of the subnets independently and then secure Azure service resources to all of the subnets by setting up appropriate VNet ACLs on Azure service side.
  
 ### How can I filter outbound traffic from a virtual network to Azure services and still use service endpoints?
-If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources using network virtual appliance filtering. For more information, see [egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources using network virtual appliance filtering. For more information, see [egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### What happens when you access an Azure service account that has virtual network access control list (ACL) enabled from outside the VNet?
 The HTTP 403 or HTTP 404 error is returned.

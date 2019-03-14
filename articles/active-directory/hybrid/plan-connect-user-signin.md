@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect user sign-in options
 Azure Active Directory (Azure AD) Connect allows your users to sign in to both cloud and on-premises resources by using the same passwords. This article describes key concepts for each identity model to help you choose the identity that you want to use for signing in to Azure AD.
@@ -147,6 +148,7 @@ It's very important to understand the relationship between the custom domain sta
 For the following information, let's assume that we're concerned with the UPN suffix contoso.com, which is used in the on-premises directory as part of UPN--for example user@contoso.com.
 
 ###### Express settings/Password hash synchronization
+
 | State | Effect on user Azure sign-in experience |
 |:---:|:--- |
 | Not added |In this case, no custom domain for contoso.com has been added in the Azure AD directory. Users who have UPN on-premises with the suffix @contoso.com won't be able to use their on-premises UPN to sign in to Azure. They'll instead have to use a new UPN that's provided to them by Azure AD by adding the suffix for the default Azure AD directory. For example, if you're syncing users to the Azure AD directory azurecontoso.onmicrosoft.com, then the on-premises user user@contoso.com will be given a UPN of user@azurecontoso.onmicrosoft.com. |

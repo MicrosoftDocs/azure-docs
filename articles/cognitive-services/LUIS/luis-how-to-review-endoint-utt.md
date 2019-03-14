@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The breakthrough feature of LUIS is the concept of active learning. Once your LUIS has endpoint queries, active learning improves the quality of the results by selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

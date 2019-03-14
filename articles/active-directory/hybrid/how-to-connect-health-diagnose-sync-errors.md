@@ -10,9 +10,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
+ms.collection: M365-identity-device-management
 ---
 
 # Diagnose and remediate duplicated attribute sync errors
@@ -28,7 +29,7 @@ For more information about Azure AD, see [Identity synchronization and duplicate
 ## Problems
 ### A common scenario
 When **QuarantinedAttributeValueMustBeUnique** and **AttributeValueMustBeUnique** sync errors happen, it's common to see a **UserPrincipalName** or **Proxy Addresses** conflict in Azure AD. You might solve the sync errors by updating the conflicting source object from the on-premises side. The sync error will be resolved after the next sync. 
-For example, this image indicates that two users have a conflict of their **UserPrincipalName**. Both are **Joe.J@contoso.com**. The conflicting objects are quarantined in Azure AD.
+For example, this image indicates that two users have a conflict of their **UserPrincipalName**. Both are **Joe.J\@contoso.com**. The conflicting objects are quarantined in Azure AD.
 
 ![Diagnose sync error common scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -61,11 +62,13 @@ Follow the steps from the Azure portal to narrow down the sync error details and
 
 From the Azure portal, take a few steps to identify specific fixable scenarios:  
 1.	Check the **Diagnose status** column. The status shows if there's a possible way to fix a sync error directly from Azure Active Directory. In other words, a troubleshooting flow exists that can narrow down the error case and potentially fix it.
+
 | Status | What does it mean? |
 | ------------------ | -----------------|
 | Not Started | You haven't visited this diagnosis process. Depending on the diagnostic result, there's a potential way to fix the sync error directly from the portal. |
 | Manual Fix Required | The error doesn't fit the criteria of available fixes from the portal. Either conflicting object types aren't users, or you already went through the diagnostic steps, and no fix resolution was available from the portal. In the latter case, a fix from the on-premises side is still one of the solutions. [Read more about on-premises fixes](https://support.microsoft.com/help/2647098). | 
 | Pending Sync | A fix was applied. The portal is waiting for the next sync cycle to clear the error. |
+
   >[!IMPORTANT]
   > The diagnostic status column will reset after each sync cycle. 
   >

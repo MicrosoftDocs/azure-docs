@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with TINFOIL SECURITY
 
@@ -182,7 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Users and groups -> All users ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+	![Users and groups -> All users](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. To open the **User** dialog, click **Add** on the top of the dialog.
  

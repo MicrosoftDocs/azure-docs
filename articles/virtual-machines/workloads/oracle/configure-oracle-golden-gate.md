@@ -47,7 +47,7 @@ The following is a summary of the environment configuration:
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command. Then follow the on-screen directions.
+Sign in to your Azure subscription with the [az login](/cli/azure/reference-index) command. Then follow the on-screen directions.
 
 ```azurecli
 az login
@@ -77,7 +77,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
+Create a VM with the [az vm create](/cli/azure/vm) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 
@@ -345,7 +345,7 @@ SQL> EXIT;
 ### Download Golden Gate software
 To download and prepare the Oracle Golden Gate software, complete the following steps:
 
-1. Download the **fbo_ggs_Linux_x64_shiphome.zip** file from the [Oracle Golden Gate download page](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a set of .zip files to download.
+1. Download the **fbo_ggs_Linux_x64_shiphome.zip** file from the [Oracle Golden Gate download page](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under the download title **Oracle GoldenGate 12.x.x.x for Oracle Linux x86-64**, there should be a set of .zip files to download.
 
 2. After you download the .zip files to your client computer, use Secure Copy Protocol (SCP) to copy the files to your VM:
 
@@ -379,7 +379,7 @@ This is an optional step. You can skip this step if you are using a Linux client
 
 1. Download PuTTY and Xming to your Windows computer:
 
-  * [Download PuTTY](http://www.putty.org/)
+  * [Download PuTTY](https://www.putty.org/)
   * [Download Xming](https://xming.en.softonic.com/)
 
 2.  After you install PuTTY, in the PuTTY folder (for example, C:\Program Files\PuTTY), run puttygen.exe (PuTTY Key Generator).
@@ -695,7 +695,7 @@ In this step, you find the starting SCN, which will be used later, in a differen
   MAP pdb1.test.*, TARGET pdb1.test.*;
   ```
 
-5. Set up a replicat checkpoint:
+5. Set up a replicate checkpoint:
 
   ```bash
   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt

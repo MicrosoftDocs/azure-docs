@@ -11,6 +11,7 @@ ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Add your organization's privacy info using Azure Active Directory

@@ -40,7 +40,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
-**Azure**|NA| Yes
+**Azure** |NA| Yes
 
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:
@@ -65,7 +65,7 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 This table summarizes our recommendations for integrating SQL Server BCDR technologies with Site Recovery.
 
-| **Version** | **Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** |
+| **Version** | **Edition** | **Deployment** | **On-prem to on premises** | **On-prem to Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
 || Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups | |
@@ -111,7 +111,7 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
 
-	![Restore from Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
+	![Restore from Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Force a quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup.
 
@@ -125,9 +125,9 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 1. Create a load balancer with one IP created under frontend IP pool corresponding to each availability group listener and with the SQL virtual machine added in the backend pool.
 
-	 ![Create Load Balancer - Frontend IP pool ](./media/site-recovery-sql/create-load-balancer1.png)
+	 ![Create Load Balancer - Frontend IP pool](./media/site-recovery-sql/create-load-balancer1.png)
 
-	![Create Load Balancer - Backend pool ](./media/site-recovery-sql/create-load-balancer2.png)
+	![Create Load Balancer - Backend pool](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Do a test failover of the recovery plan.
 

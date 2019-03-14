@@ -7,11 +7,12 @@ author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/30/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial:  Setting up PHS as backup for AD FS in Azure AD Connect
@@ -39,7 +40,7 @@ Do the following:
 10. That's it!  You are done.  Password hash synchronization will now occur and can be used as a backup if AD FS becomes unavailable.
 
 ## Switch to password hash synchronization
-Now, we will show you how to switch over to password hash synchronization if you need to.  Do the following:
+Now, we will show you how to switch over to password hash synchronization. Before you start, consider under which conditions should you make the switch. Don't make the switch for temporary reasons, like a network outage, a minor AD FS problem, or a problem that affects a subset of your users. If you decide to make the switch because fixing the problem will take too long, do the following:
 
 1. Double-click the Azure AD Connect icon that was created on the desktop
 2.  Click **Configure**.
@@ -55,7 +56,7 @@ Now, we will show you how to switch over to password hash synchronization if you
 
 ## Test signing in with one of our users
 
-1.  Browse to [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign in with a user account that was created in our new tenant.  You will need to sign in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign in on-premises.</br>
 ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 

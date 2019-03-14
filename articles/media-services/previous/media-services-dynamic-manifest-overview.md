@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/25/2018
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
 
 ---
@@ -30,7 +30,7 @@ This topic discusses common scenarios in which using filters would be beneficial
 ## Overview
 When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high-quality video to various devices under different network conditions. To achieve this goal do the following:
 
-* encode your stream to multi-bitrate ([adaptive bitrate](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) video stream (this will take care of quality and network conditions) and 
+* encode your stream to multi-bitrate ([adaptive bitrate](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) video stream (this will take care of quality and network conditions) and 
 * use Media Services [Dynamic Packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols (this will take care of streaming on different devices). Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG DASH. 
 
 ### Manifest files

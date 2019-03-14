@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.5 or higher to deploy the collector VM.
+- **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, 6.5, or 6.7. Additionally, you need one ESXi host running version 5.5 or higher to deploy the collector VM.
 - **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format.
 
@@ -73,7 +73,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
     > [!NOTE]
     > The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
-    **Instant gratification:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
+    **Quick assessments:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for quick assessments, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
 
     The appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (that is, VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 
@@ -178,10 +178,10 @@ will be hosted.
     - Select the Azure cloud to which you plan to migrate (Azure Global or Azure Government).
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
-    - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) about the internet connectivity requirements and the [list of URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) that the collector accesses.
+    - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) about the internet connectivity requirements and the [list of URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) that the collector accesses.
 
       > [!NOTE]
-      > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initially fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
+      > The proxy address needs to be entered in the form http://ProxyIPAddress or http://ProxyFQDN. Only HTTP proxy is supported. If you have an intercepting proxy, the internet connection might initially fail if you have not imported the proxy certificate; [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector) on how you can fix this by importing the proxy certificate as a trusted certificate on the collector VM.
 
     - The collector checks that the collector service is running. The service is installed by default on the collector VM.
     - Download and install VMware PowerCLI.
@@ -192,7 +192,7 @@ will be hosted.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1500 VMs. [Learn more](how-to-scale-assessment.md) about how you can discover a larger environment.
 
 7. In **Specify migration project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
-8. In **View collection progress**, monitor discovery status. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about what data is collected by the Azure Migrate collector.
+8. In **View collection progress**, monitor discovery status. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector) about what data is collected by the Azure Migrate collector.
 
 > [!NOTE]
 > The collector only supports "English (United States)" as the operating system language and the collector interface language.

@@ -27,9 +27,9 @@ DNS domains in Azure DNS are hosted on Azure's global network of DNS name server
 
  Azure DNS is based on Azure Resource Manager, which provides features such as:
 
-* [Role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) to control who has access to specific actions for your organization.
+* [Role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to control who has access to specific actions for your organization.
 
-* [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
+* [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
 
 * [Resource locking](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) to lock a subscription, resource group, or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search
@@ -59,7 +59,7 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
             "mustBeCloseToContent": true,
             "license": {
               "name": "CC-BY-SA",
-              "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/"
             },
             "licenseNotice": "Text under CC-BY-SA license"
           },
@@ -68,13 +68,13 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
             "targetPropertyName": "description",
             "mustBeCloseToContent": true,
             "text": "Wikipedia",
-            "url": "http://en.wikipedia.org/wiki/Space_Needle"
+            "url": "https://en.wikipedia.org/wiki/Space_Needle"
           },
           {
             "_type": "ContractualRules/MediaAttribution",
             "targetPropertyName": "image",
             "mustBeCloseToContent": true,
-            "url": "http://en.wikipedia.org/wiki/Space_Needle"
+            "url": "https://en.wikipedia.org/wiki/Space_Needle"
           }
         ],
         "webSearchUrl": "https://www.bing.com/entityexplore?q\u003dSpace+Needle\u0026filters\u003dsid:%22f8dd5b08-206d-2554-6e4a-893f51f4de7e%22\u0026elv\u003dAXXfrEiqqD9r3GuelwApulpmymQx!ODfuQu*veOQHkvP0!Zbvi5F5tVcMSDJvDEWiQWwrdueYTtIszgj03oFQHykYYLYgq3q5!Sf00QxXGIS",
@@ -85,10 +85,10 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
           "provider": [
             {
               "_type": "Organization",
-              "url": "http://en.wikipedia.org/wiki/Space_Needle"
+              "url": "https://en.wikipedia.org/wiki/Space_Needle"
             }
           ],
-          "hostPageUrl": "http://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg",
+          "hostPageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Space_Needle_2011-07-04.jpg",
           "width": 110,
           "height": 110,
           "sourceWidth": 152,

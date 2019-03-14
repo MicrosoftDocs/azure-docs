@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
@@ -24,7 +24,7 @@ ms.lastreviewed: 10/23/2018
 # Azure Stack validation report
 Use the Azure Stack Readiness Checker tool to run validations that support deployment and servicing of an Azure Stack environment. The tool writes results to a .json report file. The report displays detailed and summarized data about the state of prerequisites for deployment of Azure Stack. The report also displays information about Secrets Rotation for existing Azure Stack Deployments.  
 
- ## Where to find the report
+## Where to find the report
 When the tool runs, it logs results to **AzsReadinessCheckerReport.json**. The tool also creates a log named **AzsReadinessChecker.log**. The location of these files displays with the validation results in PowerShell.
 
 ![run-validation](./media/azure-stack-validation-report/validation.png)

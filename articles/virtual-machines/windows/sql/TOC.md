@@ -35,13 +35,16 @@
 ## Configure High Availability
 ### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Always On availability group
-#### [Using Azure portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Using Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [Manually - prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manually - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Load balancer - Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Configure manually    
+##### [Prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Load balancer - Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Failover Cluster Instance
 #### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
@@ -62,4 +65,4 @@
 ## [SQL Server Tools](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)

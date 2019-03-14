@@ -4,7 +4,7 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using the Computer Vision API with JavaScript.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 # Quickstart: Generate a thumbnail using the REST API and JavaScript in Computer Vision
 
-In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
+In this quickstart, you generate a thumbnail from an image by using Computer Vision's REST API. You specify the height and width, which can differ in aspect ratio from the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
@@ -159,10 +159,6 @@ Image for thumbnail:
 ## Examine the response
 
 A successful response is returned as binary data, which represents the image data for the thumbnail. If the request succeeds, the thumbnail is generated from the binary data in the response and displayed in the browser window. If the request fails, the response is displayed in the console window. The response for the failed request contains an error code and a message to help determine what went wrong.
-
-## Clean up resources
-
-When no longer needed, delete the file.
 
 ## Next steps
 

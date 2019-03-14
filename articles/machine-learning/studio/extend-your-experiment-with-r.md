@@ -5,7 +5,7 @@ description: How to extend the functionality of Azure Machine Learning Studio th
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -36,7 +36,7 @@ To view the package list, connect a conversion module such as [Convert to CSV][c
 
 
 <!--
-For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+For convenience, here is the [current full list with version numbers in Excel format](https://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
 ## Importing packages

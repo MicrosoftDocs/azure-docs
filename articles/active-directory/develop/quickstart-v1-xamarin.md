@@ -13,11 +13,12 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build a Xamarin app that integrates Microsoft sign-in

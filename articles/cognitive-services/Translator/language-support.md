@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: reference
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 # Language and region support for the Translator Text API
 
-The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. 
+The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available.
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
@@ -28,7 +28,7 @@ The Translator Text API supports the following languages for text to text transl
 * Neural only: Only neural translation is available.
 
 **V3 Translator API**
-The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. Custom Translator can only be used with neural languages. 
+The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. Custom Translator can only be used with neural languages. [View languages currently available in Custom Translator](#customization).
 
 |Language|	Language code|	V2 API|	V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -263,7 +263,7 @@ You can retrieve a list of supported languages for the Translator Text API v3.0 
 
 ## Customization
 
-The following languages are avaialble for customization using [Custom Translator](http://aka.ms/CustomTranslator).
+The following languages are available for customization to or from English using [Custom Translator](http://aka.ms/CustomTranslator).
 
 | Language    | Language code |
 |:----------- |:-------------:|

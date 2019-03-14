@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/20/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
@@ -39,7 +39,7 @@ By the end of the quickstart you will be able to stream a video.
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
  ```bash
- git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.
@@ -78,6 +78,8 @@ To test the stream, this article uses Azure Media Player.
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
+ 
+     You can paste the URL in HLS, Dash, or Smooth format and Azure Media Player will switch to an appropriate streaming protocol for playback on your device automatically.
 3. Press **Update Player**.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
@@ -97,6 +99,10 @@ az group delete --name amsResourceGroup
 For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 The [upload, encode, and stream files](stream-files-tutorial-with-api.md) tutorial gives you a more advanced streaming example with detailed explanations. 
+
+### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## Multithreading
 

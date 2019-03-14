@@ -1,5 +1,5 @@
 ---
-title: Change static group membership type to dynamic in Azure Active Directory | Microsoft Docs
+title: Change static group membership type to dynamic - Azure Active Directory | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
@@ -11,11 +11,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Change static group membership to dynamic in Azure Active Directory
@@ -29,7 +30,7 @@ You can change a group's membership from static to dynamic (or vice-versa) In Az
 
 ## Change the membership type for a group
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator in your tenant.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user administrator in your tenant.
 2. Select **Groups**.
 3. From the **All groups** list, open the group that you want to change.
 4. Select **Properties**.

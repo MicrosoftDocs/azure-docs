@@ -267,7 +267,7 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Next**. 
 
    ![Select integration runtime type](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Select ** Private Network**, and click **Next**. 
+1. Select **Private Network**, and click **Next**. 
 
    ![Select private network](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
@@ -379,7 +379,7 @@ In this step, you create datasets to represent the data source, the data destina
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
+ 1. After clicking **Finish**, you see **\@dataset().SinkTableName** as the table name.
    
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 

@@ -4,12 +4,12 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Go.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create and run the sample, do the following steps:
 
-1. Copy the following code into a text editor.
+1. Copy the below code into a text editor.
 1. Make the following changes in code where needed:
     1. Replace the value of `subscriptionKey` with your subscription key.
     1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
@@ -65,7 +65,7 @@ func main() {
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze"
     const imageUrl =
-        "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
     const params = "?visualFeatures=Description&details=Landmarks&language=en"
     const uri = uriBase + params
@@ -172,10 +172,6 @@ A successful response is returned in JSON. The sample application parses and dis
   "requestId": "a92f89ab-51f8-4735-a58d-507da2213fc2"
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the compiled package and the file from which the package was compiled, then close the command prompt window and the text editor.
 
 ## Next steps
 

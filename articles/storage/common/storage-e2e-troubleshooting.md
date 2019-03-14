@@ -92,10 +92,10 @@ To configure logging and metrics for your storage account using the [Azure porta
 
 To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet to add your Azure user account to the PowerShell window:
    
 	```powershell
-	Add-AzureAccount
+	Add-AzAccount
 	```
 
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
@@ -104,7 +104,7 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 	```powershell
 	$SubscriptionName = 'Your subscription name'
 	$StorageAccountName = 'yourstorageaccount'
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+	Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
 	```
 
 4. Enable storage logging for the Blob service:
@@ -127,9 +127,9 @@ The client-side log includes detailed information about how the client prepares 
 The Storage Client Library stores client-side log data in the location specified in the application's configuration file (web.config or app.config).
 
 ### Collect a network trace
-You can use Message Analyzer to collect an HTTP/HTTPS network trace while your client application is running. Message Analyzer uses [Fiddler](http://www.telerik.com/fiddler) on the back end. Before you collect the network trace, we recommend that you configure Fiddler to record unencrypted HTTPS traffic:
+You can use Message Analyzer to collect an HTTP/HTTPS network trace while your client application is running. Message Analyzer uses [Fiddler](https://www.telerik.com/fiddler) on the back end. Before you collect the network trace, we recommend that you configure Fiddler to record unencrypted HTTPS traffic:
 
-1. Install [Fiddler](http://www.telerik.com/download/fiddler).
+1. Install [Fiddler](https://www.telerik.com/download/fiddler).
 2. Launch Fiddler.
 3. Select **Tools | Fiddler Options**.
 4. In the Options dialog, ensure that **Capture HTTPS CONNECTs** and **Decrypt HTTPS Traffic** are both selected, as shown below.

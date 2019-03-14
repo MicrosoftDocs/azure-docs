@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
@@ -19,9 +19,9 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
-- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-- If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+- If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
     - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
         - Microsoft.Rest.ClientRuntime

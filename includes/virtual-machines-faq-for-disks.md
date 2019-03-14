@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/03/2018
+ ms.date: 01/30/2018
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -342,7 +342,7 @@ To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes
 
 **What regions are the managed disk sizes larger than 4 TiB supported in?**
 
-At this time in the preview, the managed disk sizes are supported in West US Central only.
+The preview of managed disk sizes beyond 4 TiB are supported in all Azure Production regions except Gov, China, and Germany. 
 
 **Do we support enabling Host Caching on the newer disk sizes?**
 

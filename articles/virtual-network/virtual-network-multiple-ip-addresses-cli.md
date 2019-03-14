@@ -118,13 +118,13 @@ az network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location estcentralus` command to get a full list
+# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+# is not supported in the location you select. Run the `azure vm sizes --location eastcentralus` command to get a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
 
-# Replace the value for the OsImage variable value with a value for *urn* from the utput returned by entering the
+# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
 # `az vm image list` command.
 
 OsImage="credativ:Debian:8:latest"

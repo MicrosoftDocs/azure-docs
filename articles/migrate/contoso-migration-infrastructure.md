@@ -142,7 +142,7 @@ Giving and controlling user access to Azure resources with identity and access m
 
 Contoso is using the Azure AD Free edition that's included with an Azure subscription. Contoso admins set up an AD directory as follows:
 
-1. In the [Azure portal](http://portal.azure.com/), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com/), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
 2. In **Create Directory**, they specify a name for the directory, an initial domain name, and region in which the Azure AD directory should be created.
 
     ![Create Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -447,7 +447,7 @@ Azure IaaS components are located in the Production network. Each app tier has i
 **PROD-FE-EUS2** | 10.245.32.0/22 | 1019 | Frontends/web tier VMs
 **PROD-APP-EUS2** | 10.245.36.0/22 | 1019 | App-tier VMs
 **PROD-DB-EUS2** | 10.245.40.0/23 | 507 | Database VMs
-**PROD-DC-EUS2** | 10.245.42.0/23 | 251 | Domain controller VMs
+**PROD-DC-EUS2** | 10.245.42.0/24 | 251 | Domain controller VMs
 
 
 ![Hub network architecture](./media/contoso-migration-infrastructure/azure-networks-eus2.png)
@@ -642,7 +642,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag. 
 
-Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) about creating and managing policies.
+Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](../governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 

@@ -87,7 +87,7 @@ Technology | Description | Cost
 --- | --- | ---
 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso uses Data Migration Assistant to assess and detect compatibility issues that might affect its database functionality in Azure. Data Migration Assistant assesses feature parity between SQL sources and targets. It recommends performance and reliability improvements. | Data Migration Assistant is a free, downloadable tool.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso uses the Azure Migrate service to assess its VMware VMs. Azure Migrate assesses the migration suitability of the machines. It provides sizing and cost estimates for running in Azure.  | As of May 2018, Azure Migrate is a free service.
-[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines that the company wants to migrate. | Service Map is part of Azure Log Analytics. Currently, Contoso can use Service Map for 180 days without incurring charges.
+[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate uses Service Map to show dependencies between machines that the company wants to migrate. | Service Map is part of Azure Monitor logs. Currently, Contoso can use Service Map for 180 days without incurring charges.
 
 In this scenario, Contoso downloads and runs Data Migration Assistant to assess the on-premises SQL Server database for its travel app. Contoso uses Azure Migrate with dependency mapping to assess the app VMs before migration to Azure.
 
@@ -122,7 +122,7 @@ Contoso and other users must meet the following prerequisites for the assessment
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
-    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - You can restrict internet access to the [required URLs](https://docs.microsoft.com/azure/migrate/concepts-collector).  
     - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.

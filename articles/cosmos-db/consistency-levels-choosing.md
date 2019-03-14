@@ -30,6 +30,8 @@ Consider the following points if your application is built by using Cosmos DB SQ
 
 - If you need the highest availability and lowest latency, then use eventual consistency level.
 
+- If you need even higher data durability without sacrificing performance, you can create a custom consistency level at the application layer. For more information see, [How-to implement custom synchronization in your applications](how-to-custom-synchronization.md).
+
 ## Cassandra, MongoDB, and Gremlin API
 
 - For details on mapping between “Read Consistency Level” offered in Apache Cassandra and Cosmos DB consistency levels, see [Consistency levels and Cosmos DB APIs](consistency-levels-across-apis.md#cassandra-mapping).

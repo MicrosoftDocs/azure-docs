@@ -49,7 +49,7 @@ Enter the password for the certificate. In this example, *Azure123456!* is being
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#create).
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group).
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -81,7 +81,7 @@ az network public-ip create \
 
 ## Create the application gateway
 
-You can use [az network application-gateway create](/cli/azure/network/application-gateway#create) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
+You can use [az network application-gateway create](/cli/azure/network/application-gateway) to create the application gateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. 
 
 The application gateway is assigned to *myAGSubnet* and *myAGPublicIPAddress* that you previously created. In this example, you associate the certificate that you created and its password when you create the application gateway. 
 

@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 01/31/2018
+ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants using the  application per tenant SaaS pattern
 
@@ -93,7 +93,7 @@ Once the script completes, the catalog will exist and all the sample tenants wil
 Now look at the resources you created.
 
 1. Open the [Azure portal](https://portal.azure.com/) and browse the resource groups.  Open the **wingtip-sa-catalog-\<user\>** resource group and note the catalog server and database.
-1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password = **P@ssword1**.
+1. Open the database in the portal and select *Data explorer* from the left-hand menu.  Click the Login command and then enter the Password = **P\@ssword1**.
 
 
 1. Explore the schema of the *tenantcatalog* database.  

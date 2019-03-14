@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/23/2018
+ms.date: 09/25/2018
 ---
 # Accelerate real-time big data analytics with Spark connector for Azure SQL Database and SQL Server
 
@@ -213,5 +213,5 @@ If you haven't already, download the Spark connector for Azure SQL Database and 
 -	[Sample Azure Databricks notebooks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Sample scripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
+You might also want to review the [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) and the [Azure Databricks documentation](https://docs.microsoft.com/azure/azure-databricks/).
 

@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with OrgChart Now
 
@@ -196,9 +197,9 @@ To enable Azure AD users to log in to OrgChart Now, they must be provisioned int
 
 	![OrgChart Now manage](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-	* In the **User ID** textbox, enter the User ID like **brittasimon@contoso.com**.
+	* In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
 
-	* In **Email Address** text box, enter the email of user like **brittasimon@contoso.com**.
+	* In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
 
 	* Click **Add**.
 	

@@ -28,7 +28,7 @@ Project Conversation Learner consists of an SDK you add to your bot, and a cloud
   
 - LUIS authoring key:
 
-  1. Log into [http://www.luis.ai](http://www.luis.ai).
+  1. Log into [https://www.luis.ai](https://www.luis.ai).
 
   2. Click on your name in the upper right, then on "settings"
 

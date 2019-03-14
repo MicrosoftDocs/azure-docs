@@ -6,12 +6,12 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/22/2018
+ms.date: 12/18/2018
 ---
 # Create, configure, and manage elastic jobs
 

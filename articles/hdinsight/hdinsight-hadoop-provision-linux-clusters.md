@@ -45,7 +45,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 * [Resource group name](#resource-group-name)
 * [Cluster types and configuration](#cluster-types) 
-* [Cluster login and SSH username](#cluster-login-and-ssh-username)
+* Cluster login and SSH username
 * [Location](#location)
 
 > [!IMPORTANT]  

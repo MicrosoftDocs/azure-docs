@@ -72,11 +72,11 @@ In **Basics**, specify values for standard parameters for any deployment. Such a
 
 | Parameter Name | Description | Allowed values |
 |---|---|---|
-**Resource prefix**| Name prefix for resources provisioned as part of the deployment |6 characters or less |
-**Username**| The user name of the administrator for each of the virtual machines deployed for this member |1 - 64 characters |
-**Authentication type**| The method to authenticate to the virtual machine |Password or SSH public key|
-**Password (Authentication type = Password)**|The password for the administrator account for each of the virtual machines deployed. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />While all VMs initially have the same password, you can change the password after provisioning|12 - 72 characters|
-**SSH key (Authentication type = SSH public key)**|The secure shell key used for remote login ||
+**Resource prefix** | Name prefix for resources provisioned as part of the deployment |6 characters or less |
+**Username** | The user name of the administrator for each of the virtual machines deployed for this member |1 - 64 characters |
+**Authentication type** | The method to authenticate to the virtual machine |Password or SSH public key|
+**Password (Authentication type = Password)** |The password for the administrator account for each of the virtual machines deployed. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />While all VMs initially have the same password, you can change the password after provisioning|12 - 72 characters|
+**SSH key (Authentication type = SSH public key)** |The secure shell key used for remote login ||
 **Subscription** |The subscription to which to deploy ||
 **Resource group** |The resource group to which to deploy the consortium network ||
 **Location** |The Azure region to which to deploy the first member in ||
@@ -107,7 +107,7 @@ In **Fabric configuration**, you configure network size and performance, and spe
 | Parameter Name | Description | Allowed values |
 |---|---|---|
 **Scale type**|The deployment type of either a single virtual machine with multiple containers or multiple virtual machines in a scale-out model.|Single VM or Multi VM |
-**VM Disk type**|The type of storage backing each of the deployed nodes. <br/> To learn more about storage, visit [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard SSD <br/> Premium SSD |
+**VM Disk type**|The type of storage backing each of the deployed nodes. <br/> To learn more about the available disk types, visit [select a disk type](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
 
 ### Multiple VM deployment (additional settings)
 

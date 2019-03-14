@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/31/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Improve the detection accuracy 
@@ -120,7 +121,7 @@ You can dismiss the reported user risk in:
 
 - It can take a few minutes for this action to be completed, which is why you should not re-submit your request.
 
-- You can only perform this action if AD manages the credentials of the user. (What does this mean?)
+- You can only perform this action if AD manages the credentials of the user. 
 
 
 

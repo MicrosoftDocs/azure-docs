@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech with the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ---
 
@@ -16,7 +16,7 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The sample text included in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ## Prerequisites
 
@@ -65,9 +65,9 @@ using System.Threading.Tasks;
 
 ## Create a class for token exchange
 
-The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This sample exchanges your Speech Service subscription key for an access token using the `issueToken` endpoint.
+The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This sample exchanges your Speech Services subscription key for an access token using the `issueToken` endpoint.
 
-This sample assumes that your Speech Service subscription is in the West US region. If you're using a different region, update the value for `FetchTokenUri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+This sample assumes that your Speech Services subscription is in the West US region. If you're using a different region, update the value for `FetchTokenUri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -151,7 +151,7 @@ string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 Text is sent as the body of a `POST` request. With SSML, you can specify the voice and language. In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `ZiraRUS`. Let's construct the SSML for your request:
 
 ```csharp
-string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
+string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
               <voice name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" +
               text + "</voice></speak>";
 ```

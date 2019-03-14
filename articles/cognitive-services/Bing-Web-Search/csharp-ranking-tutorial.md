@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Shows how to use the Bing RankingResponse answer to display search results in rank order.
 services: cognitive-services
 author: bradumbaugh
-manager: cgronlun
+manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search

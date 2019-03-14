@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/21/2019
 ms.author: diberry
 ---
 
@@ -55,7 +55,7 @@ The `--cpus` and `--memory` settings are used as part of the `docker run` comman
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -244,11 +244,13 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-Use the host, https://localhost:5000, for container APIs. 
+Use the host, `https://localhost:5000`, for container APIs. 
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
@@ -320,18 +322,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 The LUIS container sends billing information to Azure, using a _Language Understanding_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (the utterance) to Microsoft. 
-
-The `docker run` uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Language Understanding_ resource used to track billing information.<br/>The value of this option must be set to an API key for the provisioned LUIS Azure resource specified in `Billing`. |
-| `Billing` | The endpoint of the _Language Understanding_ resource used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned LUIS Azure resource.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
@@ -365,5 +356,5 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
-* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

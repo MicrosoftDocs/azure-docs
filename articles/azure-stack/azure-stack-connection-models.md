@@ -13,14 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 02/21/2019
 
 ---
 # Azure Stack integrated systems connection models
-If you’re interested in an Azure Stack integrated system, you’ll need to understand [several datacenter integration considerations](azure-stack-datacenter-integration.md) for Azure Stack deployment to determine how the system will fit into your datacenter. In addition, you'll need to decide exactly how you will integrate Azure Stack into your hybrid cloud environment. This article provides an overview of these major decisions including Azure connection, identity store, and billing model decisions.
+If you’re interested in purchasing an Azure Stack integrated system, you’ll need to understand [several datacenter integration considerations](azure-stack-datacenter-integration.md) for Azure Stack deployment to determine how the system will fit into your datacenter. In addition, you'll need to decide how you will integrate Azure Stack into your hybrid cloud environment. This article provides an overview of these major decisions including Azure connection, identity store, and billing model decisions.
 
 If you decide to purchase an integrated system, your original equipment manufacturer (OEM) hardware vendor helps guide you through much of the planning process in more detail. They will also perform the actual deployment.
 
@@ -34,12 +34,14 @@ You can choose to deploy Azure Stack either connected to the internet (and to Az
 
 
 |Options|Connected to Azure|Disconnected from Azure|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![Supported](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Supported](media/azure-stack-connection-models/check.png)|![Supported](media/azure-stack-connection-models/check.png)|
 |Consumption-based billing|![Supported](media/azure-stack-connection-models/check.png)| |
 |Capacity-based billing|![Supported](media/azure-stack-connection-models/check.png)|![Supported](media/azure-stack-connection-models/check.png)|
-|Download update packages directly to Azure Stack|![Supported](media/azure-stack-connection-models/check.png)|  |
+|Licensing| Enterprise Agreement or Cloud Solution Provider | Enterprise Agreement |
+|Patch and update|Update package can be downloaded directly from the Internet to Azure Stack |  Required<br><br>Also requires removable media<br> and a separate connected device |
+| Registration | Automated | Required<br><br>Also requires removable media<br> and a separate connected device |
 
 After you've decided on the Azure connection model to be used for Azure Stack deployment, additional, connection-dependent decisions must be made for the identity store and billing method. 
 

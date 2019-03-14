@@ -3,7 +3,7 @@ title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure p
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using the Azure portal
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a vault
 
@@ -54,19 +54,23 @@ At this point, your Azure account is the only one authorized to perform operatio
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. In this case, we add a password that could be used by an application. The password is called **ExamplePassword** and we store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. In this case, we add a password that could be used by an application. The password is called **ExamplePassword** and we store the value of **hVFkk965BuUv** in it.
 
 1. On the Key Vault properties pages select **Secrets**.
 2. Click on **Generate/Import**.
 3. On the **Create a secret** screen choose the following values:
     - **Upload options**: Manual.
     - **Name**: ExamplePassword.
-    - **Value**: Pa$$w0rd.
+    - **Value**: hVFkk965BuUv
     - Leave the other values to their defaults. Click **Create**.
 
 Once that you receive the message that the secret has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](./media/quick-create-portal/version.png)
+![Secret properties](./media/quick-create-portal/current-version-hidden.png)
+
+By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
+
+![Secret value appeared](./media/quick-create-portal/current-version-shown.png)
 
 ## Clean up resources
 

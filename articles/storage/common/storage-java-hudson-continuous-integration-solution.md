@@ -19,7 +19,7 @@ In this tutorial you will be using the Azure Storage plugin for Hudson CI made a
 ## Introduction to Hudson
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article will show how to use Azure Blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure Blob storage.
 
-More information about Hudson can be found at [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+More information about Hudson can be found at [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## Benefits of using the Blob service
 Benefits of using the Blob service to host your agile development build artifacts include:
@@ -46,7 +46,7 @@ You will need the following to use the Blob service with your Hudson CI solution
   5. After you complete the initial setup, cancel the running instance of the Hudson WAR, start the Hudson WAR again, and  re-open the Hudson dashboard, `http://localhost:8080/`, which you will use to install and configure the Azure Storage plugin.
      
       While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
-* An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
+* An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
 * An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
 * Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
@@ -152,7 +152,7 @@ The following provides an overview of the Blob service components.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## Next steps
-* [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)

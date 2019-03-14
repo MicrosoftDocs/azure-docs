@@ -12,9 +12,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/19/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # What are Azure AD Access Reviews?
@@ -36,12 +37,12 @@ Azure AD enables you to collaborate internally within your organization and with
 
 ## When to use access reviews?
 
-- **Too many users in privileged roles:** It's a good idea to check how many users have administrative access, how many of them are Global Admininistrators, and if there are any invited guests or partners that have not been removed after being assigned to do an administrative task. You can recertify the role assignment users in [Azure AD directory roles](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as Global Administrators, or [Azure resources roles](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as User Access Administrator in the [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experience.
+- **Too many users in privileged roles:** It's a good idea to check how many users have administrative access, how many of them are Global Administrators, and if there are any invited guests or partners that have not been removed after being assigned to do an administrative task. You can recertify the role assignment users in [Azure AD directory roles](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as Global Administrators, or [Azure resources roles](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) such as User Access Administrator in the [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experience.
 - **When automation is infeasible:** You can create rules for dynamic membership on security groups or Office 365 groups, but what if the HR data is not in Azure AD or if users still need access after leaving the group to train their replacement? You can then create a review on that group to ensure those who still need access should have continued access.
 - **When a group is used for a new purpose:** If you have a group that is going to be synced to Azure AD, or if you plan to enable the application Salesforce for everyone in the Sales team group, it would be useful to ask the group owner to review the group membership prior to the group being used in a different risk content.
 - **Business critical data access:** for certain resources, it might be required to ask people outside of IT to regularly sign off and give a justification on why they need access for auditing purposes.
 - **To maintain a policy's exception list:** In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. As the IT admin, you can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly.
-- **Ask group owners to confirm they still need guests in their groups:** Employee access might be automated with some on-prem IAM, but not invited guests. If a group gives guests access to business sensitive content, then it's the group owner's responsibility to confirm the guests still have a legitimate business need for access.
+- **Ask group owners to confirm they still need guests in their groups:** Employee access might be automated with some on premises IAM, but not invited guests. If a group gives guests access to business sensitive content, then it's the group owner's responsibility to confirm the guests still have a legitimate business need for access.
 - **Have reviews recur periodically:** You can set up recurring access reviews of users at set frequencies such as weekly, monthly, quarterly or annually, and the reviewers will be notified at the start of each review. Reviewers can approve or deny access with a friendly interface and with the help of smart recommendations.
 
 ## Where do you create reviews?
@@ -78,27 +79,29 @@ If you are ready to deploy access reviews in your organization, follow these ste
 
 To enable access reviews, follow these steps.
 
-1. As a Global Administrator or User Account Administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
+1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
 
 1. Click **All services** and find the access reviews service.
 
-    ![All services - Access Reviews](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. Click **Access Reviews**.
 
-    ![Access Reviews onboard](./media/access-reviews-overview/onboard-button.png)
+    ![All services - Access Reviews](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. In the navigation list, click **Onboard** to open the **Onboard access reviews** page.
 
+    ![Access Reviews onboard](./media/access-reviews-overview/onboard-button.png)
+
+1. Click **Create** to enable access reviews in the current directory.
+
     ![Onboard access reviews](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. Click **Create** to enable access reviews in the current directory. The next time you start access reviews, the options will be enabled.
+    The next time you start access reviews, the access review options will be enabled.
 
     ![Access Reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Perform an access review with Azure AD Access Reviews](perform-access-review.md)
-- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
+- [Review access to groups or applications](perform-access-review.md)
+- [Complete an access review of groups or applications](complete-access-review.md)

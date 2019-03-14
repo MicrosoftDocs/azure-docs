@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: "it-pro;seo-update-azuread-jan"
 
+ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
@@ -52,13 +53,13 @@ When you complete the preceding steps, you are now the global administrator of t
 ### Adding the domain name to a managed tenant in Azure AD
 
 1. Open the [Office 365 Admin center](https://portal.office.com/admintakeover).
-2. Select **Users** tab, and create a new user account with a name like *user@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
+2. Select **Users** tab, and create a new user account with a name like *user\@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
 3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
 4. Open **Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
   
   ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user@fourthcoffeexyz.onmicrosoft.com*.
+5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD tenant.
   
@@ -67,7 +68,7 @@ When you complete the preceding steps, you are now the global administrator of t
   ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user@fourthcoffeexyz.onmicrosoft.com* rather than *user@fourthcoffee.xyz*.
+> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user\@fourthcoffeexyz.onmicrosoft.com* rather than *user\@fourthcoffee.xyz*.
 
 ## External admin takeover
 

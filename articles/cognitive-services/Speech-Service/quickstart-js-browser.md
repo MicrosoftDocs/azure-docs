@@ -1,28 +1,27 @@
 ---
 title: 'Quickstart: Recognize speech, JavaScript (Browser) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in JavaScript in a browser using the Speech Service SDK
+description: Learn how to recognize speech in JavaScript in a browser using the Speech SDK
 services: cognitive-services
 author: fmegen
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in JavaScript in a browser using the Speech Service SDK
+# Quickstart: Recognize speech in JavaScript in a browser using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Services for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
 * A current version of Chrome or Microsoft Edge.

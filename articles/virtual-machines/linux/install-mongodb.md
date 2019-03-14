@@ -19,7 +19,7 @@ ms.author: cynthn
 ---
 # How to install and configure MongoDB on a Linux VM
 
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM with the Azure CLI. Examples are shown that detail how to:
+[MongoDB](https://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM with the Azure CLI. Examples are shown that detail how to:
 
 * [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm)
 * [Create a basic MongoDB instance using a Resource Manager template](#create-basic-mongodb-instance-on-centos-using-a-template)
@@ -35,7 +35,7 @@ Create a resource group with [az group create](/cli/azure/group). The following 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* with a user named *azureuser* using SSH public key authentication
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM* with a user named *azureuser* using SSH public key authentication
 
 ```azurecli
 az vm create \
@@ -123,7 +123,7 @@ To create this environment, you need the latest [Azure CLI](/cli/azure/install-a
 az group create --name myResourceGroup --location eastus
 ```
 
-Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). When prompted, enter your own unique values for *newStorageAccountName*, *dnsNameForPublicIP*, and admin username and password:
+Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment). When prompted, enter your own unique values for *newStorageAccountName*, *dnsNameForPublicIP*, and admin username and password:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -174,7 +174,7 @@ To create this environment, you need the latest [Azure CLI](/cli/azure/install-a
 az group create --name myResourceGroup --location eastus
 ```
 
-Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Define your own resource names and sizes where needed such as for *mongoAdminUsername*, *sizeOfDataDiskInGB*, and *configNodeVmSize*:
+Next, deploy the MongoDB template with [az group deployment create](/cli/azure/group/deployment). Define your own resource names and sizes where needed such as for *mongoAdminUsername*, *sizeOfDataDiskInGB*, and *configNodeVmSize*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -196,7 +196,7 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-This deployment can take over an hour to deploy and configure all the VM instances. The `--no-wait` flag is used at the end of the preceding command to return control to the command prompt once the template deployment has been accepted by the Azure platform. You can then view the deployment status with [az group deployment show](/cli/azure/group/deployment#az_group_deployment_show). The following example views the status for the *myMongoDBCluster* deployment in the *myResourceGroup* resource group:
+This deployment can take over an hour to deploy and configure all the VM instances. The `--no-wait` flag is used at the end of the preceding command to return control to the command prompt once the template deployment has been accepted by the Azure platform. You can then view the deployment status with [az group deployment show](/cli/azure/group/deployment). The following example views the status for the *myMongoDBCluster* deployment in the *myResourceGroup* resource group:
 
 ```azurecli
 az group deployment show \

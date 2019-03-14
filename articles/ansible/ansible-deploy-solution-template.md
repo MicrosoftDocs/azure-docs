@@ -1,7 +1,7 @@
 ---
 title: Deploy the Ansible solution template for Azure to CentOS
 description: Learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 author: tomarchermsft
 manager: jeconnoc
@@ -48,7 +48,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 1. In the **Additional Settings** tab, enter the required information:
 
     - **Size** - The Azure portal defaults to a standard size. To specify a different size that accommodates your specific scenario, select the arrow to display a list of different sizes.
-    - **VM disk size** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is selected for its performance benefits. For more information on each these types of disk storage, see the following articles:
+    - **VM disk type** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is selected for its performance benefits. For more information on each these types of disk storage, see the following articles:
         - [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage)
         - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
     - **Public IP Address** - Specify this setting if you want to communicate with the virtual machine from outside the virtual machine. The default is a new public IP address that has the name `ansible-pip`. To specify a different IP address, select the arrow specify the attributes - such as name, SKU, and Assignment, of that IP address. 

@@ -616,6 +616,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 
 
 **Input**:
+
 | LicensePlate | Make | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -628,6 +629,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **Output**:
+
 | TollID | Count |
 | --- | --- |
 | 1 | 2 |
@@ -696,7 +698,7 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Explanation**:
-[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
+[COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

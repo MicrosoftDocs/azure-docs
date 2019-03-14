@@ -8,7 +8,7 @@ manager: daveba
 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection FAQ
 

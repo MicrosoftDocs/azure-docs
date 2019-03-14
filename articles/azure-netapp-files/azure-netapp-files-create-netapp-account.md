@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
@@ -26,8 +26,8 @@ You must have registered your subscription for using the NetApp Resource Provide
 
 ## Steps 
 
-1. Locate the preview Azure portal URL from your preview invitation, and sign in to the portal. 
-2.	Access the Azure NetApp Files blade by using one of the following methods:  
+1. Sign in to the Azure portal. 
+2. Access the Azure NetApp Files blade by using one of the following methods:  
   * Search for **Azure NetApp Files** in the Azure portal search box.  
   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
 
@@ -45,7 +45,6 @@ You must have registered your subscription for using the NetApp Resource Provide
     Use an existing Resource Group or create a new one.
   * **Location**  
     Select the region where you want the account and its child resources to be located.  
-    Currently, the Azure NetApp Files service is supported only in the US East region.  
 
     ![New NetApp account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

@@ -67,7 +67,7 @@ and select **Integration accounts**.
    | Resource group | Yes | test-integration-account-rg | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources. For this example, create a new resource group with the specified name. | 
    | Pricing Tier | Yes | Free | The pricing tier that you want to use. For this example, select **Free**, but for more information, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md) and [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Location | Yes | West US | The region where to store your integration account information. Either select the same location as your logic app, or create a logic app in the same location as your integration account. | 
-   | Log Analytics | No | Off | Keep the **Off** setting for diagnostic logging. | 
+   | Log Analytics workspace | No | Off | Keep the **Off** setting for diagnostic logging. | 
    ||||| 
 
 4. When you're ready, select **Pin to dashboard**, and choose **Create**.

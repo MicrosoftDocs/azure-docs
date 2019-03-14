@@ -5,11 +5,11 @@ description: This article contains deprecated prebuilt entity information in Lan
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2019
 ms.author: diberry
 ---
 
@@ -116,7 +116,7 @@ Prebuilt entity   |   Prebuilt entity (sub-types)   |   Example utterance
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.team  ```| ``` green bay packers  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.team  ```| ``` hamilton bulldogs  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.team  ```| ``` fc bayern munich  ```|
-```builtin.encyclopedia.organization.organization |builtin.encyclopedia.government.political_party|pertubuhan kebangsaan melayu singapura```|
+```builtin.encyclopedia.organization.organization``` |```builtin.encyclopedia.government.political_party```|```pertubuhan kebangsaan melayu singapura```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.time.event  ```| ``` 1740 batavia massacre   ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.sports.championship_event  ```| ``` super bowl xxxix  ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.award.competition  ```| ``` eurovision song contest 2003  ```|

@@ -1,17 +1,62 @@
 ---
 title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
+ms.date: 03/7/2019
+ms.author: mayg
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
 
 You might see a specific error message when you protect your VMware virtual machines or physical servers by using Azure Site Recovery. This article describes some common issues you might encounter when you replicate on-premises VMware VMs and physical servers to Azure by using [Site Recovery](site-recovery-overview.md).
+
+## Monitor Process Server health to avoid replication issues
+
+It is recommended to monitor the Process Server (PS) Health on the portal to ensure that replication is progressing for your associated source machines. In the vault, go to Manage > Site Recovery Infrastructure > Configuration Servers. On the Configuration Server blade, click on the Process Server under Associated Servers. Process Server blade opens up with its health statistics. You can track CPU utilization, memory usage, status of PS services required for replication, certificate expiration date and available free space. The status of all the statistics should be green. 
+
+**It is recommended to have memory and CPU usage under 70% and free space above 25%**. Free space refers to the cache disk space in Process Server, which is used to store the replication data from source machines before uploading to Azure. If it reduces to less than 20%, the replication will be throttled for all the associated source machines. Follow the [capacity guidance](./site-recovery-plan-capacity-vmware.md#capacity-considerations) to understand the required configuration to replicate the source machines.
+
+Ensure that following services are running on the PS machine. Start or restart any service that isn't running.
+
+**In-built Process Server**
+
+* ProcessServer
+* ProcessServerMonitor
+* cxprocessserver
+* InMage PushInstall
+* Log Upload Service (LogUpload)
+* InMage Scout Application Service
+* Microsoft Azure Recovery Services Agent (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+* World Wide Web Publishing Service (W3SVC)
+* MySQL
+* Microsoft Azure Site Recovery Service (dra)
+
+**Scale-out Process Server**
+
+* ProcessServer
+* ProcessServerMonitor
+* cxprocessserver
+* InMage PushInstall
+* Log Upload Service (LogUpload)
+* InMage Scout Application Service
+* Microsoft Azure Recovery Services Agent (obengine)
+* InMage Scout VX Agent - Sentinel/Outpost (svagents)
+* tmansvc
+
+**Process Server in Azure for failback**
+
+* ProcessServer
+* ProcessServerMonitor
+* cxprocessserver
+* InMage PushInstall
+* Log Upload Service (LogUpload)
+
+Ensure that the StartType of all the services is set to **Automatic or Automatic (Delayed Start)**. Microsoft Azure Recovery Services Agent (obengine) service need not have its StartType set as above.
 
 ## Initial replication issues
 
@@ -21,7 +66,7 @@ Initial replication failures often are caused by connectivity issues between the
 
 The following list shows ways you can check the source machine:
 
-*  At the command line on the source server, use Telnet to ping the process server via the HTTPS port (the default HTTPS port is 9443) by running the following command. The command checks for network connectivity issues and for issues that block the firewall port.
+*  At the command line on the source server, use Telnet to ping the process server via the HTTPS port by running the following command. HTTPS Port 9443 is the default used by Process Server for sending and receiving replication traffic. You can modify this port at the time of registration. The following command checks for network connectivity issues and for issues that block the firewall port.
 
 
    `telnet <process server IP address> <port>`
@@ -30,13 +75,42 @@ The following list shows ways you can check the source machine:
    > [!NOTE]
    > Use Telnet to test connectivity. Don’t use `ping`. If Telnet isn't installed, complete the steps listed in [Install Telnet Client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
+   If telnet is able to connect successfully to the PS port, a blank screen would be seen.
+
    If you can't connect to the process server, allow inbound port 9443 on the process server. For example, you might need to allow inbound port 9443 on the process server if your network has a perimeter network or screened subnet. Then, check to see whether the problem still occurs.
 
-*  Check the status of the **InMage Scout VX Agent – Sentinel/OutpostStart** service. If the service isn't running, start the service, and then check to see whether the problem still occurs.   
+*  If telnet is successful and yet the source machine reports that the PS is not reachable, open the web browser on source machine and check if address https://<PS_IP>:<PS_Data_Port>/ is reachable.
+
+    HTTPS certificate error is expected on hitting this address. Ignoring certificate error and continuing should end up in 400 – Bad Request, which means the server can’t serve the browser’s request and that the standard HTTPS connection to the server is working well and good.
+
+    If this is unsuccessful, details on the error message on browser will provide guidance. For e.g. if the proxy authentication is incorrect, the proxy server returns 407 – Proxy Authentication Required along with required actions in the error message. 
+
+*  Check the following logs on source VM for errors related to the network upload failures:
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### Check the process server
 
 The following list shows ways you can check the process server:
+
+> [!NOTE]
+> Process Server must have a static IPv4 address and should not have NAT IP configured on it.
+
+* **Check connectivity between source machines and Process Server**
+1. In case you are able to telnet from source machine and yet the PS is not reachable from source, check the end-to-end connection with cxprocessserver from the source VM by running cxpsclient tool on source VM:
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    Check the generated logs on PS in the following directories for details on corresponding errors:
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. Check the following logs on the PS in case there is no heartbeat from PS:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **Check whether the process server is actively pushing data to Azure**.
 

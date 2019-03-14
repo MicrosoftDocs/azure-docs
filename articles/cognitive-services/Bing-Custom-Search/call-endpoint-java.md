@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in Java. 
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 

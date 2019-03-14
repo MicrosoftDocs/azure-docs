@@ -3,7 +3,7 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Micr
 description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -20,7 +20,7 @@ ms.author: mikeray
 
 ---
 
-# Configure Always On Availability Group in Azure VM manually
+# Tutorial: Configure Always On Availability Group in Azure VM manually
 
 This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers.
 
@@ -50,7 +50,7 @@ The following table lists the prerequisites that you need to complete before sta
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
 
   >[!NOTE]
-  > Many of the steps in this tutorial can be automated using an Azure Quickstart Template. For more information,  see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Many of the steps provided in this tutorial can now be automated with [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) and [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->

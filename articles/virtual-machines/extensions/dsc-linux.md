@@ -17,8 +17,6 @@ ms.author: robreed
 ---
 # DSC Extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
-## Overview
-
 Desired State Configuration (DSC) is a management platform that enables you to manage your IT and development infrastructure with configuration as code.
 
 DSCForLinux Extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. DSC extension can also do the following actions
@@ -30,21 +28,18 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 - Install custom DSC modules to the Linux VM (Install ExtensionAction)
 - Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## Prerequisites
 
 ### Operating system
 
-The DSC Linux extension supports all the [Extension Supported OS's](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) except:
+The DSC Linux extension supports all the [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) except:
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 6.5 and higher |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6.5 and higher  |
-| openSUSE| 13.1 and higher  |
-| SUSE Linux Enterprise Server| 11 SP3 and higher  |
-
-  
+| Debian | all versions |
+| Ubuntu| 18.04 |
  
 ### Internet connectivity
 
@@ -366,10 +361,10 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 You can log in to your Azure account (Azure Resource Manager mode) by running:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
-Click [**HERE**](../../azure-resource-manager/powershell-azure-resource-manager.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
+Click [**HERE**](../../azure-resource-manager/manage-resources-powershell.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
 
 You can deploy DSCForLinux Extension by running:
 
@@ -398,7 +393,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

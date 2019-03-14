@@ -88,7 +88,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
     - To use SQL database with columnstore, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P@ssword1*.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -170,7 +170,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
+5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

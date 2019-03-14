@@ -30,6 +30,11 @@ You should have the following details before requesting a restore:
 
 * If one or more containers are deleted, you should provide the Azure Cosmos account name, database names, and the container names. And specify if a container with the same name exists.
 
+* If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups.
+  
+  * If you have accidentally deleted your database or container, open a Sev B or Sev C Azure support case. 
+  * If you have accidentally deleted or corrupted some documents within the container, open a Sev A support case. 
+
 When data corruption occurs and if the documents within a container are modified or deleted, **delete the container as soon as possible**. By deleting the container, you can avoid Azure Cosmos DB from overwriting the backups. If for some reason the deletion is not possible, you should file a ticket as soon as possible. In addition to Azure Cosmos account name, database names, collection names, you should specify the point in time to which the data can be restored to. It is important to be as precise as possible to help us determine the best available backups at that time. It is also important to specify the time in UTC. 
 
 The following screenshot illustrates how to create a support request for a container(collection/graph/table) to restore data by using Azure portal. Provide additional details such as type of data, purpose of the restore, time when the data was deleted to help us prioritize the request.

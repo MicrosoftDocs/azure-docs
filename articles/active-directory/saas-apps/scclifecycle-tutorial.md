@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SCC LifeCycle
 
@@ -114,6 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| `https://bs1.scc.com/<entity>`|

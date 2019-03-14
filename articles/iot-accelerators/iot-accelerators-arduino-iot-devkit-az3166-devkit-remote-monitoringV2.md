@@ -73,7 +73,7 @@ To verify that the sample application you uploaded to the DevKit device is worki
 
 When the sample app runs, the DevKit device sends telemetry from its sensors data over Wi-Fi to your solution accelerator. To see the telemetry:
 
-1. Go to your solution dashboard, and click **Devices**.
+1. Go to your solution dashboard, and click **Device Explorer**.
 
 1. Click on the device name of your DevKit device. on the right-hand tab, you can see the telemetry from the DevKit in real time:
 
@@ -81,7 +81,7 @@ When the sample app runs, the DevKit device sends telemetry from its sensors dat
 
 ### Control the DevKit device
 
-The Remote Monitoring solution accelerator lets you control your device remotely. The sample code implements three methods that you can see in the **Method** section when you select the device on the **Devices** page:
+The Remote Monitoring solution accelerator lets you control your device remotely. The sample code implements three methods that you can see in the **Method** section when you select the device on the **Device Explorer** page:
 
 ![IoT DevKit Methods](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 

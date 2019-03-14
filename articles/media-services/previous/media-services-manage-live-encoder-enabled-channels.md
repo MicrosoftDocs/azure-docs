@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
 
 ---
@@ -47,7 +47,7 @@ Starting with the Media Services 2.10 release, when you create a Channel, you ca
 > 
 
 ## Billing Implications
-A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (http://aka.ms/amse).
+A live encoding channel begins billing as soon as it's state transitions to "Running" via the API.   You can also view the state in the Azure portal, or in the Azure Media Services Explorer tool (https://aka.ms/amse).
 
 The following table shows how Channel states map to billing states in the API and Azure portal. The states are slightly different between the API and Portal UX. As soon as a channel is in the "Running" state via the API, or in the "Ready" or "Streaming" state in the Azure portal, billing will be active.
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
@@ -214,6 +214,7 @@ Note that if you need custom presets, you should contact  amslived@microsoft.com
 **Default720p** will encode the video into the following 6 layers.
 
 #### Output Video Stream
+
 | BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |

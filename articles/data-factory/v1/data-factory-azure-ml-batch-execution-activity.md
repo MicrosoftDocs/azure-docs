@@ -52,7 +52,7 @@ Data Factory service allows you to create data pipelines that move and transform
 See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
 ### Data Factory and Machine Learning together
-Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning studio web service to make predictions on the data in batch. See [Invoking an Azure Machine Learning studio web service using the Batch Execution Activity](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) section for details.
+Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning studio web service to make predictions on the data in batch. See Invoking an Azure Machine Learning studio web service using the Batch Execution Activity section for details.
 
 Over time, the predictive models in the Azure Machine Learning studio scoring experiments need to be retrained using new input datasets. You can retrain an Azure Machine Learning studio model from a Data Factory pipeline by doing the following steps:
 
@@ -301,7 +301,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	}
 	```
 
-      Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+      Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
       > [!NOTE]
       > Specifying input for the AzureMLBatchExecution activity is optional.
@@ -405,7 +405,7 @@ When using the reader module in an Azure Machine Learning experiment, you can sp
 In the above JSON example:
 
 * The deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
-* Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+* Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
 ### Other scenarios
 #### Web service requires multiple inputs
@@ -632,4 +632,4 @@ You can also use [Data Factory Functions](data-factory-functions-variables.md) i
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

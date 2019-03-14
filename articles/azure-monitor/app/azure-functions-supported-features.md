@@ -27,6 +27,7 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 | **Automatic  collection of**        |               	|                  	|           	
 | &bull; Requests                     | Yes           	| Yes              	| 
 | &bull; Exceptions                   | Yes           	| Yes              	| 
+| &bull; Performance Counters         | Yes             |                   |
 | &bull; Dependencies           	    |               	|                  	|           	
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               	| Yes              	| 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               	| Yes              	| 
@@ -45,6 +46,11 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 | | | | 
 | **Configurable**                  	|               	|                  	|           
 | &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           	|               	| Yes                 	| 
+
+
+## Performance Counters
+
+Automatic collection of Performance Counters only work Windows machines.
 
 
 ## Live Metrics & Secure Control Channel

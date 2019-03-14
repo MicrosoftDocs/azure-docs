@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services
 

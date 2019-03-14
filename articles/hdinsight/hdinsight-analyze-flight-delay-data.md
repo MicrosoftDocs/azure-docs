@@ -64,13 +64,13 @@ If you want to learn how to get/upload the data to your own Storage account, and
 
 The following table lists the files used in this tutorial:
 
-<table border="1">
-<tr><th>Files</th><th>Description</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>The HiveQL script file used by the Hive job. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>The output path for the Hive job. The default container is used for storing the output data.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>The Hive job status folder on the default container.</td></tr>
-</table>
+|Files|Description|  
+|----|----|   
+|wasb://flightdelay\@hditutorialdata.blob.core.windows.net/flightdelays.hql|The HiveQL script file used by the Hive job. This script has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-b">Appendix B</a> has instructions on preparing and uploading this file to your own Azure Blob storage account.|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Input data for the Hive job. The data has been uploaded to an Azure Blob storage account with the public access. <a href="#appendix-a">Appendix A</a> has instructions on getting the data and uploading the data to your own Azure Blob storage account.|
+|\tutorials\flightdelays\output|The output path for the Hive job. The default container is used for storing the output data.|
+|\tutorials\flightdelays\jobstatus|The Hive job status folder on the default container.|
+
 
 ## Create cluster and run Hive/Sqoop jobs
 Hadoop MapReduce is batch processing. The most cost-effective way to run a Hive job is to create a cluster for the job,
@@ -239,7 +239,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
 Uploading the data file and the [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script files (see [Appendix B](#appendix-b)) requires some planning. The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job. You have two options:
 
 * **Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.** Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.
-* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in [Create HDInsight cluster and run Apache Hive/Sqoop jobs](#runjob) to link the Storage account as an additional Storage account. For instructions, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
+* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in Create HDInsight cluster and run Apache Hive/Sqoop jobs to link the Storage account as an additional Storage account. For instructions, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
 
 > [!NOTE]  
 > The Blob storage path for the data file is hard coded in the HiveQL script file. You must update it accordingly.
@@ -249,12 +249,11 @@ Uploading the data file and the [HiveQL](https://cwiki.apache.org/confluence/dis
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. On the page, select the following values:
 
-    <table border="1">
-    <tr><th>Name</th><th>Value</th></tr>
-    <tr><td>Filter Year</td><td>2013 </td></tr>
-    <tr><td>Filter Period</td><td>January</td></tr>
-    <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
-    </table>
+    |Name|Value|
+    |---|---|
+    |Filter Year|2013|
+    |Filter Period|January|
+    |Fields|*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)|
 
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.
@@ -265,11 +264,10 @@ Uploading the data file and the [HiveQL](https://cwiki.apache.org/confluence/dis
 
 1. Prepare the parameters:
 
-    <table border="1">
-    <tr><th>Variable Name</th><th>Notes</th></tr>
-    <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
-    <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
-    </table>
+    |Variable Name|Notes|
+    |---|---|
+    |$storageAccountName|The Azure Storage account where you want to upload the data to.|
+    |$blobContainerName|The Blob container where you want to upload the data to.|
     
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
@@ -374,11 +372,10 @@ For a full list of the HiveQL commands, see [Apache Hive Data Definition Languag
 
 1. Prepare the parameters:
 
-    <table border="1">
-    <tr><th>Variable Name</th><th>Notes</th></tr>
-    <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
-    <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
-    </table>
+    |Variable Name|Notes|
+    |---|---|
+    |$storageAccountName|The Azure Storage account where you want to upload the HiveQL script to.|
+    |$blobContainerName|The Blob container where you want to upload the HiveQL script to.|
     
 2. Open Azure PowerShell ISE.  
 
@@ -564,14 +561,14 @@ For a full list of the HiveQL commands, see [Apache Hive Data Definition Languag
 
 1. Prepare the parameters:
 
-    <table border="1">
-    <tr><th>Variable Name</th><th>Notes</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>The name of the Azure SQL database server. Enter nothing to create a new server.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>The login password for the Azure SQL database server.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
-    </table>
+    |Variable Name|Notes|
+    |---|---|
+    |$sqlDatabaseServerName|The name of the Azure SQL database server. Enter nothing to create a new server.|
+    |$sqlDatabaseUsername|The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.|
+    |$sqlDatabasePassword|The login password for the Azure SQL database server.|
+    |$sqlDatabaseLocation|This value is used only when you're creating a new Azure database server.|
+    |$sqlDatabaseName|The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays.|
+
     
 2. Open Azure PowerShell ISE.
 

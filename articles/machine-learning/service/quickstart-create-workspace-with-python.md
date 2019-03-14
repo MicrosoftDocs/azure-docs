@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
 
@@ -45,7 +45,7 @@ The following Azure resources are added automatically to your workspace when the
 > Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.8.
 
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## Install the SDK
 
@@ -54,18 +54,23 @@ If you don’t have an Azure subscription, create a free account before you begi
 > * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
+>[!NOTE]
+> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote virtual machine, set up a remote desktop or X terminal session. 
+
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+
+The instructions in this quickstart will install all the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 ### Install Miniconda
 
-[Download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Select the Python 3.7  or later version to install. Don't select the Python 2.x version.  
+[Download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Select the Python 3.7 version to install. Don't select the Python 2.x version.  
 
 ### Create an isolated Python environment
 
-1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.
+1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. Activate the environment.
@@ -74,18 +79,24 @@ Before you install the SDK, we recommend that you create an isolated Python envi
     conda activate myenv
     ```
 
-### Install the SDK
+1. Enable environment-specific ipython kernels:
 
-1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities.  The installation takes a few minutes to finish based on the configuration of your machine.
-
-  ```shell
-    pip install --upgrade azureml-sdk[notebooks]
+    ```shell
+    conda install notebook ipykernel
     ```
 
-1. Install a Jupyter Notebook server in the conda environment.
+    Then create the kernel:
 
-  ```shell
-    conda install nb_conda
+    ```shell
+    ipython kernel install --user
+    ```
+
+### Install the SDK
+
+1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities. The installation takes a few minutes to finish based on the configuration of your machine.
+
+    ```shell
+    pip install --upgrade azureml-sdk[notebooks]
     ```
 
 1. To use this environment for the Azure Machine Learning tutorials, install these packages.
@@ -99,6 +110,13 @@ Before you install the SDK, we recommend that you create an isolated Python envi
     ```shell
     pip install --upgrade azureml-sdk[automl]
     ```
+
+> [!IMPORTANT]
+> In some command-line tools, you might need to add quotation marks as follows:
+>      *  'azureml-sdk[notebooks]'
+>      * 'azureml-sdk[automl]'
+>
+
 
 ## Create a workspace
 

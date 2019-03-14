@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ForeSee CX Suite
 
@@ -115,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ForeSee CX Suite Domain and URLs single sign-on information](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. If you dont have **Service Provider metadata file**, perform the following steps:
+1. If you don't have **Service Provider metadata file**, perform the following steps:
 
 	![ForeSee CX Suite Domain and URLs single sign-on information](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

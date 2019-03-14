@@ -49,7 +49,7 @@ Run the application locally so that you see how it should look when you deploy i
 
 The first step is to install the required gems. There's a `Gemfile` included in the sample so you don't need to specify the gems to install. We'll use bundler for this:
 
-```
+```bash
 bundle install
 ```
 
@@ -135,4 +135,4 @@ http://<app name>.azurewebsites.net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with MySQL](tutorial-ruby-postgres-app.md)
+> [Ruby on Rails with Postgres](tutorial-ruby-postgres-app.md)

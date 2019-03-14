@@ -2,8 +2,8 @@
 title: Problems signing in to an Azure AD Gallery application configured for password single sign-on | Microsoft Docs
 description: How to troubleshoot issues with Azure AD Gallery application configured for password single sign-on
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an Azure AD Gallery application configured for password single sign-on
@@ -85,7 +86,7 @@ Follow the [Troubleshoot the Access Panel Extension for Internet Explorer](https
 
 To configure an application from the Azure AD gallery you need to:
 
--   [Add an application from the Azure AD gallery](#_Add_an_application)
+-   Add an application from the Azure AD gallery
 
 -   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
 
@@ -137,7 +138,7 @@ To configure single sign-on for an application, follow these steps:
 
 8.  Select the mode **Password-based Sign-on.**
 
-9.  [Assign users to the application](#_How_to_assign).
+9.  Assign users to the application.
 
 10. Additionally, you can also provide credentials on behalf of the user by selecting the rows of the users and clicking on **Update Credentials** and entering the username and password on behalf of the users. Otherwise, users be prompted to enter the credentials themselves upon launch.
 

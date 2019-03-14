@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Pair the Bing Web Search API with the Bing Autosuggest API to provide users with an enhanced search experience.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 03/03/2019
 ms.author: aahi
 ---
 

@@ -4,7 +4,7 @@ description: Learn about how Azure Security Center integrates with partners to e
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -30,7 +30,7 @@ Security Center makes it easy to enable integrated security solutions in Azure. 
 Currently, integrated security solutions include:
 
 - Web application firewall ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html), and [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html), and [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- Next-generation firewall ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html), and [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Vulnerability assessment ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) and [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]

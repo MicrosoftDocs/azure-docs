@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric container application on Linux | Microsoft
 description: Create your first Linux container application on Azure Service Fabric. Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: twhitney
+ms.author: aljo
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -158,7 +158,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## Package the Docker image with Yeoman
-The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
+The Service Fabric SDK for Linux includes a [Yeoman](https://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`. 
 
@@ -261,7 +261,8 @@ Connect to the local Service Fabric cluster.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Use the install script provided in the templates at https://github.com/Azure-Samples/service-fabric-containers/ to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
 
 ```bash
 ./install.sh
@@ -297,8 +298,8 @@ Here are the complete service and application manifests used in this article.
 <ServiceManifest Name="myservicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -343,8 +344,8 @@ Here are the complete service and application manifests used in this article.
 <ApplicationManifest ApplicationTypeName="mycontainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->

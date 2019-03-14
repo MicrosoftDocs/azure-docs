@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Tableau Server
 
@@ -201,7 +202,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -212,7 +213,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Tableau Server. You need to provision all the users in the Tableau server. 
 
-That username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on).
+That username of the user should match the value which you have configured in the Azure AD custom attribute of **username**. With the correct mapping the integration should work Configuring Azure AD Single Sign-On.
 
 >[!NOTE]
 >If you need to create a user manually, you need to contact the Tableau Server administrator in your organization.

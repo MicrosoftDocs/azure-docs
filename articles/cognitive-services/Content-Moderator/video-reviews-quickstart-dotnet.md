@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This article provides information and code samples to help you quickly get started using the Content Moderator SDK with C# to create video reviews.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

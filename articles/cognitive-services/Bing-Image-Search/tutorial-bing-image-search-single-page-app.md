@@ -4,11 +4,11 @@ titleSuffix: Azure cognitive services
 description: The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/12/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: Overview of Azure Maps | Microsoft Docs
 description: An introduction to Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 02/04/2019
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
@@ -14,19 +14,25 @@ ms.custom: mvc
 
 # What is Azure Maps?
 
-Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps and searching points of interest. The APIs can also find routes to points of interest, traffic conditions, time zones, and a location from an IP address. The APIs work with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. In addition to its REST APIs, the web-based [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control) is provided to make development easy, flexible, and portable across multiple mediums.
+Azure Maps is a collection of geospatial services, unpinned by the freshest mapping data available providing accurate geographic context to your web and mobile applications. Azure Maps consists of REST APIs for rendering **Maps** in multiple styles and satellite imagery, **Searching** for addresses, places, and points of interest around the world; **Routing** point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing; viewing best of breed Traffic flow and incidents; establishing user location through **Geolocation**; and converting location to **Time Zones**, as well as, fetching time at a location. Additionally, Azure Maps offers services for **Geofencing**, map **Data** storage - hosting location information in Azure; and **Spatial Operations** providing location intelligence through geospatial analytics. Azure Maps services are available directly as REST APIs or through either our robust **Web SDK** or **Android SDK**. These tools allow developers to quickly develop and scale solutions that integrate location information into Azure solutions from within the Azure cloud. Sign up for your free [Azure Maps account](https://azure.microsoft.com/services/azure-maps/) today and start developing!
 
 The following video explains Azure Maps in depth:
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## Map Controls
 
-### Web Control
+### Web SDK
 
-The Azure Maps Web Control lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the control using JavaScript or TypeScript.
+The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with the SDK using JavaScript or TypeScript.
 
-![Azure Maps Web Control](media/about-azure-maps/Introduction_WebMapControl.png)
+![Azure Maps Web SDK](media/about-azure-maps/Introduction_WebMapControl.png)
+
+### Android SDK
+
+The Azure Maps Android SDK lets you create powerful mobile mapping applications. 
+
+![Azure Maps Android SDK](media/about-azure-maps/AndroidSDK.png)
 
 ## Services in Azure Maps
 

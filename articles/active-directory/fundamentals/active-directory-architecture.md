@@ -13,6 +13,7 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # What is the Azure Active Directory architecture?

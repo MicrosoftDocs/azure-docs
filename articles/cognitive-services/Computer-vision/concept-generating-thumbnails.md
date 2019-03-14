@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to generating thumbnails for images using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -19,6 +19,7 @@ ms.custom: seodec18
 A thumbnail is a reduced-size representation of an image. Thumbnails are used to represent images and other data in a more economical, layout-friendly way. The Computer Vision API uses smart cropping, together with resizing the image, to create intuitive thumbnails for a given image.
 
 The Computer Vision thumbnail generation algorithm works as follows:
+
 1. Remove distracting elements from the image and identify the _area of interest_&mdash;the area of the image in which the main object(s) appears.
 1. Crop the image based on the identified _area of interest_.
 1. Change the aspect ratio to fit the target thumbnail dimensions.

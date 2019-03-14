@@ -132,7 +132,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azue AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
 The following example passes in the query string a parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 

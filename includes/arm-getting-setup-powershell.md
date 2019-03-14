@@ -1,4 +1,4 @@
-﻿---
+---
 author: sdwheeler
 ms.service: azure-powershell
 ms.topic: include
@@ -58,4 +58,3 @@ You can set the current Azure subscription by running these commands at the Azur
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
 For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](/powershell/azureps-cmdlets-docs#step-3-connect).
-

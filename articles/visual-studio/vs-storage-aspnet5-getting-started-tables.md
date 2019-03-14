@@ -21,7 +21,7 @@ This article describes how to get started using Azure Table storage in Visual St
 
 The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL data store that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data. For more general information about using Azure Table storage, see [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-To get started, first create a table in your storage account. This article then shows how to create a table  in C# and how to perform basic table operations such as adding, modifying, reading, and removing table entries.  The code uses the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+To get started, first create a table in your storage account. This article then shows how to create a table  in C# and how to perform basic table operations such as adding, modifying, reading, and removing table entries.  The code uses the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](https://www.asp.net).
 
 Some of the Azure Storage APIs are asynchronous, and the code in this article assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
 

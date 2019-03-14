@@ -13,25 +13,26 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2018
+ms.topic: conceptual
+ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
+You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as *daemons* or *service accounts*.
 
-The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or web site. For a higher level of assurance, Azure Active Directory (Azure AD) also allows the calling service to use a certificate (instead of a shared secret) as a credential.
+The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a web site. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](v2-permissions-and-consent.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
+In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](v2-permissions-and-consent.md) process. However, in the client credentials (*two-legged OAuth*) flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action and not the user. 
 
 ## Protocol diagram
 
@@ -43,10 +44,10 @@ The entire client credentials flow looks similar to the following diagram. We de
 
 An app typically receives direct authorization to access a resource in one of two ways: 
 
-* Through an access control list (ACL) at the resource
-* Through application permission assignment in Azure AD
+* [Through an access control list (ACL) at the resource](#access-control-lists)
+* [Through application permission assignment in Azure AD](#application-permissions)
 
-These two methods are the most common in Azure AD and we recommend them for clients and resources that perform the client credentials flow. A resource can choose to authorize its clients in other ways, however. Each resource server can choose the method that makes the most sense for its application.
+These two methods are the most common in Azure AD and we recommend them for clients and resources that perform the client credentials flow. A resource can also choose to authorize its clients in other ways. Each resource server can choose the method that makes the most sense for its application.
 
 ### Access control lists
 
@@ -69,18 +70,18 @@ For more information about application permissions, go to [Microsoft Graph](http
 
 To use application permissions in your app, follow the steps discussed in the next sections.
 
-#### Request the permissions in the App Registration Portal
+#### Request the permissions in the app registration portal
 
-1. Register and create an app through the [Application Registration Portal](quickstart-v2-register-an-app.md) or the new [App registrations (Preview) experience](quickstart-register-app.md).
+1. Register and create an app through the [Application Registration portal](quickstart-v2-register-an-app.md) or the new [App registrations (Preview) experience](quickstart-register-app.md).
 1. Go to your application in the portal that you used to register or create your app. You'll need to use at least one application secret when you create your app.
-2. Locate the **Microsoft Graph Permissions** section, and then add the **application permissions** that your app requires.
-3. **Save** the app registration.
+1. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
+1. **Save** the app registration.
 
 #### Recommended: Sign the user in to your app
 
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-If you sign the user in to your app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+If you sign the user in to your app, you can identify the organization to which the user belongs to before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 #### Request the permissions from a directory admin
 
@@ -96,7 +97,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ```
-// Pro tip: Try pasting the following request in a browser!
+// Pro tip: Try pasting the following request in a browser.
 ```
 
 ```
@@ -124,7 +125,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- |
 | `tenant` | The directory tenant that granted your application the permissions that it requested, in GUID format. |
 | `state` | A value that is included in the request that also is returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| `admin_consent` | Set to **true**. |
+| `admin_consent` | Set to **True**. |
 
 ##### Error response
 
@@ -166,9 +167,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
-| `scope` | Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
+| `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. </br>This value tells the v2.0 endpoint that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
 | `client_secret` | Required | The application secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
-| `grant_type` | Required | Must be `client_credentials`. |
+| `grant_type` | Required | Must be set to `client_credentials`. |
 
 ### Second case: Access token request with a certificate
 
@@ -187,10 +188,10 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
-| `client_id` | Required |The application ID that's assigned to your app. |
-| `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br>This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
-| `client_assertion_type` | Required | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| `client_assertion` | Required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
+| `client_id` | Required |The application (client) ID that's assigned to your app. |
+| `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br>This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Required | The value must be set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
 Notice that the parameters are almost the same as in the case of the request by shared secret except that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
@@ -257,6 +258,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Code sample
+## Code samples and other documentation
 
-To see an example of an application that implements the client credentials grant by using the admin consent endpoint, see our [v2.0 daemon code sample](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Read the [client credentials overview documentation](https://aka.ms/msal-net-client-credentials) from the Microsoft Authentication Library
+
+| Sample | Platform |Description |
+|--------|----------|------------|
+|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2.1 Console | A simple .NET Core application that displays the users of a tenant querying the Microsoft Graph using the identity of the application, instead of on behalf of a user. The sample also illustrates the variation using certificates for authentication. |
+|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | A web application that syncs data from the Microsoft Graph using the identity of the application, instead of on behalf of a user. |

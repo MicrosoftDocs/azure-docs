@@ -4,7 +4,7 @@ description: Learn how to use an Azure file share with Windows and Windows Serve
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
@@ -40,7 +40,9 @@ You can use Azure file shares on a Windows installation that is running either i
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
+* **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. You can learn about [various ways to workaround blocked port 445 here](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
+    The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -78,7 +80,7 @@ Unlike other SMB shares you may have interacted with, such as those hosted on a 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
 ### Persisting Azure file share credentials in Windows  
-The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resoure-group-name>` where appropriate.
+The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resource-group-name>` where appropriate.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"

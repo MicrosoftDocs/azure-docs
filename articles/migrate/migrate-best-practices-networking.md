@@ -68,7 +68,7 @@ Consider the following:
 **Learn more:**
 
 - [Read about](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) a hub and spoke topology.
-- Get network recommendations for running Azure [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm#network-recommendations) and [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm#network-recommendations) VMs.
+- Get network recommendations for running Azure [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) and [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm) VMs.
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) VNet peering.
 
 

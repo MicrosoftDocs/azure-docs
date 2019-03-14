@@ -4,7 +4,7 @@ description: This document provides a list of features and platforms supported b
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1

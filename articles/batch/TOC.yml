@@ -159,7 +159,7 @@
   - name: Azure CLI
     href: /cli/azure/batch
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.batch
+    href: /powershell/module/az.batch
   - name: .NET
     href: /dotnet/api/overview/azure/batch
   - name: Java
@@ -207,8 +207,8 @@
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
     href: https://blogs.technet.microsoft.com/windowshpc/
-  - name: HPC solutions in Azure
-    href: ../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json
+  - name: HPC on Azure
+    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Pricing calculator
@@ -218,6 +218,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-batch
+    href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch

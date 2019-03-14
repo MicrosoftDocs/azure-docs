@@ -19,10 +19,11 @@ ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to download a sign report from the Azure portal so that I can understand who is using my environment.
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Download a sign-in report using the Azure portal
 
-In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours. You can download up to 5000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 5000 records. 
+In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours. You can download up to 250,000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 250,000 records. 
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ You need:
 2. Select **Azure Active Directory** from the left navigation pane and use the **Switch directory** button to select your active directory.
 3. From the dashboard, select **Azure Active Directory** and then select **Sign-ins**. 
 4. Choose **last 24 hours** in the **Date** filter drop-down and select **Apply** to view the sign-ins for the past 24 hours. 
-5. Select the **Download** button to download a CSV file containing the filtered records. 
+5. Select the **Download** button, select **CSV** as the file format and specify a file name to download a CSV file containing the filtered records. 
 
 ![Reporting](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
---- 
+---
 
 # Tutorial: Get exact text-matched data from an utterance
 

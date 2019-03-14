@@ -4,7 +4,7 @@ description: This article describes how to working with security policies in Azu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
+ms.date: 2/17/2019
+ms.author: monhaber
 ---
 
 # Working with security policies
 
-This article explains how security policies are configured, and how to view them in Security Center. Azure Security Center automatically assigns its [built-in security policies](security-center-policy-definitions.md) on each subscription that is onboarded. You can configure them in [Azure Policy](../azure-policy/azure-policy-introduction.md), which also enables you to set policies across Management groups and across multiple subscriptions.
+This article explains how security policies are configured, and how to view them in Security Center. Azure Security Center automatically assigns its [built-in security policies](security-center-policy-definitions.md) on each subscription that is onboarded. You can configure them in [Azure Policy](../governance/policy/overview.md), which also enables you to set policies across Management groups and across multiple subscriptions.
 
-For instructions on how to set policies using PowerShell, see [Quickstart: Create a policy assignment to identify non-compliant resources using the Azure RM PowerShell module](../azure-policy/assign-policy-definition-ps.md).
+For instructions on how to set policies using PowerShell, see [Quickstart: Create a policy assignment to identify non-compliant resources using the Azure PowerShell module](../governance/policy/assign-policy-powershell.md).
 
 >[!NOTE]
 > Security Center started its integration with Azure Policy. Existing customers will be automatically migrated to the new built-in initiative in Azure Policy, instead of the previous security policies in Security Center. This change will not affect your resources or environment except the presence of the new initiative in Azure Policy.
 
 ## What are security policies?
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../azure-policy/azure-policy-introduction.md).
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../governance/policy/overview.md).
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
@@ -48,7 +48,7 @@ Security Center automatically creates a default security policy for each of your
 - Assign policies across management groups and subscriptions, which can represent an entire organization or a business unit within the organization.
 - Monitor policy compliance.
 
-For more information about Azure Policy, see [Create and manage policies to enforce compliance](../azure-policy/create-manage-policy.md).
+For more information about Azure Policy, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 An Azure policy consists of the following components:
 
@@ -95,6 +95,20 @@ You can edit the default security policy for each of your Azure subscriptions an
 For instructions on how to edit a security policy in Azure Policy, see and [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell. The following example provides instructions for editing using REST API.
+
+
+## Disable security policies
+If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation. This is done via the Azure Policy portal (and not the Security Center portal), as explained here.
+For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md). 
+1. Go to Azure Policy and click **Assignments**.
+2. In the **ASC Default** row, click the three dots and click **View definition**. The **Initiative Definition** page opens.
+   ![view definition](./media/tutorial-security-policy/view-definition.png)
+3. Click **Edit intitiative**. The **Edit Initiative Definition** page opens.
+   ![edit initiative](./media/tutorial-security-policy/edit-initiative.png)
+4. In the **POLICIES AND PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**.
+   ![disable policy](./media/tutorial-security-policy/disable-policy.png)
+1. Click **Save** (located at the bottom of the page).
+
 
 ### Configure a security policy using the REST API
 
@@ -232,4 +246,4 @@ In this article, you learned how to edit security policies in Azure Policy. To l
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
 * [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
 
-To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
+To learn more about Azure Policy, see [What is Azure Policy?](../governance/policy/overview.md)

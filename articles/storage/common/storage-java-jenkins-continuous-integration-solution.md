@@ -5,6 +5,7 @@ ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
+ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
@@ -34,7 +35,7 @@ Benefits of using the Blob service to host your agile development build artifact
   
     If you currently don't have a Jenkins CI solution, you can run a Jenkins CI solution using the following technique:
   
-  1. On a Java-enabled machine, download jenkins.war from <http://jenkins-ci.org>.
+  1. On a Java-enabled machine, download jenkins.war from <https://jenkins-ci.org>.
   2. At a command prompt that is opened to the folder that contains jenkins.war, run:
      
       `java -jar jenkins.war`
@@ -42,7 +43,7 @@ Benefits of using the Blob service to host your agile development build artifact
   3. In your browser, open `http://localhost:8080/` to open the Jenkins dashboard, which you will use to install and configure the Azure Storage plugin.
      
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
-* An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
+* An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
 * An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
 * Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 

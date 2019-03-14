@@ -1,16 +1,16 @@
 ---
-title: Introduction to Azure Queue storage | Microsoft Docs
-description: Introduction to Azure Queue storage
+title: Introduction to Azure Queues | Microsoft Docs
+description: Introduction to Azure Queues
 services: storage
 author: tamram
+
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/06/2019
 ms.author: tamram
 ms.subservice: queues
 ---
-# Introduction to Queues
+# What are Azure Queues?
 
 Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
 

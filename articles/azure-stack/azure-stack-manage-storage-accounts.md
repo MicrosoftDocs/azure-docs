@@ -11,11 +11,11 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed:  01/18/2019
+ms.lastreviewed: 01/18/2019
 
 ---
 # Manage storage accounts in Azure Stack
@@ -76,7 +76,7 @@ account.
 
 In Azure Stack there is a simple way to do that:
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this article for more information.
+1. Browse to the storage accounts list. See Find a storage account in this article for more information.
 2. Locate that particular account in the list. You may need to filter.
 3. Check the *state* of the account. It should say **Deleted**.
 4. Select the account, which opens the account details pane.
@@ -132,7 +132,7 @@ One of the side effects of having a retention period is that a deleted account c
 You can reclaim capacity using either the portal or PowerShell.
 
 **To reclaim capacity using the portal:**
-1. Navigate to the storage accounts pane. See [Find a storage account](#find).
+1. Navigate to the storage accounts pane. See Find a storage account.
 2. Select **Reclaim space** at the top of the pane.
 3. Read the message and then select **OK**.
 

@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/25/2018
+ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
 
@@ -226,7 +226,7 @@ For more info about SQL Data Sync, see:
 
 - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Best practices](sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Update the sync schema with Transact-SQL](sql-database-update-sync-schema.md) or [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 For more info about SQL Database, see:

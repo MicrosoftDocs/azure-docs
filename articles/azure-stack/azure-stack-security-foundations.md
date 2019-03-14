@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 01/14/2019
 
 ---
 # Azure Stack infrastructure security posture

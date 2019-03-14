@@ -56,7 +56,7 @@ Before you deploy a device:
 
 Before you begin:
 
-- Review the networking requirements for deploying Data Box Edge, and configure the datacenter network per the requirements. For more information, see [Data Box Edge networking requirements](data-box-gateway-system-requirements.md#networking-requirements).
+- Review the networking requirements for deploying Data Box Edge, and configure the datacenter network per the requirements. For more information, see [Data Box Edge networking requirements](data-box-edge-system-requirements.md#networking-port-requirements).
 
 - Make sure that the minimum Internet bandwidth is 20 Mbps for optimal functioning of the device.
 

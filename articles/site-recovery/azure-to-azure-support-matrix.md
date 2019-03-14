@@ -53,9 +53,9 @@ China | China East, China North, China North2, China East2
 >[!NOTE]
 >
 > - For **Brazil South** region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions. It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It **cannot be used as a Target DR region** for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
-> 
+>
 > - If you are **not able to see a region** where you want **to create a vault** then make sure your subscription has access to create resources in that region. For example: If you are not able to create vault in France South then your subscription doesn't have access to France south region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitelist subscription for the XXX Azure region"
-> 
+>
 > - If you are **not able to see a region** within a Geographic cluster **during enabling replication** then make sure your subscription has access to create virtual machine in that region. For example: If you are trying to protect virtual machines from France Central to France south and don't see France south under the region drop down then your subscription doesn't have access to deploy VM in that region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitelist subscription for the XXX Azure region"
 > - You cannot select regions across geographic clusters mentioned above.
 
@@ -78,6 +78,7 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 **Operating system** | **Details**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, Server with Desktop Experience
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -118,7 +119,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | 9.18,9.19,9.20,9.21 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.19,9.20,9.21,9.22 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
 Debian 8 | 9.20, 9.21 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
 Debian 8 | 9.19 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.7-amd64 |
@@ -128,10 +129,10 @@ Debian 8 | 9.18 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.140-94.42-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default to 4.4.138-94.39-default |
 
 
 ## Replicated machines - Linux file system/guest storage
@@ -172,8 +173,8 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
-OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/managed-disks-overview.md) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/windows/managed-disks-overview.md).
 Data disk maximum size | 4095 GB |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/windows/sizes.md) about VM sizes.
 Data disk change rate | Maximum of 10 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
@@ -181,7 +182,7 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
-Standard SSD | Not Supported |
+Standard SSD | Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
@@ -189,9 +190,9 @@ Encryption at rest (SSE) | Supported | SSE is the default setting on storage acc
 Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Azure AD app](https://aka.ms/ade-aad-app) are supported |
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
-Exclude disk | Not supported|	Temporary disk is excluded by default.
-Storage Spaces Direct  | Not supported|
-Scale-out File Server  | Not supported|
+Exclude disk | [supported through powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |	Temporary disk is excluded by default.
+Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
+Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

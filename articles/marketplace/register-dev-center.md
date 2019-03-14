@@ -1,4 +1,4 @@
----  
+---
 title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 
----  
+---
 
 # Register in Dev Center  
 To help verify that you are not logged into a personal browser account, open a new Internet Explorer InPrivate or Chrome Incognito browsing session.  
 1.  Register as a seller in Dev Center.  
-    *   To sign in and register as a seller, visit the Azure Dev Center page located at [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   To sign in and register as a seller, visit the Azure Dev Center page located at [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Complete the `Help us protect your account` wizard, which verifies your identity using your phone number or email address.  
 
     ![Boxes for phone info in the Help us protect your account wizard](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
@@ -75,11 +75,11 @@ To help verify that you are not logged into a personal browser account, open a n
     | Billing model | Next steps |  
     |:--- |:--- |  
     | Free | Go to Cloud Partner Portal.<ul> <li>To publish on the Azure Marketplace, visit the Cloud Partner Portal page located at [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Commercial (transact) | Update your account information.<ul> <li>For more information about adding account information, visit the [How to Add bank and tax information](#how-to-add-bank-and-tax-information) section.</li> </ul> |  
+    | Commercial (transact) | Update your account information.<ul> <li>For more information about adding account information, visit the [How to Add bank and tax information](#add-bank-information) section.</li> </ul> |  
 
     *   An example of a commercial offer is a VM offer with an hourly billing model.  
 
----  
+---
 
 ## Get Help with Dev Center Registration  
 If you have issues with Dev Center registration, then follow these steps to submit a support ticket.  
@@ -95,7 +95,7 @@ If you have issues with Dev Center registration, then follow these steps to subm
     
     Click on the Start email button.  
 1.  On the sign-in page, sign in using any Microsoft ID. If you do not have a Microsoft ID, then create one.  
-    *   For more information about creating a Microsoft ID, visit the [Guidelines for creating a Microsoft ID to manage an Azure Marketplace account](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) section.  
+    *   For more information about creating a Microsoft ID, visit the Guidelines for creating a Microsoft ID to manage an Azure Marketplace account section.  
 2.  Fill in the details of the issue.  
 3.  To submit the ticket, click on the Submit button. 
 
@@ -122,7 +122,7 @@ The bank and tax information is required for all commercial offers using the tra
 
 4.  Click on the Next button. 
 
----   
+---
 
 ## Add tax information  
 1.  Sign into Dev Center using your Microsoft ID.  
@@ -143,7 +143,7 @@ The bank and tax information is required for all commercial offers using the tra
 > Publisher who are publishing in Transact listing type: VM, Azure apps: solution templates and managed apps.  
 
 *	**Why is Dev Center account required?**
-> Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
+> Dev Center account is a required to enable Microsoft to bill the customer on the publisher’s behalf for Transact listing type. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information for your company. To learn more click [here.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
 *	**How do I get started with Dev Center registration?**
 > To prevent duplication, verify that your company does not already have a Dev Center account registered. 
@@ -182,7 +182,7 @@ You must be signed in with the Microsoft account that you want to associate with
 > Assign a temporary company name, contact support at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) and provide them your business registration documents.
 
 *	**How do I add my tax and payout information?**
-> You will not be able to publish transact offers without completing the tax and bank information in your Dev Center account.  For more information about adding account information, visit [How to Add bank and tax information.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> You will not be able to publish transact offers without completing the tax and bank information in your Dev Center account.  For more information about adding account information, visit [How to Add bank and tax information.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
 *	**Can I change the Dev Center Microsoft login account?**
 > No. Once a Dev Center is created, the owner account cannot be changed. You would have to start over with a brand-new Dev Center account with the desired Microsoft account.
@@ -193,4 +193,4 @@ To access support, visit the Windows developer support page located at [develope
 ## Next steps
 *   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

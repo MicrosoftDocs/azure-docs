@@ -3,7 +3,7 @@ title: Install application packages on compute nodes - Azure Batch | Microsoft D
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
 ---

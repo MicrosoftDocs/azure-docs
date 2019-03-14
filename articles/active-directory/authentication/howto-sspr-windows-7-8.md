@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Enable password reset from Windows 7, 8, and 8.1
 

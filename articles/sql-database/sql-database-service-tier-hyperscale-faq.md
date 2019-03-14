@@ -3,7 +3,7 @@ title: Azure SQL Database Hyperscale FAQ | Microsoft Docs
 description: Answers to common questions customers ask about an Azure SQL database in the Hyperscale service tier - commonly called a Hyperscale database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/06/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
@@ -67,7 +67,7 @@ The Hyperscale service tier is primarily intended for customers who have large o
 
 ### What regions currently support Hyperscale
 
-Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
+Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
 
 ### Can I create multiple Hyperscale databases per SQL Database server
 
@@ -216,7 +216,7 @@ Yes. Some of Azure SQL Database features are not supported in Hyperscale during 
 
 Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, logical data loading. See also the [Azure Database Migration Service](../dms/dms-overview.md).
 
-### What is my downtown during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
+### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
 Downtime is the same as the downtime when you migrate your databases to a single database in Azure SQL Database. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large database (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
@@ -237,7 +237,7 @@ No. SQL Database Hyperscale is a SMP architecture and is not an asymmetric multi
 
 ### What is the oldest SQL Server version will SQL Database Hyperscale support migration from
 
-SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### Does SQL Database Hyperscale support migration from other data sources such as Aurora, MySQL, Oracle, DB2, and other database platforms
 

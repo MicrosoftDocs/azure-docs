@@ -3,8 +3,8 @@ title: An assigned application is not appearing on the access panel | Microsoft 
 description: Troubleshoot why an application is not appearing in the Access Panel 
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviwer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # An assigned application is not appearing on the access panel
@@ -199,13 +200,13 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 To configure a non-gallery application, you need to have Azure AD premium and the application supports SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configuring-single-sign-on)
+-   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
 -   [Select User Identifier and add user attributes to be sent to the application](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Retrieve Azure AD metadata and certificate](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#configuring-single-sign-on)
+-   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#configure-the-application-for-password-single-sign-on-1)
 
 #### Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
 

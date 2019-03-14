@@ -1,6 +1,6 @@
 ---
 title: Sample - Audit if extension does not exist 
-description: This sample policy audits if an extension is not deployed with a virtual machine.
+description: This sample policy definition audits if an extension is not deployed with a virtual machine.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit if extension does not exist
+# Sample - Audit if extension does not exist
 
 This policy audits if an extension is not deployed with a virtual machine. You specify the extension publisher and type to check whether it was deployed.
 
@@ -23,11 +23,11 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal), 
 
 ## Deploy with the portal
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-vm-extension%2Fazurepolicy.json)
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-vm-extension%2Fazurepolicy.json)
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = New-AzPolicyDefinition -Name "audit-vm-extension" -DisplayName "Audit if extension does not exist" -description "This policy audits if a required extension doesn't exist." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.parameters.json' -Mode All

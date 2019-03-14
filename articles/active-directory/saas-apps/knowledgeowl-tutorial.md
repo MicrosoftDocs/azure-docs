@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with KnowledgeOwl
 
@@ -106,6 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![KnowledgeOwl Domain and URLs single sign-on information](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
+
 	|||
 	|-|-|
 	| `https://app.knowledgeowl.com/sp`|
@@ -113,6 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|||
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+
 	|||
 	|-|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -128,6 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![KnowledgeOwl Domain and URLs single sign-on information](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	|||
 	|-|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|

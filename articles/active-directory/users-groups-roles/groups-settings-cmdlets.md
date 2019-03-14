@@ -1,5 +1,5 @@
 ---
-title: Configure group settings using PowerShell in Azure Active Directory | Microsoft Docs
+title: Configure group settings using PowerShell - Azure Active Directory | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
@@ -11,11 +11,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 02/26/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory cmdlets for configuring group settings
 This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups (sometimes called unified groups). 
@@ -93,8 +94,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 |  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Office 365 group creation is allowed in the directory by non-admin users. This setting does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Office 365 groups even when EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” |A link to the Group Usage Guidelines. |
-|  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. The value of ClassificationDescriptions is only valid in this format:
-  $setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description", where Classification matches the       strings in the ClassificationList.|
+|  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. The value of ClassificationDescriptions is only valid in this format:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>where Classification matches the strings in the ClassificationList.|
 |  <ul><li>DefaultClassification<li>Type: String<li>Default: “” | The classification that is to be used as the default classification for a group if none was specified.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: “” | String of a maximum length of 64 characters that defines the naming convention configured for Office 365 groups. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: “” | Comma-separated string of phrases that users will not be permitted to use in group names or aliases. For more information, see [Enforce a naming policy for Office 365 groups](groups-naming-policy.md). |

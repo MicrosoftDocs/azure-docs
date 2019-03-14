@@ -1,6 +1,6 @@
 ---
 
-title: Getting support for Azure Active Directory B2B collaboration | Microsoft Docs
+title: Getting support for B2B collaboration - Azure Active Directory | Microsoft Docs
 description: What is the support experience for Azure Active Directory B2B collaboration?
 
 services: active-directory
@@ -14,6 +14,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Getting support for B2B collaboration

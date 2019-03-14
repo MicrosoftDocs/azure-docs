@@ -42,46 +42,22 @@ The following table lists and describes each publishing step, and provides a tim
 | Live                           | < 1 day | Offer is released, replicated to the specified regions, and made available to the public. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 You can monitor the publishing process in the **Status** tab for your offer in the Cloud Partner Portal.
 
 ![Status tab for an Azure app offer](./media/offer-status-tab.png)
 
 After you finish the publishing process, your offer will be listed in the [Microsoft Azure Marketplace application category](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
+## Errors and review feedback
 
-## Errors and Review feedback
-
-In addition to displaying the publishing status of your offer, the **Status** tab also displays error messages and feedback from the **Microsoft review** step.  Typically, review issues are referenced as pull request (PR).  Each PR is linked to an online Visual Studio Team Services (VSTS, renamed to [Azure DevOps](https://azure.microsoft.com/services/devops/)) item, which contains details about the issue.  The following image displays an example of a review PR reference.  For more complex situations, the review and support teams may email you. 
-
-![Status tab displaying review feedback](./media/status-tab-ms-review.png)
-
-You must address each reported issue before the offer continues through the publishing process.  The following diagram illustrates how this feedback process relates to the publishing process.
-
-![Publishing steps with VSTS feedback](./media/pub-flow-vsts-access.png)
-
-
-### VSTS access
-
-To view the VSTS items referenced in review feedback, publishers must be granted proper authorization.  Otherwise, new publishers receive a `401 - Not Authorized` response page.  To request access to the offer review VSTS system, perform the following steps:
-
-1. Collect the following information:
-    - Your publisher name and ID
-    - Offer type (Azure app), offer name, and SKU ID
-    - The pull request link, for example: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  This URL can be retrieved from the notification message or the address of the 401 response page.
-    - The email address(es) of the individuals from your publishing organization that you want access granted to.  These should include the owner address(es) you provided when registering as a publisher on the Cloud Partner Portal.
-2. Create a support incident.  In the title bar of the Cloud Partner Portal, select the **Help** button, then choose **Support** from the menu.  You default web browser should launch and navigate to the Microsoft new support incident page.  (You may have to sign in first.)
-3. Specify the **Problem type** as **marketplace onboarding** and **Category** as **Access problem**, then select **Start request**.
-
-    ![Support ticket category](./media/support-incident1.png)
-
-4. In **Step 1 of 2** page, supply your contact information and select **Continue**.
-5. In **Step 2 of 2** page, specify an incident title (for example `Request VSTS access`) and supply the information you collected in the first step (above).  Read and accept the agreement, then select **Submit**.
-
-If the incident creation was successful, a confirmation page is displayed.  Save the confirmation information for your reference.  Microsoft support should reply to your access request within a few business days.
+In addition to displaying the publishing status of your offer, the **Status** tab also displays error messages and feedback from any publishing steps where an issue is encountered.  If the issue is critical, then publishing is canceled.  You must then correct the reported issue(s) and republish the offer.  Because the **Microsoft review** step represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template), issues are typically presented as pull request (PR) links.  An explanation of how to view and respond to these PRs, see [Handling review feedback](./cpp-handling-review-feedback.md).
 
 
 ## Next steps
 
-Once an Azure app is published, you can [Update existing offer](./cpp-update-existing-offer.md) to reflect changing business or technical requirements. 
+If you encountered errors in one or more of the publishing steps, you must correct them and republish your offer.  If critical issues are encountered in the **Microsoft review** step, you must [handle the review feedback](./cpp-handling-review-feedback.md) by accessing the Microsoft review team's Azure DevOps repository.
+
+Once an Azure app is successfully published, you can [update the existing offer](./cpp-update-existing-offer.md) to reflect changing business or technical requirements. 

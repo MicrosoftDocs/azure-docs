@@ -117,9 +117,9 @@ The remainder of this section describes what metrics you should monitor and why.
 You can use the [Azure portal](https://portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. Monitoring enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
 The [Azure portal](https://portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
-Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](http://status.azure.com).
+Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://status.azure.com).
 
-While the [Azure portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) and Application Insights for Azure DevOps are examples of this approach. For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
+While the [Azure portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) and Application Insights for Azure DevOps are examples of this approach. For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity
 Storage Metrics only stores capacity metrics for the blob service because blobs typically account for the largest proportion of stored data (at the time of writing, it is not possible to use Storage Metrics to monitor the capacity of your tables and queues). You can find this data in the **$MetricsCapacityBlob** table if you have enabled monitoring for the Blob service. Storage Metrics records this data once per day, and you can use the value of the **RowKey** to determine whether the row contains an entity that relates to user data (value **data**) or analytics data (value **analytics**). Each stored entity contains information about the amount of storage used (**Capacity** measured in bytes) and the current number of containers (**ContainerCount**) and blobs (**ObjectCount**) in use in the storage account. For more information about the capacity metrics stored in the **$MetricsCapacityBlob** table, see [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -214,10 +214,10 @@ The Storage Client Library for .NET enables you to collect client-side log data 
 ### <a name="using-network-logging-tools"></a>Using network logging tools
 You can capture the traffic between the client and server to provide detailed information about the data the client and server are exchanging and the underlying network conditions. Useful network logging tools include:
 
-* [Fiddler](http://www.telerik.com/fiddler) is a free web debugging proxy that enables you to examine the headers and payload data of HTTP and HTTPS request and response messages. For more information, see [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) and [Wireshark](http://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
+* [Fiddler](https://www.telerik.com/fiddler) is a free web debugging proxy that enables you to examine the headers and payload data of HTTP and HTTPS request and response messages. For more information, see [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) and [Wireshark](https://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
 * Microsoft Message Analyzer is a tool from Microsoft that supersedes Netmon and that in addition to capturing network packet data, helps you to view and analyze the log data captured from other tools. For more information, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic](#appendix-3)".
-* If you want to perform a basic connectivity test to check that your client machine can connect to the Azure storage service over the network, you cannot do this using the standard **ping** tool on the client. However, you can use the [**tcping** tool](http://www.elifulkerson.com/projects/tcping.php) to check connectivity.
+* If you want to perform a basic connectivity test to check that your client machine can connect to the Azure storage service over the network, you cannot do this using the standard **ping** tool on the client. However, you can use the [**tcping** tool](https://www.elifulkerson.com/projects/tcping.php) to check connectivity.
 
 In many cases, the log data from Storage Logging and the Storage Client Library will be sufficient to diagnose an issue, but in some scenarios, you may need the more detailed information that these network logging tools can provide. For example, using Fiddler to view HTTP and HTTPS messages enables you to view header and payload data sent to and from the storage services, which would enable you to examine how a client application retries storage operations. Protocol analyzers such as Wireshark operate at the packet level enabling you to view TCP data, which would enable you to troubleshoot lost packets and connectivity issues. Message Analyzer can operate at both HTTP and TCP layers.
 
@@ -464,7 +464,7 @@ If your client application is throwing HTTP 403 (Forbidden) errors, a likely cau
 | Source | Verbosity | Verbosity | Client request ID | Operation text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Starting synchronous request to https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Waiting for response. |
 | Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -584,7 +584,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-These errors occur because the web browser implements the [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) security restriction that prevents a web page from calling an API in a different domain from the domain the page comes from.
+These errors occur because the web browser implements the [same origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) security restriction that prevents a web page from calling an API in a different domain from the domain the page comes from.
 
 To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see [Cross-Origin Resource Sharing (CORS) Support for Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -632,7 +632,7 @@ The code in the client application deletes and then immediately recreates a blob
 The client application should use unique container names whenever it creates new containers if the delete/recreate pattern is common.
 
 ### <a name="metrics-show-low-percent-success"></a>Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors
-The **PercentSuccess** metric captures the percent of operations that were successful based on their HTTP Status Code. Operations with status codes of 2XX count as successful, whereas operations with status codes in 3XX, 4XX and 5XX ranges are counted as unsuccessful and lower the **PercentSucess** metric value. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**.
+The **PercentSuccess** metric captures the percent of operations that were successful based on their HTTP Status Code. Operations with status codes of 2XX count as successful, whereas operations with status codes in 3XX, 4XX and 5XX ranges are counted as unsuccessful and lower the **PercentSuccess** metric value. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**.
 
 It is important to note that these operations have completed successfully and therefore do not affect other metrics such as availability. Some examples of operations that execute successfully but that can result in unsuccessful HTTP status codes include:
 
@@ -703,7 +703,7 @@ For more information about using Microsoft Message Analyzer, see "[Appendix 3: U
 The appendices describe several tools that you may find useful when you are diagnosing and troubleshooting issues with Azure Storage (and other services). These tools are not part of Azure Storage and some are third-party products. As such, the tools discussed in these appendices are not covered by any support agreement you may have with Microsoft Azure or Azure Storage, and therefore as part of your evaluation process you should examine the licensing and support options available from the providers of these tools.
 
 ### <a name="appendix-1"></a>Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic
-[Fiddler](http://www.telerik.com/fiddler) is a useful tool for analyzing the HTTP and HTTPS traffic between your client application and the Azure storage service you are using.
+[Fiddler](https://www.telerik.com/fiddler) is a useful tool for analyzing the HTTP and HTTPS traffic between your client application and the Azure storage service you are using.
 
 > [!NOTE]
 > Fiddler can decode HTTPS traffic; you should read the Fiddler documentation carefully to understand how it does this, and to understand the security implications.
@@ -722,14 +722,14 @@ To limit the amount of traffic that Fiddler captures, you can use filters that y
 ![][5]
 
 ### <a name="appendix-2"></a>Appendix 2: Using Wireshark to capture network traffic
-[Wireshark](http://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols.
 
 The following procedure shows you how to capture detailed packet information for traffic from the local machine where you installed Wireshark to the table service in your Azure storage account.
 
 1. Launch Wireshark on your local machine.
 2. In the **Start** section, select the local network interface or interfaces that are connected to the internet.
 3. Click **Capture Options**.
-4. Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. Check out the [complete list of Capture Filters](http://wiki.wireshark.org/CaptureFilters).
+4. Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. Check out the [complete list of Capture Filters](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. Click **Start**. Wireshark will now capture all the packets send to or from the table service endpoint as you use your client application on your local machine.
@@ -740,12 +740,12 @@ WireShark will highlight any errors that exist in the **packetlist** window. You
 
 ![][7]
 
-You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> For more information about using Wireshark, see the [Wireshark Users Guide](http://www.wireshark.org/docs/wsug_html_chunked).
+> For more information about using Wireshark, see the [Wireshark Users Guide](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 

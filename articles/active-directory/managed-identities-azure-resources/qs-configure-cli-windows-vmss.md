@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI
@@ -109,7 +110,7 @@ If you have a virtual machine that no longer needs system-assigned managed ident
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-To remove the managed identities for Azure resources VM extension (planned for deprecation in January 2019), use [az vmss identity remove](/cli/azure/vmss/identity/#az-vmss-remove-identity) command to remove the system-assigned managed identity from a VMSS:
+To remove the managed identities for Azure resources VM extension (planned for deprecation in January 2019), use [az vmss identity remove](/cli/azure/vmss/identity/) command to remove the system-assigned managed identity from a VMSS:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -163,9 +164,6 @@ This section walks you through creation of an VMSS and assignment of a user-assi
 
 1. Create a user-assigned managed identity using [az identity create](/cli/azure/identity#az-identity-create).  The `-g` parameter specifies the resource group where the user-assigned managed identity is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values:
 
-    > [!IMPORTANT]
-    > Creating user-assigned managed identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
-
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
@@ -186,7 +184,7 @@ The response contains details for the user-assigned managed identity created, si
    }
    ```
 
-2. Assign the user-assigned managed identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity#az-vm-assign-identity). Be sure to replace the `<RESOURCE GROUP>` and `<VMSS NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` is the user-assigned identity's resource `name` property, as created in the previous step:
+2. Assign the user-assigned managed identity to your VMSS using [az vmss identity assign](/cli/azure/vmss/identity). Be sure to replace the `<RESOURCE GROUP>` and `<VMSS NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` is the user-assigned identity's resource `name` property, as created in the previous step:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>

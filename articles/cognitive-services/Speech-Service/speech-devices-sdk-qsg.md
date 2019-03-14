@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -33,21 +33,23 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 * Get the latest version of the Speech Devices SDK, which includes an Android sample app, from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). Extract the .zip file to a local folder, like C:\SDSDK.
 
-* Install [Android Studio](https://developer.android.com/studio/) and [Vysor](http://vysor.io/download/) on your PC.
+* Install [Android Studio](https://developer.android.com/studio/) and [Vysor](https://vysor.io/download/) on your PC.
 
-* Get a [Speech service subscription key](get-started.md). You can get a 30-day free trial or get a key from your Azure dashboard.
+* Get a [Speech Services subscription key](get-started.md). You can get a 30-day free trial or get a key from your Azure dashboard.
 
-* If you want to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
+* If you want to use the Speech Services' intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     You can [create a simple LUIS model](https://docs.microsoft.com/azure/cognitive-services/luis/) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
 
 ## Set up the development kit
 
-1. Connect the development kit to a PC or power adapter by using a mini USB cable. When the kit is connected, a green power indicator lights up under the top board.
-
-1. Connect the development kit to a computer by using a second mini USB cable.
+1. The development kit has two micro USB connectors. The left connector is to power the development kit and is highlighted as Power in the image below. The right one is to control it, and is marked Debug in the image.
 
     ![Connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
+
+1. Power the development kit by using a micro USB cable to connect the power port to a PC or power adapter. A green power indicator will light up under the top board.
+
+1. To control the development kit connect the debug port to a computer by using a second micro USB cable. It is essential to use a high quality cable to ensure reliable communications.
 
 1. Orient your development kit for either the circular or linear configuration.
 
@@ -71,6 +73,8 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     > [!NOTE]
     > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
+    >
+    > If you see an error `no devices/emulators found` then check your USB cable is conected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
 
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.
@@ -199,7 +203,7 @@ To run the ROOBO tests and validate your development kit setup, build and instal
 
 ### Certificate failures
 
-If you get certificate failures when you use the Speech service, make sure that your device has the correct date and time:
+If you get certificate failures when using the Speech Services, make sure that your device has the correct date and time:
 
 1. Go to **Settings**. Under **System**, select **Date & time**.
 

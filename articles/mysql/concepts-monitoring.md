@@ -35,7 +35,7 @@ These metrics are available for Azure Database for MySQL:
 |backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
 
 ## Server logs
-You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in OMS Log Analytics, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.

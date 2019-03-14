@@ -31,9 +31,6 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
 
-> [!NOTE] 
-> Flow Logs Version 2 are only available in the West Central US Region. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
-
 ## Register Insights provider
 
 In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.
@@ -66,7 +63,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## Download a Flow log
 
-The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  http://storageexplorer.com/
+The storage location of a flow log is defined at creation. A convenient tool to access these flow logs saved to a storage account is Microsoft Azure Storage Explorer, which can be downloaded here:  https://storageexplorer.com/
 
 If a storage account is specified, flow log files are saved to a storage account at the following location:
 

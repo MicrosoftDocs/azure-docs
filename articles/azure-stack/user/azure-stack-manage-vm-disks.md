@@ -3,7 +3,7 @@ title: Manage VM disks in Azure Stack | Microsoft Docs
 description: Create disks for virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -11,9 +11,9 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
 ---
@@ -28,9 +28,9 @@ This article describes how to create virtual machine disk storage by using the A
 
 Beginning with version 1808, Azure Stack supports the use of managed disks and unmanaged disks on virtual machines, as both an operating system (OS) and a data disk. Before version 1808, only unmanaged disks are supported. 
 
-**[Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
+**[Managed disks](../../virtual-machines/windows/managed-disks-overview.md)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
 
-**[Unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, require that you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
+Unmanaged disks, require that you create a storage account to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
 
 ### Best practice guidelines
 
@@ -46,7 +46,7 @@ The following table summarizes how to add disks by using the portal and by using
 
 | Method | Options
 |-|-|
-|[User portal](#use-the-portal-to-add-additional-disks-to-a-vm)|- Add new data disks to an existing VM. New disks are created by Azure Stack. </br> </br>- Add an existing disk (.vhd) file to a  previously created VM. To do this, you must prepare the .vhd  and then upload the file to Azure Stack. |
+|User portal|- Add new data disks to an existing VM. New disks are created by Azure Stack. </br> </br>- Add an existing disk (.vhd) file to a  previously created VM. To do this, you must prepare the .vhd  and then upload the file to Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | - Create a new VM with an OS disk, and at the same time add one or more data disks to that VM. |
 
 ## Use the portal to add disks to a VM

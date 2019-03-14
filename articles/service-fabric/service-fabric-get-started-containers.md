@@ -3,8 +3,8 @@ title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
-manager: timlt
+author: aljo-microsoft
+manager: jpconnock
 editor: 'vturecek'
 
 ms.assetid:
@@ -13,22 +13,23 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
-ms.author: twhitney
-
+ms.date: 01/25/2019
+ms.author: aljo
 ---
 
 # Create your first Service Fabric container application on Windows
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster running on your local machine. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
 
 ## Prerequisites
+
 * A development computer running:
   * Visual Studio 2015 or Visual Studio 2017.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
@@ -38,10 +39,10 @@ Running an existing application in a Windows container on a Service Fabric clust
 
   For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
-  To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
+To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
 
-  * If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md). You can also [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
-  * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md). You cannot use a party cluster, however.
+* If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
+  * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
@@ -54,6 +55,7 @@ Running an existing application in a Windows container on a Service Fabric clust
 > 
 
 ## Define the Docker container
+
 Build an image based on the [Python image](https://hub.docker.com/_/python/) located on Docker Hub.
 
 Specify your Docker container in a Dockerfile. The Dockerfile consists of instructions for setting up the environment inside your container, loading the application you want to run, and mapping ports. The Dockerfile is the input to the `docker build` command, which creates the image.
@@ -163,6 +165,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## Push the image to the container registry
+
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
 Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
@@ -254,6 +257,7 @@ Configure a host port used to communicate  with the container. The port binding 
 > Additional PortBindings for a service can be added by declaring additional PortBinding elements with applicable property values.
 
 ## Configure container registry authentication
+
 Configure container registry authentication by adding `RepositoryCredentials` to `ContainerHostPolicies` of the ApplicationManifest.xml file. Add the account and password for the myregistry.azurecr.io container registry, which allows the service to download the container image from the repository.
 
 ```xml
@@ -447,7 +451,8 @@ The application is ready when it's in ```Ready``` state:
 Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:8081. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-cluster-delete.md). [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
+
+You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-cluster-delete.md).
 
 After you push the image to the container registry, you can delete the local image from your development computer:
 
@@ -520,8 +525,8 @@ Here are the complete service and application manifests used in this article.
 <ServiceManifest Name="Guest1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -567,8 +572,8 @@ Here are the complete service and application manifests used in this article.
 <ApplicationManifest ApplicationTypeName="MyFirstContainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>

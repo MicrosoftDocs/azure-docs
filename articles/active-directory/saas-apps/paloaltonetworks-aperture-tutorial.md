@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks - Aperture
 
@@ -145,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	![The authentication tab](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-	a. Check the **Enable Single Sign-On(Supported SSP Providers are Okta, Onelogin)** from **Single Sign-On** field.
+	a. Check the **Enable Single Sign-On(Supported SSP Providers are Okta, One login)** from **Single Sign-On** field.
 
 	b. In the **Identity Provider ID** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 

@@ -15,7 +15,7 @@ ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to a Managed Instance 
 
-In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure blob storage into an Azure SQL Database [Managed Instance](sql-database-managed-instance.md). 
+In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure Blob storage into an Azure SQL Database [Managed Instance](sql-database-managed-instance.md). 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
@@ -34,15 +34,15 @@ This quickstart:
   - [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
-> For more information on backing up and restoring a SQL Server database using Azure blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).
+> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).
 
 ## Restore the database from a backup file
 
-In SSMS, follow these steps to restore the Wide World Importers database to your Managed Instance. The database backup file is stored in a pre-configured Azure blob storage account.
+In SSMS, follow these steps to restore the Wide World Importers database to your Managed Instance. The database backup file is stored in a pre-configured Azure Blob storage account.
 
 1. Open SMSS and connect to your Managed Instance.
 2. From the left-hand menu, right-click your Managed Instance and select **New Query** to open a new query window.
-3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) in your Managed Instance.
+3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) in your Managed Instance.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

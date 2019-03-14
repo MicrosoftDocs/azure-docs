@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
@@ -39,7 +39,7 @@ Before you begin:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Order
 
@@ -70,7 +70,7 @@ When you receive the Data Box, do the following steps to cable, connect to and t
 	
 4. Cable the device as shown below.  
 
-    ![Data Box cabled](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
@@ -82,7 +82,7 @@ When you receive the Data Box, do the following steps to cable, connect to and t
 
 This step takes about 5-7 minutes to complete.
 
-1. To get the device password, go to **General > Device details** in the [Azure portal](http://portal.azure.com).
+1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com).
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device. 
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 

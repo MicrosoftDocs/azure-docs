@@ -4,12 +4,12 @@ titlesuffix: Face - Azure Cognitive Services
 description: How to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/21/2019
 ms.author: diberry
 ---
 
@@ -63,8 +63,8 @@ Container images for Face API are available.
 
 ### Docker pull for the Face container
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## How to use the container
@@ -87,7 +87,7 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/ognitive-services-face \
+containerpreview.azurecr.io/microsoft/cognitive-services-face \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
@@ -104,6 +104,9 @@ More [examples](./face-resource-container-config.md#example-docker-run-commands)
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 
 ## Query the container's prediction endpoint
 
@@ -127,18 +130,7 @@ If you run the container with an output [mount](./face-resource-container-config
 
 The Face API containers send billing information to Azure, using a _Face API_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Face API_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Face API_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./face-resource-container-config.md).
 
