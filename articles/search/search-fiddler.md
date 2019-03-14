@@ -1,5 +1,5 @@
 ---
-title: Explore REST APIs in Postman or Fiddler web HTTP test tools - Azure Search
+title: Explore REST APIs in Postman or Fiddler - Azure Search
 description: How to use Postman or Fiddler to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -37,11 +37,15 @@ The following tools are widely used in web development, but if you are familiar 
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-1. In the Azure portal, open the search service page from the dashboard or [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
-2. Get the URL endpoint in **Overview**. An example endpoint might look like `https://my-service-name.search.windows.net`.
-3. Get the api-key in **Settings** > **Keys**. There are two admin keys for redundancy in case you want to roll over keys. Admin keys grant the write permissions on your service, necessary for creating and loading indexes. You can use either the primary or secondary key for write operations.
+1. In the Azure portal, [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+
+2. In **Overview**, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
+
+3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on your request.
 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+
+All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 
 ## Configure headers
@@ -255,9 +259,8 @@ In Fiddler, click the **Inspectors** tab, click the **Headers** tab, and then se
 
 REST clients are invaluable for impromptu exploration, but now that you know how the REST APIs work, you can move forward with code. For your next steps, see the following links:
 
-+ [Create an index (REST)](search-create-index-rest-api.md)
-+ [Import data (REST)](search-import-data-rest-api.md)
-+ [Search an index (REST)](search-query-rest-api.md)
++ [Quickstart: Create an index using .NET SDK](search-create-index-dotnet.md)
++ [Quickstart: Create an index (REST) using PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

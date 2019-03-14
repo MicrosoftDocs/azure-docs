@@ -17,7 +17,11 @@
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
-  - name: .NET
+  - name: Postman
+    href: search-fiddler.md
+  - name: PowerShell (REST)
+    href: search-create-index-rest-api.md
+  - name: C#
     items:
     - name: Create an index
       href: search-create-index-dotnet.md
@@ -25,16 +29,6 @@
       href: search-import-data-dotnet.md
     - name: Search
       href: search-query-dotnet.md
-  - name: REST
-    items:
-    - name: Create an index
-      href: search-create-index-rest-api.md
-    - name: Import data
-      href: search-import-data-rest-api.md
-    - name: Search
-      href: search-query-rest-api.md
-    - name: Explore using Postman or Fiddler
-      href: search-fiddler.md
 - name: Tutorials
   items:
   - name: Learn cognitive search APIs

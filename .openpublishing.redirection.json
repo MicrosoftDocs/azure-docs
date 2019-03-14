@@ -1225,6 +1225,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/search/search-import-data-rest-api.md",
+      "redirect_url": "/azure/search/search-create-index-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-query-rest-api.md",
+      "redirect_url": "/azure/search/search-create-index-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/search-howto-index-documentdb.md",
       "redirect_url": "/azure/search/search-howto-index-cosmosdb",
       "redirect_document_id": true
