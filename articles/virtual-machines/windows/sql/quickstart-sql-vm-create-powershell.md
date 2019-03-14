@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Open PowerShell and establish access to your Azure account by running the **Connect-AzAccount** command.
 
-   ```PowerShell
+   ```powershell
    Connect-AzAccount
    ```
 
@@ -49,19 +49,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Define a variable with a unique resource group name. To simplify the rest of the quickstart, the remaining commands use this name as a basis for other resource names.
 
-   ```PowerShell
+   ```powershell
    $ResourceGroupName = "sqlvm1"
    ```
 
 1. Define a location of a target Azure region for all VM resources.
 
-   ```PowerShell
+   ```powershell
    $Location = "East US"
    ```
 
 1. Create the resource group.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Location
    ```
 
@@ -88,7 +88,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Create a network security group. Configure rules to allow remote desktop (RDP) and SQL Server connections.
 
-   ```PowerShell
+   ```powershell
    # Rule to allow remote desktop (RDP)
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
@@ -108,7 +108,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Create the network interface.
 
-   ```PowerShell
+   ```powershell
    $InterfaceName = $ResourceGroupName + "int"
    $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -129,7 +129,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Create a virtual machine configuration object and then create the VM. The following command creates a SQL Server 2017 Developer Edition VM on Windows Server 2016.
 
-   ```PowerShell
+   ```powershell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
    $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
@@ -148,7 +148,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To get portal integration and SQL VM features, you must install the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after the VM is created.
 
-   ```PowerShell
+   ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
@@ -156,7 +156,7 @@ To get portal integration and SQL VM features, you must install the [SQL Server 
 
 1. Use the following command to retrieve the public IP address for the new VM.
 
-   ```PowerShell
+   ```powershell
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
@@ -180,7 +180,7 @@ You're now connected to SQL Server locally. If you want to connect remotely, you
 
 If you don't need the VM to run continuously, you can avoid unnecessary charges by stopping it when not in use. The following command stops the VM but leaves it available for future use.
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 

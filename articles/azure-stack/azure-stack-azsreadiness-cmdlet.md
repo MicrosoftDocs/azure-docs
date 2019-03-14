@@ -28,7 +28,7 @@ This module only contains a single cmdlet.  This cmdlet performs one or more pre
 
 ## Syntax
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
        -PfxPassword <SecureString>
@@ -42,7 +42,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
        -PfxPassword <SecureString>
@@ -54,7 +54,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PaaSCertificates <Hashtable>
        -DeploymentDataJSONPath <String>
@@ -64,7 +64,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PaaSCertificates <Hashtable>
        -RegionName <String>
@@ -76,7 +76,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegionName <String>
        -FQDN <String>
@@ -91,7 +91,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PfxPassword <SecureString>
        -PfxPath <String>
@@ -102,7 +102,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
        -AADDirectoryTenantName <String>
@@ -115,7 +115,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
        -DeploymentDataJSONPath <String>
@@ -126,7 +126,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegistrationAccount <PSCredential>
        -RegistrationSubscriptionID <Guid>
@@ -138,7 +138,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegistrationAccount <PSCredential>
        -RegistrationSubscriptionID <Guid>
@@ -150,7 +150,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -ReportPath <String>
        [-ReportSections <String>]
@@ -169,7 +169,7 @@ The **Start-AzsReadinessChecker** cmdlet validates certificates, Azure accounts,
 
 ### Example: Generate Certificate Signing Request
 
-```PowerShell
+```powershell
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -180,7 +180,7 @@ In this example, Start-AzsReadinessChecker generates multiple Certificate Signin
 
 ### Example: Validate certificates
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
@@ -189,7 +189,7 @@ In this example, the PFX password is prompted for securely and Start-AzsReadines
 
 ### Example: Validate certificates with deployment data (deployment and support)
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
@@ -198,7 +198,7 @@ In this deployment and support example, the PFX password is prompted for securel
 
 ### Example: Validate PaaS certificates
 
-```PowerShell
+```powershell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -213,7 +213,7 @@ In this example, a hashtable is constructed with paths and passwords to each Paa
 
 ### Example: Validate PaaS certificates with deployment data
 
-```PowerShell
+```powershell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -228,7 +228,7 @@ In this example, a hashtable is constructed with paths and passwords to each Paa
 
 ### Example: Validate Azure identity
 
-```PowerShell
+```powershell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
@@ -247,7 +247,7 @@ In this example, the Service Admin account credentials are prompted for securely
 
 ### Example: Validate Azure registration
 
-```PowerShell
+```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
@@ -258,7 +258,7 @@ In this example, the Subscription Owner credentials are prompted for securely an
 
 ### Example: Validate Azure registration with deployment data (deployment team)
 
-```PowerShell
+```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
@@ -268,7 +268,7 @@ In this example, the Subscription Owner credentials are prompted for securely an
 
 ### Example: Import/Export PFX package
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
@@ -277,7 +277,7 @@ In this example, the PFX password is prompted for securely. The ssl.pfx file wil
 
 ### Example: View validation report (deployment support)
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
@@ -285,7 +285,7 @@ In this example, the deployment or support team receive the readiness report fro
 
 ### Example: View validation report summary for certificate validation only (deployment and support)
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 

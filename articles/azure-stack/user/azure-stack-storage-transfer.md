@@ -153,7 +153,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
    > [!NOTE]
    > This script has to be run at the root directory for **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name

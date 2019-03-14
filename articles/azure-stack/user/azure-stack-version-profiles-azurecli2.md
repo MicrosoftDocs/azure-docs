@@ -91,13 +91,13 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 2. Upgrade PIP. PIP is a package manager for Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) a module and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -153,7 +153,7 @@ To trust the Azure Stack CA root certificate, append it to the existing Python c
 
 1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -272,7 +272,7 @@ If you are using the ASDK, you will need to trust the CA root certificate on you
 
 1. Find the certificate location on your machine. The location may vary depending on where you have installed Python. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 

@@ -229,7 +229,7 @@ The router is a Windows Server virtual machine (AzS-BGPNAT01) running the Routin
 1. Sign in to the Azure Stack host computer with your administrator account.
 1. Copy and edit the following PowerShell script. Replace `"your administrator password"` with your administrator password, and then run the script in an elevated PowerShell ISE. This script returns your **External BGPNAT address**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -247,7 +247,7 @@ The router is a Windows Server virtual machine (AzS-BGPNAT01) running the Routin
 
    Run the following script from an elevated PowerShell ISE:
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -597,7 +597,7 @@ Perform the following ping tests:
 
 By default, Windows Server 2016 does not allow incoming ICMP packets through the firewall. For every virtual machine that you use for ping tests, you must allow incoming ICMP packets. To create a firewall rule for ICMP, run the following cmdlet in an elevated PowerShell window:
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

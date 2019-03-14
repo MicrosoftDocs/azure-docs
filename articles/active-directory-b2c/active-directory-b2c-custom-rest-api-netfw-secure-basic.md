@@ -42,7 +42,7 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
 
     To generate a complex password, run the following PowerShell code. You can use any arbitrary value.
 
-    ```PowerShell
+    ```powershell
     $bytes = New-Object Byte[] 32
     $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
     $rand.GetBytes($bytes)

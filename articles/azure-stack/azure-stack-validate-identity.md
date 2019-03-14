@@ -64,7 +64,7 @@ The following prerequisites must be in place.
    > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. After the tool runs, review the output. Confirm the status is **OK** for installation requirements. A successful validation appears like the following image: 
  
-```PowerShell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -96,7 +96,7 @@ The following examples provide guidance on common validation failures.
 
 ### Expired or temporary password 
  
-```PowerShell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Invoke-AzsAzureIdentityValidation Completed
 Alternatively, login into https://portal.azure.com as the account and the user will be forced to change the password.
 ### Unknown user type 
  
-```PowerShell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -140,7 +140,7 @@ Invoke-AzsAzureIdentityValidation Completed
 EnvironmentName AzureChinaCloud 
 ### Account is not an administrator 
  
-```PowerShell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

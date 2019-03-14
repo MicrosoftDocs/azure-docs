@@ -321,13 +321,13 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 1. Update the PowerShellGet module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```PowerShell
+   ```powershell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. In a new PowerShell window, execute the following commands:
 
-   ```PowerShell
+   ```powershell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force

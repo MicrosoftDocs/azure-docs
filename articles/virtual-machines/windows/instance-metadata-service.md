@@ -454,7 +454,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 
 **Request**
 
-```PowerShell
+```powershell
   $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
   $metadata = ConvertFrom-Json ($metadataResponse.Content)
  

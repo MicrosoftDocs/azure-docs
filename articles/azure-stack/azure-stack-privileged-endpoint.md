@@ -49,7 +49,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
 
     - On an integrated system, run the following command from an elevated Windows PowerShell session to add the PEP as a trusted host on the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - If you’re running the ASDK, sign in to the development kit host.
@@ -57,7 +57,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
 2. On the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation, open a Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
     - On an integrated system:
-      ```PowerShell
+      ```powershell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -66,7 +66,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
     - If you’re running the ASDK:
      
-      ```PowerShell
+      ```powershell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName azs-ercs01 `
@@ -109,7 +109,7 @@ As mentioned above, the PEP is a [PowerShell JEA](https://docs.microsoft.com/pow
 
 So, for instance, to get the list of parameters for a given cmdlet, you run the following command:
 
-```PowerShell
+```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
@@ -121,7 +121,7 @@ To import the PEP session on your local machine, do the following steps:
 
     -On an integrated system, run the following command from an elevated Windows PowerShell session to add the PEP as a trusted host on the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - If you’re running the ASDK, sign in to the development kit host.
@@ -129,7 +129,7 @@ To import the PEP session on your local machine, do the following steps:
 2. On the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation, open a Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
     - On an integrated system:
-      ```PowerShell
+      ```powershell
         $cred = Get-Credential
 
         $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -138,7 +138,7 @@ To import the PEP session on your local machine, do the following steps:
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
     - If you’re running the ASDK:
      
-      ```PowerShell
+      ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName azs-ercs01 `
@@ -150,7 +150,7 @@ To import the PEP session on your local machine, do the following steps:
       - **Password**: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
 3. Import the PEP session into your local machine
-	```PowerShell 
+	```powershell 
     	Import-PSSession $session
     ```
 4. Now, you can use tab-completion and do scripting as usual on your local PowerShell session with all the functions and cmdlets of the PEP, without decreasing the security posture of Azure Stack. Enjoy!

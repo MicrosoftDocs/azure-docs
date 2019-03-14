@@ -82,7 +82,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 
 1. First a Network Security Group must be built to hold the rules:
 
-	```PowerShell
+	```powershell
 	New-AzureNetworkSecurityGroup -Name $NSGName `
 	    -Location $DeploymentLocation `
 	    -Label "Security group for $VNetName subnets in $DeploymentLocation"
@@ -94,7 +94,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
    * “Priority” sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
    * “Action” signifies if traffic affected by this rule is blocked or allowed.
 
-	```PowerShell    
+	```powershell    
 	Get-AzureNetworkSecurityGroup -Name $NSGName | `
 	    Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
 	    -Type Inbound -Priority 100 -Action Allow `
@@ -106,7 +106,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; “VIRTUAL_NETWORK” and “INTERNET.” These tags are an easy way to address a larger category of address prefixes.
 
-	```PowerShell
+	```powershell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
          Set-AzureNetworkSecurityRule -Name "Enable RDP to $VNetName VNet" `
          -Type Inbound -Priority 110 -Action Allow `
@@ -118,7 +118,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 
 4. This rule allows inbound internet traffic to hit the web server. This rule does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
 
-	```PowerShell
+	```powershell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
          Set-AzureNetworkSecurityRule -Name "Enable Internet to $VMName[0]" `
          -Type Inbound -Priority 120 -Action Allow `
@@ -130,7 +130,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 
 5. This rule allows traffic to pass from the IIS01 server to the AppVM01 server, a later rule blocks all other Frontend to Backend traffic. To improve this rule, if the port is known that should be added. For example, if the IIS server is hitting only SQL Server on AppVM01, the Destination Port Range should be changed from “*” (Any) to 1433 (the SQL port) thus allowing a smaller inbound attack surface on AppVM01 should the web application ever be compromised.
 
-	```PowerShell
+	```powershell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable $VMName[1] to $VMName[2]" `
         -Type Inbound -Priority 130 -Action Allow `
@@ -141,7 +141,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 	```
 
 6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
-	```PowerShell
+	```powershell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
     	Set-AzureNetworkSecurityRule `
         -Name "Isolate the $VNetName VNet from the Internet" `
@@ -153,7 +153,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 	```
 7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this rule is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
 
-	```PowerShell
+	```powershell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
 		Set-AzureNetworkSecurityRule `
 		-Name "Isolate the $FESubnet subnet from the $BESubnet subnet" `
@@ -279,7 +279,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 > 
 >
 
-```PowerShell
+```powershell
 <# 
  .SYNOPSIS
   Example of Network Security Groups in an isolated network (Azure only, no hybrid connections)

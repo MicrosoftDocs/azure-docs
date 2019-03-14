@@ -37,7 +37,7 @@ This happens when the Data disk logical size can get out of sync with the actual
 
 #### Verifying the issue
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -75,7 +75,7 @@ Name              : coreosvm-dd1.vhd
 
 #### Mitigating the issue
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

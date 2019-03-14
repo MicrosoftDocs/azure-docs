@@ -46,13 +46,13 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
 1. Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by running the following cmdlet:
 
-    ```PowerShell  
+    ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
 2. Declare the **subject** as an ordered dictionary. For example:
 
-    ```PowerShell  
+    ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
 
@@ -61,7 +61,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
 3. Declare an output directory that already exists. For example:
 
-    ```PowerShell  
+    ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
@@ -69,19 +69,19 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
     Azure Active Directory
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "AAD"
     ```
 
     Active Directory Federation Services
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "ADFS"
     ```
 
 5. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
 
-    ```PowerShell
+    ```powershell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ```
@@ -91,7 +91,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
 6. To generate certificate signing requests for each DNS name:
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -99,7 +99,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
 7. Alternatively, for Dev/Test environments, to generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -107,7 +107,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 
 8. Review the output:
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
 
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont

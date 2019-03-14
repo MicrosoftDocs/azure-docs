@@ -42,11 +42,11 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 
 You can do this by **running the following PowerShell command:**
 
-   ```PowerShell
+   ```powershell
    Get-AzureRmResourceProvider
    ```
    If you do **not see `Microsoft.CognitiveServices`**, you have to register the resource provider by **running the following command**:
-   ```PowerShell
+   ```powershell
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
    ```
 2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
@@ -56,12 +56,12 @@ You can do this by **running the following PowerShell command:**
        * Face
        * TextTranslation
 
-   ```PowerShell
+   ```powershell
    New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
    ```
    Example: 
 
-   ```PowerShell
+   ```powershell
    New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
    ```
 
@@ -77,12 +77,12 @@ You must retrieve an account key to access the specific API.
 
 In the PowerShell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
 
-```PowerShell
+```powershell
 Get-AzureRmCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
 ```
 
 Example:
-```PowerShell
+```powershell
 Get-AzureRmCognitiveServicesAccountKey -Name myFaceAPI -ResourceGroupName 'resourcegrouptest'
 ```
 Copy and save the first key somewhere as you will need it to make calls to the API.

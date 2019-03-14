@@ -86,7 +86,7 @@ There are two required installers for Azure AD password protection. They're avai
 1. Open a PowerShell window as an administrator.
    * The password protection proxy software includes a new PowerShell module, *AzureADPasswordProtection*. The following steps run various cmdlets from this PowerShell module. Import the new module as follows:
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -107,7 +107,7 @@ There are two required installers for Azure AD password protection. They're avai
 
       * Interactive authentication mode:
 
-         ```PowerShell
+         ```powershell
          Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
          ```
          > [!NOTE]
@@ -115,7 +115,7 @@ There are two required installers for Azure AD password protection. They're avai
 
       * Device-code authentication mode:
 
-         ```PowerShell
+         ```powershell
          Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
@@ -124,7 +124,7 @@ There are two required installers for Azure AD password protection. They're avai
 
       * Silent (password-based) authentication mode:
 
-         ```PowerShell
+         ```powershell
          $globalAdminCredentials = Get-Credential
          Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
          ```
@@ -147,7 +147,7 @@ There are two required installers for Azure AD password protection. They're avai
 
       * Interactive authentication mode:
 
-         ```PowerShell
+         ```powershell
          Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
          ```
          > [!NOTE]
@@ -155,7 +155,7 @@ There are two required installers for Azure AD password protection. They're avai
 
       * Device-code authentication mode:
 
-         ```PowerShell
+         ```powershell
          Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
          To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
          ```
@@ -163,7 +163,7 @@ There are two required installers for Azure AD password protection. They're avai
          You then complete authentication by following the displayed instructions on a different device.
 
       * Silent (password-based) authentication mode:
-         ```PowerShell
+         ```powershell
          $globalAdminCredentials = Get-Credential
          Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
          ```
@@ -222,7 +222,7 @@ There are two required installers for Azure AD password protection. They're avai
 1. Optional: Configure the proxy service for password protection to listen on a specific port.
    * The DC Agent software for password protection on the domain controllers uses RPC over TCP to communicate with the proxy service. By default, the proxy service listens on any available dynamic RPC endpoint. But you can configure the service to listen on a specific TCP port, if this is necessary because of networking topology or firewall requirements in your environment.
       * <a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -230,7 +230,7 @@ There are two required installers for Azure AD password protection. They're avai
          > You must stop and restart the service for these changes to take effect.
 
       * To configure the service to run under a dynamic port, use the same procedure but set *StaticPort* back to zero:
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -242,7 +242,7 @@ There are two required installers for Azure AD password protection. They're avai
 
    * To query for the current configuration of the service, use the `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy

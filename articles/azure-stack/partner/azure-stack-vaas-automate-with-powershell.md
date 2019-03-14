@@ -41,7 +41,7 @@ This script can be used to:
 
 2. Run the following script to download the automation script:
 
-    ```PowerShell
+    ```powershell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
     Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
@@ -50,7 +50,7 @@ This script can be used to:
 
 3. Run the following script with the appropriate parameter values:
 
-    ```PowerShell
+    ```powershell
     $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
                           -VaaSAccountTenantId <VaaSAccountTenantId> `

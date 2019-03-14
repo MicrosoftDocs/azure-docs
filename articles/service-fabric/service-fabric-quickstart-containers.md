@@ -100,7 +100,7 @@ Once you have provided your values for the variables, press **F5** to run the sc
 
 After the script runs and the cluster is created, find the `ClusterEndpoint` in the output. For example:
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```

@@ -108,7 +108,7 @@ We recommend storing TempDB on a data disk as each data disk provides a maximum 
 
             For example, the following PowerShell creates a new storage pool with the interleave size set to 64 KB and the number of columns to 2:
 
-          ```PowerShell  
+          ```powershell  
           $PoolCount = Get-PhysicalDisk -CanPool $True
           $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

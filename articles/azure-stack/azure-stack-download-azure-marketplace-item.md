@@ -97,14 +97,14 @@ There are two parts to this scenario:
 
 3. If you have multiple subscriptions, run the following command to select the one you have used for registration:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. Download the latest version of the marketplace syndication tool by using the following script:  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -122,7 +122,7 @@ There are two parts to this scenario:
 
 5. Import the syndication module and then launch the tool by running the following commands. Replace `Destination folder path` with a location to store the files you download from the Azure Marketplace.   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -160,7 +160,7 @@ There are two parts to this scenario:
 
 3. Import the syndication module and then launch the marketplace syndication tool by running the following script:
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -203,7 +203,7 @@ There are two parts to this scenario:
 
    As an alternative to this script, you can use the [procedure described in this article](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) to import the .VHD image using the Azure portal.
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -227,7 +227,7 @@ There are two parts to this scenario:
 
 
 4.  Use PowerShell to publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem** cmdlet. For example:  
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -237,7 +237,7 @@ There are two parts to this scenario:
 
 With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine Extensions. For example:
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

@@ -236,13 +236,13 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 ## Test your template
 Use the following PowerShell command to test your Resource Manager template with a parameter file:
 
-```PowerShell
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
-```PowerShell
+```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 

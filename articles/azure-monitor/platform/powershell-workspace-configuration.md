@@ -53,7 +53,7 @@ The following script sample illustrates how to:
 11. Collect Memory Available Mbytes performance counter from Windows computers
 12. Collect a custom log
 
-```PowerShell
+```powershell
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
@@ -217,7 +217,7 @@ For the details of the available metrics, refer to [supported metrics with Azure
 
 For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
-```PowerShell
+```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
@@ -241,7 +241,7 @@ The following example shows how to:
 3. Update the newly created configuration to index data from additional locations
 4. Delete the newly created configuration
 
-```PowerShell
+```powershell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 

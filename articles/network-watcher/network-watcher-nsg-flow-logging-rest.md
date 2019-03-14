@@ -52,7 +52,7 @@ In this scenario, you will:
 
 Log in to armclient with your Azure credentials.
 
-```PowerShell
+```powershell
 armclient login
 ```
 

@@ -42,13 +42,13 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
 1. Open PowerShell with elevated permission on the hardware lifecycle host or the Azure Stack management workstation.
 2. Run the following cmdlet to install the Azure Stack Readiness Checker tool.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. Run the following script to create the required folder structure:
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -64,7 +64,7 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
 4. Place the existing certificates, which you are currently using in Azure Stack, in appropriate directories. For example, put the **Admin ARM** certificate in the `Arm Admin` folder. And then put the newly created hosting certificates in the `Admin extension host` and `Public extension host` directories.
 5. Run the following cmdlet to start the certificate check:
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -81,7 +81,7 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 2. Open PowerShell ISE to execute the next script blocks
 3. Import the certificate for the Admin hosting endpoint.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -99,7 +99,7 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
     }
     ```
 4. Import the certificate for the hosting endpoint.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -137,7 +137,7 @@ The article, [Azure Stack datacenter integration - Publish endpoints](azure-stac
 
 There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code that must be run from your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -168,7 +168,7 @@ Remove-PSSession -Session $PEPSession
 
 #### Sample Output
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

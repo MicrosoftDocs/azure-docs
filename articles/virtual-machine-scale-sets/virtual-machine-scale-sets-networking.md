@@ -166,12 +166,12 @@ Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quic
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
 
 To list scale set public IP addresses using PowerShell, use the _Get-AzPublicIpAddress_ command. For example:
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 

@@ -94,7 +94,7 @@ The [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2fto
 
 As a quick example, here's the AzCopy command for uploading a file called *myfile.txt* to the *mystoragecontainer* container from within a PowerShell window.
 
-```PowerShell
+```powershell
 ./AzCopy `
     /Source:C:\myfolder `
     /Dest:https://mystorageaccount.blob.core.windows.net/mystoragecontainer `

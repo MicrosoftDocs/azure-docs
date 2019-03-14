@@ -276,7 +276,7 @@ For the \<SID2> system, you must prepare the SAP Global Host ..\SYS\.. folder on
 To prepare the SAP Global Host for the \<SID2> instance, execute the following PowerShell script:
 
 
-```PowerShell
+```powershell
 ##################
 # SAP multi-SID
 ##################
@@ -332,7 +332,7 @@ _**Figure 4:** Multi-SID SOFS is the same as SAP GLOBAL host name 2_
 
 To create the second SOFS role with \<SAPGlobalHost2>, execute this PowerShell script:
 
-```PowerShell
+```powershell
 # Create SOFS with SAP Global Host Name 2
 $SAPGlobalHostName = "sapglobal2"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
@@ -340,7 +340,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 Create the second **Volume2**. Execute this PowerShell script:
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
@@ -352,7 +352,7 @@ Create an SAP Global folder for the second \<SID2>, and set file security.
 
 Execute this PowerShell script:
 
-```PowerShell
+```powershell
 # Create a folder for <SID2> on a second Volume2 and set file security
 $SAPSID = "PR2"
 $DomainName = "SAPCLUSTER"

@@ -117,14 +117,14 @@ The preview is intended for non-production use only. Production service-level ag
 
 To register for the preview, run the following commands in PowerShell. Make sure to replace the placeholder in brackets with your own subscription ID:
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 It may take 1-2 days to receive approval for the preview. To verify that your registration has been approved, run the following command:
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 

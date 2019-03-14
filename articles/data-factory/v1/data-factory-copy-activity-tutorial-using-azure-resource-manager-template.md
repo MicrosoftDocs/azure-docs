@@ -318,22 +318,22 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 1. Start **Azure PowerShell** and run the following command:
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-	```PowerShell
+	```powershell
 	Connect-AzAccount   	
 	```  
    * Run the following command to view all the subscriptions for this account.
    
-	```PowerShell
+	```powershell
 	Get-AzSubscription
 	```   
    * Run the following command to select the subscription that you want to work with.
     
-	```PowerShell
+	```powershell
 	Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
 	```    
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
-	```PowerShell   
+	```powershell   
 	New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 	```
 
@@ -575,13 +575,13 @@ In the tutorial, you created a template for defining Data Factory entities and a
 
 Example:  
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 

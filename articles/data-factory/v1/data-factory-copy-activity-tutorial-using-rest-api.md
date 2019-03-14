@@ -61,22 +61,22 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
-	```PowerShell 
+	```powershell 
 	Connect-AzAccount
 	```   
   2. Run the following command to view all the subscriptions for this account:
 
-	```PowerShell     
+	```powershell     
 	Get-AzSubscription
 	``` 
   3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
      
-	```PowerShell
+	```powershell
 	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
 	```
   4. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:  
 
-	```PowerShell     
+	```powershell     
       New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 	```
      
@@ -318,7 +318,7 @@ $adf = "ADFCopyTutorialDF"
 ## Authenticate with AAD
 Run the following command to authenticate with Azure Active Directory (AAD): 
 
-```PowerShell
+```powershell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
 $responseToken = Invoke-Command -scriptblock $cmd;
 $accessToken = (ConvertFrom-Json $responseToken).access_token;
@@ -334,12 +334,12 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 	> [!IMPORTANT]
 	> Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
    
-	```PowerShell
+	```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
    
-	```PowerShell
+	```powershell
 	$results = Invoke-Command -scriptblock $cmd;
 	```
 3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.  
@@ -363,12 +363,12 @@ Note the following points:
   
   * In Azure PowerShell, run the following command to register the Data Factory provider: 
 
-	```PowerShell    
+	```powershell    
 	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
-	```PowerShell
+	```powershell
 	Get-AzResourceProvider
 	```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
@@ -387,17 +387,17 @@ In this step, you link your Azure storage account to your data factory. You spec
 
 1. Assign the command to variable named **cmd**. 
 
-	```PowerShell   
+	```powershell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell   
+	```powershell   
 	$results = Invoke-Command -scriptblock $cmd;
 	```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
-	```PowerShell   
+	```powershell   
 	Write-Host $results
 	```
 
@@ -406,17 +406,17 @@ In this step, you link your Azure SQL database to your data factory. You specify
 
 1. Assign the command to variable named **cmd**. 
    
-	```PowerShell
+	```powershell
 	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
    
-	```PowerShell
+	```powershell
 	$results = Invoke-Command -scriptblock $cmd;
 	```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
    
-	```PowerShell
+	```powershell
 	Write-Host $results
 	```
 
@@ -437,12 +437,12 @@ In this step, you create a dataset named AzureBlobInput that points to a blob fi
 	```
 2. Run the command by using **Invoke-Command**.
    
-	```PowerShell
+	```powershell
 	$results = Invoke-Command -scriptblock $cmd;
 	```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
    
-	```PowerShell
+	```powershell
 	Write-Host $results
 	```
 
@@ -451,17 +451,17 @@ The Azure SQL Database linked service specifies the connection string that Data 
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell   
+	```powershell   
 	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
 	
-	```PowerShell   
+	```powershell   
 	$results = Invoke-Command -scriptblock $cmd;
 	```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
    
-	```PowerShell
+	```powershell
 	Write-Host $results
 	``` 
 
@@ -472,17 +472,17 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 
 1. Assign the command to variable named **cmd**.
 
-	```PowerShell   
+	```powershell   
 	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
 	```
 2. Run the command by using **Invoke-Command**.
 
-	```PowerShell   
+	```powershell   
 	$results = Invoke-Command -scriptblock $cmd;
 	```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.  
 
-	```PowerShell   
+	```powershell   
 	Write-Host $results
 	```
 
@@ -491,22 +491,22 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 ## Monitor pipeline
 In this step, you use Data Factory REST API to monitor slices being produced by the pipeline.
 
-```PowerShell
+```powershell
 $ds ="AzureSqlOutput"
 ```
 
 > [!IMPORTANT] 
 > Make sure that the start and end times specified in the following command match the start and end times of the pipeline. 
 
-```PowerShell
+```powershell
 $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=2017-05-11T00%3a00%3a00.0000000Z"&"end=2017-05-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 ```
 
-```PowerShell
+```powershell
 $results2 = Invoke-Command -scriptblock $cmd;
 ```
 
-```PowerShell
+```powershell
 IF ((ConvertFrom-Json $results2).value -ne $NULL) {
     ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
 } else {

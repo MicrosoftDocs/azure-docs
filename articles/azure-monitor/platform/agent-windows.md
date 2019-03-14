@@ -133,7 +133,7 @@ To retrieve the product code from the agent install package directly, you can us
 2.	Create Azure Automation variable assets for *OPSINSIGHTS_WS_ID* and *OPSINSIGHTS_WS_KEY*. Set *OPSINSIGHTS_WS_ID* to your Log Analytics workspace ID and set *OPSINSIGHTS_WS_KEY* to the primary key of your workspace.
 3.	Copy the script and save it as MMAgent.ps1.
 
-    ```PowerShell
+    ```powershell
     Configuration MMAgent
     {
 	    $OIPackageLocalPath = "C:\Deploy\MMASetup-AMD64.exe"

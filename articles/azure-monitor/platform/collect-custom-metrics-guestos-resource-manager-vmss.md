@@ -236,12 +236,12 @@ To deploy the Resource Manager template, use Azure PowerShell:
 1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription you'll create, or update the virtual machine: 
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Create a new resource group for the VM being deployed. Run the following command: 
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
@@ -253,7 +253,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    > [!NOTE]  
    > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command. 
  
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 

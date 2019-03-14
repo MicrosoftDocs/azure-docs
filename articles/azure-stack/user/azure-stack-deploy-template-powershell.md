@@ -37,7 +37,7 @@ This example uses **AzureRM** PowerShell cmdlets and a template stored on GitHub
 2. Open an elevated PowerShell command prompt.
 3. Replace `username` and `password` in the following script with your username and password, and then run the script:
 
-    ```PowerShell
+    ```powershell
     # Set deployment variables
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"

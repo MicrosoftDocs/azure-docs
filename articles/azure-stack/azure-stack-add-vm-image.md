@@ -80,7 +80,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 3. Open PowerShell with an elevated prompt, and run:
 
-  ```PowerShell  
+  ```powershell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -115,7 +115,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
  
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-  ```PowerShell  
+  ```powershell  
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -136,7 +136,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 2. If using **Active Directory Federation Services**, use the following cmdlet:
 
-  ```PowerShell
+  ```powershell
   # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -155,7 +155,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 5. Prepare a Windows or Linux operating system image in VHD format (not VHDX), upload the image to your storage account, and get the URI where the VM image can be retrieved by PowerShell.  
 
-  ```PowerShell  
+  ```powershell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -163,14 +163,14 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 6. (Optionally) You can upload an array of data disks as part of the VM image. Create your data disks using the New-DataDiskObject cmdlet. Open PowerShell from an elevated prompt, and run:
 
-  ```PowerShell  
+  ```powershell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
   ```
 
 7. Open PowerShell with an elevated prompt, and run:
 
-  ```PowerShell  
+  ```powershell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
   ```
 
@@ -186,7 +186,7 @@ When you no longer need the virtual machine image that you uploaded, you can del
 
 3. Open PowerShell with an elevated prompt, and run:
 
-  ```PowerShell  
+  ```powershell  
   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `

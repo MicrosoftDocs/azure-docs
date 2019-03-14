@@ -82,7 +82,7 @@ You need to work with your Azure Stack administrator to set up your service prin
 
     - Open PowerShell with an elevated prompt, and [connect to Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Run the following script with the parameters updated to your values:
 
-    ```PowerShell  
+    ```powershell  
         $armEndpoint="<Azure Resource Manager Endpoint>"
         $subscriptionId="<Your Subscription ID>"
         $username="<your user name >"
@@ -123,7 +123,7 @@ You need to work with your Azure Stack administrator to set up your service prin
 
     - Open PowerShell with an elevated prompt, and [connect to Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Run the following script with the parameters updated to your values:
 
-    ```PowerShell  
+    ```powershell  
         
     # upload the pfx to key vault
     $tempPFXFilePath = "<certificate path>"

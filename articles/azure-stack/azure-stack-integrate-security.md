@@ -179,13 +179,13 @@ To remove the syslog server configuration altogether and stop syslog forwarding:
 
 **Remove the syslog server configuration from the client**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **Remove the client certificate from the client**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -195,13 +195,13 @@ If you successfully connected the syslog client to your syslog server, you shoul
 
 **Verify the server configuration in the syslog client**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **Verify the certificate setup in the syslog client**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

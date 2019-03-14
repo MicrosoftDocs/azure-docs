@@ -66,7 +66,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
    * Check the **Persistence Routes** sections. If there is a persistent route, use the **route delete** command to remove it.
 2. Remove the WinHTTP proxy:
    
-    ```PowerShell
+    ```powershell
     netsh winhttp reset proxy
     ```
 
@@ -81,7 +81,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 
 3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
-    ```PowerShell
+    ```powershell
     diskpart 
     ```
     In the open Command Prompt window, type the following commands:
@@ -93,19 +93,19 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 
 4. Set Coordinated Universal Time (UTC) time for Windows and the startup type of the Windows Time (w32time) service to **Automatically**:
    
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
 5. Set the power profile to the **High Performance**:
 
-    ```PowerShell
+    ```powershell
     powercfg /setactive SCHEME_MIN
     ```
 6. Make sure that the environmental variables **TEMP** and **TMP** are set to their default values:
 
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
 
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
@@ -114,7 +114,7 @@ On the VM that you plan to upload to Azure, run all commands in the following st
 ## Check the Windows services
 Make sure that each of the following Windows services is set to the **Windows default values**. These are the minimum numbers of services that must be set up to make sure that the VM has connectivity. To reset the startup settings, run the following commands:
    
-```PowerShell
+```powershell
 Set-Service -Name bfe -StartupType Automatic
 Set-Service -Name dhcp -StartupType Automatic
 Set-Service -Name dnscache -StartupType Automatic
@@ -138,7 +138,7 @@ Make sure that the following settings are configured correctly for remote deskto
 
 1. Remote Desktop Protocol (RDP) is enabled:
    
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord -force
 
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
@@ -146,19 +146,19 @@ Make sure that the following settings are configured correctly for remote deskto
    
 2. The RDP port is set up correctly (Default port 3389):
    
-    ```PowerShell
+    ```powershell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
     ```
     When you deploy a VM, the default rules are created against port 3389. If you want to change the port number,  do that after the VM is deployed in Azure.
 
 3. The listener is listening in every network interface:
    
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
    ```
 4. Configure the Network Level Authentication mode for the RDP connections:
    
-    ```PowerShell
+    ```powershell
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
 
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" -Value 1 -Type DWord -force
@@ -168,26 +168,26 @@ Make sure that the following settings are configured correctly for remote deskto
 
 5. Set the keep-alive value:
     
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" -Value 1  -Type DWord -force
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
     ```
 6. Reconnect:
     
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" -Value 1 -Type DWord -force
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" -Value 0 -Type DWord -force
     ```
 7. Limit the number of concurrent connections:
     
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
     ```
 8. If there are any self-signed certificates tied to the RDP listener, remove them:
     
-    ```PowerShell
+    ```powershell
     Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
     ```
     This is to make sure that you can connect at the beginning when you deploy the VM. You can also review this on a later stage after the VM is deployed in Azure if needed.
@@ -205,25 +205,25 @@ Make sure that the following settings are configured correctly for remote deskto
 ## Configure Windows Firewall rules
 1. Turn on Windows Firewall on the three profiles (Domain, Standard, and Public):
 
-   ```PowerShell
+   ```powershell
     Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True
    ```
 
 2. Run the following command in PowerShell to allow WinRM through the three firewall profiles (Domain, Private, and Public) and enable the PowerShell Remote service:
    
-   ```PowerShell
+   ```powershell
     Enable-PSRemoting -force
 
     Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -Enabled True
    ```
 3. Enable the following firewall rules to allow the RDP traffic:
 
-   ```PowerShell
+   ```powershell
     Set-NetFirewallRule -DisplayGroup "Remote Desktop" -Enabled True
    ```   
 4. Enable the File and Printer Sharing rule so that the VM can respond to a ping command inside the Virtual Network:
 
-   ```PowerShell
+   ```powershell
    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -Enabled True
    ``` 
 5. If the VM  will be part of a Domain, check the following settings to make sure that the former settings are not reverted. The AD policies that must be checked are the following:
@@ -239,7 +239,7 @@ Make sure that the following settings are configured correctly for remote deskto
 ## Verify VM is healthy, secure, and accessible with RDP 
 1. To make sure the disk is healthy and consistent, run a check disk operation at the next VM restart:
 
-    ```PowerShell
+    ```powershell
     Chkdsk /f
     ```
     Make sure that the report shows a clean and healthy disk.
@@ -286,14 +286,14 @@ Make sure that the following settings are configured correctly for remote deskto
     ```
 4. Verify that the Windows Management Instrumentations repository is consistent. To perform this, run the following command:
 
-    ```PowerShell
+    ```powershell
     winmgmt /verifyrepository
     ```
     If the repository is corrupted, see [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 5. Make sure that any other application is not using the port 3389. This port is used for the RDP service in Azure. You can run **netstat -anob** to see which ports are in used on the VM:
 
-    ```PowerShell
+    ```powershell
     netstat -anob
     ```
 
@@ -414,7 +414,7 @@ The following settings do not affect VHD uploading. However, we strongly recomme
 * Install the [Azure VMs Agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Then you can enable VM extensions. The VM extensions implement most of the critical functionality that you might want to use with your VMs such as resetting passwords, configuring RDP, and so on. For more information, see [Azure Virtual Machine Agent overview](../extensions/agent-windows.md).
 *  After the VM is created in Azure, we recommend that you put the pagefile on the ”Temporal drive” volume to improve performance. You can set up this as follows:
 
-    ```PowerShell
+    ```powershell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 If there’s any data disk that is attached to the VM, the Temporal drive volume's drive letter is typically "D." This designation could be different, depending on the number of available drives and the settings that you  make.

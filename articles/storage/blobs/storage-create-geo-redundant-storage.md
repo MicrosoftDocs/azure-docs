@@ -136,7 +136,7 @@ export storageconnectionstring=<yourconnectionstring>
 ```
 ### Windows
 
-```PowerShell
+```powershell
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
@@ -154,7 +154,7 @@ export accountkey=<youraccountkey>
 ```
 ### Windows
 
-```PowerShell
+```powershell
 setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```

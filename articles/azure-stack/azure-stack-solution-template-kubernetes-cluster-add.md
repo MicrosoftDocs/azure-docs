@@ -75,7 +75,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -103,7 +103,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
 2.  Make a note of the new certificate ID displayed in your PowerShell session, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. The ID will be used when creating the service principal.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -123,7 +123,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
     - Run the following script with the parameters updated to your values:
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -256,7 +256,7 @@ To remove the Kubernetes item:
 
 2. Find the current Kubernetes Cluster item in the gallery.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -264,7 +264,7 @@ To remove the Kubernetes item:
 
 4. Use the following PowerShell cmdlet to remove the item:
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

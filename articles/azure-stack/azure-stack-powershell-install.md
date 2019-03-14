@@ -54,7 +54,7 @@ Validate if PSGallery is registered as a repository.
 
 Open an elevated PowerShell prompt, and run the following cmdlets:
 
-```PowerShell
+```powershell
 Import-Module -Name PowerShellGet -ErrorAction Stop
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
@@ -62,7 +62,7 @@ Get-PSRepository -Name "PSGallery"
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
 
-```PowerShell
+```powershell
 Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
@@ -73,7 +73,7 @@ Before installing the required version, make sure that you uninstall any previou
 
 1. To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions, and run the following cmdlets:
 
-    ```PowerShell
+    ```powershell
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ```
@@ -97,7 +97,7 @@ Run the following PowerShell script to install these modules on your development
 
 - Azure Stack 1901 or later:
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.0
@@ -108,7 +108,7 @@ Run the following PowerShell script to install these modules on your development
     > The AzureRm module version 2.4.0 comes with a breaking change for the cmdlet Remove-AzureRmStorageAccount. This cmdlet expects -Force prameter to be specified for removing the storage account without confirmation.
 - Azure Stack 1811:
 
-    ```PowerShell
+    ```powershell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRm.BootStrapper
 
@@ -120,7 +120,7 @@ Run the following PowerShell script to install these modules on your development
 
 - Azure Stack 1810 or earlier:
 
-    ```PowerShell
+    ```powershell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRm.BootStrapper
 
@@ -137,7 +137,7 @@ Run the following PowerShell script to install these modules on your development
 
 To make use of the additional storage features (mentioned in the connected section), download and install the following packages as well.
 
-```PowerShell
+```powershell
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
@@ -156,7 +156,7 @@ Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
 
 Confirm the installation by running the following command:
 
-```PowerShell
+```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
@@ -181,7 +181,7 @@ Installation has four steps:
 
 - Azure Stack 1901 or later.
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -196,7 +196,7 @@ Installation has four steps:
 
   - Azure Stack 1811 or earlier.
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -207,7 +207,7 @@ Installation has four steps:
 
   - Azure Stack 1809 or earlier.
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -218,7 +218,7 @@ Installation has four steps:
 
     > [!NOTE]  
     >On machines without an Internet connection, we recommend executing the following cmdlet for disabling the telemetry data collection. You may experience a performance degradation of the cmldets without disabling the telemetry data collection. This is applicable only for the machines without internet connections
-    ```PowerShell
+    ```powershell
     Disable-AzureRmDataCollection
     ```
 
@@ -226,7 +226,7 @@ Installation has four steps:
 
 To make use of the additional storage features (mentioned in the connected section), download and install the following packages as well.
 
-```PowerShell
+```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
@@ -240,7 +240,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. Now register this location as the default repository and install the AzureRM and AzureStack modules from this repository:
 
-   ```PowerShell
+   ```powershell
    #requires -Version 5
    #requires -RunAsAdministrator
    #requires -Module PowerShellGet
@@ -260,7 +260,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 Confirm the installation by running the following command:
 
-```PowerShell
+```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
@@ -272,7 +272,7 @@ In scenarios that require a proxy server to access the Internet, you must first 
 1. Open an elevated PowerShell prompt.
 2. Run the following commands:
 
-   ```PowerShell
+   ```powershell
    #To use Windows credentials for proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 

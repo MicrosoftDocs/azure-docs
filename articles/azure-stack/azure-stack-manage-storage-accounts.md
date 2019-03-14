@@ -158,7 +158,7 @@ You can also use PowerShell to explicitly override the retention period and imme
 > [!NOTE]  
 > If you run these cmdlets, you permanently delete the account and its contents. It is not recoverable. Use this with care.
 
-```PowerShell  
+```powershell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```

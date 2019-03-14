@@ -153,7 +153,7 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Open an Admin PowerShell command window.
 7. Run the following command:
 
-  ```PowerShell
+  ```powershell
   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
   net stop obengine
@@ -173,7 +173,7 @@ You can modify proxy settings for the configuration server machine as follows:
   6. Open an Admin PowerShell command window.
   7. Run the following command
 
-      ```PowerShell
+      ```powershell
       $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
       net stop obengine
@@ -269,7 +269,7 @@ Upgrade the server as follows:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Now set up your vault context
     
-    ```PowerShell
+    ```powershell
     $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```

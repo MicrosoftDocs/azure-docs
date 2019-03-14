@@ -25,7 +25,7 @@ Performance counters provide a way for you to track how well your application an
 
 A performance counter is made up of two parts, a set name (also known as a category) and one or more counters. You can use PowerShell to get a list of available performance counters:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
 
 CounterSetName                                  Paths
@@ -52,7 +52,7 @@ The `CounterSetName` property represents a set (or category), and is a good indi
 
 To get all of the counters for a set, use the `CounterSetName` value and expand the `Paths` collection. Each path item is a counter you can query. For example, to get the available counters related to the `Processor` set, expand the `Paths` collection:
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
 
 \Processor(*)\% Processor Time

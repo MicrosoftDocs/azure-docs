@@ -96,14 +96,14 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
-   ```PowerShell  
+   ```powershell  
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Use commands such as the following examples to work with alerts:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
     Get-AzsAlert
 
