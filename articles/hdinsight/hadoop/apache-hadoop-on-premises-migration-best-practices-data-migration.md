@@ -28,9 +28,9 @@ There are two main options to migrate data from on-premises to Azure environment
 
 The following table has approximate data transfer duration based on the data volume and network bandwidth. Use a Data box if the data migration is expected to take more than three weeks.
 
-|**Data Qty**|**Network Bandwidth**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
+|**Data Qty**|**Network Bandwidth**||||
+|---|---|---|---|---|
+|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 days|1 day| 2 hours|14 minutes|
 |10 TB|22 days|10 days|1 day|2 hours|
 |35 TB|76 days|34 days|3 days|8 hours|

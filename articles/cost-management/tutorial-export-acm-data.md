@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Create and manage exported data from Azure Cost Management | Microsoft Docs
-description: This article shows you how you can create an manage exported Azure Cost Management data so that you can use it in external systems.
+description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
@@ -40,9 +40,9 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a daily export
 
-Cost Management + Billing &gt; Cost Management &gt; select a subscription or resource group in a subscription &gt; Export &gt; **Add**.
+To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, click **Export** and then choose an export option. For example, click **Schedule export**. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-Type a name for the export and select the **Daily export of month-to-date costs** option. Click **Next**.
+Click **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Click **Next**.
 
 ![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)
 

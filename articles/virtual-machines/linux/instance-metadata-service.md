@@ -47,7 +47,7 @@ This table is updated when there are service updates and or new supported versio
 > 2018-10-01 is currently getting rolled out and will be available in other regions shortly. 
 This table is updated when there are service updates and or new supported versions are available
 
-To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](http://portal.azure.com) in the above regions and follow the examples below.
+To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
 
 ## Usage
 
@@ -628,7 +628,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. Why am I getting the error `500 Internal Server Error`?
    * Retry your request based on exponential back off system. If the issue persists contact  Azure support.
 6. Where do I share additional questions/comments?
-   * Send your comments on http://feedback.azure.com.
+   * Send your comments on https://feedback.azure.com.
 7. Would this work for Virtual Machine Scale Set Instance?
    * Yes Metadata service is available for Scale Set Instances.
 8. How do I get support for the service?
