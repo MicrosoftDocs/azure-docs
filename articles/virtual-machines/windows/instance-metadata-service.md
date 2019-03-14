@@ -329,7 +329,7 @@ Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scen
  **Request**
 
  ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2010-10-01&nonce=1234567890"
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 
 ```
 
