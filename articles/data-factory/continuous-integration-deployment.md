@@ -1064,7 +1064,8 @@ The default parameterization template can change, but this is the current templa
 }
 ```
 
-Example - Add Databricks Interactive cluster Id (from a Databricks Linked Service) to the parameters file
+**Example**: Add a Databricks Interactive cluster ID (from a Databricks Linked Service) to the parameters file:
+
 ```
 {
     "Microsoft.DataFactory/factories/pipelines": {
