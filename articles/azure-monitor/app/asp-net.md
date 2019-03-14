@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Right-click your web app name in the Solution Explorer, and choose **Add** > **Application Insights Telemetry**
 
-![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/asp-net/add-telemetry.png)
+![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/asp-net/add-telemetry-new.png)
 
 (Depending on your Application Insights SDK version you may be prompted to upgrade to the latest SDK release. If prompted, select **Update SDK**.)
 
