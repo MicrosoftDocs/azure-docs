@@ -99,23 +99,16 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-reply.png)
+    ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
 
-    a. In the **Reply URL** text box, type a URL using the following pattern:
+	a. In the **Identifier** text box, type a URL:
+    `fed.appreciatehub.com`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.octanner.net/sp/ACS.saml2`
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Reply URL. Contact [O.C. Tanner - AppreciateHub Client support team](mailto:sso@octanner.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-	b. Open the metadata file using the following link: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
-   
-    c. Locate the **md:AssertionConsumerService** node. 
-   
-    d. Copy the value of the **Location** attribute. 
-   
-    ![Configure App Settings][12]
-   
-    e. In the **Sign On URL** textbox, past the value you have obtained in the previous step.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
