@@ -77,7 +77,7 @@ Azure AD password protection isn't a real-time policy application engine. There 
 
 Deployment of Azure AD password protection in an Active Directory forest requires registration of that forest with Azure AD. Each Proxy service that is deployed must also be registered with Azure AD. These forest and proxy registrations are associated with a specific Azure AD tenant, which is identified implicitly by the credentials that are used during registration.
 
-The Active Directory forest and all deployed Proxy services within a forest must be registered with the same tenant. It is not supported to have an Active Directory forest or any Proxy services in that forest being registered to different Azure AD tenants. Symptoms of such a mis-configured deployments includes for example the inability to download password policies.
+The Active Directory forest and all deployed Proxy services within a forest must be registered with the same tenant. It is not supported to have an Active Directory forest or any Proxy services in that forest being registered to different Azure AD tenants. Symptoms of such a mis-configured deployment include the inability to download password policies.
 
 ## License requirements
 
