@@ -17,6 +17,7 @@ ms.custom: seodec18
 This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
 
 Time Series Insights supports the following resources:
+
    | Resource | Description |
    | --- | --- |
    | Environment | A Time Series Insights environment is a logical grouping of events which are read from event brokers, stored, and made available for query. For more information see [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
