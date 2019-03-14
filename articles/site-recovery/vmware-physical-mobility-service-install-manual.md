@@ -82,9 +82,10 @@ Before you install, create a passphrase that will be used during installation.
   ```
 
 #### Installation settings
+
 **Setting** | **Details**
 --- | ---
-Usage | UnifiedAgent.exe /Role <MS
+Usage | UnifiedAgent.exe /Role <MS\|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 /InstallLocation| Optional parameter. Specifies the Mobility service installation location (any folder).
@@ -92,6 +93,7 @@ Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
+
 **Setting** | **Details**
 --- | ---
 Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
@@ -121,15 +123,17 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 
 
 #### Installation settings
+
 **Setting** | **Details**
 --- | ---
-Usage | ./install -d <Install Location> -r <MS
+Usage | ./install -d <Install Location> -r <MS\|MT> -v VmWare -q
 -r | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 -d | Optional parameter. Specifies the Mobility service installation location: /usr/local/ASR.
 -v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
 -q | Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
+
 **Setting** | **Details**
 --- | ---
 Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
@@ -137,5 +141,6 @@ Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP>
 -P |  Mandatory. Full file path of the file in which the passphrase is saved. Use any valid folder
 
 ## Next steps
+
 - [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)
 - [Set up disaster recovery for physical servers](physical-azure-disaster-recovery.md)
