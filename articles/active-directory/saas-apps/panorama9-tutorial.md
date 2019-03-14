@@ -144,7 +144,7 @@ To configure Azure AD single sign-on with Panorama9, perform the following steps
    
 	![Settings](./media/panorama9-tutorial/ic790025.png "Settings")
    
-	a. In **Identity provider URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+	a. In **Identity provider URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
    
 	b. In **Certificate fingerprint** textbox, paste the **Thumbprint** value of certificate, which you have copied from Azure portal.    
          
