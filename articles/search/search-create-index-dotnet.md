@@ -21,7 +21,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article will walk you through the process of creating, loading, and querying an Azure Search [index](what-is-an-index.md) using the [Azure Search .NET SDK](https://aka.ms/search-sdk).
+This article will walk you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using the [Azure Search .NET SDK](https://aka.ms/search-sdk).
 
 > [!NOTE]
 > All sample code in this article is written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
@@ -48,7 +48,7 @@ This article will walk you through the process of creating, loading, and queryin
 
 In Visual Studio, create a new Visual C# project. A good template for this quickstart is Visual C# > Get started > Web App. This template gives you an appsettings.json file.  
 
-In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add mydemo to the JSON file.
+In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
 
 ```json
