@@ -16,9 +16,14 @@ ms.author: rezas
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the C SDK only supports device streams on the device side. As a result, this quickstart only covers instructions to run the device-side application. You should run an accompanying service-side application, which is available in the [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md).
+
+> [!IMPORTANT]
+> Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The preview is supported only on IoT hubs created in the following regions:
+>
+> * **Central US**
+> * **Central US EUAP**
+>
 
 The device-side C application in this quickstart has the following functionality:
 
@@ -33,11 +38,6 @@ The code will demonstrate the initiation process of a device stream, as well as 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-
-* The preview of device streams is currently only supported for IoT Hubs created in the following regions:
-
-  - **Central US**
-  - **Central US EUAP**
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Install the latest version of [Git](https://git-scm.com/download/).
@@ -63,7 +63,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
-    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine **before** starting the `CMake` installation. Once the prerequisites are in place and the download is verified, install the CMake build system.
 
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
@@ -94,7 +94,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
       ```cmd
       rem For VS2015
-      cmake .. -G "Visual Studio 15 2015"
+      cmake .. -G "Visual Studio 14 2015"
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"

@@ -72,7 +72,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
-    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine **before** starting the `CMake` installation. Once the prerequisites are in place and the download is verified, install the CMake build system.
 
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
@@ -80,7 +80,6 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
-
 
 3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
 
@@ -103,7 +102,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
       ```cmd
       rem For VS2015
-      cmake .. -G "Visual Studio 15 2015"
+      cmake .. -G "Visual Studio 14 2015"
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
