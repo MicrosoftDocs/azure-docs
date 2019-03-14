@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/14/2019
 ms.author: alkohli
 ---
 # Manage compute on your Azure Data Box Edge
@@ -127,6 +127,23 @@ Take the following steps in the Azure portal to sync the access keys for your de
      ![Select Yes when prompted](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Exit out of the dialog once the sync is complete.
+
+## Enable a network interface for compute 
+
+You may need to access a module running on your Data Box Edge device. To access the module externally, you will need to assign an IP address to a network interface on your device. You can manage these compute settings from your local web UI.
+
+Take the following steps on your local web UI to configure compute settings.
+
+1. In the local web UI, go to **Configuration > Compute settings**.  
+
+2. **Enable** the network interface that you want to use to connect to the compute modules on the device. 
+
+    - If using static IP addresses, enter an IP address for the network interface. 
+    - If using DHCP, then the IP addresses will be automatically assigned. 
+
+3. Select **Apply** to apply the settings.
+
+    ![Enable compute settings](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## Next steps
