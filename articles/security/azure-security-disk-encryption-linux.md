@@ -4,13 +4,8 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-<<<<<<< HEAD
-ms.author: mstewart
-ms.date: 01/30/2018
-=======
 ms.author: mbaldwin
 ms.date: 03/12/2019
->>>>>>> 9047d06fe3a8fcb96faf262ce29ce061e0dd24b4
 
 ms.custom: seodec18
 
@@ -77,11 +72,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 ### <a name="bkmk_RunningLinuxPSH"> </a> Enable encryption on an existing or running Linux VM using PowerShell
 Use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet to enable encryption on a running IaaS virtual machine in Azure. Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or back up the VM with [Azure Backup](../backup/backup-azure-vms-encryption.md) before disks are encrypted. The -skipVmBackup parameter is already specified in the PowerShell scripts to encrypt a running Linux VM.
 
-<<<<<<< HEAD
-- **Encrypt a running VM:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, and key vault,  should have already been created as prerequisites. Replace MySecureRg, MySecureVM, and MySecureVault with your values. You may need to add the -VolumeType parameter if you're encrypting data disks and not the OS disk. 
-=======
 -  **Encrypt a running VM:** The script below initializes your variables and runs the Set-AzVMDiskEncryptionExtension cmdlet. The resource group, VM, and key vault,  should have already been created as prerequisites. Replace MyVirtualMachineResourceGroup, MySecureVM, and MySecureVault with your values. Modify the -VolumeType parameter to specify which disks you're encrypting.
->>>>>>> 9047d06fe3a8fcb96faf262ce29ce061e0dd24b4
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -190,24 +181,6 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
     az vmss encryption disable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss"
     ```
 
-<<<<<<< HEAD
-=======
-### Register for disk encryption preview using Azure Powershell
-
-The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature). You only need to perform the following steps the first time that you use the disk encryption preview feature:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature). When the `RegistrationState` reports *Registered*, re-register the *Microsoft.Compute* provider with [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider):
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
->>>>>>> 9047d06fe3a8fcb96faf262ce29ce061e0dd24b4
 ### Encrypt virtual machine scale sets with Azure PowerShell
 
 Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.

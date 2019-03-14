@@ -4,13 +4,8 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-<<<<<<< HEAD
-ms.author: mstewart
-ms.date: 01/30/2018
-=======
 ms.author: mbaldwin
 ms.date: 03/12/2019
->>>>>>> 9047d06fe3a8fcb96faf262ce29ce061e0dd24b4
 
 ms.custom: seodec18
 
@@ -151,25 +146,6 @@ The following table lists the Resource Manager template parameters for existing 
 
 [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of identical, load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Use the CLI or Azure PowerShell to encrypt virtual machine scale sets.
 
-<<<<<<< HEAD
-=======
-
-### Register for disk encryption preview using Azure Powershell
-
-The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription with [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature). You only need to perform the following steps the first time that you use the disk encryption preview feature:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzProviderFeature](/powershell/module/az.Resources/Get-azProviderFeature). When the `RegistrationState` reports *Registered*, re-register the *Microsoft.Compute* provider with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider):
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
->>>>>>> 9047d06fe3a8fcb96faf262ce29ce061e0dd24b4
 ### Encrypt virtual machine scale sets with Azure PowerShell
 
 Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.
