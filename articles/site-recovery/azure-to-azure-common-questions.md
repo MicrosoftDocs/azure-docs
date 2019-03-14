@@ -219,7 +219,7 @@ After reprotection, the amount of time for failback is usually similar to the ti
 
 ## <a name="capacity"></a>Capacity
 ### Does Site Recovery work with Reserved Instance?
-Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR Failover operations will use them. No additional configuration is required from customer.
+Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR failover operations will use them. </br> No additional configuration is required from the customers.
 
 
 ## <a name="security"></a>Security
