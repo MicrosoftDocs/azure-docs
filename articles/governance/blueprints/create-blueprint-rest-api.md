@@ -84,6 +84,10 @@ In each REST API URI, there are variables that are used that you need to replace
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
+> [!NOTE]
+> Blueprints may also be created at the subscription level. To see an example, see
+> [create blueprint at subscription example](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
 blueprint, any resource groups to create, and all of the blueprint level parameters. The parameters
 are set during assignment and used by the artifacts added in later steps.

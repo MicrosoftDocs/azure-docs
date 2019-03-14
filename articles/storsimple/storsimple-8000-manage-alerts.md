@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.author: alkohli
 
 ---
@@ -204,7 +204,8 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |and the current status, go to [Use the StorSimple Device Manager service to monitor your device](storsimple-8000-monitor-device.md) |
+| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.|
+|Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
 
 ### Security alerts
 
