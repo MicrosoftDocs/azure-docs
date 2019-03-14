@@ -65,10 +65,13 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 
     > [!Note]  
     > **1901 and above**: Azure Stack accepts a certificate to encrypt infrastructure backup data. Make sure to store the certificate with the public and private key in a secure location. For security reasons, it is not recommended that you use the certificate with the public and private keys to configure backup settings. For more information on how to manage the lifecycle of this certificate, see [Infrastructure Backup Service best practices](azure-stack-backup-best-practices.md).
+    
+    > **1811 or earlier**: Azure Stack accepts a symmetric key to encrypt infrastructure backup data. Use the [New-AzsEncryptionKey64 cmdlet to create a key](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). After you upgrade from 1811 to 1901, backup settings will retain the encryption key. Recommendation is to update backup settings to use a certificate. Encryption key support is now deprecated. You will have at least 3 releases to update settings to use a certificate. 
 
 10. Select **OK** to save your backup controller settings.
 
 ![Azure Stack - Backup controller settings](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## Start backup
 To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. After the task completes, you can confirm the settings in **Essentials**:
