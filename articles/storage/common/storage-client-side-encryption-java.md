@@ -51,7 +51,7 @@ During encryption, the client library will generate a random Initialization Vect
 
 Downloading an encrypted blob involves retrieving the content of the entire blob using the **download**/**openInputStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
-Downloading an arbitrary range (**downloadRange*** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.  
+Downloading an arbitrary range (**downloadRange** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.  
 
 All blob types (block blobs, page blobs, and append blobs) can be encrypted/decrypted using this scheme.
 
