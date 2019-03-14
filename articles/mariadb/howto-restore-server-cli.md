@@ -104,6 +104,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 ```
 
 The `az mariadb server georestore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

@@ -17,6 +17,7 @@ ms.custom: "include file"
 | Action groups |2,000 action groups per subscription. | Call support. |
 
 **Action group-specific limits**
+
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | Azure app push | 10 Azure app actions per action group. | Call support. |

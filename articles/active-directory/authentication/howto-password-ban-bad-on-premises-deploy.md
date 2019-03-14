@@ -21,6 +21,7 @@ ms.collection: M365-identity-device-management
 | --- |
 | Azure Active Directory (Azure AD) password protection is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
 Now that you understand [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
 
 ## Deployment strategy

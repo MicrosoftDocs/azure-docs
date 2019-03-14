@@ -65,7 +65,7 @@ The first step is to create an application in Azure Active Directory that the ma
 1. Click **New application registration**.
 
     ![Add app registration](media/solution-office-365/add-app-registration.png)
-1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use _http://localhost_ for the URL, and keep _Web app / API_ for the **Application type**
+1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use `http://localhost` for the URL, and keep _Web app / API_ for the **Application type**
     
     ![Create application](media/solution-office-365/create-application.png)
 1. Click **Create** and validate the application information.
