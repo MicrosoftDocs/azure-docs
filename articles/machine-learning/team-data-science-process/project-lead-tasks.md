@@ -121,7 +121,7 @@ In this example, we have:
 
 If you are using Azure DevOps as the code-hosting platform, typically, the *SSH URL of the project template repository* is:
 
-***ssh://\<Azure DevOps Services Name\>@\<Azure DevOps Services Name\>.visualstudio.com:22/\<Your Project Name>/_git/\<Your project template repository name\>.*** 
+***ssh://\<Azure DevOps Services Name\>\@\<Azure DevOps Services Name\>.visualstudio.com:22/\<Your Project Name>/_git/\<Your project template repository name\>.*** 
 
 In this example, we have:
 
