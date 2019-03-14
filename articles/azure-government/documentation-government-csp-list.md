@@ -295,7 +295,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |LSP Name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
-|CompuCom Systems Inc.|sales@compucom.com|972-856-3600|
+|CompuCom Systems Inc.|sales\@compucom.com|972-856-3600|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |En Pointe Technologies|govsales@enpointe.com|310-337-5977|
 |Hewlett Packard||877-686-9637|
