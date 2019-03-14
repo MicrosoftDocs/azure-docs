@@ -23,7 +23,7 @@ Here's how to resolve errors you might see during configuration, registration, b
 
 | Error details | Recommended actions |
 | ---     | ---    |
-|Failed to download the vault credential file. (ID: 403) | <ul><li> Try downloading vault credentials using different browser or perform the below steps: <ul><li> Launch IE, press F12. </li><li> Go to **Network** tab to clear IE cache and cookies </li> <li> Refresh the page<br>(OR)</li></ul> <li> Check if the subscription is disabled/expired<br>(OR)</li> <li> Check if any firewall rule is blocking vault credential file download <br>(OR)</li> <li> Ensure you have not exhausted the limit on the vault (50 machines per vault)<br>(OR)</li>  <li> Ensure user has required Azure Backup permission to download vault credential and register server with vault, see [article](backup-rbac-rs-vault.md)</li></ul> |
+|Failed to download the vault credential file. (ID: 403) | <ul><li> Try downloading vault credentials using different browser or perform the below steps: <ul><li> Launch IE, press F12. </li><li> Go to **Network** tab to clear IE cache and cookies </li> <li> Refresh the page<br>(OR)</li></ul> <li> Check if the subscription is disabled/expired<br>(OR)</li> <li> Check if any firewall rule is blocking vault credential file download <br>(OR)</li> <li> Ensure you have not exhausted the limit on the vault (50 machines per vault)<br>(OR)</li>  <li> Ensure user has required Azure Backup permission to download vault credential and register server with vault, see [article](backup-rbac-rs-vault.md)</li></ul> | 
 
 ## The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup
 
