@@ -34,6 +34,10 @@
     href: configure-host-pool-load-balancing.md
   - name: Identify issues with the diagnostics role service
     href: diagnostics-role-service.md
+  - name: Prepare and customize a master VHD image
+    href: set-up-customize-master-image.md
+  - name: Automatically scale session hosts
+    href: set-up-scaling-script.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
