@@ -45,7 +45,7 @@ Right-click your web app name in the Solution Explorer, and choose **Add** > **A
 
 Application Insights Configuration screen:
 
-Select **Start Free**.
+Select **Get Started**.
 
 ![Screenshot of Register your app with Application Insights page](./media/asp-net/00004-start-free.png)
 
