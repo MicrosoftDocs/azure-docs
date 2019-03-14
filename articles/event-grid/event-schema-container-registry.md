@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid Container Registry event schema
-description: Describes the properties that are provided for Container Reigstry events with Azure Event Grid
+description: Describes the properties that are provided for Container Registry events with Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
