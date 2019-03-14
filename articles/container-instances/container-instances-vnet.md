@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/14/2019
 ms.author: danlep
 ---
 
 # Deploy container instances into an Azure virtual network
 
-[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking including filtering, routing, and peering for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network.
+[Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network.
 
 Container groups deployed into an Azure virtual network enable scenarios like:
 
@@ -33,21 +33,22 @@ Certain limitations apply when you deploy container groups to a virtual network.
 * Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
 * You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
+**Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
 ## Preview limitations
 
 While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
 
+### Unsupported networking scenarios 
+
+* **Azure Load Balancer** - Placing an Azure Load Balancer in front of networked container instances is not supported
+* **Virtual network peering** - You can't peer a virtual network containing a subnet delegated to Azure Container Instances to another virtual network
+* **Route tables** - User-defined routes can't be set up in a subnet delegated to Azure Container Instances
+* **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
+
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
-
-### Unsupported network resources and features
-
-* Azure Load Balancer
-* Virtual network peering
-
-**Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
 ## Required network resources
 
