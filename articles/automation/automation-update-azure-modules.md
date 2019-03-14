@@ -82,7 +82,7 @@ If you use cmdlets from these Azure PowerShell modules in your runbooks, you wan
 
 ## Known issues
 
-There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0. To update your Azure modules in your Automation Account, it must be in a resource group that has a alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0. To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ## Next steps
 
