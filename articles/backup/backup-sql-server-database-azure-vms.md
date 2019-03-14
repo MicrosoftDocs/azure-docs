@@ -30,7 +30,7 @@ Before you back up your SQL Server database, check the following conditions:
 1. Identify or [create](backup-azure-sql-database.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.
 2. [Check the VM permissions](#fix-sql-sysadmin-permissions) needed to back up the SQL databases.
 3. Verify that the  VM has [network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
-4. Check that the SQL Server databases are named in accordance with [naming guidelines](backup-azure-sql-database.md) for Azure Backup.
+4. Check that the SQL Server databases are named in accordance with [naming guidelines](#verify-database-naming-guidelines-for-azure-backup) for Azure Backup.
 5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
 
 
@@ -67,36 +67,6 @@ Avoid the following for database names:
   * Close square bracket ‘]’
 
 We do have aliasing for Azure table unsupported characters, but we recommend avoiding them. [Learn more](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
-
-
-## Fix SQL sysadmin permissions
-
-If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership** error, do the following:
-
-1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
-2. On the SQL Server, open the **Security/Logins** folder.
-
-    ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
-
-3. Right-click the **Logins** folder and select **New Login**. In **Login - New**, select **Search**.
-
-    ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
-
-3. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Click **OK**.
-
-    ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
-
-4. In **Server Roles**, make sure the **sysadmin** role is selected. Click **OK**. The required permissions should now exist.
-
-    ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-5. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
-
-    ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-6. Check progress in the **Notifications** area. When the selected databases are found, a success message appears.
-
-    ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
@@ -273,6 +243,35 @@ Modify policy to change backup frequency or retention range.
 In the vault dashboard, go to **Manage** > **Backup Policies** and choose the policy you want to edit.
 
   ![Manage backup policy](./media/backup-azure-sql-database/modify-backup-policy.png)
+
+  ## Fix SQL sysadmin permissions
+
+  If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership** error, do the following:
+
+  1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
+  2. On the SQL Server, open the **Security/Logins** folder.
+
+      ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
+
+  3. Right-click the **Logins** folder and select **New Login**. In **Login - New**, select **Search**.
+
+      ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
+
+  3. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Click **OK**.
+
+      ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
+
+  4. In **Server Roles**, make sure the **sysadmin** role is selected. Click **OK**. The required permissions should now exist.
+
+      ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
+
+  5. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
+
+      ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
+
+  6. Check progress in the **Notifications** area. When the selected databases are found, a success message appears.
+
+      ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
  
 ## Next steps

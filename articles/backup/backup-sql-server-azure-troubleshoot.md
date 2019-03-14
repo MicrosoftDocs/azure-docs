@@ -6,7 +6,7 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
 ---
 
@@ -14,9 +14,9 @@ ms.author: anuragm
 
 This article provides troubleshooting information for protecting SQL Server VMs on Azure (Preview).
 
-## Public Preview limitations
+## Public limitations
 
-To view the Public Preview limitations, see the article, [Back up SQL Server database in Azure](backup-azure-sql-database.md#preview-limitations).
+To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-sql-server-azure-vms.md#feature-consideration).
 
 ## SQL Server permissions
 
