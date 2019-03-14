@@ -62,7 +62,7 @@ If you want to [transfer the subscription](billing-subscription-transfer.md) aft
 1. Select your Azure for Students Starter subscription.
 1. Under **Subscription status**, click **Upgrade now**.
 
-    ![Screenshot that shows upgrade for student](./media/billing-upgrade-azure-subscription/student-upgrade.png)
+    ![Screenshot that shows upgrade for student](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
 
 1. Enter a name for your subscription.
 
