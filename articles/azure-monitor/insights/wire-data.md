@@ -382,9 +382,9 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 | **Blade** | **Description** |
 | --- | --- |
-| Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for `WireData | summarize sum(TotalBytes) by Computer | take 500000`. Click a computer in the list to run a log search returning the total number of bytes captured. |
-| Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for `WireData | summarize sum(TotalBytes) by LocalSubnet` that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
-| Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for `WireData | summarize sum(TotalBytes) by ApplicationProtocol`. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
+| Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for `WireData \| summarize sum(TotalBytes) by Computer \| take 500000`. Click a computer in the list to run a log search returning the total number of bytes captured. |
+| Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for `WireData \| summarize sum(TotalBytes) by LocalSubnet` that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
+| Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for `WireData \| summarize sum(TotalBytes) by ApplicationProtocol`. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
 
 ![Wire Data dashboard](./media/wire-data/wire-data-dash.png)
 
