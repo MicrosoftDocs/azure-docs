@@ -25,10 +25,10 @@ The following Azure services support managed identities for Azure resources:
 
 ### Azure Virtual Machines
 
-|Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Preview | Preview | Preview |
-| User assigned | Preview | Preview | Preview | Preview |
+|Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet| |
+| --- | --- | --- | --- | --- | --- |
+| System assigned | Available | Preview | Preview | Preview | Preview |
+| User assigned | Preview | Preview | Preview | Preview | Preview |
 
 Refer to the following list to configure managed identity for Azure Virtual Machines (in regions where available):
 
