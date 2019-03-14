@@ -60,13 +60,13 @@ If the KDS service start mode has been configured to Disabled, this configuratio
 
 A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other service management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
-The most common root cause is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
+The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
 ## Weak passwords are being accepted but should not be
 
 This problem may have several causes.
 
-1. Your DC agent(s) cannot downloaded a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
+1. Your DC agent(s) cannot download a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
 1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
