@@ -15,10 +15,7 @@ The Write Ahead Log (WAL) records all changes to data in HBase, to file-based st
 
 # Write ahead log feature in Azure HDInsight
 
-Bound by latency of underlying storage – then is slows down low latency architecture
-Consistency is not great – can be hit or miss
-Soln: instead of WAL > Blob, WAL > managed disks. Premium managed disks provide low latency storage, replicated across multiple disks
-Also introducing premium blob with much faster reads
+A normal HBase cluster in Azure HDInsight is configured to write data directly to its primary Azure storage option. This can slow down a low-latency architecture and could result in consistency problems. The write ahead log, however, is configured to write data to managed disks. Premium managed disks provide even better performance than cloud storage for situations that require extremely low latency. They also offer replication across disks which provides greater redundancy and fault tolerance.
 
 ## Next steps
 
