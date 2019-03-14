@@ -2916,10 +2916,10 @@ SELECT
 ###  <a name="bk_spatial_functions"></a> Spatial functions  
  The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
-||||  
-|-|-|-|  
-|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|
-|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
+|||||
+|-|-|-|-|
+|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|
+|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)||||
   
 ####  <a name="bk_st_distance"></a> ST_DISTANCE  
  Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.  
