@@ -17,7 +17,7 @@
       href: connect-workbench.md
 - name: Tutorials
   items:
-  - name: 1 - Design a Database
+  - name: Design a Database
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md

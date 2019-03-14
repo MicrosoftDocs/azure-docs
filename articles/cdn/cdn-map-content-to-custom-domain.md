@@ -157,7 +157,7 @@ To create a CNAME record for your custom domain:
 
     | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azureedge.net |
+    | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
     - Source: Enter your custom domain name (for example, www.contoso.com).
 

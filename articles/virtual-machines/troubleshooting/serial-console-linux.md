@@ -78,6 +78,7 @@ Custom Linux images     | To enable the serial console for your custom Linux VM 
 > If you are not seeing anything in the serial console, make sure that boot diagnostics is enabled on your VM.
 
 ## Common scenarios for accessing the serial console
+
 Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Broken *FSTAB* file | Press the **Enter** key to continue and use a text editor to fix the *FSTAB* file. You might need to be in single user mode to do so. For more information, see [How to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
