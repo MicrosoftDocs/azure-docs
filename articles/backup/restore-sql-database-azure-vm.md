@@ -15,9 +15,6 @@ ms.author: raynew
 
 This article describes how to restore a SQL Server database that's running on an Azure virtual machine (VM) that the [Azure Backup](backup-overview.md) service has backed up to an Azure Backup Recovery Services vault.
 
-> [!NOTE]
-> Backup of SQL Server databases that are running on an Azure VM that uses Azure Backup is currently in public preview.
-
 This article describes how to restore SQL Server databases. For more information, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md).
 
 ## Restore to a time or a recovery point

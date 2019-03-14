@@ -16,11 +16,6 @@ ms.author: raynew
 
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
-
-> [!NOTE]
-> The backup of SQL Server databases that are running on an Azure VM with Azure Backup is currently in public preview.
-
-
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
 ## Monitor manual backup jobs in the portal

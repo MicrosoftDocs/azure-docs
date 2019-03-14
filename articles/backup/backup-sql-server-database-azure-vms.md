@@ -85,7 +85,6 @@ Configure backup as follows:
       * To protect more than 50 databases, configure multiple backups.
       * Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#enable-auto-protection) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#enable-auto-protection) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
-        ![List of SQL database](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
 ## Enable auto-protection  
 
@@ -96,20 +95,20 @@ Enable auto-protection to automatically back up all existing databases, and data
 
 Enable auto-protection as follows:
 
-* In **Items to backup**, select the instance for which you want to enable auto-protection.
-* Select the dropdown under **Autoprotect**, and set to **On**. Then click **OK**.
+1. In **Items to backup**, select the instance for which you want to enable auto-protection.
+2. Select the dropdown under **Autoprotect**, and set to **On**. Then click **OK**.
 
     ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-* Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
+3. Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
 
 If you need to disable auto-protection, click the instance name under **Configure Backup**, and select **Disable Auto-protect** for the instance. All databases will continue to back up. But future databases won't be automatically protected.
 
-1. Click **OK** to open the **Backup policy** blade.
+4. Click **OK** to open the **Backup policy** blade.
 
     ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-2. In Choose backup policy, select a policy, then click OK.
+4. In Choose backup policy, select a policy, then click OK.
 
     - Select the default policy: HourlyLogBackup.
     - Choose an existing backup policy previously created for SQL.
@@ -117,11 +116,11 @@ If you need to disable auto-protection, click the instance name under **Configur
 
   ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-3. On **Backup** menu, select **Enable backup**.
+5. On **Backup** menu, select **Enable backup**.
 
   ![Enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
 
-4. Track the configuration progress in the **Notifications** area of the portal.
+6. Track the configuration progress in the **Notifications** area of the portal.
 
   ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
