@@ -176,6 +176,10 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
       }
       ```
 
+## Send ILogger logs to Application Insights
+
+Application Insights supports capturing logs sent via ILogger. To setup logging checkout the code samples [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
+
 ## Synthetic transactions with PowerShell
 
 To automate requests to your app by using synthetic transactions:
