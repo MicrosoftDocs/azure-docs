@@ -100,7 +100,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### View AD DS permissions of an object 
-You can use the cmdlet below to view the list of permissions currently set on a Active Directory object by providing its DistinguishedName: 
+You can use the cmdlet below to view the list of permissions currently set on an Active Directory object by providing its DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
