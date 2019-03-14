@@ -116,21 +116,21 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
 
 6. On the **Set up Perception United States (Non-UltiPro)** section, copy the appropriate URL(s) as per your requirement.
 
-	a. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value, which you have copied, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	b. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+	d. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value, which you have copied, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
+
+	e. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
 
 	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
 	
-	c. Paste the above value in the **Reply URL** textbox in **Perception United States (Non-UltiPro) Domain and URLs** section.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-	d. Login URL
-
-	e. Azure AD Identifier
-
-	f. Logout URL
+	f. Paste the above value in the **Reply URL** textbox in **Basic SAML Configuration** section.	
 
 ### Configure Perception United States (Non-UltiPro) Single Sign-On
 
