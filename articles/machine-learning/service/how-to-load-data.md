@@ -149,13 +149,13 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dflow.head(5)
 ```
 
-||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|None|None|None|None|None|None|None|None|
-|1|None|None|None|None|None|None|None|None|
-|2|None|None|None|None|None|None|None|None|
-|3|Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|
-|4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|
+| |Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8| | |
+|-|-------|-------|-------|-------|-------|-------|-------|-------|-|-|
+|0|None|None|None|None|None|None|None|None|None| |
+|1|None|None|None|None|None|None|None|None|None| |
+|2|None|None|None|None|None|None|None|None|None| |
+|3|Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^| |
+|4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 The output shows that the data in the second sheet had three empty rows before the headers. The `read_excel()` function contains optional parameters for skipping rows and using headers. Run the following code to skip the first three rows, and use the fourth row as the headers.
 
