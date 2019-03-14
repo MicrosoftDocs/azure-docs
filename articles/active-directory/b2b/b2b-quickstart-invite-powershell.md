@@ -74,7 +74,7 @@ When prompted, enter your credentials.
 
 ## Send an invitation
 
-1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda@fabrikam.com** with your test email account name and email address): 
+1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda\@fabrikam.com** with your test email account name and email address): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true

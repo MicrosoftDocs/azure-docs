@@ -85,7 +85,7 @@ This update includes the following new features and improvements for Azure Stack
    * **AzureRm.Storage**  
          AzureRm rollup module now includes the already published version 5.0.4 supporting the **api-version 2017-10-01**.  
    * **AzureRm.Compute**  
-         Added simple parameter sets in `New-AzureRMVM` and `NewAzureRMVMSS`, `-ImageName` parameter supports specifying user images.  
+         Added simple parameter sets in `New-AzureRmVM` and `New-AzureRmVmss`, `-Image` parameter supports specifying user images.  
    * **AzureRm.Insights**  
          AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
 
