@@ -53,7 +53,7 @@ For Windows 10 and Windows Server 2016, hybrid Azure Active Directory join suppo
 2. Type **dsregcmd /status**
 
 
-```
+
     +----------------------------------------------------------------------+
     | Device State                                                         |
     +----------------------------------------------------------------------+
@@ -96,7 +96,7 @@ For Windows 10 and Windows Server 2016, hybrid Azure Active Directory join suppo
            WamDefaultId: https://login.microsoft.com
          WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd)
              AzureAdPrt: YES
-```
+
 
 
 ## Step 2: Evaluate the join status 
