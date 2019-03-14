@@ -270,21 +270,21 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Property | Type | Description | Example |
-| --- | --- | --- | --- |
-| Level |String | Level of the diagnostic logs. Level 4 always is the case for activity run logs. | `4`  |
-| correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` |
-|activityRunId| String| ID of the activity run | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|pipelineRunId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|category| String | Category of Diagnostic Logs. Set this property to "ActivityRuns" | `ActivityRuns` |
-|level| String | Level of the diagnostic logs. Set this property to "Informational" | `Informational` |
-|operationName| String |Name of the activity with status. If the status is the start heartbeat, it is `MyActivity -`. If the status is the end heartbeat, it is `MyActivity - Succeeded` with final status | `MyActivity - Succeeded` |
-|pipelineName| String | Name of the pipeline | `MyPipeline` |
-|activityName| String | Name of the activity | `MyActivity` |
-|start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
-|end| String | Ends of the activity run in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
+| Property | Type | Description | Example | |
+| --- | --- | --- | --- | --- |
+| Level |String | Level of the diagnostic logs. Level 4 always is the case for activity run logs. | `4`  | |
+| correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` | |
+| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+|activityRunId| String| ID of the activity run | `3a171e1f-b36e-4b80-8a54-5625394f4354` | |
+|pipelineRunId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` | |
+|resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` | |
+|category| String | Category of Diagnostic Logs. Set this property to "ActivityRuns" | `ActivityRuns` | |
+|level| String | Level of the diagnostic logs. Set this property to "Informational" | `Informational` | |
+|operationName| String |Name of the activity with status. If the status is the start heartbeat, it is `MyActivity -`. If the status is the end heartbeat, it is `MyActivity - Succeeded` with final status | `MyActivity - Succeeded` | |
+|pipelineName| String | Name of the pipeline | `MyPipeline` | |
+|activityName| String | Name of the activity | `MyActivity` | |
+|start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`| |
+|end| String | Ends of the activity run in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` | |
 
 
 ### Pipeline Run Logs Attributes
