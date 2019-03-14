@@ -8,7 +8,6 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: hrasheed
-
 ---
 # Managed identities in Azure HDInsight
 
@@ -18,9 +17,7 @@ There are two types of managed identities: system-assigned and user-assigned. Az
 
 ## How does HDInsight implement managed identities?
 
-In Azure HDInsight, managed identities are provisioned on each node of the cluster. Each managed identity is supported by a service principal and certificate, which are also installed on each cluster node.
-
-For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens for interacting with other Azure services on your own. In Azure HDInsight, however, managed identity components are only usable by the HDInsight service. There is currently no supported method for you to generate access tokens using the managed identities installed on HDInsight cluster nodes.
+In Azure HDInsight, managed identities are provisioned on each node of the cluster. For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens for interacting with other Azure services on your own. In Azure HDInsight, however, managed identity components are only usable by the HDInsight service. There is currently no supported method for you to generate access tokens using the managed identities installed on HDInsight cluster nodes.
 
 ## Create a managed identity
 
