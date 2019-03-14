@@ -22,7 +22,7 @@ Select a project, then select the models tab of that project, locate the model y
 
 The test tab shows you:
 
-1.  **System Test Results:**The result of the test process in the trainings. The test process produces the BLEU score.
+1.  **System Test Results:** The result of the test process in the trainings. The test process produces the BLEU score.
 
     **Sentence Count:** How many parallel sentences were used in the test set.
 
