@@ -114,7 +114,7 @@ A compute target is the compute resource that you use to run your training scrip
 | Your local computer | ✓ | &nbsp; |
 | Azure Machine Learning compute | ✓ | &nbsp; |
 | A Linux VM in Azure</br>(such as the Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark for HDInsight | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |

@@ -405,7 +405,7 @@ dflow.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|------|-----|
+|-----|-------|---------| -------|------|-----|------|
 |0|ALABAMA|1|101710|Hale County|10171002158| |
 |1|ALABAMA|1|101710|Hale County|10171002162| |
 
@@ -419,7 +419,7 @@ dflow.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
+|-----|-------|---------| -------|------|
 |0|ALABAMA|Hale County|1.017100e+10|None|
 |1|ALABAMA|Hale County|1.017100e+10|None|
 
@@ -430,7 +430,7 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
+|-----|-------|---------| -------|------|
 |0|ALABAMA|Hale County|1.017100e+10|None|
 |1|ALABAMA|Hale County|1.017100e+10|None|
 
@@ -450,7 +450,7 @@ df.head(2)
 ```
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|
+|-----|-------|---------| -------|------|
 |0|ALABAMA|Hale County|1.017100e+10|0.0|
 |1|ALABAMA|Hale County|1.017100e+10|0.0|
 

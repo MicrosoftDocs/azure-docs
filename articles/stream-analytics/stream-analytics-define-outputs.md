@@ -164,7 +164,7 @@ Azure Stream Analytics updates the data model dynamically at runtime if the outp
 This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BIs [Entity Data Model (EDM) types](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) if a POWER BI dataset and table do not exist.
 
 From Stream Analytics | To Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
@@ -181,7 +181,7 @@ Previous/Current | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | String | String | String |  | String |
+String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
 

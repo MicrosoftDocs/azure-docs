@@ -58,7 +58,7 @@ Listed below are the fields in the schema and what they signify
 | DestIP_s | Destination IP address	| Will be blank in case of AzurePublic and ExternalPublic flows |
 | VMIP_s | IP of the VM	| Used for AzurePublic and ExternalPublic flows |
 | PublicIP_S | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
-| DestPort_d | |Destination Port| Port at which traffic is incoming | 
+| DestPort_d | Destination Port | Port at which traffic is incoming | 
 | L4Protocol_s	| *	T <br> * U 	| Transport Protocol. T = TCP <br> U = UDP | 
 | L7Protocol_s	| Protocol Name	| Derived from destination port |
 | FlowDirection_s | * I = Inbound<br> *	O = Outbound | Direction of the flow in/out of NSG as per flow log | 
