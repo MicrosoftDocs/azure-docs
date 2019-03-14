@@ -159,33 +159,7 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. Re-register operation re-installs the workload backup extension on the VM for operations to continue.  <br>
 
-It is advised to use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the following [symptoms](#symptoms) before triggering the re-register operation:  
-
-### Symptoms
-
-* ALL operations such as backup, restore and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
-* The **Backup Status** for the Backup item is showing **Not reachable**. Although, you must rule out all the other reasons that may also result in the same status:
-
-  * Lack of permission to perform backup related operations on the VM  
-  * VM has been shut down because of which backups can’t take place
-  * Network issues  
-
-    ![Re-Register VM](./media/backup-azure-sql-database/re-register-vm.png)
-
-* In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover.
-
-### Causes
-These symptoms may arise due to one or more of the following reasons:
-
-  * Extension was deleted or uninstalled from portal 
-  * Extension was uninstalled from the **Control Panel** of the VM under **Uninstall or Change a Program** UI
-  * VM was restored back in time using in-place disk(s) restore
-  * VM was shut down for an extended period because of which the extension configuration on it expired
-  * VM was deleted and another VM was created with the same name and in the same resource group as the deleted VM
-  * One of the AG nodes didn't receive the complete backup configuration, this may happen either at the time of availability group registration to the vault or when a new node gets added.  
-   
-In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the UX as well.
-
+It is advised to use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](#symptoms) before triggering the re-register operation. 
 
 ## Next steps
 
