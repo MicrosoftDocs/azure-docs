@@ -111,7 +111,7 @@ There are a number of applications you can use to connect to your Azure Database
     ---|---|---
     --host | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. The example server shown is **mydemoserver.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     --port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
-    --username | Server admin login name |The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember your username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
+    --username | Server admin login name |The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember your username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     --dbname | *postgres* | The default, system-generated database name that was created for the first connection. Later, you create your own database.
 
     After you run the psql command with your own parameter values, you're prompted to enter the server admin password. This password is the same one that you provided when you created the server. 
@@ -176,7 +176,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
     Host name/address | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. Our example server is **mydemoserver.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     Port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
     Maintenance database | *postgres* | The default system-generated database name.
-    Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
+    Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
     Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
     SSL mode | *Require* | You can set the SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [SSL Enforcing](./concepts-ssl-connection-security.md).
