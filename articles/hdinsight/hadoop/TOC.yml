@@ -39,6 +39,9 @@
   - name: Compare storage options
     href: ../hdinsight-hadoop-compare-storage-options.md
     maintainContext: true
+  - name: Managed identities in HDInsight
+    href: ../hdinsight-managed-identities.md
+    maintainContext: true
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
