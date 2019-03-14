@@ -294,6 +294,7 @@
         "articles/service-fabric/**/*.md": "https://feedback.azure.com/forums/293901-service-fabric",
         "articles/service-health/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/site-recovery/**/*.md": "https://feedback.azure.com/forums/256299-site-recovery",
+	"articles/spatial-anchors/**/*.md": "https://feedback.azure.com/forums/919252-azure-spatial-anchors",
         "articles/sql-data-warehouse/**/*.md": "https://feedback.azure.com/forums/307516-sql-data-warehouse",
         "articles/sql-database/**/*.md": "https://feedback.azure.com/forums/217321-sql-database",
         "articles/sql-server-stretch-database/**/*.md": "https://feedback.azure.com/forums/217321-sql-database",
