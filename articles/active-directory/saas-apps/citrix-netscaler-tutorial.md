@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/14/2019
 ms.author: jeedes
 
 ---
@@ -298,11 +298,11 @@ To configure Azure AD single sign-on with Citrix Netscaler, perform the followin
 
     d. Click **OK**.
 
-19. On the **StoreFront Deploy Citrix Receiver** tab, perform the following steps:
+19. On the **StoreFront Deploy Citrix Reciever** tab, perform the following steps:
 
     ![Configure Single Sign-On](./media/citrix-netscaler-tutorial/configure22.png)
 
-    a. Select **Deployment option** as **Use Receiver for HTML5 if local Receiver is unavailable**.
+    a. Select **Deployment option** as **Use Reciever for HTML5 if local Reciever is unavailable**.
 
     b. Click **OK**.
 
