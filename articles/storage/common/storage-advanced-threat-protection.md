@@ -17,7 +17,9 @@ Advanced Threat Protection for Azure Storage provides an additional layer of sec
 Security alerts are triggered when anomalies in activity occur.  These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
 > [!NOTE]
-> Advanced Threat Protection for Azure Storage is currently available only for the Blob storage. Details about the new pricing is available in the [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) pricing page, including an option for a trial period for the first 30 days without charge.
+> * Advanced Threat Protection for Azure Storage is currently available only for the Blob storage. 
+> * Details about the new pricing is available in the [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) pricing page, including an option for a trial period for the first 30 days without charge. 
+> * ATP for Azure storage feature is currently not available in Azure government and sovereign cloud regions.
 
 Advanced Threat Protection for Azure Storage ingests diagnostic logs of read, write, and delete requests to Blob storage for threat detection. To investigate the alerts from Advanced Threat Protection, you can view related storage activity using Storage Analytics Logging. For more information, see how to [configure Storage Analytics logging](storage-monitor-storage-account.md#configure-logging).
 
@@ -52,12 +54,13 @@ Use Rest API commands to create, update, or get the Advanced Threat Protection s
 * [Advanced Threat Protection - Create](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced Threat Protection - Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-<!-- ### Using Azure PowerShell-->
-<!--   -->
-<!-- Use the following PowerShell cmdlets:-->
-<!-- * Enable Advanced Threat Protection-->
-<!-- * Get Advanced Threat Protection -->
-<!--* Disable Advanced Threat Protection -->
+### Using Azure PowerShell
+
+Use the following PowerShell cmdlets:
+
+  * [Enable Advanced Threat Protection](https://docs.microsoft.com/en-us/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Get Advanced Threat Protection](https://docs.microsoft.com/en-us/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Disable Advanced Threat Protection](https://docs.microsoft.com/en-us/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ## Explore security anomalies
 
