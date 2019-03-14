@@ -218,6 +218,26 @@ In this example, the configuration used by `ApplicationInsightsLoggerProvider` i
 
 However, there is an exception to this behavior. The default `TelemetryConfiguration` is not fully set up when logging something from `Program.cs` or `Startup.cs` itself, so those logs will not have the default configuration. However, every other log (for example, logs from Controllers, Models etc.) would share the configuration.
 
+## Control logging level
+
+It is also possible to control the level of logging Application Insights captures, by modifying the `appsettings.json`. The [ASP.NET logging fundamentals documentation](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) shows how to achieve this. Specifically for ApplicationInsighst, the name of the provider is "ApplicationInsights", as shown in the below example which configures ApplicationInsights to capture only logs of `Warning` and above from all categories.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
 ## Next steps
 
 Learn more about:
