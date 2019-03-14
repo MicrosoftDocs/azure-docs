@@ -1,11 +1,11 @@
 ---
-title: Partners who intergrate with Azure Monitor
+title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/14/2019
 ms.author: johnkem
 ms.subservice: ""
 ---
@@ -68,7 +68,7 @@ Unite and automate your cloud with a platform built to save time and money. Clou
 
 ## CloudMonix
 
-![Partne Logo](./media/partners/cloudmonix.png)
+![CloudMonix Logo](./media/partners/cloudmonix.png)
 
 CloudMonix offers monitoring, automation, and self-healing services for Microsoft Azure platform.
 
@@ -108,7 +108,7 @@ Grafana is an open-source application that enables you to visualize time series 
 
 ## InfluxData
 
-![Influxdata Logo](./media/partners/Influxdata.png)
+![InfluxData Logo](./media/partners/Influxdata.png)
 
 InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform built from the ground up for analyzing metrics and events (time series data) for DevOps and IoT applications. Whether the data comes from humans, sensors, or machines, InfluxData empowers developers to build next-generation monitoring, analytics, and IoT applications faster, easier, and to scale delivering real business value quickly. Based in San Francisco, InfluxData’s more than 420 customers include Cisco, eBay, IBM, and Siemens.
 
@@ -188,7 +188,7 @@ Serverless360 is a one platform tool to operate, manage, and monitor Azure serve
 
 ![SignalFX Logo](./media/partners/signalfx.png)
 
-SignalFx is the leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud. It replaces traditional point tools and provides real-time visibility into today’s dynamic environments. Leveraging the massively scalable SignalFx platform, the SaaS platform is optimized for container and microservices based architectures and provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. SignalFx integrates directly with Azure Monitor as well as through open-source connectors such as Telegraf, statsD, and collectd to provide best in class dashboards, analytics, and alerts for Azure.
+SignalFx is the leader in real-time operational intelligence for data-driven DevOps. The service discovers and collects metrics across every component in the cloud. It replaces traditional point tools and provides real-time visibility into today’s dynamic environments. Leveraging the massively scalable SignalFx platform, the SaaS platform is optimized for container and microservices based architectures and provides powerful visualization, proactive alerting, and collaborative triage capabilities across organizations of all sizes. SignalFx integrates directly with Azure Monitor as well as through open-source connectors such as *Telegraf*, *statsD*, and *collectd* to provide best in class dashboards, analytics, and alerts for Azure.
 
 [Go to the documentation.][signalfx-doc]
 
@@ -248,7 +248,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influxdata Telegraf integration."
+[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
