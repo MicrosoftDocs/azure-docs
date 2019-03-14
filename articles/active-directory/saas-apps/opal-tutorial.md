@@ -149,7 +149,7 @@ To configure Azure AD single sign-on with Opal, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
