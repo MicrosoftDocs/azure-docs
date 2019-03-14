@@ -121,10 +121,9 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. On the **Source details** screen, specify the connection details for the source MongoDB server.
 
     There are three modes to connect to a source:
-    
-       * **Standard mode**, which accepts a fully qualified domain name or an IP address, Port number, and connection credentials.
-       * **Connection string mode**, which accepts a MongoDB Connection string as described in the article [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
-       * **Data from Azure storage**, which accepts a blob container SAS URL. Select **Blob contains BSON dumps** if the blob container has BSON dumps produced by the MongoDB [bsondump tool](https://docs.mongodb.com/manual/reference/program/bsondump/), and de-select it if the container contains JSON files.
+    * **Standard mode**, which accepts a fully qualified domain name or an IP address, Port number, and connection credentials.
+    * **Connection string mode**, which accepts a MongoDB Connection string as described in the article [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/).
+    * **Data from Azure storage**, which accepts a blob container SAS URL. Select **Blob contains BSON dumps** if the blob container has BSON dumps produced by the MongoDB [bsondump tool](https://docs.mongodb.com/manual/reference/program/bsondump/), and de-select it if the container contains JSON files.
 
       If you select this option, be sure that the storage account connection string appears in the format:
 

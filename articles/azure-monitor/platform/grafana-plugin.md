@@ -72,10 +72,9 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
-        >
-        >     * Tenant ID is the Azure Directory ID
-        >     * Client ID is the Azure Active Directory Application ID
-        >     * Client Secret is the Azure Active Directory Application key value
+        > * Tenant ID is the Azure Directory ID
+        > * Client ID is the Azure Active Directory Application ID
+        > * Client Secret is the Azure Active Directory Application key value
 
 5. If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

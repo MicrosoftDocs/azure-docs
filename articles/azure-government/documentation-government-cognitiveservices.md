@@ -52,7 +52,6 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
    Replace the "type of API" tag with any of the three following APIs you want to access:
-
    * ComputerVision
    * Face
    * TextTranslation
