@@ -30,7 +30,7 @@ You can use the following APIs to load single or multiple documents into an inde
 
 There is currently no tool support for pushing data via the portal.
 
-For an introduction to each methodology, see [Import data using REST](search-import-data-rest-api.md) or [Import data using .NET](search-import-data-dotnet.md).
+For an introduction to each methodology, see [Quickstart: Indexing with REST](search-create-index-rest-api.md) or [Quickstart: Indexing with the .NET SDK](search-import-data-dotnet.md).
 
 
 ## Pulling data into an index

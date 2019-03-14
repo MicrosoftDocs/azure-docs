@@ -161,4 +161,4 @@ In Azure Search, emphasizing the exact portion of search results that match the 
 + [How full text search works in Azure Search (query parsing architecture)](search-lucene-query-architecture.md)
 + [Search explorer](search-explorer.md)
 + [How to query in .NET](search-query-dotnet.md)
-+ [How to query in REST](search-query-rest-api.md)
++ [How to query in REST](search-create-index-rest-api.md)
