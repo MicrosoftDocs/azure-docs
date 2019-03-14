@@ -79,45 +79,19 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > [!div renderon="docs"]
 > If you selected Option 1 above, you can skip these steps. Open the project in Android Studio and run the app. 
 
-1. Extract and open the Project in Android Studio.
-2. Inside **app** > **res** > **raw**, open **auth_config.json**.
 > [!div renderon="portal" class="sxs-lookup"]
-3. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
+> 1. Extract and open the Project in Android Studio.
+> 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
+> 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
 > > ```javascript
 > > "client_id" : "Enter_the_Application_Id_Here",
 > > "type": "Enter_the_Audience_Info_Here",
 > > "tenant_id" : "Enter_the_Tenant_Info_Here"
 > > ```
-> [!div renderon="docs"]
-3. Edit **auth_config.json** and replace the `client_id`:
-> > ```javascript
-> > "client_id" : "ENTER_YOUR_APPLICATION_ID",
-> > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
-> > ```
-4. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-5. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
-
-	> [!div renderon="docs"]
-	> ```xml
-    > <!--Intent filter to capture System Browser calling back to our app after Sign In-->
-    > <activity
-    >     android:name="com.microsoft.identity.client.BrowserTabActivity">
-    >     <intent-filter>
-    >         <action android:name="android.intent.action.VIEW" />
-    >         <category android:name="android.intent.category.DEFAULT" />
-    >         <category android:name="android.intent.category.BROWSABLE" />
-    > 
-    >         <!--Add in your scheme/host from registered redirect URI-->
-    >         <!--By default, the scheme should be similar to 'msal[appId]' -->
-    >         <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
-    >             android:host="auth" />
-    >     </intent-filter>
-    > </activity>
-    > ```
-
-	> [!div renderon="portal" class="sxs-lookup"]
-	> ```xml
-    > <!--Intent filter to capture System Browser calling back to our app after Sign In-->
+> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
+> 1. Add the following activity to the **manifest\application** node. This code allows Microsoft to callback to your app:	
+    > ```xml
+    > <!--Intent filter to catch Microsoft's callback after Sign In-->
     > <activity
     >     android:name="com.microsoft.identity.client.BrowserTabActivity">
     >     <intent-filter>
@@ -134,7 +108,33 @@ This quickstart contains a code sample that demonstrates how an Android applicat
     > ```
 
 > [!div renderon="docs"]
-6. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+> 1. Extract and open the Project in Android Studio.
+> 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
+> 1. Edit **auth_config.json** and replace the `client_id`:
+> > ```javascript
+> > "client_id" : "ENTER_YOUR_APPLICATION_ID",
+> > "redirect_uri": "ENTER_YOUR_REDIRECT_URI",
+> > ```
+> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
+> 1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
+	> [!div renderon="docs"]
+	> ```xml
+    > <!--Intent filter to catch Microsoft's callback after Sign In-->
+    > <activity
+    >     android:name="com.microsoft.identity.client.BrowserTabActivity">
+    >     <intent-filter>
+    >         <action android:name="android.intent.action.VIEW" />
+    >         <category android:name="android.intent.category.DEFAULT" />
+    >         <category android:name="android.intent.category.BROWSABLE" />
+    > 
+    >         <!--Add in your scheme/host from registered redirect URI-->
+    >         <!--By default, the scheme should be similar to 'msal[appId]' -->
+    >         <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
+    >             android:host="auth" />
+    >     </intent-filter>
+    > </activity>
+    > ```
+> 1. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
 
 ## More Information
 
