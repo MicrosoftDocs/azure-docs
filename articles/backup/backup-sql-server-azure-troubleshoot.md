@@ -147,7 +147,7 @@ Check for one or more of the [symptoms](#symptoms) before triggering the re-regi
 
     ![Re-Register VM](./media/backup-azure-sql-database/re-register-vm.png)
 
-* In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover.
+* In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover
 
 ### Causes
 These symptoms may arise due to one or more of the following reasons:
@@ -157,9 +157,9 @@ These symptoms may arise due to one or more of the following reasons:
   * VM was restored back in time using in-place disk(s) restore
   * VM was shut down for an extended period because of which the extension configuration on it expired
   * VM was deleted and another VM was created with the same name and in the same resource group as the deleted VM
-  * One of the AG nodes didn't receive the complete backup configuration, this may happen either at the time of availability group registration to the vault or when a new node gets added.  
+  * One of the AG nodes didn't receive the complete backup configuration, this may happen either at the time of availability group registration to the vault or when a new node gets added  <br>
    
-In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the UX as well.
+In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the Azure portal as well.
 
 
 ## Next steps

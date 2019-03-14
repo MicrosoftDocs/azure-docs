@@ -1,12 +1,12 @@
 ---
 title: Manage and monitor SQL Server databases on an Azure VM that's backed up by Azure Backup | Microsoft Docs
-description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up by Azure Backup.
+description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/19/2018
+ms.date: 03/14/2018
 ms.author: raynew
 
 
@@ -27,6 +27,8 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. Th
 > [!NOTE]
 > The **Backup jobs** portal doesn't show scheduled backup jobs. Use SQL Server Management Studio to monitor scheduled backup jobs, as described in the next section.
 >
+
+For details on Monitoring scenarios, go to [Monitoring in Azure Portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 ## Monitor scheduled backup jobs in SQL Server Management Studio
 
@@ -84,15 +86,13 @@ You can stop backing up a SQL Server database in a couple of ways:
 
 If you choose to leave recovery points, keep these details in mind:
 
-* Any recovery points you leave will be cleaned up according to the backup policy.
-* Until all recovery points are cleaned up, you'll be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-* Azure Backup always keeps one last recovery point until you delete the backup data.
+* All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+* You will be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
 * If you delete a data source without stopping backups, new backups will fail.
-* If your database is enabled for autoprotection, you can't stop backups unless you disable autoprotection.
 
 To stop protection for a database:
 
-1. On the vault dashboard, under **Usage**, select **Backup Items**.
+1. On the vault dashboard, select **Backup Items**.
 
 2. Under **Backup Management Type**, select **SQL in Azure VM**.
 
@@ -157,9 +157,9 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 ## Re-register extension on the SQL Server VM
 
-Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. Re-register operation re-installs the workload backup extension on the VM for operations to continue.  <br>
+Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. **Re-register** operation reinstalls the workload backup extension on the VM for operations to continue.  <br>
 
-It is advised to use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#symptoms) before triggering the re-register operation. 
+It is advised to use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#symptoms) before triggering the re-register operation.
 
 ## Next steps
 

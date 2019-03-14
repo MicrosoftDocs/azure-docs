@@ -1,12 +1,12 @@
 ---
 title: About SQL Server Azure VM by Azure Backup | Microsoft Docs
-description: This article describes about SQL Server databases that are running on an Azure virtual machine (VM).
+description: Learn about SQL Server databases on Azure VM and feature consideration of this feature.
 services: backup
 author: swati
 manager: shivam
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/14/2019
 ms.author: swati
 
 
@@ -17,7 +17,7 @@ SQL Server databases are critical workloads that require a low recovery point ob
 
 ## Backup process
 
-This solution leverages the SQL Native APIs to take backups of your SQL databases.
+This solution leverages the SQL native APIs to take backups of your SQL databases.
 
   * Once you specify the SQL Server VM that you want to protect and query for the databases in the it, Azure Backup service will install a workload backup extension on the VM by the name `AzureBackupWindowsWorkload` extension.
   * This extension consists of a coordinator and a SQL plugin. While the coordinator is responsible for triggering workflows for various operations like configure backup, backup and restore, the plugin is responsible for actual data flow.
