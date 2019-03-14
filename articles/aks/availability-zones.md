@@ -6,35 +6,39 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/14/2019
 ms.author: iainfou
 ---
 
-# Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
+# Preview - Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
 
 An Azure Kubernetes Service (AKS) cluster distributes resources such as the nodes and storage across logical sections of the underlying Azure compute infrastructure. This deployment model makes sure that the nodes run across separate update and fault domains in a single Azure datacenter. AKS clusters deployed with this default behavior provide a high level of availability to protect against a hardware failure or planned maintenance event.
 
 To provide a higher level of availability to your applications, AKS clusters can be distributed across availability zones. These zones are physically separate datacenters within a given region. When the cluster components are distributed across multiple zones, your AKS cluster is able to tolerate a failure in one of those zones. Your applications and management operations continue to be available even if one entire datacenter has a problem.
 
-This article shows you how to create an AKS cluster and distribute the node components across availability zones.
+This article shows you how to create an AKS cluster and distribute the node components across availability zones. This feature is currently in preview.
 
 > [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+>
+> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
 
 ## Before you begin
 
 You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-To create an AKS cluster that availability zones, first enable a feature flag on your subscription. To register the *AvailabilityZonePreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that availability zones, first enable two feature flags on your subscription. Clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *AvailabilityZonePreview* and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -80,7 +84,7 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 When you create a cluster using the [az aks create][az-aks-create] command, the *--agent-zones* parameter defines which zones an agent node is deployed into.
 
-The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*:
+The following example creates a VMSS-based cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -90,6 +94,7 @@ az aks create \
     --name myAKSCluster \
     --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
+    --enable-vmss \
     --node-count 3 \
     --agent-zones 1 2 3
 ```
