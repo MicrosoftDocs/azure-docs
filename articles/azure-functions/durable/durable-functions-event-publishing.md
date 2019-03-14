@@ -73,25 +73,18 @@ Now you can send events to the topic.
 
 In your Durable Functions project, find the `host.json` file.
 
-Add `EventGridTopicEndpoint` and `EventGridKeySettingName` in a `durableTask` property.
+Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` property.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-The possible Azure Event Grid configuration properties are as follows:
-
-* **EventGridTopicEndpoint** - The endpoint of the Event Grid Topic. The *%AppSettingName%* syntax can be used to resolve this value from application settings or environment variables.
-* **EventGridKeySettingName** - The key of the application setting on your Azure Function. Durable Functions will get the Event Grid Topic key from the value.
-* **EventGridPublishRetryCount** - [Optional] The number of times to retry if publishing to the Event Grid topic fails.
-* **EventGridPublishRetryInterval** - [Optional] The Event Grid publish retry interval in the *hh:mm:ss* format. If not specified, the default retry interval is 5 minutes.
-
-Once you configure the `host.json` file, Your Durable Functions project starts to send lifecycle events to the Event Grid topic. This works when you run in the Function App and when you run locally.
+The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). Once you configure the `host.json` file, Your Durable Functions project starts to send lifecycle events to the Event Grid topic. This works when you run in the Function App and when you run locally.
 
 Set the app setting for the topic key in the Function App and `local.setting.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
 
