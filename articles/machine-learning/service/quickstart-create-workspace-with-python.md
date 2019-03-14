@@ -110,9 +110,8 @@ The instructions in this quickstart will install all the packages you need to ru
 
 > [!IMPORTANT]
 > In some command-line tools, you might need to add quotation marks as follows:
->
->      *  'azureml-sdk[notebooks]'
->      * 'azureml-sdk[automl]'
+> *  'azureml-sdk[notebooks]'
+> * 'azureml-sdk[automl]'
 >
 
 
