@@ -132,7 +132,7 @@ As an external user, you first need to accept the invite to your Azure AD organi
 
 1. Click **Activate role** to open your eligible roles in PIM.
 
-    ![My roles - Eligible](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![My roles - eligible](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. Under Action, click the **Activate** link.
 
@@ -154,7 +154,7 @@ Just like a member user, you can view audit logs to keep track of what guests ar
 
     ![Resource audit](./media/pim-resource-roles-external-users/audit-resource.png)
 
-1. To view the activity for the guest, click **Azure Active organization** > **Users** > guest name.
+1. To view the activity for the guest, click **Azure Active Directory** > **Users** > guest name.
 
 1. Click **Audit logs** to see the audit logs for the organization. If necessary, you can specify filters.
 
