@@ -17,15 +17,15 @@ ms.author: cithomas
 # Sampling in Application Insights
 
 Sampling is a feature in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). It is the recommended way to reduce telemetry traffic and storage, while preserving  a statistically correct analysis of application data. The filter selects items that are related, so that you can navigate between items when you are doing diagnostic investigations.
-When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
+When metric counts are presented in the portal, they are renormalized to take into account sampling. Doing so minimizes any effect on the statistics.
 
 Sampling reduces traffic and data costs, and helps you avoid throttling.
 
 ## In brief:
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain one in five events, a sampling rate of 20%. 
-* Adaptive Sampling is enabled by default in all the latest version of Asp.Net and Asp.Net Core SDKs.
-* You can also set sampling manually, either in the portal on the Usage and estimated costs page; or in the ASP.NET SDK in the ApplicationInsights.config file; or in the Asp.Net Core SDK via code or in the Java SDK in the ApplicationInsights.xml file, to also reduce the network traffic.
-* If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
+* Adaptive Sampling is enabled by default in all the latest version of Asp.Net and Asp.Net Core Software Development Kits (SDKs).
+* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*.  In the ASP.NET SDK in the ApplicationInsights.config file. In the Asp.Net Core SDK via code. Or in the Java SDK in the ApplicationInsights.xml file.
+* If you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". `itemCount==1`when sampling is not in operation.
 * If you write Analytics queries, you should [take account of sampling](../../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 
@@ -36,7 +36,7 @@ There are three alternative sampling methods:
 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET or ASP.NET Core or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 * **Ingestion sampling** 
-works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app, and it works uniformly for all servers and clients. 
+works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app. Ingestion sampling works uniformly for all servers and clients. 
 
 If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
@@ -61,7 +61,7 @@ Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampli
 > 
 
 ## Adaptive sampling at your web server
-Adaptive sampling is available for the Application Insights SDK for ASP.NET v 2.0.0-beta3 and later, 2.2.0-beta1 of Microsoft.ApplicationInsights.AspNetCore SDK and later, and is enabled by default. 
+Adaptive sampling is available for the Application Insights SDK for ASP.NET v 2.0.0-beta3 and later. In 2.2.0-beta1 of Microsoft.ApplicationInsights.AspNetCore SDK and later, and is enabled by default. 
 
 Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service endpoint. The volume is adjusted automatically to keep within a specified maximum rate of traffic.
 
