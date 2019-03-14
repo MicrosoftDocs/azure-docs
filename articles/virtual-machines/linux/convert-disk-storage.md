@@ -1,6 +1,6 @@
 ---
-title: Convert Azure managed disks from Standard to Premium storage or Premium to Standard | Microsoft Docs
-description: How to switch/convert/upgrade Azure managed disks storage from Standard to Premium storage and Premium to Standard by using Azure CLI.
+title: Convert Azure managed disks storage from Standard to Premium or Premium to Standard | Microsoft Docs
+description: How to convert Azure managed disks storage from Standard to Premium or Premium to Standard by using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -21,9 +21,9 @@ ms.subservice: disks
 
 # Convert Azure managed disks storage from Standard to Premium or Premium to Standard
 
-There are four Azure managed disks [disk types](disks-types.md): Azure Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. You can easily switch between Premium SSD, Standard SSD, and Standard HDD based on your performance needs with little downtime. This functionality is not supported for unmanaged disks or Ultra Disk Storage. But you can easily [convert unmanaged to managed disks](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
+There are four [disk types](disks-types.md) for Azure managed disks: Azure Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. You can easily switch between Premium SSD, Standard SSD, and Standard HDD based on your performance needs with little downtime. This functionality is not supported for unmanaged disks or Ultra Disk Storage. But you can easily [convert unmanaged to managed disks](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
-This article shows how to convert managed disks from Standard to Premium or Premium to Standard by using Azure CLI. To install or upgrade the tool: [Install Azure CLI](/cli/azure/install-azure-cli).
+This article shows how to convert managed disks from Standard to Premium or Premium to Standard by using the Azure CLI. To install or upgrade the tool, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
