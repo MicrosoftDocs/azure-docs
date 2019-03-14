@@ -37,7 +37,7 @@ The following are generalized steps on how to prepare a virtual machine to act a
 
 1. Join the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the session hosts virtual machines to the file share virtual machine you just created.
 2. [Connect to the file share virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
-3. On the file share virtual machine, create a folder on the **C:\\** that will be used as the profile share.
+3. On the file share virtual machine, create a folder on the **C drive** that will be used as the profile share.
 4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
 5. Select **Share this folder**, select **Permissions...**, then select **Add...**.
 6. Search for the security group to which you added the session host virtual machines, then make sure that group has **Full Control**.
@@ -52,14 +52,14 @@ To configure the virtual machines with the FSLogix software, do the following on
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Launch an internet browser and navigate to the following [link](https://support.fslogix.com/index.php/downloads/download/download/1fa77ff8107fda8df939321ca0bbb56190be43ddf3b0d4bdd4fb94900c1e9453) to download the FSLogix agent.
 3. Install the FSLogix agent.
-4. Navigate to **C:\Program Files\FSLogix\Apps** to confirm the agent was installed.
-5. From the start menu, run **RedEdit** as an administrator. Navigate to **Computer\HKEY_LOCAL_MACHINE\software\FSLogix\Profiles**
+4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
+5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\Profiles**
 6. Create the following values:
 
 | Name                | Type               | Data/Value                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
-| VHDLocations        | Multi-String Value | "**Network path** for file share" |
+| VHDLocations        | Multi-String Value | "Network path for file share" |
 | VolumeType          | String             | VHDX                              |
 | SizeInMBs           | DWORD              | "integer for size of profile"     |
 | IsDynamic           | DWORD              | 1                                 |
