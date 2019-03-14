@@ -36,8 +36,8 @@ The recognition model is used when the face features are extracted, so you can s
 
 When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter. The available values are:
 
-* `recognition_v01`
-* `recognition_v02`
+* `recognition_01`
+* `recognition_02`
 
 So, a request URL for the [Face - Detect] REST API will look like this:
 
@@ -45,28 +45,28 @@ So, a request URL for the [Face - Detect] REST API will look like this:
 &subscription-key=<Subscription key>`
 
 If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
-If you leave it unassigned, the default model version (_recognition_v01_) will be used. See the following code example for the .NET client library.
+If you leave it unassigned, the default model version (_recognition_01_) will be used. See the following code example for the .NET client library.
 
 ```csharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_v02");
+var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02");
 ```
 
 ## Identify faces with specified model
 
 The Face API can extract face data from an image and associate it with a **Person** object (through the [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API call, for example), and multiple **Person** objects can be stored together in a **PersonGroup**. Then, a new face can be compared against a **PersonGroup** (with the [Face - Identify] call), and the matching person within that group can be identified.
 
-A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]). If you do not specify this parameter, the original `recognition_v01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [PersonGroup - Get] API.
+A **PersonGroup** should have one unique recognition model for all of the **Person**s, and you can specify this using the `recognitionModel` parameter when you create the group ([PersonGroup - Create] or [LargePersonGroup - Create]). If you do not specify this parameter, the original `recognition_01` model is used. A group will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after a group's creation. To see what model a **PersonGroup** is configured with, use the [PersonGroup - Get] API.
 
 See the following code example for the .NET client library.
 
 ```csharp
-// Create an empty PersonGroup with "recognition_v02" model
+// Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_v02");
+await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-In this code, a **PersonGroup** with id `mypersongroupid` is created, and it is set up to use the _recognition_v02_ model to extract face features.
+In this code, a **PersonGroup** with id `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
 
 Correspondingly, you need to specify which model to use when detecting faces to compare against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
@@ -74,27 +74,27 @@ There is no change in the [Face - Identify] API; you only need to specify the mo
 
 ## Find similar faces with specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the original `recognition_v01` model is used. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after creation. To see what model a face list is configured with, use the [FaceList - Get] API.
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create]. If you do not specify this parameter, the original `recognition_01` model is used. A face list will always use the recognition model it was created with, and new faces will become associated with this model when they are added to it; this cannot be changed after creation. To see what model a face list is configured with, use the [FaceList - Get] API.
 
 See the following code example for the .NET client library.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_v02");
+await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
-This code creates a face list called `My face collection`, using the _recognition_v02_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_v02_ model. As in the previous section, the model needs to be consistent.
+This code creates a face list called `My face collection`, using the _recognition_02_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_02_ model. As in the previous section, the model needs to be consistent.
 
 There is no change in the [Face - Find Similar] API; you only specify the model version in detection.
 
 ## Verify faces with specified model
 
-The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but note that you can only compare faces that were detected with the same model. So, the two faces will both need to have been detected using `recognition_v01` or `recognition_v02`.
+The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but note that you can only compare faces that were detected with the same model. So, the two faces will both need to have been detected using `recognition_01` or `recognition_02`.
 
 ## Evaluate different models
 
-If you'd like to compare the performances of the _recognition_v01_ and _recognition_v02_ models on your data, you will need to:
+If you'd like to compare the performances of the _recognition_01_ and _recognition_02_ models on your data, you will need to:
 
-1. Create two **PersonGroup**s with _recognition_v01_ and _recognition_v02_ respectively.
+1. Create two **PersonGroup**s with _recognition_01_ and _recognition_02_ respectively.
 1. Use your image data to detect faces and register them to **Person**s for these two **PersonGroup**s, and trigger the training process with [PersonGroup - Train] API.
 1. Test with [Face - Identify] on both **PersonGroup**s and compare the results.
 
