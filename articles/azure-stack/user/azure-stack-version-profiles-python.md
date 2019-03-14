@@ -68,7 +68,7 @@ If you are using the ASDK, you will need to trust the CA root certificate on you
       python -c "import certifi; print(certifi.where())"
     ```
 
-Make a note of the certificate store location. For example, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Your particular path will depend on your OS and the version of Python that you have installed.
+    Make a note of the certificate store location. For example, *~/lib/python3.5/site-packages/certifi/cacert.pem*. Your particular path will depend on your OS and the version of Python that you have installed.
 
 2. Trust the Azure Stack CA root certificate by appending it to the existing Python certificate.
 
