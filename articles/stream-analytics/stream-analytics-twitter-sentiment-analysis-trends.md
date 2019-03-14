@@ -53,7 +53,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace blade, click **+&nbsp;Event Hub**. 
 
-    ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Name the new event hub `socialtwitter-eh`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub.
 
@@ -333,7 +333,7 @@ A job input, query, and output are specified. You are ready to start the Stream 
 
 After your job has started running and is processing the real-time Twitter stream, you can view the output for sentiment analysis.
 
-You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
+You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you can use [Power BI](https://powerbi.com/) to extend your application to include a customized dashboard like the one shown in the following screenshot:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

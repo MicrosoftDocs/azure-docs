@@ -1,4 +1,4 @@
---- 
+---
 title: Real-time fraud detection using Azure Stream Analytics
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
 services: stream-analytics 
@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual 
 ms.date: 12/07/2018
 ms.custom: seodec18 
---- 
+---
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
 This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You learn how to: 
@@ -62,7 +62,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace pane, click **Event Hub**.
 
-   ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
@@ -185,6 +185,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
    |Event Hub namespace  |  asa-eh-ns-demo |  Enter the name of the Event Hub namespace.   |
    |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
    |Event Hub policy name  | asa-policy-manage-demo | Select the access policy that you created earlier.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -353,6 +354,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
+   
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

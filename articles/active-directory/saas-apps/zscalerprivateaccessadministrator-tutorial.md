@@ -214,7 +214,7 @@ To enable Azure AD users to log in to Zscaler Private Access Administrator, they
 
 	![Zscaler Private Access Administrator user admin](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-	a. In the **Username** textbox, enter the email of user like **BrittaSimon@contoso.com**.
+	a. In the **Username** textbox, enter the email of user like **BrittaSimon\@contoso.com**.
 
 	b. In the **Password** textbox, type the Password.
 
@@ -222,7 +222,7 @@ To enable Azure AD users to log in to Zscaler Private Access Administrator, they
 
 	d. Select **Role** as **Zscaler Private Access Administrator**.
 
-	e. In the **Email** textbox, enter the email of user like **BrittaSimon@contoso.com**.
+	e. In the **Email** textbox, enter the email of user like **BrittaSimon\@contoso.com**.
 
 	f. In the **Phone** textbox, type the Phone number.
 

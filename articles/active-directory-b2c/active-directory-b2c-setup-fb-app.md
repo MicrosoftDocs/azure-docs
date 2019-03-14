@@ -1,5 +1,5 @@
 ---
-title: Set up sign-up and sign-in with a Facebook account using Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-up and sign-in with a Facebook account - Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Facebook accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 ## Create a Facebook application
 
-To use a Facebook account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Facebook account, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
+To use a Facebook account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Facebook account, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Sign in to [Facebook for developers](https://developers.facebook.com/) with your Facebook account credentials.
 2. If you have not already done so, you need to register as a Facebook developer. To do this, select **Register** on the upper-right corner of the page, accept Facebook's policies, and complete the registration steps.

@@ -3,19 +3,18 @@ title: Azure Data Factory Mapping Data Flow Sink Transformation
 description: Azure Data Factory Mapping Data Flow Sink Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
---- 
+---
 
-# Azure Data Factory Mapping Data Flow Sink Transformation
+# Mapping Data Flow Sink Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ![Sink options](media/data-flow/windows1.png "sink 1")
 
-At the completion of your data flow transformation, you can sink your transformed data into a destination dataset. In the Sink transformation, you can choose the dataset definition that you wish to use for the destination output data.
+At the completion of your data flow transformation, you can sink your transformed data into a destination dataset. In the Sink transformation, you can choose the dataset definition that you wish to use for the destination output data. You may have as many Sink transformation as your data flow requires.
 
 A common practice to account for changing incoming data and to account for schema drift is to sink the output data to a folder without a defined schema in the output dataset. You can additionally account for all column changes in your sources by selecting "Allow Schema Drift" at the Source and then automap all fields in the Sink.
 
@@ -30,33 +29,45 @@ For Azure Storage Blob or Data Lake sink types, you will output the transformed 
 
 ![Sink options](media/data-flow/opt001.png "sink options")
 
-## Blob Storage Folder
-When Sinking your data transformations to Blob Store, choose a blob *folder* as your destination folder path, not a file. ADF Data Flow will generate the output files for you in that folder.
+#### Field mapping
 
-![Folder Path](media/data-flow/folderpath.png "folder path")
+On the Mapping tab of your Sink transformation, you can map the incoming (left side) columns to the destination (right side). When you sink data flows to files, ADF will always write new files to a folder. When you map to a database dataset, you can choose to either generate a new table with this schema (set Save Policy to "overwrite") or insert new rows to an existing table and map the fields to the existing schema.
 
-## Optional Azure SQL Data Warehouse Sink
+You can use multi-select in the mapping table to Link multiple columns with one click, delink multiple columns or map multiple rows to the same column name.
 
-We are releasing an early beta of the ADW Sink Dataset for Data Flow. This will allow you to land your transformed data directly into Azure SQL DW within Data Flow without the need of adding a Copy Activity in your pipeline.
+When you wish to always take the incoming set of fields and map them to a target as-is, set the "Allow Schema Drift" setting.
 
-Start by creating an ADW dataset, just as you would for any other ADF pipeline, with a Linked Service that includes your ADW credentials and choose the database that you wish to connect to. In the table name, either select an existing table or type in the name of the table that you would like Data Flow to automatically create for you from in the incoming fields.
+![Field Mapping](media/data-flow/multi1.png "multiple options")
 
-![Sink options](media/data-flow/adw3.png "sink 3")
+If you'd like to reset your columns mappings, press the "Remap" button to reset the mappings.
 
-Back on the Sink tranformation (ADW is currently only supported as a Sink) you will choose the ADW Dataset that you created as well as the Storage account you wish to use for staging the data for the Polybase load into ADW. The path field is of the format: "containername/foldername".
+![Sink options](media/data-flow/sink1.png "Sink One")
 
-![Sink options](media/data-flow/adw1.png "sink 4")
+![Sink options](media/data-flow/sink2.png "Sinks")
 
-### Save Policy
+* Allow Schema Drift and Validate Schema options are now available in Sink. This will allow you to instruct ADF to either fully accept flexible schema definitions (Schema Drift) or fail the Sink if the schema changes (Validate Schema).
 
-Overwrite will truncate the table if it exists, then recreate it and load the data. Append will insert the new rows. If the table from the Dataset table name does not exist at all in the target ADW, Data Flow will create the table, then load the data.
+* Clear the Folder. ADF will truncate the sink folder contents before writing the destination files in that target folder.
 
-If you deselect "Auto Map", you can map the fields to your destination table manually.
+* File name options
 
-![Sink ADW options](media/data-flow/adw2.png "adw sink")
+   * Default: Allow Spark to name files based on PART defaults
+   * Pattern: Enter a name for your output files
+   * Per partition: Enter a file name per partition
+   * As data in column: Set the output file to the value of a column
 
-### Max Concurrent Connections
+> [!NOTE]
+> File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
 
-You can set the maximum concurrent connections in the Sink transformation when writing your data to an Azure database connection.
+With database dataset sinks, you will have additional options:
 
-![Connection options](media/data-flow/maxcon.png "connections")
+* Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
+* Truncate table (removes all rows from your target table before completing the data flow)
+* Recreate table (performs drop/create of your target table before completing the data flow)
+* Batch size for large data loads. Enter a number to bucket writes into chunks.
+
+![SQL Sink Options](media/data-flow/alter-row2.png "SQL Options")
+
+## Next steps
+
+Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline](concepts-data-flow-overview.md).

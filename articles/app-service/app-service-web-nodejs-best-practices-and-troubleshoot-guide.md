@@ -85,7 +85,7 @@ In addition to this, for streaming applications, you must also set responseBuffe
 
 ### watchedFiles
 
-A semi-colon separated list of files that are watched for changes. Any change to a file causes the application to recycle. Each entry consists of an optional directory name as well as a required file name, which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. The default value is `*.js;web.config`
+A semi-colon separated list of files that are watched for changes. Any change to a file causes the application to recycle. Each entry consists of an optional directory name as well as a required file name, which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. The default value is `*.js;iisnode.yml`
 
 ### recycleSignalEnabled
 
@@ -128,7 +128,7 @@ The agentkeepalive module ensures that sockets are reused on your Azure webapp V
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -150,9 +150,9 @@ If you believe your application is consuming too much CPU and you cannot explain
 For example, let's say you have a hello world app that you want to profile as follows:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -180,12 +180,12 @@ This command installs the v8-profiler under node\_modules directory and all of i
 Now, edit your server.js to profile your application.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

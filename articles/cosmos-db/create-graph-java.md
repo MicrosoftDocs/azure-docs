@@ -10,7 +10,7 @@ ms.date: 03/26/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Create a graph database using Java and the Azure portal
+# Quickstart: Create a graph database in Azure Cosmos DB using the Java SDK 
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)

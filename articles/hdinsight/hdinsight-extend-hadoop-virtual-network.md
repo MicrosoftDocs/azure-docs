@@ -13,6 +13,9 @@ ms.date: 11/06/2018
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
+> [!IMPORTANT]  
+> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+
 Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Using an Azure Virtual Network enables the following scenarios:
 
 * Connecting to HDInsight directly from an on-premises network.
@@ -215,8 +218,6 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 As a managed service, HDInsight requires unrestricted access to the HDinsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs and UDRs, you must ensure that these services can still communicate with HDInsight cluster.
 
-HDInsight exposes services on several ports. When using a virtual appliance firewall, you must allow traffic on the ports used for these services. For more information, see the [Required ports] section.
-
 ### <a id="hdinsight-ip"></a> HDInsight with network security groups and user-defined routes
 
 If you plan on using **network security groups** or **user-defined routes** to control network traffic, perform the following actions before installing HDInsight:
@@ -228,7 +229,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 3. Create or modify the network security groups or user-defined routes for the subnet that you plan to install HDInsight into.
 
     * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDI management services can reach the cluster from outside VNET.
-    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firwall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
+    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firewall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
 
 For more information on network security groups or user-defined routes, see the following documentation:
 
@@ -238,7 +239,7 @@ For more information on network security groups or user-defined routes, see the 
 
 #### Forced tunneling to on-premise
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premise networks. If you are using Azure Firewall or a netwrok virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
+Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premise networks. If you are using Azure Firewall or a network virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
@@ -277,6 +278,7 @@ If you use network security groups, you must allow traffic from the Azure health
     | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
+    | France | France Central| 20.188.39.64</br>40.89.157.135 | 443 | Inbound |
     | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 | Inbound |
     | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 | Inbound |
     | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 | Inbound |
@@ -299,8 +301,6 @@ If you use network security groups, you must allow traffic from the Azure health
 3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
-
-For outbound NSG rules, allow traffic from Any source inside the VNET to reach the above addresses as "Desitnation IP addresses".
 
 If you are using user-defined routes(UDRs), you should specify a route and allow outbound traffic from the VNET to the above IPs with the next hop set to "Internet".
     

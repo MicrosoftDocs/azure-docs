@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -39,7 +39,7 @@ The current state of automatic upgrade can be viewed with the PowerShell cmdlet 
 | Suspended |Set by the system only. The system is **not currently** eligible to receive automatic upgrades. |
 | Disabled |Automatic upgrade is disabled. |
 
-You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.
+You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.  Prior to 1.1.750.0 the Set-ADSyncAutoUpgrade cmdlet would block Autoupgrade if the auto-upgrade state was set to Suspended. This functionality has now changed so it does not block AutoUpgrade.
 
 Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructure. For automatic upgrade to work, make sure you have opened the URLs in your proxy server for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -92,11 +92,11 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
-| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |d
+| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. | 
 | UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
-| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
 
 ## Next steps

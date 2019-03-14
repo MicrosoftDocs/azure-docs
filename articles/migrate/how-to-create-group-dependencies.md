@@ -17,9 +17,10 @@ This article describes how to refine a group by visualizing dependencies of all 
 > [!NOTE]
 > Groups for which you want to visualize dependencies shouldn't contain more than 10 machines. If you have more than 10 machines in the group, we recommend you to split it into smaller groups to leverage the dependency visualization functionality.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prepare for dependency visualization
-Azure Migrate leverages Service Map solution in Log Analytics to enable dependency visualization of machines.
+Azure Migrate leverages Service Map solution in Azure Monitor logs to enable dependency visualization of machines.
 
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
@@ -100,7 +101,7 @@ Once you have installed agents on all the machines of the group, you can visuali
 3. To view more granular dependencies, click the time range to modify it. By default, the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 
     > [!NOTE]
-      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
+      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) over a longer duration.
 
 4. Verify the dependent machines, the process running inside each machine and identify the machines that should be added or removed from the group.
 5. Use Ctrl+Click to select machines on the map to add or remove them from the group.
@@ -113,19 +114,19 @@ Once you have installed agents on all the machines of the group, you can visuali
 
 If you want to check the dependencies of a specific machine that appears in the group dependency map, [set up machine dependency mapping](how-to-create-group-machine-dependencies.md).
 
-## Query dependency data from Log Analytics
+## Query dependency data from Azure Monitor logs
 
-Dependency data captured by Service Map is available for querying in the Log Analytics workspare associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
+Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
 
-To run the Log Analytics queries:
+To run the Kusto queries:
 
 1. After you install the agents, go to the portal and click **Overview**.
 2. In **Overview**, go to **Essentials** section of the project and click on workspace name provided next to **OMS Workspace**.
 3. On the Log Analytics workspace page, click **General** > **Logs**.
-4. Write your query to gather dependency data using Log Analytics. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Write your query to gather dependency data using Azure Monitor logs. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Run your query by clicking on Run. 
 
-[Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Log Analytics queries. 
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Kusto queries. 
 
 
 ## Next steps

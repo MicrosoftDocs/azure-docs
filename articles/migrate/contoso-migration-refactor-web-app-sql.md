@@ -272,7 +272,7 @@ Contoso admins need to make sure the web apps and database can all communicate. 
 
     ![Connection string](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commmit and sync.
+5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commit and sync.
 
 
 ## Step 6: Set up build and release pipelines in Azure DevOps

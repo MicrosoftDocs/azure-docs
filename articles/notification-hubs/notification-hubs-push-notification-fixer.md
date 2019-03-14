@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs dropped notification diagnosis
+title: Azure Notification Hubs - Diagnose dropped notifications
 description: Learn how to diagnose common issues with dropped notifications in Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
@@ -17,7 +17,7 @@ ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Diagnose dropped notifications in Notification Hubs
+# Azure Notification Hubs - Diagnose dropped notifications
 
 One of the most common questions from Azure Notification Hubs customers is how to troubleshoot when notifications that are sent from an application don't appear on client devices. They want to know where and why notifications were dropped, and how to fix the issue. This article identifies why notifications might get dropped or not be received by devices. Learn how to analyze and determine the root cause.
 
@@ -242,10 +242,7 @@ In the portal, you can get a quick overview of all the activity in your notifica
 
 * **Programmatic access**
 
-For more information about programmatic access, see these articles:
-
-* [Programmatic telemetry access]  
-* [Telemetry access via APIs sample]
+For more information about programmatic access, see [Programmatic telemetry access]
 
 > [!NOTE]
 > Several telemetry-related features, like exporting and importing registrations and telemetry access via APIs, are available only on the Standard service tier. If you attempt to use these features from the Free or Basic service tier, you receive an exception message if you use the SDK, and an HTTP 403 (Forbidden) error if you use the features directly from the REST APIs.
@@ -270,12 +267,11 @@ For more information about programmatic access, see these articles:
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[View device registrations for notification hubs]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Deep dive: Visual Studio 2013 Update 2 RC and Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Programmatic telemetry access]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Telemetry access via APIs sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx

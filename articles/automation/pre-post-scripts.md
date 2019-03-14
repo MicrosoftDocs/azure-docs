@@ -12,11 +12,11 @@ manager: carmonm
 ---
 # Manage pre and post scripts (Preview)
 
-Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
+Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre-scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+For a runbook to be used as a pre or post script, the runbook needs to be imported into your automation account and published. To learn more about this process, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Using a pre/post script
 
@@ -46,7 +46,19 @@ By clicking into the update deployment run, you're provided additional details t
 
 ## Passing parameters
 
-When you configure pre and post scripts, you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. Pre and Post scripts require parameters to be of the type `String`. If you need another object type, you can cast it to another type using `[System.Convert]` or handle it with your own logic.
+When you configure pre and post scripts, you can pass in parameters just like scheduling a runbook. Parameters are defined at the time of update deployment creation. Pre and Post scripts support the following types:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+If you need another object type, you can cast it to another type with your own logic in the runbook.
 
 In addition to your standard runbook parameters, an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
 

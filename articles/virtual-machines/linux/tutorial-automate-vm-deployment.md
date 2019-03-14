@@ -66,7 +66,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -80,7 +80,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()
@@ -194,7 +194,7 @@ packages:
   - npm
 write_files:
   - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
+    path: /etc/nginx/sites-available/default
     content: |
       server {
         listen 80;
@@ -211,7 +211,7 @@ write_files:
         }
       }
   - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
+    path: /home/azureuser/myapp/index.js
     content: |
       var express = require('express')
       var app = express()

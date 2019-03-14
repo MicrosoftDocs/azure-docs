@@ -12,7 +12,7 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
 
@@ -168,9 +168,9 @@ For more information, see the [Node.js Developer Center].
 [Azure Websites, Cloud Services and Virtual Machines comparison]: ../app-service/overview-compare.md
 [using a lightweight web app]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure Powershell]: /powershell/azureps-cmdlets-docs
-[Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connect PowerShell]: /powershell/azureps-cmdlets-docs
-[nodejs.org]: http://nodejs.org/
+[nodejs.org]: https://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 

@@ -113,10 +113,13 @@ This category contains the record of all create, update, delete, and action oper
 | correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
 | description |Static text description of an event. |
 | eventDataId |Unique identifier of an event. |
+| eventName | Friendly name of the Administrative event. |
+| category | Always "Administrative" |
 | httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT). |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
 | resourceGroupName |Name of the resource group for the impacted resource. |
 | resourceProviderName |Name of the resource provider for the impacted resource |
+| resourceType | The type of resource that was affected by an Administrative event. |
 | resourceId |Resource ID of the impacted resource. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |

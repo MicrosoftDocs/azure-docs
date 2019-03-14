@@ -68,7 +68,7 @@ For more information, see [Azure Government Backup](documentation-government-ser
 ## Policy
 Policy is generally available in Azure Government.
 
-For more information, see [Azure Policy](../azure-policy/azure-policy-introduction.md).
+For more information, see [Azure Policy](../governance/policy/overview.md).
 
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.
@@ -166,15 +166,17 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | --- | --- | --- | --- |
 | Telemetry | dc.applicationinsights.us | 23.97.4.113 | 443 |
 
-## Log Analytics
-Log Analytics is generally available in Azure Government.
+## Azure Monitor logs
+Azure Monitor logs is generally available in Azure Government.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### Variations
 
 * Solutions that are available in Azure Government include:
   * [Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) - NPM is a cloud-based network monitoring solution for public and hybrid cloud environments. Organizations use NPM to monitor network availability across on-premises and cloud environments.  Endpoint Monitor - a subcapability of NPM, monitors network connectivity to applications.
 
-The following Log Analytics features and solutions are not currently available in Azure Government.
+The following Azure Monitor logs features and solutions are not currently available in Azure Government.
 
 * Solutions that are in preview in Microsoft Azure, including:
   * Service Map
@@ -189,11 +191,11 @@ The following Log Analytics features and solutions are not currently available i
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
 
-The URLs for Log Analytics are different in Azure Government:
+The URLs for Azure Monitor logs are different in Azure Government:
 
 | Azure Public | Azure Government | Notes |
 | --- | --- | --- |
-| mms.microsoft.com |oms.microsoft.us |Log Analytics portal |
+| mms.microsoft.com |oms.microsoft.us |Log Analytics workspaces portal |
 | *workspaceId*.ods.opinsights.azure.com |*workspaceId*.ods.opinsights.azure.us |[Data collector API](../azure-monitor/platform/data-collector-api.md) |
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
@@ -204,28 +206,28 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 | N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 
-The following Log Analytics features behave differently in Azure Government:
+The following Azure Monitor logs features behave differently in Azure Government:
 
-* To connect your System Center Operations Manager management group to Log Analytics, you need to download and import updated management packs.
+* To connect your System Center Operations Manager management group to Azure Monitor logs, you need to download and import updated management packs.
   + System Center Operations Manager 2016
     1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
     2. Import the management packs included as part of Update Rollup 2 into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](https://technet.microsoft.com/library/hh212691.aspx).
-    3. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../azure-monitor/platform/om-agents.md).
+    3. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
   + System Center Operations Manager 2012 R2 UR3 (or later) / Operations Manager 2012 SP1 UR7 (or later)
     1. Download and save the [updated management packs](https://go.microsoft.com/fwlink/?LinkId=828749).
     2. Unzip the file that you downloaded.
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](https://technet.microsoft.com/library/hh212691.aspx).
-    4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../azure-monitor/platform/om-agents.md).
+    4. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
 * To use [computer groups from System Center Configuration Manager 2016](../azure-monitor/platform/collect-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
 
 ### Frequently asked questions
-* Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
+* Can I migrate data from Azure Monitor logs in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
 * Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite portal?
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
-For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
+For more information, see [Azure Monitor logs public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Scheduler
 For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md).

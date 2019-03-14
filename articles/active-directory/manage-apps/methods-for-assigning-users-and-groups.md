@@ -28,7 +28,7 @@ This article shows you how to assign users or groups to an application in Azure 
 
 -   See an application appear on their [Office 365 Application Launcher](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## Prerequisties
+## Prerequisites
 Before you can assign users and groups to an application, you must require user assignment. To require user assignment:
 
 1. Log in to the Azure portal with an administrator account.

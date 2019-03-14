@@ -169,7 +169,7 @@ Skus
 Then, for the *2019-Datacenter* SKU:
 
 ```powershell
-$skuName="2016-Datacenter"
+$skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 

@@ -208,7 +208,7 @@ In the case of PagerDuty, provisioning is a manual task.
 
     a. Type the **First and Last Name** of user like **Britta Simon**. 
    
-    b. Enter **Email** address of user like **brittasimon@contoso.com**.
+    b. Enter **Email** address of user like **brittasimon\@contoso.com**.
    
     c. Click **Add**, and then click **Send Invites**.
    
@@ -249,7 +249,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the PagerDuty tile in the Access Panelyou should get automatically signed-on to your PagerDuty application.
+When you click the PagerDuty tile in the Access Panel you should get automatically signed-on to your PagerDuty application.
 
 For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 

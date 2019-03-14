@@ -49,7 +49,7 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
     John,Doe
     Jane,Doe
 	```
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) do the following steps: 
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) do the following steps: 
     1. Create the **adfv2branch** container.
     2. Create **input** folder in the **adfv2branch** container.
     3. Upload **input.txt** file to the container.

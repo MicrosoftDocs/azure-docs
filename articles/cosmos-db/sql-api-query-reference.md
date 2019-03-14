@@ -4,7 +4,7 @@ description: This article explains the SQL query language syntax used in Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
@@ -1843,8 +1843,10 @@ SELECT
 |[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returns a string that is the result of concatenating two or more string values.  
@@ -2323,7 +2325,225 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 ```  
 [{"$1": false, "$2": true}]  
 ```  
+
+  ####  <a name="bk_stringtoarray"></a> StringToArray  
+ Returns expression translated to an Array. If expression cannot be translated, returns undefined.  
   
+ **Syntax**  
+  
+```  
+StringToArray(<expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `expr`  
+  
+     Is any valid JSON Array expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
+  
+ **Return Types**  
+  
+ Returns an Array expression or undefined.  
+  
+ **Examples**  
+  
+ The following example shows how StringToArray behaves across different types. 
+  
+```  
+SELECT 
+StringToArray('[]'), 
+StringToArray("[1,2,3]"),
+StringToArray("[\"str\",2,3]"),
+IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
+IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
+StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
+StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
+StringToArray(false), 
+StringToArray(undefined),
+StringToArray(NaN), 
+StringToArray("[")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
+```  
+
+####  <a name="bk_stringtoboolean"></a> StringToBoolean  
+ Returns expression translated to a Boolean. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToBoolean(<expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `expr`  
+  
+     Is any valid expression.  
+  
+ **Return Types**  
+  
+ Returns a Boolean expression or undefined.  
+  
+ **Examples**  
+  
+ The following example shows how StringToBoolean behaves across different types. 
+  
+```  
+SELECT 
+StringToBoolean("true"), 
+StringToBoolean("    false"),
+IS_BOOL(StringToBoolean("false")), 
+StringToBoolean("null"),
+StringToBoolean(undefined),
+StringToBoolean(NaN), 
+StringToBoolean(false), 
+StringToBoolean(true), 
+StringToBoolean("TRUE"),
+StringToBoolean("False")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": true, "$2": false, "$3": true}]
+```  
+
+####  <a name="bk_stringtonull"></a> StringToNull  
+ Returns expression translated to null. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToNull(<expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `expr`  
+  
+     Is any valid expression.  
+  
+ **Return Types**  
+  
+ Returns a null expression or undefined.  
+  
+ **Examples**  
+  
+ The following example shows how StringToNull behaves across different types. 
+  
+```  
+SELECT 
+StringToNull("null"), 
+StringToNull("  null "),
+IS_NULL(StringToNull("null")), 
+StringToNull("true"), 
+StringToNull(false), 
+StringToNull(undefined),
+StringToNull(NaN), 
+StringToNull("NULL"),
+StringToNull("Null")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": null, "$2": null, "$3": true}]
+```  
+
+####  <a name="bk_stringtonumber"></a> StringToNumber  
+ Returns expression translated to a Number. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToNumber(<expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `expr`  
+  
+     Is any valid JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
+  
+ **Return Types**  
+  
+ Returns a Number expression or undefined.  
+  
+ **Examples**  
+  
+ The following example shows how StringToNumber behaves across different types. 
+  
+```  
+SELECT 
+StringToNumber("1.000000"), 
+StringToNumber("3.14"),
+IS_NUMBER(StringToNumber("   60   ")), 
+StringToNumber("0xF"),
+StringToNumber("-1.79769e+308"),
+IS_STRING(StringToNumber("2")),
+StringToNumber(undefined),
+StringToNumber("99     54"), 
+StringToNumber("false"), 
+StringToNumber(false),
+StringToNumber(" "),
+StringToNumber(NaN)
+```  
+  
+ Here is the result set.  
+  
+```  
+{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+```  
+
+####  <a name="bk_stringtoobject"></a> StringToObject  
+ Returns expression translated to an Object. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToObject(<expr>)  
+```  
+  
+ **Arguments**  
+  
+-   `expr`  
+  
+     Is any valid JSON object expression. Note that string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+  
+ **Return Types**  
+  
+ Returns an object expression or undefined.  
+  
+ **Examples**  
+  
+ The following example shows how StringToObject behaves across different types. 
+  
+```  
+SELECT 
+StringToObject("{}"), 
+StringToObject('{"a":[1,2,3]}'),
+StringToObject("{'a':[1,2,3]}"),
+StringToObject("{a:[1,2,3]}"),
+IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
+IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
+IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
+StringToObject(false), 
+StringToObject(undefined),
+StringToObject(NaN), 
+StringToObject("{")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+```  
+
 ####  <a name="bk_substring"></a> SUBSTRING  
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
   

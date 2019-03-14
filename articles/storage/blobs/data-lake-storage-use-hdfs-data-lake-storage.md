@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Using the HDFS CLI with Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in an Azure Storage account, you can use command-line interface (CLI) to retrieve and manipulate the loaded data.
+Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in an Azure Storage account, you can use command-line interface (CLI) to retrieve and manipulate the loaded data.
 
 ## HDFS CLI with HDInsight
 
@@ -72,10 +72,6 @@ For more information on HDFS CLI, see the [official documentation](https://hadoo
 ## HDFS CLI with Azure Databricks
 
 The Databricks provides an easy-to-use CLI built on top of the Databricks REST API. The open-source project is hosted on [GitHub](https://github.com/databricks/databricks-cli). Below are the commonly used commands.
-
-### Create a file system
-
-Put the guidance here.
 
 ### Get a list of files or directories
 

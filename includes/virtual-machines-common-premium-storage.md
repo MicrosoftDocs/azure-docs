@@ -62,7 +62,7 @@ Here are some of the features of Premium Storage:
     - [Azure CLI for Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (for Azure Resource Manager deployments) or one of the Azure Storage resource provider client libraries
 
-    To learn about premium storage account limits, see Premium Storage scalability and performance targets.
+    To learn about premium storage account limits, see [Scalability and performance targets](#scalability-and-performance-targets).
 
 * **Premium locally redundant storage**
 
@@ -153,7 +153,7 @@ Sizes denoted with an asterisk are currently in preview.
 | Throughput per disk | 25 MB per second | 50 MB per second | 100 MB per second | 125 MB per second | 150 MB per second | 200 MB per second | 250 MB per second | 250 MB per second | 480 MB per second | 750 MB per second | 750 MB per second |
 
 > [!NOTE]
-> Make sure sufficient bandwidth is available on your VM to drive disk traffic, as described in [Premium Storage-supported VMs](). Otherwise, your disk throughput and IOPS is constrained to lower values. Maximum throughput and IOPS are based on the VM limits, not on the disk limits described in the preceding table.  
+> Make sure sufficient bandwidth is available on your VM to drive disk traffic, as described in [Supported VMs](#supported-vms). Otherwise, your disk throughput and IOPS is constrained to lower values. Maximum throughput and IOPS are based on the VM limits, not on the disk limits described in the preceding table.  
 > Azure has designed Premium Storage platform to be massively parallel. Designing your application to be multi-threaded will help to achieve the high performance target offered on the larger disk sizes.
 
 Here are some important things to know about Premium Storage scalability and performance targets:
@@ -288,7 +288,7 @@ When you use Premium Storage, the following billing considerations apply:
 
 * **Premium storage disk and blob size**
 
-    Billing for a premium storage disk or blob depends on the provisioned size of the disk or blob. Azure maps the provisioned size (rounded up) to the nearest premium storage disk option. For details, see the table in [Premium Storage scalability and performance targets](). Each disk maps to a supported provisioned disk size, and is billed accordingly. Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned a P10 disk and deleted it after 20 hours, you are billed for the P10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk or the IOPS and throughput used.
+    Billing for a premium storage disk or blob depends on the provisioned size of the disk or blob. Azure maps the provisioned size (rounded up) to the nearest premium storage disk option. For details, see the table in [Scalability and performance targets](#scalability-and-performance-targets). Each disk maps to a supported provisioned disk size, and is billed accordingly. Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned a P10 disk and deleted it after 20 hours, you are billed for the P10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk or the IOPS and throughput used.
 
 * **Premium unmanaged disks snapshots**
 

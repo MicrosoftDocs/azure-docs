@@ -78,7 +78,7 @@ sections:
           - href: /azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-azure-powershell
       - title: Manage vulnerability assessments rules
         values:
-          - href:
+          - href: /azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
           - href:
           - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
 - title: More resources

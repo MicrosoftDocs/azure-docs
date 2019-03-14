@@ -1,6 +1,6 @@
 ---
 title: Advanced query samples
-description: Use Azure Resource Graph to run some advanced queries.
+description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -79,7 +79,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Virtual machines matched by regex
 
 This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference) (known as _regex_).
-The **matches regex @** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`. That regex definition is explained as:
+The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`. That regex definition is explained as:
 
 - `^` - Match must start at the beginning of the string.
 - `Contoso` - The case-sensitive string.

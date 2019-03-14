@@ -121,7 +121,7 @@ For more information on Reliable Actors, read the following articles:
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

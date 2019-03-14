@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 
----  
+---
 
 # Support for the Marketplace  
 Here is a list of support options for the Marketplace.  
@@ -54,4 +54,4 @@ Open a ticket for with Microsoft [marketplace publisher support](https://support
 ## Next steps
 Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
----  
+---

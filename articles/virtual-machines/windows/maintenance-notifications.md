@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
 
---- 
+---
 
 
 # Handling planned maintenance notifications for Windows virtual machines
@@ -87,6 +87,7 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 
 The following properties are returned under MaintenanceRedeployStatus: 
 | Value	| Description	|
+
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indicates whether you can start maintenance on the VM at this time ||
 | PreMaintenanceWindowStartTime         | The beginning of the maintenance self-service window when you can initiate maintenance on your VM ||
