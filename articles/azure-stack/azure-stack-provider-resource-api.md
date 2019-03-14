@@ -104,6 +104,7 @@ To generate the usage data, you should have resources that are running and activ
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
+
 ### REST API
 
 You can collect usage information for deleted subscriptions by calling the  Microsoft.Commerce.Admin service. 

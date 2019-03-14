@@ -326,7 +326,9 @@ Instance Metadata responds at http endpoint on 169.254.169.254. Part of the scen
 
  > [!NOTE]
 > All API responses are JSON strings. The following example responses are pretty-printed for readability.
+
  **Request**
+
 
  ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2010-10-01&nonce=1234567890"
@@ -351,6 +353,7 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 #### Retrieving attested metadata in Windows Virtual Machine
 
  **Request**
+
 Instance metadata can be retrieved in Windows via the PowerShell utility `curl`:
 
  ```bash
@@ -367,6 +370,7 @@ Api-version is a mandatory field and the version supported for attested data is 
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
+
 > [!NOTE]
 > The response is a JSON string. The following example response  is pretty-printed for readability.
 
@@ -491,6 +495,8 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
   base64 -d signature > decodedsignature
   #Get PKCS7 format
   openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
   #Get the intermediate certificate
   wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
   openssl x509 -inform der -in intermediate.cer -out intermediate.pem

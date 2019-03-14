@@ -77,8 +77,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 Use the following steps to configure the native VPN client on Mac for certificate authentication. You have to complete these steps on every Mac that will connect to Azure:
 
-1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it.  
-Click **Add** to import.
+1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it. Click **Add** to import.
 
   ![add certificate](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
   

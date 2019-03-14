@@ -179,6 +179,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
     John, Doe
     Jane, Doe
     ```
+
 ### Create the data factory
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
