@@ -184,10 +184,10 @@ In this sample scenario, the *request_uri* variable is set to:
 
 The following table demonstrates how this syntax works.
 
-| Sample syntax | Results |
-| ------------- | ------- |
-| %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US |
-| %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US |
+| Sample syntax | Results | |
+| ------------- | ------- | --- |
+| %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Because the variable starts with the pattern, it was replaced. |
+| %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Because the variable doesn't end with the pattern, there was no change.|
 
 ### Find and replace
 The find and replace syntax is described in the following table.
