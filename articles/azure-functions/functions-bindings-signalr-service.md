@@ -259,7 +259,7 @@ public static Task SendMessage(
     return signalRMessages.AddAsync(
         new SignalRMessage
         {
-            // the message will only be sent to this user ID
+            // the message will be sent to the group with this name
             GroupName = "myGroup",
             Target = "newMessage",
             Arguments = new [] { message }
