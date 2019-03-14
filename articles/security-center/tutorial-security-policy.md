@@ -206,7 +206,7 @@ This example shows you how to assign the built-in Security Center initiative on 
 
        } 
 
-      } 
+      }
 
 This example shows you how to remove an assignment:
 
