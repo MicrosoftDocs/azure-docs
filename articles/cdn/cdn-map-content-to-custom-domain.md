@@ -65,7 +65,7 @@ To create a CNAME record with the cdnverify subdomain:
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - Source: Enter your custom domain name, including the cdnverify subdomain, in the following format: cdnverify._&lt;custom domain name&gt;. For example, cdnverify.www.contoso.com.
+    - Source: Enter your custom domain name, including the cdnverify subdomain, in the following format: cdnverify.&lt;custom domain name&gt;. For example, cdnverify.www.contoso.com.
 
     - Type: Enter *CNAME*.
 
