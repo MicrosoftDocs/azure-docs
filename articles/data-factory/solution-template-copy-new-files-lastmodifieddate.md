@@ -26,8 +26,8 @@ The template contains one activity:
 - **Copy** to copy new and changed files only by LastModifiedDate from a file store to a destination store.
 
 The template defines four parameters:
--  *FolderPath_Source* is the folder path where you can read the files from the source store. You need to replace the default value */<myfolder>/<sub_folder>/* to your own folder path.
--  *FolderPath_Destination* is the folder path where you want to copy files to the destination store. You need to replace the default value */<myfolder>/<sub_folder>/* to your own folder path.
+-  *FolderPath_Source* is the folder path where you can read the files from the source store. You need to replace the default value with your own folder path.
+-  *FolderPath_Destination* is the folder path where you want to copy files to the destination store. You need to replace the default value with your own folder path.
 -  *LastModified_From* is used to select the files whose LastModifiedDate attribute is after or equal to this datetime value.  In order to select the new files only, which has not been copied last time, this datetime value can be the time when the pipeline was triggered last time. You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
 -  *LastModified_To* is used to select the files whose LastModifiedDate attribute is before this datetime value. In order to select the new files only, which has not been copied last time, this datetime value can be the present time.  You can replace the default value '2019-02-01T00:00:00Z' to your expected LastModifiedDate in UTC timezone. 
 
