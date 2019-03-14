@@ -41,5 +41,5 @@ curation artifacts and tests:
 - Models (code and tests)
 - Marketing content
 
-For more information on technical and process requirements, see [Validate applications for Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Also, if you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../../appsource-offer-publishing-guide.md).
+For more information on technical and process requirements, see [Validate applications for Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Also, if you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../appsource-offer-publishing-guide.md).
 
