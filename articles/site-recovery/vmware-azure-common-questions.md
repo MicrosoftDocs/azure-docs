@@ -33,7 +33,7 @@ You need an Azure subscription, a Recovery Services vault, a cache storage accou
 If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account or managed disk based on your configuration. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### Can I use Guest OS server license on Azure?
-Yes, Microsoft Software Assurance customers can use [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
+Yes, Microsoft Software Assurance customers can use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
 
 ## Pricing
 
@@ -60,7 +60,7 @@ Managed disks are charged slightly different than storage accounts. Please see e
     - **Premium storage account charged on provisioned volume**: $17.92 per month
     - **Premium managed disk charged on provisioned volume**: $17.92 per month
 
-Learn more on [detailed pricing of managed disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).
+Learn more on [detailed pricing of managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### Do I incur additional charges for Cache Storage Account with managed disks?
 
@@ -147,7 +147,7 @@ Replication to storage accounts for a new machine is only available via REST API
 
 ### What are the benefits in replicating to managed disks?
 
-Read the article on how [Azure Site Recovery simplifies disaster recovery with managed disks](https://azure.microsoft.com/en-us/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
+Read the article on how [Azure Site Recovery simplifies disaster recovery with managed disks](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
 
 ### How can I change Managed Disk type after machine is protected?
 
