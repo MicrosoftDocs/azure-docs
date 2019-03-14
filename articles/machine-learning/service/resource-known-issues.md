@@ -69,7 +69,7 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 In case you see this error when using automl: 
 1) please install these two packages in your Azure Databricks cluster 
 ```
-scikit-learn== 0.19.1
+scikit-learn==0.19.1
 pandas==0.22.0
 ```
 2) detach/reattach the cluster to your notebook. If this doesnt solve, please try restarting the cluster.
