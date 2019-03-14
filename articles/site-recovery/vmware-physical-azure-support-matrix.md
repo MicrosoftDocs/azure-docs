@@ -43,7 +43,7 @@ Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
 Operating system  | Windows Server 2012 R2 or Windows Server 2016 |
 Operating system locale | English (en-us)
-PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") should be installed.
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") is not required for configuration server with versions from [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server roles | Don't enable: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
 Group policies| Don't enable: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>

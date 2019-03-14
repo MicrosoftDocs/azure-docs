@@ -121,7 +121,7 @@ The RunHiveScript has several variables. You pass the values when you submit the
 |Workflow variables|Description|
 |---|---|
 |${jobTracker}|Specifies the URL of the Hadoop job tracker. Use **jobtrackerhost:9010** in HDInsight version 3.0 and 2.1.|
-|${nameNode}|Specifies the URL of the Hadoop name node. Use the default file system address, for example, *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+|${nameNode}|Specifies the URL of the Hadoop name node. Use the default file system address, for example, *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
 |${queueName}|Specifies the queue name that the job is submitted to. Use the **default**.|
 
 |Hive action variable|Description|

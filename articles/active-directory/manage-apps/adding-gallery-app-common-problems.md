@@ -96,7 +96,7 @@ See the following descriptions for more details about the notifications.
 
 -   **UPN** – the user who performed the operation
 
-    -   Example – **tperkins@f128.info**
+    -   Example – **tperkins\@f128.info**
 
 -   **Tenant ID** – the unique ID of the tenant that the user who performed the operation was a member of
 

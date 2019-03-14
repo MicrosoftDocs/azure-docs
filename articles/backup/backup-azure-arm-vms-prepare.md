@@ -6,12 +6,12 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: raynew
 ---
 # Back up Azure VMs in a Recovery Services vault
 
-This article describes how to back up for Azure VM using an [Azure Backup](backup-overview.md) by deploying and enabling backup in a Recovery Services vault. 
+This article describes how to back up for Azure VM using an [Azure Backup](backup-overview.md) by deploying and enabling backup in a Recovery Services vault.
 
 In this article, you learn how to:
 
@@ -41,13 +41,13 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 
 Install the VM agent if needed, and verify outbound access from VMs.
 
-### Install the VM agent 
+### Install the VM agent
 If needed, install the agent as follows.
 
 **VM** | **Details**
 --- | ---
 **Windows VMs** | [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file. Install with admin permissions on the machine.<br/><br/> To verify the installation, in *C:\WindowsAzure\Packages* on the VM, right-click the WaAppAgent.exe > **Properties**, > **Details** tab. **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux VMs** | Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operation is running, and update the binaries. 
+**Linux VMs** | Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operation is running, and update the binaries.
 
 
 ### Establish network connectivity
@@ -60,7 +60,7 @@ The Backup extension running on the VM must have outbound access to Azure public
    **Option** | **Action** | **Advantages** | **Disadvantages**
    --- | --- | --- | ---
    **Set up NSG rules** | Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  You can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), instead of individually allowing and managing every address range. [Learn more](../virtual-network/security-overview.md#service-tags) about service tags. | No additional costs. Simple to manage with service tags
-   **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage. Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.<br/><br/> 
+   **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage. Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.<br/><br/>
    **Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service.|  Simple to use if you have Azure Firewall set up in a VNet subnet | Can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
 
 #### Set up an NSG rule to allow outbound access to Azure
@@ -169,12 +169,10 @@ A vault stores backups and recovery points created over time, and stores backup 
     - The name needs to be unique for the Azure subscription.
     - It can contain 2 to 50 characters.
     - It must start with a letter, and it can contain only letters, numbers, and hyphens.
-5. Select **Subscription** to see the available list of subscriptions. If you're not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your work or school account is associated with multiple Azure subscriptions.
-6. Select **Resource group** to see the available list of resource groups, or select **New** to create a new resource group. [Learn more](../azure-resource-manager/resource-group-overview.md) about resource groups.
-7. Select **Location** to select the geographic region for the vault. The vault *must* be in the same region as the VMs that you want to back up.
-8. Select **Create**.
+5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then click **Create**.
     - It can take a while for the vault to be created.
     - Monitor the status notifications in the upper-right area of the portal.
+
     ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 After your vault is created, it appears in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
@@ -183,13 +181,15 @@ After your vault is created, it appears in the list of Recovery Services vaults.
 
 By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). We recommend GRS for your primary backup, but you can use[locally-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
 
+Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 Modify storage replication as follows:
 
-1. In the vault > **Backup Infrastructure**, click **Backup Configuration**
+1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
+2. In **Properties**, under **Backup Configuration**, click **Update**.
 
-   ![List of backup vaults](./media/backup-azure-arm-vms-prepare/full-blade.png)
+3. Select the storage replication type, and click **Save**.
 
-2. In **Backup Configuration**, modify the storage redundancy method as required, and select **Save**.
+      ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 
 
 ## Configure a backup policy
@@ -211,23 +211,22 @@ Discover VMs in the subscription, and configure backup.
 3. In **Backup policy**, select the policy that you want to associate with the vault. Then click **OK**.
     - The details of the default policy are listed under the drop-down menu.
     - Click **Create New** to create a policy. [Learn more](backup-azure-arm-vms-prepare.md#configure-a-backup-policy) about defining a policy.
-    
 
-    !["Backup" and "Backup policy" panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+      !["Backup" and "Backup policy" panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
 4. In **Select virtual machines** pane, select the VMs that will use the specified backup policy > **OK**.
 
     - The selected VM is validated.
     - You can only select VMs in the same region as the vault. VMs can only be backed up in a single vault.
 
-   !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+    !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. In **Backup**, select **Enable backup**.
 
    - This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
    - This step doesn't create the initial recovery point for the VM.
 
-   !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+    !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 After enabling backup:
 
@@ -236,7 +235,7 @@ After enabling backup:
     - A running VM provides the greatest chance of getting an application-consistent recovery point.
     -  However, the VM is backed up even if it's turned off and the extension can't be installed. This is known as *offline VM*. In this case, the recovery point will be *crash consistent*.
     Note that Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. Modify backup policies manually as required.
-  
+
 ## Run the initial backup
 
 The initial backup will run in accordance with the schedule unless you manually run it immediately. Run it manually as follows:

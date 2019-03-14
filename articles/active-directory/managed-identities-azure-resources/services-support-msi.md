@@ -97,7 +97,7 @@ Refer to the following list to configure managed identity for Azure Functions (i
 
 Managed identity type |  All Generally Available<br>Global Azure Regions | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| System assigned | Available | Available | Available | Available |
+| System assigned | Preview | Preview | Not available | Preview |
 | User assigned | Not available | Not available | Not available | Not available |
 
 Refer to the following list to configure managed identity for Azure Logic Apps (in regions where available):
