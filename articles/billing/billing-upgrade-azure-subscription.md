@@ -37,7 +37,7 @@ When you upgrade from a Free Trial subscription, you keep your remaining credit 
 1. Select your Free Trial subscription.
 1. In the subscription overview blade, click **Upgrade subscription** in the command bar.
 
-    ![Screenshot that shows upgrade button](./media/billing-upgrade-azure-subscription/free-upgrade.png)
+    ![Screenshot that shows upgrade button](./media/billing-upgrade-azure-subscription/free-upgrade-button.png)
 
 1. If you don't already have a payment method for your Free Trial subscription, you'll be prompted to add one.
 1. You might need to enter a phone number to verify your identity.
