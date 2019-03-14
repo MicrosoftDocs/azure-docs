@@ -306,7 +306,7 @@ The Azure Key Vault documentation states that the Get Secret REST API should ret
 
 Method | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Replace {*secret-name*} with the name, and replace {*secret-version*} with the version of the secret you want to retrieve. The secret version might be excluded. In that case, the current version is retrieved.
 
@@ -532,7 +532,7 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 
 ### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
 
-To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [Azure Resource Manager: Get virtual machine scale sets private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [Azure Resource Manager: Get virtual machine scale sets private IPs](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### Can I use scale sets with Accelerated Networking?
 

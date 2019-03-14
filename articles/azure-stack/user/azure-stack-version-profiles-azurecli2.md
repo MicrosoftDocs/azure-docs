@@ -202,6 +202,7 @@ To trust the Azure Stack CA root certificate, append it to the existing Python c
     ```
 
 2. Register your environment. Use the following parameters when running `az cloud register`.
+
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
@@ -321,6 +322,7 @@ If you are using the ASDK, you will need to trust the CA root certificate on you
     ```
 
 2. Register your environment. Use the following parameters when running `az cloud register`.
+
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
@@ -436,6 +438,7 @@ Use the following steps to connect to Azure Stack:
    ```
 
 2. Register your environment. Use the following parameters when running `az cloud register`.
+
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |
@@ -546,6 +549,7 @@ Use the following steps to connect to Azure Stack:
    ```
 
 2. Register your environment. Use the following parameters when running `az cloud register`.
+
     | Value | Example | Description |
     | --- | --- | --- |
     | Environment name | AzureStackUser | Use `AzureStackUser`  for the user environment. If you are operator, specify `AzureStackAdmin`. |

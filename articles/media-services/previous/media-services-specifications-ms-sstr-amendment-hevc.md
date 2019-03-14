@@ -107,7 +107,7 @@ or more **samples**.
 >   "Information technology -- Coding of audio-visual objects -- Part 15:
 >   Carriage of NAL unit structured video in the ISO Base Media File Format",
 >   ISO 14496-15:2015, Edition 3.
->   <http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
+>   <https://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=65216>
 
 >   [ISO/IEC 23008-2] Information technology -- High efficiency coding and media
 >   delivery in heterogeneous environments -- Part 2: High efficiency video
@@ -116,7 +116,7 @@ or more **samples**.
 
 >   [ISO/IEC 23001-7] Information technology — MPEG systems technologies — Part
 >   7: Common encryption in ISO base media file format files, CENC Edition
->   2:2015 <http://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
+>   2:2015 <https://www.iso.org/iso/catalogue_detail.htm?csnumber=65271>
 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for
 >   "Bucket" Media Types” <https://tools.ietf.org/html/rfc6381>

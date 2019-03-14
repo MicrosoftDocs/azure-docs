@@ -84,6 +84,10 @@ In each REST API URI, there are variables that are used that you need to replace
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
+> [!NOTE]
+> Blueprints may also be created at the subscription level. To see an example, see
+> [create blueprint at subscription example](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
+
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
 blueprint, any resource groups to create, and all of the blueprint level parameters. The parameters
 are set during assignment and used by the artifacts added in later steps.
@@ -485,9 +489,9 @@ To remove the blueprint itself, use the following REST API operation:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](./concepts/parameters.md)
-- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md)
-- Learn how to [update existing assignments](./how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](./concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
+- Learn how to [update existing assignments](./how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md).

@@ -146,7 +146,7 @@ public ActionResult About()
 
     ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
+    The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
     > [!NOTE] 
     > If you have any trouble starting the debugger, try to do it by using **Cloud Explorer** instead of **Server Explorer**.
