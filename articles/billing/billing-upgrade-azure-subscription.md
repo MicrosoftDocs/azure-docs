@@ -45,7 +45,7 @@ When you upgrade from a Free Trial subscription, you keep your remaining credit 
 
      ![Screenshot that shows name](./media/billing-upgrade-azure-subscription/free-upgrade-name.png)
 
-1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/en-us/support/plans/).
+1. Choose a support plan for your subscription. To learn more about support plans, see [Azure support plans](https://azure.microsoft.com/us/support/plans/).
 
 1. Click **Upgrade**.
 
