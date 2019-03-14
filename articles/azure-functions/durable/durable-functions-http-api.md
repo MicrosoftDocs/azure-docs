@@ -101,7 +101,7 @@ Gets the status of a specified orchestration instance.
 
 #### Request
 
-For Functions 1.0, the request format is as follows (formatted for clarity):
+For version 1.x of the Functions runtime, the request is formatted as follows (multiple lines are shown for clarity):
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -113,7 +113,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showInput=[true|false]
 ```
 
-The Functions 2.0 format has all the same parameters but has a slightly different URL prefix:
+In version 2.x of the Functions runtime, the URL format has all the same parameters but with a slightly different prefix:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/{instanceId}
@@ -129,7 +129,7 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field             | Parameter type  | Description |
 |-------------------|-----------------|-------------|
-| instanceId        | URL             | The ID of the orchestration instance. |
+| **`instanceId`**        | URL             | The ID of the orchestration instance. |
 | showInput         | Query string    | Optional parameter. If set to `false`, the function input will not be included in the response payload.|
 | showHistory       | Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
 | showHistoryOutput | Query string    | Optional parameter. If set to `true`, the function outputs will be included in the orchestration execution history.|
@@ -218,7 +218,7 @@ The **HTTP 202** response also includes a **Location** response header that refe
 
 ### Get all instances status
 
-You can also query all instances status. Remove the `instanceId` from the 'Get instance status' request. The basic parameters are the same as the 'Get instance status'. Query string parameters for filtering are also supported.
+You can also query the status of all instances by removing the `instanceId` from the 'Get instance status' request. In this case, the basic parameters are the same as the 'Get instance status'. Query string parameters for filtering are also supported.
 
 One thing to remember is that `connection` and `code` are optional. If you have anonymous auth on the function then code isn't required.
 If you don't want to use a different storage connection string other than defined in the AzureWebJobsStorage app setting, then you can safely ignore the connection query string parameter.
