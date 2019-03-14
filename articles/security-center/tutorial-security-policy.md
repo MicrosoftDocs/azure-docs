@@ -32,7 +32,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
-When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. 
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies.
 
 
 ### Management groups
