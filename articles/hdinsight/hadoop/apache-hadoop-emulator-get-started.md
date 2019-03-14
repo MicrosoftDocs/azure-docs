@@ -42,7 +42,7 @@ To download an older HDP version sandbox, expand the archive:
 1. Select the Hortonworks Sandbox, click **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it displays login instructions.
    
     ![Normal start](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Open a web browser and navigate to the URL displayed (usually http://127.0.0.1:8888).
+2. Open a web browser and navigate to the URL displayed (usually `http://127.0.0.1:8888`).
 
 ## Set Sandbox passwords
 
