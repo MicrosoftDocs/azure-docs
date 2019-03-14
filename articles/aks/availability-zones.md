@@ -105,6 +105,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 
 <!-- LINKS - external -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aks-github]: https://github.com/azure/aks/issues
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
