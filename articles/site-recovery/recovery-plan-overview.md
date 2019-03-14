@@ -37,11 +37,10 @@ You can plan and create a recovery group to capture app-specific properties. As 
 	- This order ensures that when the middleware starts and tries to connect to the SQL Server tier, the SQL Server tier is already running. 
 	- This order also helps ensure that the front-end server starts last, so that end users don't connect to the app URL before all the components are up and running, and the app is ready to accept requests.
 
-To create this order, you add groups to the recovery group, and add machines into the groups. 
-
-	- Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO.
-	- Machines in a single group fail over in parallel.
-	- Machines in different groups fail over in group order, so that Group 2 machines start their failover only after all the machines in Group 1 have failed over and started.
+To create this order, you add groups to the recovery group, and add machines into the groups.
+- Where order is specified, sequencing is used. Actions run in parallel where appropriate, to improve application recovery RTO.
+- Machines in a single group fail over in parallel.
+- Machines in different groups fail over in group order, so that Group 2 machines start their failover only after all the machines in Group 1 have failed over and started.
 
 	![Example recovery plan](./media/recovery-plan-overview/rp.png)
 
