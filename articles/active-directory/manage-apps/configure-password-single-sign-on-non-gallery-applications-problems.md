@@ -238,11 +238,11 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **Display Name** – **(can be empty)** a more detailed display name for the error
 
-    -   Example *– **Application proxy settings**
+    -   Example – **Application proxy settings**
 
 -   **Status** – the specific status of the notification
 
-    -   Example *– **Failed**
+    -   Example – **Failed**
 
 -   **Object ID** – **(can be empty)** the object ID against which the operation was performed
 
@@ -250,7 +250,7 @@ The below explains more what each of the notification items means, and gives exa
 
 -   **Details** – the detailed description of what occurred as a result of the operation
 
-    -   Example – **Internal url 'https://bing.com/' is invalid since it is already in use**
+    -   Example – **Internal url '<https://bing.com/>' is invalid since it is already in use**
 
 -   **Copy error** – Click the **copy icon** to the right of the **Copy error** textbox to copy all the notification details to share with a support or product group engineer
 
