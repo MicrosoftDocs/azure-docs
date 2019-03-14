@@ -32,7 +32,7 @@ Here are a few things that you'll need before running this quickstart:
 
 ## Create a project and set up your POM file
 
-Create a new Java project using Maven or your favorite build automation tool. Assuming that you're using Maven, add the following lines to your [Project Object Model (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) file. Replace all instances of `mainClass` with your application.
+Create a new Java project using Maven or your favorite build automation tool. Assuming that you're using Maven, add the following lines to your [Project Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) file. Replace all instances of `mainClass` with your application.
 
 ```xml
 <build>
