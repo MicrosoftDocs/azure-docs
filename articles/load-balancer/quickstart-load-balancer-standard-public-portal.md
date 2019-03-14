@@ -37,7 +37,7 @@ In this section, you create a Standard Load Balancer that helps load balance vir
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and type *MyResourceGroupSLB* in the text box.|
+    | Resource group         | Select **Create new** and type *myResourceGroupSLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
@@ -110,20 +110,20 @@ In this section, you create a virtual network, create two virtual machines for t
     | Name | Enter *myVNet*. |
     | Address space | Enter *10.1.0.0/16*. |
     | Subscription | Select your subscription.|
-    | Resource group | Select existing resource - *MyResourceGroupSLB*. |
+    | Resource group | Select existing resource - *myResourceGroupSLB*. |
     | Location | Select **West Europe**.|
     | Subnet - Name | Enter *myBackendSubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
 1. Leave the rest of the defaults and select **Create**.
 
 ### Create virtual machines
-Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create two VMs (*myVM1* and *myVM2*) with a Standard public IP address (*myPublicIP*) in two different zones (*Zone 1* and *Zone2*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
+Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create two VMs (*myVM1* and *myVM2*) with a Standard public IP address in two different zones (*Zone 1* and *Zone2*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
 1. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
-   - **Subscription** > **Resource Group**: Select **MyResourceGroupSLB**.
-   - **Instance Details** > **Virtual machine name**: Type *MyVM1*.
+   - **Subscription** > **Resource Group**: Select **myResourceGroupSLB**.
+   - **Instance Details** > **Virtual machine name**: Type *myVM1*.
    - **Instance Details** > **Region** > select **West Europe**.
    - **Instance Details** > **Availability Options** > Select **Availability zones**. 
    - **Instance Details** > **Availability zone** > Select **1**.
@@ -131,12 +131,12 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
    
    - Make sure the following are selected:
-       - **Virtual network**: *MyVnet*
-       - **Subnet**: *MyBackendSubnet*
+       - **Virtual network**: *myVnet*
+       - **Subnet**: *myBackendSubnet*
        - **Public IP** > select **Create new**, and in the **Create public IP address** window, for **SKU**, select **Standard**, and for **Availability zone**, select **Zone-redundant**, and then select **OK**.
    - To create a new network security group (NSG), a type of firewall, under **Network Security Group**, select **Advanced**. 
        1. In the **Configure network security group** field, select **Create new**. 
-       1. Type *MyNetworkSecurityGroup*, and select **OK**.
+       1. Type *myNetworkSecurityGroup*, and select **OK**.
    - To make the VM a part of the Load Balancer's backend pool, complete the following steps:
         - In **Load Balancing**, for **Place this virtual machine behind an existing load balancing solution?**, select **Yes**.
         - In **Load balancing settings**, for **Load balancing options**, select **Azure load balancer**.
@@ -144,7 +144,7 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
 1. Select **Review + create**.   
 1. Review the settings, and then select **Create**.
-1. Follow the steps to create a second VM named *MyVM2*, with a Standard SKU public IP address named *MyVM2-ip*, and **Availability zone** setting of **2** and all the other settings the same as *MyVM1*. 
+1. Follow the steps to create a second VM named *myVM2*, with a Standard SKU public IP address named *myVM2-ip*, and **Availability zone** setting of **2** and all the other settings the same as *myVM1*. 
 
 ### Create NSG rule
 
