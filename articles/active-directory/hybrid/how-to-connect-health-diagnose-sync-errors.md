@@ -29,7 +29,7 @@ For more information about Azure AD, see [Identity synchronization and duplicate
 ## Problems
 ### A common scenario
 When **QuarantinedAttributeValueMustBeUnique** and **AttributeValueMustBeUnique** sync errors happen, it's common to see a **UserPrincipalName** or **Proxy Addresses** conflict in Azure AD. You might solve the sync errors by updating the conflicting source object from the on-premises side. The sync error will be resolved after the next sync. 
-For example, this image indicates that two users have a conflict of their **UserPrincipalName**. Both are **Joe.J@contoso.com**. The conflicting objects are quarantined in Azure AD.
+For example, this image indicates that two users have a conflict of their **UserPrincipalName**. Both are **Joe.J\@contoso.com**. The conflicting objects are quarantined in Azure AD.
 
 ![Diagnose sync error common scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
