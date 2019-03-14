@@ -150,19 +150,19 @@ To configure Azure AD single sign-on with Sprinklr, perform the following steps:
 
     c. Select **Use new SSO Certificate**.
 
-    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
+    d. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
 
-    f. Paste the **Azure AD Identifier** value which you have copied from Azure Portal into the **Entity Id** textbox.
+    e. Paste the **Azure AD Identifier** value which you have copied from Azure Portal into the **Entity Id** textbox.
 
-    g. Paste the **Login URL** value which you have copied from Azure Portal into the **Identity Provider Login URL** textbox.
+    f. Paste the **Login URL** value which you have copied from Azure Portal into the **Identity Provider Login URL** textbox.
 
-    h. Paste the **Logout URL** value which you have copied from Azure Portal into the **Identity Provider Logout URL** textbox.
+    g. Paste the **Logout URL** value which you have copied from Azure Portal into the **Identity Provider Logout URL** textbox.
 
-    i. As **SAML User ID Type**, select **Assertion contains User’s sprinklr.com username**.
+    h. As **SAML User ID Type**, select **Assertion contains User’s sprinklr.com username**.
 
-    j. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
+    i. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
 
-    k. Click **Save**.
+    j. Click **Save**.
 
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
