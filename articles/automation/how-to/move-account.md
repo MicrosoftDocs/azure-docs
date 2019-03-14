@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Move your Azure Automation account to another subscription
 
-Azure provides you the ability to move some resources to a new resource group or subscription. You can do this through the Azure portal, PowerShell, the Azure CLI, or REST API. To learn more about the process, see [move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
+Azure provides you the ability to move some resources to a new resource group or subscription. You can do move resources through the Azure portal, PowerShell, the Azure CLI, or REST API. To learn more about the process, see [move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
 
 Azure Automation accounts are one of the resources that can be moved. In this article, you'll learn the steps to move Automation accounts to another resource or subscription.
 
@@ -26,7 +26,10 @@ The high-level steps to moving your Automation account are:
 
 ## Remove solutions
 
-To unlink your workspace from your Automation account, the **Change Tracking and Inventory**, **Update Management**, and **Start/Stop VMs during off hours** solutions must be removed from your workspace.
+To unlink your workspace from your Automation account, these solutions must be removed from your workspace:
+- **Change Tracking and Inventory**
+- **Update Management** 
+- **Start/Stop VMs during off hours** 
 
 In your resource group, find each solution and select **Delete**. On the **Delete Resources** page, confirm the resources to be removed, and select **Delete**.
 
@@ -50,13 +53,13 @@ In the Azure portal, go to your resource group and select **Monitoring** > **Ale
 
 ![Alerts page showing selection of Manage Alert rules](../media/move-account/alert-rules.png)
 
-On the **Rules** page, you should see a list of the alerts configured in that resource group. The **Start/Stop VMs** solution creates 3 alert rules:
+On the **Rules** page, you should see a list of the alerts configured in that resource group. The **Start/Stop VMs** solution creates three alert rules:
 
 * AutoStop_VM_Child
 * ScheduledStartStop_Parent
 * SequencedStartStop_Parent
 
-Select these 3 alert rules, then select **Delete**. This action will remove these alert rules.
+Select these three alert rules, then select **Delete**. This action will remove these alert rules.
 
 ![Rules page requesting confirmation of deletion for selected rules](../media/move-account/delete-rules.png)
 
@@ -126,7 +129,7 @@ For detailed instructions on configuring the solution, see [Start/Stop VMs durin
 
 ## Post move verification
 
-When the move is complete, verify the different scenarios in your Automation account to ensure everything works as expected. The following table shows a list of tasks that should be verified after the move is complete:
+When the move is complete, check that different scenarios in your Automation account work as expected. The following table shows a list of tasks that should be verified after the move is complete:
 
 |Capability|Tests|Troubleshooting link|
 |---|---|---|
