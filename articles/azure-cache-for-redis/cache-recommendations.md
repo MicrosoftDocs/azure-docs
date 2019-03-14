@@ -5,7 +5,7 @@ author: asasine
 ms.author: adsasine
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/14/2019
 ---
 
 # Advisor recommendations for Azure Cache for Redis
@@ -18,7 +18,7 @@ There are several situations where a recommendation is generated for your cache.
 
 - [Memory pressure](#reduce-memory-pressure-to-improve-performance-and-avoid-incidents)
 - [High CPU / Server load](#reduce-server-load-to-improve-performance-and-avoid-incidents)
-- [High Network bandwidth](#reduce-network-bandwidth-to-improve-performance-and-avoid-incidents)
+- [High Network bandwidth](#reduce-network-bandwidth-utilization-to-improve-performance-and-avoid-incidents)
 
 ### Reduce memory pressure to improve performance and avoid incidents
 
@@ -63,16 +63,16 @@ Not all Redis commands are created equally - some are more expensive to run than
 
 Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure expensive commands being executed against the server.
 
-### Reduce network bandwidth to improve performance and avoid incidents
+### Reduce network bandwidth utilization to improve performance and avoid incidents
 
-A recommendation is generated when a cache is found to have high network bandwidth.
+A recommendation is generated when a cache is found to have network bandwidth utilization close to the limits of the cache size.
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Clients requests could timeout because the server can't push data to the client fast enough.
 
 The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) in the portal.
 
-To mitigate high network bandwidth:
+To situations where network bandwidth utilization is close to maximum capacity:
 
 1. Change client call behavior to reduce network demand.
 1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
-1. [Scale](cache-how-to-scale.md) to a larger cache size with more bandwidth capacity.
+1. [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity.
