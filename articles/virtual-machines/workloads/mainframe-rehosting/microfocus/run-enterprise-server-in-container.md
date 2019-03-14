@@ -161,6 +161,7 @@ Now the VM is running and attached via RDP, and you are logged on.
 ```
      start http:172.19.202.52:86
 ```
+
      ![Enterprise Server Administration console](media/Container_010.jpg)
 
 Now you are running and managing a CICS application in a Docker container.
