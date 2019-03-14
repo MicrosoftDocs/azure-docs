@@ -72,6 +72,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
         > [!NOTE]
         > Some data source fields are named differently than their correlated Azure settings:
+        >
         >     * Tenant ID is the Azure Directory ID
         >     * Client ID is the Azure Active Directory Application ID
         >     * Client Secret is the Azure Active Directory Application key value

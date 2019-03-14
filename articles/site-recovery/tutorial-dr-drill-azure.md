@@ -18,6 +18,7 @@ In this article, we show you how to run a disaster recovery drill for an on-prem
 This is the fourth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs, or Hyper-V VMs.
 
 This tutorial presumes that you've completed the first three tutorials:
+
     - In the [first tutorial](tutorial-prepare-azure.md), we set up the Azure components needed for VMware disaster recovery.
     - In the [second tutorial](vmware-azure-tutorial-prepare-on-premises.md) , we prepared on-premises components for disaster recovery, and reviewed prerequisites.
     - In the [third tutorial](vmware-azure-tutorial.md) we set up and enabled replication for our on-premises VMware VM.

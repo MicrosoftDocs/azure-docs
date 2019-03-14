@@ -27,6 +27,7 @@ This article dives deeper into how to use the continuous data export feature in 
 ## Export to Azure Blob Storage
 
 Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data is in [Apache Avro](https://avro.apache.org/docs/current/index.html) format, and will be exported in to three folders. The default paths in your storage account are:
+
     - Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
     - Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
     - Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
