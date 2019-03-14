@@ -26,6 +26,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) for more details on the CloudSpatialAnchorSession class.
+
 ```cpp
     std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
     // In your view handler
@@ -33,6 +35,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) for more details on the SessionConfiguration class.
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
@@ -48,8 +52,10 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) for more details on the TokenRequiredDelegate delegate.
+
 ```cpp
-    auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {
+    auto accessTokenRequiredToken = cloudSession_->TokenRequired([](auto&&, auto&& args) {
         args->AccessToken(R"(MyAccessToken)");
     });
 ```
@@ -95,6 +101,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) for more details on the Start method.
+
 ```cpp
     cloudSession_->Session(ar_session_);
     cloudSession_->Start();
@@ -102,11 +110,15 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) for more details on the ProcessFrame method.
+
 ```cpp
     cloudSession_->ProcessFrame(ar_frame_);
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) for more details on the SessionUpdatedDelegate delegate.
 
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
@@ -121,6 +133,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) for more details on the CloudSpatialAnchor class.
 
 ```cpp
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -172,6 +186,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) for more details on the GetSessionStatusAsync method.
+
 ```cpp
     cloudSession_->GetSessionStatusAsync([this](Status status, const std::shared_ptr<SessionStatus>& value) {
         if (status != Status::OK) {
@@ -187,6 +203,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) for more details on the AppProperties method.
+
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
     cloudAnchor->LocalAnchor(localAnchor);
@@ -199,6 +217,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) for more details on the UpdateAnchorPropertiesAsync method.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
@@ -214,6 +234,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) for more details on the GetAnchorPropertiesAsync method.
 
 ```cpp
     cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
@@ -235,6 +257,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) for more details on the Expiration method.
+
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point oneWeekFromNow = now + std::chrono::hours(7 * 24);
@@ -244,6 +268,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) for more details on the CreateWatcher method.
+
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
     criteria->Identifiers({ R"(id1)", R"(id2)", R"(id3)" });
@@ -251,6 +277,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) for more details on the AnchorLocated delegate.
 
 ```cpp
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
@@ -278,6 +306,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) for more details on the DeleteAnchorAsync method.
+
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
         // Perform any processing you may want when delete finishes
@@ -286,11 +316,15 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) for more details on the Stop method.
+
 ```cpp
     cloudSession_->Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) for more details on the Reset method.
 
 ```cpp
     cloudSession_->Reset();

@@ -26,6 +26,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) for more details on the CloudSpatialAnchorSession class.
+
 ```csharp
     CloudSpatialAnchorSession cloudSession;
     // In your view handler
@@ -33,6 +35,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) for more details on the SessionConfiguration class.
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -45,6 +49,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) for more details on the TokenRequiredDelegate delegate.
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -94,6 +100,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) for more details on the Start method.
+
 ```csharp
 #if UNITY_IOS
     this.arkitSession = UnityARSessionNativeInterface.GetARSessionNativeInterface();
@@ -111,6 +119,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) for more details on the ProcessFrame method.
 
 ```csharp
 #if UNITY_ANDROID
@@ -134,6 +144,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) for more details on the SessionUpdatedDelegate delegate.
+
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
     {
@@ -145,6 +157,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) for more details on the CloudSpatialAnchor class.
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -194,6 +208,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) for more details on the GetSessionStatusAsync method.
+
 ```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress < 1.0f) return;
@@ -201,6 +217,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) for more details on the AppProperties property.
 
 ```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
@@ -211,6 +229,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) for more details on the UpdateAnchorPropertiesAsync method.
+
 ```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties[@"last-user-access"] = @"just now";
@@ -218,6 +238,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) for more details on the GetAnchorPropertiesAsync method.
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
@@ -230,11 +252,15 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) for more details on the Expiration property.
+
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
 ```
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) for more details on the CreateWatcher method.
 
 ```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -243,6 +269,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) for more details on the AnchorLocatedDelegate delegate.
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -271,6 +299,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) for more details on the DeleteAnchorAsync method.
+
 ```csharp
     await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
@@ -278,17 +308,23 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) for more details on the Stop method.
+
 ```csharp
     this.cloudSession.Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) for more details on the Reset method.
+
 ```csharp
     this.cloudSession.Reset();
 ```
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
+
+Click [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) for more details on the Dispose method.
 
 ```csharp
     this.cloudSession.Dispose();

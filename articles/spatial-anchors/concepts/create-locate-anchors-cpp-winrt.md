@@ -26,6 +26,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) for more details on the CloudSpatialAnchorSession class.
+
 ```cpp
     SpatialAnchorsFactory m_asafactory{ nullptr };
     CloudSpatialAnchorSession m_cloudSession{ nullptr };
@@ -36,6 +38,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionconfiguration) for more details on the SessionConfiguration class.
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
@@ -50,6 +54,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) for more details on the TokenRequiredDelegate delegate.
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {
@@ -98,17 +104,23 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) for more details on the Start method.
+
 ```cpp
     m_cloudSession.Start();
 ```
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#processframe) for more details on the ProcessFrame method.
+
 ```cpp
     m_cloudSession->ProcessFrame(ar_frame_);
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) for more details on the SessionUpdatedDelegate delegate.
 
 ```cpp
     m_sessionUpdatedToken = m_cloudSession.SessionUpdated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -121,6 +133,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor) for more details on the CloudSpatialAnchor class.
 
 ```cpp
     // Initialization
@@ -156,6 +170,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) for more details on the GetSessionStatusAsync method.
+
 ```cpp
     SessionStatus status = co_await m_cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress() < 1.0f) return;
@@ -163,6 +179,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) for more details on the AppProperties method.
 
 ```cpp
     CloudSpatialAnchor cloudAnchor = m_asafactory.CreateCloudSpatialAnchor();
@@ -175,6 +193,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) for more details on the UpdateAnchorPropertiesAsync method.
+
 ```cpp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties().Insert(LR"(last-user-access)", LR"(just now)");
@@ -182,6 +202,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) for more details on the GetAnchorPropertiesAsync method.
 
 ```cpp
     CloudSpatialAnchor anchor = co_await m_cloudSession.GetAnchorPropertiesAsync(LR"(anchorId)");
@@ -194,6 +216,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) for more details on the Expiration method.
+
 ```cpp
     const int64_t oneWeekFromNowInHours = 7 * 24;
     const DateTime oneWeekFromNow = DateTime::clock::now() + std::chrono::hours(oneWeekFromNowInHours);
@@ -202,6 +226,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) for more details on the CreateWatcher method.
+
 ```cpp
     AnchorLocateCriteria criteria = m_asafactory.CreateAnchorLocateCriteria();
     criteria.Identifiers({ LR"(id1)", LR"(id2)", LR"(id3)" });
@@ -209,6 +235,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) for more details on the AnchorLocatedDelegate delegate.
 
 ```cpp
     m_anchorLocatedToken = m_cloudSession.AnchorLocated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -238,6 +266,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) for more details on the DeleteAnchorAsync method.
+
 ```cpp
     co_await m_cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
@@ -245,11 +275,15 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) for more details on the Stop method.
+
 ```cpp
     m_cloudSession.Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Click [here](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) for more details on the Reset method.
 
 ```cpp
     m_cloudSession.Reset();

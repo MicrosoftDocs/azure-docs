@@ -26,6 +26,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession) for more details on the ASACloudSpatialAnchorSession class.
+
 ```objc
     ASACloudSpatialAnchorSession *_cloudSession;
     // In your view handler
@@ -33,6 +35,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration) for more details on the ASASessionConfiguration class.
 
 ```objc
     _cloudSession.configuration.accountKey = @"MyAccountKey";
@@ -45,6 +49,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#tokenrequired) for more details on the tokenRequired protocol method.
 
 ```objc
     - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
@@ -92,6 +98,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start) for more details on the start method.
+
 ```objc0
     _cloudSession.session = self.sceneView.session;
     _cloudSession.delegate = self;
@@ -100,11 +108,15 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#processframe) for more details on the processFrame method.
+
 ```objc
     [_cloudSession processFrame:_sceneView.session.currentFrame];
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated) for more details on the sessionUpdated protocol method.
 
 ```objc
     - (void)sessionUpdated:(ASACloudSpatialAnchorSession *)cloudSession :(ASASessionUpdatedEventArgs *)args {
@@ -118,6 +130,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor) for more details on the ASACloudSpatialAnchor class.
 
 ```objc
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -144,6 +158,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getsessionstatus) for more details on the getSessionStatusWithCompletionHandler method.
+
 ```objc
     [_cloudSession getSessionStatusWithCompletionHandler:^(ASASessionStatus *value, NSError *error) {
         if (error) {
@@ -157,6 +173,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#appproperties) for more details on the appProperties property.
+
 ```objc
     ASACloudSpatialAnchor *cloudAnchor = [[ASACloudSpatialAnchor alloc] init];
     cloudAnchor.localAnchor = localAnchor;
@@ -168,6 +186,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties) for more details on the updateAnchorProperties method.
+
 ```objc
     ASACloudSpatialAnchor *anchor = /* locate your anchor */;
     [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
@@ -177,6 +197,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getanchorproperties) for more details on the getAnchorProperties method.
 
 ```objc
     [_cloudSession getAnchorProperties:@"anchorId" withCompletionHandler:^(SCCCloudSpatialAnchor *anchor, NSError *error) {
@@ -195,6 +217,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration) for more details on the expiration property.
+
 ```objc
     int secondsInAWeek = 60 * 60 * 24 * 7;
     NSDate *oneWeekFromNow = [[NSDate alloc] initWithTimeIntervalSinceNow: (NSTimeInterval) secondsInAWeek];
@@ -203,6 +227,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#createwatcher) for more details on the createWatcher method.
+
 ```objc
     ASAAnchorLocateCriteria *criteria = [ASAAnchorLocateCriteria new];
     criteria.identifiers = @[ @"id1", @"id2", @"id3" ];
@@ -210,6 +236,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#anchorlocated) for more details on the anchorLocated protocol method.
 
 ```objc
     - (void)anchorLocated:(ASACloudSpatialAnchorSession *)cloudSession :(ASAAnchorLocatedEventArgs *)args {
@@ -237,6 +265,8 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#deleteanchor) for more details on the deleteAnchor method.
+
 ```objc
     [_cloudSession deleteAnchor:cloudAnchor withCompletionHandler:^(NSError *error) {
         // Perform any processing you may want when delete finishes
@@ -245,11 +275,15 @@ Azure Spatial Anchors allow you to share anchors in the world between different 
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop) for more details on the stop method.
+
 ```objc
     [_cloudSession stop];
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Click [here](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset) for more details on the reset method.
 
 ```objc
     [_cloudSession reset];
