@@ -142,7 +142,7 @@ To execute U-SQL, Open Visual Studio, click **File --> New --> Project**, choose
 
 ### <a name="ingest"></a>Data Ingestion: Read in data from public blob
 
-The location of the data in the Azure blob is referenced as **wasb://container_name\@blob_storage_account_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in following scripts for container_name@blob_storage_account_name in the wasb address. Since the file names are in same format, it is possible to use **trip\_data\_\{\*\}.csv** to read in all 12 trip files.
+The location of the data in the Azure blob is referenced as **wasb://container\_name\@blob\_storage\_account\_name.blob.core.windows.net/blob_name** and can be extracted using **Extractors.Csv()**. Substitute your own container name and storage account name in following scripts for container\_name\@blob\_storage\_account\_name in the wasb address. Since the file names are in same format, it is possible to use **trip\_data\_\{\*\}.csv** to read in all 12 trip files.
 
     ///Read in Trip data
     @trip0 =
