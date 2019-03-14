@@ -41,7 +41,7 @@ The Speech SDK is available in these regions for **speech recognition** and **tr
  East Asia | `eastasia` | https://eastasia.cris.ai
  South East Asia | `southeastasia` | https://southeastasia.cris.ai
  Japan East | `japaneast` | https://japaneast.cris.ai
- Korea Central | `koreacentral` | https://japaneast.cris.ai
+ Korea Central | `koreacentral` | https://koreacentral.cris.ai
  Australia East | `australiaeast` | https://australiaeast.cris.ai
  Canada Central | `canadacentral` | https://canadacentral.cris.ai
  North Europe | `northeurope` | https://northeurope.cris.ai
