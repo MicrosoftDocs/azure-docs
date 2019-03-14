@@ -68,6 +68,7 @@ Your storage account key is used to create short-term access tokens for the Micr
 ## What genome references can I use?
 
 These references are supported:
+
  |Reference              | Value of `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |

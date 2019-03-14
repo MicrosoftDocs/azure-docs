@@ -33,9 +33,9 @@ Windows computers do not always have comparable SSH commands installed. Recent v
 
 Other common Windows SSH clients you can install locally are included in the following packages:
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git For Windows](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 You can also use the SSH utilities available in Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md). 
@@ -58,7 +58,7 @@ For more background and information, see the [quick](mac-create-ssh-keys.md) or 
 
 ### Create SSH keys with PuTTYgen
 
-If you prefer to use a GUI-based tool to create SSH keys, you can use the PuTTYgen key generator, included with the [PuTTY download package](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+If you prefer to use a GUI-based tool to create SSH keys, you can use the PuTTYgen key generator, included with the [PuTTY download package](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 To create an SSH RSA key pair with PuTTYgen:
 
@@ -106,7 +106,7 @@ If the VM is using the just-in-time access policy, you need to request access be
 
 ### Connect with PuTTY
 
-If you installed the [PuTTY download package](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and previously generated a PuTTY private key (.ppk) file, you can connect to a Linux VM with PuTTY.
+If you installed the [PuTTY download package](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and previously generated a PuTTY private key (.ppk) file, you can connect to a Linux VM with PuTTY.
 
 1. Start PuTTy.
 

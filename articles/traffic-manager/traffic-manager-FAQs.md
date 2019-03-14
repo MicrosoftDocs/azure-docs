@@ -347,6 +347,7 @@ For profiles with any routing method other than MultiValue:
 |CNAME |	CNAME |	Target Endpoint|
 |CNAME 	|A / AAAA |	NODATA |
 |
+
 For profiles with routing method set to MultiValue:
 
 |Incoming query request| 	Endpoint type |	Response Provided|
