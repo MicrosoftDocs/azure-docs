@@ -43,19 +43,19 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Fixed bug in PartitionKey for Hash V2.
 
 ### <a name="2.1.0"/>2.1.2
-* Added support for Composite Indexes.
-* Fixed bug in Global Endpoint Manager to force refresh.
-* Fixed bug for Upserts with pre-conditions in DirectMode.
+* Added support for composite indexes.
+* Fixed bug in global endpoint manager to force refresh.
+* Fixed bug for upserts with pre-conditions in direct mode.
 
 ### <a name="2.1.0"/>2.1.1
-* Fixed bug in Gateway Address Cache.
+* Fixed bug in gateway address cache.
 
 ### <a name="2.1.0"/>2.1.0
 * Multi-region write support added for direct mode.
 * Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
 * Fixed a bug in endpoint discovery retry policy.
 * Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
-* Fixed a bug to ensure Query Iterator does not return nulls.
+* Fixed a bug to ensure QueryIterator does not return nulls.
 * Fixed a bug to ensure large PartitionKey is allowed
 
 ### <a name="2.0.0"/>2.0.0
