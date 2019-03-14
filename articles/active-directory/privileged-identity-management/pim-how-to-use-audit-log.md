@@ -23,7 +23,7 @@ You can use the Privileged Identity Management (PIM) audit history to see all th
 ## Navigate to audit history
 From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure AD Privileged Identity Management** app. From there, access the audit history by clicking **Manage privileged roles** > **Audit history** in the PIM dashboard.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Audit history](media/azure-ad-pim-approval-workflow/image021.png)
 
 >[!NOTE]
 You can sort the data by Action, and look for “Activation Approved”
