@@ -19,11 +19,11 @@ ms.author: yegu
 ---
 # How to troubleshoot Azure Cache for Redis
 
-This article provides guidance for troubleshooting the following categories of Azure Cache for Redis issues.
+This article provides guidance for troubleshooting on different categories issues you may experience when connecting with Azure Cache for Redis instances.
 
-* [Client-side troubleshooting](#client-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused by the application connecting to Azure Cache for Redis.
-* [Server-side troubleshooting](#server-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused on the Azure Cache for Redis server side.
-* [StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) - This section provides information on troubleshooting issues when using the StackExchange.Redis client.
+* The section on [Client-side troubleshooting](#client-side-troubleshooting) provides guidelines on identifying and resolving issues caused by the application connecting to your cache.
+* The section on [Server-side troubleshooting](#server-side-troubleshooting) provides guidelines on identifying and resolving issues caused on the Azure Cache for Redis server side.
+* The section on [StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) provides information on troubleshooting issues when using the StackExchange.Redis client.
 
 > [!NOTE]
 > Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
@@ -43,48 +43,34 @@ This section discusses troubleshooting issues that occur because of a condition 
 
 ### Memory pressure on the client
 
-#### Problem
-
 Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay. When memory pressure hits, the system typically has to page data from physical memory to virtual memory, which is on disk. This *page faulting* causes the system to slow down significantly.
 
-#### Measurement
+To detect memory pressure on the client:
 
-1. Monitor memory usage on machine to make sure that it does not exceed available memory. 
+1. Monitor memory usage on machine to make sure that it does not exceed available memory.
 2. Monitor the `Page Faults/Sec` performance counter. Most systems have some page faults even during normal operation, so watch for spikes in this page faults performance counter, which correspond with timeouts.
 
-#### Resolution
-
-Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consumption.
+To mitigate high memory pressure on the client, dig into your memory usage patterns to reduce memory consumption or upgrade your client to a larger client VM size with more memory.
 
 ### Burst of traffic
 
-#### Problem
-
 Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
 
-#### Measurement
-
-Monitor how your `ThreadPool` statistics change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can also look at the `TimeoutException` message from StackExchange.Redis. Here is an example:
+Monitor how your `ThreadPool` statistics change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can also look at the `TimeoutException` message from StackExchange.Redis. Below is an example of a `TimeoutException` from StackExchange.Redis:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-In the preceding message, there are several issues that are interesting:
+In the preceding exception, there are several issues that are interesting:
 
 1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means that your `ThreadPool` settings need adjusting.
 1. You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the kernel socket layer but haven't yet been read by the application (for example, StackExchange.Redis). This difference typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
 
-#### Resolution
-
-Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool scales up quickly under burst scenarios.
+You can configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ### High client CPU usage
 
-#### Problem
-
 High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform. This situation means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response quickly.
-
-#### Measurement
 
 Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
 
@@ -93,29 +79,19 @@ Monitor the System Wide CPU usage through the Azure Portal or through the associ
 >
 >
 
-#### Resolution
-
-Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
+Investigate what is causing CPU spikes to mitigate or upgrade to a larger VM size with more CPU capacity.
 
 ### Client-side bandwidth exceeded
 
-#### Problem
-
 Depending on the architecture of client machines, they may have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data is not processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
-
-#### Measurement
 
 Monitor how your Bandwidth usage change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code may not run successfully in some environments with restricted permissions (like Azure web sites).
 
-#### Resolution
-
-Increase Client VM size or reduce network bandwidth consumption.
+To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity.
 
 ### Large Request/Response Size
 
-#### Problem
-
-A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server sends the responses back in the same order. If response 'A' is large enough, it can eat up most of the timeout for subsequent requests. 
+A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server sends the responses back in the same order. If response 'A' is large enough, it can eat up most of the timeout for subsequent requests.
 
 The following example demonstrates this scenario. In this scenario, Request 'A' and 'B' are sent quickly, the server starts sending responses 'A' and 'B' quickly, but because of data transfer times, 'B' get stuck behind the other request and times out even though the server responded quickly.
 
@@ -126,11 +102,9 @@ The following example demonstrates this scenario. In this scenario, Request 'A' 
                 |- Read Response A --------|
                                            |- Read Response B-| (**TIMEOUT**)
 
-#### Measurement
+This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
 
-This request/response is a difficult one to measure. You basically have to instrument your client code to track large requests and responses.
-
-#### Resolution
+Resolutions for large response sizes are varied but include:
 
 1. Redis is optimized for a large number of small values, rather than a few large values. The preferred solution is to break up your data into related smaller values. See the [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details around why smaller values are recommended.
 1. Increase the size of your VM (for client and Azure Cache for Redis Server), to get higher bandwidth capabilities, reducing data transfer times for larger responses. Getting more bandwidth on just the server or just on the client may not be enough. Measure your bandwidth usage and compare it to the capabilities of the size of VM you currently have.
@@ -138,11 +112,7 @@ This request/response is a difficult one to measure. You basically have to instr
 
 ### What happened to my data in Redis?
 
-#### Problem
-
 I expected for certain data to be in my Azure Cache for Redis instance but it didn't seem to be there.
-
-#### Resolution
 
 See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) for possible causes and resolutions.
 
@@ -199,7 +169,7 @@ Different cache sizes have different network bandwidth capacities. If the server
 
 The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor) in the portal.
 
-To situations where network bandwidth utilization is close to maximum capacity:
+To mitigate situations where network bandwidth utilization is close to maximum capacity:
 
 1. Change client call behavior to reduce network demand.
 1. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
