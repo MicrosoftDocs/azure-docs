@@ -171,7 +171,9 @@ To configure Azure AD single sign-on with TextMagic, perform the following steps
 
 	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
 
-### Create an Azure AD test user 
+	e. Click **Save**.
+
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
