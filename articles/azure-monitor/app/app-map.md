@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 
