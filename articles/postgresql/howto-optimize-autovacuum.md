@@ -47,6 +47,7 @@ autovacuum_vacuum_cost_limit|Specifies the cost limit value used in automatic va
 autovacuum_vacuum_cost_delay|Specifies the cost delay value used in automatic vacuum operations. If -1 is specified, the regular vacuum_cost_delay value is used. The default value is 20 milliseconds. Set this parameter only in the postgresql.conf file or on the server command line. To override the setting for individual tables, change the table storage parameters.|20 ms
 autovacuum_nap_time|Specifies the minimum delay between autovacuum runs on any given database. In each round, the daemon examines the database and issues VACUUM and ANALYZE commands as needed for tables in that database. The delay is measured in seconds, and the default is one minute (1 min). Set this parameter only in the postgresql.conf file or on the server command line.|15 s
 autovacuum_max_workers|Specifies the maximum number of autovacuum processes, other than the autovacuum launcher, that can run at any one time. The default is three. Set this parameter only at server start.|3
+
 To override the settings for individual tables, change the table storage parameters. 
 
 ## Autovacuum cost
