@@ -32,6 +32,7 @@ Azure Migrate helps you to:
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
 -  You can only create an Azure Migrate project in the following geographies. However, this does not restrict your ability to create assessments for other target Azure locations.
+
     **Geography** | **Storage location**
     --- | ---
     Azure Government | US Gov Virginia

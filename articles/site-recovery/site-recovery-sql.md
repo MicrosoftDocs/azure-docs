@@ -40,7 +40,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
-**Azure**|NA| Yes
+**Azure** |NA| Yes
 
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:

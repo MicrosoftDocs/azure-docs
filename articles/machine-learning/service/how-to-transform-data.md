@@ -231,6 +231,7 @@ builder.preview(skip=75, count=5)
 builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
+
 ||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/3/2015 7:00|Jan 3, 2015 6AM-8AM|

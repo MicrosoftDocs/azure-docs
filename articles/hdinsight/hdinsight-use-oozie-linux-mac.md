@@ -301,7 +301,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
     |Placeholder value| Replaced value|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| Value received from step 1.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
     |serverName| Azure SQL database server name.|
     |sqlLogin| Azure SQL database server login.|

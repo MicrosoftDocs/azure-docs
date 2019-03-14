@@ -49,6 +49,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 * See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
+
 | Entity | Description |
 | --- | --- |
 | Azure Storage linked service |Links your Azure Storage account to the data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. |
@@ -618,6 +619,7 @@ Here is a sample Resource Manager template for creating a logical gateway in the
 This template creates a data factory named GatewayUsingArmDF with a gateway named: GatewayUsingARM. 
 
 ## See Also
+
 | Topic | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
