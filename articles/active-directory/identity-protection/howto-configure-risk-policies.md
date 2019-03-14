@@ -27,7 +27,9 @@ Azure AD detects risk events that are indicators for potentially compromised ide
 - With the sign-in risk policy, you can configure a response to real-time risk events that were detected during a user's sign-in. 
 - With the user risk policy, you can configure a response to all active user risks that have been detected for a user over time.  
 
-> [!VIDEO https://youtu.be/zEsbbik-BTE]
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+
 ## What is the sign-in risk policy?
 
 Azure AD analyzes each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. For example, is the sign-in done using an anonymous IP address, or is the sign-in initiated from an unfamiliar location? In Azure AD, the suspicious actions the system can detect are also known as risk events. Based on the risk events that have been detected during a sign-in, Azure AD calculates a value. The value represents the probability (low, medium, high) that the sign-in is not performed by the legitimate user. The probability is called **sign-in risk level**.

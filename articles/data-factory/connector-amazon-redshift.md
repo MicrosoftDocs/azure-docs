@@ -123,7 +123,7 @@ To copy data from Amazon Redshift, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AmazonRedshiftSource** | Yes |
-| query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
+| query |Use the custom query to read data. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
 | s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying a linked service name of "AmazonS3" type. | Yes if using UNLOAD |
 | bucketName | Indicate the S3 bucket to store the interim data. If not provided, Data Factory service generates it automatically.  | Yes if using UNLOAD |

@@ -108,6 +108,7 @@ To configure Azure AD single sign-on with Coupa, perform the following steps:
 	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Coupa Client support team](https://success.coupa.com/Support/Contact_Us?) to get this value.
 
     b. In the **Identifier** box, type a URL:
+
     | Environment  | URL |
     |:-------------|----|
     | Sandbox | `devsso35.coupahost.com`|
@@ -115,6 +116,7 @@ To configure Azure AD single sign-on with Coupa, perform the following steps:
     | | |
 
     c. In the **Reply URL** text box, type a URL:
+    
     | Environment | URL |
     |------------- |----|
     | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|

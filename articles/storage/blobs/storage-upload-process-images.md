@@ -254,7 +254,7 @@ Select **Choose File** to select a file, then click **Upload Image**. The **Gene
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
 - [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
-- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream].(http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream].(https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
 
@@ -318,7 +318,7 @@ Select **Choose File** to select a file, then click **Upload Image**. The **Gene
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
 - [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
-- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
 
 As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
 

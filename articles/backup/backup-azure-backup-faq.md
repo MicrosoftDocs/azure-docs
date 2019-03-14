@@ -88,7 +88,7 @@ Yes.
 ### What operating systems are supported for backup?
 Azure Backup supports these operating systems for backing up files and folders, and apps protected by Azure Backup Server and DPM.
 
-**OS**| **SKU** |**Details**
+**OS** | **SKU** | **Details**
 --- | --- | ---
 Workstation | |
 Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.

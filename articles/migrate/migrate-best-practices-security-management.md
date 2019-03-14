@@ -263,7 +263,7 @@ Often, using only a resource group name related to resources won't provide enoug
 
 - [Learn about](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) tagging and tag limitations.
 - [Review](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell and CLI examples to set up tagging, and to apply tags from a resource group to its resources.
-- [Read](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
+- [Read](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
 
 
 ## Best practice: Implement blueprints

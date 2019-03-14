@@ -550,6 +550,8 @@
       href: solution-templates-introduction.md
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
+    - name: Copy new files by LastModifiedDate
+      href: solution-template-copy-new-files-lastmodifieddate.md	  
     - name: Bulk copy with control table
       href: solution-template-bulk-copy-with-control-table.md
     - name: Delta copy with control table
