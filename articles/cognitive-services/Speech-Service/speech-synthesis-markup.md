@@ -31,7 +31,7 @@ The following sections provide samples for common speech synthesis tasks.
 
 ## Change speaking rate
 
-Speaking rate can be applied to standard voices at the word or sentence-level. Whereas, speaking rate can only be applied to neural voices at the sentence level.
+Speaking rate can be applied to standard voices at the word or sentence-level. Whereas speaking rate can only be applied to neural voices at the sentence level.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -51,7 +51,7 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 
 ## Change volume
 
-Volume changes can be applied to standard voices at the word or sentence-level. Whereas, volume changes can only be applied to neural voices at the sentence level.
+Volume changes can be applied to standard voices at the word or sentence-level. Whereas volume changes can only be applied to neural voices at the sentence level.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -63,7 +63,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 
 ## Change pitch
 
-Pitch changes can be applied to standard voices at the word or sentence-level. Whereas, pitch changes can only be applied to neural voices at the sentence level.
+Pitch changes can be applied to standard voices at the word or sentence-level. Whereas pitch changes can only be applied to neural voices at the sentence level.
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
