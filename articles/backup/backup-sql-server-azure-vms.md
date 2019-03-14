@@ -2,12 +2,12 @@
 title: About SQL Server Azure VM by Azure Backup | Microsoft Docs
 description: Learn about SQL Server databases on Azure VM and feature consideration of this feature.
 services: backup
-author: swati
-manager: shivam
+author: sachdevaswati
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: swati
+ms.author: sachdevaswati
 
 
 ---
@@ -38,15 +38,20 @@ Before you start, verify the following:
 3. [Review common questions](faq-backup-sql-server.md) about this scenario.
 
 
-## Feature consideration
+## Feature consideration and limitations
 
 - The VM running SQL Server requires internet connectivity to access Azure public IP addresses.
-- You can back up to 2000 SQL Server databases in a vault. If you have more, create another vault.
-- Backups of [distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) don't fully work.
+- Backups of [distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) groups don't fully work.
 - SQL Server Always On Failover Cluster Instances (FCIs) aren't supported for backup.
-- SQL Server backup should be configured in the portal. You can't currently configure backup with Azure PowerShell, CLI, or the REST APIs.
-- Backup and restore operations for FCI mirror databases, database snapshots and databases aren't supported.
-- Databases with large number of files can't be protected. The maximum number of files supported isn't deterministic. It not only depends on the number of files, but also depends on the path length of the files.
+- SQL Server backup should be configured in the portal or via PowerShell.
+- Backup and restore operations for FCI mirror databases, database snapshots, and databases aren't supported.
+- Databases with large number of files can't be protected. The maximum number of files is 1000.
+- You can back up to ~2000 SQL Server databases in a vault. If you have more, create another vault.
+- You can configure backup for up to 50 databases in one go; this restriction helps optimize backup loads.
+- You cannot protect databases with more than 1000 files.
+- Recommended database size to ensure better performance is 2TB.
+- Protects up to 300 databases per server, if you have log backups configured for every 15 minutes. The number of databases can increase if the backup frequency is less frequent. We will be sharing a detailed way to calculate this shortly.
+
 
 ## Scenario support
 

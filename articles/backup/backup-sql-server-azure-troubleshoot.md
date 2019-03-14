@@ -14,9 +14,9 @@ ms.author: anuragm
 
 This article provides troubleshooting information for protecting SQL Server VMs on Azure (Preview).
 
-## Public limitations
+## Feature consideration and limitations
 
-To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-sql-server-azure-vms.md#feature-consideration).
+To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
@@ -32,7 +32,7 @@ Use the information in the following tables to troubleshoot issues and errors en
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup are possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
+| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup is possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
 
 
 ## Backup failures
@@ -138,8 +138,8 @@ Check for one or more of the [symptoms](#symptoms) before triggering the re-regi
 
 ### Symptoms
 
-* All operations such as backup, restore and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
-* The **Backup Status** for the Backup item is showing **Not reachable**. Although, you must rule out all the other reasons that may also result in the same status:
+* All operations such as backup, restore, and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* The **Backup Status** for the Backup item is showing **Not reachable**. Although you must rule out all the other reasons that may also result in the same status:
 
   * Lack of permission to perform backup related operations on the VM  
   * VM has been shut down because of which backups can’t take place

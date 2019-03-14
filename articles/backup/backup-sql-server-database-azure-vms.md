@@ -2,12 +2,12 @@
 title: Back up SQL Server databases to Azure | Microsoft Docs
 description: This tutorial explains how to back up SQL Server to Azure.
 services: backup
-author: swati
-manager: shivam
+author: sachdevaswati
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: swati
+ms.author: sachdevaswati
 
 
 ---
@@ -38,8 +38,8 @@ Before you back up your SQL Server database, check the following conditions:
 
 For all operations, the SQL Server VM virtual machine needs connectivity to Azure public IP addresses. VM operations (database discovery, configure backups, schedule backups, restore recovery points and so on) fail without connectivity to the public IP addresses. Establish connectivity with one of these options:
 
-- **Allow the Azure datacenter IP ranges**: Allow the [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. For access in an network security group (NSG), use the **Set-AzureNetworkSecurityRule** cmdlet.
-- **Deploy an HTTP proxy server to route traffic**: When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup, and data to Azure Storage. The backup extension also uses Azure Active Directory (Azure AD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extension's the only component that's configured for access to the public internet.
+- **Allow the Azure datacenter IP ranges**: Allow the [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access network security group (NSG), use the **Set-AzureNetworkSecurityRule** cmdlet.
+- **Deploy an HTTP proxy server to route traffic**: When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup, and data to Azure Storage. The backup extension also uses Azure Active Directory (Azure AD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extension's are the only component that's configured for access to the public internet.
 
 Each options has advantages and disadvantages
 
