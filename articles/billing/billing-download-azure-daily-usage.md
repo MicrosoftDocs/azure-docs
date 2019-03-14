@@ -102,7 +102,7 @@ You can also download month-to-date usage for the current billing period. These 
 
 ## Need help? Contact us
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
