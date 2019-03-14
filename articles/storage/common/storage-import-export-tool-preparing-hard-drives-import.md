@@ -359,7 +359,7 @@ In order to disable TPM in BitLocker, go through the following steps:<br/>
 
 All Microsoft .NET Framework versions are installed in following directory: %windir%\Microsoft.NET\Framework\
 
-Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .Net 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .NET 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### Limits
 

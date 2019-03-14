@@ -31,6 +31,8 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 
 Before you start, it's helpful to review the [VMware](vmware-azure-architecture.md) or [Hyper-V](hyper-v-azure-architecture.md) architectures for disaster recovery.
 
+> [!TIP]
+> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
 
 ## Prerequisites
 
@@ -50,7 +52,6 @@ Devices exported by paravirtualized drivers aren't supported.
    ![New vault](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
-
 
 
 ## Select a replication goal
