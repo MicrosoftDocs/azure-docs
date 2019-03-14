@@ -1816,7 +1816,7 @@
     },
     {
       "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
-      "redirect_url": "/azure/machine-learning/preview/overview-what-is-azure-ml",
+      "redirect_url": "/azure/machine-learning/studio/",
       "redirect_document_id": true
     },
     {
@@ -4512,6 +4512,11 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-integration-modules.md",
+      "redirect_url": "/azure/automation/shared-resources/modules",
       "redirect_document_id": false
     },
     {
@@ -36265,10 +36270,24 @@
       "redirect_url": "/azure/cost-management/overview-cost-mgt",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/analysis-services/analysis-services-import-pbix.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/analysis-services-create-model-portal.md",
+      "redirect_url": "/azure/analysis-services/analysis-services-overview",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/service-maintenance.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
     }
   ]

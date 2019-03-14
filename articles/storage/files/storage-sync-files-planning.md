@@ -127,6 +127,7 @@ To display the results in CSV:
 - A locally attached volume formatted with the NTFS file system.
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -143,6 +144,7 @@ To display the results in CSV:
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Files skipped
+
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |

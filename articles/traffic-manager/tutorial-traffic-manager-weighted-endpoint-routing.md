@@ -132,6 +132,7 @@ In this section, you create the VM *mVMEastUS*. You'll use this VM to test how T
 
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, and then select **OK**:
+
     |Setting|Value|
     |---|---|
     |Virtual network| Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet3**. For subnet, enter **mySubnet**.|

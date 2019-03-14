@@ -177,7 +177,7 @@ You need appropriate permissions to connect to the Azure SQL database.
 
     You may now optionally use client tools such as SQL Server Management Studio or Visual Studio to connect to SQL Server and the Azure SQL database. Use the **Server name** property to connect.
 
-    If you didn't change the database username when you initially configured the project in DevOps Projects, your username is the local part of your email address. For example, if your email address is *johndoe@microsoft.com*, your username is *johndoe*.
+    If you didn't change the database username when you initially configured the project in DevOps Projects, your username is the local part of your email address. For example, if your email address is *johndoe\@microsoft.com*, your username is *johndoe*.
 
  > [!NOTE]
  > If you change your password for the SQL login, you must change the password in the release pipeline variable, as described in the "Examine the CD pipeline" section.

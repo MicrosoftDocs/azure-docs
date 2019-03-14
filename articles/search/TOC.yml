@@ -287,11 +287,11 @@
   - name: Demo sites
     items:
     - name: Financial files demo
-      href: http://wolterskluwereap.azurewebsites.net/
+      href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
-      href: http://aka.ms/jfkfiles
+      href: https://aka.ms/jfkfiles
     - name: Job listings app
-      href: http://aka.ms/azjobsdemo
+      href: https://aka.ms/azjobsdemo
     - name: Search Analyzer demo
       href: https://alice.unearth.ai/
     - name: Search use cases

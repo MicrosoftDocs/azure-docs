@@ -97,7 +97,7 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 
 ### How do I sign up for Azure Cosmos DB?
 
-Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add a Azure Cosmos DB account to your Azure subscription.
+Azure Cosmos DB is available in the Azure portal. First, sign up for an Azure subscription. After you've signed up, you can add an Azure Cosmos DB account to your Azure subscription.
 
 ### What is a master key?
 
@@ -305,7 +305,7 @@ You can get the connection string from the Connection String page in the Azure p
 
 ### How do I override the config settings for the request options in the .NET SDK for the Table API?
 
-For information about config settings, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application.
+Some settings are handled on the CreateCloudTableClient method and other via the app.config in the appSettings section in the client application. For information about config settings, see [Azure Cosmos DB capabilities](tutorial-develop-table-dotnet.md).
 
 ### Are there any changes for customers who are using the existing Azure Table storage SDKs?
 
@@ -371,7 +371,7 @@ You can use the Azure Cosmos DB global replication portal pane to add a region a
 
 ### How do I configure my preferred read regions for low latency when I distribute my data?
 
-To help read from the local location, use the PreferredLocation key in the app.config file. For existing applications, the Table API throws an error if LocationMode is set. Remove that code, because the Table API picks up this information from the app.config file. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
+To help read from the local location, use the PreferredLocation key in the app.config file. For existing applications, the Table API throws an error if LocationMode is set. Remove that code, because the Table API picks up this information from the app.config file. 
 
 ### How should I think about consistency levels in the Table API?
 
@@ -383,7 +383,7 @@ By default, Azure Table storage provides Strong consistency within a region and 
 
 ### Does Azure Cosmos DB Table API offer more consistency levels than Azure Table storage?
 
-Yes, for information about how to benefit from the distributed nature of Azure Cosmos DB, see [Consistency levels](consistency-levels.md). Because guarantees are provided for the consistency levels, you can use them with confidence. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
+Yes, for information about how to benefit from the distributed nature of Azure Cosmos DB, see [Consistency levels](consistency-levels.md). Because guarantees are provided for the consistency levels, you can use them with confidence.
 
 ### When global distribution is enabled, how long does it take to replicate the data?
 
@@ -413,7 +413,7 @@ Yes, Azure Cosmos DB Table API provides automatic indexing of all attributes wit
 
 ### Can I change the indexing policy?
 
-Yes, you can change the indexing policy by providing the index definition. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You need to properly encode and escape the settings.
+Yes, you can change the indexing policy by providing the index definition. You need to properly encode and escape the settings.
 
 For the non-.NET SDKs, the indexing policy can only be set in the portal at **Data Explorer**, navigate to the specific table you want to change and then go to the **Scale & Settings**->Indexing Policy, make the desired change and then **Save**.
 

@@ -20,20 +20,20 @@ A Mesh application Secret consists of:
 * One or more **Secrets/Values** resources that are stored in the **Secrets** resource container. Each **Secrets/Values** resource is distinguished by a version number. You cannot modify a version of a **Secrets/Values** resource, only append a new version.
 
 Managing Secrets consists of the following steps:
-1. Declare a Mesh **Secrets** resource in a Azure Resource Model YAML or JSON file using inlinedValue kind and SecretsStoreRef contentType definitions.
-2. Declare Mesh **Secrets/Values** resources in a Azure Resource Model YAML or JSON file that will be stored in the **Secrets** resource (from step 1).
+1. Declare a Mesh **Secrets** resource in an Azure Resource Model YAML or JSON file using inlinedValue kind and SecretsStoreRef contentType definitions.
+2. Declare Mesh **Secrets/Values** resources in an Azure Resource Model YAML or JSON file that will be stored in the **Secrets** resource (from step 1).
 3. Modify Mesh application to reference Mesh secret values.
 4. Deploy or rolling upgrade the Mesh application to consume secret values.
 5. Use Azure "az" CLI commands for Secure Store Service lifecycle management.
 
 ## Declare a Mesh Secrets resource
-A Mesh Secrets resource is declared in a Azure Resource Model JSON or YAML file using inlinedValue kind and SecretsStoreRef contentType definitions. The Mesh Secrets resource supports Secure Store Service sourced secrets. 
+A Mesh Secrets resource is declared in an Azure Resource Model JSON or YAML file using inlinedValue kind and SecretsStoreRef contentType definitions. The Mesh Secrets resource supports Secure Store Service sourced secrets. 
 >
 The following is an example of how to declare Mesh Secrets resources in a JSON file:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -99,7 +99,7 @@ The following is an example of how to declare Mesh Secrets/Values resources in a
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
