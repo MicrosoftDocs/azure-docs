@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/12/2019
 ---
 
 # Azure SQL Database metrics and diagnostics logging
@@ -136,7 +136,7 @@ You can set up a managed instance resource to collect the following diagnostics 
 
 | Resource | Monitoring telemetry |
 | :------------------- | ------------------- |
-| **Managed instance** | [ResourceUsageStats](#logs-for-managed-instances) contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
+| **Managed instance** | ResourceUsageStats contains vCores count, average CPU percentage, IO requests, bytes read/written, reserved storage space, and used storage space. |
 
 To enable streaming of diagnostics telemetry for a managed instance resource, follow these steps:
 
@@ -184,6 +184,8 @@ To enable streaming of diagnostics telemetry for instance databases, follow thes
 ### PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 You can enable metrics and diagnostics logging by using PowerShell.
 

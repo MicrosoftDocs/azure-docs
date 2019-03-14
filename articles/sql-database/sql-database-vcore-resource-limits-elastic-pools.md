@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/12/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -159,7 +159,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Log rate limits (MBps)|6|12|18|24|30|36|
+|Log rate limits (MBps)|7.5|15|22.5|30|37.5|45|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -187,7 +187,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Log rate limits (MBps)|
+|Log rate limits (MBps)|52.5|60|67.5|75|80|80|
 |Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -215,7 +215,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Log rate limits (MBps)|48|48|48|48|48|48|48|
+|Log rate limits (MBps)|7.5|15|22.5|30|37.5|45|52.5|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
@@ -243,7 +243,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Log rate limits (MBps)|48|48|48|48|48|48|48|
+|Log rate limits (MBps)|60|67.5|75|90|120|120|120|
 |Max concurrent workers per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|

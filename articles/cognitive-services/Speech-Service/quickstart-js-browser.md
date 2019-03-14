@@ -21,7 +21,7 @@ The application is based on the Microsoft Cognitive Services Speech SDK ([Downlo
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Services for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
 * A current version of Chrome or Microsoft Edge.

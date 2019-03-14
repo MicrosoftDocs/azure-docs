@@ -42,7 +42,7 @@ The SaaS App offer consists of five sections, described in the following table:
 
 ## New Offer form
 
-Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **SaaS Apps** to display the New Offer form and start the process of defining assets for a new SaaS application offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **SaaS Apps** to display the New Offer form and start the process of defining assets for a new SaaS application offer.
 
 ![New offer menu for SaaS Apps](./media/azure-new-saas-offer.png)
 

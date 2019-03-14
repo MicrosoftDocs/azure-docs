@@ -43,7 +43,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
@@ -100,7 +100,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    > 
    > 
    

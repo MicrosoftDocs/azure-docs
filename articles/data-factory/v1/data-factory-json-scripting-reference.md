@@ -5398,7 +5398,7 @@ Note the following points:
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
 ## Machine Learning Batch Execution Activity
-You can specify the following properties in a Azure Machine Learning studio Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+You can specify the following properties in an Azure Machine Learning studio Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create an Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5454,7 +5454,7 @@ In the JSON example, the deployed Azure Machine Learning Web service uses a read
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
 ## Machine Learning Update Resource Activity
-You can specify the following properties in a Azure Machine Learning studio Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+You can specify the following properties in an Azure Machine Learning studio Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create an Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
 
 Property | Description | Required
 -------- | ----------- | --------

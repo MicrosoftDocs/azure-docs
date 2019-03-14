@@ -34,7 +34,7 @@ You can choose whether you want to be notified by email of the alert conditions 
 > [!NOTE]
 > You can enter a maximum of 20 email addresses per virtual array.
 
-After you enable email notification for a virtual array, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+After you enable email notification for a virtual array, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply\@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
 #### To enable email notification for alerts
 
@@ -48,7 +48,7 @@ After you enable email notification for a virtual array, members of the notifica
    
    1. In the **Enable email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
-   3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
+   3. In the **Additional email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone\@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device.
       
        ![alerts notification configuration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.

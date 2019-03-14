@@ -29,7 +29,7 @@ ms.author: ryanwi
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountCredentialsGroup">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountCredentialsGroup">
         <xs:attribute name="AccountName" type="xs:string" use="optional">
           <xs:annotation>
             <xs:documentation>User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).</xs:documentation>
@@ -56,7 +56,7 @@ User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@de
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountName" type="xs:string" use="optional">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="AccountName" type="xs:string" use="optional">
           <xs:annotation>
             <xs:documentation>User name or Service Account Name (for example, MyMachine\JohnDoe or John.Doe@department.contoso.com).</xs:documentation>
           </xs:annotation>
@@ -75,7 +75,7 @@ Password for the user account.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Password" type="xs:string" use="optional">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Password" type="xs:string" use="optional">
             <xs:annotation>
                 <xs:documentation>Password for the user account.</xs:documentation>
             </xs:annotation>
@@ -93,7 +93,7 @@ Attribute group for application instance.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationInstanceAttrGroup">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationInstanceAttrGroup">
     <xs:annotation>
       <xs:documentation>Attribute group for application instance.</xs:documentation>
     </xs:annotation>
@@ -123,7 +123,7 @@ Fully qualified name of the application.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameUri" type="FabricUri" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameUri" type="FabricUri" use="required">
       <xs:annotation>
         <xs:documentation>Fully qualified name of the application.</xs:documentation>
       </xs:annotation>
@@ -142,7 +142,7 @@ Id of this application.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationId" type="xs:string" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationId" type="xs:string" use="required">
       <xs:annotation>
         <xs:documentation>Id of this application.</xs:documentation>
       </xs:annotation>
@@ -160,7 +160,7 @@ Attribute group for application manifest.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationManifestAttrGroup">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationManifestAttrGroup">
     <xs:annotation>
       <xs:documentation>Attribute group for application manifest.</xs:documentation>
     </xs:annotation>
@@ -205,7 +205,7 @@ The type identifier for this application.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeName" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeName" use="required">
       <xs:annotation>
         <xs:documentation>The type identifier for this application.</xs:documentation>
       </xs:annotation>
@@ -228,7 +228,7 @@ The version of this application type, an unstructured string.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeVersion" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ApplicationTypeVersion" use="required">
       <xs:annotation>
         <xs:documentation>The version of this application type, an unstructured string.</xs:documentation>
       </xs:annotation>
@@ -253,7 +253,7 @@ The identifier of this application manifest, an unstructured string.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestId" use="optional" default="" type="xs:string">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ManifestId" use="optional" default="" type="xs:string">
       <xs:annotation>
         <xs:documentation>The identifier of this application manifest, an unstructured string.</xs:documentation>
       </xs:annotation>
@@ -271,7 +271,7 @@ Identifies configuration overrides for a service package.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigOverridesIdentifier">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConfigOverridesIdentifier">
     <xs:annotation>
       <xs:documentation>Identifies configuration overrides for a service package.</xs:documentation>
     </xs:annotation>
@@ -296,7 +296,7 @@ Identifies configuration overrides for a service package.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageName" type="xs:string" use="required"/>
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServicePackageName" type="xs:string" use="required"/>
     
 ```
 
@@ -311,7 +311,7 @@ ID of the rollout in which changes were made to the overrides element.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required">
       <xs:annotation>
         <xs:documentation>ID of the rollout in which changes were made to the overrides element.</xs:documentation>
       </xs:annotation>
@@ -328,7 +328,7 @@ ID of the rollout in which changes were made to the overrides element.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString">
                 <xs:attribute name="ConnectionString" type="xs:string" use="required">
                         <xs:annotation>
                                 <xs:documentation>Connection string to the Azure storage account. Format: DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]</xs:documentation>
@@ -350,7 +350,7 @@ Connection string to the Azure storage account. Format: DefaultEndpointsProtocol
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString" type="xs:string" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ConnectionString" type="xs:string" use="required">
                         <xs:annotation>
                                 <xs:documentation>Connection string to the Azure storage account. Format: DefaultEndpointsProtocol=https;AccountName=[];AccountKey=[]</xs:documentation>
       </xs:annotation>
@@ -367,7 +367,7 @@ Connection string to the Azure storage account. Format: DefaultEndpointsProtocol
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName">
     <xs:attribute name="ContainerName" type="xs:string">
       <xs:annotation>
         <xs:documentation>The name of the container in Azure blob storage where data is uploaded.</xs:documentation>
@@ -388,7 +388,7 @@ The name of the container in Azure blob storage where data is uploaded.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName" type="xs:string">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ContainerName" type="xs:string">
       <xs:annotation>
         <xs:documentation>The name of the container in Azure blob storage where data is uploaded.</xs:documentation>
       </xs:annotation>
@@ -405,7 +405,7 @@ The name of the container in Azure blob storage where data is uploaded.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays">
     <xs:attribute name="DataDeletionAgeInDays" type="xs:string">
       <xs:annotation>
         <xs:documentation>Number of days after which old data is deleted from this location.</xs:documentation>
@@ -426,7 +426,7 @@ Number of days after which old data is deleted from this location.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays" type="xs:string">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="DataDeletionAgeInDays" type="xs:string">
       <xs:annotation>
         <xs:documentation>Number of days after which old data is deleted from this location.</xs:documentation>
       </xs:annotation>
@@ -443,7 +443,7 @@ Number of days after which old data is deleted from this location.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled">
                 <xs:attribute name="IsEnabled" type="xs:string">
                         <xs:annotation>
                                 <xs:documentation>Whether or not data transfer to this destination is enabled. By default, it is not enabled.</xs:documentation>
@@ -464,7 +464,7 @@ Whether or not data transfer to this destination is enabled. By default, it is n
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled" type="xs:string">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="IsEnabled" type="xs:string">
                         <xs:annotation>
                                 <xs:documentation>Whether or not data transfer to this destination is enabled. By default, it is not enabled.</xs:documentation>
                         </xs:annotation>
@@ -481,7 +481,7 @@ Whether or not data transfer to this destination is enabled. By default, it is n
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter">
     <xs:attribute name="LevelFilter" type="xs:string">
       <xs:annotation>
         <xs:documentation>Level at which ETW events should be filtered. All events at the same or lower level than the specified level are included.</xs:documentation>
@@ -502,7 +502,7 @@ Level at which ETW events should be filtered. All events at the same or lower le
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter" type="xs:string">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="LevelFilter" type="xs:string">
       <xs:annotation>
         <xs:documentation>Level at which ETW events should be filtered. All events at the same or lower level than the specified level are included.</xs:documentation>
       </xs:annotation>
@@ -520,7 +520,7 @@ Name and Value defined as an attribute.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameValuePair">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NameValuePair">
     <xs:annotation>
       <xs:documentation>Name and Value defined as an attribute.</xs:documentation>
     </xs:annotation>
@@ -554,7 +554,7 @@ The name of the setting to override.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Name" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Name" use="required">
       <xs:annotation>
         <xs:documentation>The name of the setting to override.</xs:documentation>
       </xs:annotation>
@@ -578,7 +578,7 @@ The new value of the setting.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Value" type="xs:string" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Value" type="xs:string" use="required">
       <xs:annotation>
         <xs:documentation>The new value of the setting.</xs:documentation>
       </xs:annotation>
@@ -595,7 +595,7 @@ The new value of the setting.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path">
                 <xs:attribute name="Path" type="xs:string" use="required">
                         <xs:annotation>
                                 <xs:documentation>Path to the file share. Format: file:[]</xs:documentation>
@@ -617,7 +617,7 @@ Path to the file share. Format: file:[]
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path" type="xs:string" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Path" type="xs:string" use="required">
                         <xs:annotation>
                                 <xs:documentation>Path to the file share. Format: file:[]</xs:documentation>
                         </xs:annotation>
@@ -634,7 +634,7 @@ Path to the file share. Format: file:[]
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath">
                 <xs:attribute name="RelativeFolderPath" type="xs:string" use="required">
                         <xs:annotation>
                                 <xs:documentation>Path to the folder, relative to the application log directory.</xs:documentation>
@@ -656,7 +656,7 @@ Path to the folder, relative to the application log directory.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath" type="xs:string" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RelativeFolderPath" type="xs:string" use="required">
                         <xs:annotation>
                                 <xs:documentation>Path to the folder, relative to the application log directory.</xs:documentation>
                         </xs:annotation>
@@ -674,7 +674,7 @@ Identifies a service manifest.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestIdentifier">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestIdentifier">
     <xs:annotation>
       <xs:documentation>Identifies a service manifest.</xs:documentation>
     </xs:annotation>
@@ -713,7 +713,7 @@ The name of the service manifest this is referenced. The name must match the Nam
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestName" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestName" use="required">
       <xs:annotation>
         <xs:documentation>The name of the service manifest this is referenced. The name must match the Name declared in the ServiceManifest element of the service manifest.</xs:documentation>
       </xs:annotation>
@@ -736,7 +736,7 @@ The version of the service manifest that is referenced. The version must match t
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestVersion" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="ServiceManifestVersion" use="required">
       <xs:annotation>
         <xs:documentation>The version of the service manifest that is referenced. The version must match the version declared in the service manifest.</xs:documentation>
       </xs:annotation>
@@ -758,7 +758,7 @@ The version of the service manifest that is referenced. The version must match t
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes">
     <xs:attribute name="UploadIntervalInMinutes" type="xs:string">
       <xs:annotation>
         <xs:documentation>Interval in minutes at which data is uploaded to this destination.</xs:documentation>
@@ -779,7 +779,7 @@ Interval in minutes at which data is uploaded to this destination.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes" type="xs:string">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="UploadIntervalInMinutes" type="xs:string">
       <xs:annotation>
         <xs:documentation>Interval in minutes at which data is uploaded to this destination.</xs:documentation>
       </xs:annotation>
@@ -797,7 +797,7 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="VersionedItemAttrGroup">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="VersionedItemAttrGroup">
     <xs:annotation>
       <xs:documentation>Attribute group for versioning sections in ApplicationInstance and ServicePackage documents.</xs:documentation>
     </xs:annotation>
@@ -817,7 +817,7 @@ Attribute group for versioning sections in ApplicationInstance and ServicePackag
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required"/>
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="RolloutVersion" type="xs:string" use="required"/>
   
 ```
 
@@ -831,7 +831,7 @@ Attribute group that includes a Name and a Version.
 
 ### XML source
 ```xml
-<xs:attributeGroup xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="VersionedName">
+<xs:attributeGroup xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="VersionedName">
     <xs:annotation>
       <xs:documentation>Attribute group that includes a Name and a Version.</xs:documentation>
     </xs:annotation>
@@ -870,7 +870,7 @@ Name of the versioned item.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Name" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Name" use="required">
       <xs:annotation>
         <xs:documentation>Name of the versioned item.</xs:documentation>
       </xs:annotation>
@@ -893,7 +893,7 @@ Version of the versioned item, an unstructured string.
 
 ##### XML source
 ```xml
-<xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Version" use="required">
+<xs:attribute xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="Version" use="required">
       <xs:annotation>
         <xs:documentation>Version of the versioned item, an unstructured string.</xs:documentation>
       </xs:annotation>
