@@ -55,7 +55,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
 >[!NOTE]
-> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote computer, you will need to set up remote desktop or X terminal session. 
+> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote virtual machine, set up a remote desktop or X terminal session. 
 
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
