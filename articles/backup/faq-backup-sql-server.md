@@ -6,7 +6,7 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/13/2019
 ms.author: sogup
 ---
 # FAQ about SQL Server databases that are running on an Azure VM backup
@@ -16,7 +16,7 @@ This article answers common questions about backing up SQL Server databases that
 > [!NOTE]
 > This feature is currently in public preview.
 
-## Can I throttle the backup speed?
+## Can I control as to how many concurrent backups run on the SQL server?
 
 Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
 1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
@@ -25,6 +25,9 @@ Yes. You can throttle the rate at which the backup policy runs to minimize the i
 
 3. Save your changes and close the file.
 4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.
+
+> [!NOTE]
+> In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, as per the above example.
 
 ## Can I run a full backup from a secondary replica?
 No. This feature isn't supported.
