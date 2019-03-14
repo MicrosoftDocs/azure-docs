@@ -94,7 +94,7 @@ If more than one of your subscriptions have the same active payment method, then
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Select **Cost Management + Billing** on the left side of the page.
 
-[Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
+    ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
 1. Under **Billing**, select **Payment methods**.
 
