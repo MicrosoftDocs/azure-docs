@@ -48,7 +48,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
