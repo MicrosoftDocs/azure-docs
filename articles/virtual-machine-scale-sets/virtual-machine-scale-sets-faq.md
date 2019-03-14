@@ -733,7 +733,7 @@ $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
 ``` 
  
-You can create a managed disk from the snapshot.
+Create a managed disk from the snapshot.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"
