@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
 ---
 
