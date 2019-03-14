@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/14/2019
 ---
 # Resource limits for single databases using the DTU-based purchasing model
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU-based purchasing model.
 
-For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](sql-database-purchase-models.md).
+For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](sql-database-purchase-models.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -32,6 +32,8 @@ The following tables show the resources available for a single database at each 
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md)
+> [!NOTE]
+> For `tempdb` limits, see [tempdb limits](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ### Basic service tier
 
