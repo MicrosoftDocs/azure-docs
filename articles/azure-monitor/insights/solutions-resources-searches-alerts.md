@@ -263,6 +263,7 @@ If your alert will call a webhook, then it will need an action resource with a t
       }
     }
 The properties for Webhook action resources are described in the following tables.
+
 | Element name | Required | Description |
 |:--|:--|:--|
 | type | Yes | Type of the action. This is **Webhook** for webhook actions. |

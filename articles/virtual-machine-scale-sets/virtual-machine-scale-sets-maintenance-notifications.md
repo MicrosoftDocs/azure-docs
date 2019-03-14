@@ -123,6 +123,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus**: 
+
 | Value	| Description	|
 
 |-------|---------------|
@@ -154,6 +155,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 The following properties are returned under **MaintenanceRedeployStatus** for each VM instance: 
+
 | Value	| Description	|
 
 |-------|---------------|
