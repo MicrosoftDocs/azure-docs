@@ -68,9 +68,9 @@ This collapsible pane shows the other results that meet the filter criteria. Cli
 
 [Application Insights profiler](../../azure-monitor/app/profiler.md) or [snapshot debugger](snapshot-debugger.md) help with code-level diagnostics of performance and failure issues. With this experience, you can see profiler traces or snapshots from any component with a single click.
 
-If you could not get Profiler working, please contact **serviceprofilerhelp@microsoft.com**
+If you could not get Profiler working, please contact **serviceprofilerhelp\@microsoft.com**
 
-If you could not get Snapshot Debugger working, please contact **snapshothelp@microsoft.com**
+If you could not get Snapshot Debugger working, please contact **snapshothelp\@microsoft.com**
 
 ![Profiler Integration](media/transaction-diagnostics/profilerTraces.png)
 

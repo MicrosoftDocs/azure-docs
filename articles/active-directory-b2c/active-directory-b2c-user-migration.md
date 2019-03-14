@@ -90,7 +90,7 @@ Now you have an application with permissions to create, read, and update users f
 Read and write directory data permissions do *not* include the right to delete users. To give your application the ability to delete users (to clean up your environment), you must perform an extra step, which involves running PowerShell to set User Account Administrator permissions. Otherwise, you can skip to the next section.
 
 > [!IMPORTANT]
-> You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin@contosob2c.onmicrosoft.com*.
+> You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin\@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > The following PowerShell script requires [Azure Active Directory PowerShell Version 2][AD-Powershell].

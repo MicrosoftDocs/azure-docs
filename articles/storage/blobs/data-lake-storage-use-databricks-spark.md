@@ -178,7 +178,7 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. Replace the `storage-account-name` placeholder value in this code snippet with the name of the folder that you saved the csv file to.
+In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.

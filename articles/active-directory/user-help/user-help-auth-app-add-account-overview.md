@@ -39,6 +39,7 @@ You can turn on two-factor verification for many accounts that you use every day
 |Personal accounts|The Microsoft and non-Microsoft accounts you've personally opened, such as for Outlook.com, Xbox LIVE, Google, Facebook, and more.|
 
 ## In this section
+
 |Article |Description |
 |------|------------|
 |[Add your work or school account](user-help-auth-app-add-work-school-account.md)|Describes how to add your work or school account to the Microsoft Authenticator app for two-factor verification.|
