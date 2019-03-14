@@ -201,7 +201,7 @@ The objective of this section is to create a user called Britta Simon in OpsGeni
 
 1. In a web browser window, log into your OpsGenie tenant as an administrator.
 
-2. Navigate to Users list by clicking **User** in left panel.
+2. Navigate to Users list by clicking **Users** in left panel.
    
     ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
