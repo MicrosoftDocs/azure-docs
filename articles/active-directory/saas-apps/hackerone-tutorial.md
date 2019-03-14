@@ -143,9 +143,9 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     a. In the **Email Domain** textbox, type a registered domain.
 
-    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
 
-	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
+	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
 
     d. Click **Save**.
 
