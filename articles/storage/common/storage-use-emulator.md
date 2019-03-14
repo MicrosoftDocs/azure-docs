@@ -48,7 +48,7 @@ The first time you run the storage emulator, the local storage environment is in
 The storage emulator is installed by default to `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with local storage emulator resources. Look for "(Development)" under "Storage Accounts" in the Storage Explorer resources tree after you've installed and started the storage emulator.
+> You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with local storage emulator resources. Look for "(Development)" under "Storage Accounts" in the Storage Explorer resources tree after you've installed and started the storage emulator.
 >
 
 ### Initialize the storage emulator to use a different SQL database
@@ -85,7 +85,7 @@ For more information on connection strings, see [Configure Azure Storage connect
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](http://storageexplorer.com/) or another application that supports Shared Key authentication.
+Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
 
@@ -275,4 +275,4 @@ Fixed a bug where the storage emulator was returning the `DataServiceVersion` he
 
 * Evaluate the cross-platform, community-maintained open source storage emulator [Azurite](https://github.com/arafato/azurite). 
 * [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
-* You can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.
+* You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.

@@ -225,7 +225,7 @@ The capacity used by the metrics tables is also billable. You can use the follow
 -   The capacity table for blobs has two rows added each day, provided you have opted-in for logs. This implies that every day, the size of this table increases by up to approximately 300 bytes.
 
 ## See also  
- [How To Monitor a Storage Account](http://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
+ [How To Monitor a Storage Account](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
  [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
  [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
  [Storage Analytics Logging](storage-analytics-logging.md)

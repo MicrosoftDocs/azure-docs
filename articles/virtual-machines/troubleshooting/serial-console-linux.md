@@ -184,7 +184,7 @@ Serial console does not work with a storage account firewall. | Serial console b
 
 **Q. How can I send feedback?**
 
-A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
+A. Provide feedback by creating a GitHub issue at  https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of https://feedback.azure.com.
 
 **Q. Does the serial console support copy/paste?**
 

@@ -240,7 +240,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](https://www.sybatech.com)|
-|[Synergy Technical, LLC](http://www.syntechva.com/)|
+|[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|
