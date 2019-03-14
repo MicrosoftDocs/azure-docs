@@ -366,9 +366,9 @@ The following HTTP status code values can be returned.
 
 The response payload for the **HTTP 200** case is a JSON object with the following field:
 
-| Field              | Parameter type  | Data type | Description |
-|--------------------|-----------------|-----------|-------------|
-| instancesDeleted   | URL             | integer   | The number of instances deleted. For the single instance case, this value should always be `1`. |
+| Field              | Data type | Description |
+|--------------------|-----------|-------------|
+| instancesDeleted   | integer   | The number of instances deleted. For the single instance case, this value should always be `1`. |
 
 Here is an example response payload (formatted for readability):
 
@@ -418,6 +418,27 @@ Request parameters for this API include the default set mentioned previously as 
 
 > [!NOTE]
 > This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances and/or History tables. More details on these tables can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+
+#### Response
+
+The following HTTP status code values can be returned.
+
+* **HTTP 200 (OK)**: The instance history has been purged successfully.
+* **HTTP 404 (Not Found)**: No instances were found that match the filter expression.
+
+The response payload for the **HTTP 200** case is a JSON object with the following field:
+
+| Field              | Data type | Description |
+|--------------------|-----------|-------------|
+| instancesDeleted   | integer   | The number of instances deleted. |
+
+Here is an example response payload (formatted for readability):
+
+```json
+{
+    "instancesDeleted": 250
+}
+```
 
 ### Raise event
 
