@@ -45,9 +45,6 @@ For more information on permissions and access control, see [Secure your key vau
 
 You enable "soft-delete" to allow recovery of a deleted key vault, or objects stored in a key vault.
 
-> [!IMPORTANT]
-> Enabling 'soft delete' on a key vault is an irreversible action. Once the soft-delete property has been set to "true", it cannot be changed or removed.  
-
 ### Existing key vault
 
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
