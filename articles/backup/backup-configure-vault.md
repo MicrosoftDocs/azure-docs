@@ -69,18 +69,18 @@ A Recovery Services vault stores all the backups and recovery points you create 
 
 4. For **Name**, enter a friendly name to identify the vault.
 
-  - The name needs to be unique for the Azure subscription.
-  - It can contain 2 to 50 characters.
-  - It must start with a letter, and it can contain only letters, numbers, and hyphens.
+   - The name needs to be unique for the Azure subscription.
+   - It can contain 2 to 50 characters.
+   - It must start with a letter, and it can contain only letters, numbers, and hyphens.
 
 5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then click **Create**.
 
     ![Create Recovery Services Vault step 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-    - It can take a while for the vault to be created.
-    - Monitor the status notifications in the upper-right area of the portal. If after several minutes you don't see the vault, click **Refresh**.
+   - It can take a while for the vault to be created.
+   - Monitor the status notifications in the upper-right area of the portal. If after several minutes you don't see the vault, click **Refresh**.
 
-    ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+     ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### Set storage redundancy
 
@@ -129,17 +129,17 @@ Download the MARS agent for installation on machines you want to back up.
 
 1. Run the **MARSagentinstaller.exe** file on machines you want to back up.
 2. In the MARS Agent Setup Wizard > **Installation Settings**, specify where you want to install the agent, and a location to use for the cache. Then click **Next**.
-    - Azure Backup uses the cache to store data snapshots before sending them to Azure.
-    - The cache location should have free space equal to at least 5% of the size of the data you'll back up.
+   - Azure Backup uses the cache to store data snapshots before sending them to Azure.
+   - The cache location should have free space equal to at least 5% of the size of the data you'll back up.
 
-    ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
+     ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
 
 2. In **Proxy Configuration**, specify how the agent running on the Windows machine will connect to the internet. Then click **Next**.
 
-    - If you're using a custom proxy specify the proxy settings, and credentials if needed.
-    - Remember that the agent needs access to [these URLs](#verify-internet-access).
+   - If you're using a custom proxy specify the proxy settings, and credentials if needed.
+   - Remember that the agent needs access to [these URLs](#verify-internet-access).
 
-    ![MARS wizard internet access](./media/backup-configure-vault/mars2.png)
+     ![MARS wizard internet access](./media/backup-configure-vault/mars2.png)
 
 3. In **Installation** review the prerequisites check, and click **Install**.
 4. After the agent is installed, click **Proceed to Registration**.

@@ -159,11 +159,11 @@ To create a CNAME record for your custom domain:
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-    - Source: Enter your custom domain name (for example, www.contoso.com).
+   - Source: Enter your custom domain name (for example, www.contoso.com).
 
-    - Type: Enter *CNAME*.
+   - Type: Enter *CNAME*.
 
-    - Destination: Enter your CDN endpoint hostname. It must be in the following format:_&lt;endpoint name&gt;_.azureedge.net. For example, contoso.azureedge.net.
+   - Destination: Enter your CDN endpoint hostname. It must be in the following format:_&lt;endpoint name&gt;_.azureedge.net. For example, contoso.azureedge.net.
 
 4. Save your changes.
 

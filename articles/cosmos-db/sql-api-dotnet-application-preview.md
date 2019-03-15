@@ -230,7 +230,7 @@ The first thing to do here is add a class that contains the logic to connect to 
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
+   This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
 
 Now if you run the application, it calls into your **ItemController** that calls the GetItems methods from the TodoItemService class that you define in the next section. 
 

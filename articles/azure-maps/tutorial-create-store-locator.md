@@ -16,13 +16,13 @@ ms.custom: mvc
 This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Offering a store locator to customers is a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
     
 > [!div class="checklist"]
-* Create a new webpage by using the Azure Map Control API.
-* Load custom data from a file and display it on a map.
-* Use the Azure Maps Search service to find an address or enter a query.
-* Get the user's location from the browser and show it on the map.
-* Combine multiple layers to create custom symbols on the map.  
-* Cluster data points.  
-* Add zoom controls to the map.
+> * Create a new webpage by using the Azure Map Control API.
+> * Load custom data from a file and display it on a map.
+> * Use the Azure Maps Search service to find an address or enter a query.
+> * Get the user's location from the browser and show it on the map.
+> * Combine multiple layers to create custom symbols on the map.  
+> * Cluster data points.  
+> * Add zoom controls to the map.
 
 <a id="Intro"></a>
 
@@ -390,12 +390,12 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. Add code to *index.js*. The following code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits until the page is finished loading, wires up events to monitor the loading of the map, and powers the search button and My Location button. 
 
-  When the user selects the search button, or when the user presses Enter after entering a location in the search box, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries. Limiting the countries to search helps increase the accuracy of the results that are returned. 
+   When the user selects the search button, or when the user presses Enter after entering a location in the search box, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries. Limiting the countries to search helps increase the accuracy of the results that are returned. 
   
-  When the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, use the HTML5 Geolocation API that's built into the browser to retrieve the user's location and center the map over their location.  
+   When the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, use the HTML5 Geolocation API that's built into the browser to retrieve the user's location and center the map over their location.  
 
-  > [!Tip]
-  > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
+   > [!Tip]
+   > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
 
     ```Javascript
     function initialize() { 
@@ -537,7 +537,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. After you load the dataset in the map's `load` event listener, define a set of layers to render the data. A bubble layer is used to render clustered data points. A symbol layer is used to render the number of points in each cluster above the bubble layer. A second symbol layer renders a custom icon for individual locations on the map. 
 
-  Add `mouseover` and `mouseout` events to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. Add a `click` event to the cluster bubble layer. This `click` event zooms the map in two levels and centers the map over a cluster when the user selects any cluster. Add a `click` event to the icon layer. This `click` event displays a pop-up window that shows the details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when the map is finished moving. When this event fires, update the items in the list panel.  
+   Add `mouseover` and `mouseout` events to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. Add a `click` event to the cluster bubble layer. This `click` event zooms the map in two levels and centers the map over a cluster when the user selects any cluster. Add a `click` event to the icon layer. This `click` event displays a pop-up window that shows the details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when the map is finished moving. When this event fires, update the items in the list panel.  
 
     ```Javascript
     //Create a bubble layer to render clustered data points. 
@@ -928,13 +928,13 @@ If you resize the browser window to less than 700 pixels wide or open the applic
 In this tutorial, you learn how to create a basic store locator by using Azure Maps. The store locator you create in this tutorial might have all the functionality you need. You can add features to your store locator or use more advance features for a more custom user experience: 
 
 > [!div class="checklist"]
-* Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
-* Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-* Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-* Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-* Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
-* Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-* Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
+> * Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+> * Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+> * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+> * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
+> * Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 You can access the code sample for this tutorial here:
 

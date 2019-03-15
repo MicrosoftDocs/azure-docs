@@ -198,7 +198,7 @@ Perform the following steps to configure the Wire Data solution for your workspa
 > [!NOTE]
 > You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
 > 
-### Install the Dependency Agent on Windows
+> ### Install the Dependency Agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
 

@@ -67,13 +67,13 @@ The Azure DNS manual failover solution for disaster recovery uses the standard D
 *Figure - Manual failover using Azure DNS*
 
 The assumptions made for the solution are:
--	Both primary and secondary endpoints have static IPs that don’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43.
--	An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www.contoso.com also exists.   
--	The TTL is at or below the RTO SLA set in the organization. For example, if an enterprise sets the RTO of the application disaster response to be 60 mins, then the TTL should be less than 60 mins, preferably the lower the better. 
-You can set up Azure DNS for manual failover as follows:
-1. Create a DNS zone
-2. Create DNS zone records
-3. Update CNAME record
+- Both primary and secondary endpoints have static IPs that don’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43.
+- An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www.contoso.com also exists.   
+- The TTL is at or below the RTO SLA set in the organization. For example, if an enterprise sets the RTO of the application disaster response to be 60 mins, then the TTL should be less than 60 mins, preferably the lower the better. 
+  You can set up Azure DNS for manual failover as follows:
+- Create a DNS zone
+- Create DNS zone records
+- Update CNAME record
 
 ### Step 1: Create a DNS
 Create a DNS zone (for example, www.contoso.com) as shown below:

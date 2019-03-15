@@ -27,6 +27,4 @@ Once traffic arrives at Traffic Manager, it then routes the traffic to your webs
 
 > [!NOTE]
 > Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="https://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="https://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
-> 
-> 
 

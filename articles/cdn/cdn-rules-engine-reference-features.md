@@ -73,7 +73,7 @@ This feature is designed to provide additional information within a rule.
 Name | Purpose
 -----|--------
 [Comment](#comment) | Allows a note to be added within a rule.
- 
+ 
 ## Header features
 
 These features are designed to add, modify, or delete headers from the request or response.
@@ -123,7 +123,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -161,7 +161,7 @@ Name | Purpose
 [Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
 [User Variable](#user-variable) | For internal use only.
 
- 
+ 
 ## URL features
 
 These features allow a request to be redirected or rewritten to a different URL.

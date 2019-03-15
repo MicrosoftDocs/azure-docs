@@ -144,7 +144,7 @@ To confirm the connector installed and registered correctly:
    - **Microsoft AAD Application Proxy Connector** enables connectivity
    - **Microsoft AAD Application Proxy Connector Updater** is an automated update service. The updater checks for new versions of the connector and updates the connector as needed.
 
-    ![App Proxy Connector services - screenshot](./media/application-proxy-enable/app_proxy_services.png)
+     ![App Proxy Connector services - screenshot](./media/application-proxy-enable/app_proxy_services.png)
 
 3. If the status for the services isn't **running**, right-click each service and choose **start**. 
 

@@ -210,9 +210,9 @@ Now you can go to your IoT Edge device to check out the interaction between the 
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. View all system logs and metrics data. Use the Stream Analytics module name:
 
    ```cmd/sh

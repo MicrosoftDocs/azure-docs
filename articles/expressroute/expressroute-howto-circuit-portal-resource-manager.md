@@ -41,20 +41,20 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 1. You can create an ExpressRoute circuit by selecting the option to create a new resource. Click **Create a resource** > **Networking** > **ExpressRoute**, as shown in the following image:
 
-  ![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+   ![Create an ExpressRoute circuit](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. After you click **ExpressRoute**, you'll see the **Create ExpressRoute circuit** page. When you're filling in the values on this page, make sure that you specify the correct SKU tier (Standard, or Premium) and data metering billing model (Unlimited or Metered).
 
-  ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+   ![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
-  * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
-  * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
-    > [!IMPORTANT] You can't change the type from **Unlimited** to **Metered**.
-  * **Peering Location** is the physical location where you are peering with Microsoft.
+   * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
+   * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
+     > [!IMPORTANT] You can't change the type from **Unlimited** to **Metered**.
+   * **Peering Location** is the physical location where you are peering with Microsoft.
 
-    > [!IMPORTANT]
-    > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
-    >
-    >
+     > [!IMPORTANT]
+     > The Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit.
+     >
+     >
 
 ### 3. View the circuits and properties
 **View all the circuits**
@@ -115,18 +115,18 @@ You can perform the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
 * Increase the bandwidth of your ExpressRoute circuit, provided there is capacity available on the port.
-> [!IMPORTANT] Downgrading the bandwidth of a circuit is not supported. 
+  > [!IMPORTANT] Downgrading the bandwidth of a circuit is not supported. 
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
-> [!IMPORTANT] Changing the metering plan from Unlimited Data to Metered Data is not supported.
+  > [!IMPORTANT] Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
-> [!IMPORTANT]
-> You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
->
-> Although you can seamlessly upgrade the bandwidth, you cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
-> Disabling the Premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
-> 
-> 
+  > [!IMPORTANT]
+  > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+  >
+  > Although you can seamlessly upgrade the bandwidth, you cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+  > 
+  > Disabling the Premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
+  > 
+  > 
 
 To modify an ExpressRoute circuit, click **Configuration**.
 
