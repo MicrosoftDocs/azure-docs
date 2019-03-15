@@ -40,10 +40,10 @@ The following table lists the base URLs for the Azure Active Directory (Azure AD
 
 | National cloud | Azure AD portal endpoint
 | --- | --- |
-| Azure AD for US Government |https://portal.azure.us
-|Azure AD Germany |https://portal.microsoftazure.de
-|Azure AD China operated by 21Vianet |https://portal.azure.cn
-|Azure AD (global service)|https://portal.azure.com 
+| Azure AD for US Government |`https://portal.azure.us`
+|Azure AD Germany |`https://portal.microsoftazure.de`
+|Azure AD China operated by 21Vianet |`https://portal.azure.cn`
+|Azure AD (global service)|`https://portal.azure.com` 
 
 ## Azure AD authentication endpoints
 
