@@ -76,7 +76,7 @@ To create an ILB ASE:
 
    You can [map an existing DNS name to your app][customdomain]. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
-   * www.contoso.com
+   * www\.contoso.com
 
    * abcd.def.contoso.com
 
