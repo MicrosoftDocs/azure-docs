@@ -23,9 +23,7 @@ ms.date: 04/10/2018
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md), as shown in the following screenshot. 
-
-![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, collection, and add sample data to the collection by using the Azure portal. You'll then build and deploy a todo list web app built using the [SQL .NET SDK](sql-api-sdk-dotnet.md), to add more manage data within the collection. 
 
 ## Prerequisites
 
@@ -35,14 +33,37 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## Create a database account
+## Create an account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-collection"></a>
-## Add a collection
+## Add a database and a collection
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+You can now use the Data Explorer tool in the Azure portal to create a database and collection. 
+
+1. Click **Data Explorer** > **New Collection**. 
+    
+    The **Add Collection** area is displayed on the far right, you may need to scroll right to see it.
+
+    ![The Azure portal Data Explorer, Add Collection pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+
+2. In the **Add collection** page, enter the settings for the new collection.
+
+    Setting|Suggested value|Description
+    ---|---|---
+    Database id|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.
+    Collection id|Items|Enter *Items* as the name for your new collection. Collection ids have the same character requirements as database names.
+    Partition key| `<your_partition_key>`| Enter a partition key such as */category*.
+    Throughput|400 RU|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later. 
+    
+    In addition to the preceding settings, you can optionally add **Unique keys** for the collection. Let's leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a collection, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](unique-keys.md) article.
+    
+    Click **OK**.
+
+    Data Explorer displays the new database and collection.
+
+    ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 <a id="add-sample-data"></a>
 ## Add sample data
