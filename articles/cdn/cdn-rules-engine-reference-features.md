@@ -392,6 +392,7 @@ Option|Description
 --|--
 Original Path| Define the relative path to the types of requests whose cache-key is rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
 New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of [HTTP variables](cdn-http-variables.md).
+
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
 [Back to top](#azure-cdn-rules-engine-features)
