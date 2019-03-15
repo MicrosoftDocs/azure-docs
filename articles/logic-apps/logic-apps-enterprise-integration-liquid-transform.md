@@ -37,11 +37,14 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 
 * A basic [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
+* Basic knowledge about [Liquid template language.](https://shopify.github.io/liquid/)
+
 ## Create Liquid template or map for your integration account
 
 1. For this example, create the sample Liquid template described in this step.
 If you want to use any filters in your Liquid template, make sure those filters start with uppercase. 
-Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), 
+which use [DotLiquid](https://dotliquidmarkup.org/) and C# naming conventions.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -86,25 +89,25 @@ In the search box, find and select your integration account.
 ## Add the Liquid action for JSON transformation
 
 1. In the Azure portal, follow these steps to 
-[create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. In the Logic App Designer, add the 
-[Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
-to your logic app.
+   [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
+   to your logic app.
 
 3. Under the trigger, choose **New step**. 
-In the search box, enter "liquid" as your filter, 
-and select this action: **Transform JSON to JSON - Liquid**
+   In the search box, enter "liquid" as your filter, 
+   and select this action: **Transform JSON to JSON - Liquid**
 
    ![Find and select Liquid action](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
 4. Click inside the **Content** box so that the dynamic content list appears, 
-and select the **Body** token.
+   and select the **Body** token.
   
    ![Select body](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
 5. From the **Map** list, select your Liquid template, 
-which is "JsonToJsonTemplate" in this example.
+   which is "JsonToJsonTemplate" in this example.
 
    ![Select map](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
@@ -115,9 +118,9 @@ which is "JsonToJsonTemplate" in this example.
    1. On your logic app menu, select **Workflow settings**.
 
    2. From the **Select an Integration account** list, 
-   select your integration account, and choose **Save**.
+      select your integration account, and choose **Save**.
 
-     ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## Test your logic app
 
@@ -136,7 +139,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Here are sample input and output:
+   Here are sample inputs and outputs:
   
    ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -149,7 +152,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Here are sample input and output:
+   Here are sample inputs and outputs:
 
    ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -161,7 +164,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Here are sample input and output:
+   Here are sample inputs and outputs:
 
    ![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 

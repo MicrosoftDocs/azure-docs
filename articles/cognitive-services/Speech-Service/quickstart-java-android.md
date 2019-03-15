@@ -1,31 +1,31 @@
 ---
-title: 'Quickstart: Recognize speech in Java on Android by using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in Java on Android by using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech, Java (Android) - Speech Services'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in Java on Android by using the Speech SDK
 services: cognitive-services
 author: fmegen
-
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: Speech
+ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: fmegen
+ms.date: 2/20/2019
+ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in Java on Android by using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.0.0, and Android Studio 3.1.
-The Speech SDK is currently compatible with Android devices having 32-bit or 64-bit ARM processors.
+In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
+The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.3.1, and Android Studio 3.1.
+The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
 
 ## Prerequisites
 
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
 
 ## Create and configure a project
 
@@ -53,12 +53,12 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.0.0`.
+The current version of the Cognitive Services Speech SDK is `1.3.1`.
 
-The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
+The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
 It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
 
-Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes: 
+Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes:
 
 1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -68,7 +68,7 @@ Set up your project to use the Speech SDK. Open the Project Structure window by 
 
    ![Screenshot of Project Structure window](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Then select **OK**.
+1. In the window that comes up, enter the name and version of our Speech SDK for Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`. Then select **OK**.
    The Speech SDK should be added to the list of dependencies now, as shown below:
 
    ![Screenshot of Project Structure window](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -81,7 +81,7 @@ Set up your project to use the Speech SDK. Open the Project Structure window by 
 
 ## Create user interface
 
-We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!"
+We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
 
 * Click the TextView element. Change its ID attribute in the upper-right corner to `hello`.
 
@@ -93,7 +93,7 @@ We will create a basic user interface for the application. Edit the layout for y
 
   ![Screenshot of magic wand icon](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-The text and graphical representation of your UI should now look like this.
+The text and graphical representation of your UI should now look like this:
 
 <table>
 <tr>
@@ -113,7 +113,7 @@ The text and graphical representation of your UI should now look like this.
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * The `onCreate` method includes code that requests microphone and internet permissions, and initializes the native platform binding. Configuring the native platform bindings is only required once. It should be done early during application initialization.
-   
+
    * The method `onSpeechButtonClicked` is, as noted earlier, the button click handler. A button press triggers speech to text transcription.
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
@@ -132,20 +132,16 @@ The text and graphical representation of your UI should now look like this.
 
    ![Screenshot of Select Deployment Target window](media/sdk/qs-java-android-12-deploy.png)
 
-Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
+Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
 
 ![Screenshot of the Android application](media/sdk/qs-java-android-13-gui-on-device.png)
-
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/java-android` folder.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for Java](how-to-recognize-intents-from-speech-java.md)
+> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

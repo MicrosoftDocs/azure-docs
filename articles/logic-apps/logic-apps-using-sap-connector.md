@@ -21,7 +21,7 @@ SAP Netweaver-based systems through Intermediate Document (IDoc) or
 Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
 
 The SAP ECC connector uses the 
-<a href="https://help.sap.com/saphelp_nwpi71/helpdata/en/e9/23c80d66d08c4c8c044a3ea11ca90f/frameset.htm">SAP .Net Connector (NCo) library</a> and provides these operations or actions:
+<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo) library</a> and provides these operations or actions:
 
 - **Send to SAP**: Send IDoc or call BAPI functions over tRFC in SAP systems.
 - **Receive from SAP**: Receive IDoc or BAPI function calls over tRFC from SAP systems.
@@ -62,7 +62,7 @@ resources are on premises. For more information, see
 [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
 * Download and install the latest SAP client library, which is currently 
-<a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">SAP Connector (NCo) 3.0.20.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>, 
+<a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>, 
 on the same computer as the on-premises data gateway. Install this version or later 
 for these reasons:
 
@@ -513,7 +513,7 @@ and check that the generated schemas generated exist.
 
 Here are the currently known issues and limitations for the SAP connector:
 
-* The SAP trigger does't support receiving batch IDOCs from SAP. 
+* The SAP trigger doesn't support receiving batch IDOCs from SAP. 
 This action might result in RFC connection failure between your SAP system and the data gateway.
 
 * The SAP trigger doesn't support data gateway clusters. 
@@ -543,7 +543,7 @@ the on-premises data gateway.
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on feature ideas, visit the 
-[Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

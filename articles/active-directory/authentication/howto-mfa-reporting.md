@@ -4,15 +4,16 @@ description: This describes how to use the Azure Multi-Factor Authentication fea
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Reports in Azure Multi-Factor Authentication
 
@@ -32,7 +33,9 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 2. On the left, select **Azure Active Directory** > **MFA Server**.
 3. Select the report that you wish to view.
 
-   <center>![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   <center>
+   
+   ![Cloud](./media/howto-mfa-reporting/report.png)</center>
 
 ## Azure AD sign-ins report
 

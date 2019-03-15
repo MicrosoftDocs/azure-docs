@@ -3,8 +3,6 @@ title: How To Configure Server Parameters in Azure Database for MariaDB
 description: This article describes how to configure MariaDB server parameters in Azure Database for MariaDB using the Azure portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
@@ -35,7 +33,7 @@ The list of supported server parameters is constantly growing. Use the server pa
 InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-pricing-tiers.md).
 
 |**Pricing Tier**| **vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
-|---|---|---|---|--|
+|---|---|---|---|
 |Basic| 1| 1024| 50|
 |Basic| 2| 2560| 100|
 |General Purpose| 2| 3584| 300|
@@ -47,29 +45,6 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 |Memory Optimized| 4| 15360| 1250|
 |Memory Optimized| 8| 30720| 2500|
 |Memory Optimized| 16| 62464| 5000|
-
-<!-- 
-|**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
-|---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50|
-|Basic| Gen 4| 2| 2560| 100|
-|Basic| Gen 5| 1| 1024| 50|
-|Basic| Gen 5| 2| 2560| 100|
-|General Purpose| Gen 4| 2| 3584| 300|
-|General Purpose| Gen 4| 4| 7680| 625|
-|General Purpose| Gen 4| 8| 15360| 1250|
-|General Purpose| Gen 4| 16| 31232| 2500|
-|General Purpose| Gen 4| 32| 62976| 5000|
-|General Purpose| Gen 5| 2| 3584| 300|
-|General Purpose| Gen 5| 4| 7680| 625|
-|General Purpose| Gen 5| 8| 15360| 1250|
-|General Purpose| Gen 5| 16| 31232| 2500|
-|General Purpose| Gen 5| 32| 62976| 5000|
-|Memory Optimized| Gen 5| 2| 7168| 600|
-|Memory Optimized| Gen 5| 4| 15360| 1250|
-|Memory Optimized| Gen 5| 8| 30720| 2500|
-|Memory Optimized| Gen 5| 16| 62464| 5000|
--->
 
 These additional server parameters are not configurable in the system:
 

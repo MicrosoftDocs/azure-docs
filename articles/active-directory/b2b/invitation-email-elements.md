@@ -1,18 +1,19 @@
 ---
-title: The elements of the B2B collaboration invitation email - Azure Active Directory | Microsoft Docs
+title: Elements of the B2B invitation email - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration invitation email template
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
-
+manager: daveba
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # The elements of the B2B collaboration invitation email - Azure Active Directory
@@ -29,8 +30,8 @@ The subject of the email follows the following pattern:
 You're invited to the &lt;tenantname&gt; organization
 
 ### From address
-We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is:
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is: Microsoft Invitations <invites@microsoft.com> or 
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.
@@ -53,10 +54,14 @@ If you haven't yet set up your profile picture, an icon with the inviter's initi
   ![displaying the inviter's initials](media/invitation-email-elements/inviters-initials.png)
 
 ### Body
-The body contains the message that the inviter composes or is passed through the invitation API. It is a text area, so it does not process HTML tags for security reasons.
+The body contains the message that the inviter composes when [inviting a guest user to the directory, group, or app](add-users-administrator.md) or [by using the invitation API](customize-invitation-api.md). It is a text area, so it does not process HTML tags for security reasons.
+
+  ![picture of email body](media/invitation-email-elements/invitation-email-body.png)
 
 ### Footer section
-The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. Special cases:
+The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. 
+
+Special cases:
 
 - The inviter doesn't have an email address in the inviting tenancy
 
@@ -67,6 +72,14 @@ The footer contains the Microsoft company brand and lets the recipient know if t
 
   ![when recipient doesn't need to redeem invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## How the language is determined
+The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language. 
+- The **messageLanguage** property of the [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
+-	The **preferredLanguage** property specified in the guest's [user object](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+-	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
+-	The **Notification language** set in the properties of the resource tenant
+
+If none of these settings are configured, the language defaults to English (US).
 
 ## Next steps
 

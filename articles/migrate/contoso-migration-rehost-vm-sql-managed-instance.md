@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
 ---
 
@@ -35,6 +35,7 @@ Article 4: Rehost an app on an Azure VM and SQL Database Managed Instance | Cont
 [Article 11: Refactor Team Foundation Server on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment by migrating it to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app in Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure, and then rearchitects the app. Contoso rearchitects the app web tier as a Windows container, and rearchitects the app database by using Azure SQL Database. | Available
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service, Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available
+[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 
 
@@ -167,7 +168,7 @@ To set up an Azure SQL Database Managed Instance, Contoso needs a subnet that me
 - The subnet must have a user-defined routing (UDR) route table. The only route assigned should be 0.0.0.0/0 next hop internet. 
 - Optional custom DNS: If custom DNS is specified on the Azure virtual network, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. Learn how to [configure custom DNS for a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - The subnet mustn't have a service endpoint (storage or SQL) associated with it. Service endpoints should be disabled on the virtual network.
-- The subnet must have a minimum of 16 IP addresses. Learn how to [size the Managed Instance subnet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
+- The subnet must have a minimum of 16 IP addresses. Learn how to [size the Managed Instance subnet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - In Contoso's hybrid environment, custom DNS settings are required. Contoso configures DNS settings to use one or more of the company's Azure DNS servers. Learn more about [DNS customization](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 ### Set up a virtual network for the Managed Instance
@@ -180,14 +181,14 @@ Contoso admins set up the virtual network as follows:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). This subnet is used to attach a directory to the Managed Instance.
 
-    ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+      ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 4. After the virtual network and subnets are deployed, they peer networks as follows:
 
     - Peers **VNET-SQLMI-EUS2** with **VNET-HUB-EUS2** (the hub virtual network for the East US 2).
     - Peers **VNET-SQLMI-EUS2** with **VNET-PROD-EUS2** (the production network).
 
-    ![Network peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+      ![Network peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 5. They set custom DNS settings. DNS points first to Contoso's Azure domain controllers. Azure DNS is secondary. The Contoso Azure domain controllers are located as follows:
 
@@ -196,12 +197,12 @@ Contoso admins set up the virtual network as follows:
     - **CONTOSODC4** address: 10.245.42.5
     - Azure DNS resolver: 168.63.129.16
 
-     ![Network DNS servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+      ![Network DNS servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Need more help?*
 
 - Get an overview of [SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance).
-- Learn how to [create a virtual network for a SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#create-a-new-virtual-network-for-managed-instances).
+- Learn how to [create a virtual network for a SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - Learn how to [set up peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Learn how to [update Azure Active Directory DNS settings](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
@@ -216,7 +217,7 @@ Contoso considers these factors:
 - A subnet can be associated with only one route table.
 - There are no additional charges for creating route tables in Microsoft Azure.
 
- To set up routing Contoso admins do the following:
+  To set up routing Contoso admins do the following:
 
 1. They create a UDR (route) table in the **ContosoNetworkingRG** resource group.
 
@@ -232,7 +233,7 @@ Contoso considers these factors:
     
 *Need more help?*
 
-Learn how to [set up routes for a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
+Learn how to [set up routes for a Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
 ### Create a Managed Instance
 
@@ -248,7 +249,7 @@ Now, Contoso admins can provision a SQL Database Managed Instance:
     - A virtual cluster in case Contoso has multiple Managed Instances.
     - The SQL Server Database Managed Instance. 
 
-    ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+      ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Need more help?*
 
@@ -360,7 +361,7 @@ After failover to Azure, Contoso wants to be able to connect to the replicated V
 Contoso admins also need to check these items when they run a failover:
 
 - There should be no Windows updates pending on the VM when a failover is triggered. If Windows updates are pending, users Contoso can't sign in to the virtual machine until the update is finished.
-- After failover, admins should check **Boot diagnostics** to view a screenshot of the VM. If they can't view the boot diagnostics, they should check that the VM is running, and then review [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- After failover, admins should check **Boot diagnostics** to view a screenshot of the VM. If they can't view the boot diagnostics, they should check that the VM is running, and then review [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## Step 5: Replicate the on-premises VMs to Azure
 
@@ -426,7 +427,7 @@ To set up the source environment Contoso admins do the following:
 
 Now, Contoso admins configure the target replication environment:
 
-1. In **Prepare infrastructure** > **Target**, they selecs the target settings.
+1. In **Prepare infrastructure** > **Target**, they select the target settings.
 2. Site Recovery checks that there's a storage account and network in the specified target.
 
 ### Create a replication policy
@@ -435,11 +436,11 @@ When the source and target are set up, Contoso admins create a replication polic
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create the **ContosoMigrationPolicy** policy.
 2. They use the default settings:
-    - **RPO threshold**: Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
-    - **Recovery point retention**: Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
-    - **App-consistent snapshot frequency**: Default of 1 hour. This value specifies the frequency at which application-consistent snapshots are created.
+   - **RPO threshold**: Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
+   - **Recovery point retention**: Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
+   - **App-consistent snapshot frequency**: Default of 1 hour. This value specifies the frequency at which application-consistent snapshots are created.
  
-    ![Replication policy - Create](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Replication policy - Create](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. The policy is automatically associated with the configuration server. 
 
@@ -467,7 +468,7 @@ Now, Contoso admins can start replicating WebVM.
 
     ![Enable replication - Select the VM](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. They check that the correct replication policy is selected, and enable replication for **WEBVM**. They tracs replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+5. They check that the correct replication policy is selected, and enable replication for **WEBVM**. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 6. In **Essentials** in the Azure portal, they can see status for the VMs that are replicating to Azure:
 
     ![Infrastructure view](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -513,7 +514,7 @@ Contoso admins need to create a Database Migration Service project, and then mig
         ![Database Migration Service - Configure migration settings](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. They save the migration settings, and then run the migration.
-6. In **Overview**, they monitos the migration status.
+6. In **Overview**, they monitor the migration status.
 
     ![Database Migration Service - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
@@ -603,13 +604,13 @@ The Contoso security team reviews the Azure VMs and SQL Database Managed Instanc
 
      ![Managed Instance security - Threat detection](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
-To learn more about security practices for VMs, see [Security best practices for IaaS workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+To learn more about security practices for VMs, see [Security best practices for IaaS workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms).
 
 ### BCDR
 
 For business continuity and disaster recovery (BCDR), Contoso takes the following actions:
 
-- Keep data safe: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more]https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Keep data safe: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Keep apps up and running: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 - Contoso learns more about managing SQL Managed Instance, including [database backups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 

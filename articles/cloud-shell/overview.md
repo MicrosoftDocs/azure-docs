@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 # Overview of Azure Cloud Shell
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
@@ -48,17 +48,22 @@ Cloud Shell is managed by Microsoft so it comes with popular command-line tools 
 View the full [list of tools installed in Cloud Shell.](features.md#tools)
 
 ### Integrated Cloud Shell editor
-Cloud Shell offers an integrated graphical text editor based on the open-source Monaco Editor. Simply create and edit configuration files by running `code .` for seamless deployment through Azure CLI 2.0 or Azure PowerShell.
+Cloud Shell offers an integrated graphical text editor based on the open-source Monaco Editor. Simply create and edit configuration files by running `code .` for seamless deployment through Azure CLI or Azure PowerShell.
 
 [Learn more about the Cloud Shell editor](using-cloud-shell-editor.md).
+
+### Integrated with docs.microsoft.com
+
+You can use Cloud Shell directly from documentation hosted on [docs.microsoft.com](https://docs.microsoft.com). It is integrated in [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and [Azure CLI documentation](https://docs.microsoft.com/cli/azure) - click on the "Try It" button in a code snippet to open the immersive shell experience. 
 
 ### Multiple access points
 Cloud Shell is a flexible tool that can be used from:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI "Try It" documentation](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
+* [Azure CLI documentation](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [VS Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Visual Studio Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### Connect your Microsoft Azure Files storage
 Cloud Shell machines are temporary and require a new or existing Azure Files share to be mounted as `clouddrive` to persist your files.
@@ -73,7 +78,7 @@ Read more to learn how to mount a [new or existing storage account](persisting-s
 * Cloud Shell requires an Azure file share to be mounted
 * Cloud Shell uses the same Azure file share for both Bash and PowerShell
 * Cloud Shell is assigned one machine per user account
-* Cloud Shell persists $Home using a 5-GB image held in your file share
+* Cloud Shell persists $HOME using a 5-GB image held in your file share
 * Permissions are set as a regular Linux user in Bash
 
 Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](features-powershell.md).

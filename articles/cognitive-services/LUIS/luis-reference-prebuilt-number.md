@@ -1,22 +1,23 @@
 ---
-title: LUIS Prebuilt entities number reference - Azure| Microsoft Docs
+title: Number Prebuilt entity
 titleSuffix: Azure
 description: This article contains number prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 02/28/2019
 ms.author: diberry
 ---
 
-# Number entity
+# Number prebuilt entity for a LUIS app
 There are many ways in which numeric values are used to quantify, express, and describe pieces of information. This article covers only some of the possible examples. LUIS interprets the variations in user utterances and returns consistent numeric values. Because this entity is already trained, you do not need to add example utterances containing number to the application intents. 
 
 ## Types of number
-Number is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) Github repository
+Number is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub repository
 
 ## Examples of number resolution
 
@@ -37,7 +38,7 @@ LUIS includes the recognized value of a **`builtin.number`** entity in the `reso
 ## Resolution for prebuilt number
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {
@@ -65,6 +66,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
       "startIndex": 6,
       "endIndex": 14,
       "resolution": {
+        "subtype": "integer",
         "value": "24"
       }
     }

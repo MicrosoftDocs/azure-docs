@@ -3,20 +3,18 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
-ms.custom: include file 
-
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
 ---
 
 ## Set up your project
@@ -41,7 +39,7 @@ To create your application, do the following:
 2. In the Package Manager Console window, paste the following Azure PowerShell command:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client
     ```
 
     > [!NOTE] 
@@ -57,7 +55,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```csharp
     using Microsoft.Identity.Client;
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 
 2. Update the app class to the following:
 

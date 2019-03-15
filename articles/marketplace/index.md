@@ -16,7 +16,7 @@ ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
 
----  
+---
 
 # Azure Marketplace Documentation
 
@@ -42,7 +42,7 @@ Learn about Azure Marketplace, an online applications and services marketplace t
         </a>
     </li>
     <li>
-        <a href="/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal">
+        <a href="/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

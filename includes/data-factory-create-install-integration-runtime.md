@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 ## Create a self-hosted integration runtime
 
 In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from SQL Server on your machine to Azure Blob storage. 
@@ -23,7 +30,7 @@ In this section, you create a self-hosted integration runtime and associate it w
     Name              : myonpremirsp0914
     Description       :
     ```
- ​
+  
 3. To retrieve the status of the created integration runtime, run the following command. Confirm that the value of the **State** property is set to **NeedRegistration**. 
 
    ```powershell

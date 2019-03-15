@@ -2,18 +2,12 @@
 title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -71,12 +65,14 @@ Depending on whether you are connected to a Windows or Linux client, the steps t
 Perform the following steps to connect and unlock your disks.
      
 1. In the Azure portal, go to **General > Device details**. 
-2. Download the Data Box Disk toolset corresponding to the Windows client. 
+2. Download the Data Box Disk toolset corresponding to the Windows client. This toolset contains 3 tools: Data Box Disk Unlock tool, Data Box Disk Validation tool, and Data Box Disk Split Copy tool. 
+
+    In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
 
     > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)         
 
-3. Extract the tool on the same computer that you will use to copy the data.
+3. Extract the toolset on the same computer that you will use to copy the data. 
 4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
 5. (Optional) To verify the computer that you are using to unlock the disk meets the operating system requirements, run the system check command. A sample output is shown below. 
 
@@ -130,7 +126,7 @@ Perform the following steps to connect and unlock your disks.
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
 
     > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command: 
 
@@ -169,39 +165,39 @@ Perform the following steps to connect and unlock your disks.
     
  
 5. Type `y` to continue the install. The packages that the script installs are: 
-    - **epel-release** - Repository that contains the following three packages. 
-    - **dislocker and fuse-dislocker** - This utility helps decrypting BitLocker encrypted disks. 
-    - **ntfs-3g** - Package that helps mount NTFS volumes. 
+   - **epel-release** - Repository that contains the following three packages. 
+   - **dislocker and fuse-dislocker** - This utility helps decrypting BitLocker encrypted disks. 
+   - **ntfs-3g** - Package that helps mount NTFS volumes. 
  
-    Once the packages are successfully installed, the terminal will display a notification to that effect.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Once the packages are successfully installed, the terminal will display a notification to that effect.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
 

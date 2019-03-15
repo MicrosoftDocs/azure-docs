@@ -1,18 +1,19 @@
 ---
-title: Anomaly Detection C# app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a C# app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
+title: "Tutorial: Anomaly Detection, C#"
+titlesuffix: Azure Cognitive Services
+description: Explore a C# app that uses the Anomaly Detection API. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.subservice: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Anomaly Detection C# application
+# Tutorial: Anomaly Detection with C# application
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -31,7 +32,7 @@ The example has been developed for the .NET Framework using [Visual Studio 2017,
 
 ## Get and use the example
 
-You can clone the Anomaly Detection example application to your computer from [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+You can clone the Anomaly Detection example application to your computer from [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### Install the example
 

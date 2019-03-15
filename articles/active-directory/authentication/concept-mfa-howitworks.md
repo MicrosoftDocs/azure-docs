@@ -4,15 +4,16 @@ description: Azure Multi-Factor Authentication helps safeguard access to data an
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # How it works: Azure Multi-Factor Authentication
 
@@ -22,9 +23,11 @@ The security of two-step verification lies in its layered approach. Compromising
 * Something you have (a trusted device that is not easily duplicated, like a phone)
 * Something you are (biometrics)
 
-<center>![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
+<center>
 
-Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md).
+![Conceptual authentication methods image](./media/concept-mfa-howitworks/methods.png)</center>
+
+Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use [authentication methods](concept-authentication-methods.md). Users may or may not be challenged for MFA based on configuration decisions that an administrator makes.
 
 ## How to get Multi-Factor Authentication?
 
@@ -38,15 +41,6 @@ Multi-Factor Authentication comes as part of the following offerings:
 
 > [!NOTE]
 > New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
-
-### Auth Provider or MFA license
-
-If you have Azure AD Premium or another license bundle that includes Azure AD Premium, you already have Azure MFA. Your organization doesn't need anything additional to extend the two-step verification capability to all users. You only need to assign a license to a user, and then you can turn on MFA.
-
-If you don't have licenses that include Azure MFA or don't have enough licenses to cover all of your users, then you can create an [MFA Auth Provider](concept-mfa-authprovider.md) to extend the full capabilities of MFA to the users who need them.
-
-> [!IMPORTANT]
-> If you don't have enough licenses for all your users, you can create a per-user Multi-Factor Auth Provider to cover the rest of your organization. Do not create a per-authentication Multi-Factor Auth Provider. If you do, you could end up paying for verification requests from users that already have licenses.
 
 ## Supportability
 

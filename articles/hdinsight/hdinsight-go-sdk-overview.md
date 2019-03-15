@@ -6,23 +6,24 @@ author: tylerfox
 
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 9/21/2018
+ms.date: 09/21/2018
 ms.author: tyfox
+ms.custom: seodec18
 
 ---
 
 # HDInsight Go Management SDK Preview
 
 ## Overview
-The HDInsight Go SDK provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, scale, execute script actions, monitor, get properties of HDInsight clusters, and more.
+The HDInsight Go SDK provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
 
-> [!NOTE]
+> [!NOTE]  
 >GoDoc reference material for this SDK is also [available here](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
 ## Prerequisites
 
 * An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-* [Go](https://golang.org/dl/)
+* [Go](https://golang.org/dl/).
 
 ## SDK installation
 
@@ -32,7 +33,7 @@ From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/ma
 
 The SDK first needs to be authenticated with your Azure subscription.  Follow the example below to create a service principal and use it to authenticate. After this is done, you will have an instance of a `ClustersClient`, which contains many functions (outlined in below sections) that can be used to perform management operations.
 
-> [!NOTE]
+> [!NOTE]  
 > There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
 
 ### Authentication example using a service principal
@@ -66,7 +67,7 @@ If you're not logged into the correct subscription, select the correct one by ru
 az account set -s <name or ID of subscription>
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure Portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
@@ -103,7 +104,7 @@ import (
     "context"
     "github.com/Azure/go-autorest/autorest/azure/auth"
     hdi "github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight"
-    "github.com/Azure/go-autorest/autorest/to"    
+    "github.com/Azure/go-autorest/autorest/to"
 )
 
 func main() {
@@ -129,7 +130,7 @@ func main() {
 
 ## Cluster management
 
-> [!NOTE]
+> [!NOTE]  
 > This section assumes you have already authenticated and constructed a `ClusterClient` instance and store it in a variable called `client`. Instructions for authenticating and obtaining a `ClusterClient` can be found in the Authentication section above.
 
 ### Create a cluster
@@ -138,9 +139,9 @@ A new cluster can be created by calling `client.Create()`.
 
 #### Example
 
-This example demonstrates how to create a Spark cluster with 2 head nodes and 1 worker node.
+This example demonstrates how to create an [Apache Spark](https://spark.apache.org/) cluster with 2 head nodes and 1 worker node.
 
-> [!NOTE]
+> [!NOTE]  
 > You first need to create a Resource Group and Storage Account, as explained below. If you have already created these, you can skip these steps.
 
 ##### Creating a resource group
@@ -279,7 +280,8 @@ client.List()
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
-> [!NOTE]
+
+> [!NOTE]  
 > Both `List()` and `ListByResourceGroup()` return a `ClusterListResultPage` struct. To get the next page, you can call `Next()`. This can be repeated until `ClusterListResultPage.NotDone()` returns `false`, as shown in the example below.
 
 #### Example
@@ -322,9 +324,9 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### Scale cluster
+### Resize cluster
 
-You can scale a given cluster's number of worker nodes by specifying a new size like so:
+You can resize a given cluster's number of worker nodes by specifying a new size like so:
 
 ```golang
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
@@ -341,12 +343,12 @@ extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
 extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > The below monitoring examples assume you have already initialized an `ExtensionClient` called `extClient` and set its `Authorizer` as shown above.
 
 ### Enable OMS monitoring
 
-> [!NOTE]
+> [!NOTE]  
 > To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 To enable OMS Monitoring on your cluster:
@@ -374,7 +376,8 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 ## Script actions
 
 HDInsight provides a configuration function called script actions that invokes custom scripts to customize the cluster.
-> [!NOTE]
+
+> [!NOTE]  
 > More information on how to use script actions can be found here: [Customize Linux-based HDInsight clusters using script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### Execute script actions
@@ -393,7 +396,7 @@ scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
 scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > The below script actions examples assume you have already initialized a `ScriptActionsClient` called `scriptActionsClient` and set its `Authorizer` as shown above.
 
 ### Delete script action
@@ -406,7 +409,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 
 ### List persisted script actions
 
-> [!NOTE]
+> [!NOTE]  
 > Both `ListByCluster()` returns a `ScriptActionsListPage` struct. To get the next page, you can call `Next()`. This can be repeated until `ClusterListResultPage.NotDone()` returns `false`, as shown in the example below.
 
 To list all persisted script actions for the specified cluster:
@@ -422,26 +425,26 @@ if (err != nil) {
     fmt.Println("Error: ", err)
 }
 for (page.NotDone()) {
-    for _, script := range page.Values() {          
+    for _, script := range page.Values() {
         fmt.Println(*script.Name) //There are functions to get other properties of RuntimeScriptActionDetail besides Name, such as Status, Operation, StartTime, EndTime, etc. See reference documentation.
     }
     err = page.Next();
     if (err != nil) {
         fmt.Println("Error: ", err)
-    }    
+    }
 }
 ```
 
 ### List all scripts' execution history
 
-For this operation, you need to create a `ScriptExecutionHistoryClient` to use for, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
+For this operation, you need to create a `ScriptExecutionHistoryClient`, similarly to how you created `ClusterClient` to use for management operations. Once you have completed the Authentication section above, you can create a `ScriptActionsClient` like so:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
 scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > The below assumes you have already initialized a `ScriptExecutionHistoryClient` called `scriptExecutionHistoryClient` and set its `Authorizer` as shown above.
 
 To list all scripts' execution history for the specified cluster:
@@ -460,13 +463,13 @@ if (err != nil) {
     fmt.Println("Error: ", err)
 }
 for (page.NotDone()) {
-    for _, script := range page.Values() {          
+    for _, script := range page.Values() {
         fmt.Println(*script.Name) //There are functions to get other properties of RuntimeScriptActionDetail besides Name, such as Status, Operation, StartTime, EndTime, etc. See reference documentation.
     }
     err = page.Next();
     if (err != nil) {
         fmt.Println("Error: ", err)
-    }       
+    }
 }
 ```
 

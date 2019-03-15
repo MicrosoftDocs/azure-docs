@@ -1,20 +1,14 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB failover policy | Microsoft Docs
+title: Azure PowerShell Script-Create an Azure Cosmos DB failover policy
 description: Azure PowerShell Script Sample - Create an Azure Cosmos DB failover policy
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
-
 ms.service: cosmos-db
-ms.custom: mvc
-ms.devlang: PowerShell
-ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
-ms.date: 05/10/2017
+author: SnehaGunda
 ms.author: sngun
+ms.devlang: PowerShell
+ms.subservice: cosmosdb-sql
+ms.topic: sample
+ms.date: 05/10/2017
+ms.reviewer: sngun
 ---
 
 # Create an Azure Cosmos DB failover policy for high availability using PowerShell

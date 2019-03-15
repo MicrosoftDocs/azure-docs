@@ -17,7 +17,7 @@ ms.date: 11/27/2017
 ms.author: apimpm
 ---
 # API Management authentication policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
 
 ##  <a name="AuthenticationPolicies"></a> Authentication policies  
   
@@ -54,14 +54,14 @@ This topic provides a reference for the following API Management policies. For i
 |password|Specifies the password of the Basic credential.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
   
 -   **Policy scopes:** API  
   
 ##  <a name="ClientCertificate"></a> Authenticate with client certificate  
- Use the `authentication-certificate` policy to authenticate with a backend service using client certificate. The certificate needs to be [installed into API Management](http://go.microsoft.com/fwlink/?LinkID=511599) first and is identified by its thumbprint.  
+ Use the `authentication-certificate` policy to authenticate with a backend service using client certificate. The certificate needs to be [installed into API Management](https://go.microsoft.com/fwlink/?LinkID=511599) first and is identified by its thumbprint.  
   
 ### Policy statement  
   
@@ -88,7 +88,7 @@ This topic provides a reference for the following API Management policies. For i
 |thumbprint|The thumbprint for the client certificate.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
   

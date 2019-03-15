@@ -1,16 +1,16 @@
-﻿---
+---
 title: Developer notes on using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Release notes for Azure Active Directory B2C custom policy public preview
@@ -96,12 +96,13 @@ Interfaces with external components and applications
 |   Local Account Sign-in, api.localaccountsignin |  | x |  |  |
 |   Local Account Sign-up, api.localaccountsignup |  | x |  |  |
 |   MFA page, api.phonefactor |  | x |  |  |
-|   Self-asserted -for example social account sig-up, api.selfasserted |  | x |  |  |
+|   Self-asserted -for example social account sign-up, api.selfasserted |  | x |  |  |
 |   Self-asserted profile update, api.selfasserted.profileupdate |  | x |  |  |
 |   Unified signup or sign-in page, api.signuporsignin |  | x |  |  |
 
 
 ### App-IEF integration
+
 | Feature | Development | Preview | GA | Notes |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Query string parameter id_token_hint | x |  |  |  |
@@ -121,6 +122,7 @@ Interfaces with external components and applications
 
 
 ### Security
+
 | Feature | Development | Preview | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Policy Keys- Generate, Manual, Upload |  | x |  |  |
@@ -128,6 +130,7 @@ Interfaces with external components and applications
 
 
 ### Developer interface
+
 | Feature | Development | Preview | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Azure Portal-IEF UX |  | x |  |  |

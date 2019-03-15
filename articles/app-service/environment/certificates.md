@@ -1,5 +1,5 @@
 ---
-title: Certificates and the Azure App Service Environment 
+title: Certificates and the App Service Environment - Azure
 description: Explain numerous topics related to certificates on an ASE
 services: app-service
 documentationcenter: na
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 
 # Certificates and the App Service Environment 

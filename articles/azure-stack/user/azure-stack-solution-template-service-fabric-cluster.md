@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 01/25/2019
+ms.author: mabrigg
 ms.reviewer: shnatara
+ms.lastreviewed: 01/25/2019
 ---
 
 # Deploy a Service Fabric cluster in Azure Stack
 
 Use the **Service Fabric Cluster** item from the Azure Marketplace to deploy a secured Service Fabric cluster in Azure Stack. 
 
-For more information about working with Service Fabric, see [Overview of Azure Service Frabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) and [Service Fabric cluster security scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in the Azure documentation.
+For more information about working with Service Fabric, see [Overview of Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) and [Service Fabric cluster security scenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), in the Azure documentation.
+
+The Service Fabric cluster in Azure Stack is not using the resource provider Microsoft.ServiceFabric. Rather, in Azure Stack, the Service Fabric cluster is a virtual machine scale set with preinstalled software set using Desired State Configuration (DSC).
 
 ## Prerequisites
 
@@ -30,22 +33,22 @@ The following are required to deploy the Service Fabric cluster:
    This is the X.509 server certificate you add to KeyVault when deploying Service Fabric. 
    - The **CN** on this cert must match the Fully Qualified Domain Name (FQDN) of the Service Fabric cluster you create. 
    - The certificate format must be PFX, as both the public and private keys are required. 
-   See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this server-side cert.
+     See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this server-side cert.
 
-    > [!NOTE]  
-    > You can use a self-signed certificate inplace of the x.509 server certificate for test purposes. Self-signed certificates do not need to match the FQDN of the cluster.
+     > [!NOTE]  
+     > You can use a self-signed certificate inplace of the x.509 server certificate for test purposes. Self-signed certificates do not need to match the FQDN of the cluster.
 
-1.  **Admin Client certificate** 
-    This is the certificate that the client will use to authenticate to the Service Fabric cluster, which can be self-signed. See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this client cert.
+1. **Admin Client certificate** 
+   This is the certificate that the client will use to authenticate to the Service Fabric cluster, which can be self-signed. See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this client cert.
 
-1.  **The following items must be available in the Azure Stack Marketplace:**
-     - **Windows Server 2016** – The template uses the Windows Server 2016 image to create the cluster.  
-     - **Customer Script Extension** - Virtual Machine Extension from Microsoft.  
-     - **PowerShell Desired Stage Configuration** - Virtual Machine Extension from Microsoft.
+1. **The following items must be available in the Azure Stack Marketplace:**
+    - **Windows Server 2016** – The template uses the Windows Server 2016 image to create the cluster.  
+    - **Customer Script Extension** - Virtual Machine Extension from Microsoft.  
+    - **PowerShell Desired Stage Configuration** - Virtual Machine Extension from Microsoft.
 
 
 ## Add a secret to Key Vault
-To deploy a Service Fabric cluster, you must specify the correct KeyVault *Secret Identifier* or URL for the Service Fabric cluster. The Azure Resource Manager template takes a KeyVault as input and then retrieves the Cluster certificate during installation of the Service Fabric cluster. 
+To deploy a Service Fabric cluster, you must specify the correct KeyVault *Secret Identifier* or URL for the Service Fabric cluster. The Azure Resource Manager template takes a KeyVault as input. Then the template retrieves the Cluster certificate when installing the Service Fabric cluster.
 
 > [!IMPORTANT]  
 > You must use PowerShell to add a secret to KeyVault for use with Service Fabric. Do not use the portal.  
@@ -114,7 +117,7 @@ Use the following script to create the KeyVault and add the *cluster certificate
 
 
 For more information, see [Manage KeyVault on Azure Stack with
-PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## Deploy the Marketplace item
 
@@ -137,7 +140,7 @@ PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-man
    - Source Key Vault:  Specify entire *keyVault id* string from the script results. 
    - Cluster Certificate URL: Specify the entire URL from the *Secret Id* from the script results. 
    - Cluster Certificate thumbprint: Specify the *Cluster Certificate Thumbprint* from the script results.
-   - Admin Client Certificate Thumbprints: Specify the *Admin Client Certificate Thumbprint* you have created in the prerequisites. 
+   - Admin Client Certificate Thumbprints: Specify the *Admin Client Certificate Thumbprint* created in the prerequisites. 
 
    ![Script output](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -180,9 +183,9 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 1. To find the URL for the Service Fabric Explorer, and the Client connection endpoint, review the results of the Template deployment.
 
 1. In your browser, go to https://*FQDN*:19080. Replace *FQDN* with the FQDN of your Service Fabric cluster from step 2.   
-   If you’ve used a self signed certificate, you’ll get a warning that the connection is not secure. To proceed to the web site, select **More Information**, and then **Go on to the webpage**. 
+   If you’ve used a self-signed certificate, you’ll get a warning that the connection is not secure. To proceed to the web site, select **More Information**, and then **Go on to the webpage**. 
 
-1. To authenticate to the site you must select a certificate to use. Select **More choices**, pick the appropriate certificate, and then click **OK** to connect to the Service Fabric Explorer. 
+1. To authenticate to the site, you must select a certificate to use. Select **More choices**, pick the appropriate certificate, and then click **OK** to connect to the Service Fabric Explorer. 
 
    ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -206,7 +209,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
 1. After changing the order of the environment variables, restart PowerShell and then run the following PowerShell script to gain access to the Service Fabric cluster:
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -217,8 +220,11 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > There is no *https://* before the name of the cluster in the script. Port 19000 is required.
- 
+
+## Next steps
+
+[Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

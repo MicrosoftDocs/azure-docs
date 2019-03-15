@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Learn about sentence separation and tokenization in the Linguistic Analysis API.
 services: cognitive-services
 author: DavidLiCIG
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
@@ -70,4 +70,4 @@ This tokenization allows us to handle the word *didn't* and the phrase *did not*
 ## Specification
 
 It is important to make consistent decisions about what comprises a sentence and a token.
-We rely on the specification from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (some additional details are available at ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+We rely on the specification from the [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (some additional details are available at ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

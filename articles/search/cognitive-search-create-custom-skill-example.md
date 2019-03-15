@@ -1,5 +1,5 @@
 ---
-title: 'Example: Create a custom skill in cognitive search pipeline (Azure Search) | Microsoft Docs'
+title: 'Example: Create a custom skill in cognitive search pipeline - Azure Search'
 description: Demonstrates using the Text Translate API in custom skill mapped to a cognitive search indexing pipeline in Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -7,8 +7,9 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 # Example: Create a custom skill using the Text Translate API
@@ -32,6 +33,8 @@ Although this example uses an Azure Function to host a web API, it is not requir
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
 1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+
+1. Select **Azure Functions v2 (.Net Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
 
 1. Select the type to be **HTTP Trigger**
 
@@ -146,7 +149,7 @@ namespace TranslateFunction
 
 
         /// <summary>
-        /// Use Cognitive Service to translate text from one language to antoher.
+        /// Use Cognitive Service to translate text from one language to another.
         /// </summary>
         /// <param name="originalText">The text to translate.</param>
         /// <param name="toLanguage">The language you want to translate to.</param>
@@ -239,14 +242,6 @@ When you are satisfied with the function behavior, you can publish it.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
-## Update SSL Settings
-
-All Azure Functions created after June 30th, 2018 have disabled TLS 1.0, which is not currently compatible with custom skills.
-
-1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Platform features** section, you should see SSL.
-
-1. After selecting SSL, you should change the **Minimum TLS version** to 1.0. TLS 1.2 functions are not yet supported as custom skills.
-
 ## Test the function in Azure
 
 Now that you have the default host key, test your function as follows:
@@ -306,7 +301,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-## Next Steps
+## Next steps
 Congratulations! You have created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
 
 + [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)

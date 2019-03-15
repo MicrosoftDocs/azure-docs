@@ -1,15 +1,16 @@
 ---
-title: Send custom events for Azure Event Grid to Event Hubs | Microsoft Docs
+title: Send custom events to Event Hubs - Event Grid, Azure CLI
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint. 
 services: event-grid 
 keywords: 
-author: tfitzmac
-ms.author: tomfitz
-ms.date: 10/02/2018
+author: spelluru
+ms.author: spelluru
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
+ms.custom: seodec18
 ---
-# Route custom events to Azure Event Hubs with Azure CLI and Event Grid
+# Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Event Hubs is one of the supported event handlers. In this article, you use the Azure CLI to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an event hub.
 
@@ -68,6 +69,8 @@ az eventgrid event-subscription create \
   --endpoint-type eventhub \
   --endpoint $hubid
 ```
+
+The account that creates the event subscription must have write access to the event hub.
 
 ## Send an event to your custom topic
 

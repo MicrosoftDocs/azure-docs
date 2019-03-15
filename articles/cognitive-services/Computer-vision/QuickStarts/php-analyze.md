@@ -1,16 +1,17 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, PHP - Computer Vision"
+title: "Quickstart: Analyze a remote image - REST, PHP"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with PHP.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
-ms.author: v-deken
+ms.date: 03/11/2019
+ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Analyze a remote image using the REST API and PHP in Computer Vision
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create and run the sample, do the following steps:
 
-1. Install the PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) package.
+1. Install the PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) package.
    1. Open a command prompt window as an administrator.
    1. Run the following command:
 
@@ -63,7 +64,7 @@ $ocpApimSubscriptionKey = '<Subscription Key>';
 // from westus, replace "westcentralus" in the URL below with "westus".
 $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 
-$imageUrl = 'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+$imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 require_once 'HTTP/Request2.php';
 

@@ -3,9 +3,10 @@ title: Refactor a Contoso app by migrating it to Azure Web App and Azure SQL Dat
 description: Learn how Contoso rehosts an on-premises app by migrating it to an Azure Web App and Azure SQL Server database.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
 ---
 
@@ -30,6 +31,7 @@ Article 9: Refactor an app to an Azure Web App and Azure SQL database | Demonstr
 [Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Shows how Contoso migrates their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | Available
+[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -103,7 +105,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 --- | --- | ---
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso will use DMA to assess and detect compatibility issues that might impact their database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | An intelligent, fully managed relational cloud database service. | Cost based on features, throughput, and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-[Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | Create powerful cloud apps using a fully managed platform | Cost based on size, location, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/overview) | Create powerful cloud apps using a fully managed platform | Cost based on size, location, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Provides a continuous integration and continuous deployment (CI/CD) pipeline for app development. The pipeline starts with a Git repository for managing app code, a build system for producing packages and other build artifacts, and a Release Management system to deploy changes in dev, test, and production environments. 
 
 ## Prerequisites
@@ -237,9 +239,9 @@ With the database migrated, Contoso admins can now provision the two web apps.
 
 Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new DevOps project, import the code, and then set up build and release pipelines.
 
-1.	 In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
+1. In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
 
-    ![New project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![New project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. They import the Git Repo that currently holds their app code. It's in a [public repo](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) and you can download it.
 
     ![Download app code](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -270,7 +272,7 @@ Contoso admins need to make sure the web apps and database can all communicate. 
 
     ![Connection string](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commmit and sync.
+5. After the changes are in the code, admins need to commit the changes. Using Team Explorer in Visual Studio, they commit and sync.
 
 
 ## Step 6: Set up build and release pipelines in Azure DevOps
@@ -299,8 +301,8 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
 6. The folder **Drop** contains the build results.
 
-    - The two zip files are the packages that contain the apps.
-    - These files are used in the release pipeline for deployment to Azure Web Apps
+   - The two zip files are the packages that contain the apps.
+   - These files are used in the release pipeline for deployment to Azure Web Apps
 
      ![Artifact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -334,13 +336,13 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
 16. The continuous deployment trigger should be set to **Enabled**.
 
-   ![Continuous deployment enabled](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Continuous deployment enabled](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. Now, they move back to the Stage 1 job, I tasks, and click **Deploy Azure App Service**.
 
     ![Deploy app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and clilck **Save**.-sql
+18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and click **Save**.
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

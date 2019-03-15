@@ -3,8 +3,8 @@ title: Verizon-specific HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: This article describes how to use Verizon-specific HTTP headers with Azure CDN rules engine.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: v-deasim
+ms.author: magattus
 
 ---
 
@@ -50,6 +50,7 @@ The terms used in the syntax are defined as follows:
 - Protocol: Indicates the version of the protocol (for example, HTTP/1.1) used to proxy the request. 
 
 - Platform: Indicates the platform on which the content was requested. The following codes are valid for this field: 
+
     Code | Platform
     -----|---------
     ECAcc | HTTP Large

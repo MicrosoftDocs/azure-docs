@@ -3,13 +3,13 @@ title: Language support - Text Analytics API
 titleSuffix: Azure Cognitive Services
 description: "A list of natural languages supported by the Text Analytics API. This article explains which languages are supported for each operation: sentiment analysis, key phrase extraction, language detection, and entity recognition."
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.subservice: text-analytics
+ms.topic: conceptual
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
 
@@ -44,11 +44,13 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          |       |`pt` also accepted|
 | Portuguese (Brazil)   | `pt-BR`|          |  ✔   |         |     |
 | Russian     | `ru`          | ✔ \*     | ✔           |             |     |
-| Spanish     | `es`          | ✔        | ✔           |     |     |
+| Spanish     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
 | Swedish     | `sv`          | ✔ \*     | ✔           |             |     |
 | Turkish     | `tr`          | ✔ \*     |             |             |  |
 
 \* indicates language support in preview
+
+\*\* Entity extraction for Spanish is only available in [(version 2.1-preview)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
 
 ## See also
 

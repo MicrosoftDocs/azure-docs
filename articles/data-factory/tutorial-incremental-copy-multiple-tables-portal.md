@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
@@ -56,7 +56,7 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -126,7 +126,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Creationtime datetime
     );
 
-	```
+    ```
 
 ### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
@@ -155,7 +155,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -181,7 +181,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -204,7 +204,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -267,7 +267,7 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Next**. 
 
    ![Select integration runtime type](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Select ** Private Network**, and click **Next**. 
+1. Select **Private Network**, and click **Next**. 
 
    ![Select private network](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
@@ -275,7 +275,7 @@ As you are moving data from a data store in a private network (on-premises) to a
    ![Self-hosted IR name](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
-   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
    ![Integration runtime setup - successful](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
@@ -284,7 +284,7 @@ As you are moving data from a data store in a private network (on-premises) to a
    ![Integration runtime setup - finish](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
 1. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
-       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+    ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
@@ -379,7 +379,7 @@ In this step, you create datasets to represent the data source, the data destina
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
+   1. After clicking **Finish**, you see **\@dataset().SinkTableName** as the table name.
    
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -421,11 +421,11 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Pipeline name](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. In the **Properties** window, do the following steps: 
 
-    1. Click **+ New**. 
-    1. Enter **tableList** for the parameter **name**. 
-    1. Select **Object** for the parameter **type**.
+   1. Click **+ New**. 
+   1. Enter **tableList** for the parameter **name**. 
+   1. Select **Object** for the parameter **type**.
 
-    ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+      ![Pipeline parameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. In the **Activities** toolbox, expand **Iteration & Conditionals**, and drag-drop the **ForEach** activity to the pipeline designer surface. In the **General** tab of the **Properties** window, enter **IterateSQLTables**. 
 
     ![ForEach activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -454,69 +454,69 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Second Lookup Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Switch to the **Settings** tab.
 
-    1. Select **SourceDataset** for **Source Dataset**. 
-    1. Select **Query** for **Use Query**.
-    1. Enter the following SQL query for **Query**.
+     1. Select **SourceDataset** for **Source Dataset**. 
+     1. Select **Query** for **Use Query**.
+     1. Enter the following SQL query for **Query**.
 
-        ```sql    
-        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-        ```
+         ```sql    
+         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+         ```
     
-        ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+         ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Drag-drop the **Copy** activity from the **Activities** toolbox, and enter **IncrementalCopyActivity** for **Name**. 
 
-    ![Copy Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+     ![Copy Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Connect **Lookup** activities to the **Copy** activity one by one. To connect, start dragging at the **green** box attached to the **Lookup** activity and drop it on the **Copy** activity. Release the mouse button when the border color of the Copy activity changes to **blue**.
 
-    ![Connect Lookup activities to Copy activity](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+     ![Connect Lookup activities to Copy activity](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. Select the **Copy** activity in the pipeline. Switch to the **Source** tab in the **Properties** window. 
 
-    1. Select **SourceDataset** for **Source Dataset**. 
-    1. Select **Query** for **Use Query**. 
-    1. Enter the following SQL query for **Query**.
+     1. Select **SourceDataset** for **Source Dataset**. 
+     1. Select **Query** for **Use Query**. 
+     1. Enter the following SQL query for **Query**.
 
-        ```sql
-        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-        ```
+         ```sql
+         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+         ```
 
-        ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+         ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
         
-    ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Switch to the **Parameters** tab, and do the following steps:
 
-    1. For **Sink Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
-    1. For **Sink Table Type** property, enter `@{item().TableType}`.
-    1. In the **Sink Dataset** section, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+     1. For **Sink Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
+     1. For **Sink Table Type** property, enter `@{item().TableType}`.
+     1. In the **Sink Dataset** section, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
 
-        ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+         ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
 
-    ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+     ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Select the **Stored Procedure** activity in the pipeline, and enter **StoredProceduretoWriteWatermarkActivity** for **Name** in the **General** tab of the **Properties** window. 
 
-    ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+     ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Switch to the **SQL Account** tab, and select **AzureSqlDatabaseLinkedService** for **Linked Service**.
 
-    ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Switch to the **Stored Procedure** tab, and do the following steps:
 
-    1. For **Stored procedure name**, select `sp_write_watermark`. 
-    1. Select **Import parameter**. 
-    1. Specify the following values for the parameters: 
+     1. For **Stored procedure name**, select `usp_write_watermark`. 
+     1. Select **Import parameter**. 
+     1. Specify the following values for the parameters: 
 
-        | Name | Type | Value | 
-        | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+         | Name | Type | Value | 
+         | ---- | ---- | ----- |
+         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+         ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. In the left pane, click **Publish**. This action publishes the entities you created to the Data Factory service. 
 
-    ![Publish button](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+     ![Publish button](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Wait until you see the **Successfully published** message. To see the notifications, click the **Show Notifications** link. Close the notifications window by clicking **X**.
 
-    ![Show Notifications](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+     ![Show Notifications](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## Run the pipeline
@@ -532,13 +532,13 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```
@@ -636,13 +636,13 @@ VALUES
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```

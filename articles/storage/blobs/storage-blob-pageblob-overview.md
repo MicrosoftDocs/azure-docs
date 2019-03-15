@@ -1,17 +1,17 @@
 ---
-title: Unique features of Azure page blobs | Microsoft Docs
-description: An overview of Azure page blobs and their benefits, including use cases with sample scripts. 
+title: Overview of Azure page blobs | Microsoft Docs
+description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
 author: anasouma
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
-ms.component: blobs
+ms.subservice: blobs
 ---
 
-# Unique features of Azure page blobs
+# Overview of Azure page blobs
 
 Azure Storage offers three types of blob storage: Block Blobs, Append Blobs and page blobs. Block blobs are composed of blocks and are ideal for storing text or binary files, and for uploading large files efficiently. Append blobs are also made up of blocks, but they are optimized for append operations, making them ideal for logging scenarios. Page blobs are made up of 512-byte pages up to 8 TB in total size and are designed for frequent random read/write operations. Page blobs are the foundation of Azure IaaS Disks. This article focuses on explaining the features and benefits of page blobs.
 
@@ -25,7 +25,7 @@ Let's discuss a couple of use cases for page blobs starting with Azure IaaS Disk
 
 First party Microsoft services like Azure Site Recovery, Azure Backup, as well as many third-party developers have implemented industry-leading innovations using page blob's REST interface. Following are some of the unique scenarios implemented on Azure: 
 * Application-directed incremental snapshot management: Applications can leverage page blob snapshots and REST APIs for saving the application checkpoints without incurring costly duplication of data. Azure Storage supports local snapshots for page blobs, which don't require copying the entire blob. These public snapshot APIs also enable accessing and copying of deltas between snapshots.
-* Live migration of application and data from on-prem to cloud: Copy the on-prem data and use REST APIs to write directly to an Azure page blob while the on-prem VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on-prem to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
+* Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 * [SAS-based](../common/storage-dotnet-shared-access-signature-part-1.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
 ## Page blob features

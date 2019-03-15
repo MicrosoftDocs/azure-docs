@@ -35,7 +35,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
 
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type the *myResourceGroup* for the name. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
@@ -68,7 +68,7 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 
-3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\\*username*, enter password you created for the virtual machine, and then click **OK**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as **localhost**\\*username*, enter password you created for the virtual machine, and then click **OK**.
 
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to create the connection.
 

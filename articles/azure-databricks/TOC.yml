@@ -42,10 +42,14 @@
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
   - name: Plan disaster recovery
     href: howto-regional-disaster-recovery.md
+  - name: MLflow Guide
+    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
 - name: Reference
   items:
   - name: REST API
     href: /rest/api/databricks
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.databricks/workspaces
 - name: Resources
   items:
   - name: Common questions

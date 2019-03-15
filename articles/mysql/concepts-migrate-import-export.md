@@ -1,13 +1,10 @@
 ---
 title: Import and export in Azure Database for MySQL
 description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2018
 ---
 
@@ -110,4 +107,4 @@ You can use the **Data Import** tab to import or restore exported data from the 
 
 ## Next steps
 - As another migration approach, read [Migrate your MySQL database using dump and restore in Azure Database for MySQL](concepts-migrate-dump-restore.md).
-- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](http://aka.ms/datamigration). 
+- For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://aka.ms/datamigration). 

@@ -3,19 +3,19 @@ title: 'Join a Windows Server VM to Azure Active Directory Domain Services | Mic
 description: Join a Windows Server virtual machine to a managed domain using Azure Resource Manager templates.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
+ms.author: ergreenl
 ---
 
 # Join a Windows Server virtual machine to a managed domain using a Resource Manager template
@@ -96,7 +96,7 @@ After the deployment completes successfully, the specified Windows virtual machi
 
 
 ## Related Content
-* [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Overview of Azure PowerShell](/powershell/azure/overview)
 * [Azure quick-start template - Domain join a new VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Azure quick-start template - Domain join existing VMs](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

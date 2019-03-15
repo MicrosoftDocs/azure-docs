@@ -1,16 +1,15 @@
 ---
-title: 'Set up a process server in Azure for VMware VM and physical server failback with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to set up a process server in Azure, to failback Azure VMs to VMware.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+title: Set up a process server in Azure to fail back during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up a process server in Azure, to fail back from Azure to on-premises during disaster recovery of VMware VMs and physical servers.
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
+ms.topic: conceptual
+ms.date: 12/11/2018
+ms.author: mayg
 ---
 
-# Set up additional process servers for scalability
+# Scale for failback with additional process servers
 
 By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to do this.
 
@@ -19,6 +18,9 @@ By default, when you're replicating VMware VMs or physical servers to Azure usin
 ### Capacity planning
 
 Make sure you've performed [capacity planning](site-recovery-plan-capacity-vmware.md) for VMware replication. This helps you to identify how and when you should deploy additional process servers.
+
+> [!NOTE]
+> Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
 
 ### Sizing requirements 
 
@@ -39,6 +41,7 @@ The prerequisites for the additional process server are summarized in the follow
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
 ## Download installation file
 
 Download the installation file for the process server as follows:
@@ -48,11 +51,11 @@ Download the installation file for the process server as follows:
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
-  ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Click **Download the Microsoft Azure Site Recovery Unified Setup**. This downloads the latest version of the installation file.
 
-  > [!WARNING]
-  The process server installation version should be the same as, or earlier than, the configuration server version you have running. A simple way to ensure version compatibility is to use the same installer, that you most recently used to install or update your configuration server.
+   > [!WARNING]
+   > The process server installation version should be the same as, or earlier than, the configuration server version you have running. A simple way to ensure version compatibility is to use the same installer, that you most recently used to install or update your configuration server.
 
 ## Install from the UI
 
@@ -76,7 +79,7 @@ Where command line parameters are as follows:
 For example:
 
 ```
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```

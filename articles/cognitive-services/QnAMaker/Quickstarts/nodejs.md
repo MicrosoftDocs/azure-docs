@@ -1,19 +1,19 @@
 ---
-title: "Quickstart: Node.js for QnA Maker API (V4)"
+title: "REST API (V4) - Node.js - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+description: Get Node.js REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/13/2019
 ms.author: diberry
-
+ms.custom: seodec18
 ---
-# Quickstart for Microsoft QnA Maker API with Node.js 
+# How to use the QnA Maker REST API with Node.js 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Node.js to do the following.
@@ -30,10 +30,10 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Delete a knowledge base.](#Delete)
 - [Get the current endpoint keys.](#GetKeys)
 - [Re-generate the current endpoint keys.](#PutKeys)
-- [Get the current set of word alterations.](#GetAlterations)
-- [Replace the current set of word alterations.](#PutAlterations)
+- [Get the current set of case-insensitive word alterations.](#GetAlterations)
+- [Replace the current set of case-insensitive word alterations.](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -171,8 +171,8 @@ let req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 };
@@ -248,7 +248,7 @@ The following code updates an existing knowledge base, using the [Update](https:
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -365,7 +365,7 @@ let req = {
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -449,7 +449,7 @@ The following code publishes an existing knowledge base, using the [Publish](htt
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -561,7 +561,7 @@ The following code replaces the contents of the specified knowledge base, using 
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -694,7 +694,7 @@ The following code downloads the contents of the specified knowledge base, using
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -801,7 +801,7 @@ A successful response is returned in JSON, as shown in the following example:
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -827,7 +827,7 @@ The following code gets answers to a question using the specified knowledge base
 1. Replace the `kb` value with the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
 1. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -935,7 +935,7 @@ A successful response is returned in JSON, as shown in the following example:
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -956,7 +956,7 @@ The following code gets information about the specified knowledge base, using th
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1049,8 +1049,8 @@ A successful response is returned in JSON, as shown in the following example:
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1071,7 +1071,7 @@ The following code gets information about all knowledge bases for a specified us
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1173,8 +1173,8 @@ A successful response is returned in JSON, as shown in the following example:
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1199,7 +1199,7 @@ The following code deletes the specified knowledge base, using the [Delete knowl
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1311,7 +1311,7 @@ The following code gets the current endpoint keys, using the [Get endpoint keys]
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1412,7 +1412,7 @@ The following code regenerates the current endpoint keys, using the [Refresh end
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1538,7 +1538,7 @@ The following code gets the current word alterations, using the [Download altera
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1645,7 +1645,7 @@ The following code replaces the current word alterations, using the [Replace alt
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

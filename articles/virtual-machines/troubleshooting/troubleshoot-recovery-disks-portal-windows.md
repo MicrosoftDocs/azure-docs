@@ -3,7 +3,7 @@ title: Use a Windows troubleshooting VM in the Azure portal | Microsoft Docs
 description: Learn how to troubleshoot Windows virtual machine issues in Azure by connecting the OS disk to a recovery VM using the Azure portal
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: jeconnoc
 editor: ''
 
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/013/2018
+ms.date: 08/13/2018
 ms.author: genli
 
 ---
@@ -34,12 +34,11 @@ For the VM that uses managed disk, we can now use Azure PowerShell to change the
 ## Determine boot issues
 To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be a failed application update, or an underlying virtual hard disk being deleted or moved.
 
-Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot. Note any specific error messages or error codes to help determine why the VM is encountering an issue. The following example shows a VM waiting on stopping services:
+Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot. Note any specific error messages or error codes to help determine why the VM is encountering an issue. 
 
 ![Viewing VM boot diagnostics console logs](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-You can also click **Screenshot** to download a capture of the VM screenshot.
-
+You can also click **Download screenshot** to download a capture of the VM screenshot.
 
 ## View existing virtual hard disk details
 Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD). 
@@ -130,9 +129,9 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
     Wait until the VM has successfully detached the data disk before continuing.
 
 ## Create VM from original hard disk
-To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
+To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). The template deploys a VM into an existing or new virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
 
-![Deploy VM from template from Github](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
+![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 
 The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
 

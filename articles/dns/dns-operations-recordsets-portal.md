@@ -1,20 +1,11 @@
 ---
-title: Manage DNS record sets and records with Azure DNS | Microsoft Docs
+title: Manage DNS record sets and records with Azure DNS
 description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 10/6/2018
 ms.author: victorh
 ---
 
@@ -116,3 +107,4 @@ You cannot delete the SOA and NS record sets at the zone apex (name = "\@") that
 * For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
 * For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
 * For more information about reverse DNS records, see [Overview of reverse DNS and support in Azure](dns-reverse-dns-overview.md).
+* For more information about Azure DNS alias records, see [Azure DNS alias records overview](dns-alias.md).

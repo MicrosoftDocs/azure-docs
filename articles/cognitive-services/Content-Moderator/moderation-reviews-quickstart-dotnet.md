@@ -4,13 +4,14 @@ titlesuffix: Azure Cognitive Services
 description: How to create reviews using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Quickstart: Create reviews using .NET
@@ -24,15 +25,14 @@ Generally, content goes through some automated moderation before
 being scheduled for human review. This article only covers how to create
 the review for human moderation. For a more complete scenario, see the 
 [Facebook content moderation](facebook-post-moderation.md) and
-[eCommerce catalog moderation](ecommerce-retail-catalog-moderation.md)
+[Moderate e-commerce product images](ecommerce-retail-catalog-moderation.md)
 tutorials.
 
 This article assumes that you are already familiar with Visual Studio and C#.
 
 ## Sign up for Content Moderator
 
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 
 ## Sign up for a review tool account if not completed in the previous step
 

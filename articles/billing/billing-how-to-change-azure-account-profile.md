@@ -4,7 +4,7 @@ description: Describes how to change the profile of your Azure account, and answ
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
 # Change your Azure account profile information such as contact email, address, and phone number
@@ -51,7 +51,7 @@ To learn how to update your billing information, see [Change the credit card use
 
 Because of technical constraints, we cannot change the country on an existing account. However, you can create an account in the desired country and then contact Azure support to migrate your services to that account.
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 

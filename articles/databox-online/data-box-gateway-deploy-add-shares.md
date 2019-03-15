@@ -1,21 +1,14 @@
 ---
 title: Transfer data with Azure Data Box Gateway | Microsoft Docs
 description: Learn how to add and connect to shares on Data Box Gateway device.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 02/21/2019
 ms.author: alkohli
-ms.custom: 
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data with Azure Data Box Gateway (Preview)
@@ -124,18 +117,19 @@ Perform these steps on your Linux client connected to your Data Box Edge.
 
 2. After the NFS client is installed, use the following command to mount the NFS share you created on your Data Box Gateway device:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     Prior to setting up the mounts, make sure the directories that will act as mountpoints on your local computer are already created and also do not contain any files or sub-folders.
 
     The following example shows how to connect via NFS to a share on Gateway device. The virtual device IP is `10.10.10.60`, the share `mylinuxshare2` is mounted on the ubuntuVM, mount point being `/home/databoxubuntuhost/gateway`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > The following caveats are applicable to the preview release:
 > - After a file is created in the shares, renaming of the file isn’t supported. 
 > - Deletion of a file from a share does not delete the entry in the storage account.
+> - If using `rsync` to copy data, then `rsync -a` option is not supported.
 
 ## Next steps
 
@@ -149,6 +143,6 @@ In this tutorial, you learned about  Data Box Gateway topics such as:
 Advance to the next tutorial to learn how to administer your Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Gateway](http://aka.ms/dbg-docs)
+> [Use local web UI to administer a Data Box Gateway](https://aka.ms/dbg-docs)
 
 

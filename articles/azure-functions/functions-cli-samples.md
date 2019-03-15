@@ -20,7 +20,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 
 | | |
 |-|-|
-|**Create app**||
+|<a name="create"></a>**Create app**||
 | [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
 | [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 | | |
@@ -30,7 +30,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 | | |
 |**Continuous deployment**||
 | [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
-| [Deploy from Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from a Azure DevOps repository.  |
+| [Deploy from Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from an Azure DevOps repository.  |
 | | |
 |**Configure app**||
 | [Map a custom domain to a function app](scripts/functions-cli-configure-custom-domain.md) | Define a custom domain for your functions.  |

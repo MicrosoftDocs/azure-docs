@@ -1,4 +1,10 @@
-<!--author=SharS last changed: 9/17/15-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To exit Maintenance mode
 1. At the command prompt type:

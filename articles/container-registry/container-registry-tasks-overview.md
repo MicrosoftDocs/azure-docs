@@ -2,12 +2,12 @@
 title: Automate OS and framework patching with Azure Container Registry Tasks (ACR Tasks)
 description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build and patching in the cloud.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Automate OS and framework patching with ACR Tasks
@@ -21,7 +21,7 @@ Containers provide new levels of virtualization, isolating application and devel
 Build and test container images with ACR Tasks in four ways:
 
 * [Quick task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
-* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is commited to a Git repository.
+* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository.
 * [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
 * [Multi-step tasks](#multi-step-tasks-preview) (preview): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This preview feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 
@@ -110,9 +110,9 @@ When you're ready to automate OS and framework patching by building your contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task]: /cli/azure/acr
 [az-login]: /cli/azure/reference-index#az-login
-[az-login-service-principal]: /cli/azure/authenticate-azure-cli#log-in-with-a-service-principal
+[az-login-service-principal]: /cli/azure/authenticate-azure-cli
 
 <!-- IMAGES -->
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png

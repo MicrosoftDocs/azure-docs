@@ -1,5 +1,5 @@
 ---
-title: Filters in Azure Search | Microsoft Docs
+title: Filters for scoping search results in an index - Azure Search
 description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # Filters in Azure Search 
 
@@ -26,17 +26,17 @@ Example scenarios include the following:
 
 1. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). 
 
-  Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
+   Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
 
 2. Use a filter if the search experience comes with a filter requirement:
 
- * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
- * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
- * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
+   * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
+   * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+   * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
 3. Use a filter if you want search criteria on a numeric field. 
 
-  Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
+   Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
 
 ### Alternative methods for reducing scope
 
@@ -90,7 +90,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## Filter design patterns
 
-The following examples illustrate several design patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+The following examples illustrate several design patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is empty.
 
@@ -186,7 +186,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+To work with more examples, see [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
 ## See also
 

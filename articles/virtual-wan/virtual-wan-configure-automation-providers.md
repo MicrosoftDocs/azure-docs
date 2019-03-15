@@ -6,12 +6,12 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/23/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
 
-# Virtual WAN partners (Preview)
+# Virtual WAN partners
 
 This article helps you understand how to set up the automation environment to connect and configure a branch device (a customer on-premises VPN device or SDWAN CPE) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2 or IPsec/IKEv1, this article is for you.
 
@@ -42,7 +42,7 @@ A branch device (a customer on-premises VPN device or SDWAN CPE) typically uses 
 
 ###  <a name="access"></a>Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
 
 * Create an Azure Active Directory application for your on-premises device controller.
 * Get application ID and authentication key

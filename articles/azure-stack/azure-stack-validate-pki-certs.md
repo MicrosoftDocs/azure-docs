@@ -12,21 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/08/2019
 ---
 
 # Validate Azure Stack PKI certificates
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary.
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. Validate certificates by leaving  enough time to test and reissue certificates if necessary.
 
 The Readiness Checker tool performs the following certificate validations:
 
 - **Read PFX**  
-    Checks for valid PFX file, correct password, and warns if public information is not protected by the password. 
+    Checks for valid PFX file, correct password, and whether the public information isn't protected by the password. 
 - **Signature algorithm**  
-    Checks that the signature algorithm is not SHA1.
+    Checks that the signature algorithm isn't SHA1.
 - **Private Key**  
     Checks that the private key is present and is exported with the local machine attribute. 
 - **Cert chain**  
@@ -70,7 +71,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -78,57 +79,70 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     ```
     
     > [!Note]  
-    > AD FS and Graph are required if you are using AD FS as your identity system.
+    > AD FS and Graph are required if you are using AD FS as your identity system. For example:
+    >
+    > ```PowerShell  
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
+    > ```
     
      - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. In the PowerShell window, change the values of **RegionName** and **FQDN** appropriate to the Azure Stack environment and run the following:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. Check the output and all certificates pass all tests. For example:
 
-    ```PowerShell  
-    AzsReadinessChecker v1.1803.405.3 started
-    Starting Certificate Validation
+```PowerShell
+Invoke-AzsCertificateValidation v1.1809.1005.1 started.
+Testing: ARM Public\ssl.pfx
+Thumbprint: 7F6B27****************************E9C35A
+	PFX Encryption: OK
+	Signature Algorithm: OK
+	DNS Names: OK
+	Key Usage: OK
+	Key Size: OK
+	Parse PFX: OK
+	Private Key: OK
+	Cert Chain: OK
+	Chain Order: OK
+	Other Certificates: OK
+Testing: Admin Extension Host\ssl.pfx
+Thumbprint: A631A5****************************35390A
+	PFX Encryption: OK
+	Signature Algorithm: OK
+	DNS Names: OK
+	Key Usage: OK
+	Key Size: OK
+	Parse PFX: OK
+	Private Key: OK
+	Cert Chain: OK
+	Chain Order: OK
+	Other Certificates: OK
+Testing: Public Extension Host\ssl.pfx
+Thumbprint: 4DBEB2****************************C5E7E6
+	PFX Encryption: OK
+	Signature Algorithm: OK
+	DNS Names: OK
+	Key Usage: OK
+	Key Size: OK
+	Parse PFX: OK
+	Private Key: OK
+	Cert Chain: OK
+	Chain Order: OK
+	Other Certificates: OK
 
-    Starting Azure Stack Certificate Validation 1.1803.405.3
-    Testing: ARM Public\ssl.pfx
-        Read PFX: OK
-        Signature Algorithm: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Testing: ACSBlob\ssl.pfx
-        Read PFX: OK
-        Signature Algorithm: OK
-        Private Key: OK
-        Cert Chain: OK
-        DNS Names: OK
-        Key Usage: OK
-        Key Size: OK
-        Chain Order: OK
-        Other Certificates: OK
-    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
-
-    Finished Certificate Validation
-
-    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location: 
-    C:\AzsReadinessChecker\AzsReadinessReport.json
-    AzsReadinessChecker Completed
-    ```
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsCertificateValidation Completed
+```
 
 ### Known issues
 
@@ -154,11 +168,9 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
     Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-    Finished Certificate Validation
-
-    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Completed
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+    Invoke-AzsCertificateValidation Completed
     ```
 
 **Resolution**: Follow the tool's guidance in the details section under each set of tests for each certificate.
@@ -188,18 +200,15 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
 3.  Change the values of **RegionName** and **FQDN** to match your Azure Stack environment to start the validation. Then run:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
+    Invoke-AzsCertificateValidation -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  Check that the output and that all certificates pass all tests.
 
     ```PowerShell
-    AzsReadinessChecker v1.1805.425.2 started
-    Starting PaaS Certificate Validation
-    
-    Starting Azure Stack Certificate Validation 1.0 
-    Testing: PaaSCerts\wildcard.appservice.pfx
-        Read PFX: OK
+    Invoke-AzsCertificateValidation v1.0 started.
+    Thumbprint: 95A50B****************************FA6DDA
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -207,9 +216,9 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\api.appservice.pfx
-        Read PFX: OK
+    Thumbprint: EBB011****************************59BE9A
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -217,9 +226,9 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\wildcard.dbadapter.pfx
-        Read PFX: OK
+    Thumbprint: 76AEBA****************************C1265E
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
@@ -227,15 +236,31 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
         Key Size: OK
         Chain Order: OK
         Other Certificates: OK
-    Testing: PaaSCerts\sso.appservice.pfx
-        Read PFX: OK
+    Thumbprint: 8D6CCD****************************DB6AE9
         Signature Algorithm: OK
+        Parse PFX: OK
         Private Key: OK
         Cert Chain: OK
         DNS Names: OK
         Key Usage: OK
         Key Size: OK
     ```
+
+## Certificates
+
+| Directory | Certificate |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| Admin Extension Host  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| Admin Portal  |  adminportal_\<region>_\<externalFQDN> |
+| ARM Admin  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM Public  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| Public Extension Host  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| Public Portal  |  portal_\<region>_\<externalFQDN> |
 
 ## Using validated certificates
 

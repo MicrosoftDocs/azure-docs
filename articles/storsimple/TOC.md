@@ -61,6 +61,7 @@
 
 ## Overview
 ### [What is the solution?](storsimple-overview.md)
+### [Compare data transfer options](storsimple-8000-choose-storage-solution.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
 ### [Region availability](storsimple-regions.md)
@@ -183,7 +184,7 @@
 #### [From 5000/7000 series devices](storsimple-8000-migration-options.md)
 ##### [To StorSimple 8000 series devices](storsimple-8000-migrate-from-5000-7000.md)
 ##### [To Azure File Sync](storsimple-5000-7000-afs-migration.md)
-#### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [From other storage devices](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
 #### [Install Update 5 - current](storsimple-8000-install-update-5.md)
@@ -198,8 +199,8 @@
 ### Archive
 #### [Update 3](storsimple-update3-release-notes.md)
 #### [Update 2.2](storsimple-update21-release-notes.md)
-#### [Update 2 ](storsimple-update2-release-notes.md)
-#### [Update 1 ](storsimple-update1-release-notes.md)
+#### [Update 2](storsimple-update2-release-notes.md)
+#### [Update 1](storsimple-update1-release-notes.md)
 #### [Update 0.3](storsimple-february-2015-release-notes.md)
 #### [Update 0.2](storsimple-january-2015-release-notes.md)
 #### [Update 0.1](storsimple-october-2014-release-notes.md)
@@ -208,7 +209,7 @@
 ## Reference
 ### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Resource Manager template](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple Data Manager
 
@@ -248,8 +249,8 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=storsimple)
-## [Support blog](http://blogs.msdn.com/b/storsimple/)
-## [Third-party notices](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Support blog](https://blogs.msdn.com/b/storsimple/)
+## [Third-party notices](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
