@@ -21,7 +21,7 @@ The high-level steps to moving your Automation account are:
 1. Remove your solutions.
 2. Unlink your workspace.
 3. Move the Automation account.
-4. Delete and recreate the Run As accounts.
+4. Delete and re-create the Run As accounts.
 5. Re-enable your solutions.
 
 ## Remove solutions
@@ -96,7 +96,7 @@ Select the resources in your resource group that you want to move. Ensure you in
 
 After the move is complete, there are additional steps required to make everything work.
 
-## Recreate Run As accounts
+## Re-create Run As accounts
 
 [Run As accounts](../manage-runas-account.md) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account.
 
@@ -113,7 +113,7 @@ After the Run As accounts are deleted, select **Create** under **Azure Run As ac
 
 ## Enable solutions
 
-After you recreate the Run As accounts, you'll re-enable the solutions that you removed before the move. To turn on **Change Tracking and Inventory** and **Update Management**, select the respective capability in your Automation account. Choose the Log Analytics workspace you moved over and select **Enable**.
+After you re-create the Run As accounts, you'll re-enable the solutions that you removed before the move. To turn on **Change Tracking and Inventory** and **Update Management**, select the respective capability in your Automation account. Choose the Log Analytics workspace you moved over and select **Enable**.
 
 ![Re-enable solutions in your moved Automation account](../media/move-account/reenable-solutions.png)
 
@@ -125,7 +125,7 @@ On the **Add Solution** page, choose your Log Analytics Workspace and Automation
 
 ![Add Solution menu](../media/move-account/add-solution-vm.png)
 
-For detailed instructions on configuring the solution, see [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md)
+For detailed instructions on configuring the solution, see [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md).
 
 ## Post-move verification
 
