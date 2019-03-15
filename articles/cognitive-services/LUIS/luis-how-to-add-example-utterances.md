@@ -86,6 +86,8 @@ Assuming the utterance, `Does John Smith work in Seattle?`, a composite utteranc
 
 ## Add hierarchical entity
 
+**Hierarchical entities will eventually be deprecated. Please use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
+
 A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
 
 In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.

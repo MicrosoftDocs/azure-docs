@@ -181,5 +181,5 @@ This tutorial created a new intent, added example utterances, then created a lis
 Continue with this app, [adding a composite entity](luis-tutorial-composite-entity.md).
 
 > [!div class="nextstepaction"]
-> [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)
+> [Add prebuilt entity with a role to the app](tutorial-entity-roles.md)
 

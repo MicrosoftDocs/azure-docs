@@ -99,7 +99,7 @@ Once the entity is extracted, the entity data can be represented as a single uni
 |Machine-learned|Can Mark|Tutorial|Example<br>Response|Entity type|Purpose|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Grouping of entities, regardless of entity type.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Grouping of simple entities.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Grouping of simple entities.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|List of items and their synonyms extracted with exact text match.|
 |Mixed||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entity where end of entity is difficult to determine.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Already trained to extract various kinds of data.|
@@ -139,7 +139,7 @@ A hierarchical entity is a category of contextually learned simple entities call
 
 ### Roles versus hierarchical entities
 
-[Roles](luis-concept-roles.md#roles-versus-hierarchical-entities) of a pattern solve the same problem as hierarchical entities but apply to all entity types. Roles are currently only available in patterns. Roles are not available in intents' example utterances.  
+[Roles](luis-concept-roles.md#roles-versus-hierarchical-entities) solve the same problem as hierarchical entities but apply to all entity types.  
 
 ## List entity
 
@@ -226,24 +226,15 @@ The entity is a good fit when:
 
 Review [limits](luis-boundaries.md#model-boundaries) to understand how many of each type of entity you can add to a model.
 
-## Composite vs hierarchical entities
-
-Composite entities and hierarchical entities both have parent-child relationships and are machine learned. The machine-learning allows LUIS to understand the entities based on different contexts (arrangement of words). Composite entities are more flexible because they allow different entity types as children. A hierarchical entity's children are only simple entities. 
-
-|Type|Purpose|Example|
-|--|--|--|
-|Hierarchical|Parent-child of simple entities|`Location.Origin`=New York<br>`Location.Destination`=London|
-|Composite|Parent-child entities: prebuilt, list, simple, hierarchical| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|
-
 ## If you need more than the maximum number of entities 
 
-You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass might have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth.  
+You might need to use composite entities in combination with entity roles.
 
-Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder might have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass. You build a composite entity from pre-existing simple entities, children of hierarchical entities, or prebuilt entities.  
+Composite entities represent parts of a whole. For example, a composite entity named PlaneTicketOrder might have child entities Airline, Destination, DepartureCity, DepartureDate, and PlaneTicketClass.
 
 LUIS also provides the list entity type that isn't machine-learned but allows your LUIS app to specify a fixed list of values. See [LUIS Boundaries](luis-boundaries.md) reference to review limits of the List entity type. 
 
-If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/). 
+If you've considered these entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/). 
 
 ## Next steps
 

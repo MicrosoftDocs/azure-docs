@@ -130,7 +130,7 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 ## Add a role to distinguish different contexts
 
-A role is a named subtype of an entity based on context. It is comparable to an [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
+A role is a named subtype of an entity based on context. It is comparable to an [hierarchical](#add-hierarchical-entities) entity. 
 
 Using the same example as the hierarchical entity of origin and destination cities, the difference is that a role is named origin instead of a hierarchical child. 
 

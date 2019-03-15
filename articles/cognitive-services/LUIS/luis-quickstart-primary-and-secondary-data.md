@@ -44,7 +44,7 @@ The simple entity is a good fit for this type of data when:
 * Data is not well-formatted such as a regular expression.
 * Data is not common such as a prebuilt entity of phone number or data.
 * Data is not matched exactly to a list of known words, such as a list entity.
-* Data does not contain other data items such as a composite entity or hierarchical entity.
+* Data does not contain other data items such as a composite entity or contextual roles.
 
 Consider the following utterances from a chat bot:
 
