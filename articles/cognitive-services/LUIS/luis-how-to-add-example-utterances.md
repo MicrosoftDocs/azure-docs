@@ -148,7 +148,7 @@ To remove a machine-learned entity label from an utterance, select the entity in
 
 ### Add prebuilt entity label
 
-When you add the prebuilt entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity).
+When you add the prebuilt entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### Add regular expression entity label
 
