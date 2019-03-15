@@ -5,46 +5,40 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Azure Analysis Services scale-out
 
-With scale-out, client queries can be distributed among multiple *query replicas* in a query pool, reducing response times during high query workloads. You can also separate processing from the query pool, ensuring client queries are not adversely affected by processing operations. Scale-out can be configured in Azure portal or by using the Analysis Services REST API.
+With scale-out, client queries can be distributed among multiple *query replicas* in a *query pool*, reducing response times during high query workloads. You can also separate processing from the query pool, ensuring client queries are not adversely affected by processing operations. Scale-out can be configured in Azure portal or by using the Analysis Services REST API.
 
-Scale-out is available for servers in the Standard pricing tier. Each query replica is billed at the same rate as your server. The number of query replicas you can configure are limited by the region your server is in. To learn more, see [Availability by region](analysis-services-overview.md#availability-by-region). Scale-out does not increase the amount of available memory for your server. To increase memory, you need to upgrade your plan. 
+Scale-out is available for servers in the Standard pricing tier. Each query replica is billed at the same rate as your server. All query replicas are created in the same region as your server. The number of query replicas you can configure are limited by the region your server is in. To learn more, see [Availability by region](analysis-services-overview.md#availability-by-region). Scale-out does not increase the amount of available memory for your server. To increase memory, you need to upgrade your plan. 
 
 ## How it works
 
 In a typical server deployment, one server serves as both processing server and query server. If the number of client queries against models on your server exceeds the Query Processing Units (QPU) for your server's plan, or model processing occurs at the same time as high query workloads, performance can decrease. 
 
-With scale-out, you can create a query pool with up to seven additional query replica resources (eight total, including your *primary* server). You can scale the number of query replicas to meet QPU demands at critical times and you can separate a processing server from the query pool at any time. All query replicas are created in the same region as your server.
+With scale-out, you can create a query pool with up to seven additional query replicas (eight total, including your *primary* server). You can scale the number of query replicas to meet QPU demands at critical times and you can separate a processing server from the query pool at any time. 
 
 Regardless of the number of query replicas you have in a query pool, processing workloads are not distributed among query replicas. The primary server serves as the processing server. Query replicas serve only queries against the model databases synchronized between the primary server and each replica in the query pool. 
 
-### Scale-out
+When scaling out, it can take up to five minutes for new query replicas to be included in the query pool. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to. When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. Clients are reconnected to a remaining query pool resource when the scale-in operation has completed, which can take up to five minutes.
 
-When scaling out, new query replicas are added to the query pool incrementally. It can take up to five minutes for new query replica resources to be included in the query pool. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to. When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. Clients are reconnected to a remaining query pool resource when the scale-in operation has completed, which can take up to five minutes.
+When configuring scale-out for a server the first time, model databases on your primary server are automatically synchronized with replicas in the query pool. Automatic synchronization occurs only once, when you first configure scale-out to one or more query replicas. During automatic synchronization, the primary server's data files (encrypted at rest in blob storage) are copied to a second location, also encrypted at rest in blob storage. Replicas in the query pool are then *hydrated* with data from this second set of files in blob storage. 
 
-### Synchronization
+While an automatic synchronization is performed only when you first scale-out a server, you can also manually synchronize. Synchronizing assures data on replicas in the query pool match that of the primary server. When processing (refresh) models on the primary server, a synchronization must be performed *after* processing operations are completed. This synchronization operation copies updated data from the primary server's files in blob storage to the second set of files. Replicas in the query pool are then hydrated with updated data from the second set of files in blob storage. 
 
-A synchronization is required anytime you scale-out replica servers and/or a processing operation is performed on the primary server. Synchronization assures data on replicas in the query pool match that of the primary server. The sequence in which a synchronization is performed as part of a scale-out operation is vital to assuring optimal performance of both your primary server and replicas in the query pool.
+When performing a subsequent scale-out operation, for example, increasing the number of replicas in the query pool from two to five, the new replicas are hydrated with data from the second set of files in blob storage. When performing a subsequent scale-out operation, it's important to keep in mind:
 
-When configuring scale-out for a server the first time, model databases on your primary server are automatically synchronized with replicas in the query pool. Automatic synchronization occurs only once, when you first configure scale-out to one or more replicas. For each model database on the primary server, two encrypted files containing model metadata and data are created in blob storage. One file (read/write) is for the primary server. The other file (read-only) is created for and shared by the replicas in the query pool. Replicas are then *hydrated* with model data from the read-only file/s in blob storage. 
+* Perform a synchronization *before the scale-out operation* to avoid redundant hydration of the added replicas.
 
-When performing a subsequent scale-out operation, for example, increasing the number of replicas in the query pool from two to five, a synchronization operation is required. This operation first synchronizes the read-only file/s in blob storage with the read/write file. It then incrementally hydrates the three added replicas from the read-only file/s in blob storage. When performing a synchronization for a scale-out operation, it's important to keep in mind:
+* When automating both processing *and* scale-out operations, it's important to first process data on the primary server, then perform a synchronization, and then perform the scale-out operation. This sequence assures minimal impact on QPU and memory resources.
 
-* Perform a synchronization *before the scale-out operation* to avoid redundant hydration of the incrementally added replicas.
- 
-* Synchronization operations are allowed even when there are no replicas in the query pool. If you are scaling out from zero to one or more replicas with new data from a processing operation on the primary server, perform the synchronization operation first with no replicas in the query pool, and then scale-out. Synchronizing before scaling out avoids hydrating the newly added replicas twice.
+* Synchronization is allowed even when there are no replicas in the query pool. If you are scaling out from zero to one or more replicas with new data from a processing operation on the primary server, perform the synchronization first with no replicas in the query pool, and then scale-out. Synchronizing before scaling out avoids redundant hydration of the added replicas.
 
 * When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool.
-
-When processing (refresh) models on the primary server, a synchronization must be performed *after* processing operations are completed. The synchronization operation copies updated data from the primary server to the primary server's read/write file in blob storage. It then synchronizes the read/write file with the shared read-only file. The synchronization operation then hydrates any replicas in the query pool with updated data from the shared read-only file. 
-
-When automating processing operations, it's important to configure a synchronization upon successful completion of processing operations. When automating both processing *and* scale-out operations, it's important to first process data on the primary server, then perform a synchronization operation, and then perform the scale-out operation. This sequence of operations assures minimal impact on QPU and memory resources.
 
 ### Separate processing from query pool
 
@@ -66,7 +60,7 @@ For maximum performance for both processing and query operations, you can choose
 
 3. Click **Save** to provision your new query replica servers. 
 
-When configuring scale-out for a server the first time, models on your primary server are automatically synchronized with the replica in the query pool. Automatic synchronization only occurs once, when you first configure scale-out to one or more replicas. When automatic synchronization is complete, the query pool begins distributing incoming queries among the replica servers. Subsequent changes to the number of replicas on the same server *will not trigger another automatic synchronization*. Automatic synchronization will not occur again even if you set the server to zero replicas and then again scale-out to any number of replicas. 
+When configuring scale-out for a server the first time, models on your primary server are automatically synchronized with replicas in the query pool. Automatic synchronization only occurs once, when you first configure scale-out to one or more replicas. Subsequent changes to the number of replicas on the same server *will not trigger another automatic synchronization*. Automatic synchronization will not occur again even if you set the server to zero replicas and then again scale-out to any number of replicas. 
 
 ## Synchronize 
 
