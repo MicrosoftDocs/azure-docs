@@ -56,8 +56,8 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
    * Per partition: Enter a file name per partition
    * As data in column: Set the output file to the value of a column
 
-*** [!NOTE]
-*** File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
+> [!NOTE]
+> File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
 
 ## Database options
 
