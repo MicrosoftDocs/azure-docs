@@ -61,10 +61,10 @@ A role should be used when the entity data to extract:
 
     |Example utterances|
     |--|
-    |move John W. Smith leaving Seattle headed to Dallas|
+    |move John W. Smith leaving Seattle headed to Orlando|
     |transfer Jill Jones from Seattle to Cairo|
     |Place John Jackson away from Tampa, coming to Atlanta |
-    |move Debra Doughtery to Tulsa from Dallas|
+    |move Debra Doughtery to Tulsa from Chicago|
     |mv Jill Jones leaving Cairo headed to Tampa|
     |Shift Alice Anderson to Oakland from Redmond|
     |Carl Chamerlin from San Francisco to Redmond|
@@ -83,25 +83,18 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
     ![Add geographyV2 prebuilt entity to app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Select the checkbox and select **Done**.
-1. In the **Entities** list, select the geographyV2
+1. In the **Entities** list, select the **geographyV2** to open the new entity. 
+1. Add two roles, `Origin`, and `Destination`. 
 
-1. In the utterance, `move John W. Smith leaving Seattle headed to Dallas`, select the word `Seattle`. A drop-down menu appears with a text box at the top. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu. 
+    ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
+1. Select **Intents** from the left-side navigation, then select the **MoveEmployeeToCity** intent. Notice the city names are labeled with the prebuilt entity **geogrpahyV2**.
+1. In the first utterance of the list, select the origin location. A drop-down menu appears. Select **geographyV2** in the list, then follow the menu across to select **Origin**.
 
-    [![Screenshot of creating new entity on intent page](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-1.png "Screenshot of creating new entity on intent page")](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-1.png#lightbox)
+    [![Screenshot of marking city as Origin location](media/tutorial-entity-roles/tag-origin-city-with-role.png "Screenshot of marking city as Origin location")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
 
-1. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
+1. Use the method from the previous step to mark all roles of locations in all the utterances. 
 
-    ![Screenshot of entity creation pop-up dialog for new Location entity](media/tutorial-entity-roles/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
-
-1. The label for `Seattle` is marked as `Location` because LUIS doesn't know if the term was the origin or destination, or neither. Select `Seattle`, then select **Location**, then follow the menu to the right and select `Origin`.
-
-    [![Screenshot of entity labeling pop-up dialog to change locations entity child](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-2.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-2.png#lightbox)
-
-1. Label the other locations in all the other utterances. When all locations are marked, the utterances begin to look like a pattern. 
-
-    [![Screenshot of Locations entity labeled in utterances](media/tutorial-entity-roles/all-intents-marked-with-origin-and-destination-location.png "Screenshot of Locations entity labeled in utterances")](media/tutorial-entity-roles/all-intents-marked-with-origin-and-destination-location.png#lightbox)
-
-    The red underline indicates LUIS is not confident about the entity. Training resolves this. 
+    [![Screenshot of Locations entity labeled in utterances](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Screenshot of Locations entity labeled in utterances")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## Add example utterances to the None intent 
 
@@ -141,15 +134,15 @@ The prebuilt entity, geographyV2, extracts location information, including city 
       ],
       "entities": [
         {
-          "entity": "portland",
-          "type": "Location::Destination",
+          "entity": "geographyV2",
+          "role": "Destination",
           "startIndex": 41,
           "endIndex": 48,
           "score": 0.6044041
         },
         {
-          "entity": "tampa",
-          "type": "Location::Origin",
+          "entity": "geographyV2",
+          "role": "Origin",
           "startIndex": 32,
           "endIndex": 36,
           "score": 0.739491045
@@ -158,7 +151,7 @@ The prebuilt entity, geographyV2, extracts location information, including city 
     }
     ```
     
-    The correct intent is predicted and the entities array has both the origin and destination values in the corresponding **entities** property.
+    The correct intent is predicted and the entities array has both the origin and destination roles in the corresponding **entities** property.
     
 ## Clean up resources
 
@@ -166,12 +159,10 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
 ## Related information
 
-* [Hierarchical entity](luis-concept-entity-types.md) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)
-* [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities)
-* [Improve predictions with Patterns](luis-concept-patterns.md)
+* [Roles](luis-concept-roles.md)
 
 ## Next steps
 
