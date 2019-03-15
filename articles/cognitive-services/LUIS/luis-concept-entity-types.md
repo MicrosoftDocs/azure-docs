@@ -1,7 +1,7 @@
 ---
 title: Entity types 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
+description: Entities types are similar to data types. Selecting the correct entity type based on your data allows LUIS to apply consistent extraction for the data.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -14,11 +14,27 @@ ms.author: diberry
 ---
 # Entity types and their purposes in LUIS
 
-Entities are words or phrases in utterances that are key data in your application’s domain.
+Entities types are similar to data types. Selecting the correct entity type based on your data allows LUIS to apply consistent extraction for the data.
+
+An entity type:
+
+* Represents a data type such as a number, or format such as a regular expression.
+* Provides rules about what type of matching is used: 
+    * machine-learning
+    * prebuilt and trained models ([prebuilt entities](#prebuilt-entity))
+    * some form of matching such as exact text or regular expressions
 
 ## Entity compared to intent
 
-The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Book flight" intent).
+The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. A client application may need the entity to perform its task or use it as a guide of several choices to present to the user. 
+
+An entity:
+
+* Represents a class including a collection of similar objects (places, things, people, events or concepts). 
+* Describes information relevant to the intent
+
+
+For example, a News Search app may include entities such as “topic”, “source”, “keyword” and “publishing date”, which are key data to search for news. In a travel booking app, the “location”, “date”, "airline", "travel class" and "tickets" are key information for flight booking (relevant to the "Book flight" intent).
 
 By comparison, the intent represents the prediction of the entire utterance. 
 
@@ -90,7 +106,7 @@ Once the entity is extracted, the entity data can be represented as a single uni
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Regular Expression**](#regular-expression-entity)|Uses regular expression to match text.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contains a single concept in word or phrase.|
 
-Only Machine-learned entities need to be marked in the example utterances for every intent. Machine-learned entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-review-endoint-utt.md). 
+Only Machine-learned entities need to be marked in the example utterances. Machine-learned entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-review-endoint-utt.md). 
 
 Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent-pattern.md) template examples, not the intent user examples. 
 
@@ -115,7 +131,7 @@ This entity is a good fit when the data:
 
 ## Hierarchical entity
 
-**Hierarchical entities will eventually be deprecated. Please use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
+**Hierarchical entities will eventually be deprecated. Use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
 
 A hierarchical entity is a category of contextually learned simple entities called children.
 
@@ -216,7 +232,7 @@ Composite entities and hierarchical entities both have parent-child relationship
 
 |Type|Purpose|Example|
 |--|--|--|
-|Hierarchical|Parent-child of simple entities|Location.Origin=New York<br>Location.Destination=London|
+|Hierarchical|Parent-child of simple entities|`Location.Origin`=New York<br>`Location.Destination`=London|
 |Composite|Parent-child entities: prebuilt, list, simple, hierarchical| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|
 
 ## If you need more than the maximum number of entities 

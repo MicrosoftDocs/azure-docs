@@ -25,7 +25,7 @@ Consider a Human Resources app that reports on the organizational chart in relat
 |Who is Tom's subordinate?|GetOrgChart|.30|
 |Who is the subordinate of Tom?|GetOrgChart|.30|
 
-If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of "subordinate", "manage", "report"), LUIS may return a low confidence score. Create a pattern to help LUIS understand the importance of the word order, . 
+If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of "subordinate", "manage", "report"), LUIS may return a low confidence score. Create a pattern to help LUIS understand the importance of the word order. 
 
 Patterns solve the following situations: 
 
@@ -44,7 +44,7 @@ A pattern is primarily meant to help the prediction of intents and roles. The pa
 Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For Simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
 
 ## Patterns use entity roles
-If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities. This is equivalent to hierarchical entity children, but is **only** available in patterns. 
+If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities.  
 
 ## Prediction scores with and without patterns
 Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances.  
@@ -77,7 +77,7 @@ The **optional** syntax, with square brackets, can be nested two levels. For exa
 |is a new form|matches outer optional word and non-optional words in pattern|
 |a new form|matches required words only|
 
-The **grouping** syntax, with parentheses, can be nested two levels. For example: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. This allows any of the three entities to be matched. 
+The **grouping** syntax, with parentheses, can be nested two levels. For example: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. This feature allows any of the three entities to be matched. 
 
 If Entity1 is a Location with roles such as origin (Seattle) and destination (Cairo) and Entity 2 is a known building name from a list entity (RedWest-C), the following utterances would map to this pattern:
 

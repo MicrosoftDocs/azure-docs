@@ -1,7 +1,7 @@
 ---
 title: Data extraction
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Learn what kind of data can be extracted from Language Understanding (LUIS)
+description: Extract data from utterance text with intents and entities. Learn what kind of data can be extracted from Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/08/2019
 ms.author: diberry
 ---
 
-# Data extraction from intents and entities
+# Extract data from utterance text with intents and entities
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
 The hardest data to extract is the machine-learned data because it isn't an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.
@@ -165,7 +165,7 @@ The data returned from the endpoint includes the entity name, the discovered tex
 
 |Data object|Entity name|Value|
 |--|--|--|
-|Simple Entity|"Customer"|"bob jones"|
+|Simple Entity|`Customer`|`bob jones`|
 
 ## Hierarchical entity data
 
@@ -427,13 +427,18 @@ Getting names from an utterance is difficult because a name can be almost any co
 [PersonName](luis-reference-prebuilt-person.md) and [GeographyV2](luis-reference-prebuilt-geographyV2.md) entities are available in some [language cultures](luis-reference-prebuilt-entities.md). 
 
 ### Names of people
-People's name can have some slight format depending on language and culture. Use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+
+People's name can have some slight format depending on language and culture. Use either a prebuilt **[personName](luis-reference-prebuilt-person.md)** entity or a **[simple entity](luis-concept-entity-types.md#simple-entity)** with [roles](luis-concept-roles.md) of first and last name. 
+
+If you use the simple entity, make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ### Names of places
-Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+
+Location names are set and known such as cities, counties, states, provinces, and countries. Use the prebuilt entity **[geographyV2](luis-reference-prebuilt-geographyv2.md)** to extract location information.
 
 ### New and emerging names
-Some apps need to be able to find new and emerging names such as products or companies. These types of names is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](luis-how-to-review-endoint-utt.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern roles data
 Roles are contextual differences of entities.

@@ -1,7 +1,7 @@
 ---
 title: Pattern roles
 titleSuffix: Azure Cognitive Services
-description: Use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
+description: Patterns extract data from a well-formatted template utterances. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 ms.custom: seodec18
 services: cognitive-services
 author: diberry

@@ -1,7 +1,7 @@
 ---
 title: Contextual data with roles - Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
+description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -159,6 +159,9 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 
 ## Related information
 
+* [Entities concepts](luis-concept-entity-types.md)
+* [Roles concepts](luis-concept-roles.md)
+* [Prebuilt entities list](luis-reference-prebuilt-entities.md)
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)

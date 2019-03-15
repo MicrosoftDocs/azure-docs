@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 # Collaborating with other authors
 
-LUIS provides collaboration to allow a group of people to author an app.
+LUIS apps require a single owner and optional collaborators allowing multiple people to author a single app.
 
 ## LUIS account
 A LUIS account is associated with a single [Microsoft Live](https://login.live.com/) account. Each LUIS account is given a free [authoring key](luis-concept-keys.md#authoring-key) to use for authoring all the LUIS apps the account has access to. 
@@ -24,7 +24,8 @@ A LUIS account may have many LUIS apps.
 See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 ## LUIS app owner
-The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75% of the monthly limit. 
+
+The account that creates an app is the owner and each app has a single owner. The owner is listed on the app **[Settings](luis-how-to-collaborate.md)** page. The owner can delete the app receive email when the endpoint quota reaches 75% of the monthly limit. 
 
 ## Authorization roles
 LUIS doesn't support different roles for owners and collaborators with one exception. The owner is the only account that can delete the app.

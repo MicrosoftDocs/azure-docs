@@ -60,7 +60,7 @@ The following example utterances use entities and roles:
 
 ## How are roles related to hierarchical entities?
 
-Roles are now available for all entities in example utterances, as well as the previous use of patterns. Because they are available everywhere, they replace the need for hierarchical entities. New entities should be created with roles, instead of using heirarchical entities. 
+Roles are now available for all entities in example utterances, as well as the previous use of patterns. Because they are available everywhere, they replace the need for hierarchical entities. New entities should be created with roles, instead of using hierarchical entities. 
 
 Hierarchical entities will eventually be deprecated.
 
