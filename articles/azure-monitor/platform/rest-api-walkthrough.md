@@ -236,7 +236,7 @@ Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filte
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**Request URI**: https\://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
 
 For example, to retrieve the list of dimension values that were emitted for the 'API Name dimension' for the 'Transactions' metric, where the GeoType dimension = 'Primary'  during the specified time range, the request would be as follows:
 
