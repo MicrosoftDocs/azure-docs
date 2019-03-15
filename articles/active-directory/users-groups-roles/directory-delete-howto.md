@@ -54,10 +54,10 @@ For what to expect when a trial Office 365 subscription expires (not including p
 
 Subscription state | Data | Access to data
 ----- | ----- | -----
-Active (30 days for trial)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources 
-Expired (30 days)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources
-Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>Admins can access the Office 365 admin center but can’t assign licenses to or update users
-Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | <li>Users can’t access Office 365 files, or apps<li>Admins can access the Office 365 admin center to purchase and manage other subscriptions 
+Active (30 days for trial)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Microsoft 365 admin center and resources 
+Expired (30 days)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Microsoft 365 admin center and resources
+Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>Admins can access the Microsoft 365 admin center but can’t assign licenses to or update users
+Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | <li>Users can’t access Office 365 files, or apps<li>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions 
 
 ## Delete a subscription in the Microsoft 365 admin center
 
