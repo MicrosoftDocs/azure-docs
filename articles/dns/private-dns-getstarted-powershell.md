@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 3/15/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
@@ -49,9 +49,11 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `New-AzDnsZone` cmdlet with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
+A DNS zone is created by using the `New-AzPrivateDnsZone` cmdlet. 
 
-If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone. 
+The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and links the DNS zone to the virtual network called **MyAzureVnet**.
+
+The zone is then linked to **MyAzureVnet** and allows automatic registration.
 
 ```azurepowershell
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -62,28 +64,27 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup `
-   -ZoneType Private `
-   -RegistrationVirtualNetworkId @($vnet.Id)
+$zone = New-AzPrivateDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup
+
+$link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
+  -ResourceGroupName MyAzureResourceGroup -Name "mylink" `
+  -VirtualNetwork $vnet -EnableRegistration
 ```
 
-If you wanted to create a zone just for name resolution (no automatic hostname creation), you could use the *ResolutionVirtualNetworkId* parameter instead of the *RegistrationVirtualNetworkId* parameter.
-
-> [!NOTE]
-> You won't be able to see the automatically created hostname records. But later, you will test to ensure they exist.
+If you want to create a zone just for name resolution (no automatic hostname registration), you can omit the `-EnableRegistration` parameter.
 
 ### List DNS private zones
 
-By omitting the zone name from `Get-AzDnsZone`, you can enumerate all zones in a resource group. This operation returns an array of zone objects.
+By omitting the zone name from `Get-AzPrivateDnsZone`, you can enumerate all zones in a resource group. This operation returns an array of zone objects.
 
 ```azurepowershell
-Get-AzDnsZone -ResourceGroupName MyAzureResourceGroup
+$zones = Get-AzPrivateDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
-By omitting both the zone name and the resource group name from `Get-AzDnsZone`, you can enumerate all zones in the Azure subscription.
+By omitting both the zone name and the resource group name from `Get-AzPrivateDnsZone`, you can enumerate all zones in the Azure subscription.
 
 ```azurepowershell
-Get-AzDnsZone
+$zones = Get-AzDnsZone
 ```
 
 ## Create the test virtual machines
@@ -114,12 +115,12 @@ This will take a few minutes to complete.
 
 ## Create an additional DNS record
 
-You create record sets by using the `New-AzDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
+You create record sets by using the `New-AzPrivateDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
 
 ```azurepowershell
-New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
+New-AzPrivateDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
-   -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
+   -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
 ### View DNS records
@@ -127,9 +128,8 @@ New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
 To list the DNS records in your zone, run:
 
 ```azurepowershell
-Get-AzDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
+Get-AzPrivateDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
-Remember, you won't see the automatically created A records for your two test virtual machines.
 
 ## Test the private zone
 
