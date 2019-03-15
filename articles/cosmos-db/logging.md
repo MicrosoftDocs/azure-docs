@@ -4,7 +4,7 @@ description: Learn about the different ways to log and monitor data stored in Az
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 
@@ -94,27 +94,23 @@ To enable metrics and diagnostics logging by using Azure CLI, use the following 
 - To enable storage of Diagnostic Logs in a storage account, use this command:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   The `resourceId` is the name of the Azure Cosmos DB account. The `storageId` is the name of the storage account to which you want to send the logs.
+   The `resource` is the name of the Azure Cosmos DB account. The resource is in the format `/subscriptions/<subscriptionId>/resourceGroups/<resource_group_name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure_Cosmos_account_name>` The `storage-account` is the name of the storage account to which you want to send the logs. You can log other logs by updating the category parameter values to "MongoRequests" or "DataPlaneRequests". 
 
 - To enable streaming of Diagnostic Logs to an event hub, use this command:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   The `resourceId` is the name of the Azure Cosmos DB account. The `serviceBusRuleId` is a string with this format:
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   The `resource` is the name of the Azure Cosmos DB account. The `event-hub-rule` is the event hub rule id. 
 
 - To enable sending Diagnostic Logs to a Log Analytics workspace, use this command:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 You can combine these parameters to enable multiple output options.
