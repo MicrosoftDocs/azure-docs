@@ -16,7 +16,7 @@ ms.author: diberry
 
 # Tutorial: Extract contextually-related patterns using roles
 
-In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
+In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a [simple entity](luis-concept-entity-types.md#simple-entity) and [roles](luis-concept-roles.md) to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
 
 **In this tutorial, you learn how to:**
@@ -369,19 +369,6 @@ Cities, like people's names are tricky in that they can be any mix of words and 
     ```
 
 The intent score is now much higher and the role names are part of the entity response.
-
-## Hierarchical entities versus roles
-
-In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the hierarchical entity. 
-
-In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. These two types of utterances are the same but solved with different LUIS abilities.
-
-|Tutorial|Example utterance|Origin and destination locations|
-|--|--|--|
-|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Clean up resources
 
