@@ -109,7 +109,7 @@ az disk update --subscription $sub --resource-group $resourceGroup --name $diskN
 
 ## Deploying an ultra SSD using PowerShell
 
-In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following PowerShell command to create one such VM:
+In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create one such VM:
 
 ```powershell
 New-AzVm `
@@ -127,7 +127,7 @@ New-AzVm `
 Now that you have a VM which is capable of using ultra SSDs, you can create and attach an ultra SSD to it:
 
 ```powershell
-New-AzDiskConfig -Location 'EastUS2' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone 3;
+New-AzDiskConfig -Location 'EastUS2' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone $zone;
 New-AzDisk -ResourceGroupName $resourceGroup -DiskName 'Disk02' -Disk $diskconfig;
 ```
 
