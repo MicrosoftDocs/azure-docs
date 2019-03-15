@@ -16,8 +16,6 @@ This tutorial walks you through the steps to create your first private DNS zone 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *resolution virtual networks*. You may also specify a virtual network for which Azure DNS maintains hostname records whenever a VM is created, changes IP, or is deleted.  This is called a *registration virtual network*.
 
 In this tutorial, you learn how to:
@@ -49,7 +47,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `New-AzPrivateDnsZone` cmdlet. 
+A DNS zone is created by using the `New-AzPrivateDnsZone` cmdlet.
 
 The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and links the DNS zone to the virtual network called **MyAzureVnet**.
 
@@ -84,7 +82,7 @@ $zones = Get-AzPrivateDnsZone -ResourceGroupName MyAzureResourceGroup
 By omitting both the zone name and the resource group name from `Get-AzPrivateDnsZone`, you can enumerate all zones in the Azure subscription.
 
 ```azurepowershell
-$zones = Get-AzDnsZone
+$zones = Get-AzPrivateDnsZone
 ```
 
 ## Create the test virtual machines
@@ -151,10 +149,13 @@ Repeat for myVM02.
 ### Ping the VMs by name
 
 1. From the myVM02 Windows PowerShell command prompt, ping myVM01 using the automatically registered host name:
+
    ```
    ping myVM01.private.contoso.com
    ```
+
    You should see output that looks similar to this:
+
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -170,11 +171,15 @@ Repeat for myVM02.
        Minimum = 0ms, Maximum = 1ms, Average = 0ms
    PS C:\>
    ```
+
 2. Now ping the **db** name you created previously:
+
    ```
    ping db.private.contoso.com
    ```
+
    You should see output that looks similar to this:
+
    ```
    PS C:\> ping db.private.contoso.com
 
