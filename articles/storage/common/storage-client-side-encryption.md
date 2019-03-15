@@ -45,7 +45,7 @@ Decryption via the envelope technique works in the following way:
 The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
-The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **UploadFrom*** methods or the **OpenWrite** method. For downloads, both complete and range downloads are supported.
+The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **UploadFrom** methods or the **OpenWrite** method. For downloads, both complete and range downloads are supported.
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
