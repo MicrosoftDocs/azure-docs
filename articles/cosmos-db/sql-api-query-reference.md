@@ -494,9 +494,11 @@ ORDER BY <sort_specification>
 |**String**|**&#124;&#124;**|Concatenation. Returns a concatenation of both arguments.|  
   
  **Ternary operators:**  
-  
-|Ternary operator|?|Returns the second argument if the first argument evaluates to **true**; return the third argument otherwise.|  
+
+|**Name**|**Operator**|**Details**| 
 |-|-|-|  
+|Ternary operator|?|Returns the second argument if the first argument evaluates to **true**; return the third argument otherwise.|  
+
   
  **Ordering of values for comparison**  
   
