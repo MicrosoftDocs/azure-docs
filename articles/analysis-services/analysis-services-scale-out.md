@@ -16,21 +16,23 @@ With scale-out, client queries can be distributed among multiple *query replicas
 
 Scale-out is available for servers in the Standard pricing tier. Each query replica is billed at the same rate as your server. All query replicas are created in the same region as your server. The number of query replicas you can configure are limited by the region your server is in. To learn more, see [Availability by region](analysis-services-overview.md#availability-by-region). Scale-out does not increase the amount of available memory for your server. To increase memory, you need to upgrade your plan. 
 
-## How it works
+## Why scale-out?
 
 In a typical server deployment, one server serves as both processing server and query server. If the number of client queries against models on your server exceeds the Query Processing Units (QPU) for your server's plan, or model processing occurs at the same time as high query workloads, performance can decrease. 
 
-With scale-out, you can create a query pool with up to seven additional query replicas (eight total, including your *primary* server). You can scale the number of query replicas to meet QPU demands at critical times and you can separate a processing server from the query pool at any time. 
+With scale-out, you can create a query pool with up to seven additional query replica resources (eight total, including your *primary* server). You can scale the number of replicas in the query pool to meet QPU demands at critical times, and you can separate a processing server from the query pool at any time. 
 
 Regardless of the number of query replicas you have in a query pool, processing workloads are not distributed among query replicas. The primary server serves as the processing server. Query replicas serve only queries against the model databases synchronized between the primary server and each replica in the query pool. 
 
-When scaling out, it can take up to five minutes for new query replicas to be included in the query pool. When all new query replicas are up and running, new client connections are load balanced across all query pool resources. Existing client connections are not changed from the resource they are currently connected to. When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. Clients are reconnected to a remaining query pool resource when the scale-in operation has completed, which can take up to five minutes.
+When scaling out, it can take up to five minutes for new query replicas to be incrementally added to the query pool. When all new query replicas are up and running, new client connections are load balanced across  resources in the query pool. Existing client connections are not changed from the resource they are currently connected to. When scaling in, any existing client connections to a query pool resource that is being removed from the query pool are terminated. Clients are reconnected to a remaining query pool resource when the scale-in operation has completed, which can take up to five minutes.
 
-When configuring scale-out for a server the first time, model databases on your primary server are automatically synchronized with replicas in the query pool. Automatic synchronization occurs only once, when you first configure scale-out to one or more query replicas. During automatic synchronization, the primary server's data files (encrypted at rest in blob storage) are copied to a second location, also encrypted at rest in blob storage. Replicas in the query pool are then *hydrated* with data from this second set of files in blob storage. 
+## How it works
 
-While an automatic synchronization is performed only when you first scale-out a server, you can also manually synchronize. Synchronizing assures data on replicas in the query pool match that of the primary server. When processing (refresh) models on the primary server, a synchronization must be performed *after* processing operations are completed. This synchronization operation copies updated data from the primary server's files in blob storage to the second set of files. Replicas in the query pool are then hydrated with updated data from the second set of files in blob storage. 
+When configuring scale-out for a server the first time, model databases on your primary server are automatically synchronized with new replicas in a new query pool. Automatic synchronization occurs only once, when you first configure scale-out to one or more query replicas. During automatic synchronization, the primary server's data files (encrypted at rest in blob storage) are copied to a second location, also encrypted at rest in blob storage. Replicas in the query pool are then *hydrated* with data from the second set of files in blob storage. 
 
-When performing a subsequent scale-out operation, for example, increasing the number of replicas in the query pool from two to five, the new replicas are hydrated with data from the second set of files in blob storage. When performing a subsequent scale-out operation, it's important to keep in mind:
+While an automatic synchronization is performed only when you scale-out a server for the first time, you can also perform a manual synchronization. Synchronizing assures data on replicas in the query pool match that of the primary server. When processing (refresh) models on the primary server, a synchronization must be performed *after* processing operations are completed. This synchronization operation copies updated data from the primary server's files in blob storage to the second set of files. Replicas in the query pool are then hydrated with updated data from the second set of files in blob storage. 
+
+When performing a subsequent scale-out operation, for example, increasing the number of replicas in the query pool from two to five, the new replicas are hydrated with data from the second set of files in blob storage. This *is not* a synchronization. When performing a subsequent scale-out operation, it's important to keep in mind:
 
 * Perform a synchronization *before the scale-out operation* to avoid redundant hydration of the added replicas.
 
@@ -114,4 +116,3 @@ For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and A
 
 [Monitor server metrics](analysis-services-monitor.md)   
 [Manage Azure Analysis Services](analysis-services-manage.md) 
-
