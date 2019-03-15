@@ -187,17 +187,17 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. In **Specify the on-premises SQL Server database**, take the following steps: 
 
-       a. Under **Name**, enter **SqlServerLinkedService**.
+   a. Under **Name**, enter **SqlServerLinkedService**.
 
-       b. Under **Server name**, enter the name of your on-premises SQL Server instance.
+   b. Under **Server name**, enter the name of your on-premises SQL Server instance.
 
-       c. Under **Database name**, enter the name of your on-premises database.
+   c. Under **Database name**, enter the name of your on-premises database.
 
-       d. Under **Authentication type**, select appropriate authentication.
+   d. Under **Authentication type**, select appropriate authentication.
 
-       e. Under **User name**, enter the name of user with access to on-premises SQL Server.
+   e. Under **User name**, enter the name of user with access to on-premises SQL Server.
 
-       f. Enter the **password** for the user. Select **Finish**. 
+   f. Enter the **password** for the user. Select **Finish**. 
 
 1. Select **Next**.
 

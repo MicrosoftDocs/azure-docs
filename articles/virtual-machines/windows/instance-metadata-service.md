@@ -353,7 +353,7 @@ resourceGroupName | [Resource group](../../azure-resource-manager/resource-group
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its an Azure Marketplace Image, contains name, product and publisher | 2018-04-02
 provider | Provider of the VM | 2018-10-01
-publicKeys | Collection of Public Keys[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assigned to the VM and paths | 2018-04-02
+publicKeys | Collection of Public Keys[<https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey>] assigned to the VM and paths | 2018-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
