@@ -222,10 +222,10 @@ An SAP ASCS/SCS instance has the following components:
 
 
 * SAP global host files:
-    * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
-    * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
+  * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
 
-     \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
+    \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![Figure 2: Processes, file structure, and global host sapmnt file share of an SAP ASCS/SCS instance][sap-ha-guide-figure-8001]

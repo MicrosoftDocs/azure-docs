@@ -136,7 +136,7 @@ The result should look like the following example output:
     BackupRetentionPeriodInDays	: 5
    ```
 
-###Azure Stack PowerShell 
+### Azure Stack PowerShell 
 The PowerShell cmdlet to configure infrastructure backup is Set-AzsBackupConfiguration. In previous releases, the cmdlet was Set-AzsBackupShare. This cmdlet requires providing a certificate. If infrastructure backup is configured with an encryption key, you cannot update the encryption key or view the property. You will need to use version 1.6 of the Admin PowerShell. 
 
 If infrastructure backup was configured before updating to 1901, you can use version 1.6 of the Admin PowerShell to set and view the encryption key. Version 1.6 will not allow you to update from encryption key to a certificate file.

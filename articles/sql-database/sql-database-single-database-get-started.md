@@ -36,8 +36,8 @@ To create a single database containing the AdventureWorksLT sample data:
    - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**.
    - **Select source**: Drop down and select **Sample (AdventureWorksLT)**.
 
-    > [!IMPORTANT]
-    > Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
+     > [!IMPORTANT]
+     > Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
   
    ![Create single database](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -70,9 +70,9 @@ To create a single database containing the AdventureWorksLT sample data:
 
 10. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
-   Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
+    Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
 
-   ![Notification](./media/sql-database-get-started-portal/notification.png)
+    ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Query the database
 

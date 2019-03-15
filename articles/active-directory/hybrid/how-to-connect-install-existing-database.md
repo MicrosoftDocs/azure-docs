@@ -60,31 +60,31 @@ Important notes to take note of before you proceed:
 > Use the switch **/UseExistingDatabase** only when the database already contains data from an earlier Azure AD Connect installation. For instance, when you are moving from a local database to a full SQL Server database or when the Azure AD Connect server was rebuilt and you restored a SQL backup of the ADSync database from an earlier installation of Azure AD Connect. If the database is empty, that is, it doesn't contain any data from a previous Azure AD Connect installation, skip this step.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
-4.	You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
-![Welcome](./media/how-to-connect-install-existing-database/db3.png)
-5.	On the **Install required components** screen, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL server that is hosting the ADSync database. If the SQL engine instance used to host the ADSync database is not the default instance on the SQL server, you must specify the SQL engine instance name. Further, if SQL browsing is not enabled, you must also specify the SQL engine instance port number. For example:			
-![Welcome](./media/how-to-connect-install-existing-database/db4.png)           
+1. You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
+   ![Welcome](./media/how-to-connect-install-existing-database/db3.png)
+1. On the **Install required components** screen, the **Use an existing SQL Server** option is enabled. Specify the name of the SQL server that is hosting the ADSync database. If the SQL engine instance used to host the ADSync database is not the default instance on the SQL server, you must specify the SQL engine instance name. Further, if SQL browsing is not enabled, you must also specify the SQL engine instance port number. For example:         
+   ![Welcome](./media/how-to-connect-install-existing-database/db4.png)           
 
-6.	On the **Connect to Azure AD** screen, you must provide the credentials of a global admin of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
-![Connect](./media/how-to-connect-install-existing-database/db5.png)
+1. On the **Connect to Azure AD** screen, you must provide the credentials of a global admin of your Azure AD directory. The recommendation is to use an account in the default onmicrosoft.com domain. This account is only used to create a service account in Azure AD and is not used after the wizard has completed.
+   ![Connect](./media/how-to-connect-install-existing-database/db5.png)
  
-7.	On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
-![Directories](./media/how-to-connect-install-existing-database/db6.png)
- 
- 
-8.	In the pop-up dialog, you can either (i) provide an Enterprise Admin credential and let Azure AD Connect create the AD DS account for you, or (ii) create the AD DS account yourself and provide its credential to Azure AD Connect. Once you have selected an option and provide the necessary credentials, click **OK** to close the pop-up dialog.
-![Welcome](./media/how-to-connect-install-existing-database/db7.png)
+1. On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
+   ![Directories](./media/how-to-connect-install-existing-database/db6.png)
  
  
-9.	Once the credentials are provided, the red cross icon is replaced with a green tick icon. Click **Next**.
-![Welcome](./media/how-to-connect-install-existing-database/db8.png)
+1. In the pop-up dialog, you can either (i) provide an Enterprise Admin credential and let Azure AD Connect create the AD DS account for you, or (ii) create the AD DS account yourself and provide its credential to Azure AD Connect. Once you have selected an option and provide the necessary credentials, click **OK** to close the pop-up dialog.
+   ![Welcome](./media/how-to-connect-install-existing-database/db7.png)
  
  
-10.	On the **Ready to configure** screen, click **Install**.
-![Welcome](./media/how-to-connect-install-existing-database/db9.png)
+1. Once the credentials are provided, the red cross icon is replaced with a green tick icon. Click **Next**.
+   ![Welcome](./media/how-to-connect-install-existing-database/db8.png)
  
  
-11.	Once installation completes, the Azure AD Connect server is automatically enabled for Staging Mode. It is recommended that you review the server configuration and pending exports for unexpected changes before disabling Staging Mode. 
+1. On the **Ready to configure** screen, click **Install**.
+   ![Welcome](./media/how-to-connect-install-existing-database/db9.png)
+ 
+ 
+1. Once installation completes, the Azure AD Connect server is automatically enabled for Staging Mode. It is recommended that you review the server configuration and pending exports for unexpected changes before disabling Staging Mode. 
 
 ## Post installation tasks
 When restoring a database backup created by a version of Azure AD Connect prior to 1.2.65.0, the staging server will automatically select a sign-in method of **Do Not Configure**. While your password hash sync and password writeback preferences will be restored, you must subsequently change the sign-in method to match the other policies in effect for your active synchronization server.  Failure to complete these steps may prevent users from signing in should this server becomes active.  

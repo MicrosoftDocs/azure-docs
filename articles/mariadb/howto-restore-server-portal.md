@@ -59,10 +59,10 @@ The following steps restore the sample server to a point-in-time:
 3. Fill out the Restore form with the required information:
 
    ![Azure Database for MariaDB - Restore information](./media/howto-restore-server-portal/3-restore.png)
-  - **Restore point**: Select the point-in-time you want to restore to.
-  - **Target server**: Provide a name for the new server.
-  - **Location**: You cannot select the region. By default it is same as the source server.
-  - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
+   - **Restore point**: Select the point-in-time you want to restore to.
+   - **Target server**: Provide a name for the new server.
+   - **Location**: You cannot select the region. By default it is same as the source server.
+   - **Pricing tier**: You cannot change these parameters when doing a point-in-time restore. It is same as the source server. 
 
 4. Click **OK** to restore the server to restore to a point-in-time. 
 

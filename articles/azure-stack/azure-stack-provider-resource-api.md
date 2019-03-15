@@ -101,9 +101,9 @@ To generate the usage data, you should have resources that are running and activ
 1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 2. [Configure the Azure Stack user's](user/azure-stack-powershell-configure-user.md) or the [Azure Stack operator's](azure-stack-powershell-configure-admin.md) PowerShell environment 
 3. To retrieve the usage data, use the [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
 
 ### REST API
 
