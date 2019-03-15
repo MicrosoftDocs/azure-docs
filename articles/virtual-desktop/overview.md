@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
 
-Windows Virtual Desktop is a comprehensive desktop and app virtualization service running on the cloud.
+Now available in public preview, Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
 Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
@@ -26,18 +26,16 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 With Windows Virtual Desktop, you can:
 
-* Benefit from a scalable and flexible environment
-    * Create a full desktop virtualization environment in your Azure subscription without having to run any additional gateway servers.
-    * Publish as many host pools as you need to accommodate your diverse workloads.
-    * Bring your own image for production workloads or test from the Azure Gallery.
-    * Reduce costs with pooled, multi-session resources. With the new Windows 10 Enterprise multi-session capability exclusive to Windows Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system (OS) overhead while still providing the same resources to your users.
+* Create a full desktop virtualization environment in your Azure subscription without having to run any additional gateway servers.
+* Publish as many host pools as you need to accommodate your diverse workloads.
+* Bring your own image for production workloads or test from the Azure Gallery.
+* Reduce costs with pooled, multi-session resources. With the new Windows 10 Enterprise multi-session capability exclusive to Windows Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system (OS) overhead while still providing the same resources to your users.
 * Provide individual ownership through personal (persistent) desktops.
-    * Streamline deployment and management
-    * Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources
-    * Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
-    * As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
-    * Use the new Diagnostics service to troubleshoot errors. 
-    * Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
+* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources
+* Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
+* As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
+* Use the new Diagnostics service to troubleshoot errors.
+* Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
 * Once assigned, users can launch any Windows Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
 * Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
 
@@ -59,8 +57,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 * A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through:
   * Azure AD Connect
   * Azure AD Domain Services
-* An Azure subscription, containing:
-  * A virtual network either containing or connected to the Windows Server Active Directory
+* An Azure subscription, containing a virtual network that either contains or is connected to the Windows Server Active Directory
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
@@ -68,6 +65,14 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 * Running one of the following supported OS images:
   * Windows 10 Enterprise multi-session
   * Windows Server 2016
+
+The Windows Virtual Desktop management service (preview) will be available in the US East 2 and US Central Azure regions for public preview. You can deploy desktops and apps on virtual machines (VMs) in any Azure region worldwide.
+
+For optimal performance, make sure your network meets the following requirements:
+
+* Round-trip (RTT) latency from the client's network to the Azure region where host pools have been deployed should be less than 150 ms.
+* Network traffic may flow outside country borders when VMs that host desktops and apps connect to the management service.
+* To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
 ## Get started
 
