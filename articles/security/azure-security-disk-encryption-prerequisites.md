@@ -287,7 +287,7 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
 	 
 	 $keyEncryptionKeyName = 'MyKeyEncryptionKey';
      Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName -Destination 'Software';
-     $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     $keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 	 
  #Step 4: Encrypt the disks of an existing IaaS VM
 	 # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values. 
