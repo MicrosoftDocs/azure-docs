@@ -73,7 +73,7 @@ For more information on how to enable this Azure Storage Encryption feature, ple
 
 **Important note:** When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.
 
-### Azure _Virtual Machines &amp; Virtual Machine Scale Sets_
+### Azure Virtual Machines &amp; Virtual Machine Scale Sets
 
 Microsoft Azure Virtual Machines can be used through multiple deployment mediums. This includes single Virtual Machines as well as Virtual Machines deployed using Azure&#39;s VM Scale Sets feature.
 
@@ -230,9 +230,9 @@ Azure Service Bus can be used in Azure Government supporting impact level 5 work
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Service Bus** | X\* | X\* | X\* | X\* | X | X |
+| **Service Bus** | X[^1] | X[^1] | X[^1] | X[^1] | X | X |
 
- \*Use client-side encryption to encrypt data prior to leveraging Azure Service Bus
+ [^1]: Use client-side encryption to encrypt data prior to leveraging Azure Service Bus?
 
 ### Azure Event Hubs
 
@@ -242,9 +242,9 @@ Azure Event Hubs can be used in Azure Government supporting impact level 5 workl
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Event Hubs** | X\* | X\* | X\* | X\* | X | X |
+| **Event Hubs** | X[^2] | X[^2] | X[^2] | X[^2] | X | X |
 
-\*Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
+[^2]: Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
 
 ### Azure API Management
 
