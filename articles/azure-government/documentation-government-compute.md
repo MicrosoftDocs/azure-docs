@@ -63,7 +63,7 @@ The [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) service
 ### Variations
 The following Functions features are not currently available in Azure Government:
 
-- The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. The Consumption plan is not available yet. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
+- The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. The Consumption plan is available in USGov Virginia region. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
 - [Monitoring via Application Insights](../azure-functions/functions-monitoring.md) is not available yet.
 
 The URLs for Function are different:
