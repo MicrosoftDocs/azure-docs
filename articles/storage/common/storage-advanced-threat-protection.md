@@ -58,9 +58,9 @@ Use Rest API commands to create, update, or get the Advanced Threat Protection s
 
 Use the following PowerShell cmdlets:
 
-  * [Enable Advanced Threat Protection](https://docs.microsoft.com/en-us/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-  * [Get Advanced Threat Protection](https://docs.microsoft.com/en-us/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-  * [Disable Advanced Threat Protection](https://docs.microsoft.com/en-us/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+  * [Enable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Get Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Disable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ## Explore security anomalies
 
