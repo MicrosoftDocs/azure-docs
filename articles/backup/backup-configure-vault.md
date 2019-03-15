@@ -48,7 +48,7 @@ What you can back up depends on where the agent is installed.
 
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these URLs:
 
-- www.msftncsi.com
+- www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com

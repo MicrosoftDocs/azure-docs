@@ -48,7 +48,10 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
    * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
    * **Data metering** determines the billing type. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. Note that you can change the billing type from **Metered** to **Unlimited**.
-     > [!IMPORTANT] You can't change the type from **Unlimited** to **Metered**.
+
+     > [!IMPORTANT] 
+     > You can't change the type from **Unlimited** to **Metered**.
+
    * **Peering Location** is the physical location where you are peering with Microsoft.
 
      > [!IMPORTANT]
