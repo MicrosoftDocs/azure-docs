@@ -257,12 +257,12 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 9. From SQL Restore the DPMDB
 10. From admin command line on new server cd to Microsoft Azure Backup install location and bin folder
 
-Path example:
-C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-to Azure backup Run DPMSYNC -SYNC
+    Path example:
+    C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) Run DPMSYNC -SYNC
-Note If you have added NEW disks to the DPM Storage pool instead of moving the old ones, then run DPMSYNC -Reallocatereplica
+11. To Azure backup, Run DPMSYNC -SYNC
+
+    If you have added NEW disks to the DPM Storage pool instead of moving the old ones, then run DPMSYNC -Reallocatereplica
 
 ## Network connectivity
 Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
