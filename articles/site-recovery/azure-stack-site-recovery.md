@@ -184,7 +184,7 @@ Now install the configuration server:
 
 > [!NOTE]
 > The configuration server can also be installed from the command line. [Learn more](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, select **Configuration Servers** > ***server name*** > **Refresh Server**.
 
 ## Step 4: Set up the target environment
@@ -243,9 +243,9 @@ Make sure you've completed all the tasks in [Step 1: Prepare machine](#step-1-pr
 
 > [!NOTE]
 > Site Recovery installs Mobility Service when replication is enabled for a VM.
-
+> 
 > It can take 15 minutes or longer for changes to take effect and appear in the portal.
-
+> 
 > To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
 

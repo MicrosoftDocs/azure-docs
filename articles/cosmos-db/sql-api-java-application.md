@@ -37,7 +37,7 @@ This Java application tutorial shows you how to create a web-based task-manageme
 ## <a id="Prerequisites"></a>Prerequisites for this Java web application tutorial
 Before you begin this application development tutorial, you must have the following:
 
-*  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

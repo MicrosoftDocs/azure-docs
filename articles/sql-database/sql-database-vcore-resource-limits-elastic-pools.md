@@ -90,7 +90,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 ### General Purpose service tier: Generation 5 compute platform (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -118,7 +118,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 ### General Purpose service tier: Generation 5 compute platform (part 2)
 
 |Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -178,7 +178,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
-|Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Memory (GB)|81.6|91.8|102|122.4|163.2|204|
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
@@ -203,7 +203,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 #### Business Critical service tier: Generation 5 compute platform (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -231,7 +231,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 #### Business Critical service tier: Generation 5 compute platform (part 2)
 
 |Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|

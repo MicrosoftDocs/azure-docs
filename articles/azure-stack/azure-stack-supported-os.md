@@ -28,7 +28,7 @@ ms.lastreviewed: 12/27/2018
 Azure Stack supports the Windows guest operating systems listed in the following table:
 
 | Operating system | Description | Available in Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server, version 1709 | 64-bit | Core with Containers |
 | Windows Server 2016 | 64-bit |  Datacenter, Datacenter Core, Datacenter with Containers |
 | Windows Server 2012 R2 | 64-bit |  Datacenter |
@@ -54,7 +54,7 @@ Linux distributions listed as available in the Marketplace include the necessary
 > [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
 
 | Distribution | Description | Publisher | Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CentOS-based 6.9 | 64-bit | Rogue Wave | Yes |
 | CentOS-based 7.4 | 64-bit | Rogue Wave | Yes |
 | ClearLinux | 64-bit | ClearLinux.org | Yes |

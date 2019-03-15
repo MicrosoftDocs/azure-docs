@@ -67,7 +67,7 @@ This section describes the offline-backup workflow so that your data can be deli
 
     ![Import screen](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  The description of the inputs is as follows:
+   The description of the inputs is as follows:
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. Staging location might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
     * **Azure Resource Manager Storage Account**: The name of the Resource Manager type storage account in any Azure subscription.
@@ -75,7 +75,7 @@ This section describes the offline-backup workflow so that your data can be deli
     * **Azure Subscription ID**: The ID for the Azure subscription where the Azure Storage account is created.
     * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure. 
   
-  Provide the inputs on the screen and click **Next**. Save the provided *Staging location* and the *Azure Import Job Name*, as this information is required to prepare the disks.
+   Provide the inputs on the screen and click **Next**. Save the provided *Staging location* and the *Azure Import Job Name*, as this information is required to prepare the disks.
 
 2. When prompted, sign into your Azure subscription. You must sign in so that Azure Backup can create the Azure Active Directory application, and provide the required permissions to access the Azure Import Service.
 
@@ -100,14 +100,14 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
 1. Go to the directory and copy the **AzureOfflineBackupDiskPrep** directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure:
 
-    * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
-    * BitLocker is enabled on the copy computer.
-    * Azure PowerShell 3.7.0 is installed.
-    * The latest compatible browsers (Microsoft Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
-    * The copy computer can access the Azure portal. If necessary, the copy computer can be the same as the source computer.
+   * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
+   * BitLocker is enabled on the copy computer.
+   * Azure PowerShell 3.7.0 is installed.
+   * The latest compatible browsers (Microsoft Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
+   * The copy computer can access the Azure portal. If necessary, the copy computer can be the same as the source computer.
     
-    > [!IMPORTANT] 
-    > If the source computer is a virtual machine, then the copy computer must be a different physical server or client machine from the source computer.
+     > [!IMPORTANT] 
+     > If the source computer is a virtual machine, then the copy computer must be a different physical server or client machine from the source computer.
 
 2. Open an elevated command prompt on the copy computer with the *AzureOfflineBackupDiskPrep* utility directory as the current directory, and run the following command:
 
@@ -131,11 +131,11 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     The tool then begins to prepare the disk and copying the backup data. You may need to attach additional disks when prompted by the tool in case the provided disk does not have sufficient space for the backup data. <br/>
 
     At the end of successful execution of the tool, the command prompt provides three pieces of information:
-    1. One or more disks you provided are prepared for shipping to Azure. 
-    2. You receive confirmation that your import job has been created. The import job uses the name you provided.
-    3. The tool displays the shipping address for the Azure datacenter.
+   1. One or more disks you provided are prepared for shipping to Azure. 
+   2. You receive confirmation that your import job has been created. The import job uses the name you provided.
+   3. The tool displays the shipping address for the Azure datacenter.
 
-    ![Azure disk preparation complete](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Azure disk preparation complete](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. At the end of the command execution, you can update the shipping information.
 

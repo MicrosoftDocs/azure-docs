@@ -245,7 +245,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     </TelemetryProcessors>
    
     ```
-### Alternative: enable fixed-rate sampling in your server code
+   ### Alternative: enable fixed-rate sampling in your server code
 	
 	Instead of setting the sampling parameter in the .config file, you can programmatically set these values. 
 
@@ -285,7 +285,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 	services.AddApplicationInsightsTelemetry(aiOptions);
 	//...
 	}
-	```
+    ```
 
 2. **Enable the fixed-rate sampling module.** Changes can be made in the method ```Configure``` as shown in below snippet:
    
@@ -307,7 +307,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 	// ...
 	}
 
-	```
+    ```
 
 ### Configuring fixed-rate sampling in JAVA ###
 

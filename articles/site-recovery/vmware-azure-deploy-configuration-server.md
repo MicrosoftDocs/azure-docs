@@ -14,8 +14,8 @@ ms.author: ramamill
 
 You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](physical-azure-set-up-source.md) if you need to set up a configuration server for physical server replication.
 
->[!TIP]
-You can learn about the role of Configuration server as part of Azure Site Recovery architecture [here](vmware-azure-architecture.md).
+> [!TIP]
+> You can learn about the role of Configuration server as part of Azure Site Recovery architecture [here](vmware-azure-architecture.md).
 
 ## Deployment of configuration server through OVA template
 
@@ -41,7 +41,7 @@ You require a user with **one of the following** permissions set in AAD (Azure A
    1. Navigate to Azure Active Directory > User settings
    1. Under **App registrations", "Users can register applications" should be chosen as "Yes".
 
-    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services(ADFS) is **not supported**. Please use an account managed through [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
@@ -65,11 +65,11 @@ If you're replicating more than one VMware VM, read [capacity planning considera
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the Open Virtualization Application (OVA) template for the configuration server.
 
-  > [!TIP]
->You can also download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >You can also download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-The license provided with OVA template is an evaluation license valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
+> [!NOTE]
+> The license provided with OVA template is an evaluation license valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
 
