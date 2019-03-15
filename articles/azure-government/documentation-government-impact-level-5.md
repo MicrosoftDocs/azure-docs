@@ -43,8 +43,8 @@ In the most recent PA for Azure Government, DISA has approved logical separation
 
 When applying this to services the following evaluation:
 
-- --If a service only hosts IL5 data, then the service can control the key on behalf of the end users but must use a dedicated key to protect IL5 data from all other data in the cloud.
-- --If a service will host IL5 and non-DoD data, then the service must expose the option for application storing IL5 data to use their own key that is stored in Azure Key Vault.  This gives consumers of the service the ability to implement cryptographic separation.
+- If a service only hosts IL5 data, then the service can control the key on behalf of the end users but must use a dedicated key to protect IL5 data from all other data in the cloud.
+- If a service will host IL5 and non-DoD data, then the service must expose the option for application storing IL5 data to use their own key that is stored in Azure Key Vault.  This gives consumers of the service the ability to implement cryptographic separation.
 
 This ensures all key material for decrypting data is stored separately of the data itself and done so with a hardware key management solution.
 
@@ -231,6 +231,7 @@ Azure Service Bus can be used in Azure Government supporting impact level 5 work
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Service Bus** | X\* | X\* | X\* | X\* | X | X |
+
  \*Use client-side encryption to encrypt data prior to leveraging Azure Service Bus
 
 ### Azure Event Hubs
@@ -242,6 +243,7 @@ Azure Event Hubs can be used in Azure Government supporting impact level 5 workl
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Event Hubs** | X\* | X\* | X\* | X\* | X | X |
+
 \*Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
 
 ### Azure API Management
