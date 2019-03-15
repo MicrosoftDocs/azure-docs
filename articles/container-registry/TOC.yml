@@ -69,7 +69,7 @@
       href: container-registry-helm-repos.md
   - name: Security and authentication
     items:
-    - name: Limit access with virtual network
+    - name: Limit access with virtual network (preview)
       href: container-registry-vnet.md
     - name: Authentication overview
       href: container-registry-authentication.md
