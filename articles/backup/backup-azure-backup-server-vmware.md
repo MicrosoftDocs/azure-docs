@@ -165,7 +165,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Users and Groups option](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    The **vCenter Users and Groups** panel appears.
+    The **vCenter Users and Groups** panel appear.
 
 
 2. In the **vCenter Users and Groups** panel, select the **Users** tab, and then click the add users icon (the + symbol).
