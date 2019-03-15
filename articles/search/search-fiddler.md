@@ -12,7 +12,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Explore Azure Search REST APIs using Postman or Fiddler
+# Quickstart: Explore Azure Search REST APIs using Postman or Fiddler
 
 One of the easiest ways to explore the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is using Postman or Fiddler to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
 
