@@ -108,12 +108,12 @@ Checking connectivity... done.
 
 Change to the directory that contains the sample code and run the `az webapp up` command.
 
-In the following example, replace <yourappname> with a unique app name.
+In the following example, replace <app-name> with a unique app name.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <yourappname>
+az webapp up -n <app-name>
 ```
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
@@ -124,15 +124,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<yourappname>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<yourappname>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<yourappname>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -150,7 +150,7 @@ All done.
 Browse to the deployed application using your web browser.
 
 ```bash
-http://<yourappname>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 The Python sample code is running in App Service on Linux with a built-in image.
@@ -173,10 +173,10 @@ return "Hello Azure!"
 
 Save your changes and exit the editor. Use the command `^S` to save and `^Q` to exit.
 
-You'll now redeploy the app. Substitute `<yourappname>` with your app.
+You'll now redeploy the app. Substitute `<app-name>` with your app.
 
 ```bash
-az webapp up -n <yourappname>
+az webapp up -n <app-name>
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
