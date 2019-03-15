@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-
+#The Jobs how-to for REST/console
 ---
 
 # Start a moderation job from the API console
@@ -102,3 +102,82 @@ On the Content Moderator Dashboard, select **Review** > **Image**. The image tha
 ## Next steps
 
 Use the REST API in your code or start with the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) to integrate with your application.
+
+---
+
+### Start a job
+Use the `Job.Create` operation to start a moderation and human review creation job. Content Moderator scans the content and evaluates the designated workflow. Based on the workflow results, it either creates reviews or skips the step. It also submits the post-moderation and post-review tags to your callback endpoint.
+
+The inputs include the following information:
+
+- The review team ID.
+- The content to be moderated.
+- The workflow name. (The default is the "default" workflow.)
+- Your API callback point for notifications.
+ 
+The following response shows the identifier of the job that was started. You use the job identifier to get the job status and receive detailed information.
+
+	{
+		"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
+	}
+
+### Get job status
+
+Use the `Job.Get` operation and the job identifier to get the details of a running or completed job. The operation returns immediately while the moderation job runs asynchronously. The results are returned through the callback endpoint.
+
+Your inputs include the following information:
+
+- The review team ID: The job identifier returned by the previous operation
+
+The response includes the following information:
+
+- The identifier of the review created. (Use this ID to get the final review results.)
+- The status of the job (completed or in-progress): The assigned moderation tags (key-value pairs).
+- The job execution report.
+ 
+ 
+		{
+			"Id": "2018014caceddebfe9446fab29056fd8d31ffe",
+			"TeamName": "some team name",
+			"Status": "Complete",
+			"WorkflowId": "OCR",
+			"Type": "Image",
+			"CallBackEndpoint": "",
+			"ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
+			"ResultMetaData":[
+			{
+			"Key": "hasText",
+			"Value": "True"
+			},
+			{
+			"Key": "ocrText",
+			"Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
+			}
+			],
+			"JobExecutionReport": [
+			{
+      			"Ts": "2018-01-07T00:38:29.3238715",
+      			"Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.2928416",
+      			"Msg": "Job marked completed and job content has been removed"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:29.0856472",
+      			"Msg": "Execution Complete"
+    			},
+			{
+      			"Ts": "2018-01-07T00:38:26.7714671",
+      			"Msg": "Successfully got hasText response from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:26.4181346",
+      			"Msg": "Getting hasText from Moderator"
+    			},
+    			{
+      			"Ts": "2018-01-07T00:38:25.5122828",
+      			"Msg": "Starting Execution - Try 1"
+    			}
+			]
+		}
