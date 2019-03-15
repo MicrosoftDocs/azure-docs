@@ -20,8 +20,8 @@ To learn more about the IoT Edge runtime, see [Understand the Azure IoT Edge run
 
 This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. Windows support is currently in Preview.
 
->[!NOTE]
-Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
 
 ## Prerequisites
 

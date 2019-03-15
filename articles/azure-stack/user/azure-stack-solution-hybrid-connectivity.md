@@ -148,12 +148,12 @@ Use the following steps to create a virtual network gateway in Azure.
 3. In **Virtual network gateway**, select **Create** to open the **Create virtual network gateway** page.
 4. On **Create virtual network gateway**, specify the values for your network gateway, as shown in **Tutorial example values**, and the following additional values:
 
-    - **SKU**: basic
-    - **Virtual Network**: Select the Virtual Network you created earlier. The gateway subnet you created is automatically selected.
-    - **First IP Configuration**:  This is the public IP of your Gateway.
-        - Select **Create gateway IP configuration**, which takes you to the **Choose public IP address** page.
-        - Select **+Create new** to open the **Create public IP address** page.
-        - Enter a **Name** for your public IP address. Leave the SKU as **Basic**, and then select **OK** to save your changes.
+   - **SKU**: basic
+   - **Virtual Network**: Select the Virtual Network you created earlier. The gateway subnet you created is automatically selected.
+   - **First IP Configuration**:  This is the public IP of your Gateway.
+     - Select **Create gateway IP configuration**, which takes you to the **Choose public IP address** page.
+     - Select **+Create new** to open the **Create public IP address** page.
+     - Enter a **Name** for your public IP address. Leave the SKU as **Basic**, and then select **OK** to save your changes.
 
        > [!Note]
        > Currently, VPN Gateway only supports Dynamic Public IP address allocation. However, this doesn't mean that the IP address changes after it's assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. Resizing, resetting, or other internal maintenance/upgrades to your VPN gateway don't change the IP address.

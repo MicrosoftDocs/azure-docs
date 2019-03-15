@@ -132,11 +132,11 @@ The name of the data factory must be *globally unique*. If you see the following
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
    
-      - Select **Use existing**, and select an existing resource group from the drop-down list.
+   - Select **Use existing**, and select an existing resource group from the drop-down list.
 
-      - Select **Create new**, and enter the name of a resource group.
+   - Select **Create new**, and enter the name of a resource group.
         
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
+     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
 1. Under **Version**, select **V2**.
 1. Under **Location**, select the location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Storage and SQL Database) and computes (for example, Azure HDInsight) used by Data Factory can be in other regions.
 1. Select **Pin to dashboard**. 

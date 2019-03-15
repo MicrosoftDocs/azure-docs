@@ -258,4 +258,4 @@ az group delete --name tutorial-iot-hub-rg
 In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Implement a device firmware update process](tutorial-firmware-update.md)
+> [Implement a device firmware update process](tutorial-firmware-update.md)

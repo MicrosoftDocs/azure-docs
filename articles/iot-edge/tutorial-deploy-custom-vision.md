@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 > * Send the results of the image classifier to IoT Hub.
 
 <center>
+
 ![Diagram - Tutorial architecture, stage and deploy classifier](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
 </center>
 

@@ -31,10 +31,10 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 1. On the **Basics** page, enter these values for the following application gateway settings:
 
-    - **Name**: Enter *myAppGateway* for the name of the application gateway.
-    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
+   - **Name**: Enter *myAppGateway* for the name of the application gateway.
+   - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
 
-    ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+     ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
 2. Accept the default values for the other settings and then select **OK**.
 
@@ -44,15 +44,15 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 2. On the **Choose virtual network** page, select **Create new**, and then enter values for the following virtual network settings:
 
-    - **Name**: Enter *myVNet* for the name of the virtual network.
+   - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Address space**: Enter *10.0.0.0/16* for the virtual network address space.
+   - **Address space**: Enter *10.0.0.0/16* for the virtual network address space.
 
-    - **Subnet name**: Enter *myAGSubnet* for the subnet name.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
+   - **Subnet name**: Enter *myAGSubnet* for the subnet name.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
 
-    - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.
+   - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.
 
-    ![Create virtual network](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
 3. Select **OK** to return to the **Settings** page.
 
