@@ -61,7 +61,7 @@ If you would like to run a job that is currently stopped, select the name of the
 
 In order to copy an existing job you've created, select a job from the main jobs page and click **Copy**. This will open up a new copied job for you to edit the configuration of and either save or run again. If any changes have been made to your selected device set, they will be reflected in this copied job for you to edit.
 
-   ![Copy job](./media/howto-run-a-job-experimental/copyjob.png)
+   ![Copy job](./media/howto-run-a-job/copyjob.png)
 
 ## View the job status
 
