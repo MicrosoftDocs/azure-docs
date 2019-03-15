@@ -42,7 +42,7 @@ Listed below is a non-exhaustive list of applications that can send these parame
 | -- | -- |
 | Access panel | https://myapps.microsoft.com/contoso.com |
 | Outlook on Web | https://outlook.office365.com/contoso.com |
-| Office 365 portals | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
+| Office 365 portals | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
 
 In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's endpoints set up as tenants - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
 
