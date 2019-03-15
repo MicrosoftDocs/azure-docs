@@ -69,8 +69,9 @@ If you already have an installation of Azure AD Connect, select the **Change use
 ![Azure AD Connect: Change the user sign-in](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continue through the wizard until you get to the **Enable single sign on** page. Provide domain administrator credentials for each Active Directory forest that:
-    * You synchronize to Azure AD through Azure AD Connect.
-    * Contains users you want to enable for Seamless SSO.
+
+* You synchronize to Azure AD through Azure AD Connect.
+* Contains users you want to enable for Seamless SSO.
 
 After completion of the wizard, Seamless SSO is enabled on your tenant.
 
