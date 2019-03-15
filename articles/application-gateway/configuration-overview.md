@@ -273,7 +273,7 @@ If you own a custom domain and have mapped the existing custom DNS name to the A
 
 ### Host name override
 
-This capability replaces the *host* header in the incoming request on the application gateway to the host name you specify here. For example, if www.contoso.com is specified as the **Host name** setting, the original request https://appgw.eastus.cloudapp.net/path1 will be changed to https://www.contoso.com/path1 when the request is forwarded to the backend server. 
+This capability replaces the *host* header in the incoming request on the application gateway to the host name you specify here. For example, if www\.contoso.com is specified as the **Host name** setting, the original request https://appgw.eastus.cloudapp.net/path1 will be changed to https://www.contoso.com/path1 when the request is forwarded to the backend server. 
 
 ## Backend pool
 
