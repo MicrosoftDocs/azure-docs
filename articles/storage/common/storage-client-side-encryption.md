@@ -45,7 +45,7 @@ Decryption via the envelope technique works in the following way:
 The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
-The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **UploadFrom*** methods or the **OpenWrite** method. For downloads, both complete and range downloads are supported.
+The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **UploadFrom** methods or the **OpenWrite** method. For downloads, both complete and range downloads are supported.
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
@@ -56,7 +56,7 @@ During encryption, the client library will generate a random Initialization Vect
 
 Downloading an encrypted blob involves retrieving the content of the entire blob using the **DownloadTo**/**BlobReadStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
-Downloading an arbitrary range (**DownloadRange*** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.
+Downloading an arbitrary range (**DownloadRange** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.
 
 All blob types (block blobs, page blobs, and append blobs) can be encrypted/decrypted using this scheme.
 
