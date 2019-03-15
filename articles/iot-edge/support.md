@@ -49,6 +49,7 @@ The family of the host OS must always match the family of the guest OS used insi
 
 ### Tier 1
 Generally available
+
 | Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian-stretch | No | Yes|
@@ -56,6 +57,7 @@ Generally available
 | Ubuntu Server 18.04 | Yes | No |
 
 Public preview
+
 | Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core build 17763 | Yes | No |
