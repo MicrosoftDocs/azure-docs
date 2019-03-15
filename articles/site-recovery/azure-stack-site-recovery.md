@@ -208,7 +208,7 @@ Select and verify target resources.
 4. In **Recovery point retention**, specify how long each recovery point is kept. Replicated VMs can be recovered to any point in the specified time window.
 5. In **App-consistent snapshot frequency**, specify how often application-consistent snapshots are created.
 
-    - A app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
+    - An app-consistent snapshot is a point-in-time snapshot of the app data inside the VM.
     - Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.
 6. Select **OK** to create the policy.
 

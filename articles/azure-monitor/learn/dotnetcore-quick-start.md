@@ -1,6 +1,6 @@
 ---
 title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly setup a ASP.NET Core Web App for monitoring with Application Insights
+description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Application Insights
 services: application-insights
 keywords:
 author: mrbullwinkle
@@ -16,7 +16,7 @@ manager: carmonm
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. 
 
-This quickstart guides you through adding the Application Insights SDK to an existing ASP.Net Core web application. 
+This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ To complete this quickstart:
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - You will need an Azure subscription and an existing .NET Core web application.
 
-If you don't have a ASP.NET Core web application, you can use our step-by-step guide to [create a ASP.NET Core app and add Application Insights.](../../azure-monitor/app/asp-net-core.md)
+If you don't have an ASP.NET Core web application, you can use our step-by-step guide to [create an ASP.NET Core app and add Application Insights.](../../azure-monitor/app/asp-net-core.md)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

@@ -51,7 +51,7 @@ There are three options for **OutputStartMode**: *JobStartTime*, *CustomTime*, a
 
 *LastOutputEventTime* makes the starting point of the output event stream the same as the last event output time.
 
-For more information on the `Start-AzStreamAnalyitcsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob.md).
+For more information on the `Start-AzStreamAnalyitcsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
 ## Next steps
 

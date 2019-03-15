@@ -189,7 +189,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## Deploy app to Azure
 
-To create a an app that uses the image you just pushed, you run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
+To create an app that uses the image you just pushed, you run Azure CLI commands that create a group, then a service plan, and finally the web app itself. 
 
 ### Create a resource group
 

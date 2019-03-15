@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 10/23/2018
+ms.date: 03/12/2019
 ---
 # Get the required values for authenticating an application to access SQL Database from code
 
@@ -20,8 +20,8 @@ To create and manage SQL Database from code you must register your app in the Az
 ## Create a service principal to access resources from an application
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-You need to have the latest [Azure PowerShell](/powershell/azure) installed and running. For detailed information, see [How to install Azure PowerShell](/powershell/azure/install-az-ps).
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -41,7 +41,7 @@ The following PowerShell script creates the Active Directory (AD) application an
     $uri = "http://{app-name}"
     $secret = "{app-password}"
 
-    # Create a AAD app
+    # Create an AAD app
     $azureAdApplication = New-AzADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
     # Create a Service Principal for the app

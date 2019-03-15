@@ -146,7 +146,7 @@ public ActionResult About()
 
     ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
+    The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
     > [!NOTE] 
     > If you have any trouble starting the debugger, try to do it by using **Cloud Explorer** instead of **Server Explorer**.
@@ -342,7 +342,7 @@ The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd
 ```       
 
 4. Press CTRL+F5 to run the application.
-5. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to http://localhost:53370/trace.axd).
+5. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to `http://localhost:53370/trace.axd`).
 6. On the **Application Trace** page, click **View Details** on the first line (not the BrowserLink line).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)

@@ -1297,6 +1297,7 @@ User resources are identified by the schema identifier, `urn:ietf:params:scim:sc
 Group resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:core:2.0:Group`.  Table 2 below shows the default mapping of the attributes of groups in Azure Active Directory to the attributes of group resources.  
 
 ### Table 1: Default user attribute mapping
+
 | Azure Active Directory user | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |active |
@@ -1318,6 +1319,7 @@ Group resources are identified by the schema identifier, `urn:ietf:params:scim:s
 | user-PrincipalName |userName |
 
 ### Table 2: Default group attribute mapping
+
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |
