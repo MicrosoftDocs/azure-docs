@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
 ---
 
@@ -36,7 +36,7 @@ ms.author: mbaldwin
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Access management - Authentication| Yes | Authentication is through Azure Active Directory. |
-| Access management - Authorization| Yes | Customer created and built-in RBAC roles are used. See Use Role-Based Access Control to manage Azure Backup recovery points (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault) for more information. |
+| Access management - Authorization| Yes | Customer created and built-in RBAC roles are used. See Use Role-Based Access Control to manage Azure Backup recovery points (/azure/backup/backup-rbac-rs-vault) for more information. |
 
 
 ## Audit Trail
