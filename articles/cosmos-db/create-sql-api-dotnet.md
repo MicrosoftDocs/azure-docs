@@ -72,7 +72,29 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+You can now add data to your new collection using Data Explorer.
+
+1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
+
+   ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+  
+2. Now add a document to the collection with the following structure.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. Once you've added the json to the **Documents** tab, click **Save**.
+
+    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+
+4. Create and save one more document where you insert a unique value for the `id` property, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
 
 ## Clone the sample application
 
@@ -100,23 +122,23 @@ Now let's switch to working with code. Let's clone a [SQL API app from GitHub](h
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). In this Quickstart, you create a database and a collection by using Azure portal and add sample data by using the .Net sample. However, you can also create the database and the collection by using the .Net sample. 
 
 The following snippets are all taken from the DocumentDBRepository.cs file.
 
-* The DocumentClient is initialized on line 76.
+* The DocumentClient is initialized as shown in the following code:
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* A new database is created on line 91.
+* A new database is created as shown in the following code:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* A new collection is created on line 110.
+* A new collection is created as shown in the following code:
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -146,10 +168,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     `<add key="authKey" value="FILLME" />`
     
-5. Then update the database value to match the name of the database you have created earlier. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+5. Then update the database and collection values to match the name of the database you have created earlier. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-    `<add key="database" value="Tasks" />`    
-    
+   ```csharp
+   <add key="database" value="ToDoList"/>
+   <add key="collection" value="Items"/>
+   ```
+ 
 ## Run the web app
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then select **Manage NuGet Packages**. 
 
