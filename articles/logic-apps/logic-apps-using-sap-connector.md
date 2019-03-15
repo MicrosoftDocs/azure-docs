@@ -15,7 +15,7 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 This article shows how you can access your on-premises SAP resources from 
-inside a logic app by using the SAP ERP Central Component (ECC) connector.The connector works with both ECC and S/4 HANA systems on-premises.
+inside a logic app by using the SAP ERP Central Component (ECC) connector. The connector works with both ECC and S/4 HANA systems on-premises.
 The SAP ECC connector supports message or data integration to and from 
 SAP Netweaver-based systems through Intermediate Document (IDoc) or 
 Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
