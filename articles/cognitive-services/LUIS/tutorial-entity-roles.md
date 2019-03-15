@@ -1,5 +1,5 @@
 ---
-title: Hierarchical entity
+title: Contextual data with roles - Language Understanding
 titleSuffix: Azure Cognitive Services
 description: Find related pieces of data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services
@@ -18,28 +18,29 @@ ms.author: diberry
 
 In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.  
 
+This tutorial was previously written using hierarchical entities. Entity roles replace the need for the hierarchical entity type. A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
+
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Create new app
 > * Add intent 
-> * Add location hierarchical entity with origin and destination children
+> * Get origin and destination information using roles
 > * Train
 > * Publish
-> * Get intents and entities from endpoint
+> * Get intents and entity roles from endpoint
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Hierarchical data
+## Related data
 
-This app determines where an employee is to be moved from the origin city to the destination city. It uses the hierarchical entity to determine the locations within the utterance. 
+This app determines where an employee is to be moved from the origin city to the destination city. It uses a GeographyV2 prebuilt entity to identify the city names and it uses roles to determine the location types (origin and destination) within the utterance.
 
-The hierarchical entity is a good fit for this type of data because the two pieces of data, child locations:
+A role should be used when the entity data to extract:
 
-* Are simple entities.
-* Are related to each other in the context of the utterance.
-* Use specific word choice to indicate each entity. Examples of these words include: from/to, leaving/headed to, away from/toward.
-* Both children are frequently in the same utterance. 
+* Is related to each other in the context of the utterance.
+* Uses specific word choice to indicate each role. Examples of these words include: from/to, leaving/headed to, away from/toward.
+* Both roles are frequently in the same utterance, allowing LUIS to learn from this frequent contextual usage.
 * Need to be grouped and processed by client app as a unit of information.
 
 ## Create a new app
@@ -54,7 +55,7 @@ The hierarchical entity is a good fit for this type of data because the two piec
 
 1. Enter `MoveEmployeeToCity` in the pop-up dialog box then select **Done**. 
 
-    ![Screenshot of create new intent dialog with](./media/luis-quickstart-intent-and-hier-entity/create-new-intent-move-employee-to-city.png)
+    ![Screenshot of create new intent dialog with](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
 1. Add example utterances to the intent.
 
@@ -70,36 +71,35 @@ The hierarchical entity is a good fit for this type of data because the two piec
     |Transfer Steve Standish from San Diego toward Bellevue |
     |lift Tanner Thompson from Kansas city and shift to Chicago|
 
-    [![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Screenshot of LUIS with new utterances in MoveEmployee intent](./media/tutorial-entity-roles/hr-enter-utterances.png)](./media/tutorial-entity-roles/hr-enter-utterances.png#lightbox)
 
-## Create a location entity
-LUIS needs to understand what a location is by labeling the origin and destination in the utterances. If you need to see the utterance in the token (raw) view, select the toggle in the bar above the utterances labeled **Entities View**. After you toggle the switch, the control is labeled **Tokens View**.
+## Add prebuilt entity geographyV2
 
-Consider the following utterance:
+The prebuilt entity, geographyV2, extracts location information, including city names. Since the utterances have two city names, relating to each other in context, use roles to extract that context.
 
-```json
-move John W. Smith leaving Seattle headed to Dallas
-```
+1. Select **Entities** from the left-side navigation.
 
-The utterance has two locations specified, `Seattle` and `Dallas`. Both are grouped as children of a hierarchical entity, `Location`, because both pieces of data need to be extracted from the utterance to complete the request in the client application and they are related to each other. 
- 
-If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
+1. Select **Add prebuilt entity**, then select `geo` in the search bar to filter the prebuilt entities. 
+
+    ![Add geographyV2 prebuilt entity to app](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
+1. Select the checkbox and select **Done**.
+1. In the **Entities** list, select the geographyV2
 
 1. In the utterance, `move John W. Smith leaving Seattle headed to Dallas`, select the word `Seattle`. A drop-down menu appears with a text box at the top. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu. 
 
-    [![Screenshot of creating new entity on intent page](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
+    [![Screenshot of creating new entity on intent page](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-1.png "Screenshot of creating new entity on intent page")](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
 
-    ![Screenshot of entity creation pop-up dialog for new Location entity](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
+    ![Screenshot of entity creation pop-up dialog for new Location entity](media/tutorial-entity-roles/hr-create-new-entity-2.png "Screenshot of entity creation pop-up dialog for new Location entity")
 
 1. The label for `Seattle` is marked as `Location` because LUIS doesn't know if the term was the origin or destination, or neither. Select `Seattle`, then select **Location**, then follow the menu to the right and select `Origin`.
 
-    [![Screenshot of entity labeling pop-up dialog to change locations entity child](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
+    [![Screenshot of entity labeling pop-up dialog to change locations entity child](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-2.png "Screenshot of entity labeling pop-up dialog to change locations entity child")](media/tutorial-entity-roles/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Label the other locations in all the other utterances. When all locations are marked, the utterances begin to look like a pattern. 
 
-    [![Screenshot of Locations entity labeled in utterances](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "Screenshot of Locations entity labeled in utterances")](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png#lightbox)
+    [![Screenshot of Locations entity labeled in utterances](media/tutorial-entity-roles/all-intents-marked-with-origin-and-destination-location.png "Screenshot of Locations entity labeled in utterances")](media/tutorial-entity-roles/all-intents-marked-with-origin-and-destination-location.png#lightbox)
 
     The red underline indicates LUIS is not confident about the entity. Training resolves this. 
 

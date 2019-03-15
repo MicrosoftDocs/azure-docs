@@ -61,9 +61,9 @@
       href: luis-quickstart-intents-regex-entity.md
     - name: Get exact text matches with lists
       href: luis-quickstart-intent-and-list-entity.md
-    - name: Get contextually-related data with hierarchical entities
-      href: luis-quickstart-intent-and-hier-entity.md
-      displayName: roles
+    - name: Get related data with entity roles
+      href: tutorial-entity-roles.md
+      displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
       displayName: roles

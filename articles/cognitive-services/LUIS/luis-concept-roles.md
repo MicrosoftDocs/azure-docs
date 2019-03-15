@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 # Entity roles in patterns are contextual subtypes
 
-Roles allow entities to have named subtypes. Roles can be used with custom and prebuilt entities. 
+Roles allow entities to have named subtypes. A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
