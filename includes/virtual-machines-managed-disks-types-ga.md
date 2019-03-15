@@ -32,7 +32,7 @@ Azure standard SSDs are a cost-effective storage option optimized for workloads 
 
 Sizes marked with an asterisk are currently in preview.
 
-| Standard SSD sizes  | E4                   | E6                   | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
+| Standard SSD sizes  | E4                  | E6               | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
 |---------------------|---------------------|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Disk size in GiB           | 32             | 64             | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
 | IOPS per disk       | Up to 120              | Up to 240              | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
