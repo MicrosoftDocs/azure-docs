@@ -185,7 +185,7 @@ During preview, valid filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The preview release only supports `blockBlob`. | Yes |
-| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if you want to match all blobs under "https://myaccount.blob.core.windows.net/container1/foo/..." for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rules apply to all blobs within the account. | No |
+| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if you want to match all blobs under "<https://myaccount.blob.core.windows.net/container1/foo/>..." for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rules apply to all blobs within the account. | No |
 
 ### Rule actions
 

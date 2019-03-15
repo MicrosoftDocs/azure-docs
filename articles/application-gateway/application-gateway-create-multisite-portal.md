@@ -15,7 +15,7 @@ ms.author: victorh
 ---
 # Create an application gateway with multiple site hosting using the Azure portal
 
-You can use the Azure portal to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use the Azure portal to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.fabrikam.com*.
 
 In this article, you learn how to:
 
@@ -133,10 +133,10 @@ In this example, you create two virtual machines to be used as backend servers f
 2. Enter these values for the listener:
     
    - *contosoListener* - for the name of the listener.
-   - *www.contoso.com* - replace this host name example with your domain name.
+   - *www\.contoso.com* - replace this host name example with your domain name.
 
 3. Click **OK**.
-4. Create a second listener using the name of *fabrikamListener* and use your second domain name. In this example, *www.fabrikam.com* is used.
+4. Create a second listener using the name of *fabrikamListener* and use your second domain name. In this example, *www\.fabrikam.com* is used.
 
 Rules are processed in the order they are listed, and traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
 
