@@ -65,13 +65,13 @@ Logical AND operator. Same as &&
 <code>asin</code>
 ==============================
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse sine value
+Calculates an inverse sine value
 * ``asin(0) -> 0.0``
 *********************************
 <code>atan</code>
 ==============================
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse tangent value
+Calculates an inverse tangent value
 * ``atan(0) -> 0.0``
 *********************************
 <code>atan2</code>
