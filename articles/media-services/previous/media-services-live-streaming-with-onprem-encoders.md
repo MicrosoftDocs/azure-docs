@@ -181,7 +181,7 @@ Possible values for the current state of a channel include:
 The following table shows how channel states map to the billing mode.
 
 | Channel state | Portal UI indicators | Billed? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Starting** |**Starting** |No (transient state) |
 | **Running** |**Ready** (no running programs)<p><p>or<p>**Streaming** (at least one running program) |Yes |
 | **Stopping** |**Stopping** |No (transient state) |

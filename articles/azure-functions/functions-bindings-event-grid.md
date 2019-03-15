@@ -317,7 +317,7 @@ For a complete example, see C# example.
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
 |function.json property |Description|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Required - must be set to `eventGridTrigger`. |
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code for the parameter that receives the event data. |

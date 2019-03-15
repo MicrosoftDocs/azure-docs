@@ -160,7 +160,6 @@ To customize the installation, take the following steps:
 
 5. Wait for the new instance to be ready. Note the Presto coordinator address:
 
-
     `sudo slider registry --name presto1 --getexp presto`
 
 ## Generate benchmark data for HDInsight clusters that run Presto
