@@ -64,7 +64,7 @@ The text is highlighted in blue, indicating an entity.
 
 ## Add a prebuilt entity
 
-For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity).
+For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ## Using the contextual toolbar
 

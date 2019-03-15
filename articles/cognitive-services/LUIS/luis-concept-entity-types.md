@@ -139,7 +139,7 @@ A hierarchical entity is a category of contextually learned simple entities call
 
 ### Roles versus hierarchical entities
 
-[Roles](luis-concept-roles.md#roles-versus-hierarchical-entities) solve the same problem as hierarchical entities but apply to all entity types.  
+[Roles](luis-concept-roles.md) solve the same problem as hierarchical entities but apply to all entity types.  
 
 ## List entity
 
