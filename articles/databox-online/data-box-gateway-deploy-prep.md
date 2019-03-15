@@ -25,8 +25,6 @@ In this tutorial, you learn how to:
 > * Download the virtual device image
 > * Get the activation key
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 
 > [!IMPORTANT]
 > - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
@@ -85,28 +83,32 @@ If you have an existing Data Box Gateway resource to manage your virtual devices
 
 To create a Data Box Gateway resource, take the following steps in the Azure portal .
 
-1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](http://portal.azure.com). 
+1. Use your Microsoft Azure credentials to sign in to:
+
+    - The Azure portal at this URL: [https://portal.azure.com](http://portal.azure.com).
+    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
 2. In the left-pane, select **+ Create a resource**. Search for **Data Box Edge / Data Box Gateway**. Select Data Box Edge / Data Box Gateway. Select **Create**.
 3. Pick the subscription that you want to use for Data Box Gateway device. Select the region where you want to deploy the Data Box Gateway resource. For this release, East US, South East Asia, and West Europe are available. Choose a location closest to the geographical region where you want to deploy your device. In the **Data Box Gateway** option, select **Create**.
 
     ![Search Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-3. On the **Basics** tab, enter or select the following **Project details**.
+4. On the **Basics** tab, enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
 
-4. Enter or select the following **Instance details**.
+5. Enter or select the following **Instance details**.
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |   
-    |Region     |For this release, East US, South East Asia, and West Europe are available to deploy your resource. <br> Choose a location closest to the geographical region where you want to deploy your device.|
+    |Region     |For this release, East US, South East Asia, and West Europe are available to deploy your resource. For the Azure Government, all the government regions listed in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
     
     ![Create Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
-4. Select **Review + create**.
+6. Select **Review + create**.
  
-5. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
+7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
 
     ![Review Data Box Gateway resource details](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 
