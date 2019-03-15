@@ -34,16 +34,16 @@ This section shows you how to create and run a job. Each step goes through an ex
 
 1. On the right-hand side, pick and choose the devices you’d like to run the job on. By selecting the top check box, all devices are selected in the entire device set. By selecting the check box near Name, all devices on the current page are selected.
 
-1. Once your desired devices have been selected, choose **Run**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs. Your running job will always show up at the top of the list.
+1. Once your desired devices have been selected, choose **Run** or **Save**. The job will now appear on your main **Jobs** page. On this view, you are able to see your currently running job and the history of any previously run jobs. Your running job will always show up at the top of the list. Your saved job can be opened again at any time to continue editing or to run at a later time.
 
     ![View job](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > You will be able to view the history of your previously run jobs for up to 30 days.
 
-1. To get an overview of your job, select the job name you wish to view from your list. This overview contains the job details, devices, and device statuses.
+1. To get an overview of your job, select the job name you wish to view from your list. This overview contains the job details, devices, and device statuses. From this overview, you can also select **Download Job Details** to download a .csv file of your job details, including the devices and their statuses which can be useful for troubleshooting purposes.
 
-    ![View device status](./media/howto-run-a-job/viewdevicestatus.png)
+    ![View device status](./media/howto-run-a-job/downloaddetails.png)
 
 ### Stop a running job
 
@@ -56,6 +56,12 @@ If you would like to stop a job that is currently running, select the name of th
 If you would like to run a job that is currently stopped, select the name of the stopped job that you would like to run. Choose the **Run** button on the panel. You'll see that the job status has changed to reflect that the job is now running again.
 
    ![Resumed job](./media/howto-run-a-job/resumejob.png)
+
+## Copy a job
+
+In order to copy an existing job you've created, select a job from the main jobs page and click **Copy**. This will open up a new copied job for you to edit the configuration of and either save or run again. If any changes have been made to your selected device set, they will be reflected in this copied job for you to edit.
+
+   ![Copy job](./media/howto-run-a-job-experimental/copyjob.png)
 
 ## View the job status
 
@@ -78,7 +84,7 @@ The status message is followed by an overview of the devices within the job. The
 
 ### View the device status
 
-In order to view the status of each device in the job, select the job name. Here you'll see the details of the job and all of the devices that were a part of this specific job. Next to each device name, you'll see one of the following status messages:
+In order to view the status of each device in the job, select the job name. Here you'll see the details of the job and all of the devices that were a part of this specific job. You can select **Download Job Details** to download a .csv file of your job details, including the devices and their statuses. Next to each device name, you'll see one of the following status messages:
 
 | Status message       | Status meaning                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
