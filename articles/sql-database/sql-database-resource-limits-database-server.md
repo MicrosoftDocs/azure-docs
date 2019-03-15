@@ -30,7 +30,7 @@ This article provides an overview of the SQL Database resource limits for a SQL 
 | DTU / eDTU quota per server | 54,000 |  
 | vCore quota per server/instance | 540 |
 | Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
-||||
+|||
 
 > [!NOTE]
 > To obtain more DTU /eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server.
@@ -89,7 +89,7 @@ Log rate governor traffic shaping is surfaced via the following wait types (expo
 | INSTANCE_LOG_RATE_GOVERNOR | Instance level limiting |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback control, availability group physical replication in Premium/Business Critical not keeping up |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback control, limiting rates to avoid an out of log space condition |
-||||
+|||
 
 When encountering a log rate limit that is hampering desired scalability, consider the following options:
 - Scale up to a larger tier in order to get the maximum 48 MB/s log rate. 

@@ -277,7 +277,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
 In a few seconds, Visual Studio publishes your web application and launch a browser where you can see your project running in Azure!
 
 ## Next steps
-In this tutorial, you've learned how to build a ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
+In this tutorial, you've learned how to build an ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Build a Java application to access data stored in SQL API account of Azure Cosmos DB]( sql-api-java-application.md)

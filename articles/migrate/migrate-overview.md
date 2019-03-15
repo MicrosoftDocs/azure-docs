@@ -26,7 +26,7 @@ Azure Migrate helps you to:
 ## Current limitations
 
 - You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, 6.5 or 6.7).
-- Support for Hyper-V is currently in preview with production support, if you are interested in trying it out, please sign up [here.](http://aka.ms/migratefuture)
+- Support for Hyper-V is currently in preview with production support, if you are interested in trying it out, please sign up [here.](https://aka.ms/migratefuture)
 - For assessment of physical servers, you can leverage our [partner tools](https://azure.microsoft.com/migration/partners/).
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
@@ -86,11 +86,11 @@ Assessment settings can be customized based on your needs. Assessment properties
 
 The table summarizes the ports needed for Azure Migrate communications.
 
-Component | Communicates with |  Details
---- | --- |---
-Collector  | Azure Migrate service | The collector connects to the service over SSL port 443.
-Collector | vCenter Server | By default the collector connects to the vCenter Server on port 443. If the server listens on a different port, configure it as an outgoing port on the collector VM.
-On-premises VM | Log Analytics Workspace | [TCP 443] | [The Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) uses TCP port 443 to connect to Azure Monitor logs. You only need this port if you're using dependency visualization, that requires the MMA agent.
+| Component | Communicates with |  Details | |
+| --- | --- |--- | --- |
+|Collector  | Azure Migrate service | The collector connects to the service over SSL port 443.| |
+|Collector | vCenter Server | By default the collector connects to the vCenter Server on port 443. If the server listens on a different port, configure it as an outgoing port on the collector VM.| |
+|On-premises VM | Log Analytics Workspace | [TCP 443] | [The Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) uses TCP port 443 to connect to Azure Monitor logs. You only need this port if you're using dependency visualization, that requires the MMA agent.|
 
 
 ## What happens after assessment?

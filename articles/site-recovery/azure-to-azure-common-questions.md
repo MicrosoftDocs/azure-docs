@@ -101,7 +101,7 @@ Because of their extra content, application-consistent snapshots are the most in
 Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
 
 ### What is the minimum frequency of application-consistent recovery point generation?
-Site Recovery can creates a application-consistent recovery point with a minimum frequency of in 1 hour.
+Site Recovery can creates an application-consistent recovery point with a minimum frequency of in 1 hour.
 
 ### How are recovery points generated and saved?
 To understand how Site Recovery generates recovery points, let's take an example of a replication policy that has a recovery point retention window of 24 hours and an app-consistent frequency snapshot of 1 hour.

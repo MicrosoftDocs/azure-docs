@@ -60,10 +60,9 @@ Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft
 ### What do I need on-premises?
 
 You need one or more VMs running on one or more standalone or clustered Hyper-V hosts. You can also replicate VMs running on hosts managed by System Center Virtual Machine Manager (VMM).
-    - If you're not running VMM, during Site Recovery deployment, you gather Hyper-V hosts and clusters into Hyper-V sites. You install the Site Recovery agents (Azure Site Recovery Provider and Recovery Services agent) on each Hyper-V host.
-    - If Hyper-V hosts are located in a VMM cloud, you orchestrate replication in VMM. You install the Site Recovery Provider on the VMM server, and the Recovery Services agent on each Hyper-V host. You map between VMM logical/VM networks, and Azure VNets.
-    - 
-[Learn more](hyper-v-azure-architecture.md) about Hyper-V to Azure architecture.
+- If you're not running VMM, during Site Recovery deployment, you gather Hyper-V hosts and clusters into Hyper-V sites. You install the Site Recovery agents (Azure Site Recovery Provider and Recovery Services agent) on each Hyper-V host.
+- If Hyper-V hosts are located in a VMM cloud, you orchestrate replication in VMM. You install the Site Recovery Provider on the VMM server, and the Recovery Services agent on each Hyper-V host. You map between VMM logical/VM networks, and Azure VNets.
+- [Learn more](hyper-v-azure-architecture.md) about Hyper-V to Azure architecture.
 
 ### Can I replicate VMs located on a Hyper-V cluster?
 

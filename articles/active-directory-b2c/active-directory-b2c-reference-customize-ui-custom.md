@@ -62,7 +62,7 @@ To ensure that everything works as expected, you must:
 - Ensure your content is HTML5 compliant and accessible
 - Ensure your content server is enabled for CORS.
 - Serve content over HTTPS.
-- Use absolute URLS such as https://yourdomain/content for all links and CSS content.
+- Use absolute URLS such as `https://yourdomain/content` for all links and CSS content.
 
 > [!TIP]
 > To verify that the site you are hosting your content on has CORS enabled and test CORS requests, you can use the site https://test-cors.org/. Thanks to this site, you can either send the CORS request to a remote server (to test if CORS is supported), or send the CORS request to a test server (to explore certain features of CORS).

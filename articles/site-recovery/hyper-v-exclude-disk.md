@@ -209,7 +209,7 @@ Here are the paging file settings on the on-premises virtual machine:
 
 After failover of the virtual machine from Hyper-V to Azure, disks on the Azure virtual machine are as follows:
 
-**Disk name**| **Guest operating system disk#**| **Drive letter** | **Data type on the disk**
+**Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Operating system disk
 DB-Disk1 | Disk1 | D:\ | Temporary storage<br /> <br />pagefile.sys

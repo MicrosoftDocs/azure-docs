@@ -21,9 +21,6 @@ For a complete list of supported languages, locales, and voices (neural and stan
 
 The following sections provide samples for common speech synthesis tasks.
 
->[!IMPORTANT]
-> Currently, prosody tagging is only available for standard voices.
-
 ## Add a break
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -33,6 +30,9 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change speaking rate
+
+Speaking rate can be applied to standard voices at the word or sentence-level. Whereas speaking rate can only be applied to neural voices at the sentence level.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -50,6 +50,9 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change volume
+
+Volume changes can be applied to standard voices at the word or sentence-level. Whereas volume changes can only be applied to neural voices at the sentence level.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -59,6 +62,9 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change pitch
+
+Pitch changes can be applied to standard voices at the word or sentence-level. Whereas pitch changes can only be applied to neural voices at the sentence level.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -67,6 +73,10 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change pitch contour
+
+> [!IMPORTANT]
+> Pitch contour changes aren't supported with neural voices.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>

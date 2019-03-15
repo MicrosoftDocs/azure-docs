@@ -412,6 +412,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 1. Click the load balancer, click **Load balancing rules**, and click **+Add**.
 
 1. Set the listener load balancing rules as follows.
+
    | Setting | Description | Example
    | --- | --- |---
    | **Name** | Text | SQLAlwaysOnEndPointListener |
@@ -452,6 +453,7 @@ The WSFC IP address also needs to be on the load balancer.
 1. Set the load balancing rules. Click **Load balancing rules**, and click **+Add**.
 
 1. Set the cluster core IP address load balancing rules as follows.
+
    | Setting | Description | Example
    | --- | --- |---
    | **Name** | Text | WSFCEndPoint |

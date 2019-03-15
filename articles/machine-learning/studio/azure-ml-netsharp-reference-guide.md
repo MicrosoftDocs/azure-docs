@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
@@ -211,9 +211,9 @@ There are two sets of properties that control padding, the properties being mutu
 + **UpperPad** and **LowerPad**: (optional) Provide greater control over the amount of padding to use. **Important:** These attributes can be defined if and only if the **Padding** property above is ***not*** defined. The values should be integer-valued tuples with lengths that are the arity of the bundle. When these attributes are specified, "dummy" nodes are added to the lower and upper ends of each dimension of the input layer. The number of nodes added to the lower and upper ends in each dimension is determined by **LowerPad**[i] and **UpperPad**[i] respectively.
 
     To ensure that kernels correspond only to "real" nodes and not to "dummy" nodes, the following conditions must be met:
-      - Each component of **LowerPad** must be strictly less than `KernelShape[d]/2`.
-      - Each component of **UpperPad** must be no greater than `KernelShape[d]/2`.
-      - The default value of these attributes is a tuple with all components equal to 0.
+    - Each component of **LowerPad** must be strictly less than `KernelShape[d]/2`.
+    - Each component of **UpperPad** must be no greater than `KernelShape[d]/2`.
+    - The default value of these attributes is a tuple with all components equal to 0.
 
     The setting **Padding** = true allows as much padding as is needed to keep the "center" of the kernel inside the "real" input. This changes the math a bit for computing the output size. Generally, the output size *D* is computed as `D = (I - K) / S + 1`, where `I` is the input size, `K` is the kernel size, `S` is the stride, and `/` is integer division (round toward zero). If you set UpperPad = [1, 1], the input size `I` is effectively 29, and thus `D = (29 - 5) / 2 + 1 = 13`. However, when **Padding** = true, essentially `I` gets bumped up by `K - 1`; hence `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. By specifying values for **UpperPad** and **LowerPad** you get much more control over the padding than if you just set **Padding** = true.
 
