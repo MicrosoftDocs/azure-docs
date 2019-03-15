@@ -230,9 +230,9 @@ Azure Service Bus can be used in Azure Government supporting impact level 5 work
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Service Bus** | X[^1] | X[^1] | X[^1] | X[^1] | X | X |
+| **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
- [^1]: Use client-side encryption to encrypt data prior to leveraging Azure Service Bus?
+ <sup>1</sup>: Use client-side encryption to encrypt data prior to leveraging Azure Service Bus?
 
 ### Azure Event Hubs
 
@@ -242,9 +242,9 @@ Azure Event Hubs can be used in Azure Government supporting impact level 5 workl
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Event Hubs** | X[^2] | X[^2] | X[^2] | X[^2] | X | X |
+| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
-[^2]: Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
+<sup>1</sup>: Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
 
 ### Azure API Management
 
