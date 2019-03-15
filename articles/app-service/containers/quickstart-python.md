@@ -31,7 +31,7 @@ You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites 
+## Prerequisites
 
 To complete this quickstart:
 
