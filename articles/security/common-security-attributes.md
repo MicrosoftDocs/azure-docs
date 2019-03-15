@@ -172,7 +172,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
 | Encryption in Transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
-| Encryption Key Handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](../articles/storage/common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Encryption Key Handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](../articles/storage/common/storage-service-encryption-customer-managed-keys.md).|
 | Column Level Encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |
 
@@ -210,4 +210,4 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management su
+| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |
