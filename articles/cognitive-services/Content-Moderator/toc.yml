@@ -37,6 +37,8 @@
     href: text-moderation-api.md
   - name: Video moderation
     href: video-moderation-human-review.md
+  - name: The Review tool
+    href: Review-Tool-User-Guide/human-in-the-loop.md
   - name: Reviews, workflows, and jobs
     href: review-api.md
   - name: Workflows
@@ -85,8 +87,6 @@
           href: try-review-api-job.md
         - name: Reviews - API console
           href: try-review-api-review.md
-    - name: Review tool overview
-      href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: Review tool settings
       href: Review-Tool-User-Guide/Configure.md
     - name: Manage team

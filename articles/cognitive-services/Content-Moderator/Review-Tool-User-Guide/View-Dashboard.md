@@ -10,7 +10,7 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-
+#this should redirect to the dashboard section of the Review tool conceptual
 ---
 
 # View Dashboard
