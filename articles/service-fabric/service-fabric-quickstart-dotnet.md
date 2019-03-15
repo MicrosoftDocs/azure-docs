@@ -43,9 +43,10 @@ To complete this quickstart:
 2. [Install Git](https://git-scm.com/)
 3. [Install the Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Run the following command to enable Visual Studio to deploy to the local Service Fabric cluster:
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
 	
 ## Build a cluster
 
@@ -62,14 +63,14 @@ After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docke
 1. Open a new, elevated PowerShell window as an administrator.
 2. Run the following PowerShell command to create a development cluster:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. Run the following command to start the local cluster manager tool:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > The sample application in this quickstart uses features that are not available on Windows 7.
