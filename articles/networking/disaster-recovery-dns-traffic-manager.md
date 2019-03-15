@@ -68,7 +68,7 @@ The Azure DNS manual failover solution for disaster recovery uses the standard D
 
 The assumptions made for the solution are:
 - Both primary and secondary endpoints have static IPs that don’t change often. Say for the primary site the IP is 100.168.124.44 and the IP for the secondary site is 100.168.124.43.
-- An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www.contoso.com also exists.   
+- An Azure DNS zone exists for both the primary and secondary site. Say for the primary site the endpoint is prod.contoso.com and for the backup site is dr.contoso.com. A DNS record for the main application known as www\.contoso.com also exists.   
 - The TTL is at or below the RTO SLA set in the organization. For example, if an enterprise sets the RTO of the application disaster response to be 60 mins, then the TTL should be less than 60 mins, preferably the lower the better. 
   You can set up Azure DNS for manual failover as follows:
 - Create a DNS zone
@@ -76,7 +76,7 @@ The assumptions made for the solution are:
 - Update CNAME record
 
 ### Step 1: Create a DNS
-Create a DNS zone (for example, www.contoso.com) as shown below:
+Create a DNS zone (for example, www\.contoso.com) as shown below:
 
 ![Create a DNS zone in Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -84,13 +84,13 @@ Create a DNS zone (for example, www.contoso.com) as shown below:
 
 ### Step 2: Create DNS zone records
 
-Within this zone create three records (for example - www.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
+Within this zone create three records (for example - www\.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
 
 ![Create DNS zone records](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figure - Create DNS zone records in Azure*
 
-In this scenario, site, www.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. This configuration is during normal business operations. The TTL of prod.contoso.com and dr.contoso.com has been set to 300 seconds or 5 mins. 
+In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. This configuration is during normal business operations. The TTL of prod.contoso.com and dr.contoso.com has been set to 300 seconds or 5 mins. 
 You can use an Azure monitoring service such as Azure Monitor or Azure App Insights, or, any partner monitoring solutions such as Dynatrace, You can even use home grown solutions that can monitor or detect application or virtual infrastructure level failures.
 
 ### Step 3: Update the CNAME record
@@ -101,7 +101,7 @@ Once failure is detected, change the record value to point to dr.contoso.com as 
 
 *Figure - Update the CNAME record in Azure*
 
-Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www.contoso.com will be redirected to dr.contoso.com.
+Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www\.contoso.com will be redirected to dr.contoso.com.
 You can also run the following Azure CLI command to change the CNAME value:
  ```azurecli
    az network dns record-set cname set-record \

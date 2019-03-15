@@ -44,7 +44,7 @@ There are slight differences when securing web services across the [deployment t
 
 ## Get a domain name
 
-If you do not already own a domain name, you can purchase one from a __domain name registrar__. The process differs between registrars, as does the cost. The registrar also provides you with tools for managing the domain name. These tools are used to map a fully qualified domain name (such as www.contoso.com) to the IP address hosting your web service.
+If you do not already own a domain name, you can purchase one from a __domain name registrar__. The process differs between registrars, as does the cost. The registrar also provides you with tools for managing the domain name. These tools are used to map a fully qualified domain name (such as www\.contoso.com) to the IP address hosting your web service.
 
 ## Get an SSL certificate
 
@@ -53,7 +53,7 @@ There are many ways to get an SSL certificate (digital certificate). The most co
 * A __certificate__. The certificate must contain the full certificate chain, and must be PEM-encoded.
 * A __key__. The key must be PEM-encoded.
 
-When requesting a certificate, you must provide the fully qualified domain name (FQDN) of the address you plan to use for the web service. For example, www.contoso.com. The address stamped into the certificate and the address used by the clients are compared when validating the identity of the web service. If the addresses do not match, the clients will receive an error.
+When requesting a certificate, you must provide the fully qualified domain name (FQDN) of the address you plan to use for the web service. For example, www\.contoso.com. The address stamped into the certificate and the address used by the clients are compared when validating the identity of the web service. If the addresses do not match, the clients will receive an error.
 
 > [!TIP]
 > If the Certificate Authority cannot provide the certificate and key as PEM-encoded files, you can use a utility such as [OpenSSL](https://www.openssl.org/) to change the format.
