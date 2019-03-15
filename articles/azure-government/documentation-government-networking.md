@@ -137,11 +137,12 @@ The URLs for accessing and managing the Service Bus service are different:
 
 ## Support for Azure Firewall
 
-Azure Firewall is generally available in Azure Government.
+Azure Firewall is available in Azure Government in the following regions:
+- usgovarizona
+- usgovtexas
+- usgovvirginia
 
-You must explicitly enable Azure Firewall in the Azure Government cloud using the [Register-AzureRmProviderFeature](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermproviderfeature?view=azurermps-6.13.0) PowerShell command as shown here:
-
-`Register-AzureRmProviderFeature -FeatureName AllowAzureFirewallForGovCloud -ProviderNamespace Microsoft.Network`
+The associated portal configuration user interface is being added to regions incrementally, and will be available in all regions in the near future.
 
 For more information about Azure Firewall, see [What is Azure Firewall?](../firewall/overview.md)
 
