@@ -24,8 +24,8 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 
 - Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
- >[!Important]
- >This phone sign-in method only works with your work or school and personal Microsoft accounts. Your non-Microsoft accounts require you to use the standard two-factor verification process.
+  >[!Important]
+  >This phone sign-in method only works with your work or school and personal Microsoft accounts. Your non-Microsoft accounts require you to use the standard two-factor verification process.
 
 ## Prerequisites
 Before you can use the Microsoft Authenticator app, you must:

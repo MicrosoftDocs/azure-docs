@@ -70,17 +70,17 @@ Assessment settings can be customized based on your needs. Assessment properties
 
 ## How does Azure Migrate work?
 
-1.	You create an Azure Migrate project.
-2.	Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download a setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter Server.
+1. You create an Azure Migrate project.
+2. Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download a setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter Server.
 3. You connect to the VM from the vCenter Server, and specify a new password for it while connecting.
 4. You run the collector on the VM to initiate discovery.
 5. The collector collects VM metadata using the VMware PowerCLI cmdlets. Discovery is agentless, and doesn't install anything on VMware hosts or VMs. The collected metadata includes VM information (cores, memory, disks, disk sizes, and network adapters). It also collects performance data for VMs, including CPU and memory usage, disk IOPS, disk throughput (MBps), and network output (MBps).
-5.	The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
-6.	For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. For more precise grouping, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
-7.	After a group is defined, you create an assessment for it.
-8.	After the assessment finishes, you can view it in the portal, or download it in Excel format.
+5. The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
+6. For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. For more precise grouping, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
+7. After a group is defined, you create an assessment for it.
+8. After the assessment finishes, you can view it in the portal, or download it in Excel format.
 
-  ![Azure Migrate architecture](./media/migration-planner-overview/overview-1.png)
+   ![Azure Migrate architecture](./media/migration-planner-overview/overview-1.png)
 
 ## What are the port requirements?
 

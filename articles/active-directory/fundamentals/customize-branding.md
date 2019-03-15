@@ -99,7 +99,7 @@ After you've created your custom branding, you can go back and change anything y
 
 4. Select **Save**.
 
-  It can take up to an hour for any changes you made to the sign-in page branding to appear.
+   It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
 ## Add language-specific company branding to your directory
 You can't change your original configuration's language from your default language. However, if you need a configuration in a different language, you can create a new configuration.

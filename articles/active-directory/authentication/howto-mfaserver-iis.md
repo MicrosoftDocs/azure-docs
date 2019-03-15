@@ -36,9 +36,9 @@ To secure an IIS web application that uses form-based authentication, install th
 10. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.
 11. Click **Advanced** to review advanced settings, including:
 
-  - Select a custom denial page file
-  - Cache successful authentications to the website for a period of time using cookies
-  - Select whether to authenticate the primary credentials against a Windows Domain, LDAP directory. or RADIUS server.
+    - Select a custom denial page file
+    - Cache successful authentications to the website for a period of time using cookies
+    - Select whether to authenticate the primary credentials against a Windows Domain, LDAP directory. or RADIUS server.
 
 12. Click **OK** to return to the Add Form-Based Website dialog box.
 13. Click **OK**.

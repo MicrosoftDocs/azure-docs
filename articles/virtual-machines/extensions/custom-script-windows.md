@@ -119,12 +119,12 @@ These items should be treated as sensitive data and specified in the extensions 
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 #### Property value details
- * `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
-* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
-* `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
+* `commandToExecute`: (**required**, string)  the entry point script to execute. Use this field instead if your command contains secrets such as passwords, or your fileUris are sensitive.
+  * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
+  * `timestamp` (optional, 32-bit integer) use this field only to trigger a rerun of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
-* `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
-* `storageAccountKey`: (optional, string) the access key of storage account
+  * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
+  * `storageAccountKey`: (optional, string) the access key of storage account
 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 * `commandToExecute`

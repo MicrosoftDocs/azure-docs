@@ -82,4 +82,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
  - [Azure Stack PowerShell Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
 =======
 - [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
->>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
+  >>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf

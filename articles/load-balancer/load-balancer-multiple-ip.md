@@ -101,15 +101,15 @@ For each website (contoso.com and fabrikam.com), configure the front-end IP pool
 
 2. Configure two public IP addresses (**PublicIP1** and **PublicIP2**) for both websites (contoso.com and fabrikam.com):
 
-    1. Type a name for your front-end IP address.
+   1. Type a name for your front-end IP address.
 
-    2. For **Resource Group**, select the existing resource group for your VMs (for example, **contosofabrikam**).
+   2. For **Resource Group**, select the existing resource group for your VMs (for example, **contosofabrikam**).
 
-    3. For **Location**, select the same location as the VMs.
+   3. For **Location**, select the same location as the VMs.
 
-    4. Select **OK**.
+   4. Select **OK**.
 
-    After the public IP addresses are created, they are displayed under the **Public IP** addresses.
+      After the public IP addresses are created, they are displayed under the **Public IP** addresses.
 
 3. <a name="step3-3"></a>In the portal, select **More services**. In the filter box, type **load balancer** and then select **Load Balancer**. 
 

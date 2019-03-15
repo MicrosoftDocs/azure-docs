@@ -130,23 +130,23 @@ To look at what happens in the code, complete the following steps:
 2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front end's api controller.
-    * This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+   * This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
-    ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * First, construct the URL to the ReverseProxy for our back-end service **(1)**.
-    * Then, send the HTTP PUT Request to the ReverseProxy **(2)**.
-    * Finally, return the response from the back-end service to the client **(3)**.
+   * First, construct the URL to the ReverseProxy for our back-end service **(1)**.
+   * Then, send the HTTP PUT Request to the ReverseProxy **(2)**.
+   * Finally, return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
-    - If prompted by the browser, grant ServiceFabricAllowedUsers group read and execute permissions for Debug Mode.
-    - You are now at the break point in the back-end service.
+   - If prompted by the browser, grant ServiceFabricAllowedUsers group read and execute permissions for Debug Mode.
+   - You are now at the break point in the back-end service.
 
-    ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * In the first line in the method **(1)** the `StateManager` gets or adds a reliable dictionary called `counts`.
-    * All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    * In the transaction, update the value of the relevant key for the voting option and commit the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+   - In the first line in the method **(1)** the `StateManager` gets or adds a reliable dictionary called `counts`.
+   - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+   - In the transaction, update the value of the relevant key for the voting option and commit the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 5. Press **F5** to continue
 
 To stop the debugging session, press **Shift+F5**.

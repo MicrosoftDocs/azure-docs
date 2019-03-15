@@ -214,12 +214,12 @@ Even when using the storage emulator for development, you may want to test with 
 
 + Use Core Tools to download the connection string from Azure with one of the following commands:
 
-    + Download all settings from an existing function app:
+  + Download all settings from an existing function app:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Get the Connection string for a specific storage account:
+  + Get the Connection string for a specific storage account:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>

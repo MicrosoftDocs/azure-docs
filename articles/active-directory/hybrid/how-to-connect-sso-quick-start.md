@@ -121,11 +121,11 @@ There are two ways to modify users' Intranet zone settings:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
 
-    The result looks like this:
+     The result looks like this:
 
-    Value name: `https://autologon.microsoftazuread-sso.com`
+     Value name: `https://autologon.microsoftazuread-sso.com`
   
-    Value (Data): 1
+     Value (Data): 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.
@@ -157,9 +157,9 @@ There are two ways to modify users' Intranet zone settings:
    - **Value type**: ***REG_DWORD***.
    - **Value data**: ***00000001***.
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### Browser considerations
 

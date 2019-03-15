@@ -106,13 +106,13 @@ To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module t
 
     This example gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules that are used in this scenario are:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell folders][functions5]
+     ![PowerShell folders][functions5]
 
 1. Select **Function app settings** > **Go to App Service Editor**.
 

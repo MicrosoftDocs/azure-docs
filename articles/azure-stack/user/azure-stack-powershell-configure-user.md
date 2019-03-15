@@ -99,5 +99,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 - [Develop templates for Azure Stack](azure-stack-develop-templates.md)  
 - [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)  
 - [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
->>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
+  >>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
 - If you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) article.

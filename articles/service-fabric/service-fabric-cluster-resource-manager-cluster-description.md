@@ -189,9 +189,9 @@ The “quorum safe” approach provides more flexibility than the “maximum dif
 Because both of the approaches have strengths and weaknesses, we've introduced an adaptive approach that combines these two strategies.
 
 > [!NOTE]
->This will be the default behavior starting with Service Fabric Version 6.2. 
->
-The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the (number of Fault Domains) * (the number of Upgrade Domains), the Cluster Resource Manager should utilize the “quorum based” logic for that service.* Bear in mind that the Cluster Resource Manager will use this approach for both stateless and stateful services, despite quorum loss not being relevant for stateless services.
+> This will be the default behavior starting with Service Fabric Version 6.2. 
+> 
+> The adaptive approach uses the “maximum difference” logic by default and switches to the “quorum safe” logic only when necessary. The Cluster Resource Manager automatically figures out which strategy is necessary by looking at how the cluster and services are configured. For a given service: *If the TargetReplicaSetSize is evenly divisible by the number of Fault Domains and the number of Upgrade Domains **and** the number of nodes is less than or equal to the (number of Fault Domains) * (the number of Upgrade Domains), the Cluster Resource Manager should utilize the “quorum based” logic for that service.* Bear in mind that the Cluster Resource Manager will use this approach for both stateless and stateful services, despite quorum loss not being relevant for stateless services.
 
 Let’s go back to the previous example and assume that a cluster now has 8 nodes (the cluster is still configured with five Fault Domains and five Upgrade Domains and the TargetReplicaSetSize of a service hosted on that cluster remains five). 
 

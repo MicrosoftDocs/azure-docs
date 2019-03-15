@@ -158,10 +158,10 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
 
     d. In **Used for Environments** textbox, select the environment name.  
 
-    >[!NOTE]
-    > The value of the Environment attribute is tied to the value of the tenant URL:  
-    >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
-    >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+   > [!NOTE]
+   > The value of the Environment attribute is tied to the value of the tenant URL:  
+   > -If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
+   > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
 4. In the **SAML Setup** section, perform the following steps:
 
