@@ -87,8 +87,6 @@
           href: try-review-api-job.md
         - name: Reviews - API console
           href: try-review-api-review.md
-    - name: Review tool settings
-      href: Review-Tool-User-Guide/Configure.md
     - name: Manage team
       href: Review-Tool-User-Guide/SubTeams.md
     - name: Use tags
@@ -103,12 +101,14 @@
       href: Review-Tool-User-Guide/Connectors.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
-  - name: Define and use Workflows
+  - name: Define and use workflows
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Workflows.md
     - name: REST API
       href: try-review-api-workflow.md
+  - name: Configure the Review tool
+    href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Azure webinar series
