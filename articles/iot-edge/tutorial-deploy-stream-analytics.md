@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
 <center>
+
 ![Diagram - Tutorial architecture, stage and deploy ASA job](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 

@@ -72,6 +72,7 @@ Upgrade Domains are useful for modeling areas where software is going to be upgr
 You can visualize the layout of your cluster using the cluster map provided in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
 <center>
+
 ![Nodes spread across fault domains in Service Fabric Explorer][sfx-cluster-map]
 </center>
 

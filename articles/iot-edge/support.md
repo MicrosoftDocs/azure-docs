@@ -26,6 +26,7 @@ Azure IoT Edge needs a container engine to launch modules since they are impleme
 
 <br>
 <center>
+
 ![Moby as container runtime](./media/support/only-moby-for-production.png)
 </center>
 
@@ -42,6 +43,7 @@ The family of the host OS must always match the family of the guest OS used insi
 
 <br>
 <center>
+
 ![Host OS matches guest OS](./media/support/edge-on-device.png)
 </center>
 
@@ -81,6 +83,7 @@ Azure IoT Edge can be run in virtual machines. This is common when customers wan
 
 <br>
 <center>
+
 ![Azure IoT Edge in a VM](./media/support/edge-on-vm.png)
 </center>
 
