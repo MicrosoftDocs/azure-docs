@@ -49,7 +49,7 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 
 * Clear the Folder. ADF will truncate the sink folder contents before writing the destination files in that target folder.
 
-* File name options
+## File name options
 
    * Default: Allow Spark to name files based on PART defaults
    * Pattern: Enter a name for your output files
@@ -59,7 +59,7 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 > [!NOTE]
 > File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
 
-With database dataset sinks, you will have additional options:
+## Database options
 
 * Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
 * Truncate table (removes all rows from your target table before completing the data flow)
@@ -68,6 +68,9 @@ With database dataset sinks, you will have additional options:
 * Enable staging: This will instruct ADF to use Polybase when loading Azure Data Warehouse as your sink dataset
 
 ![SQL Sink Options](media/data-flow/alter-row2.png "SQL Options")
+
+> [!NOTE]
+> When updating or deleting rows in your database sink, you must set the key column. This way, Alter Row is able to determine the unique row in the DML.
 
 ## Next steps
 
