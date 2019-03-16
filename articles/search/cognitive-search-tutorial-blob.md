@@ -86,7 +86,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
-  The connection string should be a URL similar to the following example:
+   The connection string should be a URL similar to the following example:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net

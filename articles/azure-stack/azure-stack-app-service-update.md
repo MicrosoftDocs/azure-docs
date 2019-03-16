@@ -74,7 +74,7 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
    4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.
    5. Click **Next** to review the upgrade summary.
 
-    ![App Service Installation Detected][3]
+      ![App Service Installation Detected][3]
 
 8. On the summary page:
    1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.

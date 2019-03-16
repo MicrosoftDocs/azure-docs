@@ -84,8 +84,8 @@ The watcher task contains two parts. The watcher and the action. The watcher run
 1. Select **Configure action** and select "Process-NewFile" runbook.
 1. Enter the following values for parameters:
 
-   ***EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
-   ***Run Settings** - Leave as Azure as this runbook runs in the Automation service.
+   * **EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
+   * **Run Settings** - Leave as Azure as this runbook runs in the Automation service.
 
 1. Click **OK**, and then Select to return to the watcher page.
 1. Click **OK** to create the watcher task.

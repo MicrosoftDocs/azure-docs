@@ -316,9 +316,9 @@ assignment, follow these steps:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](./concepts/parameters.md)
-- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md)
-- Learn how to [update existing assignments](./how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](./concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
+- Learn how to [update existing assignments](./how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md).

@@ -35,10 +35,10 @@ Follow these steps to set up your security info for your work or school account 
 
 1. After you select **Next** from the prompt, a **Keep your account secure wizard** appears, showing the first method your administrator and organization require you to set up. For this example, it's the Microsoft Authenticator app.
 
-    >[!Note]
-    >If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
-    
-    >If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
+   > [!Note]
+   > If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
+   > 
+   > If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
 
     ![Keep your account secure wizard, showing the auth app download page](media/security-info/securityinfo-prompt-get-auth-app.png)
 

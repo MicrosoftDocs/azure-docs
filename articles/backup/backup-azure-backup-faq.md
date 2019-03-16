@@ -88,7 +88,7 @@ Yes.
 ### What operating systems are supported for backup?
 Azure Backup supports these operating systems for backing up files and folders, and apps protected by Azure Backup Server and DPM.
 
-**OS**| **SKU** |**Details**
+**OS** | **SKU** | **Details**
 --- | --- | ---
 Workstation | |
 Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
@@ -113,7 +113,7 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 OS/machine | Size limit of data source
---- | --- | ---
+--- | --- 
 Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB

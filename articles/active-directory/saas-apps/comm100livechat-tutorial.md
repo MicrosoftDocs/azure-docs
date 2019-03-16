@@ -151,29 +151,29 @@ To configure Azure AD single sign-on with Comm100 Live Chat, perform the followi
 
 ### Configure Comm100 Live Chat Single Sign-On
 
-9. In a different web browser window, login to Comm100 Live Chat as a Security Administrator.
+1. In a different web browser window, login to Comm100 Live Chat as a Security Administrator.
 
-10. On the top right side of the page, click **My Account**.
+1. On the top right side of the page, click **My Account**.
 
-	![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. From the left side of menu, click **Security** and then click **Agent Single Sign-On**.
+1. From the left side of menu, click **Security** and then click **Agent Single Sign-On**.
 
-	![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. On the **Agent Single Sign-On** page, perform the following steps:
+1. On the **Agent Single Sign-On** page, perform the following steps:
 
-	![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-	a. Copy the first highlighted link and paste it in **Sign-on URL** textbox in **Comm100 Live Chat Domain and URLs** section on Azure portal.
+   a. Copy the first highlighted link and paste it in **Sign-on URL** textbox in **Comm100 Live Chat Domain and URLs** section on Azure portal.
 
-	b. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+   b. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
 
-	c. In the **Remote Logout URL** textbox, paste the value of **Logout URL**, which you have copied from the Azure portal.
+   c. In the **Remote Logout URL** textbox, paste the value of **Logout URL**, which you have copied from the Azure portal.
 
-	d. Click **Choose a File** to upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **Certificate**.
+   d. Click **Choose a File** to upload the base-64 encoded certificate that you have downloaded from the Azure portal, into the **Certificate**.
 
-	e. Click **Save Changes**
+   e. Click **Save Changes**
 
 ### Create an Azure AD test user 
 
