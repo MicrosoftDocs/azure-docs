@@ -92,14 +92,14 @@ Build the SDK prior to creating device enrollment.
 
 ### Windows
 - To build the SDK in Windows, take the following steps to generate project files:
-    - Open a "Developer Command Prompt for VS2015"
-    - Run the following CMake commands from the root of the repository:
-      ```
-      cd azure-iot-sdk-c
-      mkdir cmake
-      cd cmake
-      cmake -G "Visual Studio 14 2015" ..
-      ```
+  - Open a "Developer Command Prompt for VS2015"
+  - Run the following CMake commands from the root of the repository:
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    cmake -G "Visual Studio 14 2015" ..
+    ```
     This command builds x86 libraries. To build for x64, modify the cmake generator argument: 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"

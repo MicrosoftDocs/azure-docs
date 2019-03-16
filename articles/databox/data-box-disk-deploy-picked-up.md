@@ -66,22 +66,22 @@ Verify that your data is in the storage account(s) before you delete it from the
 
 - Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
 
-    - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-    - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 
-    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.
+  - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.
 
-        ![View order details](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+      ![View order details](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
     Go to the noted resource group and locate your managed disks.
 
-        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+      ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
+  - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - StandardSSD, StandardHDD, or PremiumSSD. The  VHDX/VHDs should show up as block blobs in your staging storage account.
 
 To verify that the data has uploaded into Azure, perform the following steps:
 

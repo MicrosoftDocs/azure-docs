@@ -65,9 +65,9 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    2. Connect to the template VM by selecting **Connect**. 
-    3. Install and configure software on your template VM.     
-    5. Enter a **description** for the template
+   1. Connect to the template VM by selecting **Connect**. 
+   1. Install and configure software on your template VM.     
+   1. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
     1. To publish the template immediately, and select **Publish**.  
@@ -85,10 +85,10 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     ![Publish template - success](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. You see the **dashboard** for the lab. 
     
-    ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+     ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Switch to the **Virtual machines** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
-    ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## Add users to the lab
 

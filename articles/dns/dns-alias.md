@@ -53,7 +53,7 @@ This restriction presents a problem for application owners who have load-balance
 
 This problem can be solved using alias records. Unlike CNAME records, alias records can be created at the zone apex and application owners can use it to point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners can point to the same Traffic Manager profile that's used for any other domain within their DNS zone.
 
-For example, contoso.com and www.contoso.com can point to the same Traffic Manager profile. To learn more about using alias records with Azure Traffic Manager profiles, see the Next steps section.
+For example, contoso.com and www\.contoso.com can point to the same Traffic Manager profile. To learn more about using alias records with Azure Traffic Manager profiles, see the Next steps section.
 
 ## Next steps
 

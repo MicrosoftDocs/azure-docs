@@ -25,16 +25,16 @@ This document contains information on using a SAML 2.0 compliant SP-Lite profile
 
 Microsoft supports this sign-on experience as the integration of a Microsoft cloud service, such as Office 365, with your properly configured SAML 2.0 profile-based IdP. SAML 2.0 identity providers are third-party products and therefore Microsoft does not provide support for the deployment, configuration, troubleshooting best practices regarding them. Once properly configured, the integration with the SAML 2.0 identity provider can be tested for proper configuration by using the Microsoft Connectivity Analyzer Tool, which is described in more detail below. For more information about your SAML 2.0 SP-Lite profile-based identity provider, ask the organization that supplied it.
 
->[!IMPORTANT]
->Only a limited set of clients are available in this sign-on scenario with SAML 2.0 identity providers, this includes:
-
->- Web-based clients such as Outlook Web Access and SharePoint Online
-- Email-rich clients that use basic authentication and a supported Exchange access method such as IMAP, POP, Active Sync, MAPI, etc. (the Enhanced Client Protocol end point is required to be deployed), including:
-	- Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (various iOS versions)
-	- Various Google Android Devices
-	- Windows Phone 7, Windows Phone 7.8, and Windows Phone 8.0
-	- Windows 8 Mail Client and Windows 8.1 Mail Client
-	- Windows 10 Mail Client
+> [!IMPORTANT]
+> Only a limited set of clients are available in this sign-on scenario with SAML 2.0 identity providers, this includes:
+> 
+> - Web-based clients such as Outlook Web Access and SharePoint Online
+> - Email-rich clients that use basic authentication and a supported Exchange access method such as IMAP, POP, Active Sync, MAPI, etc. (the Enhanced Client Protocol end point is required to be deployed), including:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (various iOS versions)
+>     - Various Google Android Devices
+>     - Windows Phone 7, Windows Phone 7.8, and Windows Phone 8.0
+>     - Windows 8 Mail Client and Windows 8.1 Mail Client
+>     - Windows 10 Mail Client
 
 All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to log in into the service with your SAML 2.0 Identity Provider configured for single sign-on.
 

@@ -123,18 +123,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. In order to list all the Shared Image Gallery resources across subscriptions that you have access to on the Azure portal, follow the steps below:
 
- 1.	Open the [Azure portal](https://portal.azure.com).
- 1.	Go to **All Resources**.
- 1.	Select all the subscriptions under which you’d like to list all the resources.
- 1.	Look for resources of type **Private gallery**.
+1. Open the [Azure portal](https://portal.azure.com).
+1. Go to **All Resources**.
+1. Select all the subscriptions under which you’d like to list all the resources.
+1. Look for resources of type **Private gallery**.
  
- To see the image definitions and image versions, you should also select **Show hidden types**.
+   To see the image definitions and image versions, you should also select **Show hidden types**.
  
- To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
+   To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **Q.** How do I share my images across subscriptions?
