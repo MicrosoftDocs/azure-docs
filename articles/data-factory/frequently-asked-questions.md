@@ -20,7 +20,7 @@ ms.author: shlo
 This article provides answers to frequently asked questions about Azure Data Factory.  
 
 ## What is Azure Data Factory? 
-Data Factory is a fully managed, cloud-based, data-integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transforms it into ready-to-use information. 
+Data Factory is a fully managed, cloud-based, data-integration service that automates the movement and transformation of data. Like a factory that runs equipment to transform raw materials into finished goods, Azure Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information. 
 
 By using Azure Data Factory, you can create data-driven workflows to move data between on-premises and cloud data stores. And you can process and transform data by using compute services such as Azure HDInsight, Azure Data Lake Analytics, and the SQL Server Integration Services (SSIS) integration runtime. 
 
@@ -46,7 +46,7 @@ Data Factory provides freedom to model any flow style that's required for data i
 - Delta flows:
 	- Parameters can be used to define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
 
-For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
+For more information, see [Tutorial: Control flows.](tutorial-control-flow.md).
 
 ### Transform your data at scale with code free pipelines
 The new browser-based tooling experience provides code-free pipeline authoring and deployment with a modern, interactive web-based experience.
@@ -90,7 +90,7 @@ https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlel
 
 
 ## What is Integration Runtime?
-Integration Runtime is the compute infrastructure that's used by Azure Data Factory to provide the following data integration capabilities across various network environments:
+Integration Runtime (IR) is the compute infrastructure that's used by Azure Data Factory to provide the following data integration capabilities across various network environments:
 
 - **Data movement**: For data movement, IR moves the data between the source and destination data stores, while providing support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
 - **Dispatch activities**: For transformation, IR provides capability to natively execute SSIS packages.
@@ -137,7 +137,7 @@ A dataset is a strongly typed parameter and an entity that you can reuse or refe
 A linked service is also a strongly typed parameter that contains connection information to either a data store or a compute environment. It is also an entity that you can reuse or reference.
 
 ### Control flows
-Control flows orchestrate pipeline activities that include chaining activities in a sequence, branching, parameters that you define at the pipeline level, and arguments that you pass as you invoke the pipeline on demand or from a trigger. Control flows also include custom-state passing and looping containers (that is, foreach iterators).
+Control flows orchestrate pipeline activities that include chaining activities in a sequence, branching, parameters that you define at the pipeline level, and arguments that you pass as you invoke the pipeline on demand or from a trigger. Control flows also include custom state passing and looping containers (i.e., foreach iterators).
 
 
 For more information about Data Factory concepts, see the following articles:
@@ -185,7 +185,7 @@ Use the ADF V2 version to create data flows.
 This version is now obsolete. Use ADF V2 for data flows.
   
 ### What has changed from private preview to limited public preview in regard to data flows?
-You will no longer have to bring your own Databricks clusters. ADF will manage cluster creation and tear-down. Blob datasets and ADLs datasets are separated into delimited text and Apache Parquet datasets. You can still use ADLs and Azure Blob Storage to store those files. Use the appropriate linked service for those storage engines.
+You will no longer have to bring your own Databricks clusters. ADF will manage cluster creation and tear-down. Blob datasets and ADLS datasets are separated into delimited text and Apache Parquet datasets. You can still use ADLS and Azure Blob Storage to store those files. Use the appropriate linked service for those storage engines.
 
 ### Can I migrate my private preview factories to ADF V2?
 
@@ -201,7 +201,7 @@ When Microsoft provides help or troubleshooting with data flows, please provide 
 
 ### How do I access data using the other 80 dataset types in ADF?
 
-The Mapping Data Flow feature currently allows Azure SQL DB, Azure SQL DW, delimited text files from Blob or ADLs, and Parquet files from Blob or ADLS natively for source and sink. Use the Copy activity to stage data from any of the other connectors and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob, and then a Data Flow activity will use a dataset in source to transform that data.
+The Mapping Data Flow feature currently allows Azure SQL DB, Azure SQL DW, delimited text files from Blob or ADLS, and Parquet files from Blob or ADLS natively for source and sink. Use the Copy activity to stage data from any of the other connectors and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob, and then a Data Flow activity will use a dataset in source to transform that data.
 
 ## Next steps
 For step-by-step instructions to create a data factory, see the following tutorials:
