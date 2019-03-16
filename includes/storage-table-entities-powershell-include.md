@@ -29,22 +29,22 @@ $partitionKey2 = "partition2"
 
 # add four rows 
 Add-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -partitionKey $partitionKey1 `
     -rowKey ("CA") -property @{"username"="Chris";"userid"=1}
 
 Add-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -partitionKey $partitionKey2 `
     -rowKey ("NM") -property @{"username"="Jessie";"userid"=2}
 
 Add-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -partitionKey $partitionKey1 `
     -rowKey ("WA") -property @{"username"="Christine";"userid"=3}
 
 Add-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -partitionKey $partitionKey2 `
     -rowKey ("TX") -property @{"username"="Steven";"userid"=4}
 ```
@@ -62,7 +62,7 @@ There are several different ways to query the entities in a table which can be a
 #### Retrieve all entities
 
 ```powershell
-Get-AzTableRowAll -table $storageTable | ft
+Get-AzTableRowAll -table $cloudTable | ft
 ```
 
 This command yields results similar to the following table:
@@ -77,7 +77,7 @@ This command yields results similar to the following table:
 #### Retrieve entities for a specific partition
 
 ```powershell
-Get-AzTableRow -table $storageTable -partitionKey $partitionKey1 | ft
+Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 ```
 
 The results look similar to the following table:
@@ -90,7 +90,7 @@ The results look similar to the following table:
 #### Retrieve entities for a specific value in a specific column
 
 ```powershell
-Get-AzTableRow -table $storageTable `
+Get-AzTableRow -table $cloudTable `
     -columnName "username" `
     -value "Chris" `
     -operator Equal
@@ -109,7 +109,7 @@ This query retrieves one record.
 
 ```powershell
 Get-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -customFilter "(userid eq 1)"
 ```
 
@@ -134,17 +134,17 @@ Update the entity with username = 'Jessie' to have username = 'Jessie2'. This ex
     [Microsoft.Azure.Cosmos.Table.TableQuery]::GenerateFilterCondition("username",`
     [Microsoft.Azure.Cosmos.Table.QueryComparisons]::Equal,"Jessie")
 $user = Get-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -customFilter $filter
 
 # Change the entity.
 $user.username = "Jessie2"
 
 # To commit the change, pipe the updated record into the update cmdlet.
-$user | Update-AzTableRow -table $storageTable
+$user | Update-AzTableRow -table $cloudTable
 
 # To see the new record, query the table.
-Get-AzTableRow -table $storageTable `
+Get-AzTableRow -table $cloudTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
@@ -173,12 +173,12 @@ To delete a single entity, get a reference to that entity and pipe it into **Rem
 
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
 $userToDelete = Get-AzTableRow `
-    -table $storageTable `
+    -table $cloudTable `
     -customFilter $filter
-$userToDelete | Remove-AzTableRow -table $storageTable
+$userToDelete | Remove-AzTableRow -table $cloudTable
 
 # Retrieve entities from table and see that Jessie2 has been deleted.
-Get-AzTableRow -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```
 
 #### Delete all entities in the table
@@ -188,8 +188,8 @@ To delete all entities in the table, you retrieve them and pipe the results into
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.
 Get-AzTableRow `
-    -table $storageTable | Remove-AzTableRow -table $storageTable 
+    -table $cloudTable | Remove-AzTableRow -table $cloudTable 
 
 # List entities in the table (there won't be any).
-Get-AzTableRow -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```

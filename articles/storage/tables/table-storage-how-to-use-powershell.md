@@ -28,7 +28,7 @@ This how-to article covers common Azure Table storage operations. You learn how 
 
 This how-to article shows you how to create a new Azure Storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing Storage account, you can do that instead.
 
-The examples require Az PowerShell modules `Az.Storage (1.0.2 or greater)` and `Az.Resources (1.3.1 or greater)`. In a PowerShell window, run `Get-Module -ListAvailable Az*` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+The examples require Az PowerShell modules `Az.Storage (1.0.3 or greater)` and `Az.Resources (1.2.0 or greater)`. In a PowerShell window, run `Get-Module -ListAvailable Az*` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 >
@@ -109,6 +109,20 @@ To perform operations on a table, you need a reference to the specific table. Ge
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
+```
+
+## Reference CloudTable property of a specific table
+
+> [!IMPORTANT]
+> 
+> Usage of CloudTable is mandatory when working with **AzureRmStorageTable** PowerShell module.
+> Alternatively, *AzureRmStorageTable* module has **Get-AzTableTable** that gives you the direct reference and creates a new table if it does not exist.
+>  
+
+To perform operations on a table using **AzureRmStorageTable** , you need a reference to CloudTable property of a specific table.
+
+```powershell
+$cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
 ```
 
 [!INCLUDE [storage-table-entities-powershell-include](../../../includes/storage-table-entities-powershell-include.md)]
