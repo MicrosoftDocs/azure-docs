@@ -20,7 +20,7 @@ Content Moderator combines machine-assisted moderation with human-in-the-loop ca
 
 ## Reviews
 
-In a review, content is uploaded to the Review tool and appears under the Review tab. From here, users can alter the applied tags and apply their own custom tags as appropriate. When a user submits a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
+In a review, content is uploaded to the Review tool and appears under the **Review** tab. From here, users can alter the applied tags and apply their own custom tags as appropriate. When a user submits a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 ![Review tool website open in a browser, on the Review tab](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
