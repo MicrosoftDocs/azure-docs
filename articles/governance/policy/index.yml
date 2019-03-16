@@ -23,7 +23,7 @@ sections:
     items:
     - image:
         alt: Azure Portal
-        src: ./media/portal.svg
+        src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
       href: ./assign-policy-portal
     - image:
@@ -38,7 +38,7 @@ sections:
       href: ./assign-policy-azurecli
     - image:
         alt: Resource Manager template
-        src: /media/logos/logo_vs-code.svg
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
       text: Resource Manager template
       href: ./assign-policy-template
 - title: Step-by-Step Tutorials
