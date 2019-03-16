@@ -24,17 +24,17 @@ This article walks you through the process of creating, loading, and querying an
 
 ## Prerequisites
 
-+ [Create an Azure Search service](search-create-service-portal.md). You can use a free service for this quickstart.
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+
+Other prerequisites include:
 
 + [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell). This quickstart assumes Windows and uses [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
 + URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-    1. In the Azure portal, [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+    1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
 
-    2. In **Overview**, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
-
-    3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+    2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
     ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -50,11 +50,22 @@ $headers = @{
    'Content-Type' = 'application/json' 
    'Accept' = 'application/json' }
 ```
-Now run the **Invoke-RestMethod** to send a GET request to the service and verify the connection. If the service is empty and has no indexes, results are similar to the following. Otherwise, you'll see a JSON representation of index definitions.
+
+Create a **$url** object that specifies the service's indexes collection.
 
 ```powershell
-Invoke-RestMethod -Uri 'https://mydemo.search.windows.net/indexes?api-version=2017-11-11' -Headers $headers | ConvertTo-Json
+$url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
+```
 
+Run **Invoke-RestMethod** to send a GET request to the service and verify the connection. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+If the service is empty and has no indexes, results are similar to the following example. Otherwise, you'll see a JSON representation of index definitions.
+
+```
 {
     "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
     "value":  [
@@ -65,9 +76,9 @@ Invoke-RestMethod -Uri 'https://mydemo.search.windows.net/indexes?api-version=20
 
 ## 2 - Create an index
 
-Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service.
+Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service. The [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this step.
 
-Required elements of an index include a name and a fields collection. The fields collections defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document uniqueness.
+Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
 This index is named "hotels" and has the field definitions you see below. The index definition specifies a [language analyzers](index-add-language-analyzers.md) for the `description_fr` field because it is intended to store French text, which we'll add in a later example.
 
@@ -98,13 +109,13 @@ $body = @"
 Set the URI to the indexes collection on your service and the *hotels* index.
 
 ```powershell
-$uri = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
 ```
 
-Run the command with **$uri**, **$headers**, and **$body** to create the index on the service. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
+Run the command with **$url**, **$headers**, and **$body** to create the index on the service. 
 
 ```powershell
-Invoke-RestMethod -Uri $uri -Headers $headers -Method Put -Body $body | ConvertTo-Json
+Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
 ```
 Results should look similar to this (truncated to the first two fields for brevity):
 
@@ -147,13 +158,15 @@ Results should look similar to this (truncated to the first two fields for brevi
 ```
 
 > [!Tip]
-> You could also check the Indexes list in the portal, or rerun the command used to verify service connection to see the *hotels* index listed in the Indexes collection.
+> For verification, you could also check the Indexes list in the portal, or rerun the command used to verify service connection to see the *hotels* index listed in the Indexes collection.
 
 ## 2 - Load documents
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The body of the HTTP request body is a JSON object containing the documents to be added, modified, or deleted. All documents that you upload must conform to the index schema. You can only include up to 1000 documents (or 16 MB) in a single indexing request.
+To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
 
-Paste this example into PowerShell to create a **$body** object containing the documents. This request includes two full and one partial record. The **@search.action** supports upload, merge, mergeOrUpload, and delete. The partial record shows that you can load partial documents. The mergeOrUpload behavior either creates a new document for hotelId = 3, or updates the contents if it already exists.
+Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
+
+This request includes two full and one partial record. The partial record demonstrates that you can upload incomplete documents. The **@search.action** parameter specifies how indexing is done. Valid values include upload, merge, mergeOrUpload, and delete. The mergeOrUpload behavior either creates a new document for hotelId = 3, or updates the contents if it already exists.
 
 ```powershell
 $body = @"
@@ -198,18 +211,18 @@ $body = @"
 "@
 ```
 
-Set the endpoint to the *hotels* documents collection and include the index operation (indexes/hotels/docs/index).
+Set the endpoint to the *hotels* docs collection and include the index operation (indexes/hotels/docs/index).
 
 ```powershell
 $url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
 ```
 
-Run the command with **$uri**, **$headers**, and **$body** to create the index on the service.
+Run the command with **$url**, **$headers**, and **$body** to load documents into the hotels index.
 
 ```powershell
-Invoke-RestMethod -Uri $uri -Headers $headers -Method Put -Body $body | ConvertTo-Json
+Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
 ```
-Results should look similar to the following example. You should see a status code of 200. For a description of all status codes, ssee [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Results should look similar to the following example. You should see a status code of 200. For a description of all status codes, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ```
 {
@@ -219,25 +232,19 @@ Results should look similar to the following example. You should see a status co
                       "key":  "1",
                       "status":  true,
                       "errorMessage":  null,
-                      "statusCode":  200
+                      "statusCode":  201
                   },
                   {
                       "key":  "2",
                       "status":  true,
                       "errorMessage":  null,
-                      "statusCode":  200
+                      "statusCode":  201
                   },
                   {
                       "key":  "3",
                       "status":  true,
                       "errorMessage":  null,
-                      "statusCode":  200
-                  },
-                  {
-                      "key":  "6",
-                      "status":  true,
-                      "errorMessage":  null,
-                      "statusCode":  200
+                      "statusCode":  201
                   }
               ]
 }
@@ -247,7 +254,7 @@ Results should look similar to the following example. You should see a status co
 
 This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Set the endpoint to the *hotels* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all doucments.
+Set the endpoint to the *hotels* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all documents.
 
 ```powershell
 $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
@@ -258,21 +265,73 @@ Run the command to send the **$url** to the service.
 ```powershell
 Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
 ```
-A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data provided in the next section (note that the JSON has been formatted for clarity). 
 
 Results should look similar to the following output.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#docs(*)",
+    "value":  [
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "1",
+                      "baseRate":  199.0,
+                      "description":  "Best hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Fancy Stay",
+                      "category":  "Luxury",
+                      "tags":  "pool view wifi concierge",
+                      "parkingIncluded":  false,
+                      "smokingAllowed":  false,
+                      "lastRenovationDate":  "2010-06-27T00:00:00Z",
+                      "rating":  5,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "2",
+                      "baseRate":  79.99,
+                      "description":  "Cheapest hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Roach Motel",
+                      "category":  "Budget",
+                      "tags":  "motel budget",
+                      "parkingIncluded":  true,
+                      "smokingAllowed":  true,
+                      "lastRenovationDate":  "1982-04-28T00:00:00Z",
+                      "rating":  1,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "3",
+                      "baseRate":  129.99,
+                      "description":  "Close to town hall and the river",
+                      "description_fr":  null,
+                      "hotelName":  null,
+                      "category":  null,
+                      "tags":  "",
+                      "parkingIncluded":  null,
+                      "smokingAllowed":  null,
+                      "lastRenovationDate":  null,
+                      "rating":  null,
+                      "location":  null
+                  }
+              ]
+}
+```
 
 Try a few other query examples to get a feel for the syntax. You can do a string search, verbatim $filter queries, limit the results set, scope the search to specific fields, and more.
 
 ```powershell
 # Query example 1
 # Search the entire index for the term 'budget'
-# Return only the `hotelName` field
+# Return only the `hotelName` field, "Roach hotel"
 $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
 
 # Query example 2 
 # Apply a filter to the index to find hotels cheaper than $150 per night
-# Return the `hotelId` and `description`
+# Returns the `hotelId` and `description`. Two documents match.
 $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
 
 # Query example 3
@@ -281,10 +340,9 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
 ```
 
-
 ## Next steps
 
-Try adding French descriptions to the index. The following example includes French strings and demonstrates additional search actions. Use mergeOrUpload to create or add to existing fields.
+Try adding French descriptions to the index. The following example includes French strings and demonstrates additional search actions. Use mergeOrUpload to create or add to existing fields. The following strings are UTF-8.
 
 ```json
 {

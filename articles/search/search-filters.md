@@ -135,10 +135,8 @@ In the .NET SDK, the filterable is *off* by default. The API for setting the fil
 
 If a field is non-filterable and you want to make it filterable, you have to add a new field, or rebuild the existing field. Changing a field definition alters the physical structure of the index. In Azure Search, all allowed access paths are indexed for fast query speed, which necessitates a rebuild of the data structures when field definitions change. 
 
-Rebuilding individual fields can be a low impact operation, requiring only a merge operation that sends the existing document key and associated values to the index, leaving the remainder of each document intact. If you encounter a rebuild requirement, see the following links for instructions:
+Rebuilding individual fields can be a low impact operation, requiring only a merge operation that sends the existing document key and associated values to the index, leaving the remainder of each document intact. If you encounter a rebuild requirement, see [indexing actions (upload, merge, mergeOrUpload, delete)](search-what-is-data-import.md#indexing-actions) for a list of options.
 
- + [Indexing actions using the .NET SDK](search-import-data-dotnet.md#decide-which-indexing-action-to-use)
- + [Indexing actions using the REST API](search-create-index-rest-api.md#decide-which-indexing-action-to-use)
 
 ## Text filter fundamentals
 
