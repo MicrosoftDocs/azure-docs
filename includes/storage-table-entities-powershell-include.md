@@ -62,7 +62,7 @@ There are several different ways to query the entities in a table which can be a
 #### Retrieve all entities
 
 ```powershell
-Get-AzTableRowAll -table $cloudTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```
 
 This command yields results similar to the following table:
