@@ -212,7 +212,7 @@ Next, determine if the data source should be available to one application or to 
 
     ```bash
     mkdir -p /home/tomcat
-    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    cp -a /usr/local/tomcat/conf /home/tomcat/
     ```
 
 2. Add a Context element in your `server.xml` within the `<Server>` element.
