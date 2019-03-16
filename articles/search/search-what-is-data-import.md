@@ -32,6 +32,27 @@ There is currently no tool support for pushing data via the portal.
 
 For an introduction to each methodology, see [Quickstart: Indexing with REST](search-create-index-rest-api.md) or [Quickstart: Indexing with the .NET SDK](search-import-data-dotnet.md).
 
+### Decide which indexing action to use
+When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
+
+Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete). Depending on which of the below actions you choose, only certain fields must be included for each document:
+
+| @search.action | Description | Necessary fields for each document | Notes |
+| --- | --- | --- | --- |
+| `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
+| `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |
+| `delete` |Removes the specified document from the index. |key only |Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null. |
+
+### Formulate your query
+There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
+
+For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2017-11-11` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+The format for POST is the same, but with only api-version in the query string parameters.
+
 
 ## Pulling data into an index
 The pull model crawls a supported data source and automatically uploads the data into your index. In Azure Search, this capability is implemented through *indexers*, currently available for these platforms:
