@@ -113,3 +113,27 @@ The **workflows** tab lets you manage your [workflows](TBD workflow review-api.m
 The **Credentials** tab provides quick access to your Content Moderator subscription key, which you will need to access any of the moderation services from a REST call or client SDK.
 
 ![Content Moderator Credentials](images/settings-6-credentials.png)
+
+### Use external credentials for workflows
+
+The [Review tool](https://contentmoderator.cognitive.microsoft.com) generates a free trial key for Azure Content Moderator services when you sign up, but you can also configure it to use an existing key from your Azure account. This is recommended for large-scale scenarios, as free trial keys have strict usage limits ([Pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/)).
+
+If you have created a [Content Moderator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) in Azure, navigate to it in the Azure portal and select the **Keys** blade. Copy one of your keys.
+
+![Content Moderator keys in the Azure portal](images/credentials-azure-portal-keys.PNG)
+
+In the [Review tool](https://contentmoderator.cognitive.microsoft.com)'s **Credentials** tab, go to the **Workflow Settings** pane, select **Edit**, and paste your key into the **Ocp-Apim-Subscription-Key** field. Now, workflows that call the moderation APIs will use your Azure credential.
+
+> [!NOTE]
+> The other two fields in the **Workflow Settings** pane are for custom term and image lists. See the [Custom terms](tbd) or [Custom images](tbd) guides to learn about these.
+
+### Use your Azure account with the review APIs
+
+To use your Azure key with the review APIs, you need to retrieve your Resource ID. Go to your Content Moderator resource in the Azure portal and select the **Properties** blade. Copy the Resource ID value and paste it into the **Whitelisted Resource Id(s)** field of the Review tool's **Credentials** tab.
+
+![Content Moderator Resource ID in the Azure portal](images/credentials-azure-portal-resourceid.PNG)
+
+If you've entered your subscription key in both places, the trial key that comes with your Review tool account will not be used but will remain available.
+
+## Next steps
+tbd
