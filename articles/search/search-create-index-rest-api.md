@@ -158,7 +158,7 @@ Results should look similar to this (truncated to the first two fields for brevi
 > [!Tip]
 > For verification, you could also check the Indexes list in the portal, or rerun the command used to verify service connection to see the *hotels* index listed in the Indexes collection.
 
-## 2 - Load documents
+## 3 - Load documents
 
 To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -248,7 +248,7 @@ Results should look similar to the following example. You should see a status co
 }
 ```
 
-## 3 - Search an index
+## 4 - Search an index
 
 This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

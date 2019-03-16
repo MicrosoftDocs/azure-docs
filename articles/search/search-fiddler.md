@@ -80,7 +80,7 @@ Formulate a request that looks like the following screenshot. Choose **PUT** as 
 > [!Tip]
 > Turn off web traffic to hide extraneous, unrelated HTTP activity. In Fiddler's **File** menu, turn off **Capture Traffic**. 
 
-## 1 - Create the index
+## 1 - Create an index
 
 The body of the request contains the index definition. Adding the request body completes the request that produces your index.
 
@@ -214,7 +214,7 @@ Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the d
 
 ![Fiddler request payload][9]
 
-## 3 - Query the index
+## 3 - Search an index
 Now that an index and documents are loaded, you can issue queries against them using [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
 
 + Change the verb to **GET** for this step.
