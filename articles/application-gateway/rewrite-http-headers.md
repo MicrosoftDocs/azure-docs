@@ -17,8 +17,8 @@ HTTP headers allow the client and the server to pass additional information with
 
 Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove, or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard as well as non-standard header fields.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > The HTTP header rewrite support is only available for the [new SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Application Gateway header rewrite support offers:

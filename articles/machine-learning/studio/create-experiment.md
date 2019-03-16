@@ -93,21 +93,21 @@ First, we add a module that removes the **normalized-losses** column completely.
 
 1. Click the [Select Columns in Dataset][select-columns] module and click **Launch column selector** in the **Properties** pane.
 
-    - On the left, click **With rules**
-    - Under **Begin With**, click **All columns**. These rules direct [Select Columns in Dataset][select-columns] to pass through all the columns (except those columns we're about to exclude).
-    - From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
-    - Click the check mark (OK) button to close the column selector (on the lower right).
+   - On the left, click **With rules**
+   - Under **Begin With**, click **All columns**. These rules direct [Select Columns in Dataset][select-columns] to pass through all the columns (except those columns we're about to exclude).
+   - From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it's added to the text box.
+   - Click the check mark (OK) button to close the column selector (on the lower right).
 
-    ![Launch the column selector and exclude the "normalized-losses" column](./media/create-experiment/launch-column-selector.png)
+     ![Launch the column selector and exclude the "normalized-losses" column](./media/create-experiment/launch-column-selector.png)
 
-    Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
+     Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
-    ![The properties pane shows that the "normalized-losses" column is excluded](./media/create-experiment/showing-excluded-column.png)
+     ![The properties pane shows that the "normalized-losses" column is excluded](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
+     > [!TIP] 
+     > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case double-click the [Select Columns in Dataset][select-columns] module and type the comment "Exclude normalized losses."
 
-    ![Double-click a module to add a comment](./media/create-experiment/add-comment.png)
+     ![Double-click a module to add a comment](./media/create-experiment/add-comment.png)
 
 1. Drag the [Clean Missing Data][clean-missing-data] module to the experiment canvas and connect it to the [Select Columns in Dataset][select-columns] module. In the **Properties** pane, select **Remove entire row** under **Cleaning mode**. These options direct [Clean Missing Data][clean-missing-data] to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
 

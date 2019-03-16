@@ -98,4 +98,4 @@ Sometimes a visual inspection can identify patterns that you can then correct by
 In this guide, you learned several techniques to make your custom image classification model more accurate. Next, learn how to test images programmatically by submitting them to the Prediction API.
 
 > [!div class="nextstepaction"]
-[Use the prediction API](use-prediction-api.md)
+> [Use the prediction API](use-prediction-api.md)

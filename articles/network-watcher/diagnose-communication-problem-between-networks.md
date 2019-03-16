@@ -72,7 +72,7 @@ If you already have a network watcher enabled in the East US region, skip to [Di
     You can see that the **TROUBLESHOOTING STATUS** is **Unhealthy**, as well as a **Summary** and **Detail** of the problem on the **Status** tab.
 10. When you select the **Action** tab, VPN diagnostics provides additional information. In the example, shown in the following picture, VPN diagnostics lets you know that you should check the health of each connection:
 
-  ![Action](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Action](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## Diagnose a gateway connection
 

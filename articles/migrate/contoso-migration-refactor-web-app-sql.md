@@ -239,9 +239,9 @@ With the database migrated, Contoso admins can now provision the two web apps.
 
 Contoso needs to build the DevOps infrastructure and pipelines for the application.  To do this, Contoso admins create a new DevOps project, import the code, and then set up build and release pipelines.
 
-1.	 In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
+1. In the Contoso Azure DevOps account, they create a new project (**ContosoSmartHotelRefactor**), and select **Git** for version control.
 
-    ![New project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![New project](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. They import the Git Repo that currently holds their app code. It's in a [public repo](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) and you can download it.
 
     ![Download app code](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -301,8 +301,8 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
 6. The folder **Drop** contains the build results.
 
-    - The two zip files are the packages that contain the apps.
-    - These files are used in the release pipeline for deployment to Azure Web Apps
+   - The two zip files are the packages that contain the apps.
+   - These files are used in the release pipeline for deployment to Azure Web Apps
 
      ![Artifact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -336,7 +336,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
 16. The continuous deployment trigger should be set to **Enabled**.
 
-   ![Continuous deployment enabled](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Continuous deployment enabled](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. Now, they move back to the Stage 1 job, I tasks, and click **Deploy Azure App Service**.
 

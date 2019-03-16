@@ -34,7 +34,7 @@ To open the Remote Monitoring sample in VS Code:
 
 1. Find **Remote Monitoring** and click **Open Sample**. A new VS Code window opens showing the project folder:
 
-  ![IoT Workbench, select Remote Monitoring example](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench, select Remote Monitoring example](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## Configure the device
 
@@ -93,11 +93,11 @@ To change the color of one of the DevKit LEDs, use the **LedColor** method:
 
 1. Configure the Jobs using the following values and click **Apply**:
 
-    * Select Job: **Run method**
-    * Method name: **LedColor**
-    * Job Name: **ChangeLedColor**
+   * Select Job: **Run method**
+   * Method name: **LedColor**
+   * Job Name: **ChangeLedColor**
 
-    ![Job settings](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![Job settings](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. After a couple of seconds, the color of the RGB LED (below the button A) on your DevKit changes:
 

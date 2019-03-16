@@ -46,8 +46,8 @@ The completed code for this tutorial can be found [on GitHub](https://github.com
 * An iOS 10 (or later version)-capable device
 * [Apple Developer Program](https://developer.apple.com/programs/) membership.
   
- > [!NOTE]
- > Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.
+  > [!NOTE]
+  > Because of configuration requirements for push notifications, you must deploy and test push notifications on a physical iOS device (iPhone or iPad) instead of the iOS Simulator.
   
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for iOS apps.
 
@@ -128,11 +128,11 @@ You have now configured your notification hub with APNS, and you have the connec
 
    - Integration by copying the binaries into your project
 
-       1. Download the [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) framework provided as a zip file and unzip it.
+     1. Download the [Azure Notification Hubs SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) framework provided as a zip file and unzip it.
 
-       2. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
+     2. In Xcode, right-click your project and click the **Add Files to** option to add the **WindowsAzureMessaging.framework** folder to your Xcode project. Select **Options** and make sure **Copy items if needed** is selected, and then click **Add**.
 
-       ![Unzip Azure SDK][10]
+        ![Unzip Azure SDK][10]
 
 6. Add a new header file to your project named `HubInfo.h`. This file holds the constants for your notification hub. Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
 
