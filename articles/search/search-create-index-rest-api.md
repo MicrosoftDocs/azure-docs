@@ -26,19 +26,19 @@ This article walks you through the process of creating, loading, and querying an
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. Other prerequisites include the following items.
 
-+ [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell). This quickstart assumes Windows and uses [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
+[PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
-+ URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+A URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-    1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
+  1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
 
-    2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+  2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-    ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+  ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
-    All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+  All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 1 - Connect to Azure Search
+## Connect to Azure Search
 
 In PowerShell, create a **$headers** object to store the content-type and API key. You only have to set this header once for the duration of the session, but you will add it to every request. 
 
@@ -72,7 +72,7 @@ If the service is empty and has no indexes, results are similar to the following
 }
 ```
 
-## 2 - Create an index
+## 1 - Create an index
 
 Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service. The [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this step.
 
@@ -158,7 +158,7 @@ Results should look similar to this (truncated to the first two fields for brevi
 > [!Tip]
 > For verification, you could also check the Indexes list in the portal, or rerun the command used to verify service connection to see the *hotels* index listed in the Indexes collection.
 
-## 3 - Load documents
+## 2 - Load documents
 
 To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -248,7 +248,7 @@ Results should look similar to the following example. You should see a status co
 }
 ```
 
-## 4 - Search an index
+## 3 - Search an index
 
 This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
