@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -27,13 +27,13 @@ As part of table design, understand as much as possible about your data and how 
 - Do I have fact and dimension tables in a data warehouse?   
 
 ## What is a replicated table?
-A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.
+A replicated table has a full copy of the table accessible on each Compute node. Replicating a table removes the need to transfer data among Compute nodes before a join or aggregation. Since the table has multiple copies, replicated tables work best when the table size is less than 2 GB compressed.  2 GB is not a hard limit.  If the data is static and does not change, you can replicate larger tables.
 
 The following diagram shows a replicated table that is accessible on each Compute node. In SQL Data Warehouse, the replicated table is fully copied to a distribution database on each Compute node. 
 
 ![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
 
-Replicated tables work well for small dimension tables in a star schema. Dimension tables are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to fewer rebuilds of the replicated table. 
+Replicated tables work well for dimension tables in a star schema. Dimension tables are typically joined to fact tables which are distributed differently than the dimension table.  Dimensions are usually of a size that makes it feasible to store and maintain multiple copies. Dimensions store descriptive data that changes slowly, such as customer name and address, and product details. The slowly changing nature of the data leads to less maintenance of the replicated table. 
 
 Consider using a replicated table when:
 
@@ -43,7 +43,7 @@ Consider using a replicated table when:
 Replicated tables may not yield the best query performance when:
 
 - The table has frequent insert, update, and delete operations. These data manipulation language (DML) operations require a rebuild of the replicated table. Rebuilding frequently can cause slower performance.
-- The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs a rebuild.
+- The data warehouse is scaled frequently. Scaling a data warehouse changes the number of Compute nodes, which incurs rebuilding the replicated table.
 - The table has a large number of columns, but data operations typically access only a small number of columns. In this scenario, instead of replicating the entire table, it might be more effective to distribute the table, and then create an index on the frequently accessed columns. When a query requires data movement, SQL Data Warehouse only moves data for the requested columns. 
 
 ## Use replicated tables with simple query predicates
