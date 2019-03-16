@@ -53,7 +53,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     az account list
     ```
 
-1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
+1. Use aks-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
 
     ```bash
     aks-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model kubernetes.json --auth-method cli
