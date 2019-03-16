@@ -15,7 +15,7 @@ It is important to understand how and where your virtual machines (VMs) operate 
 
 
 ## What are Azure regions?
-YAzure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. 
+Azure operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. 
 
 You create Azure resources in defined geographic regions like 'West US', 'North Europe', or 'Southeast Asia'. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). Within each region, multiple datacenters exist to provide for redundancy and availability. This approach gives you flexibility as you design applications to create VMs closest to your users and to meet any legal, compliance, or tax purposes.
 
@@ -114,6 +114,29 @@ For VMs using [Azure Managed Disks](../articles/virtual-machines/windows/faq-for
 ![Availability zones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
 Learn more about deploying a [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) or [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM in an Availability Zone.
+
+## Proximity placement groups
+One of the largest contributors to latency between VMs is simply distance. Placing VMs in a single region can reduce the distance and placing them in zones is another step to bringing them physically closer together. But, to get VMs as close as possible, you should deploy them within a Proximity Placement Group (PPG).
+
+A Proximity Placement Group (PPG) is a logical grouping used to make sure that Azure compute resources are physically located close to each other in a region or Availability Zone. Proximity placement groups are useful for workloads where low latency is a requirement. 
+
+PPGs provide latency advantages between VMs, by iteself or when used with other features:
+
+- Low latency between stand-alone VMs. Get low latency without the complexity of other options like zones or availability sets.
+- Compatible with Availability Zones. Get even lower latency between VMs in an Availability Zone. Availability Zones provide fault isolation while PPGs provide better latency
+- Low latency between different hardware types. Fore example, M-series and D-series VMs can be in the same Proximity Placement Group.
+- Low latency between VMs in different Availability Sets. You can have multiple Availability Sets and/or single VMs in a placement group. For example, a SAP/HANA deployment where M-series VMs running Hana can be in AvSet 1 and D-series VMs running a front-end app can be in AvSet2. Both AvSets can be in the same placement group.
+- Enable Accelerated Networking for best results
+
+You can also combine Proximity Placement Groups with Availability Zone placement for other resources:
+- Gateways
+- Firewalls
+- Load balancers
+- Storage (other than Premium Managed disks which can be in PPG directly)
+- Databases
+- Anything else that is zone aware
+Put VMs in a PPG and the entire solution in a Zone.
+
 
 ## Next steps
 You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
