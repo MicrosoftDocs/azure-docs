@@ -2,7 +2,7 @@
 title: 'Create an index in code using PowerShell and the REST API - Azure Search'
 description: Create a full text searchable index in code using HTTP requests and the Azure Search REST API.
 
-ms.date: 03/01/2019
+ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -26,15 +26,15 @@ This article walks you through the process of creating, loading, and querying an
 
 + [Create an Azure Search service](search-create-service-portal.md). You can use a free service for this quickstart.
 
-+ [PowerShell](https://github.com/PowerShell/PowerShell). This quickstart assumes Windows and uses [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for service interaction.
++ [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell). This quickstart assumes Windows and uses [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
-+ URL endpoint and admin api-key of your Search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
++ URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
     1. In the Azure portal, [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
 
     2. In **Overview**, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
 
-    3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on your request.
+    3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
     ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -42,15 +42,15 @@ This article walks you through the process of creating, loading, and querying an
 
 ## 1 - Connect to Azure Search
 
-In PowerShell, creates a header object to store the content-type and API key. Run the Invoke-RestMethod to send a GET request to the service. 
+In PowerShell, create a **$headers** object to store the content-type and API key. You only have to set this header once for the duration of the session, but you will add it to every request. 
 
 ```powershell
 $headers = @{
    'api-key' = 'F35F73CE884891E9624AE3228FDFDC74'
-   'Content-Type' = 'application/json'
-}
+   'Content-Type' = 'application/json' 
+   'Accept' = 'application/json' }
 ```
-If the service is empty and has no indexes, results are similar to the following.
+Now run the **Invoke-RestMethod** to send a GET request to the service and verify the connection. If the service is empty and has no indexes, results are similar to the following. Otherwise, you'll see a JSON representation of index definitions.
 
 ```powershell
 Invoke-RestMethod -Uri 'https://mydemo.search.windows.net/indexes?api-version=2017-11-11' -Headers $headers | ConvertTo-Json
@@ -63,46 +63,17 @@ Invoke-RestMethod -Uri 'https://mydemo.search.windows.net/indexes?api-version=20
 }
 ```
 
-## 2 - Define an index schema
+## 2 - Create an index
 
-Unless you are using the portal, an index must exist on the service before you can insert data. When using the REST API, the index schema is provided in the body of a PUT request. 
+Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service.
 
-On the index, required elements include a name and a fields collection. The fields constitute a *document*. Each field has a name, type, and attributes that determine how its used (for example, whether it is full-text searchable, filterable, or retrievable in search results). One of the fields of type `Edm.String` must be designated as the *key* for document uniqueness.
+Required elements of an index include a name and a fields collection. The fields collections defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document uniqueness.
 
-This index is named "hotels" and has the following fields:
+This index is named "hotels" and has the field definitions you see below. The index definition specifies a [language analyzers](index-add-language-analyzers.md) for the `description_fr` field because it is intended to store French text, which we'll add in a later example.
 
-```JSON
-{
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String"},
-        {"name": "tags", "type": "Collection(Edm.String)"},
-        {"name": "parkingIncluded", "type": "Edm.Boolean", "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32"},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
-}
-```
-
-The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more information, see [language analyzers](index-add-language-analyzers.md).
-
-### Push the index 
-
-In PowerShell, run the following commands to structure and send the request.
+Paste this example into PowerShell to create a **$body** object containing the index schema.
 
 ```powershell
-# Set the URI to the indexes collection on your service
-# Provide the name of the index you are creating
-$uri = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
-
-# Index schema is provided in the body of the request
 $body = @"
 {
     "name": "hotels",  
@@ -124,93 +95,68 @@ $body = @"
 "@
 ```
 
-After you create these object, execute the following command to create the index on the service.
+Set the URI to the indexes collection on your service and the *hotels* index.
 
 ```powershell
-Invoke-RestMethod -Uri $uri -Headers $headers -Method Put -Body $body
+$uri = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
 ```
 
-Check your work by running the following script. This is the same command you ran earlier to return items from the indexes collection. You should see a JSON document for the *hotels* index.
+Run the command with **$uri**, **$headers**, and **$body** to create the index on the service. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
 
 ```powershell
-Invoke-RestMethod -Uri 'https://mydemo.search.windows.net/indexes?api-version=2017-11-11' -Headers $headers | ConvertTo-Json
+Invoke-RestMethod -Uri $uri -Headers $headers -Method Put -Body $body | ConvertTo-Json
+```
+Results should look similar to this (truncated to the first two fields for brevity):
+
+```
 {
-    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
-    "value":  [
-                  {
-                      "@odata.etag":  "\"0x8D6A8B94A965FC6\"",
-                      "name":  "hotels",
-                      "defaultScoringProfile":  null,
-                      "fields":  "           ",
-                      "scoringProfiles":  "",
-                      "corsOptions":  null,
-                      "suggesters":  "",
-                      "analyzers":  "",
-                      "tokenizers":  "",
-                      "tokenFilters":  "",
-                      "charFilters":  ""
-                  }
-              ]
-}
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
+    "name":  "hotels",
+    "defaultScoringProfile":  null,
+    "fields":  [
+                   {
+                       "name":  "hotelId",
+                       "type":  "Edm.String",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  false,
+                       "facetable":  false,
+                       "key":  true,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+                   {
+                       "name":  "baseRate",
+                       "type":  "Edm.Double",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  true,
+                       "facetable":  true,
+                       "key":  false,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+. . .
 ```
 
-## 2 - Load data
+> [!Tip]
+> You could also check the Indexes list in the portal, or rerun the command used to verify service connection to see the *hotels* index listed in the Indexes collection.
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The body of the HTTP request body is a JSON object containing the documents to be added, modified, or deleted. Documents conform to the index schema.
+## 2 - Load documents
+
+To push documents, use an HTTP POST request to your index's URL endpoint. The body of the HTTP request body is a JSON object containing the documents to be added, modified, or deleted. All documents that you upload must conform to the index schema. You can only include up to 1000 documents (or 16 MB) in a single indexing request.
+
+Paste this example into PowerShell to create a **$body** object containing the documents. This request includes two full and one partial record. The **@search.action** supports upload, merge, mergeOrUpload, and delete. The partial record shows that you can load partial documents. The mergeOrUpload behavior either creates a new document for hotelId = 3, or updates the contents if it already exists.
 
 ```powershell
-# Use the same URI
-$uri = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
-
-# Provide JSON documents.
 $body = @"
-{
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String"},
-        {"name": "tags", "type": "Collection(Edm.String)"},
-        {"name": "parkingIncluded", "type": "Edm.Boolean", "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32"},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
-}
-"@
-
-```
-
-
-
-### Decide which indexing action to use
-When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
-
-Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete). Depending on which of the below actions you choose, only certain fields must be included for each document:
-
-| @search.action | Description | Necessary fields for each document | Notes |
-| --- | --- | --- | --- |
-| `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
-| `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
-| `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |
-| `delete` |Removes the specified document from the index. |key only |Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null. |
-
-### Construct your HTTP request and request body
-Now that you have gathered the necessary field values for your index actions, you are ready to construct the actual HTTP request and JSON request body to import your data.
-
-#### Request and Request Headers
-In the URL, you will need to provide your service name, index name ("hotels" in this case), as well as the proper API version (the current API version is `2017-11-11` at the time of publishing this document). You will need to define the `Content-Type` and `api-key` request headers. For the latter, use one of your service's admin keys.
-
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [admin key]
-
-#### Request Body
-```JSON
 {
     "value": [
         {
@@ -218,7 +164,6 @@ In the URL, you will need to provide your service name, index name ("hotels" in 
             "hotelId": "1",
             "baseRate": 199.0,
             "description": "Best hotel in town",
-            "description_fr": "Meilleur hôtel en ville",
             "hotelName": "Fancy Stay",
             "category": "Luxury",
             "tags": ["pool", "view", "wifi", "concierge"],
@@ -233,7 +178,6 @@ In the URL, you will need to provide your service name, index name ("hotels" in 
             "hotelId": "2",
             "baseRate": 79.99,
             "description": "Cheapest hotel in town",
-            "description_fr": "Hôtel le moins cher en ville",
             "hotelName": "Roach Motel",
             "category": "Budget",
             "tags": ["motel", "budget"],
@@ -248,6 +192,112 @@ In the URL, you will need to provide your service name, index name ("hotels" in 
             "hotelId": "3",
             "baseRate": 129.99,
             "description": "Close to town hall and the river"
+        }
+    ]
+}
+"@
+```
+
+Set the endpoint to the *hotels* documents collection and include the index operation (indexes/hotels/docs/index).
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
+```
+
+Run the command with **$uri**, **$headers**, and **$body** to create the index on the service.
+
+```powershell
+Invoke-RestMethod -Uri $uri -Headers $headers -Method Put -Body $body | ConvertTo-Json
+```
+Results should look similar to the following example. You should see a status code of 200. For a description of all status codes, ssee [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+    "value":  [
+                  {
+                      "key":  "1",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  200
+                  },
+                  {
+                      "key":  "2",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  200
+                  },
+                  {
+                      "key":  "3",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  200
+                  },
+                  {
+                      "key":  "6",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  200
+                  }
+              ]
+}
+```
+
+## 3 - Search an index
+
+This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+
+Set the endpoint to the *hotels* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all doucments.
+
+```powershell
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
+```
+
+Run the command to send the **$url** to the service.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data provided in the next section (note that the JSON has been formatted for clarity). 
+
+Results should look similar to the following output.
+
+Try a few other query examples to get a feel for the syntax. You can do a string search, verbatim $filter queries, limit the results set, scope the search to specific fields, and more.
+
+```powershell
+# Query example 1
+# Search the entire index for the term 'budget'
+# Return only the `hotelName` field
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
+
+# Query example 2 
+# Apply a filter to the index to find hotels cheaper than $150 per night
+# Return the `hotelId` and `description`
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+
+# Query example 3
+# Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
+# Take the top two results, and show only `hotelName` and `lastRenovationDate`
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+```
+
+
+## Next steps
+
+Try adding French descriptions to the index. The following example includes French strings and demonstrates additional search actions. Use mergeOrUpload to create or add to existing fields.
+
+```json
+{
+    "value": [
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "1",
+            "description_fr": "Meilleur hôtel en ville"
+        },
+        {
+            "@search.action": "merge",
+            "hotelId": "2",
+            "description_fr": "Hôtel le moins cher en ville",
         },
         {
             "@search.action": "delete",
@@ -257,183 +307,6 @@ In the URL, you will need to provide your service name, index name ("hotels" in 
 }
 ```
 
-In this case, we are using `upload`, `mergeOrUpload`, and `delete` as our search actions.
-
-Assume that this example "hotels" index is already populated with a number of documents. Note how we did not have to specify all the possible document fields when using `mergeOrUpload` and how we only specified the document key (`hotelId`) when using `delete`.
-
-Also, note that you can only include up to 1000 documents (or 16 MB) in a single indexing request.
-
-### Understand your HTTP response code
-#### 200
-After submitting a successful indexing request you will receive an HTTP response with status code of `200 OK`. The JSON body of the HTTP response will be as follows:
-
-```JSON
-{
-    "value": [
-        {
-            "key": "unique_key_of_document",
-            "status": true,
-            "errorMessage": null
-        },
-        ...
-    ]
-}
-```
-
-#### 207
-A status code of `207` will be returned when at least one item was not successfully indexed. The JSON body of the HTTP response will contain information about the unsuccessful document(s).
-
-```JSON
-{
-    "value": [
-        {
-            "key": "unique_key_of_document",
-            "status": false,
-            "errorMessage": "The search service is too busy to process this document. Please try again later."
-        },
-        ...
-    ]
-}
-```
-
-> [!NOTE]
-> This often means that the load on your search service is reaching a point where indexing requests will begin to return `503` responses. In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
->
->
-
-#### 429
-A status code of `429` will be returned when you have exceeded your quota on the number of documents per index.
-
-#### 503
-A status code of `503` will be returned if none of the items in the request were successfully indexed. This error means that the system is under heavy load and your request can't be processed at this time.
-
-> [!NOTE]
-> In this case, we highly recommend that your client code back off and wait before retrying. This will give the system some time to recover, increasing the chances that future requests will succeed. Rapidly retrying your requests will only prolong the situation.
->
->
-
-For more information on document actions and success/error responses, please see [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
-
-## 3 - Search the index
-
-This section shows you how to query an index using the [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-
-### Formulate your query
-There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
-
-For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2017-11-11` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
-
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
-
-The format for POST is the same, but with only api-version in the query string parameters.
-
-#### Example Queries
-Here are a few example queries on an index named "hotels". These queries are shown in both GET and POST format.
-
-Search the entire index for the term 'budget' and return only the `hotelName` field:
-
-```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2017-11-11
-
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
-{
-    "search": "budget",
-    "select": "hotelName"
-}
-```
-
-Apply a filter to the index to find hotels cheaper than $150 per night, and return the `hotelId` and `description`:
-
-```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
-
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
-{
-    "search": "*",
-    "filter": "baseRate lt 150",
-    "select": "hotelId,description"
-}
-```
-
-Search the entire index, order by a specific field (`lastRenovationDate`) in descending order, take the top two results, and show only `hotelName` and `lastRenovationDate`:
-
-```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2017-11-11
-
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
-{
-    "search": "*",
-    "orderby": "lastRenovationDate desc",
-    "select": "hotelName,lastRenovationDate",
-    "top": 2
-}
-```
-
-### Submit your HTTP request
-Now that you have formulated your query as part of your HTTP request URL (for GET) or body (for POST), you can define your request headers and submit your query.
-
-#### Request and Request Headers
-You must define two request headers for GET, or three for POST:
-
-1. The `api-key` header must be set to the query key you found in step I above. You can also use an admin key as the `api-key` header, but it is recommended that you use a query key as it exclusively grants read-only access to indexes and documents.
-2. The `Accept` header must be set to `application/json`.
-3. For POST only, the `Content-Type` header should also be set to `application/json`.
-
-See below for an HTTP GET request to search the "hotels" index using the Azure Search REST API, using a simple query that searches for the term "motel":
-
-```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2017-11-11
-Accept: application/json
-api-key: [query key]
-```
-
-Here is the same example query, this time using HTTP POST:
-
-```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
-Content-Type: application/json
-Accept: application/json
-api-key: [query key]
-
-{
-    "search": "motel"
-}
-```
-
-A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data provided in the next section (note that the JSON has been formatted for clarity).
-
-```JSON
-{
-    "value": [
-        {
-            "@search.score": 0.59600675,
-            "hotelId": "2",
-            "baseRate": 79.99,
-            "description": "Cheapest hotel in town",
-            "description_fr": "Hôtel le moins cher en ville",
-            "hotelName": "Roach Motel",
-            "category": "Budget",
-            "tags":["motel", "budget"],
-            "parkingIncluded": true,
-            "smokingAllowed": true,
-            "lastRenovationDate": "1982-04-28T00:00:00Z",
-            "rating": 1,
-            "location": {
-                "type": "Point",
-                "coordinates": [-122.131577, 49.678581],
-                "crs": {
-                    "type":"name",
-                    "properties": {
-                        "name": "EPSG:4326"
-                    }
-                }
-            }
-        }
-    ]
-}
-```
-
-To learn more, please visit the "Response" section of [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## Clean up 
 
@@ -446,7 +319,3 @@ $uri = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
 # Delete the index
 Invoke-RestMethod -Uri $uri -Headers $headers -Method Delete
 ```
-
-## Next steps
-
-You can use PowerShell and the REST API to perform any operation supported by Azure Search. The REST API exposes all Azure Search functionality, including advanced features like AI-enriched indexing. For more information, review [REST API operations](https://docs.microsoft.com/rest/api/searchservice/).
