@@ -56,7 +56,10 @@ The Content Moderator service also includes the web-based [human review tool](Re
 
 You can use the Review APIs to set up team reviews of text, image, and video content, according to filters that you specify. Then, human moderators can make the final moderation decisions. The human input does not train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy.
 
+TBD: Machines effectively augment human reviews where the prediction confidence has to be adjusted or tempered within a real world context. The result is a hybrid content moderation process that performs better than if the humans or machines were working alone.
+
 ## Data privacy and security
+
 As with all of the Cognitive Services, developers using the Content Moderator service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
