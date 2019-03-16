@@ -9,7 +9,7 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-
+# this should redirect to the text review section of review-moderated-images
 ---
 
 # Let human reviewers review text
