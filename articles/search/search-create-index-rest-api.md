@@ -24,9 +24,7 @@ This article walks you through the process of creating, loading, and querying an
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
-
-Other prerequisites include:
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. Other prerequisites include the following items.
 
 + [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell). This quickstart assumes Windows and uses [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
@@ -46,12 +44,12 @@ In PowerShell, create a **$headers** object to store the content-type and API ke
 
 ```powershell
 $headers = @{
-   'api-key' = 'F35F73CE884891E9624AE3228FDFDC74'
+   'api-key' = '<your-admin-api-key>'
    'Content-Type' = 'application/json' 
    'Accept' = 'application/json' }
 ```
 
-Create a **$url** object that specifies the service's indexes collection.
+Create a **$url** object that specifies the service's indexes collection. The `mydemo` service name is intended as a placeholder. Replace it with a valid search service in a current subscription throughout this example.
 
 ```powershell
 $url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
@@ -166,7 +164,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
 
-This request includes two full and one partial record. The partial record demonstrates that you can upload incomplete documents. The **@search.action** parameter specifies how indexing is done. Valid values include upload, merge, mergeOrUpload, and delete. The mergeOrUpload behavior either creates a new document for hotelId = 3, or updates the contents if it already exists.
+This request includes two full and one partial record. The partial record demonstrates that you can upload incomplete documents. The `@search.action` parameter specifies how indexing is done. Valid values include upload, merge, mergeOrUpload, and delete. The mergeOrUpload behavior either creates a new document for hotelId = 3, or updates the contents if it already exists.
 
 ```powershell
 $body = @"
@@ -222,7 +220,7 @@ Run the command with **$url**, **$headers**, and **$body** to load documents int
 ```powershell
 Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
 ```
-Results should look similar to the following example. You should see a status code of 200. For a description of all status codes, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Results should look similar to the following example. You should see a status code of 201. For a description of all status codes, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ```
 {
@@ -342,7 +340,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 
 ## Next steps
 
-Try adding French descriptions to the index. The following example includes French strings and demonstrates additional search actions. Use mergeOrUpload to create or add to existing fields. The following strings are UTF-8.
+Try adding French descriptions to the index. The following example includes French strings and demonstrates additional search actions. Use mergeOrUpload to create or add to existing fields. The following strings need to be UTF-8 encoded.
 
 ```json
 {
