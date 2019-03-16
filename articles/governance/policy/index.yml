@@ -53,7 +53,7 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: Use the following samples to help you create policy definitions in Azure.
+    text: Review the samples available to help you create policy definitions in Azure.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -66,6 +66,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell</a></p>
+      html: <p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (Policy)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (Guest Configuration)</a></p>
+    - title: Resource Manager templates
+      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Assignments</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Policy Definitions</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Initiatives Definitions</a></p>
     - title: REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Events</a></p><p><a href="/rest/api/policy-insights/policystates">States</a></p><p><a href="/rest/api/resources/policyassignments">Assignments</a></p><p><a href="/rest/api/resources/policydefinitions">Policy Definitions</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatives Definitions</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Policy Tracked Resources</a></p><p><a href="/rest/api/policy-insights/remediations">Remediations</a></p>
+      html: <p><a href="/rest/api/policy-insights/policyevents">Events</a></p><p><a href="/rest/api/policy-insights/policystates">States</a></p><p><a href="/rest/api/resources/policyassignments">Assignments</a></p><p><a href="/rest/api/resources/policydefinitions">Policy Definitions</a></p><p><a href="/rest/api/resources/policysetdefinitions">Initiatives Definitions</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Policy Tracked Resources</a></p><p><a href="/rest/api/policy-insights/remediations">Remediations</a></p><p><a href="/rest/api/guestconfiguration/">Guest Configuration</a></p>
