@@ -337,6 +337,17 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 # Take the top two results, and show only `hotelName` and `lastRenovationDate`
 $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
 ```
+## Clean up 
+
+You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using.
+
+```powershell
+# Set the URI to the hotel index
+$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
+
+# Delete the index
+Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
+```
 
 ## Next steps
 
@@ -361,17 +372,4 @@ Try adding French descriptions to the index. The following example includes Fren
         }
     ]
 }
-```
-
-
-## Clean up 
-
-You should delete the index if you no longer need it. A free service is limited to three indexes so if your service is provisioned at that tier, you might want to delete any indexes you are not actively using.
-
-```powershell
-# Set the URI to the hotel index
-$uri = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
-
-# Delete the index
-Invoke-RestMethod -Uri $uri -Headers $headers -Method Delete
 ```
