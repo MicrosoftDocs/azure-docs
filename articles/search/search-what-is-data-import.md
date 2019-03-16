@@ -10,7 +10,7 @@ ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
-# Indexing external data for queries in Azure Search
+# Data import overview - Azure Search
 
 In Azure Search, queries execute over your content loaded into and saved in a [search index](search-what-is-an-index.md). This article examines the two basic approaches for populating an index: *push* your data into the index programmatically, or point an [Azure Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
@@ -30,15 +30,18 @@ You can use the following APIs to load single or multiple documents into an inde
 
 There is currently no tool support for pushing data via the portal.
 
-For an introduction to each methodology, see [Quickstart: Indexing with REST](search-create-index-rest-api.md) or [Quickstart: Indexing with the .NET SDK](search-import-data-dotnet.md).
+For an introduction to each methodology, see [Quickstart: Create an Azure Search index using PowerShell and the REST API](search-create-index-rest-api.md) or [Quickstart: Create an Azure Search index in C#](search-import-data-dotnet.md).
 
-### Decide which indexing action to use
+<a name="indexing-actions"></a>
+
+### Indexing actions: upload, merge, uploadOrMerge, delete
+
 When using the REST API, you will issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. The JSON object in your HTTP request body will contain a single JSON array named "value" containing JSON objects representing documents you would like to add to your index, update, or delete.
 
 Each JSON object in the "value" array represents a document to be indexed. Each of these objects contains the document's key and specifies the desired indexing action (upload, merge, delete). Depending on which of the below actions you choose, only certain fields must be included for each document:
 
 | @search.action | Description | Necessary fields for each document | Notes |
-| --- | --- | --- | --- |
+| -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
 | `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. This includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |

@@ -19,7 +19,7 @@
       href: cognitive-search-quickstart-blob.md
   - name: Postman
     href: search-fiddler.md
-  - name: PowerShell (REST)
+  - name: PowerShell
     href: search-create-index-rest-api.md
   - name: C#
     items:
