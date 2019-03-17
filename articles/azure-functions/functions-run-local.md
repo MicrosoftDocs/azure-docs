@@ -214,12 +214,12 @@ Even when using the storage emulator for development, you may want to test with 
 
 + Use Core Tools to download the connection string from Azure with one of the following commands:
 
-    + Download all settings from an existing function app:
+  + Download all settings from an existing function app:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Get the Connection string for a specific storage account:
+  + Get the Connection string for a specific storage account:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -479,5 +479,5 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
-[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functionsworkerruntime
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

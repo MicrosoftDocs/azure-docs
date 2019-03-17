@@ -122,8 +122,8 @@ The steps described in this topic are:
    		"EndPointType":2
 	}
 
->[!NOTE]
->Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
+> [!NOTE]
+> Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
 ### Response
 

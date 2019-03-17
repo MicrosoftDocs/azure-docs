@@ -73,14 +73,14 @@ This article will demonstrate individual enrollments.
 4. In the Azure portal, on the Device Provisioning Service summary blade, select **Manage enrollments**. Select the **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 5. Under **Add Enrollment**, enter the following information:
-    - Select **TPM** as the identity attestation *Mechanism*.
-    - Enter the *Registration ID* and *Endorsement key* for your TPM device that you noted earlier.
-    - Optionally select an IoT hub linked with your provisioning service.
-    - Enter a unique device ID. You can enter the device ID suggested in the sample output or enter your own. If you use your own, make sure to avoid sensitive data when naming your device. 
-    - Optionally update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+   - Select **TPM** as the identity attestation *Mechanism*.
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device that you noted earlier.
+   - Optionally select an IoT hub linked with your provisioning service.
+   - Enter a unique device ID. You can enter the device ID suggested in the sample output or enter your own. If you use your own, make sure to avoid sensitive data when naming your device. 
+   - Optionally update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, click the **Save** button. 
 
-    ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 

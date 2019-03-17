@@ -117,7 +117,7 @@ The following sections provide tables that summarize the availability or support
 | Tape storage | |![Yes][green] | | |
 | Compression <br/>(in Recovery Services vault) |![Yes][green] |![Yes][green] |![Yes][green] | |
 | Incremental backup |![Yes][green] |![Yes][green] |![Yes][green] |![Yes][green] |
-| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | | |
+| Disk deduplication | |![Partially][yellow] |![Partially][yellow] | |
 
 ![table key](./media/backup-introduction-to-azure-backup/table-key.png)
 

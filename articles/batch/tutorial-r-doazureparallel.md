@@ -256,7 +256,7 @@ stopCluster(cluster)
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
-Install doAzureParallel and configure it to access your Batch and storage accounts
+> Install doAzureParallel and configure it to access your Batch and storage accounts
 > * Create a Batch pool as a parallel backend for your R session
 > * Run a sample parallel simulation on the pool
 

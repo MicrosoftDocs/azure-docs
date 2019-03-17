@@ -62,7 +62,7 @@ The following steps describe how to create an Azure Time Series Insights Preview
      > [!TIP]
      > The message enqueued time might not be the best configured setting to use in batch event or historical data uploading scenarios. Make sure to verify your decision to use or not use a Timestamp property in such cases.
 
-    ![Event Source tab][2]
+     ![Event Source tab][2]
 
 1. Confirm that your environment has been provisioned with the desired settings.
 
