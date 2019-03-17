@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/13/2019
+ms.date: 03/15/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ Intro
 
 ## Create an access package
 
-Prerequisites: User account administrator, Catalog creator, Catalog owner, or Access package manager
+Prerequisites: User administrator, Catalog creator, Catalog owner, or Access package manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the **Identity Governance** page.
 
@@ -53,13 +53,13 @@ Prerequisites: User account administrator, Catalog creator, Catalog owner, or Ac
 1. For the **Select catalog** drop-down list, select the catalog you would like to create the access package in.
 
     - **Default catalog**
-        - Prerequisites: User account administrator
+        - Prerequisites: User administrator
         - If you do not want to delegate management of the access package to a set of assigned Catalog owners, then click **No** to the ______. This will create the access package in the Default catalog.
     - Existing catalog
-        - Prerequisites: User account administrator, Catalog owner, Access package manager
+        - Prerequisites: User administrator, Catalog owner, Access package manager
         - Select the catalog you would like to create the access package in from the drop down. You will only be shown catalogs you have permission to build access packages in.
     - New catalog
-        - Prerequisites: User account administrator, Catalog creator
+        - Prerequisites: User administrator, Catalog creator
         - If you would like to create your access package in a new catalog, click **Yes** to the ________.
         - In the catalog section, click **Create new**. Enter the Catalog name and description and click **Create**.
         - The access package you are creating and any resources included in it will be added to the new catalog. Additionally, you will automatically become the first owner of the catalog. You can add additional catalog owners.
@@ -72,11 +72,11 @@ Prerequisites: User account administrator, Catalog creator, Catalog owner, or Ac
 
     If you are creating the access package in the default catalog or a new catalog, you will be able to pick any resource from the directory that you own.
 
-    - Prerequisites User account administrator, Catalog creator
+    - Prerequisites User administrator, Catalog creator
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a User account administrator, or Catalog Owner, you have the additional option of selecting resources you own that are not yet in the catalog. If added to the access package, these resources will also be added to the catalog for other catalog admins to build access packages with.
+    If you are a User administrator, or Catalog Owner, you have the additional option of selecting resources you own that are not yet in the catalog. If added to the access package, these resources will also be added to the catalog for other catalog admins to build access packages with.
 
     Once you have selected the resources, you must choose which role you would like access for the resource to be assigned for.
 
@@ -130,7 +130,7 @@ Prerequisites: User account administrator, Catalog creator, Catalog owner, or Ac
 
 ## Add resource roles to an access package
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -148,7 +148,7 @@ Any users with existing assignments to the access package will automatically be 
 
 ## Remove resource roles from an access package
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -214,7 +214,7 @@ The way you specify who can request an access package is to create a policy. You
 
 You can directly assign specific users to an access package if you do not need them to request the access package.
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -236,7 +236,7 @@ Prerequisites: User account administrator, Catalog owner, Access package manager
 
 ## View who has an assignment to an access package
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -254,7 +254,7 @@ Prerequisites: User account administrator, Catalog owner, Access package manager
 
 ## View an access package's requests
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -264,7 +264,7 @@ Prerequisites: User account administrator, Catalog owner, Access package manager
 
 ## View a request's fulfillment errors
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -294,7 +294,7 @@ You can only cancel a pending request that has not yet been fulfilled.
 
 Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal. If the **Discoverable** setting is set to **No**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct URL to the access package.
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -306,7 +306,7 @@ Prerequisites: User account administrator, Catalog owner, Access package manager
 
 An access package can only be deleted if it has no active user assignments.
 
-Prerequisites: User account administrator, Catalog owner, Access package manager
+Prerequisites: User administrator, Catalog owner, Access package manager
 
 1. In the Azure portal, open the access package.
 

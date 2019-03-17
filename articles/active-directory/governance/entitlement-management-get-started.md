@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/13/2019
+ms.date: 03/15/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -33,13 +33,14 @@ Intro para
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Configure Azure AD entitlement management for access requests to your organization's resources,
-> * Demonstrate how a user from your organization can request access, and
-> * Optionally, demonstrate how a user from another organization can request access.  
+> * Create an access package of your organization's resources
+> * Demonstrate how a user from your organization can request the access package
+> * Approve the access request
+> * Demonstrate how a user from another organization can request the access package  
 
 ## Prerequisites
 
-- User account administrator
+- User administrator
     - Directories that are deployed in Azure Government, China, or other specialized clouds are not currently available for use in this preview.
 - Azure AD Premium P2
     - The directory where the preview is being configured must have a license for Azure AD Premium P2, or a license that contains Azure AD Premium P2 such as EMS E5. If you don't have an Azure subscription, sign up for an [EMS E5 trial](https://www.microsoft.com/en-us/cloud-platform/enterprise-mobility-security-trial) before you begin. (Note that a directory can only activate an EMS E5 trial once per directory).
@@ -51,7 +52,7 @@ In this tutorial, you'll learn how to:
 The resource directory has one or more groups or applications and will evaluate the entitlement management preview for managing access to those resources.
 In this step, you set up two additional users, the approver and internal requestor, in the resource directory. You also create two groups – one to collect users in the directory who can request access packages, and another group that will be the target resource for an access package assignment. The next step shows you how to set up a home directory, which is optional.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as User account administrator.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as User administrator.  
 
 1. In the upper right of the Azure portal, make sure you signed in to the resource directory. If not, switch to the resource directory.
 
@@ -67,7 +68,7 @@ In this step, you set up two additional users, the approver and internal request
 
     | Name | Directory role | Notes |
     | --- | --- | --- |
-    | **Administrator** | User account administrator | This user might be the user you are already signed in as |
+    | **Administrator** | User administrator | This user might be the user you are already signed in as |
     | **Approver** | User |
     | **Internal requestor** | User |
 
@@ -87,7 +88,7 @@ Azure AD entitlement management uses B2B to allow a user from another organizati
 
 This step is optional. If you want to only use entitlement management for users already in your directory, you can skip to the next step.
 
-1. In a separate directory, called the *home directory*, sign in to the Azure portal as User account administrator.
+1. In a separate directory, called the *home directory*, sign in to the Azure portal as User administrator.
 
 1. Record the domain name of the home directory, such as **microsoft.onmicrosoft.com**.
 
@@ -99,7 +100,7 @@ This step is optional. If you want to only use entitlement management for users 
 
 In this step, you create a catalog, an access package, and one policy for that access package. This policy allows users who are already in the resource directory to request access.
 
-1. If you have not already signed in to the resource directory, sign in to the [Azure portal](https://portal.azure.com) as User account administrator of the resource directory.
+1. If you have not already signed in to the resource directory, sign in to the [Azure portal](https://portal.azure.com) as User administrator of the resource directory.
 
 1. Navigate to the entitlement management preview administrative landing page, [https://aka.ms/elm](https://aka.ms/elm). Ensure that the directory name in the upper right of the Azure portal corresponds to the directory from Step 1.
 

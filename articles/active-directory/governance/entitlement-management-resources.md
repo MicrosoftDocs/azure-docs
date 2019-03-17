@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/13/2019
+ms.date: 03/15/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -39,7 +39,7 @@ The following sections discuss how groups, apps and SharePoint Online sites are 
 
 ## Prerequisites
 
-In order to add a resource, you will either need to be a User account administrator, or both an entitlement management catalog creator and a owner of the resource.  If you are not an administrator and have not yet created a catalog, you will also need to create a catalog before proceeding.
+In order to add a resource, you will either need to be a User administrator, or both an entitlement management catalog creator and a owner of the resource.  If you are not an administrator and have not yet created a catalog, you will also need to create a catalog before proceeding.
 
 ## Group memberships
 
@@ -51,7 +51,7 @@ Four considerations for selecting groups:
 * Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
 * The membership of dynamic groups cannot be updated using entitlement management.
 
-If you are a catalog creator, you can add to an access package in your catalog any group you own.  If there is a group which you wish to assign users to but do not own, you will need to have a User account administrator add that group to your catalog.  Once the group is part of the catalog, you can select either the 'owner' role or the 'member' role in the access package.  (Typically the 'member' role is used - assigning a user as an owner will allow them to add or remove other members or owners.)
+If you are a catalog creator, you can add to an access package in your catalog any group you own.  If there is a group which you wish to assign users to but do not own, you will need to have a User administrator add that group to your catalog.  Once the group is part of the catalog, you can select either the 'owner' role or the 'member' role in the access package.  (Typically the 'member' role is used - assigning a user as an owner will allow them to add or remove other members or owners.)
 
 Once a user is assigned the access package they will be added to that group, and when their assignment expires or is removed, they will be removed from the group.
 
@@ -63,7 +63,7 @@ Two considerations for selecting apps:
 * When an application's role is part of an access package, then a user who is assigned that access package is added to that application role by entitlement management, if not already present. When their access package assignment expires, if they do not have another access package that includes that application, they will be removed from the application.
 * Applications can have multiple roles, as well as groups assigned to roles.  
 
-If you are a catalog creator, you can add to an access package in your catalog any aplication you own.  If there is a application which you wish to assign users to but do not own, you will need to have a User account administrator add that application to your catalog.  Once the application is part of the catalog, you can select any of the application's roles in an access package.
+If you are a catalog creator, you can add to an access package in your catalog any aplication you own.  If there is a application which you wish to assign users to but do not own, you will need to have a User administrator add that application to your catalog.  Once the application is part of the catalog, you can select any of the application's roles in an access package.
 
 ## SharePoint Online site collection memberships
 
