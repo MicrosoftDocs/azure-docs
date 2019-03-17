@@ -136,6 +136,17 @@ DASH encrypted with Widevine or/and PlayReady
 Smoth Streaming encrypted with PlayReady
 `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(encryption=cenc)`
 
+### Browsers
+
+Common browsers support the following encription methods:
+
+|Browser|Encryption|
+|---|---|
+|Chrome|Widevine|
+|Firefox|Widevine, PlayReady|
+|Safari|FairPlay|
+|Edge, IE 11|PlayReady|
+
 ## AES-128 clear key vs. DRM
 
 Customers often wonder whether they should use AES encryption or a DRM system. The primary difference between the two systems is that with AES encryption the content key is transmitted to the client over TLS so that the key is encrypted in transit but without any additional encryption ("in the clear"). As a result, the key used to decrypt the content is accessible to the client player and can be viewed in a network trace on the client in plain text. AES-128 clear key encryption is suitable for use cases where the viewer is a trusted party (for example, encrypting corporate videos distributed within a company to be viewed by employees).
