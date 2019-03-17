@@ -37,9 +37,18 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What is an access review?</a>
-      - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Manage user access with access reviews</a>
-      - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Manage guest access with access reviews</a>
+      - html: <a href="/azure/active-directory/governance/create-access-review">Create an access review of groups or apps</a>
+      - html: <a href="/azure/active-directory/governance/perform-access-review">Review access to group or apps</a>
+      - html: <a href="/azure/active-directory/governance/review-your-access">Review access for yourself to groups or apps</a>
+  - title: Entitlement management (Preview)
+    items:
+    - type: list
+      style: unordered
+      items:
+      - html: <a href="/azure/active-directory/governance/access-reviews-overview">Tutorial - Get started</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-resources">Manage resources</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-create-catalog">Create a catalog</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-create-access-package">Create an access package</a>
   - title: Terms of use
     items:
     - type: list
