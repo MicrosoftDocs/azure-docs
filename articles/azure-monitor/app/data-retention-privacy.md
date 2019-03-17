@@ -151,12 +151,12 @@ Via code:
 
 - Remove ServerTelemetryChannel from configuration file
 - Add this snippet to your configuration:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### NetCore
 

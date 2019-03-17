@@ -129,25 +129,25 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
 
 1. Run the following psql command to connect to an Azure Database for PostgreSQL server
-```bash
-psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
-```
+   ```bash
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-  For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
-  ```bash
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-```
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-2.  Once you are connected to the server, create a blank database at the prompt.
-```sql
-CREATE DATABASE mypgsqldb;
-```
+2. Once you are connected to the server, create a blank database at the prompt.
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
 
-3.  At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
-```sql
-\c mypgsqldb
-```
+3. At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
+   ```sql
+   \c mypgsqldb
+   ```
 
 ## Connect to the PostgreSQL Server using pgAdmin
 
@@ -187,7 +187,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
 
-   ![Create a database in pgadmin](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
+    ![Create a database in pgadmin](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
 
 11. Select **Save** to create a new blank database.
 

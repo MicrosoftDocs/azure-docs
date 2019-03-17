@@ -35,59 +35,59 @@ To successfully complete your "content protection" system/application design, yo
 
 1. Azure Media Services code
   
-  The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+   The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
   
-  The example shows how to:
+   The example shows how to:
 
-  1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Create and configure [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
-    * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-    * Configure DRM encryption by specifying the content key.
-    * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
+      * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
+      * Configure DRM encryption by specifying the content key.
+      * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and/or [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
 
         ```
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-  2. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) that is configured to stream the encrypted asset. 
+   2. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) that is configured to stream the encrypted asset. 
   
-    The **Streaming Locator** has to be associated with a [Streaming Policy]            (https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
-    StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that we want 
-    for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and 
-    Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If 
-    you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
+      The **Streaming Locator** has to be associated with a [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies). In the example, we set 
+      StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that we want 
+      for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and 
+      Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If 
+      you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
     
-    Since we want to encrypt the video, the **Content Key Policy** that we configured earlier also has to be associated with the **Streaming Locator**. 
+      Since we want to encrypt the video, the **Content Key Policy** that we configured earlier also has to be associated with the **Streaming Locator**. 
     
-  3. Create a test token.
+   3. Create a test token.
 
-    The **GetTokenAsync** method shows how to create a test token.
-  4. Build the streaming URL.
+      The **GetTokenAsync** method shows how to create a test token.
+   4. Build the streaming URL.
 
-    The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
+      The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
 
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
-  * The player SDK supports the needed DRM clients
-  * The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS
-  * The player SDK needs to be able to handle passing a JWT token in license acquisition request
+   * The player SDK supports the needed DRM clients
+   * The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS
+   * The player SDK needs to be able to handle passing a JWT token in license acquisition request
   
-    You can create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
+     You can create a player by using the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
-    For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
+     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
 
-    If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. 
+     If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. 
     
-    You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, Microsoft Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
+     You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, Microsoft Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 
-  * Issuer and audience (or scope)
-  * Claims, which are dependent on business requirements in content protection
-  * Symmetric or asymmetric verification for signature verification
-  * Key rollover support (if necessary)
+   * Issuer and audience (or scope)
+   * Claims, which are dependent on business requirements in content protection
+   * Symmetric or asymmetric verification for signature verification
+   * Key rollover support (if necessary)
 
-    You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS, which supports all 3 types of verification key: symmetric, asymmetric, or Azure AD with key rollover. 
+     You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS, which supports all 3 types of verification key: symmetric, asymmetric, or Azure AD with key rollover. 
 
 > [!NOTE]
 > It is highly recommended to focus and fully test each part (described above) before moving onto the next part. To test your "content protection" system, use the tools specified in the list above.  
@@ -97,7 +97,7 @@ To successfully complete your "content protection" system/application design, yo
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods:
 
 |Protocol|Container format|Encryption scheme|
-|---|---|---|---|
+|---|---|---|
 |MPEG-DASH|All|AES|
 ||CSF(fmp4) |CENC (Widevine + PlayReady) |
 ||CMAF(fmp4)|CENC (Widevine + PlayReady)|
@@ -156,7 +156,7 @@ Customers often use a custom STS to include custom claims in the token to select
 To protect your Assets at rest, the assets should be encrypted by the storage side encryption. The following table shows how the storage side encryption works in Media Services v3:
 
 |Encryption option|Description|Media Services v3|
-|---|---|---|---|
+|---|---|---|
 |Media Services Storage Encryption|	AES-256 encryption, key managed by Media Services|Not supported<sup>(1)</sup>|
 |[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|
 |[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|
