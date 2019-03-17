@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/17/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -96,17 +96,45 @@ To successfully complete your "content protection" system/application design, yo
 
 You can use Media Services to deliver your content encrypted dynamically with AES clear key or DRM encryption by using PlayReady, Widevine, or FairPlay. Currently, you can encrypt the HTTP Live Streaming (HLS), MPEG DASH, and Smooth Streaming formats. Each protocol supports the following encryption methods:
 
+### HLS
+
+|Protocol|Container format|Encryption scheme|
+|---|---|---|
+|HLS|All|AES|
+||MPG2-TS |CBCS (Fairplay) |
+||MPG2-TS |CENC (PlayReady) |
+||CMAF(fmp4) |CENC (PlayReady) |
+
+#### URL examples
+
+CMAF (mp4) encrpted with Fairplay
+
+`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cbcs-aapl)`
+
+### MPEG-DASH
+
 |Protocol|Container format|Encryption scheme|
 |---|---|---|
 |MPEG-DASH|All|AES|
 ||CSF(fmp4) |CENC (Widevine + PlayReady) |
 ||CMAF(fmp4)|CENC (Widevine + PlayReady)|
-|HLS|All|AES|
-||MPG2-TS |CBCS (Fairplay) |
-||MPG2-TS |CENC (PlayReady) |
-||CMAF(fmp4) |CENC (PlayReady) |
+
+#### URL examples
+
+DASH encrypted with Widevine or/and PlayReady
+`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`
+
+### Smooth Streaming
+
+|Protocol|Container format|Encryption scheme|
+|---|---|---|
 |Smooth Streaming|fMP4|AES|
 ||fMP4 | CENC (PlayReady) |
+
+#### URL examples
+
+Smoth Streaming encrypted with PlayReady
+`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(encryption=cenc)`
 
 ## AES-128 clear key vs. DRM
 
