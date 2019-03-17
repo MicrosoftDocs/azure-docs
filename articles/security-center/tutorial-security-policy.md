@@ -114,6 +114,9 @@ For further information about recommendations, see [Managing security recommenda
 1. In the **PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**
 
    ![disable policy](./media/tutorial-security-policy/disable-policy.png)
+1. Click **Save**.
+> [!Note]
+> The disable policy changes can take up to 12 hours to take effect.
 
 
 ### Configure a security policy using the REST API
