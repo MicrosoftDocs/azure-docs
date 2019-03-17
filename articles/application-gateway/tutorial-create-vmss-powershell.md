@@ -161,14 +161,15 @@ $ipConfig = New-AzVmssIpConfig `
 $vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
-  -SkuName Standard_DS2 `
+  -SkuName Standard_DS2_v2 `
   -UpgradePolicyMode Automatic
 
 Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
+  -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
   -AdminPassword "Azure123456!" `
