@@ -70,7 +70,7 @@ Associate *myAGSubnet* that you previously created to the application gateway us
 $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
@@ -156,7 +156,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
   -ApplicationGateway $appgw
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 $vmssConfig = New-AzVmssConfig `
   -Location eastus `
