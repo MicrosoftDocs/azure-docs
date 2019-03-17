@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/15/2019
+ms.date: 03/17/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -52,6 +52,8 @@ In this tutorial, you'll learn how to:
 The resource directory has one or more groups or applications and will evaluate the entitlement management preview for managing access to those resources.
 In this step, you set up two additional users, the approver and internal requestor, in the resource directory. You also create two groups – one to collect users in the directory who can request access packages, and another group that will be the target resource for an access package assignment. The next step shows you how to set up a home directory, which is optional.
 
+![Create users and groups](./media/entitlement-management-get-started/elm-users-groups.png)
+
 1. Sign in to the [Azure portal](https://portal.azure.com) as User administrator.  
 
 1. In the upper right of the Azure portal, make sure you signed in to the resource directory. If not, switch to the resource directory.
@@ -88,6 +90,8 @@ Azure AD entitlement management uses B2B to allow a user from another organizati
 
 This step is optional. If you want to only use entitlement management for users already in your directory, you can skip to the next step.
 
+![Create guest user](./media/entitlement-management-get-started/elm-guest-user.png)
+
 1. In a separate directory, called the *home directory*, sign in to the Azure portal as User administrator.
 
 1. Record the domain name of the home directory, such as **microsoft.onmicrosoft.com**.
@@ -99,6 +103,8 @@ This step is optional. If you want to only use entitlement management for users 
 ## Step 3: Create an access package
 
 In this step, you create a catalog, an access package, and one policy for that access package. This policy allows users who are already in the resource directory to request access.
+
+![Create an access package](./media/entitlement-management-get-started/elm-access-package.png)
 
 1. If you have not already signed in to the resource directory, sign in to the [Azure portal](https://portal.azure.com) as User administrator of the resource directory.
 
@@ -207,6 +213,8 @@ In this step, you sign in as the approver user and approve the access request fo
 ## Step 7: Add a policy for external users to request access (optional)
 
 In this step, you add an additional policy for users who are not yet in the resource directory to request access.
+
+![Create guest policy](./media/entitlement-management-get-started/elm-guest-policy.png)
 
 **Hana**
 
