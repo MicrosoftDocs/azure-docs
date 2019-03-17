@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 3/14/2019
 ms.author: monhaber
 ---
 
@@ -32,7 +32,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
-When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. 
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies.
 
 
 ### Management groups
@@ -98,16 +98,25 @@ You can edit security policies through the Azure Policy portal, via REST API or 
 
 
 ## Disable security policies
-If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation. This is done via the Azure Policy portal (and not the Security Center portal), as explained here.
-For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md). 
-1. Go to Azure Policy and click **Assignments**.
-2. In the **ASC Default** row, click the three dots and click **View definition**. The **Initiative Definition** page opens.
-   ![view definition](./media/tutorial-security-policy/view-definition.png)
-3. Click **Edit intitiative**. The **Edit Initiative Definition** page opens.
-   ![edit initiative](./media/tutorial-security-policy/edit-initiative.png)
-4. In the **POLICIES AND PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**.
+If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation.
+For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
+
+1. In the Security Center, from the **Policy & Compliance** section, click **Security policy**.
+
+   ![policy management](./media/tutorial-security-policy/policy-management.png)
+
+2. Click the subscription for which you want to disable the recommendation.
+
+1. Click the assigned policy.
+
+   ![disable policy](./media/tutorial-security-policy/security-policy.png)
+
+1. In the **PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**
+
    ![disable policy](./media/tutorial-security-policy/disable-policy.png)
-1. Click **Save** (located at the bottom of the page).
+1. Click **Save**.
+> [!Note]
+> The disable policy changes can take up to 12 hours to take effect.
 
 
 ### Configure a security policy using the REST API

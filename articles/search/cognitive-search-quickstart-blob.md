@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -26,21 +26,7 @@ In this quickstart, create your first enrichment pipeline in the [Azure portal](
 
 ## <a name="supported-regions"></a> Supported Regions
 
-You can try out cognitive search in an Azure Search service created in the following regions:
-
-* West Central US
-* South Central US
-* East US
-* East US 2
-* West US 2
-* Canada Central
-* West Europe
-* UK South
-* North Europe
-* Brazil South
-* Southeast Asia
-* Central India
-* Australia East
+AI-enriched indexing through Cognitive Services is available in all Azure Search regions.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
