@@ -74,6 +74,8 @@
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Create and manage schedules
       href: classroom-labs/how-to-create-schedules.md
+    - name: Enable an environment with multiple virtual machines
+      href: how-to-enable-multi-vm-environment.md
   - name: DevTest labs
     items:
     - name: Specify resource group for lab virtual machines
