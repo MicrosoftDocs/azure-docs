@@ -1,6 +1,6 @@
 ---
-title: Protect your content and use Media Services dynamic encryption - Azure | Microsoft Docs
-description: This article gives an overview of content protection using Media Services dynamic encryption.
+title: Protect your content using Media Services dynamic encryption - Azure | Microsoft Docs
+description: This article gives an overview of content protection with dynamic encryption. It also talks about streaming protocols and encryption types.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2019
+ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
-# Content protection overview
+# Content protection with dynamic encryption
 
 You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
@@ -98,43 +98,36 @@ You can use Media Services to deliver your content encrypted dynamically with AE
 
 ### HLS
 
-|Protocol|Container format|Encryption scheme|
+The HLS protocol supports the following container formats and encryption schemes.
+
+|Container format|Encryption scheme|URL example|
 |---|---|---|
-|HLS|All|AES|
-||MPG2-TS |CBCS (Fairplay) |
-||MPG2-TS |CENC (PlayReady) |
-||CMAF(fmp4) |CENC (PlayReady) |
+|All|AES||
+|MPG2-TS |CBCS (FairPlay) ||
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) ||
+|CMAF(fmp4) |CENC (PlayReady) ||
 
-#### URL examples
-
-CMAF (mp4) encrpted with Fairplay
-
-`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cbcs-aapl)`
+HLS/CMAF + FairPlay (including H265) is supported and has been tested on Mac (Mojave and the latest Mac versions). iOS has been tested starting from v11.
 
 ### MPEG-DASH
 
-|Protocol|Container format|Encryption scheme|
+The MPEG-DASH protocol supports the following container formats and encryption schemes.
+
+|Container format|Encryption scheme|URL Examples
 |---|---|---|
-|MPEG-DASH|All|AES|
-||CSF(fmp4) |CENC (Widevine + PlayReady) |
-||CMAF(fmp4)|CENC (Widevine + PlayReady)|
-
-#### URL examples
-
-DASH encrypted with Widevine or/and PlayReady
-`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`
+|All|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)||
 
 ### Smooth Streaming
 
+The Smooth Streaming protocol supports the following container formats and encryption schemes.
+
 |Protocol|Container format|Encryption scheme|
 |---|---|---|
-|Smooth Streaming|fMP4|AES|
-||fMP4 | CENC (PlayReady) |
-
-#### URL examples
-
-Smooth Streaming encrypted with PlayReady
-`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(encryption=cenc)`
+|fMP4|AES||
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
 
 ### Browsers
 
