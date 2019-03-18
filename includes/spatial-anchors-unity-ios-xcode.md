@@ -11,7 +11,7 @@ When the export is complete, a folder that contains the exported Xcode project w
 
 > [!NOTE]
 > If a window asking you if you want to replace or append appears, we recommend that you select **Append** because it's faster. You should only need to select **Replace**
-> if you're changing assets in your scene. (For example, if you're adding, removing, or changing parent/child relationships, or if you're or adding, removing, or changing properties.) If you're only
+> if you're changing assets in your scene. (For example, if you're adding, removing, or changing parent/child relationships, or if you're adding, removing, or changing properties.) If you're only
 > making source code changes, **Append** should be enough.
 
 ### Open the Xcode project
