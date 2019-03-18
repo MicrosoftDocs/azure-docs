@@ -102,7 +102,7 @@
   - name: Define and use reviews
     items:
     - name: REST API
-    - try-review-api-review.md
+      href: try-review-api-review.md
   - name: Define and use workflows
     items:
     - name: Review tool (browser)
