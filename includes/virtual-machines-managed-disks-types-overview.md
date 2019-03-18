@@ -23,8 +23,8 @@ The following table provides a comparison of ultra solid-state-drives (SSD) (pre
 |Disk type   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and dev/test   |Backup, non-critical, infrequent access   |
 |Disk size   |65,536 gibibyte (GiB) (Preview)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
-|Max throughput   |2,000 MiB/s (Preview)   |750 MiB/s   |500 MiB/s   |500 MiB/s   |
-|Max IOPS   |160,000 (Preview)   |20,000   |2,000   |2,000   |
+|Max throughput   |2,000 MiB/s (Preview)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Max IOPS   |160,000 (Preview)   |20,000   |6,000   |2,000   |
 
 ## Ultra SSD (preview)
 
