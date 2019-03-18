@@ -45,15 +45,16 @@ There are three key requirements for this scenario to work correctly:
 
 - A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
 - A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
-- No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
+
+   No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 - Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
 
-See the Create Routes section in this tutorial to see how these routes are created.
+See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
 
 >[!NOTE]
->Azure Firewall must have direct internet connectivity. By default, AzureFirewallSubnet should only allow a UDR >0.0.0.0/0 with the **NextHopType** value set as **Internet**. 
+>Azure Firewall must have direct internet connectivity. By default, AzureFirewallSubnet should only allow a UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**.
 >
->If you enable forced tunneling to on-premises via ExpressRoute or Application Gateway, you may need to explicitly >configure a UDR 0.0.0.0/0 with the NextHopType value set as Internet and associate it with your >AzureFirewallSubnet. If your organization requires forced tunneling for Azure Firewall traffic, please contact >support so that we can whitelist your subscription and ensure the required firewall Internet connectivity is >maintained.
+>If you enable forced tunneling to on-premises via ExpressRoute or Application Gateway, you may need to explicitly configure a UDR 0.0.0.0/0 with the NextHopType value set as **Internet** and associate it with your AzureFirewallSubnet. If your organization requires forced tunneling for Azure Firewall traffic, please contact Support so that we can whitelist your subscription and ensure the required firewall Internet connectivity is maintained.
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
