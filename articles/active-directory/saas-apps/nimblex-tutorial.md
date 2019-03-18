@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/18/2019
 ms.author: jeedes
 
 ---
@@ -131,7 +131,7 @@ To configure Azure AD single sign-on with Nimblex, perform the following steps:
 
 ### Configure Nimblex Single Sign-On
 
-1. In a different web browser window, signin to Nimblex as a Security Administrator.
+1. In a different web browser window, sign in to Nimblex as a Security Administrator.
 
 2. On the top right-side of the page, click **Settings** logo.
 
