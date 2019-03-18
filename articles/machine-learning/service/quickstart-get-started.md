@@ -6,9 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/18/2019
 ms.custom: seodec18
 
@@ -21,8 +20,8 @@ Use the Azure portal to create an Azure Machine Learning workspace. This workspa
 In this quickstart, you take the following actions:
 
 * Create a workspace in your Azure subscription.
-* Try it out with Python in a Jupyter notebook and log values across multiple iterations.
-* View the logged values in your workspace.
+* Try it out with Python in a Jupyter notebook. The notebook contains code to estimate pi and logs errors at each iteration. 
+* View the logged error values in your workspace.
 
 The following Azure resources are added automatically to your workspace when they're regionally available:
 
@@ -33,7 +32,7 @@ The following Azure resources are added automatically to your workspace when the
 
 The resources you create can be used as prerequisites to other Machine Learning service tutorials and how-to articles. As with other Azure services, there are limits on certain resources associated with Machine Learning. An example is compute cluster size. Learn more about the [default limits and how to increase your quota](how-to-manage-quotas.md).
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 
 ## Create a workspace 
@@ -61,11 +60,11 @@ This example shows how the workspace can help you keep track of information gene
 
 1. On the workspace page, select **Explore your Azure Machine Learning service Workspace**.
 
- ![Explore the workspace](./media/quickstart-get-started/explore_aml.png)
+   ![Explore the workspace](./media/quickstart-get-started/explore_aml.png)
 
 1. Select **Open Azure Notebooks** to try your first experiment in Azure Notebooks.  Azure Notebooks is a separate service that lets you run Jupyter notebooks for free in the cloud.  When you use this link to the service, information about how to connect to your workspace will be added to the library you create in Azure Notebooks.
 
- ![Open Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
+   ![Open Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
 1. Sign into Azure Notebooks.  Make sure you sign in with the same account you used to sign into the Azure portal. Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
@@ -75,7 +74,7 @@ This example shows how the workspace can help you keep track of information gene
 
 1. Select **Clone**.
 
- ![Clone a library](./media/quickstart-get-started/clone.png)
+   ![Clone a library](./media/quickstart-get-started/clone.png)
 
 1. If you see that the project status is stopped, click on **Run on Free Computer** to use the free notebook server.
 

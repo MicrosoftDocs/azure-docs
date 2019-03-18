@@ -83,24 +83,24 @@ While this application is written in JavaScript, the API is a RESTful Web servic
 
 1. Create a function called `Search` to send a search request. In it, perform the following steps.
 
-    1. Create a JSON object containing your request parameters: use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
-    2. Use `https.request()` to send the request with the response handler created earlier, and your search parameters.
+   1. Create a JSON object containing your request parameters: use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+   2. Use `https.request()` to send the request with the response handler created earlier, and your search parameters.
     
-    ```javascript
-    let Search = function () {
-    	let request_params = {
-    		method : 'GET',
-    		hostname : host,
-    		path : path + query,
-    		headers : {
-    			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-    		}
-    	};
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-    	let req = https.request (request_params, response_handler);
-    	req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Call the `Search()` function.
 

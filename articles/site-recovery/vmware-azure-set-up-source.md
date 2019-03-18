@@ -20,7 +20,7 @@ This article describes how to set up your source on-premises environment, to rep
 The article assumes that you have already:
 
 - Planned your deployment with the help of [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). This helps you to allocate sufficient bandwidth, based on your daily data-change rate, to meet your desired recovery point objective (RPO).
-- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](http://portal.azure.com).
+- [Set up resources](tutorial-prepare-azure.md) in the [Azure portal](https://portal.azure.com).
 - [Set up on-premises VMware](vmware-azure-tutorial-prepare-on-premises.md), including a dedicated account for automatic discovery.
 
 ## Choose your protection goals
@@ -54,18 +54,18 @@ Exclude following folders from Antivirus software for smooth replication and to 
 - C:\Program Files\Microsoft Azure Site Recovery Provider
 - C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
 - C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
- - C:\thirdparty
- - C:\Temp
- - C:\strawberry
- - C:\ProgramData\MySQL
- - C:\Program Files (x86)\MySQL
- - C:\ProgramData\ASR
- - C:\ProgramData\Microsoft Azure Site Recovery
- - C:\ProgramData\ASRLogs
- - C:\ProgramData\ASRSetupLogs
- - C:\ProgramData\LogUploadServiceLogs
- - C:\inetpub
- - ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - C:\thirdparty
+  - C:\Temp
+  - C:\strawberry
+  - C:\ProgramData\MySQL
+  - C:\Program Files (x86)\MySQL
+  - C:\ProgramData\ASR
+  - C:\ProgramData\Microsoft Azure Site Recovery
+  - C:\ProgramData\ASRLogs
+  - C:\ProgramData\ASRSetupLogs
+  - C:\ProgramData\LogUploadServiceLogs
+  - C:\inetpub
+  - ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### If Antivirus Software is active on scale-out Process server/Master Target
 

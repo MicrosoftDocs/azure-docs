@@ -20,6 +20,7 @@ ms.author: ryanwi
 The following are examples of the application and service manifests for a multi-container Service Fabric application. The purpose of these examples is to show what settings are available and how to use them. These application and service manifests are based on the [Windows Server 2016 Container Sample](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifests.
 
 The following features are shown:
+
 |Manifest|Features|
 |---|---|
 |[Application manifest](#application-manifest)| [override environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configure container port-to-host mapping](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configure container registry authentication](service-fabric-get-started-containers.md#configure-container-registry-authentication), [resource governance](service-fabric-resource-governance.md), [set isolation mode](service-fabric-get-started-containers.md#configure-isolation-mode), [specify OS build-specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
@@ -35,8 +36,8 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 <ApplicationManifest ApplicationTypeName="Container.ApplicationType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="BackEndService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="FrontEndService_InstanceCount" DefaultValue="-1" />
@@ -166,8 +167,8 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 <ServiceManifest Name="FrontEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -216,8 +217,8 @@ See [Application manifest elements](#application-manifest-elements), [FrontEndSe
 <ServiceManifest Name="BackEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->

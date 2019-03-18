@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Sharing across sessions and devices with Azure Spatial Anchors | Microsoft Docs
-description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service.
+description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between Android/iOS devices in Unity with a back-end service.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -9,8 +9,6 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service.
 ---
 
 # Tutorial: Sharing across sessions and devices with Azure Spatial Anchors
@@ -35,9 +33,13 @@ You'll learn how to:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-It's worth noticing that, although you'll be using Unity and an ASP.NET Core Web App in this Tutorial, it is only to show an example on how to share Azure Spatial Anchor identifiers across other devices. You can user other languages and back-end technologies to achieve the same goal. Also, the ASP.NET Core Web App used in this Tutorial has a dependency on .NET Core 2.2 SDK. It runs fine on regular Azure Web Apps (for Windows), but will currently not work on Azure Web Apps for Linux.
+It's worth noticing that, although you'll be using Unity and an ASP.NET Core Web App in this Tutorial, it is only to show an example on how to share Azure Spatial Anchor identifiers across other devices. You can use other languages and back-end technologies to achieve the same goal. Also, the ASP.NET Core Web App used in this Tutorial has a dependency on .NET Core 2.2 SDK. It runs fine on regular Azure Web Apps (for Windows), but will currently not work on Azure Web Apps for Linux.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+
+## Open the sample project in Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## Deploy your Sharing Anchors Service
 
@@ -45,13 +47,19 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
+## Open the sample project in Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 
-In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App. To learn more about how to improve your ASP.NET Core Web App so that it uses Cosmos DB to store your shared Spatial Anchors, continue to the next tutorial.
+In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App.
+
+To learn more about how to improve your ASP.NET Core Web App so that it uses Azure Cosmos DB to store your shared Spatial Anchors, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Cosmos DB to Store Anchors](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Tutorial: Use Azure Cosmos DB to Store Anchors](./tutorial-use-cosmos-db-to-store-anchors.md)

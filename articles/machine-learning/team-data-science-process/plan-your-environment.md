@@ -149,7 +149,7 @@ There are many options for languages, development environments, and tools. Be aw
 * [RStudio](http://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
-* [Jupyter notebooks](http://jupyter.org/)
+* [Jupyter notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## Identify your advanced analytics scenario

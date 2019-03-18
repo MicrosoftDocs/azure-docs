@@ -62,11 +62,11 @@ To configure Service Map integration, do the following:
 
     For the integration to build a distributed application diagram for a server, the server must be:
 
-    * Managed by Operations Manager
-    * Managed by Service Map
-    * Listed in the Service Map Servers Group
+   * Managed by Operations Manager
+   * Managed by Service Map
+   * Listed in the Service Map Servers Group
 
-    ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
+     ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
 
 6. Optional: Select the Management Server resource pool to communicate with Log Analytics, and then click **Add Workspace**.
 

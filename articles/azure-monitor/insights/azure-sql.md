@@ -3,7 +3,6 @@ title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
 ms.service: log-analytics
-ms.subservice: performance
 ms.custom: 
 ms.topic: conceptual
 author: danimir
@@ -62,9 +61,13 @@ The above page also provides instructions on enabling support for monitoring mul
 
 ## Using the solution
 
-When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. The tile shows the number of Azure SQL databases, elastic pools, Managed Instances, and databases in Managed instances that the solution is receiving diagnostics telemetry from.
+When you add the solution to your workspace, the Azure SQL Analytics tile is added to your workspace, and it appears in Overview. Select View Summary link to load the tile content.
 
-![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL Analytics summary tile](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Once loaded, the tile shows the number of Azure SQL databases, elastic pools, Managed Instances, and databases in Managed instances that the solution is receiving diagnostics telemetry from.
+
+![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 The solution provides two separate views -- one for monitoring Azure SQL Databases and elastic pools, and the other view for monitoring Managed Instance, and databases in Managed Instances.
 

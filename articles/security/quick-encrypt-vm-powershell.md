@@ -3,7 +3,7 @@ title: Quickstart - Encrypt a Windows IaaS VM with Azure PowerShell | Microsoft 
 description:  In this quickstart, learn how to use Azure PowerShell to encrypt a Windows IaaS VM in Azure.
 services: security
 documentationcenter: na
-author: mestew
+author: msmbaldwin
 manager: MBaldwin
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na 
 ms.workload: na
 ms.date: 01/14/2019
-ms.author: mstewart
+ms.author: mbaldwin
 ms.custom: seodec18
 ---
 # Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell

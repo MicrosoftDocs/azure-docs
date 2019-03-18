@@ -38,11 +38,11 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 3. Switch to the tenant you want to delete.
   
-  ![delete directory button](./media/directory-delete-howto/delete-directory-command.png)
+   ![delete directory button](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Select **Delete directory**.
   
-  ![delete directory button](./media/directory-delete-howto/delete-directory-list.png)
+   ![delete directory button](./media/directory-delete-howto/delete-directory-list.png)
 
 5. If your tenant does not pass one or more checks, you're provided with a link to more information on how to pass. After you pass all checks, select **Delete** to complete the process.
 
@@ -67,17 +67,17 @@ You can put a subscription into a **Deprovisoned** state to be deleted in 3 days
 
 2. Go to the **Billing** tab and select **Products and Services**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
   
-  ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
+   ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
   
 3. Select **Delete** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can reactivate the subscription during the three-day period if you change your mind.
   
-  ![terms and conditions](./media/directory-delete-howto/delete-terms.png)
+   ![terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
 4. Now the subscription state has changed, the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
 5. Once you have deleted a subscription on your tenant, and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your tenant deletion. You should be able to successfully delete your Azure AD tenant.
   
-  ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
+   ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## Next steps
 [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/)

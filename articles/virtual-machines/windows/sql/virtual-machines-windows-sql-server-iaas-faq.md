@@ -77,7 +77,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
-   If you have Software Assurance and use License Mobility as described in Virtual Machine Licensing FAQ,](https://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
+   If you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](https://azure.microsoft.com/pricing/licensing-faq/), then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
@@ -106,17 +106,17 @@ This article provides answers to some of the most common questions about running
  
    Yes. All customers are able to register with the new SQL VM resource provider. However, only customers with Software Assurance Benefit can activate the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (or BYOL) on a SQL Server VM. 
 
-1. **What happens to the  _*Microsoft.SqlVirtualMachine_* resource if the VM resource is moved or dropped?** 
+1. **What happens to the  _Microsoft.SqlVirtualMachine_ resource if the VM resource is moved or dropped?** 
 
    When the Microsoft.Compute/VirtualMachine resource is dropped or moved, then the associated Microsoft.SqlVirtualMachine resource is notified to asynchronously replicate the operation.
 
-1. **What happens to the VM if the  _*Microsoft.SqlVirtualMachine_* resource is dropped?**
+1. **What happens to the VM if the  _Microsoft.SqlVirtualMachine_ resource is dropped?**
 
-   The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
+    The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
 
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
 
-   Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.
+    Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.
 
 ## Administration
 

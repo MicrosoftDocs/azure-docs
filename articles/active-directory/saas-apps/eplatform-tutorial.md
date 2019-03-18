@@ -8,12 +8,12 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 6c93e008-09f3-4937-9651-262993603f96
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 03/05/2019
 ms.author: jeedes
 
 ---
@@ -106,15 +106,43 @@ To configure Azure AD single sign-on with ePlatform, perform the following steps
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [ePlatform Client support team](https://help.eplatform.co/hc/en-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-4. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
+5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
 	![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-5. In the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
+6. In the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
 
     ![Copy Thumbprint value](common/copy-thumbprint.png)
 
-6. On the **Set up ePlatform** section, copy the appropriate URL(s) as per your requirement.
+7. Your ePlatform application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+
+	![image](common/edit-attribute.png)
+
+8. In addition to above, ePlatform application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+
+	| Name | Source Attribute |
+	| ---------------| --------------- |
+	| upn | user.userprincipalname |
+
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
+
+	![image](common/new-save-attribute.png)
+
+	![image](common/new-attribute-details.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. Leave the **Namespace** blank.
+
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Ok**
+
+	g. Click **Save**.
+
+9. On the **Set up ePlatform** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -146,7 +174,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

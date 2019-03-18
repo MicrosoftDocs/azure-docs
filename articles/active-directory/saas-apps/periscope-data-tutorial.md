@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,6 +101,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
     ![Periscope Data Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type any of the URLs:
+    
 	| |
 	|--|
 	| `https://app.periscopedata.com/` |
@@ -162,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -215,7 +216,7 @@ To enable Azure AD users to log in to Periscope Data, they must be provisioned i
 
     b. In **Last Name** text box, enter the last name of user like **Simon**.
 
-    c. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+    c. In **Email** text box, enter the email of user like **brittasimon\@contoso.com**.
 
     d. Click **ADD**.
 

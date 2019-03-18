@@ -48,7 +48,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ### Create a struct to format the Bing Video Search API response
 
-3. Define a `SearchResult` struct to contain the image search results, and JSON header information.
+1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
 
     ```csharp
     struct SearchResult

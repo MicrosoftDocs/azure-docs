@@ -36,7 +36,7 @@ Before you begin, make sure that:
     - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
 6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
 7. You have procured the following cables to connect your Data Box to the host computer.
-    - One or more 10-GbE SFP+ Twinax copper or SFP+ fiber optic cables (use with DATA 1, DATA 2 network interfaces). Data Box has the Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T Adapters w/ PCI Express 3.0 network interface, so cables that are compatible with this interface should work. For example, a CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M cable was used for inhouse testing. For more information, see the [list of supported cables and switches from Mellanox](http://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - One or more 10-GbE SFP+ Twinax copper or SFP+ fiber optic cables (use with DATA 1, DATA 2 network interfaces). Data Box has the Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T Adapters w/ PCI Express 3.0 network interface, so cables that are compatible with this interface should work. For example, a CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M cable was used for inhouse testing. For more information, see the [list of supported cables and switches from Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
@@ -79,10 +79,10 @@ Perform the following steps to set up your device using the local web UI and the
     
 7. Provide the device password that you got from the Azure portal in the previous step to sign into the local web UI of the device. Click **Sign in**.
 8. On the **Dashboard**, ensure that the network interfaces are configured. 
-    - If DHCP is enabled in your environment, network interfaces are automatically configured. 
-    - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
+   - If DHCP is enabled in your environment, network interfaces are automatically configured. 
+   - If DHCP is not enabled, go to **Set network interfaces**, and assign static IPs if needed.
 
-    ![Device dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![Device dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 Once the data network interfaces are configured, you can also use the IP address of any of the DATA 1 - DATA 3 interfaces to access the local web UI at `https://<IP address of a data network interface>`. 
 

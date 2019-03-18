@@ -18,7 +18,7 @@ ms.author: priyamo
 ms.collection: M365-identity-device-management
 ---
 
-# Configure managed identities for Azure resources on a Azure virtual machine scale using a template
+# Configure managed identities for Azure resources on an Azure virtual machine scale using a template
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -316,7 +316,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
         }
     ]
    ```
-### Remove user-assigned managed identity from an Azure virtual machine scale set
+   ### Remove user-assigned managed identity from an Azure virtual machine scale set
 
 If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
 

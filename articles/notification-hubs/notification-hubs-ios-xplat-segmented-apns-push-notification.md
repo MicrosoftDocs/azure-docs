@@ -45,14 +45,14 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 1. In your **MainStoryboard_iPhone.storyboard** add the following components from the object library:
 
-    * A label with "Breaking News" text,
-    * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
-    * Six switches, one per category, set each switch **State** to be **Off** by default.
-    * One button labeled "Subscribe"
+   * A label with "Breaking News" text,
+   * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
+   * Six switches, one per category, set each switch **State** to be **Off** by default.
+   * One button labeled "Subscribe"
 
-    Your storyboard should look as follows:
+     Your storyboard should look as follows:
 
-    ![Xcode interface builder][3]
+     ![Xcode interface builder][3]
 
 2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 3. Create an Action for your button called `subscribe`; your `ViewController.h` should contain the following code:
@@ -355,11 +355,11 @@ In this tutorial, you sent broadcast notifications to specific iOS devices that 
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Azure portal]: https://portal.azure.com
