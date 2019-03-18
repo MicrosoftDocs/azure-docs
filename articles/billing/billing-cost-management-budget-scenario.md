@@ -290,7 +290,7 @@ You’re done with all the supporting components needed to effectively orchestra
 
 ## Create the Azure Budget
 
-You can create a budget in the Azure portal using the [Budget feature](../cost-management/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, Powershell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you will need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs. 
+You can create a budget in the Azure portal using the [Budget feature](../cost-management/tutorial-acm-create-budgets.md) in Cost Management. Or, you can create a budget using REST APIs, Powershell cmdlets, or use the CLI. The following procedure uses the REST API. Before calling the REST API, you will need an authorization token. To create an authorization token, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) project. The **ARMClient** allows you to authenticate yourself to the Azure Resource Manager and get a token to call the APIs.
 
 ### Create an authentication token
 
@@ -330,7 +330,7 @@ Next, you will configure **Postman** to create a budget by calling the Azure Con
 8.	Set the **Value** to the token that was created using the ArmClient at the end of the last section.
 9.	Select **Body** tab within Postman.
 10.	Select the **raw** button option.
-11.	In the textbox, paste in the below sample budget definition, however you must replace the **subscriptionid**, **budgetname**, and **actiongroupname** parameters with your subscription id, a unique name for your budget, and the action group name you created in both the URL and the request body:
+11.	In the textbox, paste in the below sample budget definition, however you must replace the **subscriptionid**, **budgetname**, and **actiongroupname** parameters with your subscription ID, a unique name for your budget, and the action group name you created in both the URL and the request body:
 
     ```
         {
