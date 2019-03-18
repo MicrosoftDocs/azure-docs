@@ -126,13 +126,14 @@ Once an Azure Resource Manager template repository has been configured in the la
 ## Automate deployment of environments
 Azure DevTest Labs provide the ability to use an [Azure Resource Management Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to create an environment with a set of resources in the lab. These environments can contain any Azure resources that can be created using Resource Manager templates. DevTest Lab environments allow users to readily deploy complex infrastructures in a consistent way within the confines of the lab. Currently, adding an environment to a DevTest Lab using the Azure Portal is feasible when creating it once, but in a development or a testing situation, where multiple creations occur, an automated deployment allows for an improved experience.
 
-Follow steps in the [Configure your own template repositories](#configure-your-own-template-repositories) section to do the following tasks:
+Complete the following steps in the [Configure your own template repositories](#configure-your-own-template-repositories) section before proceding further: 
+
 1. Create the Resource Manager template that defines the resources being created. 
 2. Set up the Resource Manager template in Git a repository. 
 3. Connect the Git repository to the lab. 
 
 ### PowerShell script to deploy the Resource Manager template
-Save this script to your hard disk (for example: deployenv.ps1) and run the script after you specify values for SubscriptionId, ResourceGroupName, LabName, RepositoryName, TemplateName (folder) in the Git repo, EnvironmentName.
+Save the PowerShell script in the next section to your hard disk (for example: deployenv.ps1) and run the script after you specify values for SubscriptionId, ResourceGroupName, LabName, RepositoryName, TemplateName (folder) in the Git repo, EnvironmentName.
 
 ```powershell
 ./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG994248" -RepositoryName "SP Repository" -TemplateName "My Environment template name" -EnvironmentName "SPResourceGroupEnv"  
