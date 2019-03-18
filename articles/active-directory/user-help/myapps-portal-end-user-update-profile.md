@@ -21,7 +21,7 @@ You can use your work or school account with the web-based **My Apps** portal, t
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-myapps-portal.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## View your organization-related profile information
 Depending on what your organization has chosen to include on your **Profile** page of the **My Apps** portal, you might see your specific work-related details, along with your devices and activity, and any additional organizations to which you belong.
