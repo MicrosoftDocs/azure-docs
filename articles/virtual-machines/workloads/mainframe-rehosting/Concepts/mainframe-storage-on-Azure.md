@@ -101,8 +101,6 @@ Blob storage provides the largest volume of storage on Azure. In addition to sto
 
 ## Learn more
 
-### Azure compute and storage
-
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
 - [Move mainframe storage to Azure](mainframe-storage-on-Azure.md)
