@@ -227,4 +227,4 @@ When you reimport this app, the active learning continues to collect information
 ## Next steps
  
 > [!div class="nextstepaction"]
-> [Use QnA Maker API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Use metadata with GenerateAnswer API](metadata-generateanswer-usage.md)
