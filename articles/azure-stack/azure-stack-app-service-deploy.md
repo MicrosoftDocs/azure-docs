@@ -40,13 +40,13 @@ You can give your users the ability to create web and API applications. To let u
 
 Installing the App Service resource provider takes at least an hour. The length of time needed depends on how many role instances you deploy. During the deployment, the installer runs the following tasks:
 
- - Create a blob container in the specified Azure Stack storage account.
- - Create a DNS zone and entries for App Service.
- - Register the App Service resource provider.
- - Register the App Service gallery items.
+- Create a blob container in the specified Azure Stack storage account.
+- Create a DNS zone and entries for App Service.
+- Register the App Service resource provider.
+- Register the App Service gallery items.
 
- > [!IMPORTANT]
- > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+  > [!IMPORTANT]
+  > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To deploy App Service resource provider, follow these steps:
 
@@ -70,8 +70,8 @@ To deploy App Service resource provider, follow these steps:
 
     a. Select **Connect** next to the **Azure Stack Subscriptions**.
 
-     - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Select **Sign In**.
-     - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and then select **Sign In**.
+   - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Select **Sign In**.
+   - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and then select **Sign In**.
 
    b. In **Azure Stack Subscriptions**, select the **Default Provider Subscription**.
 
@@ -239,7 +239,7 @@ To create a test web app, follow these steps:
 
 1. In the Azure Stack tenant portal, select **+**, go to the Azure Marketplace, deploy a Django website, and then wait for the deployment to finish. The Django web platform uses a file system-based database. It doesn’t require any additional resource providers, such as SQL or MySQL.
 
-2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1@Server1*, with the user name and server name of your choice.
+2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1\@Server1*, with the user name and server name of your choice.
 
 3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, choose a database in the computer running SQL Server that's connected to your resource provider.
 

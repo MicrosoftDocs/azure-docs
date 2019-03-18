@@ -53,7 +53,7 @@
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
   - name: Security
-    items: 
+    items:
     - name: Enterprise security overview
       displayName: authorization authentication encryption
       href: concept-enterprise-security.md
@@ -61,7 +61,7 @@
       displayName: vnet
       href: how-to-enable-virtual-network.md
     - name: Secure web services with SSL
-      href: how-to-secure-web-service.md    
+      href: how-to-secure-web-service.md
 - name: How-to guides
   items:
   - name: Manage workspaces
@@ -120,6 +120,8 @@
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Auto-train forecast models
+      href: how-to-auto-train-forecast.md
   - name: ONNX models
     href: how-to-build-deploy-onnx.md
   - name: Deploy models

@@ -36,7 +36,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Infinite Campus, you need the following items:
 
 - An Azure AD subscription
-- A Infinite Campus single sign-on enabled subscription
+- An Infinite Campus single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -87,7 +87,7 @@ To configure and test Azure AD single sign-on with Infinite Campus, you need to 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Infinite Campus test user](#creating-a-infinite-campus-test-user)** - to have a counterpart of Britta Simon in Infinite Campus that is linked to the Azure AD representation of user.
+3. **[Creating an Infinite Campus test user](#creating-a-infinite-campus-test-user)** - to have a counterpart of Britta Simon in Infinite Campus that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -193,14 +193,14 @@ The objective of this section is to create a _single_ test user in the Azure por
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Select **Create**.
 
-### Creating a Infinite Campus test user
+### Creating an Infinite Campus test user
 
 Infinite Campus has a demographics centered architecture. Please contact [Infinite Campus support team](mailto:sales@infinitecampus.com) to add the users in the Infinite Campus platform.
 

@@ -149,7 +149,7 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     node -v
     npm -v
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator on your machine from NPM:
+2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from NPM:
 
     ```bash
     npm install -g yo

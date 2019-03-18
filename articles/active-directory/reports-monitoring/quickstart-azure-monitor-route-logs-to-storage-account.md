@@ -43,11 +43,11 @@ To use this feature, you need:
 3. Select **Export Settings**. 
 
 4. In the **Diagnostics settings** pane, do either of the following:
-    * To change existing settings, select **Edit setting**.
-    * To add new settings, select **Add diagnostics setting**.  
-      You can have up to three settings. 
+   * To change existing settings, select **Edit setting**.
+   * To add new settings, select **Add diagnostics setting**.  
+     You can have up to three settings. 
 
-    ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Enter a friendly name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). 
 

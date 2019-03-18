@@ -113,7 +113,7 @@ echo "Storage account name = " $storageAccountName
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
     --resource-group $resourceGroup \
-	--location $location \
+    --location $location \
     --sku Standard_LRS
 
 # Get the primary storage account key. 
@@ -140,7 +140,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-	
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -148,7 +148,7 @@ echo "Service Bus queue name = " $sbQueueName
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
-	--resource-group $resourceGroup
+    --resource-group $resourceGroup
 
 # Create the IoT device identity to be used for testing.
 az iot hub device-identity create --device-id $iotDeviceName \
@@ -297,10 +297,9 @@ The data is written to blob storage in the Avro format by default.
    > 
    > For example, using the default blob file name format, if the hub name is ContosoTestHub, and the date/time is October 30, 2018 at 10:56 a.m., the blob name will look like this: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > The blobs are written in the Avro format by default. You can choose to write files in JSON format. The capability to encode JSON format is in preview in all regions IoT Hub is available in, except East US, West US and West Europe. See [guidance on routing to blob storage] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > The blobs are written in the Avro format by default. You can choose to write files in JSON format. The capability to encode JSON format is in preview in all regions IoT Hub is available in, except East US, West US and West Europe. See [guidance on routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
    > 
    > When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a [Microsoft-initiated failover](iot-hub-ha-dr.md#microsoft-initiated-failover) or IoT Hub [manual failover](iot-hub-ha-dr.md#manual-failover-preview). To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
-   >
 
 8. Click **Create** to create the storage endpoint and add it to the route. You return to the **Add a route** pane.
 
@@ -309,15 +308,15 @@ The data is written to blob storage in the Avro format by default.
    **Name**: Enter a name for your routing query. This tutorial uses **StorageRoute**.
 
    **Endpoint**: This shows the endpoint you just set up. 
-   
+
    **Data source**: Select **Device Telemetry Messages** from the dropdown list.
 
    **Enable route**: Be sure this is enabled.
-   
+
    **Routing query**: Enter `level="storage"` as the query string. 
 
    ![Screenshot showing creating a routing query for the storage account.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Click **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Routes pane, which returns you to the Resource group page.
 
 ### Routing to a Service Bus queue 
@@ -335,14 +334,14 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 4. Fill in the fields:
 
    **Endpoint Name**: Enter a name for the endpoint. This tutorial uses **CriticalQueue**.
-   
+
    **Service Bus Namespace**: Click on this field to reveal the dropdown list; select the service bus namespace you set up in the preparation steps. This tutorial uses **ContosoSBNamespace**.
 
    **Service Bus queue**: Click on this field to reveal the dropdown list; select the Service Bus queue from the dropdown list. This tutorial uses **contososbqueue**.
 
 5. Click **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane. 
 
-6.  Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
+6. Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
    **Name**: Enter a name for your routing query. This tutorial uses **SBQueueRoute**. 
 
@@ -399,7 +398,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
    ![Screenshot showing setting up the connection for the Service Bus queue.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Click the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and click **Create**. 
-   
+
    ![Screenshot showing finishing setting up the connection.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. On the next screen, select the name of the queue (this tutorial uses **contososbqueue**) from the dropdown list. You can use the defaults for the rest of the fields. 
@@ -440,9 +439,9 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Add an input to the Stream Analytics job
 
-4. Under **Job Topology**, click **Inputs**.
+1. Under **Job Topology**, click **Inputs**.
 
-5. In the **Inputs** pane, click **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
+1. In the **Inputs** pane, click **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
 
    **Input alias**: This tutorial uses **contosoinputs**.
 
@@ -455,12 +454,12 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
    **Shared access policy name**: Select **iothubowner**. The portal fills in the Shared Access Policy Key for you.
 
    **Consumer group**: Select the consumer group you created earlier. This tutorial uses **contosoconsumers**.
-   
+
    For the rest of the fields, accept the defaults. 
 
    ![Screenshot showing how to set up the inputs for the stream analytics job.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Click **Save**.
+1. Click **Save**.
 
 ### Add an output to the Stream Analytics job
 
@@ -629,4 +628,4 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Set up and use metrics and diagnostics with an IoT Hub](tutorial-use-metrics-and-diags.md)
+> [Set up and use metrics and diagnostics with an IoT Hub](tutorial-use-metrics-and-diags.md)

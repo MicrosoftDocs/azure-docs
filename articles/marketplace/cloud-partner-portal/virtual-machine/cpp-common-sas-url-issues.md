@@ -23,7 +23,7 @@ The following table lists some of the common issues encountered when working wit
 
 | **Issue** | **Failure Message** | **Fix** | 
 | --------- | ------------------- | ------- | 
-| &emsp;  *Failure in copying images* |  |  |  |
+| &emsp;  *Failure in copying images* |  |  |
 | "?" is not found in SAS URL | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URL using recommended tools. |
 | “st” and “se” parameters not in SAS URL | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URL with proper **Start Date** and **End Date** values in it. | 
 | “sp=rl” not in SAS URL | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | Update the SAS URL with permissions set as `Read` and `List`. | 

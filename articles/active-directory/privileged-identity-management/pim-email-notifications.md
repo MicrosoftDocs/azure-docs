@@ -26,7 +26,7 @@ Azure AD Privileged Identity Management (PIM) lets you know when important event
 
 Emails sent from PIM for both Azure AD and Azure resource roles have the following sender email address:
 
-- Email address:  **azure-noreply@microsoft.com**
+- Email address:  **azure-noreply\@microsoft.com**
 - Display name: Microsoft Azure
 
 These emails include a **PIM** prefix in the subject line. Here's an example:

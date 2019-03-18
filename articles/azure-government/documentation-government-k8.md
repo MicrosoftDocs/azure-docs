@@ -1,6 +1,6 @@
 ---
 title: Deploy Kubernetes to Azure Government | Microsoft Docs
-description: This article describes how to deploy Kubernetes to Azure Government using acs-engine.
+description: This article describes how to deploy Kubernetes to Azure Government using aks-engine.
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/11/2018
+ms.date: 03/15/2019
 ms.author: gsacavdm
 
 ---
@@ -25,14 +25,14 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 * Download [aks-engine](https://github.com/Azure/aks-engine/releases).
 * Download [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
+
+## Define your Kubernetes cluster configuration
+1. Download the aks-engine `kubernetes.json` [sample file](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/kubernetes.json).
+
     > [!NOTE]
     > aks-engine v0.31.3 is recommended for use with Azure Government.
     >
-    >
-
-## Define your Kubernetes cluster configuration
-1. Download the sample aks-engine `apimodel.json` [for Kubernetes](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/kubernetes.json).
-
+   
 2. Modify the following values in your `apimodel.json` file:
     * `dnsPrefix`: The dns name you want for the cluster. For example, `contoso` will result in `https://contoso.usgovvirginia.cloudapp.usgovcloudapi.net`
     * `keyData`: The public SSH key to SSH into the Kubernetes cluster. See [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -85,7 +85,9 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 1. (Optional) [Deploy a PHP Guestbook application with Redis in your Kubernetes cluster](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/)
 
 ### References
-* [Microsoft Azure Kubernetes Service Engine - Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/kubernetes.md)
+
+* [Microsoft AKS Engine - Kubernetes](https://github.com/Azure/aks-engine/)
+
 * [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable)
 
 ## Next steps

@@ -7,7 +7,7 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
@@ -68,9 +68,9 @@ There are three required arguments:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
-If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
+  > [!NOTE]
+  >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
+  If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
 
 For workflow ID 1001, and config.txt file placed in the same path as the msgen executable, the command will look like this:
 
@@ -112,7 +112,7 @@ These errors are user actionable. Based on the type of file, and error code, Mic
 
 | Type of file | Error code | Error message                                                                           | Recommended troubleshooting steps                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength]           | The most common reason for this error is file corruption leading to concatenation of two reads. Check your input files. |                                |
+| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength]           | The most common reason for this error is file corruption leading to concatenation of two reads. Check your input files. |
 | BAM          | 200        |   Unable to read file '[yourFileName]'.                                                                                       | Check the format of the BAM file. Submit the workflow again with a properly formatted file.                                                                           |
 | BAM          | 201        |  Unable to read BAM file [File_name].                                                                                      |Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
 | BAM          | 202        | Unable to read BAM file [File_name]. File too small and missing header.                                                                                        | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |

@@ -2,7 +2,7 @@
 title: Quickstart - Create a Traffic Manager profile for high availability of applications using the Azure portal
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web applications.
 services: traffic-manager
-dauthor: kumudd
+author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na

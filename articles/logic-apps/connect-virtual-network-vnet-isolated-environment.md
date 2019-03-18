@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/6/2019
+ms.date: 03/12/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -21,12 +21,13 @@ For scenarios where your logic apps and integration accounts need access to an
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an 
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
 An ISE is a private and isolated environment that uses dedicated storage and other 
-resources kept separate from the public or "global" Logic Apps service. This separation 
-also reduces any impact that other Azure tenants might have on your apps' performance. 
-Your ISE is *injected* into to your Azure virtual network, which then deploys the Logic Apps 
-service into your virtual network. When you create a logic app or integration account, 
-select this ISE as their location. Your logic app or integration account can then directly 
-access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
+resources that are kept separate from the public or "global" Logic Apps service. 
+This separation also reduces any impact that other Azure tenants might have on your 
+apps' performance. Your ISE is *injected* into to your Azure virtual network, 
+which then deploys the Logic Apps service into your virtual network. When you create 
+a logic app or integration account, select this ISE as their location. Your logic 
+app or integration account can then directly access resources, such as virtual machines (VMs), 
+servers, systems, and services, in your virtual network.
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -35,9 +36,6 @@ This article shows how to complete these tasks:
 * Set up ports on your Azure virtual network so traffic 
 can travel through your integration service environment 
 (ISE) across subnets in your virtual network.
-
-* Set up permissions on your Azure virtual network so the 
-private Logic Apps instance can access your virtual network.
 
 * Create your integration service environment (ISE).
 
@@ -61,20 +59,20 @@ For more information about integration service environments, see
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 If you don't have a virtual network, learn how to 
 [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
-You also need subnets in your virtual network for deploying your ISE. You can 
-create these subnets in advance, or wait until you create your ISE where you 
-can create subnets at the same time. Also, [make sure your virtual network makes these ports available](#ports) so your ISE works correctly and stays accessible.
 
-* To give your logic apps direct access to your Azure virtual network, 
-[set up your network's Role-Based Access Control (RBAC) permissions](#vnet-access) 
-so the Logic Apps service has the permissions for accessing your virtual network.
+  * Your virtual network must have four *empty* subnets for deploying and 
+  creating resources in your ISE. You can create these subnets in advance, 
+  or you can wait until you create your ISE where you can create subnets 
+  at the same time. Learn more about [subnet requirements](#create-subnet).
 
-* To use one or more custom DNS servers for deploying your Azure virtual network, 
-[set up those servers following this guidance](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 
-before deploying your ISE to your virtual network. 
-Otherwise, each time you change your DNS server, 
-you also have to restart your ISE, which is a 
-capability that's available with ISE public preview.
+  * Make sure that your virtual network [makes these ports available](#ports) 
+  so your ISE works correctly and stays accessible.
+
+* If you want to use custom DNS servers for your Azure virtual network, 
+[set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 
+before you deploy your ISE to your virtual network. Otherwise, 
+each time you change your DNS server, you also have to restart your ISE, 
+which is a capability that's available with ISE public preview.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -96,20 +94,19 @@ communicate with an FTP system by using the FTP connector,
 make sure the port you use on that FTP system, 
 such as port 21 for sending commands, is available.
 
-To control the inbound and outbound traffic across the 
-virtual network's subnets where you deploy your ISE, 
-you can set up [network security groups](../virtual-network/security-overview.md) 
-for those subnets by learning 
-[how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
+To control the traffic across the virtual network's 
+subnets where you deploy your ISE, you can set up 
+[network security groups](../virtual-network/security-overview.md) for those subnets by 
+[filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
 These tables describe the ports in your virtual network 
 that your ISE uses and where those ports get used. 
 The [service tag](../virtual-network/security-overview.md#service-tags) 
 represents a group of IP address prefixes that help 
-minimize complexity when creating security rules. 
+minimize complexity when creating security rules.
 
 > [!IMPORTANT]
 > For internal communication inside your subnets, 
-> ISE requires that you open all ports within those subnets. 
+> ISE requires that you open all ports within those subnets.
 
 | Purpose | Direction | Ports | Source service tag | Destination service tag | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
@@ -131,52 +128,6 @@ minimize complexity when creating security rules.
 | Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 | Azure Load Balancer | Inbound | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
 ||||||
-
-<a name="vnet-access"></a>
-
-## Set virtual network permissions
-
-When you create an integration service environment (ISE), 
-you select an Azure virtual network into where you *inject* 
-your environment. However, before you can select a virtual 
-network for injecting your environment, you must set up 
-Role-Based Access Control (RBAC) permissions in your 
-virtual network. To set up permissions, assign these 
-specific roles to the Azure Logic Apps service:
-
-1. In the [Azure portal](https://portal.azure.com), 
-find and select your virtual network.
-
-1. On your virtual network's menu, select **Access control (IAM)**.
-
-1. Under **Access control (IAM)**, choose **Add role assignment**.
-
-   ![Add roles](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
-
-1. On the **Add role assignment** pane, add the necessary role 
-to the Azure Logic Apps service as described.
-
-   1. Under **Role**, select **Network Contributor**.
-
-   1. Under **Assign access to**, select 
-   **Azure AD user, group, or service principal**.
-
-   1. Under **Select**, enter **Azure Logic Apps**.
-
-   1. After the member list appears, select **Azure Logic Apps**.
-
-      > [!TIP]
-      > If you can't find this service, enter the 
-      > Logic Apps service's app ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba`
-
-   1. When you're done, choose **Save**.
-
-   For example:
-
-   ![Add role assignment](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-For more information, see 
-[Permissions for virtual network access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 <a name="create-environment"></a>
 
@@ -211,12 +162,35 @@ and then choose **Review + create**, for example:
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
    | **Additional capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). |
-   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. So, make sure these subnets *aren't delegated* to any service. You *can't change* these subnet addresses after you create your environment. <p><p>To create each subnet, [follow the steps under this table](#create-subnet). Each subnet must meet these criteria: <p>- Must be empty. <br>- Uses a name that doesn't start with a number or a hyphen. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space. <br>- Includes at least a `/27` in the address space so the subnet gets at least 32 addresses. To learn about calculating the number of addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). For example: <p>- `10.0.0.0/24` has 256 addresses because 2<sup>(32-24)</sup> is 2<sup>8</sup> or 256. <br>- `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32. <br>- `10.0.0.0/28` has only 16 addresses because 2<sup>(32-28)</sup> is 2<sup>4</sup> or 16. |
+   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
 
    **Create subnet**
+
+   To create resources in your environment, your ISE needs 
+   four *empty* subnets that aren't delegated to any service. 
+   You *can't* change these subnet addresses after you create 
+   your environment. Each subnet must meet these criteria:
+
+   * Has a name that starts with an alphabetic character or an underscore, 
+   and doesn't have these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+
+   * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
+
+   * Uses at least a `/27` in the address space because each subnet 
+   must have 32 addresses as the *minimum*. For example:
+
+     * `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32.
+
+     * `10.0.0.0/24` has 256 addresses because 2<sup>(32-24)</sup> is 2<sup>8</sup> or 256.
+
+     * `10.0.0.0/28` has only 16 addresses and is too small because 2<sup>(32-28)</sup> 
+     is 2<sup>4</sup> or 16.
+
+     To learn more about calculating addresses, see 
+     [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    1. Under the **Subnets** list, choose **Manage subnet configuration**.
 
@@ -271,10 +245,10 @@ doesn't automatically go to your environment after deployment finishes.
 
 Your ISE base unit has fixed capacity, so if you 
 need more throughput, you can add more scale units. 
-You can choose either to autoscale based on performance 
-metrics or based on a specific number of processing units. 
-If you choose autoscaling based on metrics, you can 
-choose from various criteria and specify the threshold 
+You can autoscale based on performance metrics or 
+based on a number of processing units. If you choose 
+autoscaling based on metrics, you can choose from 
+various criteria and specify the threshold 
 conditions for meeting that criteria.
 
 1. In the Azure portal, find your ISE.
@@ -298,7 +272,7 @@ Otherwise, for metric-based, follow these steps:
 
    1. On the **Scale rule** pane, set up your criteria 
    and action to take when the rule triggers.
-   
+
    1. When you're done, choose **Add**.
 
 1. When you're finished, remember to save your changes.
@@ -318,7 +292,7 @@ for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* You can use the same built-in triggers and actions, such as HTTP, 
+* You can use the same built-in triggers and actions such as HTTP, 
 which run in the same ISE as your logic app. Connectors with 
 the **ISE** label also run in the same ISE as your logic app. 
 Connectors without the **ISE** label run in the global Logic Apps service.

@@ -5,7 +5,7 @@ services: backup, virtual-machines
 author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk

@@ -95,12 +95,10 @@ This FAQ is split into the following sections:
 * **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
 
   > **A:** Emails, SMS messages, and phone calls should arrive in under a minute. The normal case is 5 to 20 seconds.
-    >If you don't receive the notification in this time frame:
-        > * Check your junk folder.
-        > * Check that the number or email being contacted is the one you expect.
-        > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user@contoso.com*. 
-  >
-  >
+  > If you don't receive the notification in this time frame:
+  > * Check your junk folder.
+  > * Check that the number or email being contacted is the one you expect.
+  > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user\@contoso.com*. 
 * **Q:  What languages are supported by password reset?**
 
   > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Office 365.

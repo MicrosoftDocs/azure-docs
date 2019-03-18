@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,6 +101,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
     ![PureCloud by Genesys Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL as per your region:
+
 	| |
 	|--|
 	| `https://login.mypurecloud.com/saml` |
@@ -110,6 +111,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 	| `https://login.mypurecloud.au/saml` |
 
     b. In the **Reply URL** text box, type a URL as per your region:
+
 	| |
 	|--|
     | `https://login.mypurecloud.com/saml` |
@@ -123,6 +125,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
     ![PureCloud by Genesys Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL as per your region:
+	
 	| |
 	|--|
 	| `https://login.mypurecloud.com` |
@@ -216,7 +219,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -271,7 +274,7 @@ To enable Azure AD users to log in to PureCloud by Genesys, they must be provisi
 
 	a. In **Full Name** text box, enter the name of user like **Brittasimon**.
 
-	b. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+	b. In **Email** text box, enter the email of user like **brittasimon\@contoso.com**.
 	
 	c. Click **Create**.
 

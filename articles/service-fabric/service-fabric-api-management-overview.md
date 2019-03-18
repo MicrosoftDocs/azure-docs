@@ -80,9 +80,9 @@ To achieve this, an API Management operation contains an inbound processing poli
 
 In this example, a new stateless service instance is created for each user of an application with a dynamically generated name using the following formula:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided in the URL request path. For example:
+  Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided in the URL request path. For example:
 
   - A request to `/api/users/foo` is routed to service instance `fabric:/app/users/foo`
   - A request to `/api/users/bar` is routed to service instance `fabric:/app/users/bar`
@@ -99,9 +99,9 @@ To achieve this, an API Management operation contains an inbound processing poli
 
 In this example, a new stateful service instance is created for each user of the application with a dynamically generated name using the following formula:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided the URL request path. For example:
+  Each service has a unique name, but the names are not known up-front because the services are created in response to user or admin input and thus cannot be hard-coded into APIM policies or routing rules. Instead, the name of the service to which to send a request is generated in the back-end policy definition from the `name` value provided the URL request path. For example:
 
   - A request to `/api/users/foo` is routed to service instance `fabric:/app/users/foo`
   - A request to `/api/users/bar` is routed to service instance `fabric:/app/users/bar`
