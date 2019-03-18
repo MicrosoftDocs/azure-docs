@@ -8,7 +8,6 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
@@ -20,11 +19,11 @@ ms.author: diberry
 This tutorial walks you through programmatically creating and publishing a knowledge base (KB), then answering a customer question with the knowledge base. 
 
 > [!div class="checklist"]
-* Create a knowledge base 
-* Check creation status
-* Train and publish the knowledge base
-* Get endpoint information
-* Use Curl to query the knowledge base
+> * Create a knowledge base 
+> * Check creation status
+> * Train and publish the knowledge base
+> * Get endpoint information
+> * Use Curl to query the knowledge base
 
 
 This quickstart calls QnA Maker APIs:

@@ -136,17 +136,17 @@ For each disk, use the following steps:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. Note the DiskName and LUN.
+1. Note the DiskName and LUN.
 
     ![DisknameAndLUN][2]
-3. Remote desktop into the VM. Then go to **Computer Management** | **Device Manager** | **Disk Drives**. Look at the properties of each of the ‘Microsoft Virtual Disks’
+1. Remote desktop into the VM. Then go to **Computer Management** | **Device Manager** | **Disk Drives**. Look at the properties of each of the ‘Microsoft Virtual Disks’
 
     ![VirtualDiskProperties][3]
-4. The LUN number here is a reference to the LUN number you specify when attaching the VHD to the VM.
-5. For the ‘Microsoft Virtual Disk’ go to the **Details** tab, then in the **Property** list, go to **Driver Key**. In the **Value**, note the **Offset**, which is 0002 in the following screenshot. The 0002 denotes the PhysicalDisk2 that the storage pool references.
+1. The LUN number here is a reference to the LUN number you specify when attaching the VHD to the VM.
+1. For the ‘Microsoft Virtual Disk’ go to the **Details** tab, then in the **Property** list, go to **Driver Key**. In the **Value**, note the **Offset**, which is 0002 in the following screenshot. The 0002 denotes the PhysicalDisk2 that the storage pool references.
 
     ![VirtualDiskPropertyDetails][4]
-6. For each storage pool, dump out the associated disks:
+1. For each storage pool, dump out the associated disks:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -747,7 +747,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### Client application settings
 
-If your SQL client application supports the .Net 4.5 SQLClient, then you can use ‘MULTISUBNETFAILOVER=TRUE’ keyword. This keyword should be applied, because it allows for faster connection to SQL Always On Availability Group during failover. It enumerates through all IP addresses associated with the Always On listener in parallel, and performs a more aggressive TCP connection retry speed during a failover.
+If your SQL client application supports the .NET 4.5 SQLClient, then you can use ‘MULTISUBNETFAILOVER=TRUE’ keyword. This keyword should be applied, because it allows for faster connection to SQL Always On Availability Group during failover. It enumerates through all IP addresses associated with the Always On listener in parallel, and performs a more aggressive TCP connection retry speed during a failover.
 
 For more information about the previous settings, see [MultiSubnetFailover Keyword and Associated Features](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Also see [SqlClient Support for High Availability, Disaster Recovery](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -970,7 +970,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1215,7 +1215,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### Step 23: Test failover

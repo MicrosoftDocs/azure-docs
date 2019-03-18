@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: comartin

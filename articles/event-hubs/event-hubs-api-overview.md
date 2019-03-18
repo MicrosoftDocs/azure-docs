@@ -51,7 +51,7 @@ The [Node.js library](https://github.com/Azure/azure-event-hubs-node) is current
 The following table lists all currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Event Hubs entities.
 
 | Language/Platform | Management package | Repository |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## Next steps

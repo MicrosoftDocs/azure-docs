@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ---
 
@@ -24,6 +24,11 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
+    * To install the NuGet package in Visual studio:
+        1. Right click in the Solution Manager
+        2. Click **Manage NuGet Packages...**
+        3. Search for **newtonsoft.json** and install the package
+
 * If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 
@@ -34,6 +39,7 @@ While this application is written in C#, the API is a RESTful Web service compat
 1. create a new C# console solution in Visual Studio. Then add the following namespaces into the main code file.
     
     ```csharp
+    using Newtonsoft.Json;
     using System;
     using System.Net.Http;
     using System.Text;
@@ -64,25 +70,26 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 1. Within the class, create a function called `Search()`. Create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-    1. Construct the URI for your request by combining the host and path. Then add your market, and URL-encode your query.
-    2. Await `client.GetAsync()` to get a HTTP response, and then store the json response by awaiting `ReadAsStringAsync()`.
-    3. Print the string to the console.
+   1. Construct the URI for your request by combining the host and path. Then add your market, and URL-encode your query.
+   2. Await `client.GetAsync()` to get a HTTP response, and then store the json response by awaiting `ReadAsStringAsync()`.
+   3. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
 
-    ```csharp
-    async static void Search()
-    {
-        //...
-        HttpClient client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+      ```csharp
+      async static void Search()
+      {
+       //...
+       HttpClient client = new HttpClient();
+       client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+       string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
 
-        HttpResponseMessage response = await client.GetAsync(uri);
+       HttpResponseMessage response = await client.GetAsync(uri);
 
-        string contentString = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(JsonPrettyPrint(contentString));
-    }
-    ```
+       string contentString = await response.Content.ReadAsStringAsync();
+       dynamic parsedJson = JsonConvert.DeserializeObject(contentString);
+       Console.WriteLine(parsedJson);
+      }
+      ```
 
 2. In the main method of your application, call the `Search()` function.
     

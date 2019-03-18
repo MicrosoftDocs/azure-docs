@@ -13,7 +13,7 @@ ms.author: absha
 
 This article explains how the application gateway accepts the incoming requests and routes them to the backend.
 
-![how-application-gateway-works](.\media\how-application-gateway-works\how-application-gateway-works.png)
+![how-application-gateway-works](./media/how-application-gateway-works/how-application-gateway-works.png)
 
 ## How a request is accepted
 
@@ -31,7 +31,7 @@ After a backend server has been determined, application gateway opens a new TCP 
 
 An internal Application Gateway has only private IP address. The DNS name of an internal Application Gateway is internally resolvable to its private IP address. Therefore, internal load balancers can only route requests from clients with access to the VNET for the Application Gateway.
 
-Note that both Internet-facing and internal Application Gateways route requests to your backend servers using private IP addresses. If  your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address, and if your backend pool is a public endpoint, Application Gateway uses its frontend public IP to reach the server. If you haven't provisioned a frontend public IP address, one is assigned for the outbound external connectivity.
+Note that both Internet-facing and internal Application Gateways route requests to your backend servers using private IP addresses,if  your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address, and if your backend pool is a public endpoint, Application Gateway uses its frontend public IP to reach the server. If you haven't provisioned a frontend public IP address, one is assigned for the outbound external connectivity.
 
 ### Modifications to the request
 

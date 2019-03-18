@@ -68,12 +68,12 @@ You will build and test the Azure Functions app locally. The app will access a S
 1. In a new VS Code window, use `File > Open Folder` in the menu to create and open an empty folder in an appropriate location. This will be the main project folder for the application that you will build.
 
 1. Using the Azure Functions extension in VS Code, initialize a Function app in the main project folder.
-    1. Open the Command Palette in VS Code by selecting **View > Command Palette** from the menu (shortcut `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
-    1. Search for the **Azure Functions: Create New Project** command and select it.
-    1. The main project folder should appear. Select it (or use "Browse" to locate it).
-    1. In the prompt to choose a language, select **JavaScript**.
+   1. Open the Command Palette in VS Code by selecting **View > Command Palette** from the menu (shortcut `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
+   1. Search for the **Azure Functions: Create New Project** command and select it.
+   1. The main project folder should appear. Select it (or use "Browse" to locate it).
+   1. In the prompt to choose a language, select **JavaScript**.
 
-    ![Create a function app](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
+      ![Create a function app](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
 
 ### Install function app extensions
 
@@ -107,17 +107,20 @@ When running and debugging the Azure Functions runtime locally, application sett
         },
         "Host": {
             "LocalHttpPort": 7071,
-            "CORS": "http://localhost:5500",
+            "CORS": "http://127.0.0.1:5500",
             "CORSCredentials": true
         }
     }
     ```
 
-    * Enter the Azure SignalR Service connection string into a setting named `AzureSignalRConnectionString`. Obtain the value from the **Keys** page in the Azure SignalR Service resource in the Azure portal; either the primary or secondary connection string can be used.
-    * The `WEBSITE_NODE_DEFAULT_VERSION` setting is not used locally, but is required when deployed to Azure.
-    * The `Host` section configures the port and CORS settings for the local Functions host (this setting has no effect when running in Azure).
+   * Enter the Azure SignalR Service connection string into a setting named `AzureSignalRConnectionString`. Obtain the value from the **Keys** page in the Azure SignalR Service resource in the Azure portal; either the primary or secondary connection string can be used.
+   * The `WEBSITE_NODE_DEFAULT_VERSION` setting is not used locally, but is required when deployed to Azure.
+   * The `Host` section configures the port and CORS settings for the local Functions host (this setting has no effect when running in Azure).
 
-    ![Get SignalR Service key](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
+       > [!NOTE]
+       > Live Server is typically configured to serve content from `http://127.0.0.1:5500`. If you find that it is using a different URL or you are using a different HTTP server, change the `CORS` setting to reflect the correct origin.
+
+     ![Get SignalR Service key](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
 1. Save the file.
 

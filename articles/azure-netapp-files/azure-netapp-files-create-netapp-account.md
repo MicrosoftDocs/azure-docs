@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ---
@@ -28,29 +28,29 @@ You must have registered your subscription for using the NetApp Resource Provide
 
 1. Sign in to the Azure portal. 
 2. Access the Azure NetApp Files blade by using one of the following methods:  
-  * Search for **Azure NetApp Files** in the Azure portal search box.  
-  * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
+   * Search for **Azure NetApp Files** in the Azure portal search box.  
+   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
 
-  You can "favorite" the Azure NetApp Files blade by clicking the star icon next to it. 
+   You can "favorite" the Azure NetApp Files blade by clicking the star icon next to it. 
 
 3. Click **+ Add** to create a new NetApp account.  
-  The New NetApp account window appears.  
+   The New NetApp account window appears.  
 
 4. Provide the following information for your NetApp account: 
-  * **Account name**  
-    Specify a unique name for the subscription.
-  *  **Subscription**  
-    Select a subscription from your existing subscriptions.
-  * **Resource group**   
-    Use an existing Resource Group or create a new one.
-  * **Location**  
-    Select the region where you want the account and its child resources to be located.  
+   * **Account name**  
+     Specify a unique name for the subscription.
+   * **Subscription**  
+     Select a subscription from your existing subscriptions.
+   * **Resource group**   
+     Use an existing Resource Group or create a new one.
+   * **Location**  
+     Select the region where you want the account and its child resources to be located.  
 
-    ![New NetApp account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+     ![New NetApp account](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
 5. Click **Create**.     
-  The NetApp account you created now appears in the Azure NetApp Files blade. 
+   The NetApp account you created now appears in the Azure NetApp Files blade. 
 
 ## Next steps  
 

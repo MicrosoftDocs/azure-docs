@@ -237,15 +237,15 @@ Click **OK** and return to the Jenkins portal.
 From the home page of your Jenkins portal, select **New item** on the left-hand side:
 
 1. Enter *azure-vote* as job name. Choose **Freestyle project**, then select **OK**
-1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
+1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis.git*
 
 1. Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**
 1. Under **Build Environment**, select **Use secret texts or files**
 1. Under **Bindings**, select **Add** > **Username and password (separated)**
-    - Enter `ACR_ID` for the **Username Variable**, and `ACR_PASSWORD` for the **Password Variable**
+   - Enter `ACR_ID` for the **Username Variable**, and `ACR_PASSWORD` for the **Password Variable**
 
-    ![Jenkins bindings](media/aks-jenkins/bindings.png)
+     ![Jenkins bindings](media/aks-jenkins/bindings.png)
 
 1. Choose to add a **Build Step** of type **Execute shell** and use the following text. This script builds a new container image and pushes it to your ACR registry.
 

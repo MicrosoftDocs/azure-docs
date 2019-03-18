@@ -22,7 +22,7 @@ You can use the [Log Analytics PowerShell cmdlets](https://docs.microsoft.com/po
 * Create a computer group
 * Enable collection of IIS logs from computers with the Windows agent installed
 * Collect performance counters from Linux and Windows computers
-* Collect events from syslog on Linux computers 
+* Collect events from syslog on Linux computers
 * Collect events from Windows event logs
 * Collect custom event logs
 * Add the log analytics agent to an Azure virtual machine
@@ -51,7 +51,7 @@ The following script sample illustrates how to:
 9. Collect syslog events from Linux computers
 10. Collect Error and Warning events from the Application Event Log from Windows computers
 11. Collect Memory Available Mbytes performance counter from Windows computers
-12. Collect a custom log 
+12. Collect a custom log
 
 ```PowerShell
 
@@ -71,7 +71,7 @@ $ExportedSearches = @"
         "Query":  "Type=Event SourceSystem:AzureStorage ",
         "Version":  1
     },
-    {        
+    {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
         "Query":  "Type=Perf ObjectName=LogicalDisk InstanceName=\"C:\" CounterName=\"Current Disk Queue Length\"",
@@ -83,38 +83,38 @@ $ExportedSearches = @"
 # Custom Log to collect
 $CustomLog = @"
 {
-    "customLogName": "sampleCustomLog1", 
-    "description": "Example custom log datasource", 
+    "customLogName": "sampleCustomLog1",
+    "description": "Example custom log datasource",
     "inputs": [
-        { 
-            "location": { 
-            "fileSystemLocations": { 
-                "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ], 
-                "linuxFileTypeLogPaths": [ "/var/logs" ] 
-                } 
-            }, 
-        "recordDelimiter": { 
-            "regexDelimiter": { 
-                "pattern": "\\n", 
-                "matchIndex": 0, 
-                "matchIndexSpecified": true, 
-                "numberedGroup": null 
-                } 
-            } 
-        }
-    ], 
-    "extractions": [
-        { 
-            "extractionName": "TimeGenerated", 
-            "extractionType": "DateTime", 
-            "extractionProperties": { 
-                "dateTimeExtraction": { 
-                    "regex": null, 
-                    "joinStringRegex": null 
-                    } 
-                } 
+        {
+            "location": {
+            "fileSystemLocations": {
+                "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
+                "linuxFileTypeLogPaths": [ "/var/logs" ]
+                }
+            },
+        "recordDelimiter": {
+            "regexDelimiter": {
+                "pattern": "\\n",
+                "matchIndex": 0,
+                "matchIndexSpecified": true,
+                "numberedGroup": null
+                }
             }
-        ] 
+        }
+    ],
+    "extractions": [
+        {
+            "extractionName": "TimeGenerated",
+            "extractionType": "DateTime",
+            "extractionProperties": {
+                "dateTimeExtraction": {
+                    "regex": null,
+                    "joinStringRegex": null
+                    }
+                }
+            }
+        ]
     }
 "@
 
@@ -146,7 +146,7 @@ foreach ($search in $ExportedSearches) {
 }
 
 # Export Saved Searches
-(Get-AzOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
+(Get-AzOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json
 
 # Create Computer Group based on a query
 New-AzOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
@@ -175,19 +175,19 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 In the above example regexDelimiter was defined as "\\n" for newline. The log delimiter may also be a timestamp.  These are the supported formats:
 
-| Format | Json RegEx format uses two \\ for every \ in a standard RegEx so if testing in a RegEx app reduce \\ to \ |
-| --- | --- |
-| `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
-| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` |
-| `dd/MMM/yyyy HH:MM:SS` | `((([0-3]\\\\d)\` |`(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\` | `([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
-| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?))` |
-| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
-| `ddMMyy HH:mm:ss` | `(([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
-| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9])` |
-| `MMM  d HH:mm:ss` <br> two spaces after MMM | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
-| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
-| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> where + is + or a - <br> where zzzz time offset | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` |
-| `yyyy-MM-ddTHH:mm:ss` <br> The T is a literal letter T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
+| Format | Json RegEx format uses two \\ for every \ in a standard RegEx so if testing in a RegEx app reduce \\ to \ | | |
+| --- | --- | --- | --- |
+| `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
+| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` | | |
+| `dd/MMM/yyyy HH:MM:SS` | `((([0-3]\\\\d)\` | `(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\` | `([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
+| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?))` | | |
+| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
+| `ddMMyy HH:mm:ss` | `(([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9])` | | |
+| `MMM  d HH:mm:ss` <br> two spaces after MMM | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> where + is + or a - <br> where zzzz time offset | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` | | |
+| `yyyy-MM-ddTHH:mm:ss` <br> The T is a literal letter T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## Configuring Log Analytics to send Azure diagnostics
 For agentless monitoring of Azure resources, the resources need to have Azure diagnostics enabled and configured to write to a Log Analytics workspace. This approach sends data directly to Log Analytics and does not require data to be written to a storage account. Supported resources include:
@@ -197,7 +197,7 @@ For agentless monitoring of Azure resources, the resources need to have Azure di
 | Application Gateways    | Yes | Yes |
 | Automation accounts     | Yes | |
 | Batch accounts          | Yes | Yes |
-| Data Lake analytics     | Yes | | 
+| Data Lake analytics     | Yes | |
 | Data Lake store         | Yes | |
 | Elastic SQL Pool        |     | Yes |
 | Event Hub namespace     |     | Yes |
@@ -220,7 +220,7 @@ For the details of the available logs, refer to [supported services and schema f
 ```PowerShell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+$resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
@@ -242,7 +242,7 @@ The following example shows how to:
 4. Delete the newly created configuration
 
 ```PowerShell
-# validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
+# validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
 # Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
@@ -259,7 +259,7 @@ New-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGr
 Set-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
 # Remove the insight
-Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
+Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight"
 
 ```
 

@@ -38,7 +38,7 @@ The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encrypti
 -   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### Data types
 
@@ -108,7 +108,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 #### Curve Types
 
 -   **P-256** - The NIST curve P-256, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf).
+-   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** - The NIST curve P-384, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** - The NIST curve P-521, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -406,10 +406,10 @@ Certificate contacts contain contact information to send notifications triggered
 
 If a certificate's policy is set to auto renewal, then a notification is sent on the following events.  
 
--   Before certificate renewal
--   After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
 
- When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
 
 ### Certificate Access Control
 

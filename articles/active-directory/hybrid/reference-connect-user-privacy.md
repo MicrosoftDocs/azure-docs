@@ -79,4 +79,4 @@ Use the following steps to schedule the script to run every 48 hours.
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-- [Azure AD Connect Health and User Privacy](reference-connect-health-user-privacy.md)
+* [Azure AD Connect Health and User Privacy](reference-connect-health-user-privacy.md)

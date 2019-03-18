@@ -176,7 +176,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
        For example, BrittaSimon@contoso.com
 
     c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -201,7 +201,7 @@ Please follow the below steps to create a Procore test user on Procore SSOc side
 
     b. In the **Last name** textbox, type user's last name like **Simon**.
 
-	c. In the **Email Address** textbox, type user's email address like **BrittaSimon@contoso.com**.
+	c. In the **Email Address** textbox, type user's email address like **BrittaSimon\@contoso.com**.
 
     d. Select **Permission Template** as **Apply Permission Template Later**.
 

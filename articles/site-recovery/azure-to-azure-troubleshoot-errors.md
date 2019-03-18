@@ -54,9 +54,9 @@ Follow the guidance provided by your Linux distributor to get the latest trusted
 
 Because SuSE Linux uses symlinks to maintain a certificate list, follow these steps:
 
-1.	Sign in as a root user.
+1.  Sign in as a root user.
 
-2.	Run this command to change the directory.
+2.  Run this command to change the directory.
 
       ``# cd /etc/ssl/certs``
 
@@ -74,7 +74,7 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 4. If the Baltimore root CA cert is not found, download the certificate.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
 5. Check if the DigiCert_Global_Root_CA cert is present.
 
@@ -153,12 +153,12 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 - **Possible cause** </br>
   - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
   - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
-  
+
 - **Resolution**
    - If you're using custom DNS then make sure that the DNS server is accessible from the Disaster Recovery region. To check if you have a custom DNS go to the VM> Disaster Recovery network> DNS servers. Try accessing the DNS server from the virtual machine. If it is not accessible then make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
-  
+
     ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
- 
+
 
 ### Issue 2: Site Recovery configuration failed (151196)
 - **Possible cause** </br>
@@ -167,10 +167,10 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 - **Resolution**
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
     If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
-	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
->[!NOTE]
-> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article] (https://aka.ms/lboutboundrulescli).
->
+      - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
+
+> [!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
 
 ### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
@@ -178,24 +178,24 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 - **Resolution**
   - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
-    
+
 
 ### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
- - **Possible cause** </br>
-   - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
+- **Possible cause** </br>
+  - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
 
 
- - **Resolution**
-   1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-   2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
-       - ``/usr/local/InMage/config/`` on ***Linux***
-       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
-   3.	The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
-                   *[proxy]*</br>
-                   *Address=http://1.2.3.4*</br>
-                   *Port=567*</br>
-   4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
- 
+- **Resolution**
+  1. Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
+  2. If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+     - ``/usr/local/InMage/config/`` on ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
+  3. The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
+                *[proxy]*</br>
+                *Address=http://1.2.3.4*</br>
+                *Port=567*</br>
+  4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -235,7 +235,7 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 >[!NOTE] 
 >
->Make sure to update the ""AzureRM.Resources"" module before using the below script. ​
+>Make sure to update the ""AzureRM.Resources"" module before using the below script. 
 
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
@@ -248,11 +248,11 @@ You can use [Remove stale ASR configuration script](https://gallery.technet.micr
 
 To enable replication on the VM, the provisioning state should be **Succeeded**. You can check the VM state by following the steps below.
 
-1.	Select the **Resource Explorer** from **All Services** in Azure portal.
-2.	Expand the **Subscriptions** list and select your subscription.
-3.	Expand the **ResourceGroups** list and select the resource group of the VM.
-4.	Expand the **Resources** list and select your virtual machine
-5.	Check the **provisioningState** field in Instance view on right hand side.
+1.  Select the **Resource Explorer** from **All Services** in Azure portal.
+2.  Expand the **Subscriptions** list and select your subscription.
+3.  Expand the **ResourceGroups** list and select the resource group of the VM.
+4.  Expand the **Resources** list and select your virtual machine
+5.  Check the **provisioningState** field in Instance view on right hand side.
 
 ### Fix the problem
 
@@ -276,6 +276,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 
 ## COM+/Volume Shadow Copy service error (error code 151025)
+
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
 151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
@@ -299,31 +300,31 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 
 
 - The following line is from the GRUB file **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - The following line is from the GRUB file **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 If you observe the bold string above,  GRUB has actual device names for the parameters "root" and "resume" instead of UUID.
- 
+
 **How to Fix:**<br>
 The device names should be replaced with the corresponding UUID.<br>
 
 
 1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
-```
-blkid /dev/sda1 
-```<br>
-```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-```blkid /dev/sda2```<br> 
-```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```<br>
+   ```
+   blkid /dev/sda1 
+   ```<br>
+   ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+   ```blkid /dev/sda2```<br> 
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```<br>
 
 
 
 1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 
 ## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
@@ -333,14 +334,14 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
- *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
-*kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
- Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
 
 **How to Fix:**<br>
 

@@ -3,7 +3,6 @@ title: Key differences for Azure SQL Database Machine Learning Services (preview
 description: This topic describes key differences between Azure SQL Database Machine Learning Services (with R) and SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -53,10 +52,6 @@ If there is insufficient memory available for R, you will get an error message. 
 - An external script error occurred: Error: cannot allocate vector of size.
 
 Memory usage depends on how much is used in your R scripts and the number of parallel queries being executed. If you receive the errors above, you can scale your database to a higher service tier to resolve this.
-
-## Security isolation
-
-In Azure SQL Database, the SQL Platform Abstraction Layer (SQLPAL) provides isolation for external processes. This isolation provides an extra layer of security for running R scripts.
 
 ## Next steps
 

@@ -19,14 +19,14 @@ manager: benshy
 As a CSP partner, you can register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
 
->[!NOTE]
-
->Only CSP Direct partners and CSP Indirect Providers can complete Cloudyn registration.
->
->Configuring the Partner Center API is required for authentication and data access. A Partner Center Global Administrator account is needed to provision API access.
-For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
->
->Access to Cloudyn can be made available to CSP Indirect Resellers after their CSP Indirect Provider registers with Cloudyn. CSP Indirect Resellers can then provide Cloudyn access to Azure customers and subscriptions.
+> [!NOTE]
+> 
+> Only CSP Direct partners and CSP Indirect Providers can complete Cloudyn registration.
+> 
+> Configuring the Partner Center API is required for authentication and data access. A Partner Center Global Administrator account is needed to provision API access.
+> For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+> 
+> Access to Cloudyn can be made available to CSP Indirect Resellers after their CSP Indirect Provider registers with Cloudyn. CSP Indirect Resellers can then provide Cloudyn access to Azure customers and subscriptions.
 
 ## Sign in to Azure
 
@@ -40,13 +40,13 @@ For more information, see [Connect to the Partner Center API](https://msdn.micro
 3. On the **Cloudyn** page, click **Go to Cloudyn** to open the Cloudyn registration page in a new window.
 4. On the Cloudyn portal trial registration page, type your company name, select **Microsoft CSP Partner Program Administrator**, and then click **Next**.  
 5. Enter an **Application ID**, **Commerce ID**, **Application Secret key**, and select the **Default Pricing Plan**. If you don't have the information handy, sign in to the Partner Center portal at  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) with your primary administrator account and do the following steps:
-  1. Go to **Dashboard**, click the **Settings** symbol, click **Partner settings**, and then click **App Management**.
-  2. If you have previously created a Web App, skip this step. Otherwise, click **Add new web app** in the **Web App** section.
-  3. Copy the **App ID** GUID from your web application.
-  4. Copy the **Commerce ID** GUID from your web application.
-  5. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
+   1. Go to **Dashboard**, click the **Settings** symbol, click **Partner settings**, and then click **App Management**.
+   2. If you have previously created a Web App, skip this step. Otherwise, click **Add new web app** in the **Web App** section.
+   3. Copy the **App ID** GUID from your web application.
+   4. Copy the **Commerce ID** GUID from your web application.
+   5. Select the key validity duration as one or two years, as needed. Select **Add key** and then copy and save the secret key value.  
     ![Partner Dashboard where you copy credential information](./media/quick-register-csp/csp-partner-center.png)
-  6. Go back to the Cloudyn registration page and paste the information.  
+   6. Go back to the Cloudyn registration page and paste the information.  
       ![Paste credential information in the Cloudyn registration page](./media/quick-register-csp/csp-reg.png)
 6. Agree to the Terms of Use then validate your information. Click **Next** to authorize Cloudyn to collect Azure resource data. Data collected includes usage, performance, billing, and tag data from your subscriptions.  
 7. Under **Invite other stakeholders**, you can add users by typing their email addresses. When complete, click **Next**. It takes about two hours for all your billing data to get added to Cloudyn.
