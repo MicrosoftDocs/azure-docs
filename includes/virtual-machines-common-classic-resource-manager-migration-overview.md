@@ -24,7 +24,7 @@ These classic IaaS resources are supported during migration
 
 * Virtual Machines
 * Availability Sets
-* Cloud Services
+* Cloud Services with Virtual Machines
 * Storage Accounts
 * Virtual Networks
 * VPN Gateways

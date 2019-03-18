@@ -65,9 +65,9 @@ The following snippet shows the different kinds of resources that can be managed
 3. Once you have figured out what applications you want to be deployed this way, the applications have to be packaged, zipped, and put on a file share. The share needs to be accessible through a REST endpoint for Azure Resource Manager to consume during deployment.
 4. In your Resource Manager template, below your cluster declaration, describe each application's properties. These properties include replica or instance count and any dependency chains between resources (other applications or services). For a list of comprehensive properties, see the [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Note that this does not replace the Application or Service manifests, but rather describes some of what is in them as part of the cluster's Resource Manager template. Here is a sample template that includes deploying a stateless service *Service1* and a stateful service *Service2* as part of *Application1*:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -247,11 +247,11 @@ The following snippet shows the different kinds of resources that can be managed
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > The *apiVersion* must be set to `"2017-07-01-preview"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
+   > [!NOTE] 
+   > The *apiVersion* must be set to `"2017-07-01-preview"`. This template can also be deployed independently of the cluster, as long as the cluster has already been deployed.
 
 5. Deploy! 
 
@@ -259,6 +259,8 @@ The following snippet shows the different kinds of resources that can be managed
 
 If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. 
 
+> [!NOTE]
+> To allow a cluster upgrade to ignore unhealthy apps the customer can specify “maxPercentUnhealthyApplications: 100” in the “upgradeDescription/healthPolicy” section; detailed descriptions for all settings are in [Service Fabrics REST API Cluster Upgrade Policy documentation](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## Next steps
 

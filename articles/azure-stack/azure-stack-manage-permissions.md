@@ -4,18 +4,18 @@ description: As a service administrator or tenant, learn how to manage RBAC perm
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: fenila
+manager: femila
 editor: ''
 
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: thomas.roettinger
+ms.reviewer: thoroet
+ms.lastreviewed: 01/14/2019
 
 ---
 # Manage Role-Based Access Control
@@ -37,8 +37,8 @@ A user in Azure Stack can be a reader, owner, or contributor for each instance o
 
 ## Set access permissions for a universal group 
 
-> [!Note]  
-Applicable only to Active Directory Federated Services (AD FS).
+> [!Note]
+> Applicable only to Active Directory Federated Services (AD FS).
 
 1. Sign in with an account that has owner permissions to the resource you want to manage.
 2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).

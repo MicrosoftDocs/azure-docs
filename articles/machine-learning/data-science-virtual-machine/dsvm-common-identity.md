@@ -1,16 +1,16 @@
 ---
 title: Set up a common identity for the Data Science Virtual Machine - Azure | Microsoft Docs
-description: Set up a common identity in an enterprise team's DSVM environments.
+description: Learn how to create common user accounts that can be used across multiple Data Science Virtual Machines. You can use Azure Active Directory or an on-premises Active Directory to authenticate users to the Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -28,7 +28,7 @@ Active Directory is a popular identity provider and is supported on Azure as a s
 
 If you already have Active Directory to manage the identities, you can use it as your common identity provider. If you don't have Active Directory, you can run a managed Active Directory instance on Azure through a service called [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS). 
 
-The documentation for [Azure AD](https://docs.microsoft.com/azure/active-directory/) provides detailed [management instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity), including connecting Azure AD to your on-premises directory if you have one. 
+The documentation for [Azure AD](https://docs.microsoft.com/azure/active-directory/) provides detailed [management instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution), including connecting Azure AD to your on-premises directory if you have one. 
 
 This article describes the steps to set up a fully managed Active Directory domain service on Azure by using Azure AD DS. You can then join your DSVMs to the managed Active Directory domain to enable users to access a pool of DSVMs (and other Azure resources) by using a common user account and credentials. 
 
@@ -58,12 +58,12 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
     
    h. Securely distribute the generated password to the new user so that the user can sign in.
 
-2. Create an Azure AD DS instance. Follow the instructions in the article [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (tasks 1 to 5). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described in task 4 of the article. 
+1. Create an Azure AD DS instance. Follow the instructions in the article [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (tasks 1 to 5). It's important to update the existing user passwords in Active Directory so that the password in Azure AD DS is synced. It's also important to add DNS to Azure AD DS, as described in task 4 of the article. 
 
-3. Create a separate DSVM subnet in the virtual network created in task 2 of the preceding step.
-4. Create one or more Data Science VM instances in the DSVM subnet. 
-5. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to Active Directory. 
-6. Mount an Azure Files share to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file-level permissions, you'll need NFS running on one or more VMs.)
+1. Create a separate DSVM subnet in the virtual network created in task 2 of the preceding step.
+1. Create one or more Data Science VM instances in the DSVM subnet. 
+1. Follow the [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to Active Directory. 
+1. Mount an Azure Files share to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file-level permissions, you'll need NFS running on one or more VMs.)
 
    a. [Create an Azure Files share](../../storage/files/storage-how-to-create-file-share.md).
     
@@ -72,8 +72,8 @@ Azure AD DS makes it simple to manage your identities by providing a fully manag
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-7. Assume that you mounted your Azure Files share in /data/workspace, for example. Now create directories for each of your users in the share: /data/workspace/user1, /data/workspace/user2, and so on. Create a `notebooks` directory in each user's workspace. 
-8. Create symbolic links for `notebooks` in `$HOME/userx/notebooks/remote`.   
+1. Assume that you mounted your Azure Files share in /data/workspace, for example. Now create directories for each of your users in the share: /data/workspace/user1, /data/workspace/user2, and so on. Create a `notebooks` directory in each user's workspace. 
+1. Create symbolic links for `notebooks` in `$HOME/userx/notebooks/remote`.   
 
 Now, you have the users in your Active Directory instance hosted in Azure. By using the Active Directory credentials, users can log in to any DSVM (SSH or JupyterHub) that's joined to Azure AD DS. Because the user workspace is on an Azure Files share, users have access to their notebooks and other work from any DSVM when they're using JupyterHub. 
 

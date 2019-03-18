@@ -1,28 +1,29 @@
 ---
-title: Create resources for use with Azure Site Recovery | Microsoft Docs
-description: Learn how to prepare Azure for replication of on-premises machines by using Azure Site Recovery.
+title: Prepare Azure for disaster recovery of on-premises machines with Azure Site Recovery | Microsoft Docs
+description: Learn how to prepare Azure for disaster recovery of on-premises machines using Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
 
 ---
-# Prepare Azure resources for replication of on-premises machines
+# Prepare Azure resources for disaster recovery of on-premises machines
 
  [Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
 This article is the first tutorial in a series that shows you how to set up disaster recovery for on-premises VMs. It's relevant whether you're protecting on-premises VMware VMs, Hyper-V VMs, or physical servers.
 
-Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. 
+> [!NOTE]
+> Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions , refer to **How To's** section for the corresponding scenario.
 
 This article shows you how to prepare Azure components when you want to replicate on-premises VMs (Hyper-V or VMware) or Windows/Linux physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Verify that your Azure account has replication permissions.
-> * Create an Azure storage account. Images of replicated machines are stored in it.
 > * Create a Recovery Services vault. A vault holds metadata and configuration information for VMs, and other replication components.
 > * Set up an Azure network. When Azure VMs are created after failover, they're joined to this Azure network.
 
@@ -30,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Verify account permissions
 
@@ -38,34 +39,20 @@ If you just created your free Azure account, you're the administrator of your su
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to the selected storage account.
+- Write to storage account.
+- Write to managed disk.
 
 To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor build-in role.
 
-## Create a storage account
-
-Images of replicated machines are held in Azure storage. Azure VMs are created from the storage when you fail over from on-premises to Azure. The storage account must be in the same region as the Recovery Services vault. We're using West Europe in this tutorial.
-
-1. On the [Azure portal](https://portal.azure.com) menu, select **Create a resource** > **Storage** > **Storage account - blob, file, table, queue**.
-2. On **Create storage account**, enter a name for the account. For these tutorials, we're using **contosovmsacct1910171607**. The name you select must be unique within Azure and be between 3 and 24 characters, with numbers and lowercase letters only.
-3. In **Deployment model**, select **Resource Manager**.
-4. In **Account kind**, select **Storage (general purpose v1)**. Don't select blob storage. In **Performance**, select **Standard**. 
-5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy. We're leaving **Secure transfer required** as **Disabled**.
-6. In **Subscription**, select the subscription in which you want to create the new storage account. 
-2. In **Resource group**, enter a new resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. For these tutorials, we're using **ContosoRG**.
-3. In **Location**, select the geographic location for your storage account. 
-
-   ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Select **Create** to create the storage account.
 
 ## Create a Recovery Services vault
 
-1. In the Azure portal, select **Create a resource** > **Storage** > **Backup and Site Recovery (OMS)**.
-2. In **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
-3. In **Resource group**, we're using **contosoRG**.
-4. In **Location**. We're using **West Europe**.
-5. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
+1. In the Azure portal, click **+Create a resource**, and search the Marketplace for **Recovery services**.
+2. Click **Backup and Site Recovery (OMS)**, and in the Backup and Site Recovery page, click **Create**. 
+1. In **Recovery Services vault** > **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
+2. In **Resource group**, select an existing resource group or create a new one. For this tutorial we're using **contosoRG**.
+3. In **Location**, select the region in which the vault should be located. We're using **West Europe**.
+4. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
 
    ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
 
@@ -73,7 +60,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 
 ## Set up an Azure network
 
-When Azure VMs are created from storage after failover, they're joined to this network.
+When Azure VMs are created from managed disks after failover, they're joined to this network.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**.
 2. We're leaving **Resource Manager** selected as the deployment model.
@@ -92,8 +79,7 @@ When Azure VMs are created from storage after failover, they're joined to this n
 ## Useful links
 
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure networks.
-- [Learn about](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) types of Azure storage.
-- - [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) about storage redundancy, and [secure transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) for storage.
+- [Learn about](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) managed disks.
 
 
 

@@ -1,20 +1,16 @@
 ---
-title: IP address types in Azure | Microsoft Docs
+title: IP address types in Azure
+titlesuffix: Azure Virtual Network
 description: Learn about public and private IP addresses in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 03/05/2019
 ms.author: jdial
 
 ---
@@ -24,6 +20,8 @@ You can assign IP addresses to Azure resources to communicate with other Azure r
 
 * **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services.
 * **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network, when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
+
+You can also create a contiguous range of static public IP addresses through a public IP prefix. [Learn about a public IP prefix.](public-ip-address-prefix.md)
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
@@ -58,22 +56,23 @@ Public IP addresses are created with one of the following SKUs:
 All public IP addresses created before the introduction of SKUs are Basic SKU public IP addresses. With the introduction of SKUs, you have the option to specify which SKU you would like the public IP address to be. Basic SKU addresses are:
 
 - Assigned with the static or dynamic allocation method.
+- Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Are open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.
 - Assigned to any Azure resource that can be assigned a public IP address, such as network interfaces, VPN Gateways, Application Gateways, and Internet-facing load balancers.
-- Can be assigned to a specific zone.
-- Not zone redundant. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Do not support Availability Zone scenarios.  You need to use Standard SKU public IP for Availability Zone scenarios. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 #### Standard
 
 Standard SKU public IP addresses are:
 
-- Assigned with the static allocation method only.
+- Always use static allocation method.
+- Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
 - Are secure by default and closed to inbound traffic. You must explicit whitelist allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
-- Assigned to network interfaces or public standard load balancers. For more information about Azure standard load balancers, see [Azure standard load balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Assigned to network interfaces, Standard public Load Balancers, Application Gateways, or VPN Gateways. For more information about Standard Load Balancer, see [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Zone redundant by default and optionally zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Communication with a standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
+> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
 ### Allocation method
 
@@ -93,7 +92,7 @@ Static public IP addresses are commonly used in the following scenarios:
 * You use SSL certificates linked to an IP address.
 
 > [!NOTE]
-> Azure allocates public IP addresses from a range unique to each Azure region. For details, see [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure allocates public IP addresses from a range unique to each region in each Azure cloud. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 >
 
 ### DNS hostname resolution
@@ -117,7 +116,7 @@ An [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2faz
 
 ### Application gateways
 
-You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. You can only assign a *dynamic* basic public IP address to an application gateway frontend configuration.
+You can associate a public IP address with an Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), by assigning it to the gateway's **frontend** configuration. This public IP address serves as a load-balanced VIP. You can only assign a *dynamic* basic public IP address to an application gateway V1 front-end configuration, and only a *static* standard SKU address to a V2 front-end configuration.
 
 ### At-a-glance
 The following table shows the specific property through which a public IP address can be associated to a top-level resource, and the possible allocation methods (dynamic or static) that can be used.
@@ -126,8 +125,8 @@ The following table shows the specific property through which a public IP addres
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |No |
-| Application gateway |Front-end configuration |Yes |No |
+| VPN gateway |Gateway IP configuration |Yes |Yes |
+| Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 
 ## Private IP addresses
 Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.

@@ -3,14 +3,14 @@ title: Azure Security Center Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: ndicola
 editor: ''
 
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
@@ -113,8 +113,8 @@ Articles
 * [Identity security best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
 * [Network security best practices](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [Compliance](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
-* [OMS customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
+* [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## Community Resources
 

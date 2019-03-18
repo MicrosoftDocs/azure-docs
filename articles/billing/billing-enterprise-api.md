@@ -3,8 +3,8 @@ title: Azure Billing Enterprise APIs | Microsoft Docs
 description: Learn about the Reporting APIs that enable Enterprise Azure customers to pull consumption data programmatically. 
 services: ''
 documentationcenter: ''
-author: anandedwin
-manager: aedwin
+author: mumami
+manager: mumami
 editor: ''
 tags: billing
 
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: aedwin
+ms.author: erikre
 
 ---
 # Overview of Reporting APIs for Enterprise customers
@@ -30,7 +30,7 @@ The Reporting APIs enable Enterprise Azure customers to programmatically pull co
 |Authorization| Specify the value in this format: **bearer {API_KEY}** <br/> Example: bearer eyr....09| 
 
 ## Consumption APIs
-A Swagger endpoint is available [here](https://consumption.azure.com/swagger/ui/index) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
+A Swagger endpoint is available [here](https://consumption.azure.com/swagger/ui/index) for the APIs described below which should enable easy introspection of the API and the ability to generate client SDKs using [AutoRest](https://github.com/Azure/AutoRest) or [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data beginning May 1, 2014 is available through this API. 
 
 * **Balance and Summary** - The [Balance and Summary API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments and overage charges.
 
@@ -54,7 +54,7 @@ Etags will be returned in the response of all the above API. A change in Etag in
 |401| Unauthorized| API Key not found, Invalid, Expired etc.|
 |404| Unavailable| Report endpoint not found|
 |400| Bad Request| Invalid params – Date ranges, EA numbers etc.|
-|500| Server Error| Unexoected error processing request| 
+|500| Server Error| Unexpected error processing request| 
 
 
 

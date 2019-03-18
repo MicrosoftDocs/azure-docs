@@ -3,14 +3,14 @@ title: 'Tutorial: Encrypt and decrypt blobs in Azure Storage using Azure Key Vau
 description: How to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: adhurwit
-
+ms.author: tamram
+ms.subservice: blobs
 ---
+
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 ## Introduction
 This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies.
@@ -39,7 +39,7 @@ Here is a brief description of how client side encryption works:
 4. The encrypted data is then uploaded to the Azure Storage service.
 
 ## Set up your Azure Key Vault
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md):
+In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [What is Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Create a key vault.
 * Add a key or secret to the key vault.
@@ -57,9 +57,7 @@ Add necessary nuget packages in the Package Manager Console.
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions
@@ -206,7 +204,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
@@ -223,4 +221,4 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).

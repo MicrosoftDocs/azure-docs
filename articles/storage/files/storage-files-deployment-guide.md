@@ -2,19 +2,12 @@
 title: How to deploy Azure Files | Microsoft Docs
 description: Learn how to deploy Azure Files from start to finish.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
+ms.subservice: files
 ---
 
 # How to deploy Azure Files
@@ -31,8 +24,8 @@ This article assumes that you have already completed the following steps:
 ## Transfer data into Azure Files
 You may wish to migrate existing file shares, such as those stored on-premises, to your new Azure file share. This section will show you how to move data into an Azure file share via several popular methods detailed from the [planning guide](storage-files-planning.md#data-transfer-method)
 
-### Azure File Sync (Preview)
-Azure File Sync (Preview) allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
+### Azure File Sync
+Azure File Sync allows you to centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It does this by transforming your Windows Servers into a quick cache of your Azure file share. You can use any protocol available on Windows Server to access your data locally (including SMB, NFS, and FTPS) and you can have as many caches as you need across the world.
 
 Azure File Sync may be used to migrate data into an Azure file share, even if the sync mechanism isn't desired for long-term use. More information on how to use Azure File Sync to transfer data into Azure file share can be found in [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) and [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 
@@ -79,7 +72,7 @@ The following steps will import data from an on-premises location to your Azure 
     
     See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) for more information.
 
-6. Use the [WAImportExport Tool](https://www.microsoft.com/en-us/download/details.aspx?id=55280) to copy your data to one or more hard drives.
+6. Use the [WAImportExport Tool](https://www.microsoft.com/download/details.aspx?id=55280) to copy your data to one or more hard drives.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -110,7 +103,7 @@ Robocopy is a well known copy tool that ships with Windows and Windows Server. R
 ### AzCopy
 AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. Using AzCopy is easy:
 
-1. Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy) or [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
 2. Use `azcopy` at the command line to move data to the Azure file share. The syntax on Windows is as follows: 
 
     ```

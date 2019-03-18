@@ -1,32 +1,25 @@
 ---
-title: Develop Python streaming MapReduce jobs with HDInsight - Azure | Microsoft Docs
-description: Learn how to use Python in streaming MapReduce jobs. Hadoop provides a streaming API for MapReduce for writing in languages other than Java.
+title: Develop Python streaming MapReduce jobs with HDInsight - Azure 
+description: Learn how to use Python in streaming MapReduce jobs. Apache Hadoop provides a streaming API for MapReduce for writing in languages other than Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
+ms.author: hrasheed
 
 ---
 # Develop Python streaming MapReduce programs for HDInsight
 
-Learn how to use Python in streaming MapReduce operations. Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
+Learn how to use Python in streaming MapReduce operations. Apache Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. The steps in this document implement the Map and Reduce components in Python.
 
 ## Prerequisites
 
-* A Linux-based Hadoop on HDInsight cluster
+* A Linux-based Apache Hadoop on HDInsight cluster
 
   > [!IMPORTANT]
   > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -147,7 +140,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
     This command copies the files from the local system to the head node.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you used a password to secure your SSH account, you are prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connect to the cluster by using SSH:
@@ -185,7 +178,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
    * **-output**: The directory that the output is written to.
 
-    As the MapReduce job works, the process is displayed as percentages.
+     As the MapReduce job works, the process is displayed as percentages.
 
         15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
         15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
@@ -204,6 +197,6 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

@@ -3,38 +3,43 @@ title: Azure Stack Quick Start - Create VM Portal
 description: Azure Stack Quick Start - Create a Linux VM using the portal
 services: azure-stack
 cloud: azure-stack
-author: brenduns
+author: mattbriggs
 manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/24/2018
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/11/2019
+ms.author: mabrigg
+ms.reviewer: kivenkat
 ms.custom: mvc
+ms.lastreviewed: 12/03/2018
 ---
 
 # Quickstart: create a Linux server virtual machine with the Azure Stack portal
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure Stack portal. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
+You can create an Ubuntu Server 16.04 LTS virtual machine by using the Azure Stack portal. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
 
 * Connect to the virtual machine with a remote client.
-* Install a NGINX web server.
+* Install an NGINX web server.
 * Clean up your resources.
+
+> [!NOTE]  
+> The screen images in this article are updated to match changes introduced with Azure Stack version 1808. 1808 adds support for using *managed disks* in addition to unmanaged disks. If you use an earlier version, some images for tasks like disk selection will be different than what is displayed in this article.  
+
 
 ## Prerequisites
 
 * **A Linux image in the Azure Stack marketplace**
 
-   The Azure Stack marketplace doesn't contain a Linux image by default. Before you can create a Linux server virtual machine, ensure that the Azure Stack operator provides the **Ubuntu Server 16.04 LTS** image you need. The operator can use the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) article.
+   The Azure Stack marketplace doesn't have a Linux image by default. Check that you have the Azure Stack operator provides the **Ubuntu Server 16.04 LTS** image in your marketplace. The operator can use the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) article.
 
 * **Access to an SSH client**
 
    If you are using the Azure Stack Development Kit (ASDK), you might not have access to an SSH client. If you need a client, there are several packages that include an SSH client. For example, PuTTY includes an SSH client and SSH key generator (puttygen.exe). For more information about available packages,  read the following Azure article: [How to Use SSH keys with Windows on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux server virtual machine. To download and install PuTTY, go to [http://www.putty.org/](http://www.putty.org).
+   This Quickstart uses PuTTY to generate the SSH keys and to connect to the Linux server virtual machine. To download and install PuTTY, go to [https://www.putty.org/](https://www.putty.org).
 
 ## Create an SSH key pair
 
@@ -62,33 +67,39 @@ Sign in to the Azure Stack portal. The address of the Azure Stack portal depends
 1. Click **Create a resource** in the upper left-hand corner of the Azure Stack portal.
 
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Click **Create**.
+   
+   ![Select the Linux server](media/azure-stack-quick-linux-portal/select.png)
+1. Click **Create**.
 
 4. Type the virtual machine information. For **Authentication type**, select **SSH public key**. Paste in the SSH public key that you saved, and then click **OK**.
 
-   >[!NOTE]
- Make sure you remove any leading or trailing white space for they key.
+   > [!NOTE]
+   > Make sure you remove any leading or trailing white space for they key.
 
    ![Basics panel - Configure virtual machine](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Select **D1_V2** for the virtual machine.
+5. Select **D1** for the virtual machine.
 
    ![Size panel - Choose a virtual machine size](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. On the **Settings** page, keep the defaults and click **OK**.
+6. On the **Settings** page, make any desired changes to the defaults.
+   
+   - Beginning with Azure Stack version 1808, you can configure **Storage** where you can choose to use *managed disks*. Prior to version 1808 only unmanaged disks can be used.    
+     ![Configure storage for managed disks](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+     When your configurations are ready, select **OK** to continue.
 
-7. On the **Summary** page, click **OK** to start the virtual machine deployment.
+7. On the **Summary** page, click **OK** to start the virtual machine deployment.  
+   ![Deploy](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## Connect to the virtual machine
 
-1. Click **Connect** on the virtual machine page. This displays an SSH connection string that you need to connect to the virtual machine.
-
-   ![Connect virtual machine](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. Click **Connect** on the virtual machine page. You can find the SSH connection string that you need to connect to the virtual machine. 
 
 2. Open PuTTY.
-3. On the **PuTTY Configuration** screen you will use the **Category** window to scroll up or down. Scroll down to **SSH**, expand **SSH**, and then click **Auth**. Click **Browse** and pick the private key file that you saved.
 
-   ![Select PuTTY private key](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. On the PuTTY Configuration screen, you will use the **Category** window to scroll up or down. Scroll down to **SSH**, expand **SSH**, and then click **Auth**. Click **Browse** and pick the private key file that you saved.
+   ![Connect virtual machine](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Scroll up in the **Category** window, and then click **Session**.
 5. In the **Host Name (or IP address)** box, paste the connection string shown in the Azure Stack portal. In this example, the string is ```asadmin@192.168.102.34```.
@@ -113,7 +124,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-When you finish installing NGINX, close the SSH session and open the the virtual machine Overview page in the Azure Stack portal.
+When you finish installing NGINX, close the SSH session and open the virtual machine Overview page in the Azure Stack portal.
 
 ## Open port 80 for web traffic
 
@@ -132,7 +143,7 @@ With NGINX installed, and port 80 open on your virtual machine, you can access t
 
 Open a web browser, and browse to ```http://<public IP address>```.
 
-![NGINX web server Welcome page](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![NGINX web server Welcome page](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## Clean up resources
 
@@ -140,4 +151,4 @@ Clean up the resources that you don't need any longer. To delete the virtual mac
 
 ## Next steps
 
-In this quick start, you deployed a basic Linux server virtual machine with a web server. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).
+In this quickstart, you deployed a basic Linux server virtual machine with a web server. To learn more about Azure Stack virtual machines, continue to [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md).

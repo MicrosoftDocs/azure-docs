@@ -8,7 +8,7 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Azure CLI](data-lake-analytics-get-started-cli2.md)
+## [Azure CLI](data-lake-analytics-get-started-cli.md)
 
 # How to
 
@@ -40,12 +40,11 @@
 #### [Cognitive extensions](data-lake-analytics-u-sql-cognitive.md)
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL SDK
-#### [Local run & debug](data-lake-analytics-data-lake-tools-local-run.md)
-#### [Run & test](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [Install](data-lake-analytics-data-lake-tools-install.md)
+#### [Local run](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Local debug](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [Develop U-SQL databases](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -60,12 +59,22 @@
 #### [Custom code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Local run & debug](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## Schedule U-SQL jobs
+### [Schedule jobs using SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
+## Continuous integration and continuous deployment
+### [Overview](data-lake-analytics-cicd-overview.md)
+### [Assembly registration](data-lake-analytics-cicd-manage-assemblies.md)
+### [Set up tests](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+
 # Reference
-## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/az.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
+## [Resource Manager template](/azure/templates/microsoft.datalakeanalytics/allversions)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources
@@ -76,6 +85,6 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

@@ -11,7 +11,7 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
@@ -44,7 +44,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 >
 
 ## Prerequisites
-* Azure Blob Storage: this experiment uses Azure Blob Storage (GRS) for storing TPC-H testing dataset.  If you do not have an Azure storage account, learn [how to create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure Blob Storage: this experiment uses Azure Blob Storage (GRS) for storing TPC-H testing dataset.  If you do not have an Azure storage account, learn [how to create a storage account](../../storage/common/storage-quickstart-create-account.md).
 * [TPC-H](http://www.tpc.org/tpch/) data: we are going to use TPC-H as the testing dataset.  To do that, you need to use `dbgen` from TPC-H toolkit, which helps you generate the dataset.  You can either download source code for `dbgen` from [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) and compile it yourself, or download the compiled binary from [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Run dbgen.exe with the following commands to generate 1 TB flat file for `lineitem` table spread across 10 files:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -108,8 +108,8 @@ This article provides step-by-step instructions for moving data into Azure SQL D
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
-	```
-With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
+    ```
+  With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
 
 ## Launch Copy Wizard
 1. Log in to the [Azure portal](https://portal.azure.com).
@@ -199,7 +199,7 @@ This section shows you how to configure the destination: `lineitem` table in the
 
 	You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
 
-	As you can see from the following screen shot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
+	As you can see from the following screenshot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
 
 	![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

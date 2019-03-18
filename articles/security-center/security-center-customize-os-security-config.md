@@ -3,18 +3,18 @@ title: Customize OS security configurations in Azure Security Center (Preview) |
 description: This article demonstrates how to customize security center assessments
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid:
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
+ms.date: 11/26/2018
+ms.author: rkarlin
 
 ---
 
@@ -29,7 +29,7 @@ Azure Security Center monitors security configurations by applying a set of [ove
 By customizing the rules, organizations can control which configuration options are more appropriate for their environment. You can set a customized assessment policy and then apply it on all applicable machines in the subscription.
 
 > [!NOTE]
-> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, and 2012 R2 operating systems only.
+> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, 2012 R2, and 2016 operating systems only.
 > - The configuration applies to all VMs and computers that are connected to all workspaces under the selected subscription.
 > - OS security configuration customization is available only on the Security Center standard tier.
 >
@@ -50,29 +50,27 @@ To customize the default OS security configuration in Security Center, do the fo
 
 1.  Open the **Security Center** dashboard.
 
-2.  In the left pane, select **Security policy**.  
-    The **Security Center - Security policy** window opens.
+2.  In the left pane, select **Security policy**.      
 
-    ![Security Policy list](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Security Policy list](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Select the subscription that you want to perform the customization for.
+3.  In the row of the subscription you want to customize, click **Edit settings**.
 
-4. Under **Policy Components**, select **Edit security configurations**.  
-    The **Edit security configurations** window opens.
+4. Select **Edit security configurations**.  
 
     ![The "Edit security configurations" window](media/security-center-customize-os-security-config/blade.png)
 
-5. In the right pane, follow the steps for downloading, editing, and uploading the modified file.
+5. Follow the steps to download, edit, and upload the modified file.
 
    > [!NOTE]
    > By default, the configuration file that you download is in *json* format. For instructions about modifying this file, go to [Customize the configuration file](#customize-the-configuration-file).
    >
 
-   After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to all workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size.
-
 6. To commit the change, select **Save**. Otherwise, the policy is not stored.
 
     ![The Save button](media/security-center-customize-os-security-config/save-successfully.png)
+
+   After you've successfully saved the file, the configuration is applied to all VMs and computers that are connected to the workspaces under the subscription. The process usually takes a few minutes but can take longer, depending on the infrastructure size.
 
 At any point, you can reset the current policy configuration to its default state. To do so, in the **Edit OS security configuration rules** window, select **Reset**. Confirm this option by selecting **Yes** in the confirmation pop-up window.
 
@@ -113,16 +111,14 @@ Each category has its own set of attributes. You can change the following attrib
 
 -   **state**: The string can contain the options *Disabled* or *Enabled*. For this private preview release, the string is case-sensitive.
 
-These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. The following error message occurs when the file can’t be processed:
-
-![Security configuration error message](media/security-center-customize-os-security-config/invalid-json.png)
+These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. You will receive an error telling you that you need to upload a valid JSON configuration file.
 
 For a list of other potential errors, see [Error codes](#error-codes).
 
 The following three sections contain examples of the preceding rules. The *expectedValue* and *state* attributes can be changed.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -145,7 +141,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -162,7 +158,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -217,7 +213,7 @@ New custom rules are marked with a new custom source (!= "Microsoft"). The *rule
 Example of a new custom rule:
 
 **Registry**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -226,7 +222,7 @@ Example of a new custom rule:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -234,7 +230,7 @@ Example of a new custom rule:
     }
 ```
 **Security policy**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -249,7 +245,7 @@ Example of a new custom rule:
    }
 ```
 **Audit policy**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -264,9 +260,7 @@ Example of a new custom rule:
 
 ## File upload failures
 
-If the submitted configuration file is invalid because of errors in values or formatting, a failure error is displayed. You can download a detailed errors .csv report to remediate and fix the errors before you resubmit a corrected configuration file.
-
-!["Save action failed" error message](media/security-center-customize-os-security-config/invalid-configuration.png)
+If the submitted configuration file is invalid because of errors in values or formatting, a failure error is displayed, such as **Save action failed**. You can download a detailed errors .csv report to remediate and fix the errors before you resubmit a corrected configuration file.
 
 Example of an error file:
 
@@ -278,7 +272,7 @@ All potential errors are listed in the following table:
 
 | **Error**                                | **Description**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
 | BaselineInvalidStringError               | The property *{0}* cannot contain *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | The baseline configuration rules list contains a rule with value *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |

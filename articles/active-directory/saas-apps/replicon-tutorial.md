@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Replicon
 
@@ -175,7 +176,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a Replicon test user
 
-The objective of this section is to create a user called Britta Simon in Replicon. Replicon supports automatic user provisioning, which is by default enabled. You can find more details [here](replicon-provisioning-tutorial.md) on how to configure automatic user provisioning.
+The objective of this section is to create a user called Britta Simon in Replicon.
 
 **If you need to create user manually, perform following steps:**
 
@@ -193,7 +194,7 @@ The objective of this section is to create a user called Britta Simon in Replico
 
     ![User profile](./media/replicon-tutorial/ic777808.png "User profile")
 
-	a. In the **Login Name** textbox, type the Azure AD email address of the Azure AD user you want to provision like **BrittaSimon@contoso.com**.
+	a. In the **Login Name** textbox, type the Azure AD email address of the Azure AD user you want to provision like **BrittaSimon\@contoso.com**.
 
 	b. As **Authentication Type**, select **SSO**.
 
@@ -241,13 +242,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Replicon tile in the Access Panel, you should get automatically signed-on to your Replicon application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure User Provisioning](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 

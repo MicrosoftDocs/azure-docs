@@ -3,7 +3,7 @@ title: Guidelines & Recommendations for Reliable Collections in  Azure Service F
 description: Guidelines and Recommendations for using Service Fabric Reliable Collections
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak,zhol
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: mcoskun
+ms.author: aljo
 
 ---
 # Guidelines and recommendations for Reliable Collections in Azure Service Fabric
@@ -45,6 +45,7 @@ Here are some things to keep in mind:
 * Read operations on the secondary may read versions that are not quorum committed.
   This means that a version of data that is read from a single secondary might be false progressed.
   Reads from Primary are always stable: can never be false progressed.
+* Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.  
 
 ### Next steps
 * [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)

@@ -1,15 +1,16 @@
 ---
-title: Provision a Linux CentOS Data Science Virtual Machine on Azure | Microsoft Docs
+title: Create a CentOS Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Linux Data Science Virtual Machine on Azure to do analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -35,7 +36,7 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
   * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): A fast machine learning system supporting techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): A tool providing fast and accurate boosted tree implementation.
-  * [Rattle](http://rattle.togaware.com/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
+  * [Rattle](https://togaware.com/rattle/) (the R Analytical Tool To Learn Easily): A tool that makes getting started with data analytics and machine learning in R easy, with GUI-based data exploration, and modeling with automatic R code generation.
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Development tools and editors (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -44,8 +45,8 @@ The Linux Data Science Virtual Machine is a CentOS-based Azure virtual machine t
 Doing data science involves iterating on a sequence of tasks:
 
 1. Finding, loading, and pre-processing data
-2. Building and testing models
-3. Deploying the models for consumption in intelligent applications
+1. Building and testing models
+1. Deploying the models for consumption in intelligent applications
 
 Data scientists use various tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
 
@@ -60,14 +61,14 @@ An [Ubuntu](dsvm-ubuntu-intro.md) image is also available, with many of the same
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 * **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
+* **An Azure storage account**: To create one, see [Create an Azure storage account](../../storage/common/storage-quickstart-create-account.md). Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
 
 ## Create your Linux Data Science Virtual Machine
 Here are the steps to create an instance of the Linux Data Science Virtual Machine:
 
 1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-3. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+1. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+1. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
    
    a. **Basics**:
    
@@ -99,7 +100,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
 
 ## How to access the Linux Data Science Virtual Machine
-After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
 > The X2Go client performed significantly better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
@@ -109,8 +110,8 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 ## Installing and configuring X2Go client
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
-1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
+1. Download and install the X2Go client for your client platform from [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
    * **Session tab**:
      * **Host**: The host name or IP address of your Linux Data Science VM.
      * **Login**: User name on the Linux VM.
@@ -127,7 +128,7 @@ R is one of the most popular languages for data analysis and machine learning. I
 
 To launch R console, you just type **R** in the shell. This takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi or gedit, and then run the scripts within R. With RStudio, you have a full graphical IDE environment to develop your R program.
 
-There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
+There is also an R script for you to install the [Top 20 R packages](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
 
 ### Python
 For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
@@ -149,7 +150,7 @@ Python 3.5 is installed at */anaconda/envs/py35/bin*.
 
 To invoke a Python interactive session, just type **python** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE.
 
-To install additional Python libraries, you need to run ```conda``` or ````pip```` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
+To install additional Python libraries, you need to run ```conda``` or ```pip``` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -193,13 +194,13 @@ Before running in Spark context in Microsoft R Server, you need to do a one time
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you dont need them by running ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````
+You can stop the Hadoop related services when you don't need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors
 You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse, and IntelliJ. gEdit, Eclipse, IntelliJ, RStudio and PyCharm are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
 
-**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](http://ess.r-project.org/).
+**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](https://ess.r-project.org/).
 
 **Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages that can be installed to extend the environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse**. It allows you to create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../../azure-toolkit-for-eclipse.md).
 
@@ -354,16 +355,16 @@ Now a graphical interface opens up with a set of tabs. Here are the quick start 
 > 
 
 1. Click **Execute**.
-2. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
-3. Click the **Model** tab.
-4. Click **Execute** to build a decision tree.
-5. Click **Draw** to display the decision tree.
-6. Click the **Forest** radio button, and click **Execute** to build a random forest.
-7. Click the **Evaluate** tab.
-8. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
-9. Click the **Log** tab to show the generate R code for the preceding operations.
+1. A dialog pops up, asking you if you like to use the example weather data set. Click **Yes** to load the example.
+1. Click the **Model** tab.
+1. Click **Execute** to build a decision tree.
+1. Click **Draw** to display the decision tree.
+1. Click the **Forest** radio button, and click **Execute** to build a random forest.
+1. Click the **Evaluate** tab.
+1. Click the **Risk** radio button, and click **Execute** to display two Risk (Cumulative) performance plots.
+1. Click the **Log** tab to show the generate R code for the preceding operations.
    (Due to a bug in the current release of Rattle, you need to insert a *#* character in front of *Export this log ...* in the text of the log.)
-10. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
+1. Click the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
 You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 
@@ -372,6 +373,6 @@ Here's how you can continue your learning and exploration:
 
 * The [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM provisioned here. 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
-* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
+* Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+* Visit the [Cortana Analytics Gallery](https://gallery.cortanaanalytics.com) for machine learning and data analytics samples that use the Cortana Analytics Suite.
 

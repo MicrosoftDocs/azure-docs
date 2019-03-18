@@ -1,20 +1,13 @@
 ---
-title: Azure Data Catalog release notes | Microsoft Docs
+title: Azure Data Catalog release notes
 description: Release notes for Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # Azure Data Catalog release notes
 ## Notes for the November 20, 2015 release of Azure Data Catalog
@@ -30,7 +23,7 @@ For each situation, the problem can be resolved by downloading and installing th
 ### Registering and connecting to Teradata
 When connecting to Teradata data sources users must have installed the correct Teradata ODBC driver that match the bitness (32-bit or 64-bit) of the software being used.
 
-As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
+As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
 
 ## Notes for the July 13, 2015 release of Azure Data Catalog
 ### Registering and connecting to Oracle Database

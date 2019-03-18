@@ -10,8 +10,8 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+
+ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
 
@@ -59,7 +59,7 @@ After data is present in a centralized data store in the cloud, process or trans
 After the raw data has been refined into a business-ready consumable form, load the data into Azure Data Warehouse, Azure SQL Database, Azure CosmosDB, or whichever analytics engine your business users can point to from their business intelligence tools.
 
 ### Monitor
-After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Log Analytics, and health panels on the Azure portal.
+After you have successfully built and deployed your data integration pipeline, providing business value from refined data, monitor the scheduled activities and pipelines for success and failure rates. Azure Data Factory has built-in support for pipeline monitoring via Azure Monitor, API, PowerShell, Azure Monitor logs, and health panels on the Azure portal.
 
 ## Top-level concepts
 An Azure subscription might have one or more Azure Data Factory instances (or data factories). Azure Data Factory is composed of four key components. These components work together to provide the platform on which you can compose data-driven workflows with steps to move and transform data.
@@ -109,13 +109,17 @@ For more information about Data Factory concepts, see the following articles:
 
 ## Supported regions
 
-Currently, you can create data factories in the East US, East US 2, West Europe regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
+For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
 
 Azure Data Factory itself does not store any data. It lets you create data-driven workflows to orchestrate the movement of data between supported data stores and the processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows by using both programmatic and UI mechanisms.
 
-Although Data Factory is available only in the East US, East US 2, and West Europe regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Self-hosted Integration Runtime that's installed in your on-premises environment moves the data instead.
+Although Data Factory is available only in certain regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Self-hosted Integration Runtime that's installed in your on-premises environment moves the data instead.
 
 For an example, let's assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of the West Europe region. You can create and use an Azure Data Factory instance in East US or East US 2 and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment, but the time for running the job on your computing environment does not change.
+
+## Accessibility
+
+The Data Factory user experience in the Azure portal is accessible.
 
 ## Compare with version 1
 For a list of differences between version 1 and the current version of the Data Factory service, see [Compare with version 1](compare-versions.md). 

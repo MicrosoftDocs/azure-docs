@@ -3,18 +3,18 @@ title: Azure Service Bus Premium and Standard Messaging pricing tiers overview |
 description: Service Bus Premium and Standard Messaging tiers
 services: service-bus-messaging
 documentationcenter: .net
-author: djrosanova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/30/2018
-ms.author: sethm
+ms.topic: conceptual
+ms.date: 03/05/2019
+ms.author: aschhab
 
 ---
 # Service Bus Premium and Standard messaging tiers
@@ -51,9 +51,24 @@ Because Premium messaging runs in a completely isolated run-time environment, ex
 
 If you have code running under Standard messaging and want to port it to the Premium tier, make sure the [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property is set to **false** (the default value).
 
+## Premium Messaging resource usage
+In general, any operation on an entity may cause CPU and memory usage. Here are some of these operations: 
+
+- Management operations such as CRUD (Create, Retrieve, Update, and Delete) operations on queues, topics, and subscriptions.
+- Runtime operations (send and receive messages)
+- Monitoring operations and alerts
+
+The additional CPU And memory usage is not priced additionally though. For the Premium Messaging tier, there is a single price for the message unit.
+
+The CPU and memory usage are tracked and displayed to the you for the following reasons: 
+
+- Provide transparency into the system internals
+- Understand the capacity of resources purchased.
+- Capacity planning that helps you decide to scale up/down.
+
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Choose your pricing tier**.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -61,9 +76,9 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 ## Next steps
 
-To learn more about Service Bus Messaging, see the following topics.
+To learn more about Service Bus Messaging, see the following links:
 
-* [Introducing Azure Service Bus Premium Messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus Messaging overview](service-bus-messaging-overview.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

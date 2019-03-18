@@ -47,6 +47,9 @@ Before you can use Azure Application Insights, you first need to create an insta
 6. You have just created an Azure Application Insights logger with an instrumentation key. It should now appear in the list.  
     ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> Behind the scene, a [Logger](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
+
 ## Enable Application Insights logging for your API
 
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
@@ -58,8 +61,13 @@ Before you can use Azure Application Insights, you first need to create an insta
 6. Check the **Enable** box.
 7. Select your attached logger in the **Destination** dropdown.
 8. Input **100** as **Sampling (%)** and tick the **Always log errors** checkbox.
-9. Input **1024** in the **First bytes of body** field.
-10. Click **Save**.
+9. Click **Save**.
+
+> [!WARNING]
+> Overriding the default value **0** in the **First bytes of body** field may significantly decrease the performance of your APIs.
+
+> [!NOTE]
+> Behind the scene, a [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -102,11 +110,17 @@ A failed request is a request, which:
 
 Based on internal load tests, enabling this feature caused a 40%-50% reduction in throughput when request rate exceeded 1,000 requests per second. Azure Application Insights is designed to use statistical analysis for assessing application performances. It is not intended to be an audit system and is not suited for logging each individual request for high-volume APIs.
 
-You can manipulate the number of requests being logged by adjusting the **Sampling** setting (see the steps above). Value 100% means all requests are logged, while 0% reflects no logging at all. **Sampling** helps to reduce volume of telemetry, effectively preventing from significant performance degredation, while still carrying the benefits of logging.
+You can manipulate the number of requests being logged by adjusting the **Sampling** setting (see the steps above). Value 100% means all requests are logged, while 0% reflects no logging at all. **Sampling** helps to reduce volume of telemetry, effectively preventing from significant performance degradation, while still carrying the benefits of logging.
 
 Skipping logging of headers and body of requests and responses will also have positive impact on alleviating performance issues.
 
+## Video
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
+
 ## Next steps
 
-+ Learn more about [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Learn more about [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).

@@ -4,12 +4,11 @@ description: Learn how to set up disaster recovery of on-premises Hyper-V VMs in
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: conceptual
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
 ---
-
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
@@ -106,7 +105,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 2. In **Create and associate policy**, specify a policy name, **ContosoReplicationPolicy**.
 3. Leave the default settings and click **OK**.
     - **Copy frequency** indicates that delta data (after initial replication) will replicate every five minutes.
-    - **Recovery point retention** indicates that the retention windows for each recovery point will be two two hours.
+    - **Recovery point retention** indicates that the retention windows for each recovery point will be two hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time**, indicates that initial replication will start immediately.
     - **Encrypt data stored on Azure** - the default **Off** setting indicates that at rest data in Azure isn't encrypted.
@@ -120,7 +119,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 4. Select the **contosovmsacct1910171607** storage account, and the **ContosoASRnet** Azure network.
 5. In **Virtual machines** > **Select**, select the VM you want to replicate. Then click **OK**.
 
- You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
+   You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
 
 
 ## Next steps

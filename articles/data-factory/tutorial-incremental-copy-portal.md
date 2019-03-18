@@ -10,8 +10,8 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+
+ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
 ---
@@ -38,7 +38,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram: 
 
-![Incrementally load data](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Incrementally load data](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Here are the important steps to create this solution: 
 
@@ -60,7 +60,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
-* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one. Create a container named adftutorial. 
+* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) for steps to create one. Create a container named adftutorial. 
 
 ### Create a data source table in your SQL database
 1. Open SQL Server Management Studio. In **Server Explorer**, right-click the database, and choose **New Query**.
@@ -131,7 +131,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -298,7 +298,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Switch to the **Stored Procedure** tab, and do the following steps: 
 
-    1. For **Stored procedure name**, select **sp_write_watermark**. 
+    1. For **Stored procedure name**, select **usp_write_watermark**. 
     2. To specify values for the stored procedure parameters, click **Import parameter**, and enter following values for the parameters: 
 
         | Name | Type | Value | 

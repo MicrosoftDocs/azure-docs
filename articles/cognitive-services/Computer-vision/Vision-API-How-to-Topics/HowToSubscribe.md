@@ -1,14 +1,17 @@
 ---
-title: Get subscription keys for the Computer Vision API | Microsoft Docs
-description: Learn how to get subscription keys for calls to the Computer Vision API in Cognitive Services.
+title: Get subscription keys - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Learn how to get subscription keys for calls to the Computer Vision API in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 # How to obtain subscription keys
 
@@ -16,8 +19,8 @@ Computer Vision services require special subscription keys. Every call to the Co
 
 To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
 
->[!NOTE]
-Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/regions/). 
+> [!NOTE]
+> Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/regions/). 
 
 | Region | Address |
 |---|---|
@@ -35,4 +38,4 @@ If you forget the region for your subscription key after obtaining your trial ke
 
 ### Related Links:
 
-* [Pricing Options for Microsoft Cognitive APIs](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Pricing Options for Azure Cognitive Services APIs](https://azure.microsoft.com/pricing/details/cognitive-services/)

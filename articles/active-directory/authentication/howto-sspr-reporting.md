@@ -4,15 +4,16 @@ description: Reporting on Azure AD self-service password reset events
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 02/01/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Reporting options for Azure AD password management
 
@@ -20,10 +21,10 @@ After deployment, many organizations want to know how or if self-service passwor
 
 ![Reporting][Reporting]
 
-The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
+The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](../active-directory-assign-admin-roles-azure-portal.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](../users-groups-roles/directory-assign-admin-roles.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -37,7 +38,7 @@ The following questions can be answered by the reports that exist in the [Azure 
 
 ## Power BI content pack
 
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../active-directory-reporting-power-bi-content-pack-how-to.md). With the content pack, you can create your own dashboards and share them with others in your organization.
+If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../reports-monitoring/howto-power-bi-content-pack.md). With the content pack, you can create your own dashboards and share them with others in your organization.
 
 ## How to view password management reports in the Azure portal
 
@@ -51,6 +52,10 @@ In the Azure portal experience, we have improved the way that you can view passw
 6. To filter this view to see only the password-reset-related events, select the **Filter** button at the top of the pane.
 7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
 8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
+
+### Converged registration (preview)
+
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -78,7 +83,7 @@ The following activity types appear in the **Self-Service Password Management** 
 * [Reset password (by admin)](#activity-type-reset-password-by-admin): Indicates that an administrator performed a password reset on behalf of a user from the Azure portal.
 * [Reset password (self-service)](#activity-type-reset-password-self-service): Indicates that a user successfully reset their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com).
 * [Self-service password reset flow activity progress](#activity-type-self-serve-password-reset-flow-activity-progress): Indicates each specific step a user proceeds through, such as passing a specific password reset authentication gate, as part of the password reset process.
-* [Unlock user account (self-service)](#activity-type-unlock-user-account-self-service): Indicates that a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
+* [Unlock user account (self-service)](#activity-type-unlock-a-user-account-self-service)): Indicates that a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
 * [User registered for self-service password reset](#activity-type-user-registered-for-self-service-password-reset): Indicates that a user has registered all the required information to be able to reset their password in accordance with the currently specified tenant password reset policy.
 
 ### Activity type: Blocked from self-service password reset
@@ -102,7 +107,7 @@ The following list explains this activity in detail:
 * **Activity statuses**:
   * _Success_: Indicates that a user successfully changed their password.
   * _Failure_: Indicates that a user failed to change their password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
-* **Activity status failure reason**: 
+* **Activity status failure reason**:
   * _FuzzyPolicyViolationInvalidPassword_: The user selected a password that was automatically banned because the Microsoft Banned Password Detection capabilities found it to be too common or especially weak.
 
 ### Activity type: Reset password (by admin)
@@ -126,7 +131,7 @@ The following list explains this activity in detail:
 * **Activity statuses**:
   * _Success_: Indicates that a user successfully reset their own password.
   * _Failure_: Indicates that a user failed to reset their own password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
-* **Activity status failure reason**: 
+* **Activity status failure reason**:
   * _FuzzyPolicyViolationInvalidPassword_: The admin selected a password that was automatically banned because the Microsoft Banned Password Detection capabilities found it to be too common or especially weak.
 
 ### Activity type: Self serve password reset flow activity progress
@@ -140,7 +145,7 @@ The following list explains this activity in detail:
   * _Success_: Indicates that a user successfully completed a specific step of the password reset flow.
   * _Failure_: Indicates that a specific step of the password reset flow failed. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status reasons**:
-    See the following table for [all the permissible reset activity status reasons](#allowed-values-for-details-column).
+    See the following table for [all the permissible reset activity status reasons](#description-of-the-report-columns-in-the-azure-portal).
 
 ### Activity type: Unlock a user account (self-service)
 
@@ -162,17 +167,17 @@ The following list explains this activity in detail:
 * **Activity target**: The user who registered for password reset. The user can be an end user or an administrator.
 * **Allowed activity statuses**:
   * _Success_: Indicates that a user successfully registered for password reset in accordance with the current policy. 
-  * _Failure_: Indicates that a user failed to register for password reset. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred. 
+  * _Failure_: Indicates that a user failed to register for password reset. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 
      >[!NOTE]
-     >Failure doesn't mean a user is unable to reset their own password. It means that they didn't finish the registration process. If there is unverified data on their account that's correct, such as a phone number that's not validated, even though they have not verified this phone number, they can still use it to reset their password. For more information, see [What happens when a user registers?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
+     >Failure doesn't mean a user is unable to reset their own password. It means that they didn't finish the registration process. If there is unverified data on their account that's correct, such as a phone number that's not validated, even though they have not verified this phone number, they can still use it to reset their password.
      >
 
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md).
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

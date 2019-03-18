@@ -1,51 +1,58 @@
 ---
-title: Tutorial creating a LUIS app to extract data - Azure | Microsoft Docs 
-description: In this tutorial, learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
+title: Simple entity, phrase list
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, extract machine-learned data of employment job name from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
-
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/26/2018
-ms.author: v-geberr
+ms.date: 02/19/2019
+ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
---- 
+---
 
-# Tutorial: Create app that uses simple entity
-In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+# Tutorial: Extract names with simple entity and a phrase list
+
+In this tutorial, extract machine-learned data of employment job name from an utterance using the **Simple** entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
+
+The simple entity detects a single data concept contained in words or phrases.
+
+**In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Understand simple entities 
-> * Create new LUIS app for the Human Resources (HR) domain 
-> * Add simple entity to extract jobs from app
-> * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response
-> * Add phrase list to boost signal of job words
-> * Train, publish app, and requery endpoint
+> * Import example app
+> * Add simple entity 
+> * Add phrase list to boost signal words
+> * Train 
+> * Publish 
+> * Get intents and entities from endpoint
 
-For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Before you begin
-If you don't have the Human Resources app from the [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version.  
+## Simple entity
 
-## Purpose of the app
-This app demonstrates how to pull data out of an utterance. Consider the following utterances from a chatbot:
+This tutorial adds a new simple entity to extract the job name. The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job name can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of job names  across all intents that use job names.  
+
+The simple entity is a good fit for this type of data when:
+
+* Data is a single concept.
+* Data is not well-formatted such as a regular expression.
+* Data is not common such as a prebuilt entity of phone number or data.
+* Data is not matched exactly to a list of known words, such as a list entity.
+* Data does not contain other data items such as a composite entity or hierarchical entity.
+
+Consider the following utterances from a chat bot:
 
 |Utterance|Extractable job name|
 |:--|:--|
 |I want to apply for the new accounting job.|accounting|
-|Please submit my resume for the engineering position.|engineering|
+|Submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
-
-This tutorial adds a new entity to extract the job name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intents-regex-entity.md). 
-
-## Purpose of the simple entity
-The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
 
 The job name is difficult to determine because a name can be a noun, verb, or a phrase of several words. For example:
 
@@ -62,33 +69,42 @@ The job name is difficult to determine because a name can be a noun, verb, or a 
 |extruder|
 |millwright|
 
-This LUIS app has job names in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job is and where it is found in utterances.
+This LUIS app has job names in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job name is and where it is found in utterances.
 
-## Create job simple entity
+Once the entities are marked in the example utterances, it is important to add a phrase list to boost the signal of the simple entity. A phrase list is **not** used as an exact match and does not need to be every possible value you expect. 
 
-1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+## Import example app
 
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
+1.  Download and save the [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) from the Intents tutorial.
 
-2. On the **Intents** page, select **ApplyForJob** intent. 
+2. Import the JSON into a new app.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Screenshot of LUIS with 'ApplyForJob' intent highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
+3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
-3. In the utterance, `I want to apply for the new accounting job`, select `accounting`, enter `Job` in the top field of the pop-up menu, then select **Create new entity** in the pop-up menu. 
+## Mark entities in example utterances of an intent
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-4. In the pop-up window, verify the entity name and type and select **Done**.
+1. On the **Intents** page, select **ApplyForJob** intent. 
+
+1. In the utterance, `I want to apply for the new accounting job`, select `accounting`, enter `Job` in the top field of the pop-up menu, then select **Create new entity** in the pop-up menu. 
+
+    [![Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+
+1. In the pop-up window, verify the entity name and type and select **Done**.
 
     ![Create simple entity pop-up modal dialog with name of Job and type of simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. In the utterance, `Submit resume for engineering position`, label the word engineering as a Job entity. Select the word engineering, then select Job from the pop-up menu. 
+1. In the remaining utterances, mark the job-related words with **Job** entity by selecting the word or phrase, then selecting **Job** from the pop-up menu. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Screenshot of LUIS labeling job entity highlighted](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    All the utterances are labeled but five utterances aren't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
 
-6. Add more utterances and mark the job words or phrases as **Job** entity. The job types are general across employment for an employment service. If you wanted jobs related to a specific industry, the job words should reflect that. 
+## Add more example utterances and mark entity
+
+Simple entities need many examples in order to have a high confidence of prediction. 
+ 
+1. Add more utterances and mark the job words or phrases as **Job** entity. 
 
     |Utterance|Job entity|
     |:--|:--|
@@ -107,165 +123,92 @@ This LUIS app has job names in several intents. By labeling these words in all t
     |Apply for tile work.|tile|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|git 
+    |I would like to apply for the position in photography.|photography|
 
-## Label entity in example utterances for GetJobInformation intent
+## Mark job entity in other intents
+
 1. Select **Intents** from the left menu.
 
-2. Select **GetJobInformation** from the list of intents. 
+1. Select **GetJobInformation** from the list of intents. 
 
-3. Label the jobs in the example utterances:
+1. Label the jobs in the example utterances
 
-    |Utterance|Job entity|
-    |:--|:--|
-    |Is there any work in databases?|databases|
-    |Looking for a new situation with responsibilities in accounting|accounting|
-    |What positions are available for senior engineers?|senior engineers|
+    If there are more example utterances in one intent than another intent, that intent has a higher likelihood of being the highest predicted intext. 
 
-    There are other example utterances but they do not contain job words.
+## Train the app so the changes to the intent can be tested 
 
-## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-1. In the top right side of the LUIS website, select the **Train** button.
+## Publish the app so the trained model is queryable from the endpoint
 
-    ![Select train button](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-2. Training is complete when you see the green status bar at the top of the website confirming success.
+## Get intent and entity prediction from endpoint 
 
-    ![Training success notification](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
+2. Go to the end of the URL in the address and enter `Here is my c.v. for the engineering job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
 
-1. In the top right side of the LUIS website, select the **Publish** button. 
-
-2. Select the Production slot and the **Publish** button.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. Publishing is complete when you see the green status bar at the top of the website confirming success.
-
-## Query the endpoint with a different utterance
-On the **Publish** page, select the **endpoint** link at the bottom of the page. 
-
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
-
-This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
-
-```JSON
-{
-  "query": "Here is my c.v. for the programmer job",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.9826467
-  },
-  "intents": [
+    ```json
     {
-      "intent": "ApplyForJob",
-      "score": 0.9826467
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0218927357
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.007849265
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00349470088
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00348804821
-    },
-    {
-      "intent": "None",
-      "score": 0.00319909188
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00222647213
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00211193133
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00172086991
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00138010911
+      "query": "Here is my c.v. for the engineering job",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.98052007
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.98052007
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.03424581
+        },
+        {
+          "intent": "None",
+          "score": 0.0015820954
+        }
+      ],
+      "entities": [
+        {
+          "entity": "engineering",
+          "type": "Job",
+          "startIndex": 24,
+          "endIndex": 34,
+          "score": 0.668959737
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "programmer",
-      "type": "Job",
-      "startIndex": 24,
-      "endIndex": 33,
-      "score": 0.5230502
-    }
-  ]
-}
-```
+    ```
+    
+    LUIS found the correct intent, **ApplyForJob**, and extracted the correct entity, **Job**, with a value of `engineering`.
+
 
 ## Names are tricky
 The LUIS app found the correct intent with high confidence and it extracted the job name, but names are tricky. Try the utterance `This is the lead welder paperwork`.  
 
 In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but didn't extract the `lead welder` job name. 
 
-```JSON
+```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -274,109 +217,82 @@ In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but
 
 Because a name can be anything, LUIS predicts entities more accurately if it has a phrase list of words to boost the signal.
 
-## To boost signal, add jobs phrase list
-Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is over one thousand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
+## To boost signal of the job-related words, add a phrase list of job-related words
+
+Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the Azure-Samples GitHub repository. The list is over 1,000 job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Screenshot of Phrase lists left nav button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
+1. Select **Create new phrase list**. 
 
-2. Select **Create new phrase list**. 
+1. Name the new phrase list `JobNames` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Screenshot of create new phrase list button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
+    [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-3. Name the new phrase list `Jobs` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
+    If you want more words added to the phrase list, select **Recommand** then review the new **Related Values** and add any that are relevant. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    Make sure to keep the **These values are interchangeable** checked because these values should all be treated as synonyms for jobs. Learn more about interchangeable and noninterchangeable [phrase list concepts](luis-concept-feature.md#how-to-use-phrase-lists).
 
-    If you want more words added to the phrase list, review the recommended words and add any that are relevant. 
+1. Select **Save** to activate the phrase list.
 
-4. Select **Save** to activate the phrase list.
+    [![Screenshot of create new phrase list dialog pop-up with words in phrase list values box](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+1. Train and publish the app again to use phrase list.
 
-5. [Train](#train-the-luis-app) and [publish](#publish-the-app-to-get-the-endpoint-URL) the app again to use phrase list.
-
-6. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
+1. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
 
     The JSON response includes the extracted entity:
 
-    ```JSON
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+    ```json
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
-## Phrase lists
-Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. This phrase list for jobs may not be complete. As you regularly [review endpoint utterances](label-suggested-utterances.md) and find other job words, add those to your phrase list. Then retrain and republish.
-
-## What has this LUIS app accomplished?
-This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the message data. 
-
-Your chatbot now has enough information to determine the primary action of applying for a job and a parameter of that action, which job is referenced. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a third-party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
-
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Related information
+
+* [Intents without entities tutorial](luis-quickstart-intents-only.md)
+* [Simple entity](luis-concept-entity-types.md) conceptual information
+* [Phrase list](luis-concept-feature.md) conceptual information
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
+
 
 ## Next steps
 
+In this tutorial, the Human Resources app uses a machine-learned simple entity to find job names in utterances. Because job names can be such a wide variety of words or phrases, the app needed a phrase list to boost the job name words. 
+
 > [!div class="nextstepaction"]
-> [Learn how to add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)

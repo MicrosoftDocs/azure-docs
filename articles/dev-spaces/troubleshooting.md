@@ -1,32 +1,182 @@
 ---
-title: "Troubleshooting | Microsoft Docs"
+title: "Troubleshooting"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-author: "ghogen"
-ms.author: "ghogen"
-ms.date: "05/11/2018"
-ms.topic: "article"
+author: zr-msft
+ms.author: zarhoads
+ms.date: "09/11/2018"
+ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Troubleshooting guide
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Enabling detailed logging
+
+To troubleshoot problems more effectively, it may help to create more detailed logs for review.
+
+For the Visual Studio extension, set the `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` environment variable to 1. Be sure to restart Visual Studio for the environment variable to take effect. Once enabled, detailed logs are written to your `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+
+In the CLI, you can output more information during command execution by using the `--verbose` switch. You can also browse more detailed logs in `%TEMP%\Azure Dev Spaces`. On a Mac, the TEMP directory can be found by running `echo $TMPDIR` from a terminal window. On a Linux computer, the TEMP directory is usually `/tmp`.
+
+## Debugging services with multiple instances
+
+Currently, Azure Dev Spaces works best when debugging a single instance, or pod. The azds.yaml file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the replicaCount to configure your app to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
+
+## Error 'Failed to create Azure Dev Spaces controller'
+
+You might see this error when something goes wrong with the creation of the controller. If it's a transient error, delete and recreate the controller to fix it.
+
+### Try:
+
+To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+And then run this command to delete the controller:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Recreating the controller can be done from the CLI or Visual Studio. Follow the instructions in the tutorials as if starting for the first time.
+
+
+## Error 'Service cannot be started.'
+
+You might see this error when your service code fails to start. The cause is often in user code. To get more diagnostic information, make the following changes to your commands and settings:
+
+### Try:
+
+On the command line:
+
+When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
+ 
+```cmd
+azds up --verbose --output json
+```
+
+In Visual Studio:
+
+1. Open **Tools > Options** and under **Projects and Solutions**, choose **Build and Run**.
+2. Change the settings for **MSBuild project build output verbosity** to **Detailed** or **Diagnostic**.
+
+    ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
+    
+### Multi-stage Dockerfiles:
+You receive a *Service cannot be started* error when using a multi-stage Dockerfile. In this situation, the verbose output contains the following text:
+
+```cmd
+$ azds up -v
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+This error occurs because AKS nodes run an older version of Docker that does not support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
+
+### Rerunning a service after controller re-creation
+You receive a *Service cannot be started* error when attempting to rerun a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. In this situation, the verbose output contains the following text:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+This error occurs because removing the Dev Spaces controller does not remove services previously installed by that controller. Recreating the controller and then attempting to run the services using the new controller fails because the old services are still in place.
+
+To address this problem, use the `kubectl delete` command to manually remove the old services from your cluster, then rerun Dev Spaces to install the new services.
+
+## DNS name resolution fails for a public URL associated with a Dev Spaces service
+
+You can configure a public URL endpoint for your service by specifying the `--public` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a *Page cannot be displayed* or *Site cannot be reached* error in your web browser when connecting to the public URL.
+
+### Try:
+
+You can use the following command to list out all URLs associated with your Dev Spaces services:
+
+```cmd
+azds list-uris
+```
+
+If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for registration to complete. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
+
+If a URL stays in the *Pending* state for more than 5 minutes, it may indicate a problem with the external DNS pod that creates the public endpoint or the nginx ingress controller pod that acquires the public endpoint. You can use the following commands to delete these pods. AKS automatically recreates the deleted pods.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
+
+## Error 'Required tools and configurations are missing'
+
+This error might occur when launching VS Code: "[Azure Dev Spaces] Required tools and configurations to build and debug '[project name]' are missing."
+The error means that azds.exe is not in the PATH environment variable, as seen in VS Code.
+
+### Try:
+
+Launch VS Code from a command prompt where the PATH environment variable is set properly.
+
+## Error "Required tools to build and debug 'projectname' are out of date."
+
+You see this error in Visual Studio Code if you have a newer version of the VS Code extension for Azure Dev Spaces, but an older version of the Azure Dev Spaces CLI.
+
+### Try
+
+Download and install the latest version of the Azure Dev Spaces CLI:
+
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
+
+## Error 'azds' is not recognized as an internal or external command, operable program, or batch file
+ 
+You might see this error if azds.exe is not installed or configured correctly.
+
+### Try:
+
+1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview) for azds.exe. If it's there, add that location to the PATH environment variable.
+2. If azds.exe is not installed, run the following command:
+
+    ```cmd
+    az aks use-dev-spaces -n <cluster-name> -g <resource-group>
+    ```
+
+## Warning 'Dockerfile could not be generated due to unsupported language'
+Azure Dev Spaces provides native support for C# and Node.js. When you run *azds prep* in a directory containing code written in one of these languages, Azure Dev Spaces will automatically create an appropriate Dockerfile for you.
+
+You can still use Azure Dev Spaces with code written in other languages, but you need to manually create the Dockerfile before running *azds up* for the first time.
+
+### Try:
+If your application is written in a language that Azure Dev Spaces does not natively support, you need to provide an appropriate Dockerfile to build a container image running your code. Docker provides a [list of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) and a [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) that can help you write a Dockerfile that suits your needs.
+
+Once you have an appropriate Dockerfile in place, you can proceed with running *azds up* to run your application in Azure Dev Spaces.
+
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 
 
 ### Reason 
-The container port isn't available. This could be because: 
-* The container is still in the process of being built and deployed. This can be the case if you run `azds up` or start the debugger, and then try to access the container before it has successfully deployed.
-* Port configuration is not consistent across your Dockerfile, Helm Chart, and any server code that opens up a port.
+The container port isn't available. This problem could occur because: 
+* The container is still in the process of being built and deployed. This issue can arise if you run `azds up` or start the debugger, and then try to access the container before it has successfully deployed.
+* Port configuration is not consistent across your _Dockerfile_, Helm Chart, and any server code that opens up a port.
 
 ### Try:
 1. If the container is in the process of being built/deployed, you can wait 2-3 seconds and try accessing the service again. 
-1. Check your port configuration. The specified port numbers should be **identical** in all the assets below:
+1. Check your port configuration. The specified port numbers should be **identical** in all of the following assets:
     * **Dockerfile:** Specified by the `EXPOSE` instruction.
     * **[Helm chart](https://docs.helm.sh):** Specified by the `externalPort` and `internalPort` values for a service (often located in a `values.yml` file),
     * Any ports being opened up in application code, for example in Node.js: `var server = app.listen(80, function () {...}`
@@ -40,15 +190,23 @@ You must run `azds up` from the root directory of the code you want to run, and 
 
 ### Try:
 1. Change your current directory to the root folder containing your service code. 
-1. If you do not have a azds.yaml file in the code folder, run `azds prep` to generate Docker, Kubernetes, and Azure Dev Spaces assets.
+1. If you do not have a _azds.yaml_ file in the code folder, run `azds prep` to generate Docker, Kubernetes, and Azure Dev Spaces assets.
 
 ## Error: 'The pipe program 'azds' exited unexpectedly with code 126.'
-Starting the VS Code debugger may sometimes result in this error. This is a known issue.
+Starting the VS Code debugger may sometimes result in this error.
 
 ### Try:
 1. Close and reopen VS Code.
 2. Hit F5 again.
 
+## Debugging error 'Failed to find debugger extension for type:coreclr'
+Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
+
+### Reason
+You do not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .NET Core (CoreCLR).
+
+### Try:
+Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## Debugging error 'Configured debug type 'coreclr' is not supported'
 Running the VS Code debugger reports the error: `Configured debug type 'coreclr' is not supported.`
@@ -59,40 +217,87 @@ You do not have the VS Code extension for Azure Dev Spaces installed on your dev
 ### Try:
 Install the [VS Code extension for Azure Dev Spaces](get-started-netcore.md).
 
+## Debugging error "Invalid 'cwd' value '/src'. The system cannot find the file specified." or "launch: program '/src/[path to project binary]' does not exist"
+Running the VS Code debugger reports the error `Invalid 'cwd' value '/src'. The system cannot find the file specified.` and/or `launch: program '/src/[path to project executable]' does not exist`
+
+### Reason
+By default, the VS Code extension uses `src` as the working directory for the project on the container. If you've updated your `Dockerfile` to specify a different working directory, you may see this error.
+
+### Try:
+Update the `launch.json` file under the `.vscode` subdirectory of your project folder. Change the `configurations->cwd` directive to point to the same directory as the `WORKDIR` defined in your project's `Dockerfile`. You may also need to update the `configurations->program` directive as well.
+
 ## The type or namespace name 'MyLibrary' could not be found
 
 ### Reason 
-The build context is at the project/service level by default, therefore a library project you're using won't be found.
+The build context is at the project/service level by default, therefore a library project you're using cannot be found.
 
 ### Try:
 What needs to be done:
-1. Modify the azds.yaml file to set the build context to the solution level.
-2. Modify the Dockerfile and Dockerfile.develop files to refer to the csproj files correctly, relative to the new build context.
-3. Place a .dockerignore file beside the .sln file and modify as needed.
+1. Modify the _azds.yaml_ file to set the build context to the solution level.
+2. Modify the _Dockerfile_ and _Dockerfile.develop_ files to refer to the project (_.csproj_) files correctly, relative to the new build context.
+3. Place a _.dockerignore_ file beside the .sln file and modify as needed.
 
 You can find an example at https://github.com/sgreenmsft/buildcontextsample
 
-## 'Microsoft.ConnectedEnvironment/register/action' authorization error
-You might see the following error when you are managing an Azure Dev Space and you are working in an Azure subscription for which you do not have Owner or Contributor access.
-`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.ConnectedEnvironment/register/action' over scope '/subscriptions/<Subscription Id>'.`
+## 'Microsoft.DevSpaces/register/action' authorization error
+You need *Owner* or *Contributor* access in your Azure subscription to manage Azure Dev Spaces. You may see this error if you're trying to manage Dev Spaces and you do not have *Owner* or *Contributor* access to the associated Azure subscription.
+`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### Reason
-The selected Azure subscription has not registered the Microsoft.ConnectedEnvironment namespace.
+The selected Azure subscription has not registered the `Microsoft.DevSpaces` namespace.
 
 ### Try:
-Someone with Owner or Contributor access to the Azure subscription can run the following Azure CLI command to manually register the Microsoft.ConnectedEnvironment namespace:
+Someone with Owner or Contributor access to the Azure subscription can run the following Azure CLI command to manually register the `Microsoft.DevSpaces` namespace:
 
 ```cmd
-az provider register --namespace Microsoft.ConnectedEnvironment
+az provider register --namespace Microsoft.DevSpaces
 ```
 
-## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container 
+## Dev Spaces times out at *Waiting for container image build...* step with AKS virtual nodes
 
 ### Reason
-Azure Dev Spaces can be configured to point to a specific Dockerfile in your project. If it appears Azure Dev Spaces isn't using the Dockerfile you expect to build your containers, you might need to explicitly tell Azure Dev Spaces where it is. 
+This occurs when you attempt to use Dev Spaces to run a service that is configured to run on an [AKS virtual node](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces does not currently support building or debugging services on virtual nodes.
+
+If you run `azds up` with the `--verbose` switch, or enable verbose logging in Visual Studio, you see additional detail:
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+This shows that the service's pod was assigned to *virtual-node-aci-linux*, which is a virtual node.
 
 ### Try:
-Open the `azds.yaml` file that was generated by Azure Dev Spaces in your project. Use the `configurations->develop->build->dockerfile` directive to point to the Dockerfile you want to use:
+Update the Helm chart for the service to remove any *nodeSelector* and/or *tolerations* values that allow the service to run on a virtual node. These values are typically defined in the chart's `values.yaml` file.
+
+You can still use an AKS cluster that has the virtual nodes feature enabled, if the service you wish to build/debug via Dev Spaces runs on a VM node. This is the default configuration.
+
+## "Error: could not find a ready tiller pod" when launching Dev Spaces
+
+### Reason
+This error occurs if the Helm client can no longer talk to the Tiller pod running in the cluster.
+
+### Try:
+Restarting the agent nodes in your cluster usually resolves this issue.
+
+## Azure Dev Spaces proxy can interfere with other pods running in a dev space
+
+### Reason
+When you enable Dev Spaces on a namespace in your AKS cluster, an additional container called _mindaro-proxy_ is installed in each of the pods running inside that namespace. This container intercepts calls to the services in the pod, which is integral to Dev Spaces' team development capabilities; however, it can interfere with certain services running in those pods. It is known to interfere with pods running Azure Cache for Redis, causing connection errors and failures in master/slave communication.
+
+### Try:
+You can move the affected pods to a namespace inside the cluster that does _not_ have Dev Spaces enabled. The rest of your application can continue to run inside a Dev Spaces-enabled namespace. Dev Spaces will not install the _mindaro-proxy_ container inside non-Dev Spaces enabled namespaces.
+
+## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container
+
+### Reason
+Azure Dev Spaces can be configured to point to a specific _Dockerfile_ in your project. If it appears Azure Dev Spaces isn't using the _Dockerfile_ you expect to build your containers, you might need to explicitly tell Azure Dev Spaces which Dockerfile to use. 
+
+### Try:
+Open the _azds.yaml_ file that Azure Dev Spaces generated in your project. Use the *configurations->develop->build->dockerfile* directive to point to the Dockerfile you want to use:
 
 ```
 ...

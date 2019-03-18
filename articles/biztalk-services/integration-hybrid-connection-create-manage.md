@@ -21,8 +21,8 @@ ms.author: ccompy
 
 > [!IMPORTANT]
 > BizTalk Hybrid Connections is retired, and replaced by App Service Hybrid Connections. For more information, including how to manage your existing BizTalk Hybrid Connections, see [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md).
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## Overview of the Steps
 1. Create a Hybrid Connection by entering the **host name** or **FQDN** of the on-premises resource in your private network.
@@ -38,7 +38,7 @@ This topic lists these steps.
 > For example (pseudocode), you define **10.4.5.6** as your on-premises host:
 > 
 > **The following scenario works:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **The following scenario doesn't work:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -101,7 +101,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [Azure App Service Hybrid Connections](../app-service/app-service-hybrid-connections.md) is also a good resource.
 
 #### Use Group Policy to control the on-premises resources used by a Hybrid Connection
-1. Download the [Hybrid Connection Manager Administrative Templates](http://www.microsoft.com/download/details.aspx?id=42963).
+1. Download the [Hybrid Connection Manager Administrative Templates](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Extract the files.
 3. On the computer that modifies group policy, do the following:  
    
@@ -114,7 +114,7 @@ Once copied, you can use Group Policy Editor to change the policy.
 [Hybrid Connections Overview](integration-hybrid-connection-overview.md)
 
 ## See Also
-[REST API for Managing BizTalk Services on Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[REST API for Managing BizTalk Services on Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md)  
 [Create a BizTalk Service](biztalk-provision-services.md)  
 [BizTalk Services: Dashboard, Monitor and Scale tabs](biztalk-dashboard-monitor-scale-tabs.md)

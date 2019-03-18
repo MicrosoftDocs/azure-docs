@@ -1,13 +1,14 @@
 ---
-title: Customer data request features​ in Azure Time Series Insights
-description: Summary of customer data request features.
+title: 'Customer data request features​ in Azure Time Series Insights | Microsoft Docs'
+description: Summary of Azure Time Series Insights customer data request features.
 author: ashannon7
-ms.author: dobett
-manager: timlt
+ms.author: anshan
+manager: cshankar
 ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.custom: seodec18
 ---
 
 # Summary of customer data request features

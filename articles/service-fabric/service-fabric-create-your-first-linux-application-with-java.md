@@ -19,7 +19,6 @@ ms.author: ryanwi
 ---
 # Create your first Java Service Fabric Reliable Actors application on Linux
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
@@ -36,7 +35,7 @@ Also install the [Service Fabric CLI](service-fabric-cli.md).
 Service Fabric provides scaffolding tools which will help you create a Service Fabric Java application from terminal using Yeoman template generator.  If Yeoman isn't already installed, see [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) for instructions on setting up Yeoman. Run the following command to install the Service Fabric Yeoman template generator for Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## Basic concepts
@@ -175,7 +174,7 @@ public static void main(String[] args) throws Exception {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Exception occured", e);
+            logger.log(Level.SEVERE, "Exception occurred", e);
             throw e;
         }
     }
@@ -246,7 +245,7 @@ Actors do not do anything on their own, they require another service or client t
     watch -n 1 ./testclient.sh
     ```
 
-2. In Service Fabric Explorer, locate the node hosting the primary replica for the actor service. In the screenshot below, it is node 3. The primary service replica handles read and write operations.  Changes in service state are then replicated out to the secondary replicas, running on nodes 0 and 1 in the screen shot below.
+2. In Service Fabric Explorer, locate the node hosting the primary replica for the actor service. In the screenshot below, it is node 3. The primary service replica handles read and write operations.  Changes in service state are then replicated out to the secondary replicas, running on nodes 0 and 1 in the screenshot below.
 
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 

@@ -12,17 +12,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 01/14/2019
 ms.author: mabrigg
+ms.lastreviewed: 01/14/2019
 
 ---
 # Connect to Azure Stack
 
 To manage resources, you must connect to the Azure Stack Development Kit. This article details the steps required to connect to the development kit. You can use either of the following connection options:
 
-* [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the development kit.
-* [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
+* Remote Desktop: lets a single concurrent user quickly connect from the development kit.
+* Virtual Private Network (VPN): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
 
 ## Connect to Azure Stack with Remote Desktop
 With a Remote Desktop connection, a single concurrent user can work with the portal to manage resources.
@@ -59,7 +60,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
+# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 

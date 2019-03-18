@@ -1,19 +1,18 @@
 ---
-title: Troubleshoot Azure Load Balancer | Microsoft Docs
+title: Troubleshoot Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Troubleshoot known issues with Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: ''
-
-ms.assetid: 
+ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 08/09/2018
 ms.author: genli
 ---
 
@@ -73,7 +72,7 @@ If all the preceding causes seem to be validated and resolved correctly, and the
     - Run a simultaneous Netsh trace on the target backend pool VM and another test VM from the same VNet. Now, run a PsPing test for some time, collect some network traces, and then stop the test. 
     - Analyze the network capture and see if there are both incoming and outgoing packets related to the ping query. 
         - If no incoming packets are observed on the backend pool VM, there is potentially a network security groups or UDR mis-configuration blocking the traffic. 
-        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for eample, Application blocking the probe port). 
+        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for example, Application blocking the probe port). 
     - Verify if the probe packets are being forced to another destination (possibly via UDR settings) before reaching the load balancer. This can cause the traffic to never reach the backend VM. 
 * Change the probe type (for example, HTTP to TCP), and configure the corresponding port in network security groups ACLs and firewall to validate if the issue is with the configuration of probe response. For more information about health probe configuration, see [Endpoint Load Balancing health probe configuration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 
@@ -83,7 +82,7 @@ If a backend pool VM is listed as healthy and responds to the health probes, but
 * Load Balancer Backend pool VM is not listening on the data port 
 * Network security group is blocking the port on the Load Balancer backend pool VM  
 * Accessing the Load Balancer from the same VM and NIC 
-* Accessing the Internet Load Balancer VIP from the participating Load Balancer backend pool VM 
+* Accessing the Internet Load Balancer frontend from the participating Load Balancer backend pool VM 
 
 ### Cause 1: Load Balancer backend pool VM is not listening on the data port 
 If a VM does not respond to the data traffic, it may be because either the target port is not open on the participating VM, or, the VM is not listening on that port. 
@@ -116,18 +115,18 @@ You can resolve this issue via one of the following methods:
 * Configure separate backend pool VMs per application. 
 * Configure the application in dual NIC VMs so each application was using its own Network interface and IP address. 
 
-### Cause 4: Accessing the Internal Load Balancer VIP from the participating Load Balancer backend pool VM
+### Cause 4: Accessing the internal Load Balancer frontend from the participating Load Balancer backend pool VM
 
-If an ILB VIP is configured inside a VNet, and one of the participant backend VMs is trying to access the Internal Load Balancer VIP, that results in failure. This is an unsupported scenario.
+If an internal Load Balancer is configured inside a VNet, and one of the participant backend VMs is trying to access the internal Load Balancer frontend, failures can occur when the flow is mapped to the originating VM. This scenario is not supported. Review [limitations](load-balancer-overview.md#limitations) for a detailed discussion.
+
 **Resolution**
-Evaluate Application Gateway or other proxies (for example, nginx or haproxy) to support that kind of scenario. For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
+There are several ways to unblock this scenario, including using a proxy. Evaluate Application Gateway or other 3rd party proxies (for example, nginx or haproxy). For more information about Application Gateway, see [Overview of Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## Additional network captures
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
 - Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
-- Use TCPing from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results.
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
-  
+  
 ## Next steps
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).

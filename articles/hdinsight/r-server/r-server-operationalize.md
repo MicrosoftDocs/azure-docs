@@ -1,19 +1,14 @@
 ---
-title: Operationalize ML Services on HDInsight - Azure | Microsoft Docs
+title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize ML Services in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-
 ---
 # Operationalize ML Services cluster on Azure HDInsight
 
@@ -27,7 +22,7 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 ## Operationalize ML Services cluster with one-box configuration
 
-> [!NOTE]
+> [!NOTE]  
 > The steps below are applicable to R Server 9.0 and ML Server 9.1. For ML Server 9.3, refer to [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH into the edge node.
@@ -36,7 +31,7 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
     For instructions on how to use SSH with Azure HDInsight, see [Use SSH with HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Change directory for the relevant version and sudo the dot net dll: 
+1. Change directory for the relevant version and sudo the dot net dll: 
 
     - For Microsoft ML Server 9.1:
 
@@ -48,21 +43,21 @@ After you have used ML Services cluster in HDInsight to complete your data model
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
+1. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
+1. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. When prompted, enter and reenter the password for a local admin user.
+1. When prompted, enter and reenter the password for a local admin user.
 
-6. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
+1. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
 
     ![one box op](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
+1. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
 
     a. From the main menu, select **6** to run diagnostic tests.
 
@@ -78,9 +73,9 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 
-### Long delays when consuming web service on Spark
+### Long delays when consuming web service on Apache Spark
 
-If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
+If you encounter long delays when trying to consume a web service created with mrsdeploy functions in an Apache Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
 
 	# Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -120,7 +115,7 @@ If your cluster is not set up on vnet or if you are having troubles with connect
 
 	ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Once your SSH session is active, the traffic from your machine’s port 12800 is forwarded to the edge node’s port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs into the edge node’s operationalization through port forwarding.
+Once your SSH session is active, the traffic from your local machine's port 12800 is forwarded to the edge node's port 12800 through SSH session. Make sure you use `127.0.0.1:12800` in your `remoteLogin()` method. This logs into the edge node's operationalization through port forwarding.
 
 
 	library(mrsdeploy)
@@ -138,15 +133,15 @@ To scale the compute nodes, you first decommission the worker nodes and then con
 
 ### Step 1: Decommission the worker nodes
 
-ML Services cluster is not managed through YARN. If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
+ML Services cluster is not managed through [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
 
 Follow these steps to decommission worker nodes:
 
 1. Log in to the cluster's Ambari console and click on **Hosts** tab.
 
-2. Select worker nodes (to be decommissioned).
+1. Select worker nodes (to be decommissioned).
 
-3. Click  **Actions** > **Selected Hosts** > **Hosts** > **Turn ON Maintenance Mode**. For example, in the following image we have selected wn3 and wn4 to decommission.  
+1. Click  **Actions** > **Selected Hosts** > **Hosts** > **Turn ON Maintenance Mode**. For example, in the following image we have selected wn3 and wn4 to decommission.  
 
    ![decommission worker nodes](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -162,15 +157,15 @@ Follow these steps to decommission worker nodes:
 
 1. SSH into each decommissioned worker node.
 
-2. Run admin utility using the relevant DLL for the ML Services cluster that you have. For ML Server 9.1, run the following:
+1. Run admin utility using the relevant DLL for the ML Services cluster that you have. For ML Server 9.1, run the following:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Enter **1** to select option **Configure ML Server for Operationalization**.
+1. Enter **1** to select option **Configure ML Server for Operationalization**.
 
-4. Enter **C** to select option `C. Compute node`. This configures the compute node on the worker node.
+1. Enter **C** to select option `C. Compute node`. This configures the compute node on the worker node.
 
-5. Exit the Admin Utility.
+1. Exit the Admin Utility.
 
 ### Step 3: Add compute nodes details on web node
 
@@ -178,9 +173,9 @@ Once all decommissioned worker nodes are configured to run compute node, come ba
 
 1. SSH into the edge node.
 
-2. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Run `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Look for the "Uris" section, and add worker node's IP and port details.
+1. Look for the "Uris" section, and add worker node's IP and port details.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",

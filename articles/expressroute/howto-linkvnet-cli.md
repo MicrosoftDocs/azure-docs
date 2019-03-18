@@ -1,21 +1,14 @@
 ---
 title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure| Microsoft Docs'
-description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
+description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlit
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid:
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman,cherylmc
+ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI
@@ -26,13 +19,13 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
 ## Configuration prerequisites
 
-* You need the latest version of the command-line interface (CLI). For more information, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* You need the latest version of the command-line interface (CLI). For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 
@@ -128,7 +121,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 The Circuit User needs the peer ID and an authorization key from the Circuit Owner. The authorization key is a GUID.
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **To redeem a connection authorization**

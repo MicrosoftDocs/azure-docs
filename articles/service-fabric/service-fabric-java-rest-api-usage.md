@@ -19,7 +19,7 @@ ms.author: rapatchi
 ---
 # Azure Service Fabric Java Client APIs
 
-Service Fabric client APIs allows deploying and managing microservices based applications and containers in a Service Fabric cluster on Azure, on-premise, on local development machine or in other cloud. This article describes how to generate and use Service Fabric Java client APIs on top of the Service Fabric client REST APIs
+Service Fabric client APIs allows deploying and managing microservices based applications and containers in a Service Fabric cluster on Azure, on-premises, on local development machine or in other cloud. This article describes how to generate and use Service Fabric Java client APIs on top of the Service Fabric client REST APIs
 
 ## Generate the client code using AutoRest
 
@@ -67,7 +67,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
 	```
    
-   The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implemenation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
+   The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implementation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
 
 
 ## Include and use the generated client in your project

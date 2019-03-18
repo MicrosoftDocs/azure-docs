@@ -2,20 +2,14 @@
 title: How to use Queue storage from Java | Microsoft Docs
 description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java.
 services: storage
-documentationcenter: java
 author: roygara
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 68cecc8e-38c9-4a24-99e8-cb722bc63cf9
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-
+ms.subservice: queues
 ---
 # How to use Queue storage from Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -397,9 +391,9 @@ Now that you've learned the basics of queue storage, follow these links to learn
 * [Azure Storage Services REST API][Azure Storage Services REST API]
 * [Azure Storage Team Blog][Azure Storage Team Blog]
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/

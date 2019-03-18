@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use packet capture to do proactive network monitoring with alerts and Azure Functions | Microsoft Docs
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
@@ -31,7 +31,7 @@ By using Network Watcher, alerting, and functions from within the Azure ecosyste
 
 ## Prerequisites
 
-* The latest version of [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* The latest version of [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
 * An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
 
@@ -106,13 +106,13 @@ To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module t
 
     This example gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules that are used in this scenario are:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell folders][functions5]
+     ![PowerShell folders][functions5]
 
 1. Select **Function app settings** > **Go to App Service Editor**.
 
@@ -327,7 +327,7 @@ The following example is PowerShell code that can be used in the function. There
 
     ![Copying the function URL][2]
 
-If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 
 ## Configure an alert on a VM
 
@@ -340,7 +340,7 @@ Go to an existing virtual machine, and then add an alert rule. More detailed doc
   |**Setting** | **Value** | **Details** |
   |---|---|---|
   |**Name**|TCP_Segments_Sent_Exceeded|Name of the alert rule.|
-  |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.||
+  |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.|
   |**Metric**|TCP segments sent| The metric to use to trigger the alert. |
   |**Condition**|Greater than| The condition to use when evaluating the metric.|
   |**Threshold**|100| The  value of the metric that triggers the alert. This value should be set to a valid value for your environment.|
@@ -358,7 +358,7 @@ After the criteria for the alert triggers, a packet capture is created. Go to Ne
 
 If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
-For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool you can use is [Storage Explorer](http://storageexplorer.com/).
+For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Another tool you can use is [Storage Explorer](https://storageexplorer.com/).
 
 After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/09/2018
+ms.date: 03/06/2019
 ms.author: gsacavdm
 
 ---
@@ -79,7 +79,10 @@ The **services available in Azure Government** are listed by category, as well a
 | [SQL Data Warehouse](documentation-government-services-database.md#sql-data-warehouse) | |
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
 | [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db) | |
-| [Azure Redis Cache](documentation-government-services-database.md#azure-redis-cache) | |
+| [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis) | |
+| [Azure Database for PostgreSQL](documentation-government-services-database.md#azure-database-for-postgresql) ||
+| [Azure Database for MariaDB](documentation-government-services-database.md#azure-database-for-mariadb) ||
+| [Azure Database for MySQL](documentation-government-services-database.md#azure-database-for-mysql) ||
 
 ## Data + Analytics
 | Generally Available | Preview |
@@ -91,7 +94,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## AI + Cognitive Services 
 | Generally Available | Preview |
 | --- | --- |
-| | [Cognitive Services**](documentation-government-services-aiandcognitiveservices.md) |
+| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | |
 
 ## Internet of Things
 | Generally Available | Preview |
@@ -111,7 +114,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Security + Identity
 | Generally Available | Preview |
 | --- | --- |
-| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory) | |
+| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)|[Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)|
 | [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
@@ -119,10 +122,11 @@ The **services available in Azure Government** are listed by category, as well a
 ## Monitoring + Management
 | Generally Available | Preview |
 | --- | --- |
-| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
+| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor)| |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |
 | [Backup](documentation-government-services-backup.md) | |
-| [Policy**](documentation-government-services-monitoringandmanagement.md#policy) | |
-| [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
+| [Policy](documentation-government-services-monitoringandmanagement.md#policy) | |
+| [Azure Monitor logs](documentation-government-services-monitoringandmanagement.md#azure-monitor-logs) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
 | [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | |

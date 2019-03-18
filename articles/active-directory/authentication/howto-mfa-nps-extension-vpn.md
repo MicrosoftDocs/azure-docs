@@ -4,15 +4,16 @@ description: Integrate your VPN infrastructure with Azure MFA by using the Netwo
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 08/15/2017
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
+manager: daveba
+ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
@@ -27,20 +28,20 @@ Network Policy and Access Services gives organizations the ability to:
 
 * Assign a central location for the management and control of network requests to specify:
 
-    * Who can connect 
+  * Who can connect 
     
-    * What times of day connections are allowed 
+  * What times of day connections are allowed 
     
-    * The duration of connections
+  * The duration of connections
     
-    * The level of security that clients must use to connect
+  * The level of security that clients must use to connect
 
     Rather than specify policies on each VPN or Remote Desktop Gateway server, do so after they're in a central location. The RADIUS protocol is used to provide centralized Authentication, Authorization, and Accounting (AAA). 
 
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 
 * Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.   
-For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
@@ -120,7 +121,7 @@ If the Microsoft Azure Active Directory PowerShell Module is not already present
 
 To use the NPS extension, on-premises users must be synced with Azure Active Directory and enabled for MFA. This guide assumes that on-premises users are synced with Azure Active Directory via Azure AD Connect. Instructions for enabling users for MFA are provided below.
 
-For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md). 
+For information about Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### Azure Active Directory GUID ID 
 
@@ -303,7 +304,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
  
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [How to require two-step verification for a user or group](howto-mfa-userstates.md) and [Set up my account for two-step verification](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [How to require two-step verification for a user or group](howto-mfa-userstates.md) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## Install and configure the NPS extension
 
@@ -436,7 +437,7 @@ A related event from the Azure Multi-Factor Authentication log is shown here:
 
 To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx). 
 
-The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](http://www.deepsoftware.com/iasviewer) is shown here: 
+The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](https://www.deepsoftware.com/iasviewer) is shown here: 
 
 ![Shareware application](./media/howto-mfa-nps-extension-vpn/image49.png)
 
@@ -451,5 +452,5 @@ For more information, see [Integrate your existing NPS infrastructure with Azure
 
 [Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

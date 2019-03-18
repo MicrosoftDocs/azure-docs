@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2017
+ms.date: 08/01/2018
 ms.author: ralfwi
 ---
 # Azure Germany IoT services
@@ -22,7 +22,7 @@ ms.author: ralfwi
 All the required services for Azure IoT Suite are available in Azure Germany. 
 
 ### Variations
-The home page for Azure IoT Suite in Azure Germany is different from the page in global Azure. Use [http://www.azureiotsuite.de](http://www.azureiotsuite.de) and follow the instructions. 
+The home page for Azure IoT Suite in Azure Germany is different from the page in global Azure.
 
 ## Solution accelerators
 You might want to start with one of the following solution accelerators. 

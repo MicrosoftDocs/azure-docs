@@ -2,19 +2,13 @@
 title: Introduction to Table storage - Object storage in Azure | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
-documentationcenter: .net
 author: SnehaGunda
-manager: kfile
-
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
-
+ms.subservice: tables
 ---
 # Introduction to Table storage in Azure
 
@@ -34,6 +28,6 @@ You can use Table storage to store flexible datasets like user data for web appl
 
 * View the Table service reference documentation for complete details about available APIs:
 
-    * [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)

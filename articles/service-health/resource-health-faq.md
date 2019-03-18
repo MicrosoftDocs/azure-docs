@@ -1,20 +1,12 @@
 ---
 title: Azure Resource Health FAQ | Microsoft Docs
 description: Overview of Azure Resource Health
-services: Resource health
-documentationcenter: dev-center-name
-author: BernardoAMunoz
-manager: ''
-editor: ''
-
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.date: 01/29/2019
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: BernardoAMunoz
 
 ---
 
@@ -59,7 +51,7 @@ Resource health is a service designed to help you diagnose and mitigate Azure se
 ## Where do I find Resource Health?
 After you log in to the Azure portal, there are multiple ways you can access Resource Health:
 - Navigate to your resource. In the left-hand navigation, select **Resource health**
-- Go to the Azure Monitor blade.  In the left-hand navigation, select **Resource health**.
+- Go to the Azure Service Health blade.  In the left-hand navigation, select **Resource health**.
 - Open the **Help + Support** blade by selecting the question mark in the upper right corner of the portal and then selecting **Help + Support**. Once the blade opens, select **Resource health**
 
 You can also use the Resource Health API to obtain information about the health of your resources.

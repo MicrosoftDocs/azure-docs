@@ -1,17 +1,17 @@
 ---
-title: Unique features of Azure page blobs | Microsoft Docs
-description: An overview of Azure page blobs and their benefits, including use cases with sample scripts. 
+title: Overview of Azure page blobs | Microsoft Docs
+description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
 author: anasouma
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
+ms.subservice: blobs
 ---
 
-# Unique features of Azure page blobs
+# Overview of Azure page blobs
 
 Azure Storage offers three types of blob storage: Block Blobs, Append Blobs and page blobs. Block blobs are composed of blocks and are ideal for storing text or binary files, and for uploading large files efficiently. Append blobs are also made up of blocks, but they are optimized for append operations, making them ideal for logging scenarios. Page blobs are made up of 512-byte pages up to 8 TB in total size and are designed for frequent random read/write operations. Page blobs are the foundation of Azure IaaS Disks. This article focuses on explaining the features and benefits of page blobs.
 
@@ -25,7 +25,7 @@ Let's discuss a couple of use cases for page blobs starting with Azure IaaS Disk
 
 First party Microsoft services like Azure Site Recovery, Azure Backup, as well as many third-party developers have implemented industry-leading innovations using page blob's REST interface. Following are some of the unique scenarios implemented on Azure: 
 * Application-directed incremental snapshot management: Applications can leverage page blob snapshots and REST APIs for saving the application checkpoints without incurring costly duplication of data. Azure Storage supports local snapshots for page blobs, which don't require copying the entire blob. These public snapshot APIs also enable accessing and copying of deltas between snapshots.
-* Live migration of application and data from on-prem to cloud: Copy the on-prem data and use REST APIs to write directly to an Azure page blob while the on-prem VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on-prem to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
+* Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 * [SAS-based](../common/storage-dotnet-shared-access-signature-part-1.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
 ## Page blob features
@@ -67,7 +67,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### Writing pages to a page blob
-To write pages,  use the [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) method.  This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.  The following code example shows how to call **WritePages** for a blob:
+To write pages,  use the [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) method.  This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.  The following code example shows how to call **WritePages** for a blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -112,8 +112,6 @@ foreach (PageRange range in pageRanges)
 
 #### Leasing a page blob
 The Lease Blob operation establishes and manages a lock on a blob for write and delete operations. This operation is useful in scenarios where a page blob is being accessed from multiple clients to ensure only one client can write to the blob at a time. Azure Disks, for example,  leverages this leasing mechanism to ensure the disk is only managed by a single VM. The lock duration can be 15 to 60 seconds, or can be infinite. See the documentation [here](/rest/api/storageservices/lease-blob) for more details.
-
-> Use the following link to get [code samples](/resources/samples/?service=storage&term=blob&sort=0 ) for many other application scenarios. 
 
 In addition to rich REST APIs, Page blobs also provide shared access, durability, and enhanced security. We will cover those benefits in more detail in the next paragraphs. 
 

@@ -3,7 +3,7 @@ title: Identity architecture for Azure Stack | Microsoft Docs
 description: Learn about the identity architecture you can use with Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 
@@ -12,15 +12,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 2/28/2018
-ms.author: brenduns
-ms.reviewer:
+ms.topic: conceptual
+ms.date: 02/11/2019
+ms.author: patricka
+ms.reviewer: fiseraci
+ms.lastreviewed: 02/11/2019
 ---
 
 
 # Identity architecture for Azure Stack
-Before you choose an identity provider to use with Azure Stack, understand the important differences between the options of Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS). 
+
+When choosing an identity provider to use with Azure Stack, you should understand the important differences between the options of Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS).
 
 ## Capabilities and limitations 
 The identity provider that you choose can limit your options, including support for multi-tenancy. 
@@ -31,7 +33,7 @@ The identity provider that you choose can limit your options, including support 
 |------------------------------|----------|-------|
 |Connected to the internet     |Yes       |Optional|
 |Support for multi-tenancy     |Yes       |No      |
-|Marketplace syndication       |Yes       |Yes. Requires use of the [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) tool.|
+|Offer items in the Marketplace |Yes       |Yes. Requires use of the [offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) tool.|
 |Support for Active Directory Authentication Library (ADAL) |Yes |Yes|
 |Support for tools such as Azure CLI, Visual Studio, and PowerShell  |Yes |Yes|
 |Create service principals through the Azure portal     |Yes |No|
@@ -41,7 +43,7 @@ The identity provider that you choose can limit your options, including support 
 |Applications can use identity provider for sign-in |Yes |Yes. Requires applications to federate with on-premises AD FS instances. |
 
 ## Topologies
-The following sections discus the various identity topologies that you can use.
+The following sections discuss the various identity topologies that you can use.
 
 ### Azure AD: single-tenant topology 
 By default, when you install Azure Stack and use Azure AD, Azure Stack uses a single-tenant topology. 

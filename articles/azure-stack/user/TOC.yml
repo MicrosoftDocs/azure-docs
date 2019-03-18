@@ -21,20 +21,34 @@
     href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutorials
   items:
-  - name: Deploy apps to Azure and Azure Stack
-    href: azure-stack-solution-pipeline.md
-  - name: Configure hybrid cloud identity
-    href: azure-stack-solution-hybrid-identity.md
-  - name: Configure hybrid cloud connectivity
-    href: azure-stack-solution-hybrid-connectivity.md
-  - name: Subscribe to an offer
-    href: azure-stack-subscribe-services.md
-  - name: Create a VM from a template
-    href: azure-stack-create-vm-template.md
+    - name: Common tasks
+      items:
+      - name: Subscribe to an offer
+        href: azure-stack-subscribe-services.md
+      - name: Create a VM from a template
+        href: azure-stack-create-vm-template.md
+    - name: Hybrid cloud patterns
+      items:
+      - name: Deploy apps to Azure and Azure Stack
+        href: azure-stack-solution-pipeline.md
+      - name: Configure hybrid cloud identity
+        href: azure-stack-solution-hybrid-identity.md
+      - name: Configure hybrid cloud connectivity
+        href: azure-stack-solution-hybrid-connectivity.md
+      - name: Create a staged data analytics solution
+        href: azure-stack-solution-staged-data-analytics.md
+      - name: Create cross-cloud scaling solutions with Azure
+        href: azure-stack-solution-cloud-burst.md
+      - name: Create a geo-distributed app solution
+        href: azure-stack-solution-geo-distributed.md
+      - name: Deploy a hybrid cloud solution
+        href: azure-stack-solution-hybrid-cloud.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Connect with PowerShell
+    href: azure-stack-powershell-configure-user.md
   - name: Use the Azure Stack API
     href: azure-stack-rest-api-use.md
   - name: Security & compliance
@@ -57,8 +71,12 @@
         href: azure-stack-vm-sizes.md
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
+      - name: Managed disks considerations
+        href: azure-stack-managed-disk-considerations.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
+      - name: VM update and management
+        href: vm-update-management.md
       - name: SQL Server VM considerations
         href: azure-stack-sql-server-vm-considerations.md
     - name: Storage
@@ -79,6 +97,16 @@
         href: azure-stack-network-overview.md
       - name: Networking considerations
         href: azure-stack-network-differences.md
+      - name: VPN gateways
+        items:
+        - name: Connect using VPN
+          href: azure-stack-connect-vpn.md
+        - name: About VPN gateway
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: Configure IPSec/IKE connection policies
+          href: azure-stack-vpn-s2s.md
+        - name: VPN gateway settings
+          href: azure-stack-vpn-gateway-settings.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack
@@ -86,23 +114,45 @@
     - name: Key Vault
       items:
       - name: Overview
-        href: azure-stack-kv-intro.md
+        href: azure-stack-key-vault-intro.md
       - name: Manage with the Portal
-        href: azure-stack-kv-manage-portal.md
+        href: azure-stack-key-vault-manage-portal.md
       - name: Manage with PowerShell
-        href: azure-stack-kv-manage-powershell.md
+        href: azure-stack-key-vault-manage-powershell.md
       - name: Create a VM with a secret
-        href: azure-stack-kv-deploy-vm-with-secret.md
+        href: azure-stack-key-vault-deploy-vm-with-secret.md
       - name: Create a VM with a certificate
-        href: azure-stack-kv-push-secret-into-vm.md
+        href: azure-stack-key-vault-push-secret-into-vm.md
+      - name: Store credentials in Key Vault
+        href: azure-stack-key-vault-store-credentials.md
       - name: KeyVault sample app
-        href: azure-stack-kv-sample-app.md
+        href: azure-stack-key-vault-sample-app.md
+    - name: Azure Monitor
+      href: azure-stack-metrics-azure-data.md
+      items: 
+      - name: Supported metrics
+        href: azure-stack-metrics-supported.md
+      - name: Consume Azure monitoring data
+        href: azure-stack-metrics-monitor.md
     - name: Solution templates
       items:
+      - name: Deploy Ethereum
+        href: azure-stack-ethereum.md
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
       - name: Deploy a Kubernetes cluster
         href: azure-stack-solution-template-kubernetes-deploy.md
+        items:
+        - name: Deploy Kubernetes using Azure AD
+          href: azure-stack-solution-template-kubernetes-azuread.md
+        - name: Deploy Kubernetes using AD FS
+          href: azure-stack-solution-template-kubernetes-adfs.md
+        - name: Enable the Kubernetes dashboard
+          href: azure-stack-solution-template-kubernetes-dashboard.md
+        - name: Troubleshoot Kubernetes cluster
+          href: azure-stack-solution-template-kubernetes-trouble.md
+      - name: Deploy Cognitive Services
+        href: azure-stack-solution-template-cognitive-services.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -110,21 +160,27 @@
     - name: Set up development environment
       items:
       - name: Install Azure Stack PowerShell
-        href: https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install
-      - name: Download Azure Stack tools
-        href: azure-stack-powershell-download.md
-      - name: Configure PowerShell - User
+        href: ../azure-stack-powershell-install.md
+        maintainContext: true
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-user.md
+      - name: Download Azure Stack tools
+        href: ../azure-stack-powershell-download.md
+        maintainContext: true
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
       - name: Using API version profiles
         href: azure-stack-version-profiles.md
         items:
+        - name: .NET
+          href: azure-stack-version-profiles-net.md
+        - name: Java
+          href: azure-stack-version-profiles-java.md
         - name: PowerShell
           href: azure-stack-version-profiles-powershell.md
-        - name: Azure CLI 2.0
+        - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
-        - name: GO
+        - name: Go
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -142,7 +198,7 @@
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
-      - name: Deploy with the Portal
+      - name: Deploy with the portal
         href: azure-stack-deploy-template-portal.md
       - name: Deploy with PowerShell
         href: azure-stack-deploy-template-powershell.md
@@ -153,7 +209,9 @@
 - name: Reference
   items:
   - name: Azure Stack PowerShell
-    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+  - name: Azure Stack REST API Browser
+    href: /rest/api/
   - name: Azure Stack CLI
     href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related
@@ -173,6 +231,6 @@
   - name: Pricing information
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stack
+    href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

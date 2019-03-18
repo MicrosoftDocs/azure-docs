@@ -27,7 +27,7 @@ The following steps guide you through setting up policies for a lab in Azure Dev
 
 To view (and change) the policies for a lab, follow these steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 

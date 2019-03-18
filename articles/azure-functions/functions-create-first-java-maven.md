@@ -6,49 +6,38 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
 ms.devlang: java
-ms.workload: na
-ms.date: 05/15/2018
+ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
-# Create your first function with Java and Maven (Preview)
+# Create your first function with Java and Maven
 
-> [!NOTE] 
-> Java for Azure Functions is currently in preview.
-
-This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
-
-![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
+This article guides you through using the Maven command line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-To develop functions app with Java, you must have the following installed:
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
--  [Apache Maven](https://maven.apache.org), version 3.0 or above.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+To develop functions using Java, you must have the following installed:
 
-> [!IMPORTANT] 
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
+- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure Functions Core Tools](functions-run-local.md#v2) (requires **.NET Core 2.x SDK**)
+
+> [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
-
-## Install the Azure Functions Core Tools
-
-The Azure Functions Core Tools provide a local development environment for writing, running, and debugging Azure Functions from the terminal or command prompt. 
-
-Install [version 2 of the Core Tools](functions-run-local.md#v2) on your local computer before continuing.
 
 ## Generate a new Functions project
 
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### Linux/MacOS
+### Linux/macOS
 
 ```bash
 mvn archetype:generate \
@@ -56,7 +45,14 @@ mvn archetype:generate \
 	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### Windows (CMD)
+### Windows
+
+```powershell
+mvn archetype:generate `
+    "-DarchetypeGroupId=com.microsoft.azure" `
+    "-DarchetypeArtifactId=azure-functions-archetype"
+```
+
 ```cmd
 mvn archetype:generate ^
 	-DarchetypeGroupId=com.microsoft.azure ^
@@ -167,6 +163,9 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 
 Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
 
+> [!NOTE]
+> Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
+
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
@@ -175,12 +174,37 @@ curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/h
 Hello AzureFunctions!
 ```
 
+## Make changes and redeploy
+
+Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your Function app. Change this line:
+
+```java
+return request.createResponse(200, "Hello, " + name);
+```
+
+To the following:
+
+```java
+return request.createResponse(200, "Hi, " + name);
+```
+
+Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
+
+```bash
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+```
+
+Will have updated output:
+
+```Output
+Hi, AzureFunctionsTest
+```
+
 ## Next steps
 
-You've created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
+You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
-- Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio Code, [attach the debugger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) to port 5005. Then set a breakpoint in the editor and trigger your function while it's running locally:
-    ![Debug functions in Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-- Debug functions remotely with Visual Studio Code. Check the [Writing serverless Java Applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.
+- Write and debug functions locally with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
+- Debug functions deployed in Azure with Visual Studio Code. See the Visual Studio Code [serverless Java applications](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) documentation for instructions.

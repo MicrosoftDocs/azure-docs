@@ -20,6 +20,8 @@ ms.author: apimpm
 # How to delegate user registration and product subscription
 Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="delegate-signin-up"> </a>Delegating developer sign in and sign-up
 To delegate developer sign-in and sign-up to your existing website, you will need to create a special delegation endpoint on your site that acts as the entry-point for any such request initiated from the API Management developer portal.
 
@@ -41,7 +43,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    > 
    > 
    
@@ -98,7 +100,7 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    > 
    > 
    
@@ -114,7 +116,7 @@ Then ensure the delegation endpoint performs the following actions:
    * **sig**: a computed security hash to be used for comparison to your own computed hash
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
    
-   * Compute an HMAC-SHA512 of a string based on the **productId**, **userId, and **salt** query parameters:
+   * Compute an HMAC-SHA512 of a string based on the **productId**, **userId**, and **salt** query parameters:
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
@@ -171,7 +173,7 @@ For more information on delegation, see the following video:
 [Delegating product subscription]: #delegate-product-subscription
 [request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[calling the REST API for product subscription]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[calling the REST API for product subscription]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

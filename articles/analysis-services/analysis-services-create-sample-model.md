@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Add a basic sample model to your Azure Analysis Services server by using th eportal | Microsoft Docs
+title: Tutorial - Add a sample model to an Azure Analysis Services server | Microsoft Docs
 description: In this tutorial lesson, learn how to add a sample model in Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/23/2018
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, from the portal, I want to add a basic sample model database to my server for testing tool and client connections and queries.
 ---
 # Tutorial: Add a sample model from the portal
 
-In this tutorial, you add a sample Adventure Works tabular model database to your server. The sample model is a completed version of the Adventure Works Internet Sales (1200) sample data model. A sample model is useful for testing model management, connecting with tools and client applications, and querying model data. This tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+In this tutorial, you add a sample Adventure Works tabular model database to your server. The sample model is a completed version of the Adventure Works Internet Sales (1200) sample data model. A sample model is useful for testing model management, connecting with tools and client applications, and querying model data. This tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Add a completed sample tabular data model to a server 
@@ -52,7 +52,7 @@ Sign in to the [portal](https://portal.azure.com/).
 
 Your sample model is using cache memory resources. If you are not using your sample model for testing, you should remove it from your server.
 
-These steps describe how to delete a model from a server by using SSMS. You can also delete a model by using the preview Web designer feature.
+These steps describe how to delete a model from a server by using SSMS.
 
 1. In SSMS > **Object Explorer**, click **Connect** > **Analysis Services**.
 

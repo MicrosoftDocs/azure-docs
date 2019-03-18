@@ -1,13 +1,8 @@
 ﻿---
-title: Configure geographic traffic routing method using Azure Traffic Manager | Microsoft Docs
+title: Configure geographic traffic routing method using Azure Traffic Manager
 description: This article explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid:
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -23,7 +18,7 @@ The Geographic traffic routing method allows you to direct traffic to specific e
 
 ## Create a Traffic Manager Profile
 
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/).
+1. From a browser, sign in to the [Azure portal](https://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/).
 2. Click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 4. In the **Create Traffic Manager profile**:
     1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name <profilename>.trafficmanager.net.

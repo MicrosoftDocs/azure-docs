@@ -8,8 +8,8 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 7/17/2018
+ms.author: saurse
 ms.custom: mvc
 ---
 
@@ -20,7 +20,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Select a VM to back up
 Create a simple scheduled daily backup to a Recovery Services Vault. 

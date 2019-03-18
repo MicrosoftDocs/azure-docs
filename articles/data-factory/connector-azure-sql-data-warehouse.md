@@ -10,15 +10,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 02/22/2019
 ms.author: jingwang
 
 ---
-#  Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
+# Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Current version](connector-azure-sql-data-warehouse.md)
 
 This article explains how to use Copy Activity in Azure Data Factory to copy data to or from Azure SQL Data Warehouse. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
@@ -29,7 +29,7 @@ You can copy data from Azure SQL Data Warehouse to any supported sink data store
 
 Specifically, this Azure SQL Data Warehouse connector supports these functions:
 
-- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or Managed Service Identity (MSI).
+- Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, load data by using PolyBase or a bulk insert. We recommend PolyBase for better copy performance.
 
@@ -56,7 +56,7 @@ The following properties are supported for an Azure SQL Data Warehouse linked se
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AzureSqlDW**. | Yes |
-| connectionString | Specify the information needed to connect to the Azure SQL Data Warehouse instance for the **connectionString** property. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | Specify the information needed to connect to the Azure SQL Data Warehouse instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal. |
 | servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
@@ -66,7 +66,10 @@ For different authentication types, refer to the following sections on prerequis
 
 - [SQL authentication](#sql-authentication)
 - Azure AD application token authentication: [Service principal](#service-principal-authentication)
-- Azure AD application token authentication: [Managed Service Identity](#managed-service-identity-authentication)
+- Azure AD application token authentication: [Managed identities for Azure resources](#managed-identity)
+
+>[!TIP]
+>If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
 
 ### SQL authentication
 
@@ -91,31 +94,60 @@ For different authentication types, refer to the following sections on prerequis
 }
 ```
 
+**Password in Azure Key Vault:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ### Service principal authentication
 
 To use service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key
     - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with MSI an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
+1. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
+1. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -145,42 +177,42 @@ To use service principal-based Azure AD application token authentication, follow
 }
 ```
 
-### Managed Service Identity authentication
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
-A data factory can be associated with a [Managed Service Identity](data-factory-service-identity.md) that represents the specific factory. You can use this service identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific factory. You can use this managed identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
 
 > [!IMPORTANT]
-> Note that PolyBase isn't currently supported for MSI authentication.
+> Note that PolyBase isn't currently supported for managed identity authentication.
 
-To use MSI-based Azure AD application token authentication, follow these steps:
+To use managed identity authentication, follow these steps:
 
-1. **Create a group in Azure AD.** Make the factory MSI a member of the group.
+1. **Create a group in Azure AD.** Make the managed identity a member of the group.
 
-    a. Find the data factory service identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
+   1. Find the data factory managed identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
 
-    b. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the data factory MSI as a member.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
-    ```
+   1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the managed identity as a member.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so.
+1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so.
 
-3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
+1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
     
     ```sql
     CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code.
+1. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
+1. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
-#### Linked service example that uses MSI authentication
+**Example:**
 
 ```json
 {
@@ -203,14 +235,14 @@ To use MSI-based Azure AD application token authentication, follow these steps:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Data Warehouse dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Data Warehouse dataset.
 
 To copy data from or to Azure SQL Data Warehouse, set the **type** property of the dataset to **AzureSqlDWTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes |
-| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | Yes |
+| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -250,7 +282,6 @@ To copy data from Azure SQL Data Warehouse, set the **type** property in the Cop
 
 - If the **sqlReaderQuery** is specified for the **SqlSource**, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. Or you can specify a stored procedure. Specify the **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Data Warehouse. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 #### SQL query example
 
@@ -331,9 +362,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -354,7 +385,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | useTypeDefault | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default). | No |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). | No. The default is 10000. |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
-| preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No | (#repeatability-during-copy). | A query statement. | No |
+| preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No |
 
 #### SQL Data Warehouse sink example
 
@@ -376,7 +407,7 @@ Learn more about how to use PolyBase to efficiently load SQL Data Warehouse in t
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
 
-Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [Performance reference](copy-activity-performance.md#performance-reference) for a detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
+Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [Performance reference](copy-activity-performance.md#performance-reference) for a detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
 * If your source data is in Azure Blob storage or Azure Data Lake Store, and the format is compatible with PolyBase, copy direct to Azure SQL Data Warehouse by using PolyBase. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 * If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
@@ -393,34 +424,33 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. The **Source linked service** type is **AzureStorage** or **AzureDataLakeStore** with service principal authentication.
+1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with account key authentication or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with service principal authentication.
 2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
-   1. `rowDelimiter` must be **\n**.
-   2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.
-   3. `encodingName` is set to **utf-8**, which is the default value.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, and `skipLineCount` aren't specified.
-   5. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   1. `fileName` doesn't contain wildcard filter.
+   2. `rowDelimiter` must be **\n**.
+   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
+   4. `encodingName` is set to **utf-8**, which is the default value.
+   5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   6. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
-	```json
-	"typeProperties": {
-	   "folderPath": "<blobpath>",
-	   "format": {
-	       "type": "TextFormat",
-	       "columnDelimiter": "<any delimiter>",
-	       "rowDelimiter": "\n",
-	       "nullValue": "",
-	       "encodingName": "utf-8"
-	   },
-	   "compression": {
-	       "type": "GZip",
-	       "level": "Optimal"
-	   }
-	},
-	```
-
-3. There's no `skipHeaderLineCount` setting under **BlobSource** or **AzureDataLakeStore** for Copy Activity in the pipeline.
-4. There's no `sliceIdentifierColumnName` setting under **SqlDWSink** for Copy Activity in the pipeline. PolyBase guarantees that all data is updated, or nothing is updated in a single run. To achieve **repeatability**, use `sqlWriterCleanupScript`.
+      ```json
+      "typeProperties": {
+        "folderPath": "<blobpath>",
+        "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "<any delimiter>",
+            "rowDelimiter": "\n",
+            "nullValue": "",
+            "encodingName": "utf-8",
+            "firstRowAsHeader": <any>
+        },
+        "compression": {
+            "type": "GZip",
+            "level": "Optimal"
+        }
+      },
+      ```
 
 ```json
 "activities":[
@@ -569,7 +599,7 @@ When you copy data from or to Azure SQL Data Warehouse, the following mappings a
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object * |
+| sql_variant | Object |
 | text | String, Char[] |
 | time | TimeSpan |
 | timestamp | Byte[] |

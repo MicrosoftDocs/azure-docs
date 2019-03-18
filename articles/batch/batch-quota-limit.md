@@ -1,9 +1,9 @@
 ---
-title: Service quotas and limits for Azure Batch | Microsoft Docs
+title: Service quotas and limits - Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Batch service quotas and limits
@@ -41,37 +41,51 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 If you created a Batch account with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied. Learn more about these quotas in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-## Other limits
+## Pool size limits
+
 | **Resource** | **Maximum Limit** |
 | --- | --- |
-| [Concurrent tasks](batch-parallel-node-tasks.md) per compute node |4 x number of node cores |
-| [Applications](batch-application-packages.md) per Batch account |20 |
-| Application packages per application |40 |
-| Maximum task lifetime | 7 days<sup>1</sup> |
-| Compute nodes in inter-node communication enabled pool | 100 |
+| **Compute nodes in [inter-node communication enabled pool](batch-mpi.md)**  ||
+| Batch service pool allocation mode | 100 |
+| Batch subscription pool allocation mode | 80 |
+| **Compute nodes in [pool created with custom VM image](batch-custom-images.md)**<sup>1</sup> ||
+| Dedicated nodes | 2000 |
+| Low-priority nodes | 1000 |
 
-<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
+<sup>1</sup> For pools that are not inter-node communication enabled.
 
+## Other limits
+
+| **Resource** | **Maximum Limit** |
+| --- | --- |
+| [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
+| [Applications](batch-application-packages.md) per Batch account | 20 |
+| Application packages per application | 40 |
+| Maximum task lifetime | 180 days<sup>1</sup> |
+
+<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
 
 ## View Batch quotas
+
 View your Batch account quotas in the [Azure portal][portal].
 
 1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
-2. Select **Quotas** on the Batch account's menu.
-3. View the quotas currently applied to the Batch account
+1. Select **Quotas** on the Batch account's menu.
+1. View the quotas currently applied to the Batch account
    
     ![Batch account quotas][account_quotas]
 
 
 
 ## Increase a quota
+
 Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal]. The type of quota increase depends on the pool allocation mode of your Batch account.
 
 ### Increase a Batch cores quota 
 
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
-2. Select **New support request** > **Basics**.
-3. In **Basics**:
+1. Select **New support request** > **Basics**.
+1. In **Basics**:
    
     a. **Issue Type** > **Quota**
    
@@ -82,14 +96,14 @@ Follow these steps to request a quota increase for your Batch account or your su
     d. **Support plan** > **Quota support - Included**
    
     Click **Next**.
-4. In **Problem**:
+1. In **Problem**:
    
     a. Select a **Severity** according to your [business impact][support_sev].
    
     b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
    
     Click **Next**.
-5. In **Contact information**:
+1. In **Contact information**:
    
     a. Select a **Preferred contact method**.
    
@@ -99,6 +113,16 @@ Follow these steps to request a quota increase for your Batch account or your su
 
 Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
 
+## Related quotas for VM pools
+
+Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
+
+* 1 [network security group](../virtual-network/security-overview.md#network-security-groups)
+* 1 [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 [load balancer](../load-balancer/load-balancer-overview.md)
+
+These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
+
 
 ## Related topics
 * [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
@@ -107,6 +131,6 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png

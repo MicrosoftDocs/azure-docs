@@ -2,12 +2,11 @@
 title: Use Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: Jejiang
 ms.author: jejiang
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 02/09/2018
 ---
@@ -20,13 +19,13 @@ In this article, learn how you can use Azure Data Lake Tools for Visual Studio C
 
 ## Prerequisites
 
-Azure Data Lake Tools for VS Code supports Windows, Linux, and MacOS.  
+Azure Data Lake Tools for VS Code supports Windows, Linux, and macOS. U-SQL local run and local debug works only in Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
 For MacOS and Linux:
 - [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)
-- [Mono 5.2.x](http://www.mono-project.com/download/)
+- [Mono 5.2.x](https://www.mono-project.com/download/)
 
 ## Install Azure Data Lake Tools
 
@@ -217,6 +216,8 @@ U-SQL local run tests your local data and validates your script locally before y
 - Step through the code. 
 - Validate your script locally.
 
+The local run and local debug feature only works in Windows environments, and is not supported on macOS and Linux-based operating systems.
+
 For instructions on local run and local debug, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 
@@ -306,8 +307,8 @@ You can access Azure Data Lake Analytics resources to list accounts, access meta
 You can use Azure Data Lake Store-related commands to:
  - [Browse through the Azure Data Lake Store resources](#list-the-storage-path) 
  - [Preview the Azure Data Lake Store file](#preview-the-storage-file) 
- - [Upload the file directly to Azure Data Lake Store in VS Code](#upload-file-or-folder)
- - [Download the file directly from Azure Data Lake Store in VS Code](#download-file)
+ - Upload the file directly to Azure Data Lake Store in VS Code
+ - Download the file directly from Azure Data Lake Store in VS Code
 
 ### List the storage path 
 

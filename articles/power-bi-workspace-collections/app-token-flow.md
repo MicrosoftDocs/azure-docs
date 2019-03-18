@@ -2,18 +2,11 @@
 title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
 description: Authenticating and authorizing with Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
@@ -28,7 +21,7 @@ Power BI Workspace Collections use **Keys** and **App Tokens** for authenticatio
 
 ## Two ways to authenticate
 
-**Key** -  You can use keys for all Power BI Workspace Collections REST API calls. The keys can be found in the **Microsoft Azure portal** by selecting **All settings** and then **Access keys**. Always treat your key as if it are a password. These keys have permissions to make any REST API call on a particular workspace collection.
+**Key** -  You can use keys for all Power BI Workspace Collections REST API calls. The keys can be found in the **Microsoft Azure portal** by selecting **All settings** and then **Access keys**. Always treat your key as if it is a password. These keys have permissions to make any REST API call on a particular workspace collection.
 
 To use a key on a REST call, add the following authorization header:
 
@@ -40,10 +33,10 @@ App tokens are a JWT (JSON Web Token) that is signed by one of your keys.
 
 Your app token can contain the following claims:
 
-| Claim | Description |
+| Claim | Description |    
 | --- | --- |
 | **ver** |The version of the app token. 0.2.0 is the current version. |
-| **aud** |The intended recipient of the token. For Power BI Workspace Collections use: “https://analysis.windows.net/powerbi/api.” |
+| **aud** |The intended recipient of the token. For Power BI Workspace Collections use: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |A string indicating the application that issued the token. |
 | **type** |The type of app token that is being created. Current the only supported type is **embed**. |
 | **wcn** |Workspace collection name the token is being issued for. |
@@ -86,7 +79,7 @@ Body
 
 ```
 
-There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methods.
+There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) methods.
 
 For the .NET SDK, you can refer to [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -108,7 +101,7 @@ The following are the available scopes for Power BI Workspace Collections.
 
 You can supply multiple scopes by using a space between the scopes like the following.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 
@@ -172,16 +165,16 @@ Body
    
    ![App token flow - service send report to user](media/get-started-sample/token-6.png)
 
-After **Power BI Workspace Collections** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like:
+After **Power BI Workspace Collections** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like:
 
 ![Sample of report embedded in application](media/get-started-sample/sample-web-app.png)
 
 ## See Also
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Get started with Microsoft Power BI Workspace Collections sample](get-started-sample.md)  
 [Common Microsoft Power BI Workspace Collections scenarios](scenarios.md)  
 [Get started with Microsoft Power BI Workspace Collections](get-started.md)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

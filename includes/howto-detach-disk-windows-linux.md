@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+---
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. Detaching a disk removes the disk from the virtual machine, but doesn't delete the disk from the Azure storage account.
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
@@ -15,7 +22,7 @@ If you don't know the name of the disk or want to verify it before you detach it
 
 3. Click **Disks** along the left edge of the virtual machine dashboard, under **Settings**.
 
- The virtual machine dashboard lists the name and type of all attached disks. For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:
+   The virtual machine dashboard lists the name and type of all attached disks. For example, this screen shows a virtual machine with one operating system (OS) disk and one data disk:
 
     ![Find data disk](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -26,14 +33,14 @@ If you don't know the name of the disk or want to verify it before you detach it
 
 3. Click the disk you want to detach.
 
-  ![Identify the disk to detach](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Identify the disk to detach](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. From the command bar, click **Detach**.
 
-  ![Locate the detach command](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Locate the detach command](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. In the confirmation window, click **Yes** to detach the disk.
 
-  ![Confirm detaching the disk](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Confirm detaching the disk](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 The disk remains in storage but is no longer attached to a virtual machine.

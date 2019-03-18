@@ -7,15 +7,15 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 01/14/2019
 ---
 
 # Quickstart: create a Linux server virtual machine by using Azure CLI in Azure Stack
@@ -40,10 +40,10 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure CLI.
 
 ## Create a resource group
 
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az_group_create) command to create a resource group.
+A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group.
 
->[!NOTE]
- Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
+> [!NOTE]
+>  Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
 
 The following example creates a resource group named myResourceGroup in the local location.
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## Create a virtual machine
 
-Create a virtual machine by using the [az vm create](/cli/azure/vm#az_vm_create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the user password. Change these values to something that is appropriate for your environment.
+Create a virtual machine by using the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named myVM. This example uses Demouser for an administrative user name and Demouser@123 as the user password. Change these values to something that is appropriate for your environment.
 
 ```cli
 az vm create \
@@ -70,7 +70,7 @@ The public IP address is returned in the **PublicIpAddress** parameter. Write do
 
 ## Open port 80 for web traffic
 
-Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm) command to open the desired port.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -78,7 +78,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## Use SSH to connect to the virtual machine
 
-From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](http://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
+From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](https://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
 
 ```bash
 ssh <publicIpAddress>
@@ -106,7 +106,7 @@ With NGINX installed, and port 80 open on your virtual machine, you can access t
 
 ## Clean up resources
 
-Clean up the resources that you don't need any longer. You can use the [az group delete](/cli/azure/group#az_group_delete) command to remove these resources. To delete the resource group and all its resources, run the following command:
+Clean up the resources that you don't need any longer. You can use the [az group delete](/cli/azure/group#az-group-delete) command to remove these resources. To delete the resource group and all its resources, run the following command:
 
 ```cli
 az group delete --name myResourceGroup

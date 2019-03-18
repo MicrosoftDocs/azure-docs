@@ -33,10 +33,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Add a new revision
+
+![Add API revision](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
 
 1. Select **APIs** page.
 2. Select **Demo Conference API** from the API list (or other API to which you want to add revisions).
@@ -45,8 +48,6 @@ In this tutorial, you learn how to:
 
     > [!TIP]
     > You can also choose **Add Revision** in the context menu (**...**) of the API.
-    
-    ![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. Provide a description for your new revision, to help remember what it will be used for.
 6. Select **Create**
@@ -57,9 +58,11 @@ In this tutorial, you learn how to:
 
 ## Make non-breaking changes to your revision
 
+![Modify revision](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
+
 1. Select **Demo Conference API** from the API list.
 2. Select the **Design** tab near the top of the screen.
-3. Notice that the **revision selector** (directly above the design tab) shows your current revision as **Revision 2**.
+3. Notice that the **revision selector** (directly above the design tab) shows **Revision 2** as currently selected.
 
     > [!TIP]
     > Use the revision selector to switch between revisions that you wish to work on.
@@ -75,6 +78,7 @@ In this tutorial, you learn how to:
 1. Select the **Revisions** tab from the menu near the top of the page.
 
     ![The revision menu on the revision screen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. Open the context menu (**...**) for **Revision 2**.
 3. Select **Make Current**.
 4. Check **Post to Public Change log for this API**, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**

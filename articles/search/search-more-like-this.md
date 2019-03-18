@@ -1,14 +1,15 @@
 ---
-title: moreLikeThis in Azure Search (preview) | Microsoft Docs
+title: moreLikeThis in Azure Search (preview) - Azure Search
 description: Preliminary documentation for the moreLikeThis (preview) feature, exposed in the Azure Search REST API.
-authors: mhko
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 10/27/2016
-ms.author: nateko
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
 # moreLikeThis in Azure Search (preview)
 
@@ -18,17 +19,17 @@ ms.author: nateko
 
 Below is an example of a moreLikeThis query. The query finds documents whose description fields are most similar to the field of the source document as specified by the `moreLikeThis` parameter.
 
-```  
+```
 Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
-```  
+```
 
-```  
+```
 POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
-    {  
-      "moreLikeThis": "1002",  
-      "searchFields": "description"  
-    }  
-```  
+    {
+      "moreLikeThis": "1002",
+      "searchFields": "description"
+    }
+```
 
 ## Feature availability
 

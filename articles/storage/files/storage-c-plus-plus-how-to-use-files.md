@@ -2,19 +2,12 @@
 title: Develop for Azure Files with C++ | Microsoft Docs
 description: Learn how to develop C++ applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
+ms.subservice: files
 ---
 
 # Develop for Azure Files with C++
@@ -41,7 +34,7 @@ To build the samples, you will need to install the Azure Storage Client Library 
 To install the Azure Storage Client 2.4.0 for C++, you can use one of the following methods:
 
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
+* **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
   
 ```
 Install-Package wastorage
@@ -60,7 +53,7 @@ To use File storage, you need to connect to your Azure storage account. The firs
 
 ```cpp
 // Define the connection-string with your values.
-const utility::string_t 
+const utility::string_t
 storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
@@ -68,17 +61,17 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
 
 ```cpp
-// Retrieve storage account from connection string.    
-azure::storage::cloud_storage_account storage_account = 
+// Retrieve storage account from connection string.
+azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
 ## Create an Azure file share
-All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure Files client.
+All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use an Azure Files client.
 
 ```cpp
 // Create the Azure Files client.
-azure::storage::cloud_file_client file_client = 
+azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 ```
 
@@ -86,15 +79,15 @@ Using the Azure Files client, you can then obtain a reference to a share.
 
 ```cpp
 // Get a reference to the file share
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 ```
 
 To create the share, use the **create_if_not_exists** method of the **cloud_file_share** object.
 
 ```cpp
-if (share.create_if_not_exists()) {    
-    std::wcout << U("New share created") << std::endl;    
+if (share.create_if_not_exists()) {
+    std::wcout << U("New share created") << std::endl;
 }
 ```
 
@@ -105,7 +98,7 @@ Deleting a share is done by calling the **delete_if_exists** method on a cloud_f
 
 ```cpp
 // Get a reference to the share.
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
 // delete the share if exists
@@ -123,7 +116,7 @@ azure::storage::cloud_file_directory directory = share.get_directory_reference(_
 directory.create_if_not_exists();
 
 // Create a subdirectory.
-azure::storage::cloud_file_directory subdirectory = 
+azure::storage::cloud_file_directory subdirectory =
   directory.get_subdirectory_reference(_XPLATSTR("my-sample-subdirectory"));
 subdirectory.create_if_not_exists();
 ```
@@ -133,11 +126,11 @@ Deleting a directory is a simple task, although it should be noted that you cann
 
 ```cpp
 // Get a reference to the share.
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
 // Get a reference to the directory.
-azure::storage::cloud_file_directory directory = 
+azure::storage::cloud_file_directory directory =
   share.get_directory_reference(_XPLATSTR("my-sample-directory"));
 
 // Get a reference to the subdirectory you want to delete.
@@ -157,11 +150,11 @@ The following code demonstrates how to retrieve and output the URI of each item 
 
 ```cpp
 //Get a reference to the root directory for the share.
-azure::storage::cloud_file_directory root_dir = 
+azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
 // Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
+azure::storage::list_file_and_directory_result_iterator end_of_results;
 
 for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
 {
@@ -172,7 +165,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
     else if (it->is_file())
     {
         ucout << "File: " << it->as_file().uri().primary_uri().to_string() << std::endl;
-    }        
+    }
 }
 ```
 
@@ -190,22 +183,22 @@ Now that you have a reference to the root directory of the share, you can upload
 
 ```cpp
 // Upload a file from a stream.
-concurrency::streams::istream input_stream = 
+concurrency::streams::istream input_stream =
   concurrency::streams::file_stream<uint8_t>::open_istream(_XPLATSTR("DataFile.txt")).get();
 
-azure::storage::cloud_file file1 = 
+azure::storage::cloud_file file1 =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 file1.upload_from_stream(input_stream);
 
 // Upload some files from text.
-azure::storage::cloud_file file2 = 
+azure::storage::cloud_file file2 =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
 file2.upload_text(_XPLATSTR("more text"));
 
 // Upload a file from a file.
-azure::storage::cloud_file file4 = 
+azure::storage::cloud_file file4 =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
-file4.upload_from_file(_XPLATSTR("DataFile.txt"));    
+file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## Download a file
@@ -215,13 +208,13 @@ The following example uses the **download_to_stream** and **download_text** meth
 
 ```cpp
 // Download as text
-azure::storage::cloud_file text_file = 
+azure::storage::cloud_file text_file =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-2"));
 utility::string_t text = text_file.download_text();
 ucout << "File Text: " << text << std::endl;
 
 // Download as a stream.
-azure::storage::cloud_file stream_file = 
+azure::storage::cloud_file stream_file =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
 
 concurrency::streams::container_buffer<std::vector<uint8_t>> buffer;
@@ -237,14 +230,14 @@ outfile.close();
 Another common Azure Files operation is file deletion. The following code deletes a file named my-sample-file-3 stored under the root directory.
 
 ```cpp
-// Get a reference to the root directory for the share.    
-azure::storage::cloud_file_share share = 
+// Get a reference to the root directory for the share.
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
-azure::storage::cloud_file_directory root_dir = 
+azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
-azure::storage::cloud_file file = 
+azure::storage::cloud_file file =
   root_dir.get_file_reference(_XPLATSTR("my-sample-file-3"));
 
 file.delete_file_if_exists();
@@ -259,15 +252,15 @@ The example below shows how to check the current usage for a share and how to se
 
 ```cpp
 // Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account = 
+azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the file client.
-azure::storage::cloud_file_client file_client = 
+azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 
 // Get a reference to the share.
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 if (share.exists())
 {
@@ -288,14 +281,14 @@ The following example creates a shared access policy on a share, and then uses t
 
 ```cpp
 // Parse the connection string for the storage account.
-azure::storage::cloud_storage_account storage_account = 
+azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the file client and get a reference to the share
-azure::storage::cloud_file_client file_client = 
+azure::storage::cloud_file_client file_client =
   storage_account.create_cloud_file_client();
 
-azure::storage::cloud_file_share share = 
+azure::storage::cloud_file_share share =
   file_client.get_share_reference(_XPLATSTR("my-sample-share"));
 
 if (share.exists())
@@ -303,18 +296,18 @@ if (share.exists())
     // Create and assign a policy
     utility::string_t policy_name = _XPLATSTR("sampleSharePolicy");
 
-    azure::storage::file_shared_access_policy sharedPolicy = 
+    azure::storage::file_shared_access_policy sharedPolicy =
       azure::storage::file_shared_access_policy();
 
     //set permissions to expire in 90 minutes
-    sharedPolicy.set_expiry(utility::datetime::utc_now() + 
+    sharedPolicy.set_expiry(utility::datetime::utc_now() +
        utility::datetime::from_minutes(90));
 
     //give read and write permissions
     sharedPolicy.set_permissions(azure::storage::file_shared_access_policy::permissions::write | azure::storage::file_shared_access_policy::permissions::read);
 
     //set permissions for the share
-    azure::storage::file_share_permissions permissions;    
+    azure::storage::file_share_permissions permissions;
 
     //retrieve the current list of shared access policies
     azure::storage::shared_access_policies<azure::storage::file_shared_access_policy> policies;
@@ -327,23 +320,23 @@ if (share.exists())
     share.upload_permissions(permissions);
 
     //Retrieve the root directory and file references
-    azure::storage::cloud_file_directory root_dir = 
+    azure::storage::cloud_file_directory root_dir =
         share.get_root_directory_reference();
-    azure::storage::cloud_file file = 
+    azure::storage::cloud_file file =
       root_dir.get_file_reference(_XPLATSTR("my-sample-file-1"));
 
-    // Generate a SAS for a file in the share 
-    //  and associate this access policy with it.        
+    // Generate a SAS for a file in the share
+    //  and associate this access policy with it.
     utility::string_t sas_token = file.get_shared_access_signature(sharedPolicy);
 
-    // Create a new CloudFile object from the SAS, and write some text to the file.        
+    // Create a new CloudFile object from the SAS, and write some text to the file.
     azure::storage::cloud_file file_with_sas(azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()));
-    utility::string_t text = _XPLATSTR("My sample content");        
-    file_with_sas.upload_text(text);        
+    utility::string_t text = _XPLATSTR("My sample content");
+    file_with_sas.upload_text(text);
 
     //Download and print URL with SAS.
-    utility::string_t downloaded_text = file_with_sas.download_text();        
-    ucout << downloaded_text << std::endl;        
+    utility::string_t downloaded_text = file_with_sas.download_text();
+    ucout << downloaded_text << std::endl;
     ucout << azure::storage::storage_credentials(sas_token).transform_uri(file.uri().primary_uri()).to_string() << std::endl;
 
 }
@@ -352,6 +345,6 @@ if (share.exists())
 To learn more about Azure Storage, explore these resources:
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage File Service Samples in C++](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

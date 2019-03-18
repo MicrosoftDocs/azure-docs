@@ -1,24 +1,23 @@
 ---
-title: Translator Text convert text script with PHP | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with PHP in Cognitive Services.
+title: "Quickstart: Convert text script, PHP - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with PHP.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.author: nolachar
+ms.date: 02/08/2019
+ms.author: erhopf
 ---
-# Quickstart: Transliterate text with PHP
+# Quickstart: Transliterate text with the Translator Text REST API (PHP)
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 
 ## Prerequisites
 
-You'll need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+You'll need [PHP 5.6.x](https://php.net/downloads.php) to run this code.
 
 To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
 
@@ -73,7 +72,7 @@ function Transliterate ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -97,7 +96,7 @@ $result = Transliterate ($host, $path, $key, $params, $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>

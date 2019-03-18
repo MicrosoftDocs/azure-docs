@@ -20,13 +20,13 @@ ms.author: yujhongmicrosoft
 # Integrate Azure AD Authentication with Web Apps on Azure Government
 The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure Active Directory (Azure AD) Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
 
-Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/active-directory-authentication-scenarios.md). 
+Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/authentication-scenarios.md). 
 
 ## Integrate Azure AD login into a web application using OpenID Connect
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 
 
 ### Prerequisites 
-- An Azure AD tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/active-directory-howto-tenant.md) 
+- An Azure AD tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md) 
 - A user account in your Azure AD tenant. This sample does not work with a Microsoft account, so if you signed in to the Azure Government portal with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 - Have an [ASP.NET Core application deployed and running in Azure Government](documentation-government-howto-deploy-webandmobile.md)
 
@@ -51,7 +51,7 @@ This section shows how to integrate Azure AD using the OpenID Connect protocol f
 ### Step 2:  Configure your app to use your Azure AD tenant
 #### Azure Government Variations
 The only variation when setting up Azure AD Authorization on the Azure Government cloud is in the Azure AD Instance:
- - "https://login.microsoftonline.us"
+- "https://login.microsoftonline.us"
 
 #### Configure the InventoryApp project
 1. Open your application in Visual Studio 2017.
@@ -102,7 +102,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 
 	```cs
 	app.UseAuthentication();
-	```
+    ```
 9. Navigate to your **Home** controller or whichever controller file is your home page, **where you want your users to log in**. Add the `[Authorize]` tag before the class definition.
 
 ## Next steps

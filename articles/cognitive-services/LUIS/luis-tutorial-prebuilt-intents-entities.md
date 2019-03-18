@@ -1,170 +1,174 @@
 ---
-title: Add prebuilt intents and entities to extract common data in Language Understanding - Azure | Microsoft Docs 
-description: Learn how to use prebuilt intents and entities to extract different types of entity data. 
+title: Prebuilt intents and entities
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, add prebuilt intents and entities to an app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
-
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-geberr
---- 
+ms.subservice: language-understanding
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: diberry
+---
 
-# Use prebuilt intents and entities to handle common intents and data
-Add prebuilt intents and entities to the Human Resources quickstart app to quickly gain intent prediction and data extraction. 
+# Tutorial: Identify common intents and entities
 
-In this tutorial, you learn how to:
+In this tutorial, add prebuilt intents and entities to a Human Resources tutorial app to quickly gain intent prediction and data extraction. You do not need to mark any utterances with prebuilt entities because the entity is detected automatically.
+
+Prebuilt models (domains, intents, and entities) help you build your model quickly.
+
+**In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
-* Add prebuilt intents 
-* Add prebuilt entities datetimeV2 and number
-* Train and publish
-* Query LUIS and receive prediction response
+> * Create new app
+> * Add prebuilt intents 
+> * Add prebuilt entities 
+> * Train 
+> * Publish 
+> * Get intents and entities from endpoint
 
-## Before you begin
-If you do not have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original version. 
+## Create a new app
 
-## Add prebuilt intents
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+
+## Add prebuilt intents to help with common user intentions
+
 LUIS provides several prebuilt intents to help with common user intentions.  
 
-1. Make sure your app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+1. Select **Add prebuilt domain intent**. 
 
-2. Select **Add prebuilt domain intent**. 
+1. Search for `Utilities`. 
 
-    [ ![Screenshot of Intents page with Add prebuilt domain intent button highlighted](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+    [![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-3. Search for `Utilities`. 
+1. Select the following intents and select **Done**: 
 
-    [ ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-4. Select the following intents and select **Done**: 
+     These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.Stop
-    * Utilities.StartOver
 
-## Add prebuilt entities
+## Add prebuilt entities to help with common data type extraction
+
 LUIS provides several prebuilt entities for common data extraction. 
 
 1. Select **Entities** from the left navigation menu.
 
-    [ ![Screenshot of Intents list with Entities highlighted in left navigation](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
+1. Select **Add prebuilt entity** button.
 
-2. Select **Manage prebuilt entities** button.
+1. Select the following entities from the list of prebuilt entities then select **Done**:
 
-    [ ![Screenshot of Entities list with Manage prebuilt entities highlighted](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-3. Select **number** and **datetimeV2** from the list of prebuilt entities then select **Done**.
+     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     These entities will help you add name and place recognition to your client application.
 
-## Train and publish the app
-1. In the top right side of the LUIS website, select the **Train** button. 
+## Add example utterances to the None intent 
 
-    ![Train button](./media/luis-quickstart-intents-only/train-button.png)
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-    Training is complete when you see the green status bar at the top of the website confirming success.
+## Train the app so the changes to the intent can be tested 
 
-    ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
+## Publish the app so the trained model is queryable from the endpoint
 
-    You do not have to create a LUIS key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## Query endpoint with an utterance
-On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
+## Get intent and entity prediction from endpoint
 
-The result predicted the Utilities.Cancel intent and extracted the date of March 3 and the number 3. 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-    ```
+1. Go to the end of the URL in the browser address bar and enter `I want to cancel my trip to Seattle to see Bob Smith`. The last query string parameter is `q`, the utterance **query**. 
+
+    ```json
     {
-      "query": "I want to cancel on March 3",
+      "query": "I want to cancel my trip to Seattle to see Bob Smith",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.7818295
+        "score": 0.807676256
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.7818295
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0237864349
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.017576348
+          "score": 0.807676256
         },
         {
           "intent": "Utilities.StartOver",
-          "score": 0.0130122062
+          "score": 0.0487322025
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.006731322
+          "score": 0.0208660364
         },
         {
           "intent": "None",
-          "score": 0.00524190161
+          "score": 0.008789532
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.004912514
+          "score": 0.006929268
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00092950504
+          "score": 0.00136293867
         }
       ],
       "entities": [
         {
-          "entity": "march 3",
-          "type": "builtin.datetimeV2.date",
-          "startIndex": 20,
-          "endIndex": 26,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2018-03-03"
-              },
-              {
-                "timex": "XXXX-03-03",
-                "type": "date",
-                "value": "2019-03-03"
-              }
-            ]
-          }
+          "entity": "seattle",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 28,
+          "endIndex": 34
         },
         {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 26,
-          "endIndex": 26,
-          "resolution": {
-            "value": "3"
-          }
+          "entity": "bob smith",
+          "type": "builtin.personName",
+          "startIndex": 43,
+          "endIndex": 51
         }
       ]
     }
     ```
 
-By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
+    The result predicted the Utilities.Cancel intent with 80% confidence and extracted the city and person name data. 
+
+
+## Clean up resources
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Related information
+
+Learn more about prebuilt models:
+
+* [Prebuilt domains](luis-reference-prebuilt-domains.md): these are common domains that reduce overall LUIS app authoring
+* Prebuilt intents: these are the individual intents of the common domains. You can add intents individually instead of adding the entire domain.
+* [Prebuilt entities](luis-prebuilt-entities.md): these are common data types useful to most LUIS apps.
+
+Learn more about working with your LUIS app:
+
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
 
 ## Next steps
 
-[Learn more about entities](luis-concept-entity-types.md). 
+By adding prebuilt intents and entities, the client application can determine common user intentions and extract common datatypes.  
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [!div class="nextstepaction"]
+> [Add a regular expression entity to the app](luis-quickstart-intents-regex-entity.md)
+

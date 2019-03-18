@@ -2,29 +2,25 @@
 title: Update device firmware through Azure IoT Hub | Microsoft Docs
 description: Implement a device firmware update process using jobs and device twins.
 services: iot-hub
-author: dominicbetts
-manager: timlt
-
-
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: dobett
+ms.date: 02/22/2019
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
 ---
 
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # Tutorial: Implement a device firmware update process
 
 You may need to update the firmware on the devices connected to your IoT hub. For example, you might want to add new features to the firmware or apply security patches. In many IoT scenarios, it's impractical to physically visit and then manually apply firmware updates to your devices. This tutorial shows how you can start and monitor the firmware update process remotely through a back-end application connected to your hub.
 
-To create and monitor the firmware update process, the back-end application in this tutorial creates a _configuration_ in your IoT hub. IoT Hub automatic device management uses this configuration to update a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the chiller devices are running the firmware update process, they report their status to the back-end application using _device twin reported properties_. The back-end application can use the configuration to monitor the reported properties sent from the device and track the firmware update process to completion:
+To create and monitor the firmware update process, the back-end application in this tutorial creates a _configuration_ in your IoT hub. IoT Hub [automatic device management](iot-hub-auto-device-config.md) uses this configuration to update a set of _device twin desired properties_ on all your chiller devices. The desired properties specify the details of the firmware update that's required. While the chiller devices are running the firmware update process, they report their status to the back-end application using _device twin reported properties_. The back-end application can use the configuration to monitor the reported properties sent from the device and track the firmware update process to completion:
 
 ![Firmware update process](media/tutorial-firmware-update/Process.png)
 
@@ -71,10 +67,10 @@ az extension add --name azure-cli-iot-ext
 az group create --name tutorial-iot-hub-rg --location $location
 
 # Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -95,12 +91,13 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ```
 
-If you run these commands at a Windows command prompt or Powershell prompt, see the [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
+> [!TIP]
+> If you run these commands at a Windows command prompt or Powershell prompt, see the [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
 ) page for information about how to quote JSON strings.
 
 ## Start the firmware update
 
-You create an automatic device management configuration in the back-end application to begin the firmware update process on all devices tagged with a **devicetype** of chiller. In this section, you see how to:
+You create an [automatic device management configuration](iot-hub-auto-device-config.md#create-a-configuration) in the back-end application to begin the firmware update process on all devices tagged with a **devicetype** of chiller. In this section, you see how to:
 
 * Create a configuration from a back-end application.
 * Monitor the job to completion.
@@ -206,7 +203,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## Next steps
 
-In this tutorial, you learned how to implement a firmware update process for your connected devices. Advance to the next tutorial to learn how use Azure IoT Hub portal tools and Azure CLI commands to test device connectivity.
+In this tutorial, you learned how to implement a firmware update process for your connected devices. Advance to the next tutorial to learn how to use Azure IoT Hub portal tools and Azure CLI commands to test device connectivity.
 
 > [!div class="nextstepaction"]
-[Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)
+> [Use a simulated device to test connectivity with your IoT hub](tutorial-connectivity.md)

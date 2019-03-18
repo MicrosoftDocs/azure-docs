@@ -3,10 +3,10 @@ title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
@@ -60,6 +60,8 @@ One best practice is to update statistics on date columns each day as new dates 
 
 The following are recommendations updating statistics:
 
+|||
+|-|-|
 | **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent) <br></br> With more than 1 billion rows, statistics on a 2-percent range is good |
 
@@ -409,7 +411,7 @@ SELECT
         sm.[name]                           AS [schema_name]
 ,       tb.[name]                           AS [table_name]
 ,       st.[name]                           AS [stats_name]
-,       st.[filter_definition]              AS [stats_filter_defiinition]
+,       st.[filter_definition]              AS [stats_filter_definition]
 ,       st.[has_filter]                     AS [stats_is_filtered]
 ,       STATS_DATE(st.[object_id],st.[stats_id])
                                             AS [stats_last_updated_date]

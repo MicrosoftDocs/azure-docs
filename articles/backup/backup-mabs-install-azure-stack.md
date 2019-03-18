@@ -3,18 +3,14 @@
 title: Install Azure Backup Server on Azure Stack | Microsoft Docs
 description: Use Azure Backup Server to protect or back up workloads in Azure Stack.
 services: backup
-documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: azure backup server; protect workloads; back up workloads
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 6/5/2018
-ms.author: markgal
+ms.topic: conceptual
+ms.date: 01/31/2019
+ms.author: raynew
 
 ---
 # Install Azure Backup Server on Azure Stack
@@ -33,7 +29,7 @@ Azure Backup Server protects the following Azure Stack virtual machine workloads
 | Windows Server Semi Annual Channel - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2016 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2012 R2 - Datacenter/Enterprise/Standard | Volumes, files, folders |
-| Windows Server 2012 - Datacenter/Entprise/Standard | Volumes, files, folders |
+| Windows Server 2012 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | Windows Server 2008 R2 - Datacenter/Enterprise/Standard | Volumes, files, folders |
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
@@ -306,7 +302,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
 ## Add backup storage
 
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > You need to add backup storage even if you plan to send data to Azure. In the Azure Backup Server architecture, the Recovery Services vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
@@ -334,7 +330,7 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 If a firewall or a proxy is preventing access to Azure, whitelist the following domain addresses in the firewall/proxy profile:
 
-- www.msftncsi.com
+- `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
 - \*.microsoftonline.com
@@ -356,10 +352,10 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-The article, [Preparing your environment for DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contains information about supported  Azure Backup Server configurations.
+The article, [Preparing your environment for DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contains information about supported  Azure Backup Server configurations.
 
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
-- [SQL Server backup](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [SharePoint server backup](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server backup](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server backup](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)

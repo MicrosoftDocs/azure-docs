@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure MPIO on StorSimple Linux host| Microsoft Docs
 description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
 services: storsimple
@@ -102,21 +102,21 @@ This section details the configuration prerequisites for CentOS server and your 
           TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
-2. Install *iSCSI-initiator-utils* on your CentOS server. Perform the following steps to install *iSCSI-initiator-utils*.
+1. Install *iSCSI-initiator-utils* on your CentOS server. Perform the following steps to install *iSCSI-initiator-utils*.
    
    1. Log on as `root` into your CentOS host.
-   2. Install the *iSCSI-initiator-utils*. Type:
+   1. Install the *iSCSI-initiator-utils*. Type:
       
        `yum install iscsi-initiator-utils`
-   3. After the *iSCSI-Initiator-utils* is successfully installed, start the iSCSI service. Type:
+   1. After the *iSCSI-Initiator-utils* is successfully installed, start the iSCSI service. Type:
       
        `service iscsid start`
       
        On occasions, `iscsid` may not actually start and the `--force` option may be needed
-   4. To ensure that your iSCSI initiator is enabled during boot time, use the `chkconfig` command to enable the service.
+   1. To ensure that your iSCSI initiator is enabled during boot time, use the `chkconfig` command to enable the service.
       
        `chkconfig iscsi on`
-   5. To verify that it was properly setup, run the command:
+   1. To verify that it was properly setup, run the command:
       
        `chkconfig --list | grep iscsi`
       
@@ -126,7 +126,7 @@ This section details the configuration prerequisites for CentOS server and your 
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        From the above example, you can see that your iSCSI environment will run on boot time on run levels 2, 3, 4, and 5.
-3. Install *device-mapper-multipath*. Type:
+1. Install *device-mapper-multipath*. Type:
    
     `yum install device-mapper-multipath`
    
@@ -138,7 +138,7 @@ Your StorSimple device should have:
 * A minimum of two interfaces enabled for iSCSI. To verify that two interfaces are iSCSI-enabled on your StorSimple device, perform the following steps in the Azure classic portal for your StorSimple device:
   
   1. Log into the classic portal for your StorSimple device.
-  2. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI.
+  1. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI.
      
       ![MPIO StorsSimple DATA 2 config](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
@@ -147,8 +147,8 @@ Your StorSimple device should have:
       In the **Configure** page
      
      1. Ensure that both network interfaces are iSCSI-enabled. The **iSCSI enabled** field should be set to **Yes**.
-     2. Ensure that the network interfaces have the same speed, both should be 1 GbE or 10 GbE.
-     3. Note the IPv4 addresses of the iSCSI-enabled interfaces and save for later use on the host.
+     1. Ensure that the network interfaces have the same speed, both should be 1 GbE or 10 GbE.
+     1. Note the IPv4 addresses of the iSCSI-enabled interfaces and save for later use on the host.
 * The iSCSI interfaces on your StorSimple device should be reachable from the CentOS server.
       To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
   
@@ -187,14 +187,14 @@ The multipath-supported devices can be automatically discovered and configured.
      `mpathconf --enable`
    
     The above command will create a `sample/etc/multipath.conf` file.
-2. Start multipath service. Type:
+1. Start multipath service. Type:
    
     `service multipathd start`
    
     You will see the following output:
    
     `Starting multipathd daemon:`
-3. Enable automatic discovery of multipaths. Type:
+1. Enable automatic discovery of multipaths. Type:
    
     `mpathconf --find_multipaths y`
    
@@ -212,7 +212,7 @@ By default, all devices are black listed in the multipath.conf file and will be 
 1. Edit the `/etc/mulitpath.conf` file. Type:
    
     `vi /etc/multipath.conf`
-2. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blacklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
+1. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blacklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
    
         blacklist_exceptions {
             device {
@@ -231,7 +231,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
 1. Edit the `/etc/multipath.conf` file. Type:
    
     `vi /etc/multipath.conf`
-2. Under the `defaults` section, set the `path_grouping_policy` to `multibus`. The `path_grouping_policy` specifies the default path grouping policy to apply to unspecified multipaths. The defaults section will look as shown below.
+1. Under the `defaults` section, set the `path_grouping_policy` to `multibus`. The `path_grouping_policy` specifies the default path grouping policy to apply to unspecified multipaths. The defaults section will look as shown below.
    
         defaults {
                 user_friendly_names yes
@@ -250,7 +250,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
 1. Restart the `multipathd` daemon. Type:
    
     `service multipathd restart`
-2. The output will be as shown below:
+1. The output will be as shown below:
    
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
@@ -294,9 +294,9 @@ This load-balancing algorithm uses all the available multipaths to the active co
 
     If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via the Azure portal on your StorSimple device.
+1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via the Azure portal on your StorSimple device.
 
-3. Verify the available paths. Type:
+1. Verify the available paths. Type:
 
       ```
       multipath –l
@@ -441,5 +441,5 @@ For more information, go to [use troubleshooting interactive command for multipa
 As you are configuring MPIO on Linux host, you may also need to refer to the following CentoS 6.6 documents:
 
 * [Setting up MPIO on CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Linux Training Guide](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
 

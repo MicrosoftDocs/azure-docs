@@ -5,8 +5,8 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
@@ -168,7 +168,7 @@ First, create an R custom module and zip it and then upload the zipped R custom 
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
 
     DECLARE @IrisData string =  @"/usqlext/samples/R/iris.csv";
-    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomePackages.txt";
+    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomPackages.txt";
 
     // R script to run
     DECLARE @myRScript = @"

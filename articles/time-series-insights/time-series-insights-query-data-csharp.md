@@ -1,16 +1,17 @@
 ---
-title: Query data from an Azure Time Series Insights environment using C# code | Microsoft Docs
+title: 'Query data from an Azure Time Series Insights environment using C# code | Microsoft Docs'
 description: This article describes how to query data from an Azure Time Series Insights environment by coding a custom app written in the  C# (C-sharp) .NET language.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: ankryach
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
+ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights environment using C#
@@ -106,7 +107,7 @@ namespace TimeSeriesInsightsQuerySample
                 toAvailabilityTimestamp);
             Console.WriteLine();
 
-            // Assume data for the whole availablility range is requested.
+            // Assume data for the whole availability range is requested.
             DateTime from = fromAvailabilityTimestamp;
             DateTime to = toAvailabilityTimestamp;
 
@@ -451,4 +452,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [Query API reference](/rest/api/time-series-insights/ga-query-api).

@@ -3,12 +3,11 @@ title: Introduction to Azure Storage - Cloud storage on Azure | Microsoft Docs
 description: Azure Storage is Microsoft's cloud storage solution. Azure Storage provides storage for data objects that is highly available, secure, durable, massively scalable, and redundant.
 services: storage
 author: tamram
-manager: jeconnoc
-
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.topic: conceptual
+ms.date: 01/02/2019
 ms.author: tamram
+ms.subservice: common
 ---
 
 # Introduction to Azure Storage
@@ -18,8 +17,8 @@ Azure Storage is Microsoft's cloud storage solution for modern data storage scen
 - **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across datacenters or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage. 
 - **Secure.** All data written to Azure Storage is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications. 
-- **Managed.** Microsoft Azure handles maintenance and any critical problems for you.
-- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides SDKs for Azure Storage in a variety of languages -- .NET, Java, Node.js, Python, PHP, Ruby, Go, and others -- as well as a mature REST API. Azure Storage supports scription in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.  
+- **Managed.** Microsoft Azure handles hardware maintenance, updates, and critical issues for you.
+- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides SDKs for Azure Storage in a variety of languages -- .NET, Java, Node.js, Python, PHP, Ruby, Go, and others -- as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.  
 
 ## Azure Storage services
 
@@ -44,9 +43,9 @@ Blob storage is ideal for:
 * Storing data for backup and restore, disaster recovery, and archiving.
 * Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/), and [Ruby](http://azure.github.io/azure-storage-ruby).
+Objects in Blob storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/), and [Ruby](https://azure.github.io/azure-storage-ruby).
 
-For more information about Blob storage, see [Introduction to object storage on Azure](../blobs/storage-blobs-introduction.md).
+For more information about Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
 ## Azure Files
 [Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries.
@@ -81,34 +80,13 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## Types of storage accounts
 
-This table shows the various kinds of storage accounts and which objects can be used with each.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Type of storage account**|**General-purpose Standard**|**General-purpose Premium**|**Blob storage, hot and cool access tiers**|
-|-----|-----|-----|-----|
-|**Services supported**| Blob, File, Queue Services | Blob Service | Blob Service|
-|**Types of blobs supported**|Block blobs, page blobs, and append blobs | Page blobs | Block blobs and append blobs|
-
-### General-purpose storage accounts
-
-There are two kinds of general-purpose storage accounts.
-
-#### Standard storage
-
-The most widely used storage accounts are standard storage accounts, which can be used for all types of data. Standard storage accounts use magnetic media to store data.
-
-#### Premium storage
-
-Premium storage provides high-performance storage for page blobs, which are primarily used for VHD files. Premium storage accounts use SSD to store data. Microsoft recommends using Premium Storage for all of your VMs.
-
-### Blob Storage accounts
-
-The Blob Storage account is a specialized storage account used to store block blobs and append blobs. You can't store page blobs in these accounts, therefore you can't store VHD files. These accounts allow you to set an access tier to Hot or Cool; the tier can be changed at any time.
-
-The hot access tier is used for files that are accessed frequently -- you pay a higher cost for storage, but the cost of accessing the blobs is much lower. For blobs stored in the cool access tier, you pay a higher cost for accessing the blobs, but the cost of storage is much lower.
+For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). 
 
 ## Accessing your blobs, files, and queues
 
@@ -136,6 +114,7 @@ There are two basic kinds of encryption available for the Storage services. For 
 
 Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
 
+
 SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
 
 For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
@@ -146,24 +125,17 @@ The storage client libraries have methods you can call to programmatically encry
 
 For more information about client-side encryption, see [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md).
 
-## Replication
+## Redundancy
 
-In order to ensure that your data is durable, Azure Storage replicates multiple copies of your data. When you set up your storage account, you select a replication type. In most cases, this setting can be modified after the storage account has been created. 
+In order to ensure that your data is durable, Azure Storage replicates multiple copies of your data. When you set up your storage account, you select a redundancy option. 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-For disaster recovery information, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
+For more information about disaster recovery, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## Transferring data to and from Azure Storage
 
-You can use the AzCopy command-line utility to copy blob, and file data within your storage account or across storage accounts. See one of the following articles for help:
-
-* [Transfer data with AzCopy for Windows](storage-use-azcopy.md)
-* [Transfer data with AzCopy for Linux](storage-use-azcopy-linux.md)
-
-AzCopy is built on top of the [Azure Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), which is currently available in preview.
-
-The Azure Import/Export service can be used to import or export large amounts of blob data to or from your storage account. You prepare and mail multiple hard drives to an Azure data center, where they will transfer the data to/from the hard drives and send the hard drives back to you. For more information about the Import/Export service, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).
+You have several options for moving data into or out of Azure Storage. Which option you choose depends on the size of your dataset and your network bandwidth. For more information, see [Choose an Azure solution for data transfer](storage-choose-data-transfer-solution.md).
 
 ## Pricing
 
@@ -192,9 +164,9 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Data Movement Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
 
 ### Tools and utilities
-* [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/azure.storage)
+* [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/az.storage)
 * [Azure CLI Cmdlets for Storage](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
+* [AzCopy Command-Line Utility](https://aka.ms/downloadazcopy)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](../storage-explorers.md)
 * [Azure Developer Tools](https://azure.microsoft.com/tools/)

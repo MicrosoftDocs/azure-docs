@@ -1,12 +1,12 @@
 ---
 title: Elastic query - access data in Azure SQL Data Warehouse from Azure SQL Database | Microsoft Docs
-description: Learn best practices for using using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database.
+description: Learn best practices for using Elastic Query to access data in Azure SQL Data Warehouse from Azure SQL Database.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
@@ -56,7 +56,7 @@ Use these best practices to use elastic query effectively.
 ### General
 
 - When using remote query execution, ensure you're only selecting necessary columns and applying the right filters. Not only does this increase the compute necessary, but it also increases the size of the result set and therefore the amount of data that need to be moved between the two instances.
-- Maintain data for analytical purposes in both SQL Data Warehouse and SQL Database in clustered columnstore for analytiIcal performance.
+- Maintain data for analytical purposes in both SQL Data Warehouse and SQL Database in clustered columnstore for analytical performance.
 - Ensure that source tables are partitioned for query and data movement.
 - Ensure SQL database instances used as a cache are partitioned to enable more granular updates and easier management. 
 - Ideally use PremiumRS databases because they provide the analytical benefits of clustered columnstore indexing with a focus on IO-intensive workloads at a discount from Premium databases.
@@ -120,9 +120,9 @@ Use Azure SQL Database when:
 
 ## FAQ
 
-Q: Can I use databases within an Elastic Pool with Elastic Query?
+Q: Can I use databases within an elastic pool with Elastic Query?
 
-A: Yes. SQL Databases within an Elastic Pool can use Elastic Query. 
+A: Yes. SQL Databases within an elastic pool can use Elastic Query. 
 
 Q: Is there a cap for how many databases I can use for Elastic Query?
 

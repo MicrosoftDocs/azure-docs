@@ -1,21 +1,15 @@
 ---
 title: Decode EDIFACT messages - Azure Logic Apps | Microsoft Docs
-description: Validate EDI and generate acknowledgements with the EDIFACT message decoder in the Enterprise Integration Pack for Azure Logic Apps
+description: Validate EDI and generate acknowledgements with the EDIFACT message decoder for Azure Logic Apps with Enterprise Integration Pack 
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: 
-
-ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-
 ---
 
 # Decode EDIFACT messages for Azure Logic Apps with the Enterprise Integration Pack

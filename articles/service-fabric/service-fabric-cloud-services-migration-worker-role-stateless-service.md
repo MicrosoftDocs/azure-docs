@@ -1,5 +1,5 @@
 ---
-title: Convert Azure Cloud Services apps to microservices | Microsoft Docs
+title: Convert Azure Cloud Services apps to Service Fabric | Microsoft Docs
 description: This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -205,7 +205,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Startup tasks are actions that are taken before an application starts. A startup task is typically used to run setup scripts using elevated privileges. Both Cloud Services and Service Fabric support start-up tasks. The main difference is that in Cloud Services, a startup task is tied to a VM because it is part of a role instance, whereas in Service Fabric a startup task is tied to a service, which is not tied to any particular VM.
 
 | Service Fabric | Cloud Services |
-| --- | --- | --- |
+| --- | --- |
 | Configuration location |ServiceDefinition.csdef |
 | Privileges |"limited" or "elevated" |
 | Sequencing |"simple", "background", "foreground" |

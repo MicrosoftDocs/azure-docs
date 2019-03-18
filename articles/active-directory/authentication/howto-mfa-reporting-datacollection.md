@@ -1,18 +1,19 @@
 ---
 title: Azure Multi-Factor Authentication user data collection
 description: What information is used to help authenticate users by Azure Multi-Factor Authentication?
+
 services: multi-factor-authentication
+ms.service: active-directory
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
+manager: daveba
+ms.reviewer: michmcla
 
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.topic: article
-ms.date: 05/01/2018
-
+ms.collection: M365-identity-device-management
 ---
 # Azure Multi-Factor Authentication user data collection
 

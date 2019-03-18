@@ -8,17 +8,21 @@ author: willzhan
 manager: steveng
 editor: ''
 
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2019
 ms.author: willzhan, dwgeo
 
 ---
 # Offline FairPlay Streaming for iOS 
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 3](../latest/offline-fairplay-for-ios.md)
+> * [Version 2](media-services-protect-hls-with-offline-fairplay.md)
+
  Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/services/media-services/content-protection/) that cover:
 
 - Microsoft PlayReady
@@ -188,7 +192,7 @@ Three test samples in Media Services cover the following three scenarios:
 * FPS protected, with video and audio, but no alternate audio track
 * FPS protected, with video only and no audio
 
-You can find these samples at [this demo site](http://aka.ms/poc#22), with the corresponding application certificate hosted in an Azure web app.
+You can find these samples at [this demo site](https://aka.ms/poc#22), with the corresponding application certificate hosted in an Azure web app.
 With either the version 3 or version 4 sample of the FPS Server SDK, if a master playlist contains alternate audio, during offline mode it plays audio only. Therefore, you need to strip the alternate audio. In other words, the second and third samples listed previously work in online and offline mode. The sample listed first plays audio only during offline mode, while online streaming works properly.
 
 ## FAQ
@@ -209,7 +213,7 @@ The following frequently asked questions provide assistance with troubleshooting
 A sample boot.xml file:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<HLSMoviePackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
+<HLSMoviePackage xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://apple.com/IMG/Schemas/HLSMoviePackage" xsi:schemaLocation="http://apple.com/IMG/Schemas/HLSMoviePackage /System/Library/Schemas/HLSMoviePackage.xsd">
   <Version>1.0</Version>
   <HLSMoviePackageType>PersistedStore</HLSMoviePackageType>
   <Streams>

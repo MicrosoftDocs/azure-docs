@@ -45,7 +45,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 ## Calculate the maximum expected ingress/egress
 
 1.	Determine your application's baseline throughput requirements.
-2.	Determine your Azure VPN gateway throughput limits. For help, see the "Aggregate throughput by SKU and VPN type" section of [Planning and design for VPN Gateway](vpn-gateway-plan-design.md).
+2.	Determine your Azure VPN gateway throughput limits. For help, see the "Gateway SKUs" section of [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 3.	Determine the [Azure VM throughput guidance](../virtual-machines/virtual-machines-windows-sizes.md) for your VM size.
 4.	Determine your Internet Service Provider (ISP) bandwidth.
 5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
@@ -84,7 +84,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 	```CMD
 	netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
 	```
-	</br>
+	 
 	**Azure Linux:**  Azure Linux images have permissive firewalls. If there is an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
 
 3. On the server node, change to the directory where iperf3.exe is extracted. Then run iPerf in server mode and set it to listen on port 5001 as the following commands:

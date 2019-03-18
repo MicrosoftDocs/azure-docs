@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 09/06/2018
 ms.author: hermannd
 
 ---
@@ -37,13 +37,15 @@ This guide also assumes that you are familiar with:
 * The following concepts and procedures:
    * Planning for SAP deployment on Azure, including Azure Virtual Network  planning and Azure Storage usage. See [SAP NetWeaver on Azure Virtual Machines (VMs) - Planning and implementation guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Deployment principles and ways to deploy VMs in Azure. See [Azure Virtual Machines deployment for SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
-   * High availability for SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services), and ERS (Evaluated Receipt Settlement) on Azure. See [High availability for SAP NetWeaver on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+   * High availability for SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services), and ERS (Enqueue Replication Server) on Azure. See [High availability for SAP NetWeaver on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
    * Details on how to improve efficiency in leveraging a multi-SID installation of ASCS/SCS on Azure. See [Create a SAP NetWeaver multi-SID configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Principles of running SAP NetWeaver based on Linux-driven VMs in Azure. See [Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). This guide provides specific settings for Linux in Azure VMs and details on how to properly attach Azure storage disks to Linux VMs.
 
-At this time, Azure VMs are certified by SAP for SAP HANA scale-up configurations only. Scale-out configurations with SAP HANA workloads are not yet supported. For SAP HANA high availability in cases of scale-up configurations, see [High availability of SAP HANA on Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+The Azure VM types that can be used for production scenarios are listed in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). For non-production scenarios, a wider variety of native Azure VM types is available.
+For more details on VM configuration and operations consult the document [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+For SAP HANA high availability, see [SAP HANA high availability for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
-If you are seeking to get an SAP HANA instance or S/4HANA, or BW/4HANA system deployed in very fast time, you should consider the usage of [SAP Cloud Appliance Library](http://cal.sap.com). You can find documentation about deploying, for example, an S/4HANA system through SAP CAL on Azure in [this guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). All you need to have is an Azure subscription and an SAP user that can be registered with SAP Cloud Appliance Library.
+If you are seeking to get an SAP HANA instance or S/4HANA, or BW/4HANA system deployed in very fast time, you should consider the usage of [SAP Cloud Appliance Library](https://cal.sap.com). You can find documentation about deploying, for example, an S/4HANA system through SAP CAL on Azure in [this guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). All you need to have is an Azure subscription and an SAP user that can be registered with SAP Cloud Appliance Library.
 
 ## Additional resources
 ### SAP HANA backup
@@ -64,7 +66,7 @@ For information on SAP HANA-supported operating systems, see [SAP Support Note #
 For additional SAP documentation about SAP HANA and different Linux operating systems, see:
 
 * [SAP Support Note #171356 - SAP Software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787)
-* [SAP Support Note #1944799 - SAP HANA Guidelines for SLES Operating System Installation](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+* [SAP Support Note #1944799 - SAP HANA Guidelines for SLES Operating System Installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP Support Note #2205917 - SAP HANA DB Recommended OS Settings for SLES 12 for SAP Applications](https://launchpad.support.sap.com/#/notes/2205917/E)
 * [SAP Support Note #1984787 - SUSE Linux Enterprise Server 12:  Installation Notes](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support Note #1391070 - Linux UUID Solutions](https://launchpad.support.sap.com/#/notes/1391070)
@@ -87,6 +89,11 @@ Azure VM types that are certified by SAP for SAP NetWeaver or the S/4HANA applic
 >SAP-Linux-Azure integration is supported only on Azure Resource Manager and not the classic deployment model. 
 
 ## Manual installation of SAP HANA
+
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type. Realize that in the example in this document we used a SLES OS release that is not supported by SAP for SAP HANA on M-Series VMs.
+>
+
 This guide describes how to manually install SAP HANA on Azure VMs in two different ways:
 
 * By using SAP Software Provisioning Manager (SWPM) as part of a distributed NetWeaver installation in the "install database instance" step
@@ -184,7 +191,7 @@ Based on the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-In the suggested disk configuration, the HANA data volume and log volume are placed on the same set of Azure premium storage disks that are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level because Azure Premium Storage keeps three images of the disks for redundancy. To make sure that you configure enough storage, consult the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Also consider the different virtual hard disk (VHD) throughput volumes of the different Azure premium storage disks as documented in [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+In the suggested disk configuration, the HANA data volume and log volume are placed on the same set of Azure premium storage disks that are striped with LVM or MDADM. It is not necessary to define any RAID redundancy level because Azure Premium Storage keeps three images of the disks for redundancy. To make sure that you configure enough storage, consult the [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) and [SAP HANA Server Installation and Update Guide](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Also consider the different virtual hard disk (VHD) throughput volumes of the different Azure premium storage disks as documented in [High-performance Premium Storage and managed disks for VMs](../../windows/disks-types.md). 
 
 You can add more premium storage disks to the HANA DBMS VMs for storing database or transaction log backups.
 
@@ -195,9 +202,7 @@ For more information about the two main tools used to configure striping, see th
 
 For more information on attaching disks to Azure VMs running Linux as a guest OS, see [Add a disk to a Linux VM](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Premium Storage allows you to define disk caching modes. For the striped set holding /hana/data and /hana/log, disk caching should be disabled. For the other volumes (disks), the caching mode should be set to **ReadOnly**.
-
-For more information, see [Premium Storage: High-performance storage for Azure Virtual Machine workloads](../../windows/premium-storage.md).
+Azure premium SSDs allows you to define disk caching modes. For the striped set holding /hana/data and /hana/log, disk caching should be disabled. For the other volumes (disks), the caching mode should be set to **ReadOnly**.
 
 To find sample JSON templates for creating VMs, go to [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates).
 The vm-simple-sles template is a basic template. It includes a storage section, with an additional 100-GB data disk. This template can be used as a base. You can adapt the template to your specific configuration.
@@ -243,7 +248,7 @@ It is not mandatory to structure your file systems in this way. You have other o
 
 Regarding the SAP HANA DB VM, during a database installation, when you use SAPinst (SWPM) and the **typical** installation option, everything is installed under /hana and /usr/sap. The default location for the SAP HANA log backup is under /usr/sap. Again, because it's important to prevent the root file system from running out of storage space, make sure that there is enough free space under /hana and /usr/sap before you install SAP HANA by using SWPM.
 
-For a description of the standard file-system layout of SAP HANA, see the [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
+For a description of the standard file-system layout of SAP HANA, see the [SAP HANA Server Installation and Update Guide](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
 
 ![Additional file systems created on the SAP app server VM](./media/hana-get-started/image009.jpg)
 
@@ -395,8 +400,8 @@ In addition to installing SAP HANA as part of a distributed installation by usin
 For more information about the HANA HDBLCM tool, see:
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
-* [SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
+* [SAP HANA Lifecycle Management Tools](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
+* [SAP HANA Server Installation and Update Guide](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 To avoid problems with a default group ID setting for the `\<HANA SID\>adm user` (created by the HDBLCM tool), define a new group called `sapsys` by using group ID `1001` before you install SAP HANA via HDBLCM:
 

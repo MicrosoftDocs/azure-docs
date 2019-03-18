@@ -3,7 +3,7 @@ title: Install .NET on Azure Cloud Services roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
-ms.author: adegeo
+ms.author: jeconnoc
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -30,7 +30,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
-* [.NET 4.7.2 web installer](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
 To add the installer for a *web* role:
@@ -92,11 +92,11 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM Set the value of netfx to install appropriate .NET Framework. 
    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
-   REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** http://go.microsoft.com/fwlink/?LinkId=671729
+   REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** https://go.microsoft.com/fwlink/?LinkId=671729
    REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://www.microsoft.com/download/details.aspx?id=53345
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
-   REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** http://go.microsoft.com/fwlink/?LinkId=852095
-   REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** http://go.microsoft.com/fwlink/?LinkId=863262
+   REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
+   REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
    set netfx="NDP472"
    
    REM ***** Set script start timestamp *****
@@ -105,7 +105,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
-   if %ComputeEmulatorRunning%=="true" goto exit
+   if "%ComputeEmulatorRunning%"=="true" goto exit
    
    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%
@@ -179,10 +179,11 @@ You can use startup tasks to perform operations before a role starts. Installing
        if %ERRORLEVEL%== 3010 goto restart
        if %ERRORLEVEL%== 1641 goto restart
        echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+       goto exit
+       
    :restart
    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-   EXIT /B %ERRORLEVEL%
+   shutdown.exe /r /t 5 /c "Installed .NET framework" /f /d p:2:4
    
    :installed
    echo .NET (%netfx%) is installed >> %startuptasklog%

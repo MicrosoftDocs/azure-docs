@@ -2,22 +2,14 @@
 title: Connecting to a data source in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to connect to a data source within Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-
 ---
 # Connect to a data source
 
@@ -32,7 +24,7 @@ Here are the differences between using **Import** and **DirectQuery**.
 | --- | --- |
 | Tables, columns, *and data* are imported or copied into the report's dataset. To see changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again. |Only *tables and columns* are imported or copied into the report's dataset. You always view the most current data. |
 
-With Power BI Workspace COllections, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
+With Power BI Workspace Collections, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
 
 > [!NOTE]
 > The On-Premises Data Gateway is not supported with Power BI Workspace Collections at this time. This means you cannot use DirectQuery with on-premises data sources.
@@ -74,5 +66,5 @@ To ensure queries sent to the underlying data source have acceptable performance
 * [Get started with Microsoft Power BI Workspace Collections](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)
 

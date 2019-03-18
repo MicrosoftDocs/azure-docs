@@ -14,7 +14,7 @@ manager:
 
 # Azure Maps supported categories
 
-When doing a [category search](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top level categories. All sub categories share same category code. Please note that this category list is subject to change with new data releases.
+When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top level categories. All sub categories share same category code. Please note that this category list is subject to change with new data releases.
 
 <br/>
 
@@ -42,7 +42,7 @@ When doing a [category search](https://docs.microsoft.com/en-us/rest/api/maps/se
 | COLLEGE\_UNIVERSITY | junior college/community college, college/university, college, university prep school, university |
 | COMMERCIAL\_BUILDING | office building, park headquarters, commercial building |
 | COMMUNITY\_CENTER | community center |
-| COMPANY | electronics, manufacturing, computer data services, public health technologies, diversified financials, animal shelter, airline, equipment rental, service, mail/package/freight delivery, bus lines, home appliance repair, cleaning services, oem, tax services, oil natural gas, legal services, construction, tele communications, transport, automobile manufacturing, chemicals, funeral service mortuaries, bridge tunnel operations, automobile, mechanical engineering, services, investment advisors, advertising/marketing, moving storage, savings institution, insurance, computer software, pharmaceuticals, catering, wedding services, agricultural technology, real estate, taxi, limousine shuttle service, bus charter rentals, mining, publishing technologies, cable telephone, import/export distribution, company, asylum, coal mine(s), estate(s), brewery, gold mine(s) |
+| COMPANY | electronics, manufacturing, computer data services, public health technologies, diversified financials, animal shelter, airline, equipment rental, service, mail/package/freight delivery, bus lines, home appliance repair, cleaning services, oem, tax services, oil natural gas, legal services, construction, telecommunications, transport, automobile manufacturing, chemicals, funeral service mortuaries, bridge tunnel operations, automobile, mechanical engineering, services, investment advisors, advertising/marketing, moving storage, savings institution, insurance, computer software, pharmaceuticals, catering, wedding services, agricultural technology, real estate, taxi, limousine shuttle service, bus charter rentals, mining, publishing technologies, cable telephone, import/export distribution, company, asylum, coal mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | CULTURAL\_CENTER | cultural center |
 | DENTIST | dentist |

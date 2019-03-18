@@ -1,17 +1,19 @@
 ---
 title: Terraform with Azure provider deployment slots
 description: Tutorial about using Terraform with Azure provider deployment slots
+services: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, Azure, deployment slots
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
 ---
 
 # Use Terraform to provision infrastructure with Azure deployment slots
 
-You can use [Azure deployment slots](/azure/app-service/web-sites-staged-publishing) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
+You can use [Azure deployment slots](/azure/app-service/deploy-staging-slots) to swap between different versions of your app. That ability helps you minimize the impact of broken deployments. 
 
 This article illustrates an example use of deployment slots by walking you through the deployment of two apps via GitHub and Azure. One app is hosted in a production slot. The second app is hosted in a staging slot. (The names "production" and "staging" are arbitrary and can be anything you want that represents your scenario.) After you configure your deployment slots, you can use Terraform to swap between the two slots as needed.
 
@@ -19,11 +21,11 @@ This article illustrates an example use of deployment slots by walking you throu
 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-- **GitHub account**: You need a [GitHub](http://www.github.com) account to fork and use the test GitHub repo.
+- **GitHub account**: You need a [GitHub](https://www.github.com) account to fork and use the test GitHub repo.
 
 ## Create and apply the Terraform plan
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
@@ -212,7 +214,7 @@ At this point, you have deployed the production slot. To deploy the staging slot
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-Perform the following steps two times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
+Perform the following steps 2 times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
 
 1. On the main menu of the Azure portal, select **Resource groups**.
 

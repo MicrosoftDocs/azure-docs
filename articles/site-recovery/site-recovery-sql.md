@@ -1,23 +1,16 @@
 ---
-title: Replicate applications with SQL Server and Azure Site Recovery | Microsoft Docs
-description: This article describes how to replicate SQL Server using Azure Site Recovery for SQL Server disaster capabilities.
+title: Set up disaster recovery for SQL Server with SQL Server and Azure Site Recovery | Microsoft Docs
+description: This article describes how to set up disaster recovery for SQL Server using SQL Server and Azure Site Recovery .
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2018
-ms.author: pratshar
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: sutalasi
 
 ---
-# Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery
+# Set up disaster recovery for SQL Server 
 
 This article describes how to protect the SQL Server back end of an application using a combination of SQL Server business continuity and disaster recovery (BCDR) technologies, and [Azure Site Recovery](site-recovery-overview.md).
 
@@ -32,7 +25,7 @@ Many workloads use SQL Server as a foundation, and it can be integrated with app
 * **SQL Server Failover Clustering Instances (Always On FCI)**: Two or more nodes running SQL Server instanced with shared disks are configured in a Windows Failover cluster. If a node is down, the cluster can fail SQL Server over to another instance. This setup is typically used to implement high availability at a primary site. This deployment doesn't protect against failure or outage in the shared storage layer. A shared disk can be implemented using iSCSI, fiber channel or shared vhdx.
 * **SQL Always On Availability Groups**: Two or more nodes are set up in a shared nothing cluster, with SQL Server databases configured in an availability group, with synchronous replication and automatic failover.
 
- This article leverages the following native SQL disaster recovery technologies for recovering databases to a remote site:
+  This article leverages the following native SQL disaster recovery technologies for recovering databases to a remote site:
 
 * SQL Always On Availability Groups, to provide for disaster recovery for SQL Server 2012 or 2014 Enterprise editions.
 * SQL database mirroring in high safety mode, for SQL Server Standard edition (any version), or for SQL Server 2008 R2.
@@ -47,7 +40,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 **Hyper-V** | Yes | Yes
 **VMware** | Yes | Yes
 **Physical server** | Yes | Yes
-**Azure**|NA| Yes
+**Azure** |NA| Yes
 
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:
@@ -72,21 +65,20 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 
 This table summarizes our recommendations for integrating SQL Server BCDR technologies with Site Recovery.
 
-| **Version** | **Edition** | **Deployment** | **On-prem to on-prem** | **On-prem to Azure** |
+| **Version** | **Edition** | **Deployment** | **On-prem to on premises** | **On-prem to Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
-|| Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups | |
-|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror | |
-|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+| SQL Server 2016, 2014 or 2012 |Enterprise |Failover cluster instance |Always On availability groups |Always On availability groups |
+|| Enterprise |Always On availability groups for high availability |Always On availability groups |Always On availability groups |
+|| Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication |
 | SQL Server 2008 R2 or 2008 |Enterprise or Standard |Failover cluster instance (FCI) |Site Recovery replication with local mirror |Site Recovery replication with local mirror |
-|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication | |
+|| Enterprise or Standard |Standalone |Site Recovery replication |Site Recovery replication |
 | SQL Server (Any version) |Enterprise or Standard |Failover cluster instance - DTC application |Site Recovery replication |Not Supported |
 
 ## Deployment prerequisites
 
 * An on-premises SQL Server deployment, running a supported SQL Server version. Typically, you also need Active Directory for your SQL server.
 * The requirements for the scenario you want to deploy. Learn more about support requirements for [replication to Azure](site-recovery-support-matrix-to-azure.md) and [on-premises](site-recovery-support-matrix.md), and [deployment prerequisites](site-recovery-prereq.md).
-* To set up recovery in Azure, run the [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) tool on your SQL Server virtual machines, to make sure they're compatible with Azure and Site Recovery.
 
 ## Set up Active Directory
 
@@ -119,7 +111,7 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
 
-	![Restore from Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
+	![Restore from Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Force a quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the virtual machine restored from backup.
 
@@ -133,9 +125,9 @@ SQL Always On doesn’t natively support test failover. Therefore, we recommend 
 
 1. Create a load balancer with one IP created under frontend IP pool corresponding to each availability group listener and with the SQL virtual machine added in the backend pool.
 
-	 ![Create Load Balancer - Frontend IP pool ](./media/site-recovery-sql/create-load-balancer1.png)
+	 ![Create Load Balancer - Frontend IP pool](./media/site-recovery-sql/create-load-balancer1.png)
 
-	![Create Load Balancer - Backend pool ](./media/site-recovery-sql/create-load-balancer2.png)
+	![Create Load Balancer - Backend pool](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Do a test failover of the recovery plan.
 

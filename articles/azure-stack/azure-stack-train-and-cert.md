@@ -6,9 +6,10 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 12/12/2018
 ms.author: mabrigg
-keywords:
+ms.lastreviewed: 12/12/2018
+
 ---
 
 # Azure Stack training and certification
@@ -24,7 +25,8 @@ The following training and certification opportunities are available to help you
 - [Job roles and learning paths](https://azure.microsoft.com/training/learning-paths/)
 
 ## Certification
-Azure Stack certifications are currently under development. Check back for the latest updates.
+
+*Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack certification*, [Exam 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## Next steps
 

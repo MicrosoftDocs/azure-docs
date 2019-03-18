@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,lab-services
@@ -13,31 +13,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
 ---
 
 # Create multi-VM environments and PaaS resources with Azure Resource Manager templates
 
-The [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [create and add a VM to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). This works well for creating one VM at a time. However, if the environment contains multiple VMs, each VM must be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
+The [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) enables you to easily [add one VM at a time to a lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). However, if the environment contains multiple VMs, each VM must be individually created. For scenarios such as a multi-tier Web app or a SharePoint farm, a mechanism is needed to allow for the creation of multiple VMs in a single step. By using Azure Resource Manager templates, you can now define the infrastructure and configuration of your Azure solution and repeatedly deploy multiple VMs in a consistent state. This feature provides the following benefits:
 
-- Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Team Services Git).
+- Azure Resource Manager templates are loaded directly from your source control repository (GitHub or Azure DevOps Services Git).
 - Once configured, your users can create an environment by picking an Azure Resource Manager template from the Azure portal, just as they do with other types of [VM bases](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS resources can be provisioned in an environment from an Azure Resource Manager template in addition to IaaS VMs.
 - The cost of environments can be tracked in the lab in addition to individual VMs created by other types of bases.
 - PaaS resources are created and will appear in cost tracking; however, VM auto shutdown does not apply to PaaS resources.
-- Users have the same VM policy control for environments as they have for single-lab VMs.
 
 Learn more about the many [benefits of using Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager) to deploy, update, or delete all of your lab resources in a single operation.
 
 > [!NOTE]
 > When you use a Resource Manager template as a basis to create more lab VMs, there are some differences to keep in mind whether you are creating Multi-VMs or single-VMs. [Use a virtual machine's Azure Resource Manager template](devtest-lab-use-resource-manager-template.md) explains these differences in greater detail.
 >
->
 
-## Configure Azure Resource Manager template repositories
+## DevTest Labs public environments
+Azure DevTest Labs has a [public repository of Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that you can use to create environments without having to connect to an external GitHub source by yourself. This repository includes frequently used templates such as Azure Web Apps, Service Fabric Cluster, and development SharePoint Farm environment. This feature is similar to the public repository of artifacts that is included for every lab that you create. The environment repository allows you to quickly get started with pre-authored environment templates with minimum input parameters to provide you with a smooth getting started experience for PaaS resources within labs. For more information, see [Configure and use public environments in DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
-As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or VSTS Git repositories. As a result, Resource Manager templates can be used across the entire release cycle, from the test environment to the production environment.
+## Configure your own template repositories
+As one of the best practices with infrastructure-as-code and configuration-as-code, environment templates should be managed in source control. Azure DevTest Labs follows this practice and loads all Azure Resource Manager templates directly from your GitHub or Azure DevOps Services Git repositories. As a result, Resource Manager templates can be used across the entire release cycle, from the test environment to the production environment.
+
+Check out the templates created by the DevTest Labs team in the [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In this public repository, you can view templates shared by others that you can use directly or customize them to suit your needs. After you create your template, store it in this repository to share it with others. You can also set up your own Git repository with templates that can be used to set up environments in the cloud. 
 
 There are a couple of rules to follow to organize your Azure Resource Manager templates in a repository:
 
@@ -46,22 +48,19 @@ There are a couple of rules to follow to organize your Azure Resource Manager te
 	![Key Azure Resource Manager template files](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - If you want to use parameter values defined in a parameter file, the parameter file must be named `azuredeploy.parameters.json`.
-- You can use the parameters `_artifactsLocation` and `_artifactsLocationSasToken` to construct the parametersLink URI value, allowing DevTest Labs to automatically manage nested templates. See [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) for more information.
+- You can use the parameters `_artifactsLocation` and `_artifactsLocationSasToken` to construct the parametersLink URI value, allowing DevTest Labs to automatically manage nested templates. For more information, see [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - Metadata can be defined to specify the template display name and description. This metadata must be in a file named `metadata.json`. The following example metadata file illustrates how to specify the display name and description: 
 
-```json
-{
- 
-"itemDisplayName": "<your template name>",
- 
-"description": "<description of the template>"
- 
-}
-```
+    ```json
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
+	}
+    ```
 
 The following steps guide you through adding a repository to your lab using the Azure portal. 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
 1. On the lab's **Overview** pane, select **Configuration and Policies**.
@@ -75,9 +74,9 @@ The following steps guide you through adding a repository to your lab using the 
 1. Select **Add+** to add your Azure Resource Manager template repository.
 1. When the second **Repositories** pane opens, enter the necessary information as follows:
 	- **Name** - Enter the repository name that is used in the lab.
-	- **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Visual Studio Team Services.  
+	- **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Azure DevOps Services.  
 	- **Branch** - Enter the branch name to access your Azure Resource Manager template definitions. 
-	- **Personal access token** - The personal access token is used to securely access your repository. To get your token from Visual Studio Team Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
+	- **Personal access token** - The personal access token is used to securely access your repository. To get your token from Azure DevOps Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
 	- **Folder paths** - Using one of the two input fields, enter the folder path that starts with a forward slash - / - and is relative to your Git clone URI to either your artifact definitions (first input field) or your Azure Resource Manager template definitions.   
 	
 		![Public repo](./media/devtest-lab-create-environment-from-arm/repo-values.png)
@@ -91,7 +90,7 @@ The next section will walk you through creating environments from an Azure Resou
 
 Once an Azure Resource Manager template repository has been configured in the lab, your lab users can create an environment using Azure portal with the following steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
 1. On the lab's pane, select **Add+**.
@@ -99,7 +98,7 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 	![Choose a base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in the lab’s [personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
+1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in your Azure key vault. To learn about saving secrets in a key vault and using them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).  
 
 	![Add pane](./media/devtest-lab-create-environment-from-arm/add.png)
 
@@ -124,13 +123,122 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 	![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## Deploy a Resource Manager template to create a VM
-After you have saved a Resource Manager template and customized it for your needs, you can use it to automate VM creation. 
-- [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) describes how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure. 
-- [Deploy resources with Resource Manager templates and Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) describes how to use Azure CLI with Resource Manager templates to deploy your resources to Azure.
+## Automate deployment of environments
+Azure DevTest Labs provides the ability to use an [Azure Resource Management Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to create an environment with a set of resources in the lab. These environments can contain any Azure resources that can be created using Resource Manager templates. DevTest Labs environments allow users to readily deploy complex infrastructures in a consistent way within the confines of the lab. Currently, adding an environment to a lab using the Azure portal is feasible when creating it once, but in a development or a testing situation, where multiple creations occur, an automated deployment allows for an improved experience.
+
+Complete the following steps in the [Configure your own template repositories](#configure-your-own-template-repositories) section before proceeding further: 
+
+1. Create the Resource Manager template that defines the resources being created. 
+2. Set up the Resource Manager template in Git a repository. 
+3. Connect the Git repository to the lab. 
+
+### PowerShell script to deploy the Resource Manager template
+Save the PowerShell script in the next section to your hard disk (for example: deployenv.ps1) and run the script after you specify values for SubscriptionId, ResourceGroupName, LabName, RepositoryName, TemplateName (folder) in the Git repo, EnvironmentName.
+
+```powershell
+./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG994248" -RepositoryName "SP Repository" -TemplateName "My Environment template name" -EnvironmentName "SPResourceGroupEnv"  
+```
+
+#### Sample script
+Here is the sample script to create an environment in your lab. The comments in the script help you understand the script better. 
+
+```powershell
+#Requires -Version 3.0
+#Requires -Module AzureRM.Resources
+
+[CmdletBinding()]
+
+param (
+# ID of the Azure Subscription where the lab is created.
+[string] [Parameter(Mandatory=$true)] $SubscriptionId,
+
+# Name of the lab (existing) in which to create the environment.
+[string] [Parameter(Mandatory=$true)] $LabName,
+
+# Name of the connected repository in the lab. 
+[string] [Parameter(Mandatory=$true)] $RepositoryName,
+
+# Name of the template (folder name in the Git repository) based on which the environment will be created.
+[string] [Parameter(Mandatory=$true)] $TemplateName,
+
+# Name of the environment to be created in the lab.
+[string] [Parameter(Mandatory=$true)] $EnvironmentName,
+
+# The parameters to be passed to the template. Each parameter is prefixed with “-param_”. 
+# For example, if the template has a parameter named “TestVMName” with a value of “MyVMName”, the string in $Params will have the form: `-param_TestVMName MyVMName`. 
+# This convention allows the script to dynamically handle different templates.
+[Parameter(ValueFromRemainingArguments=$true)]
+    $Params
+)
+
+# Save this script as the deployenv.ps1 file
+# Run the script after you specify values for SubscriptionId, ResourceGroupName, LabName, RepositoryName, TemplateName (folder) in the Git repo, EnvironmentName
+# ./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG994248" -RepositoryName "SP Repository" -TemplateName "My Environment template name" -EnvironmentName "SPResourceGroupEnv"    
+
+# Comment this statement to completely automate the environment creation.    
+# Sign in to Azure. 
+Connect-AzureRmAccount
+
+# Select the subscription that has the lab.  
+Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+
+# Get information about the user, specifically the user ID, which is used later in the script.  
+$UserId = $((Get-AzureRmADUser -UserPrincipalName (Get-AzureRmContext).Account).Id.Guid)
+        
+# Get information about the lab such as lab location. 
+$lab = Get-AzureRmResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName 
+if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." } 
+    
+# Get information about the repository in the lab. 
+$repository = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
+    -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
+    -ResourceName $LabName `
+    -ApiVersion 2016-05-15 `
+    | Where-Object { $RepositoryName -in ($_.Name, $_.Properties.displayName) } `
+    | Select-Object -First 1
+if ($repository -eq $null) { throw "Unable to find repository $RepositoryName in lab $LabName." } 
+
+# Get information about the Resource Manager template based on which the environment will be created. 
+$template = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
+    -ResourceType "Microsoft.DevTestLab/labs/artifactSources/armTemplates" `
+    -ResourceName "$LabName/$($repository.Name)" `
+    -ApiVersion 2016-05-15 `
+    | Where-Object { $TemplateName -in ($_.Name, $_.Properties.displayName) } `
+    | Select-Object -First 1
+if ($template -eq $null) { throw "Unable to find template $TemplateName in lab $LabName." } 
+
+# Build the template parameters with parameter name and values.     
+$parameters = Get-Member -InputObject $template.Properties.contents.parameters -MemberType NoteProperty | Select-Object -ExpandProperty Name
+$templateParameters = @()
+
+# The custom parameters need to be extracted from $Params and formatted as name/value pairs.
+$Params | ForEach-Object {
+    if ($_ -match '^-param_(.*)' -and $Matches[1] -in $parameters) {
+        $name = $Matches[1]                
+    } elseif ( $name ) {
+        $templateParameters += @{ "name" = "$name"; "value" = "$_" }
+        $name = $null #reset name variable
+    }
+}
+
+# Once name/value pairs are isolated, create an object to hold the necessary template properties
+$templateProperties = @{ "deploymentProperties" = @{ "armTemplateId" = "$($template.ResourceId)"; "parameters" = $templateParameters }; } 
+
+# Now, create or deploy the environment in the lab by using the New-AzureRmResource command. 
+New-AzureRmResource -Location $Lab.Location `
+    -ResourceGroupName $lab.ResourceGroupName `
+    -Properties $templateProperties `
+    -ResourceType 'Microsoft.DevTestLab/labs/users/environments' `
+    -ResourceName "$LabName/$UserId/$EnvironmentName" `
+    -ApiVersion '2016-05-15' -Force 
+ 
+Write-Output "Environment $EnvironmentName completed."
+```
+
+You can also use Azure CLI to deploy resources with Resource Manager templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli).
 
 > [!NOTE]
-> Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the [**az lab vm create** command in the CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+> Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the [**az lab vm create** command in the CLI](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 ### General limitations 
 
@@ -140,13 +248,13 @@ Consider these limitations when using a Resource Manager template in DevTest Lab
 
    The only exception to this is that you **can** reference an existing virtual network. 
 
-- Formulas can't be created from lab VMs that were created from an Resource Manager template. 
+- Formulas can't be created from lab VMs that were created from a Resource Manager template. 
 
-- Custom images can't be created from lab VMs that were created from an Resource Manager template. 
+- Custom images can't be created from lab VMs that were created from a Resource Manager template. 
 
 - Most policies are not evaluated when you deploy Resource Manager templates.
 
-   For example, you might have a lab policy specifying that a user can only create five VMs. However, if the user deploys an Resource Manager template that creates dozens of VMs, that is allowed. Policies that are not evaluated include:
+   For example, you might have a lab policy specifying that a user can only create five VMs. However, a user can deploy a Resource Manager template that creates dozens of VMs. Policies that are not evaluated include:
 
    - Number of VMs per user
    - Number of premium VMs per lab user

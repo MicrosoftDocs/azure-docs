@@ -5,8 +5,8 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+
+ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
@@ -22,7 +22,7 @@ information about Data Lake Analytics, see [Azure Data Lake Analytics overview](
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **Microsoft Azure SDK for .NET** version 2.7.1 or later.  Install it by using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK for .NET** version 2.7.1 or later.  Install it by using the [Web platform installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * A **Data Lake Analytics** account. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md).
 
 ## Install Azure Data Lake Tools for Visual Studio 2017
@@ -37,7 +37,7 @@ Enable the **Azure development** workload as shown:
 
 ## Install Azure Data Lake Tools for Visual Studio 2013 and 2015
 
-Download and install Azure Data Lake Tools for Visual Studio [from the Download Center](http://aka.ms/adltoolsvs). After installation, note that:
+Download and install Azure Data Lake Tools for Visual Studio [from the Download Center](https://aka.ms/adltoolsvs). After installation, note that:
 * The **Server Explorer** > **Azure** node contains a **Data Lake Analytics** node. 
 * The **Tools** menu has a **Data Lake** item.
 

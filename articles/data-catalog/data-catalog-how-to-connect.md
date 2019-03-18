@@ -1,20 +1,13 @@
 ---
-title: How to connect to data sources | Microsoft Docs
+title: How to connect to data sources in Azure Data Catalog
 description: How-to article highlighting how to connect to data sources discovered with Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
-author: steelanddata
-manager: NA
-editor: ''
-tags: ''
-
+author: markingmyname
+ms.author: maghan
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-
 ---
 # How to connect to data sources
 ## Introduction

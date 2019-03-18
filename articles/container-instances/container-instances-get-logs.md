@@ -2,13 +2,13 @@
 title: Get container logs and events with Azure Container Instances
 description: Learn how to debug with container logs and events with Azure Container Instances
 services: container-instances
-author: jluk
+author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/30/18
-ms.author: juluk
+ms.date: 05/30/2018
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -145,5 +145,5 @@ The output includes the core properties of your container, along with deployment
 Learn how to [troubleshoot common container and deployment issues](container-instances-troubleshooting.md) for Azure Container Instances.
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-logs]: /cli/azure/container#az-container-logs

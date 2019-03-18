@@ -1,16 +1,17 @@
 ---
-title: How to scale your Azure Time Series Insights environment | Microsoft Docs
+title: 'How to scale your Azure Time Series Insights environment | Microsoft Docs'
 description: This article describes how to scale your Azure Time Series Insights environment. Use the Azure portal to add or subtract capacity within a pricing SKU. 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
+ms.custom: seodec18
 ---
 # How to scale your Time Series Insights environment
 
@@ -40,7 +41,7 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 ## Change the capacity of your environment
 1. In the Azure portal, locate and select your Time Series Insights environment. 
 
-2. In the menu for your Time Series Insighs environment, select **Configure**.
+2. In the menu for your Time Series Insights environment, select **Configure**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

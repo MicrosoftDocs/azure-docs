@@ -1,15 +1,19 @@
-
-<!--
-includes/sql-database-include-connection-string-20-portalshots.md
-
-Latest Freshness check:  2015-09-02 , GeneMi.
-
-## Connection string
--->
-
+---
+title: Obtain the connection string from the Azure portal
+description: Obtain the connection string from the Azure portal
+keywords: sql connection,connection string
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+---
 
 ### Obtain the connection string from the Azure portal
-Use the [Azure portal](https://portal.azure.com/) to obtain the connection string that's necessary for your client program to interact with Azure SQL Database. 
+Use the [Azure portal](https://portal.azure.com/) to obtain the connection string that's necessary for your client program to interact with Azure SQL Database.
 
 1. Select **All services** > **SQL databases**.
 
@@ -17,16 +21,19 @@ Use the [Azure portal](https://portal.azure.com/) to obtain the connection strin
 
 3. Select the row for your database.
 
-4. After the blade appears for your database, for visual convenience select the **Minimize** buttons to collapse the blades you used for browsing and database filtering. 
-   
+4. After the blade appears for your database, for visual convenience select the **Minimize** buttons to collapse the blades you used for browsing and database filtering.
+
 5. On the blade for your database, select **Show database connection strings**.
 
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
-   
-    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
-7. In one format or another, paste the connection string information into your client program code.
+6. Copy the appropriate connection string. i.e. If you intend to use the ADO.NET connection library, copy the appropriate string from the **ADO.NET** tab.
 
-For more information, see [Connection strings and configuration files](http://msdn.microsoft.com/library/ms254494.aspx).
+    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
+
+7. Edit the connection string as needed. i.e. Insert your password into the connection string, or remove "@&lt;servername&gt;" from the username if the username or server name are too long.
+
+8. In one format or another, paste the connection string information into your client program code.
+
+For more information, see [Connection strings and configuration files](https://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

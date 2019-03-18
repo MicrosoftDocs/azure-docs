@@ -1,11 +1,11 @@
 ---
 title: Set up disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with Azure Site Recovery  | Microsoft Docs
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/21/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -76,8 +76,24 @@ Run the Provider setup file (AzureSiteRecoveryProvider.exe) on each Hyper-V host
 5. In **Proxy Settings**, select **Connect directly to Azure Site Recovery without a proxy**.
 6. In **Registration**, After the server is registered in the vault, click **Finish**.
 
-Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**. This process can take up to 30 minutes.
+Metadata from the Hyper-V server is retrieved by Azure Site Recovery, and the server is displayed in **Site Recovery Infrastructure** > **Hyper-V Hosts**. This process can take up to 30 minutes.        
 
+In case you are using a Hyper-V core server, follow the below steps once you download the provider & vault credentials as mentioned [here](#set-up-the-source-environment)
+
+1. Extract the files from AzureSiteRecoveryProvider.exe by running
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    This will extract the files to the local directory.
+ 
+2.	Run ``.\setupdr.exe /i ``
+
+    Results will be logged to %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.	Register the server using the command:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## Set up the target environment
 
@@ -116,7 +132,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 4. Select the **contosovmsacct1910171607** storage account created in the previous tutorial for replicated data, and the **ContosoASRnet** network, in which Azure VMs will be located after failover.
 5. In **Virtual machines** > **Select**, select the VM you want to replicate. Then click **OK**.
 
- You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
+   You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the virtual machine is ready for failover.
 
 ## Next steps
 [Run a disaster recovery drill](tutorial-dr-drill-azure.md)

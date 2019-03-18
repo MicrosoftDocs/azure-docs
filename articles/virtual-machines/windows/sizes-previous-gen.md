@@ -1,6 +1,6 @@
 ---
 title: Azure Windows VM sizes - previous generations | Microsoft Docs
-description: Lists the previous generations of sizes available for Windows virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
+description: Lists the previous generations of sizes available for Windows virtual machines in Azure. 
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -9,12 +9,12 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 
-ms.service: windows-machines-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: jonbeck
 
 ---

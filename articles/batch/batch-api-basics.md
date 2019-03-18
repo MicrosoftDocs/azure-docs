@@ -1,21 +1,21 @@
 ---
-title: Overview of Azure Batch for developers | Microsoft Docs
+title: Overview for developers - Azure Batch | Microsoft Docs
 description: Learn the features of the Batch service and its APIs from a development standpoint.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Develop large-scale parallel compute solutions with Batch
@@ -58,7 +58,7 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
   * [Start task](#start-task)
   * [Job manager task](#job-manager-task)
   * [Job preparation and release tasks](#job-preparation-and-release-tasks)
-  * [Multi-instance task (MPI)](#multi-instance-tasks)
+  * Multi-instance task (MPI)
   * [Task dependencies](#task-dependencies)
 * [Application packages](#application-packages)
 
@@ -75,11 +75,13 @@ You can run multiple Batch workloads in a single Batch account, or distribute yo
 
 Most Batch solutions use Azure Storage for storing resource files and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account.
 
-Batch supports the following Azure Storage [account options](../storage/common/storage-account-options.md):
+Batch supports the following types of Azure Storage accounts:
 
 * General-purpose v2 (GPv2) accounts 
 * General-purpose v1 (GPv1) accounts
 * Blob storage accounts (currently supported for pools in the Virtual Machine configuration)
+
+For more information about storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) compared with GPv1. (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
 
@@ -147,7 +149,7 @@ For detailed requirements and steps, see [Use a custom image to create a pool of
 
 #### Container support in Virtual Machine pools
 
-When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
+When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pool/add) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
 
 For more information, see [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md).
 
@@ -170,7 +172,7 @@ For pricing information for both low-priority and dedicated compute nodes, see [
 
 ### Size of the compute nodes
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes. 
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes. 
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 
@@ -209,7 +211,7 @@ You can specify [application packages](#application-packages) to deploy to the c
 
 ### Network configuration
 
-You can specify the subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. See the [Pool network configuration](#pool-network-configuration) section for more information.
+You can specify the subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) in which the pool's compute nodes should be created. See the Pool network configuration section for more information.
 
 
 ## Job
@@ -258,14 +260,14 @@ When you create a task, you can specify:
 * A **container image** reference in Docker Hub or a private registry and additional settings to create a Docker container in which the task runs on the node. You only specify this information if the pool is set up with a container configuration.
 
 > [!NOTE]
-> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
+> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
 
 In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 * [Start task](#start-task)
 * [Job manager task](#job-manager-task)
 * [Job preparation and release tasks](#job-preparation-and-release-tasks)
-* [Multi-instance tasks (MPI)](#multi-instance-tasks)
+* Multi-instance tasks (MPI)
 * [Task dependencies](#task-dependencies)
 
 ### Start task
@@ -284,7 +286,7 @@ If a start task fails on a compute node, then the state of the node is updated t
 If you add or update the start task for an existing pool, you must reboot its compute nodes for the start task to be applied to the nodes.
 
 >[!NOTE]
-> The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. To ensure that your start task meets this requirement, you can use one of two approaches:
+> Batch limits the total size of a start task, which includes resource files and environment variables. If you need to reduce the size of a start task, you can use one of two approaches:
 >
 > 1. You can use application packages to distribute applications or data across each node in your Batch pool. For more information about application packages, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 > 2. You can manually create a zipped archive containing your applications files. Upload your zipped archive to Azure Storage as a blob. Specify the zipped archive as a resource file for your start task. Before you run the command line for your start task, unzip the archive from the command line. 
@@ -500,10 +502,9 @@ In situations where some of your tasks are failing, your Batch client applicatio
 
 ## Next steps
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-* Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
-* Download and install [BatchLabs][batch_labs] for use while you develop your Batch solutions. Use BatchLabs to help create, debug, and monitor Azure Batch applications. 
-* Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
-* Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
+* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](quick-run-dotnet.md) or [Python](quick-run-python.md). These quickstarts guide you through a sample application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+* Download and install [Batch Explorer][batch_labs] for use while you develop your Batch solutions. Use Batch Explorer to help create, debug, and monitor Azure Batch applications. 
+* See community resources including [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), the [Batch Community repo](https://github.com/Azure/Batch), and the [Azure Batch forum][batch_forum] on MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
@@ -513,7 +514,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -537,7 +538,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

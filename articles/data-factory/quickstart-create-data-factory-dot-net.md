@@ -11,13 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 03/28/2018
+ms.topic: quickstart
+ms.date: 02/20/2019
 ms.author: jingwang
-
 ---
+# Quickstart: Create a data factory and pipeline using .NET SDK
 
-# Create a data factory and pipeline using .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-dot-net.md)
@@ -29,76 +28,16 @@ This quickstart describes how to use .NET SDK to create an Azure data factory. T
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Prerequisites
-
-### Azure subscription
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
-
-### Azure roles
-To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription. In the Azure portal, click your **user name** at the top-right corner, and select **Permissions** to view the permissions you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
-
-### Azure Storage Account
-You use a general-purpose Azure Storage Account (specifically Blob Storage) as both **source** and **destination** data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
-
-#### Get storage account name and account key
-You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account. 
-
-1. Launch a Web browser and navigate to [Azure portal](https://portal.azure.com). Log in using your Azure user name and password. 
-2. Click **More services >** in the left menu, and filter with **Storage** keyword, and select **Storage accounts**.
-
-    ![Search for storage account](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
-3. In the list of storage accounts, filter for your storage account (if needed), and then select **your storage account**. 
-4. In the **Storage account** page, select **Access keys** on the menu.
-
-    ![Get storage account name and key](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
-5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it.  
-
-#### Create input folder and files
-In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named **input** in the container, and then upload a sample file to the input folder. 
-
-1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
-
-    ![Select Blobs option](media/quickstart-create-data-factory-dot-net/select-blobs.png)
-2. In the **Blob service** page, click **+ Container** on the toolbar. 
-
-    ![Add container button](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
-3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
-
-    ![Enter container name](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
-4. Click **adftutorial** in the list of containers. 
-
-    ![Select the container](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
-1. In the **Container** page, click **Upload** on the toolbar.  
-
-    ![Upload button](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
-6. In the **Upload blob** page, click **Advanced**.
-
-    ![Click Advanced link](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
-7. Launch **Notepad** and create a file named **emp.txt** with the following content: Save it in the **c:\ADFv2QuickStartPSH** folder: Create the folder **ADFv2QuickStartPSH** if it does not already exist.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. In the Azure portal, in the **Upload blob** page, browse, and select the **emp.txt** file for the **Files** field. 
-9. Enter **input** as a value **Upload to folder** filed. 
-
-    ![Upload blob settings](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
-10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
-11. You should see the **emp.txt** file and the status of the upload in the list. 
-12. Close the **Upload blob** page by clicking **X** in the corner. 
-
-    ![Close upload blob page](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
-1. Keep the **container** page open. You use it to verify the output at the end of this quickstart.
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Visual Studio
 The walkthrough in this article uses Visual Studio 2017. You can also use Visual Studio 2013 or 2015.
 
 ### Azure .NET SDK
-Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/) on your machine.
+Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
 
-### Create an application in Azure Active Directory
-Following instructions from the sections in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
+## Create an application in Azure Active Directory
+Following instructions from the sections in [this article](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
 
 1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. Get the **application ID** and **authentication key**, and note down these values that you use later in this tutorial. 
@@ -118,13 +57,12 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
 ## Install NuGet packages
 
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console**, run the following commands to install packages:
+2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
     ```
 
 ## Create a data factory client
@@ -142,7 +80,7 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Add the following code to the **Main** method that sets the variables. Replace the place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. Add the following code to the **Main** method that sets the variables. Replace the place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```csharp
     // Set variables
@@ -224,7 +162,7 @@ Add the following code to the **Main** method that creates an **Azure blob datas
 You define a dataset that represents the data to copy from a source to a sink. In this example, this Blob dataset references to the Azure Storage linked service you created in the previous step. The dataset takes a parameter whose value is set in an activity that consumes the dataset. The parameter is used to construct the "folderPath" pointing to where the data resides/stored.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -311,7 +249,7 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
@@ -356,7 +294,8 @@ Build and start the application, then verify the pipeline execution.
 
 The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
-### Sample output: 
+### Sample output
+
 ```json
 Creating data factory SPv2Factory0907...
 {

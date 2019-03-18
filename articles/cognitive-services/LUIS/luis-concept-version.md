@@ -1,17 +1,22 @@
 ---
-title: Understand versioning in LUIS - Azure | Microsoft Docs
-description: Learn how to use versions to manage changes in Language Understanding (LUIS)
+title: Versioning
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact app, then to try to unpeel and app's intent and utterances to a previous state.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: v-geberr
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 01/15/2019
+ms.author: diberry
 ---
 
-# Versions
+# Understand how and when to use a LUIS version
+
+Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact version, then to try to remove intents and utterances to a previous state.
+
 Create different models of the same app with [versions](luis-how-to-manage-versions.md). 
 
 ## Version ID
@@ -21,11 +26,11 @@ The version ID consists of characters, digits or '.' and cannot be longer than 1
 The initial version (0.1) is the default active version. 
 
 ## Active version
-To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS][LUIS] website. Set a version as active to access its data, make updates, as well as to test and publish it.
+To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS](luis-reference-regions.md) website. Set a version as active to access its data, make updates, as well as to test and publish it.
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
-[ ![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
@@ -47,7 +52,7 @@ In order to back up your LUIS app, export each version on the **[Settings](luis-
 You can delete all versions except the active version from the Versions list on Settings page. 
 
 ## Version availability at the endpoint
-Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
+Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
 ## Collaborators
 The owner and all [collaborators](luis-how-to-collaborate.md) have full access to all versions of the app.
@@ -57,5 +62,3 @@ The owner and all [collaborators](luis-how-to-collaborate.md) have full access t
 See how to add [versioning](luis-how-to-manage-versions.md) on the app settings page. 
 
 Learn how to design [intents](luis-concept-intent.md) into the model.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

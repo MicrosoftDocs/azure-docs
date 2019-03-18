@@ -22,7 +22,7 @@ ms.author: szark
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Prerequisites
-This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
+This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### SLES / openSUSE installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
@@ -34,7 +34,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 ## Use SUSE Studio
 [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
-As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## Prepare SUSE Linux Enterprise Server 11 SP4
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -45,7 +45,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
         # sudo zypper update
 5. Install the Azure Linux Agent from the SLES repository:
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. Check if waagent is set to "on" in chkconfig, and if not, enable it for autostart:
    
         # sudo chkconfig waagent on
@@ -115,7 +115,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     If the command returns "No repositories defined..." then use the following commands to add these repos:
    
         # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-        # sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
+        # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
     You can then verify the repositories have been added by running the command '`zypper lr`' again. In case one of the relevant update repositories is not enabled, enable it with following command:

@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
-ms.reviewer: jeffgo
+ms.reviewer: quying
+ms.lastreviewed: 10/16/2018
 
 ---
 
 # Create MySQL databases
+An Azure Stack user, subscribed to an offer that includes the MySQL database service, can create and manage self-service MySQL databases in the user portal.
 
-You can create and manage self-service databases in the user portal. An Azure Stack user needs a subscription with an offer that includes the MySQL database service.
-
-## Test your deployment by creating a MySQL database
+## Create a MySQL database
 
 1. Sign in to the Azure Stack user portal.
-2. Select **+ New** > **Data + Storage** > **MySQL Database** > **Add**.
+2. Select **+ Create a resource** > **Data + Storage** > **MySQL Database** > **Add**.
 3. Under **Create MySQL Database**, enter the Database Name, and configure the other settings as required for your environment.
 
     ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
 4. Under **Create Database**, select **SKU**. Under **Select a MySQL SKU**, pick the SKU for your database.
 
-    ![Select a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Select a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
     >As hosting servers are added to Azure Stack, they're assigned a SKU. Databases are created in the pool of hosting servers in a SKU.

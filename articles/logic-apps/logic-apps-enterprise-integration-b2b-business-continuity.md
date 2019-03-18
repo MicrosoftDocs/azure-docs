@@ -1,24 +1,18 @@
 ---
-title: Disaster recovery for B2B integration account - Azure Logic Apps | Microsoft Docs
-description: Logic Apps B2B disaster recovery
+title: Disaster recovery for B2B integration accounts - Azure Logic Apps | Microsoft Docs
+description: Get ready for cross-region disaster recovery in Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.author: LADocs; padmavc
-
 ---
 
-# Logic Apps B2B cross-region disaster recovery
+# Cross-region disaster recovery for B2B integration accounts in Azure Logic Apps
 
 B2B workloads involve money transactions like orders and invoices. 
 During a disaster event, it's critical for a business to quickly 
@@ -209,7 +203,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
    The trigger should be connected to a primary region integration account. 
 
 3. Enter a connection name, select your *primary region integration account* 
-from the list, and choose **Create**.    
+   from the list, and choose **Create**.    
 
    ![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
@@ -226,10 +220,10 @@ from the list, and choose **Create**.
    ![Add or update control numbers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. To connect an action to a secondary region integration account, 
-select **Change connection** > **Add new connection** for a 
-list of the available integration accounts. Enter a connection name, 
-select your *secondary region integration account* from the list, 
-and choose **Create**.
+   select **Change connection** > **Add new connection** for a 
+   list of the available integration accounts. Enter a connection name, 
+   select your *secondary region integration account* from the list, 
+   and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -238,7 +232,7 @@ and choose **Create**.
    ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Select Body from the dynamic content picker, 
-and save the logic app.   
+   and save the logic app.   
 
    ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 

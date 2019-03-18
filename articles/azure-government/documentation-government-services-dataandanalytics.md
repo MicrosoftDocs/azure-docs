@@ -1,21 +1,16 @@
 ---
-title: 'Azure Government Data + Analytics | Microsoft Docs'
+title: Azure Government Data + Analytics
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 author: jglixon
+ms.author: jglixon
 manager: zakramer
-
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/25/2017
-ms.author: jglixon
-
+ms.date: 07/30/2018
 ---
 # Azure Government Data + Analytics
 This article outlines the data and analytics services, variations, and considerations for the Azure Government environment.
@@ -29,7 +24,7 @@ The following HDInsight features are not currently available in Azure Government
 * HDInsight is not available on Windows.
 * Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option currently.
 
-The URLs for Log Analytics are different in Azure Government:
+The URLs for Azure Monitor logs are different in Azure Government:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
@@ -38,10 +33,12 @@ The URLs for Log Analytics are different in Azure Government:
 For secured virtual networks, you will want to allow Network Security Groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow the follow IP addresses (all with an Allowed port of 443):
 
 | Region | Allowed IP addresses | Allowed port |
-| ---- | ---- | ---- | ---- |
-| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
+| ---- | ---- | ---- |
+| USDoD Central | 52.180.249.174</br>52.180.250.239 | 443 |
+| USDoD East | 52.181.164.168</br>52.181.164.151 | 443 |
 | USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
-
+| USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
+| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
 

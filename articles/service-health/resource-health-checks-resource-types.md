@@ -1,20 +1,12 @@
 ---
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
-services: Resource health
-documentationcenter: ''
-author: BernardoAMunoz
-manager: ''
-editor: ''
-
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Supportability
-ms.date: 10/09/2017
-ms.author: BernardoAMunoz
+ms.topic: conceptual 
+ms.date: 01/29/2019
 ---
 
 # Resource types and health checks in Azure resource health
@@ -38,7 +30,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.CDN/profile
 |Executed Checks|
 |---|
-|<ul> <li>Has any of the endpoints been stopped, removed, or misconfigured?</li><li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
+|<ul> <li>Is the supplemental portal accessible for CDN configuration operations?</li><li>Are there ongoing delivery issues with the CDN endpoints?</li><li>Can users change the configuration of their CDN resources?</li><li>Are configuration changes propagating at the expected rate?</li><li>Can users manage the CDN configuration using the Azure portal, PowerShell, or the API?</li> </ul>|
 
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
@@ -85,7 +77,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.network/connections
 |Executed Checks|
 |---|
-|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premise device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
+|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premises device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|
@@ -97,6 +89,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li> Can runtime operations like registration, installation, or send be performed on the namespace?</li></ul>|
 
+## Microsoft.PowerBIDedicated/Capacities
+|Executed Checks|
+|---|
+|<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>|
+
 ## Microsoft.PowerBI/workspaceCollections
 |Executed Checks|
 |---|
@@ -106,6 +103,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Can diagnostics operations be performed on the cluster?</li></ul>|
+
+## Microsoft.ServiceBus/namespaces
+|Executed Checks|
+|---|
+|<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
 
 ## Microsoft.SQL/Server/database
 |Executed Checks|
@@ -135,4 +137,4 @@ Below is a complete list of all the checks executed through resource health by r
 # Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

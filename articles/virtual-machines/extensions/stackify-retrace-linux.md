@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services 
 ms.date: 04/12/2018
-ms.author: danis
+ms.author: roiyz
 
 ---
 # Stackify Retrace Linux Agent Extension
@@ -143,7 +143,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMExtension` command can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table.
+The `Set-AzVMExtension` command can be used to deploy the Stackify Retrace Linux Agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table.
 
 The extension requires the `environment` and `activationKey`.
 
@@ -151,7 +151,7 @@ The extension requires the `environment` and `activationKey`.
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `
