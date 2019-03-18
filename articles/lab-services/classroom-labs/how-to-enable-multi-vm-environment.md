@@ -28,13 +28,13 @@ Nested virtualization enables you to create virtual machines within a virtual ma
 For more information about nested virtualization, see the following articles:
 
 - [Nested Virtualization in Azure](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)
-- [How to enable nested virtualization in an Azure VM](../virtual-machines/windows/nested-virtualization.md)
+- [How to enable nested virtualization in an Azure VM](../../virtual-machines/windows/nested-virtualization.md)
 
 ## Use nested virtualization in Azure Lab Services
 The important steps are:
 
 1. Create a **large** sized **Windows** template machine for the lab. 
-2. Connect to it and [enable nested virtualization](../virtual-machines/windows/nested-virtualization.md).
+2. Connect to it and [enable nested virtualization](../../virtual-machines/windows/nested-virtualization.md).
 
 
 The following procedure gives you the detailed steps: 
@@ -70,7 +70,7 @@ The following procedure gives you the detailed steps:
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, select **Connect** to connect to the template VM to configure nested virtualization. You can also configure later after you complete the steps in this wizard. 
-9. Inside the template virtual machine, set up nested virtualization and configure a virtual network with multiple virtual machines. For detailed step-by-step instructions, see [How to enable nested virtualization in an Azure VM](../virtual-machines/windows/nested-virtualization.md). Here’s a quick summary of the steps: 
+9. Inside the template virtual machine, set up nested virtualization and configure a virtual network with multiple virtual machines. For detailed step-by-step instructions, see [How to enable nested virtualization in an Azure VM](../../virtual-machines/windows/nested-virtualization.md). Here’s a quick summary of the steps: 
     1. Enable the Hyper-V feature in the template virtual machine.
     2. Set up an internal virtual network with internet connectivity for the nested virtual machines
     3. Create virtual machines through the Hyper-V Manager
