@@ -58,11 +58,11 @@ Select the resource **ServiceFabric(mysfomsworkspace)**.
 
 In **Overview** you see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms_service_fabric_summary.png)
+![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
 
-![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms_service_fabric_solution.png)
+![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-solution.png)
 
  If you enabled diagnostics upon cluster creation, you can see events for 
 
@@ -77,7 +77,7 @@ The following image shows the home page of the Service Fabric Analytics solution
 
 On the Service Fabric Analytics page, click on the graph for **Cluster Events**.  The logs for all the system events that have been collected appear. For reference, these are from the **WADServiceFabricSystemEventsTable** in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
     
-![Query Operational Channel](media/service-fabric-tutorial-monitor-cluster/oms_service_fabric_events.png)
+![Query Operational Channel](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
 The query uses the Kusto query language, which you can modify to refine what you're looking for. For example, to find all actions taken on nodes in the cluster, you can use the following query. The event IDs used below are found in the [operational channel events reference](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -194,7 +194,7 @@ ServiceFabricReliableServiceEvent
 
 You can see different events for when the service runasync is started and completed which typically happens on deployments and upgrades.
 
-![Service Fabric Solution Reliable Services](media/service-fabric-tutorial-monitor-cluster/oms_reliable_services_events_selection.png)
+![Service Fabric Solution Reliable Services](media/service-fabric-tutorial-monitor-cluster/oms-reliable-services-events-selection.png)
 
 You can also find events for the reliable service with ServiceName == "fabric:/Watchdog/WatchdogService":
 
