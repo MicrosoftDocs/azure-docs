@@ -4,15 +4,15 @@ description: Learn how to create lifecycle policy rules to transition aging data
 services: storage
 author: yzheng-msft
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ---
 
-# Managing the Azure Blob storage Lifecycle
+# Manage the Azure Blob storage Lifecycle
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob storage lifecycle management (Preview) offers a rich, rule-based policy for GPv2 and Blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob storage lifecycle management offers a rich, rule-based policy for GPv2 and Blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
 
 The lifecycle management policy lets you:
 
@@ -37,33 +37,36 @@ The lifecycle management feature is available in all public Azure regions.
 
 ## Add or remove a policy 
 
-You can add, edit, or remove a policy using Azure portal, PowrShell, Azure CLI, REST APIs, or a client tool. 
+You can add, edit, or remove a policy by using the Azure portal, Azure PowerShell, the Azure CLI, REST APIs, or a client tool. This article shows how to manage policy by using the portal and PowerShell methods.  
+
+> [!NOTE]
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **All Resources** and then select your storage account.
+2. Select **All resources** and then select your storage account.
 
-3. Select **Lifecycle Management** grouped under Blob Service to view or change your policy.
+3. Under **Blob Service**, select **Lifecycle management** to view or change your policy.
 
 ### PowerShell
 
 ```powershell
 
-#Create a new Action object
+#Create a new action object
 
 $action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete -daysAfterModificationGreaterThan 2555
 $action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToArchive -daysAfterModificationGreaterThan 90
 $action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToCool -daysAfterModificationGreaterThan 30
 $action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -SnapshotAction Delete -daysAfterCreationGreaterThan 90
 
-# Create a new Filter Object
-# PowerShell automatically sets BlobType  as “blockblob” because it is the only available option currently
+# Create a new filter object
+# PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
 $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd 
 
-#Create a new Rule Object
-#PowerShell automatically sets Type  as “Lifecycle” because it is the only available option currently
+#Create a new fule object
+#PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
 #Set the policy 
@@ -71,8 +74,6 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ```
 
-> [!NOTE]
-If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## Policy
 
@@ -108,7 +109,7 @@ Each rule within the policy has several parameters:
 | Parameter name | Parameter type | Notes | Required |
 |----------------|----------------|-------|----------|
 | name           | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
-| enabled | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true is it is not set. | False | 
+| enabled | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it is not set. | False | 
 | type           | An enum value | The current valid type is `Lifecycle`. | True |
 | definition     | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
@@ -117,7 +118,7 @@ Each rule within the policy has several parameters:
 Each rule definition includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
 
 ### Sample rule
-The following sample rule filters the account to run the actions on obejcts that exist inside `container1` **AND** starts with `foo`.  
+The following sample rule filters the account to run the actions on objects that exist inside `container1` **AND** start with `foo`.  
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
@@ -179,7 +180,7 @@ Lifecycle management supports tiering and deletion of blobs and deletion of blob
 >[!NOTE] 
 If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
-The action execution conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
+The run conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
 
 | Action execution condition | Condition value | Description |
 |----------------------------|-----------------|-------------|
