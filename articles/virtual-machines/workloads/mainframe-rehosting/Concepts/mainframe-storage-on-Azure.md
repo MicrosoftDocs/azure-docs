@@ -53,7 +53,7 @@ following table summarizes. Learn more about [when to use each](https://docs.mic
 <tr><td>Azure Files
 </td>
 <td>
-Provides an SMB interface, client libraries, and a [REST](/rest/api/storageservices/file-service-rest-api) interface that allows access from anywhere to stored files.
+Provides an SMB interface, client libraries, and a <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> interface that allows access from anywhere to stored files.
 </td>
 <td><ul>
 <li>Lift and shift an application to the cloud when the application uses the native file system APIs to share data between it and other applications running in Azure.</li>
@@ -63,8 +63,7 @@ Provides an SMB interface, client libraries, and a [REST](/rest/api/storageservi
 </tr>
 <tr><td>Azure Blobs
 </td>
-<td>Provides client libraries and a [REST]/rest/api/storageservices/blob-service-rest-api) interface that allows unstructured data to be stored and accessed at a massive scale in block blobs. 
-Also supports [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) for enterprise big data analytics solutions.
+<td>Provides client libraries and a <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> interface that allows unstructured data to be stored and accessed at a massive scale in block blobs. Also supports <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> for enterprise big data analytics solutions.
 </td>
 <td><ul>
 <li>Support streaming and random-access scenarios in an application.</li>
@@ -74,7 +73,8 @@ Also supports [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-stor
 </tr>
 <tr><td>Azure Disks
 </td>
-<td>Provides client libraries and a [REST](/rest/api/compute/manageddisks/disks/disks-rest-api) interface that allows data to be persistently stored and accessed from an attached virtual hard disk.
+<td>Provides client libraries and a <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a>
+interface that allows data to be persistently stored and accessed from an attached virtual hard disk.
 </td>
 <td><ul>
 <li>Lift and shift applications that use native file system APIs to read and write data to persistent disks.</li>
