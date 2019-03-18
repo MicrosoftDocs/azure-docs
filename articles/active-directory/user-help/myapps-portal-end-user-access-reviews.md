@@ -23,9 +23,49 @@ You can use your work or school account with the web-based **My Apps** portal, t
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
-## View your access review information
-If your administrator has given you permission to view the **Access reviews** tile, you can view any access reviews awaiting your approval and you perform the access review.
+## Manage access reviews
+If your administrator has given you permission to conduct your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
 
+>[!Note]
+>If you don't see the **Access reviews** tile it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
+
+### To conduct access reviews
+
+1.	Sign in to your work or school account.
+
+2.	Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+
+    ![Apps page in the My Apps portal](media/myapps-portal/myapps-portal-apps-page.png)
+
+3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
+
+    ![Access reviews page with pending access reviews for the organization](media/myapps-portal/myapps-portal-access-reviews-page.png)
+
+4. Select **Begin review** to start your access review.
+
+5. Review your access and determine whether it's stil necessary.
+
+    ![Access review page, showing the review details](media/myapps-portal/myapps-portal-perform-access-reviews-page.png)
+
+    >[!Note]
+    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/en-us/azure/active-directory/governance/perform-access-review).
+
+6. Select **Yes** to keep your access or **No** to remove your access.
+
+    If you select **Yes**, you might need to specify a justification in the **Reason** box.
+
+    ![Access review page, showing the Reason box with sample text](media/myapps-portal/myapps-portal-perform-access-reviews-reasonbox.png)
+
+7. Select **Submit**.
+
+    Your access review is complete and you return to the **My Apps** portal.
+
+    >[!Note]
+    >You can change your access at any time until your access review period ends.
+    
+    >If you remove your access to an app or group, it's not removed immediately. The removal happens when the access review period ends or when an administrator closes the review. 
 
 ## Next steps
 
