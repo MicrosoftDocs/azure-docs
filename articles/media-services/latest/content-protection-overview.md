@@ -1,6 +1,6 @@
 ---
-title: Protect your content with Media Services dynamic encryption - Azure | Microsoft Docs
-description: This article gives an overview of content protection with Media Services dynamic encryption.
+title: Protect your content and use Media Services dynamic encryption - Azure | Microsoft Docs
+description: This article gives an overview of content protection using Media Services dynamic encryption.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,7 +17,7 @@ ms.author: juliako
 ms.custom: seodec18
 
 ---
-# Content protection with dynamic encryption
+# Content protection overview
 
 You can use Azure Media Services to secure your media from the time it leaves your computer through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
@@ -138,14 +138,15 @@ Smoth Streaming encrypted with PlayReady
 
 ### Browsers
 
-Common browsers support the following encription methods:
+Common browsers support the following DRM clients:
 
 |Browser|Encryption|
 |---|---|
 |Chrome|Widevine|
-|Firefox|Widevine, PlayReady|
-|Safari|FairPlay|
 |Edge, IE 11|PlayReady|
+|Firefox|Widevine|
+|Opera|Widevine|
+|Safari|FairPlay|
 
 ## AES-128 clear key vs. DRM
 
