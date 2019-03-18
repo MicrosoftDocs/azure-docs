@@ -44,7 +44,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 1. Replace Program.cs with the code provided below. This program demonstrates the capabilities of the Text Analytics API in three sections (language extraction, key-phrase extraction, and sentiment analysis).
 1. Replace the `Ocp-Apim-Subscription-Key` header value with an access key valid for your subscription.
-1. Replace the location in `Endpoint` to the endpoint you signed up for. You can find the endpoint in the overview of your Text Analytics resource in the [Azure portal](<https://ms.portal.azure.com>). Include only this portion of the endpoint: "https://[region].api.cognitive.microsoft.com".
+1. Replace the region in `Endpoint`. You can find your endpoint in the overview section of your Text Analytics resource in the [Azure portal](<https://ms.portal.azure.com>). Include only this portion of your endpoint: "https://[region].api.cognitive.microsoft.com".
 1. Run the program.
 
 ```csharp
