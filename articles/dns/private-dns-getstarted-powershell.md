@@ -191,7 +191,7 @@ Repeat for myVM02.
 
    Ping statistics for 10.2.0.4:
        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-   Approximate round trip times in milli-seconds:
+   Approximate round trip times in milliseconds:
        Minimum = 0ms, Maximum = 0ms, Average = 0ms
    PS C:\>
    ```
@@ -211,7 +211,3 @@ Next, you can learn more about private DNS zones.
 
 > [!div class="nextstepaction"]
 > [Using Azure DNS for private domains](private-dns-overview.md)
-
-
-
-
