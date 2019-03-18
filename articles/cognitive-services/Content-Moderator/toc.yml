@@ -89,8 +89,6 @@
       href: Review-Tool-User-Guide/SubTeams.md
     - name: Use tags
       href: Review-Tool-User-Guide/Tags.md
-    - name: Review images
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: Review text
       href: Review-Tool-User-Guide/Text-Reviews.md
     - name: Manage credentials
@@ -101,6 +99,8 @@
       href: Review-Tool-User-Guide/View-Dashboard.md
   - name: Define and use reviews
     items:
+    - name: Review tool (browser)
+      href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: REST API
       href: try-review-api-review.md
   - name: Define and use workflows
