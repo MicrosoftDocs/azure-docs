@@ -388,7 +388,7 @@ Project Brainwave makes it possible to achieve ultra-low latency for real-time i
 
 For a walkthrough of deploying a model using Project Brainwave, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
-## Testing web service deployments
+## Test web service deployments
 
 To test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
 
