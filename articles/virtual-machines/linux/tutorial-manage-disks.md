@@ -63,12 +63,7 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Over, 512 GB, the size is a P30.
 
 ### Premium disk performance
-
-| Premium SSD sizes | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
-|-------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
-| Disk size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,095 | 8,192 | 16,384 | 32,767 |
-| IOPS per disk | Up to 120 | Up to 240 | Up to 500 | Up to 1,100 | Up to 2,300 | Up to 5,000 | Up to 7,500 | Up to 7,500 | Up to 12,500 | Up to 15,000 | Up to 20,000 |
-| Throughput per disk | Up to 25 MiB/sec | Up to 50 MiB/sec | Up to 100 MiB/sec | Up to 125 MiB/sec | Up to 150 MiB/sec | Up to 200 MiB/sec | Up to 250 MiB/sec | Up to 250 MiB/sec| Up to 480 MiB/sec | Up to 750 MiB/sec | Up to 750 MiB/sec |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](sizes.md).
 
