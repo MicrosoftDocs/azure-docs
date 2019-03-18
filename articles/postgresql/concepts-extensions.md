@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 03/18/2019
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -93,16 +93,60 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [pgrouting](https://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 
 
-### Using pg_stat_statements
+### Time-series extensions
+
+> [!div class="mx-tableFixed"]
+> | **Extension** | **Description** |
+> |---|---|
+> | [TimescaleDB](https://docs.timescale.com/latest) | A time-series SQL database that supports automated partitioning for faster ingest and queries. Provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads. TimescaleDB is developed by and a registered trademark of [Timescale, Inc.](https://www.timescale.com/) |
+
+
+## pg_stat_statements
 The [pg\_stat\_statements extension](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) or the [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
-### Using dblink and postgres_fdw
+## dblink and postgres_fdw
 dblink and postgres_fdw allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON whitelists all Azure IPs.
 
 Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers.
+
+## TimescaleDB
+TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads.
+
+[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/).
+
+### Installing TimescaleDB
+To install TimescaleDB you need to include it in the server's shared preload libraries. A change to Postgres's shared preload libraries requires a restart to take effect.
+
+> [!NOTE]
+> TimescaleDB can be enabled on Azure Database for PostgreSQL versions 9.6 and 10
+
+Using the [Azure Portal](https://portal.azure.com/)
+
+1. Select your Azure Database for PostgreSQL server.
+
+2. On the left menu, select **Server Parameters**.
+
+3. Search for the `shared_preload_libraries` parameter.
+
+4. Copy and paste the following as the value for `shared_preload_libraries`:
+```
+timescaledb
+```
+
+5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
+
+6. After the notification, **restart** the server to apply these changes. To learn how to restart a server, see [Restart an Azure Database for PostgreSQL server](howto-restart-server-portal.md).
+
+
+You can now enable TimescaleDB in your desired Postgres database. Connect to the database and issue the following command:
+```sql
+CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
+```
+
+You can create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 
 ## Next steps
