@@ -36,7 +36,7 @@ Manual policy configuration grants lower-level access to the underlying platform
 Developers consuming the custom policy feature set should adhere to the following guidelines:
 
 - Become familiar with the configuration language of the custom policies and key/secrets management. For more information, see [TrustFrameworkPolicy](trustframeworkpolicy.md). 
-- Take ownership of scenarios and custom integrations. Document your work and inform your livesite organization.  
+- Take ownership of scenarios and custom integrations. Document your work and inform your live site organization.  
 - Perform methodical scenario testing. 
 - Follow software development and staging best practices with a minimum of one development and testing environment and one production environment. 
 - Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service. 
@@ -65,7 +65,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | IDP-SAML |  |   | X | For example, Salesforce, ADFS. |
 | IDP-WSFED | X |  |  |  |
 | Relying Party OAUTH1 |  |  |  | Not supported. |
-| Relying Party OAUTH2 |  |  | X | Not supported. |
+| Relying Party OAUTH2 |  |  | X |  |
 | Relying Party OIDC |  |  | X |  |
 | Relying Party SAML | X |  |  |  |
 | Relying Party WSFED | X |  |  | We have not recently invested here. |
@@ -79,8 +79,8 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Azure Active Directory as local directory |  |  | X |  |
 | Azure Email subsystem for 2FA |  |  | X |  |
 | Multi-language support|  |  | X |  |
-| Predicate Validations (e.g. Password complexity) |  |  | X |  |
-| Using 3rd party email service providers | X |  |  |  |
+| Predicate Validations |  |  | X | For example, password complexity. |
+| Using third party email service providers | X |  |  |  |
 
 ### Content Definition
 
