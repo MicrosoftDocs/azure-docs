@@ -53,10 +53,13 @@ The following diagram shows how managed service identities work with Azure virtu
 
 ![Managed service identities and Azure VMs](media/overview/msi-vm-vmextension-imds-example.png)
 
-|      | System-assigned managed identity | User-assigned managed identity |
+The following table lists the different properties of system-assigned managed identity and user-assigned managed identity. 
+
+|  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
-| Pros | Easy to create and manage <br/> Automatically destroyed when the VM is deprovisioned | More work involved to create and maintain <br/> Need to be manually removed when the VM is deprovisioned |
-| Cons | Need to create a new identity for every VM | The same user-assigned managed identity can be used across different VMs |
+| Creation | Easy to create | Easy to create, although it requires a few more steps to create than system-assigned managed identity |
+| Lifecycle | Automatically destroyed when the VM is deprovisioned | Needs to be manually removed when the VM is deprovisioned |
+| Re-use across VMs | Cannot be reused. <br/> Need to create a new identity for every VM | The same user-assigned managed identity can be used across different VMs |
 | When to use | For simple, single-VM applications or services that require access tokens for authentication. <br/> Applications that run on a single VM, that won't be reimaged frequently | Cross-platform applications that run on multiple VMs, but can share a single identity for authentication. <br/> Applications that run on VMs that need to be reimaged frequently. <br/> Automated agents that need to provision a single managed identity for an application running on a VM | 
 
 ### How a system-assigned managed identity works with an Azure VM
