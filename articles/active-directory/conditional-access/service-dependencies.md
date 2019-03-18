@@ -19,7 +19,7 @@ ms.date: 03/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand what service dependencies are in conditional access so that I can assess how policies are applied
+#Customer intent: As an IT admin, I need to understand what service dependencies are in conditional access so that I can assess how policies are applied
 
 ms.collection: M365-identity-device-management
 ---
