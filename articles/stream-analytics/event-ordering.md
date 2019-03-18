@@ -17,15 +17,15 @@ This article describes how to setup and use late arrival and out-of-order event 
 
 Your Stream Analytics job can process events based on either *event time* or *arrival time*. **Event/application time** is the timestamp present in event payload (when the event was generated). **Arrival time** is the timestamp when the event was received at the input source (Event Hubs/IoT Hub/Blob storage). 
 
-By default, Stream Analytics processes events by *arrival time*, but you can choose to process events by *event time* by using [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query. Late arrival and out-of-order policies are applicable only if you process events by event time. You should consider latency and correctness requirements for your scenario when configuring these settings. 
+By default, Stream Analytics processes events by *arrival time*, but you can choose to process events by *event time* by using [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query. Late arrival and out-of-order policies are applicable only if you process events by event time. Consider latency and correctness requirements for your scenario when configuring these settings. 
 
 ## What is late arrival policy?
 
-Sometimes events arrive late due to various reasons. For example, an event that arrives 40 seconds late will have event time = 00:10:00 and arrival time = 00:10:40. If you set the late arrival policy to 15 seconds, any event that arrives later than 15 seconds will either be dropped (not processed by Stream Analytics) or have their event time adjusted. In the example above, as the event arrived 40 seconds late (more than policy set), its event time will be adjusted to the maximum of late arrival policy 00:10:25 (arrival time - late arrival policy value). Default late arrival policy is 5 seconds.
+Sometimes events arrive late because of various reasons. For example, an event that arrives 40 seconds late will have event time = 00:10:00 and arrival time = 00:10:40. If you set the late arrival policy to 15 seconds, any event that arrives later than 15 seconds will either be dropped (not processed by Stream Analytics) or have their event time adjusted. In the example above, as the event arrived 40 seconds late (more than policy set), its event time will be adjusted to the maximum of late arrival policy 00:10:25 (arrival time - late arrival policy value). Default late arrival policy is 5 seconds.
 
 ## What is out-of-order policy? 
 
-Event may arrive out of order as well. After event time is adjusted based on late arrival policy, you can also choose to automatically drop or adjust events that are out-of-order. If you set this policy to 8 seconds, any events that arrive out of order but within the 8 second window are reordered by event time. Events that arrive later will be either dropped or adjusted to the maximum out-of-order policy value. Default out-of-order policy is 0 seconds. 
+Event may arrive out of order as well. After event time is adjusted based on late arrival policy, you can also choose to automatically drop or adjust events that are out-of-order. If you set this policy to 8 seconds, any events that arrive out of order but within the 8-second window are reordered by event time. Events that arrive later will be either dropped or adjusted to the maximum out-of-order policy value. Default out-of-order policy is 0 seconds. 
 
 ## Adjust or Drop events
 
@@ -45,9 +45,9 @@ Let us see an example of these policies in action.
 
 ## Can these settings delay output of my job? 
 
-Yes. By default, out-of-order policy is set to zero (00 minutes and 00 seconds). If you change this, your job's first output is delayed by this value (or greater). 
+Yes. By default, out-of-order policy is set to zero (00 minutes and 00 seconds). If you change the default, your job's first output is delayed by this value (or greater). 
 
-If one of the partitions of your inputs doesn't receive events, you should expect your output to be delayed by the late arrival policy value. To learn why, please read the InputPartition error section below. 
+If one of the partitions of your inputs doesn't receive events, you should expect your output to be delayed by the late arrival policy value. To learn why, read the InputPartition error section below. 
 
 ## I see LateInputEvents messages in my activity log. What should I do? 
 
