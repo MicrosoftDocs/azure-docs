@@ -31825,6 +31825,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/user-help/user-help-my-apps-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-introduction.md",
+      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-user-help",
+      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup.md",
       "redirect_url": "/azure/active-directory/user-help/user-help-register-device-on-network",
       "redirect_document_id": true
