@@ -84,7 +84,7 @@ When you configure Profiler, updates are made to the web app's settings. If your
 
 1. In the **Web App Control** pane, open **Settings**.
 
-1. Set **.Net Framework version** to **v4.6**.
+1. Set **.NET Framework version** to **v4.6**.
 
 1. Set **Always On** to **On**.
 
