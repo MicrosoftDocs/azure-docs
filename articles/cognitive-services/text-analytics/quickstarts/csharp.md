@@ -37,14 +37,14 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 >  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
 >
 > A few useful links:
-> - [SDK Nuget page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK Nuget page](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [SDK code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## Call the Text Analytics API using the SDK
+
 1. Replace Program.cs with the code provided below. This program demonstrates the capabilities of the Text Analytics API in three sections (language extraction, key-phrase extraction, and sentiment analysis).
 1. Replace the `Ocp-Apim-Subscription-Key` header value with an access key valid for your subscription.
-1. Replace the location in `Endpoint` to the endpoint you signed up for. You can find the endpoint on Azure portal resource. The endpoint typically starts with "https://[region].api.cognitive.microsoft.com", and in here only include protocol and hostname.
+1. Replace the location in `Endpoint` to the endpoint you signed up for. You can find the endpoint in the overview of your Text Analytics resource in the [Azure portal](<https://ms.portal.azure.com>). Include only this portion of the endpoint: "https://[region].api.cognitive.microsoft.com".
 1. Run the program.
 
 ```csharp
