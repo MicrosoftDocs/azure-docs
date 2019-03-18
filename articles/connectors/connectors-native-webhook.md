@@ -66,9 +66,9 @@ The webhook action then waits until that service calls the URL
 before the logic app resumes running. The logic app unsubscribes 
 from the service or endpoint in these cases: 
 
-* When the webhook action successfully finishes.
-* If the logic app run is canceled while waiting for a response.
-* Before the logic app times out.
+* When the webhook action successfully finishes
+* If the logic app run is canceled while waiting for a response
+* Before the logic app times out
 
 For example, the [**Send approval email**](connectors-create-api-office365-outlook.md) 
 action is an example of webhook action that follows this pattern. 
