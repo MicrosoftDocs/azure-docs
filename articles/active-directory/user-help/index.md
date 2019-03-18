@@ -139,6 +139,7 @@ We've created this content to help you set up and use security info, two-step ve
                         <a href="/azure/active-directory/user-help/myapps-portal-end-user-access">Access and use the My Apps portal</a><br/>
                         <a href="/azure/active-directory/user-help/myapps-portal-end-user-update-profile">Update your profile and account info</a><br/>
                         <a href="/azure/active-directory/user-help/myapps-portal-end-user-groups">Update your group-related info</a><br/>
+                        <a href="/azure/active-directory/user-help/myapps-portal-end-user-access-reviews">Perform your own access reviews</a><br/>
                         <a href="/azure/active-directory/user-help/myapps-portal-end-user-troubleshoot">Troubleshoot</a>
                         </p>
                     </div>
