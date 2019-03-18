@@ -72,7 +72,7 @@ When you connect your Microsoft and LinkedIn accounts, you allow Microsoft to pr
 
 Data that is accessed from Microsoft is not stored permanently with LinkedIn, except for Contacts. Microsoft Contacts are stored on LinkedIn until users remove them. Learn more about [deleting imported contacts from LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-For more information on LinkedIn’s use of personal data, see the [LinkedIn Privacy Policy](https://www.linkedin.com/legal/privacy-policy). For LinkedIn services, data transfer, and storage, data can flow from the European Union to the United States and back, and your privacy is protected as descibed in [European Union data transfers](https://www.linkedin.com/help/linkedin/answer/62533).
+For more information on LinkedIn’s use of personal data, see the [LinkedIn Privacy Policy](https://www.linkedin.com/legal/privacy-policy). For LinkedIn services, data transfer, and storage, data can flow from the European Union to the United States and back, and your privacy is protected as described in [European Union data transfers](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## Next steps
 

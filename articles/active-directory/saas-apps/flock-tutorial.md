@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -161,7 +161,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -210,7 +210,7 @@ To enable Azure AD users to log in to Flock, they must be provisioned into Flock
 
 	![Add Employee](./media/flock-tutorial/user2.png)
 
-4. Enter the email address of the user like **Brittasimon@contoso.com** and then select **Add Users**.
+4. Enter the email address of the user like **Brittasimon\@contoso.com** and then select **Add Users**.
 
 	![Add Employee](./media/flock-tutorial/user3.png)
 

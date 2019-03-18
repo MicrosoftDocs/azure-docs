@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -105,10 +105,12 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
     `https://<SUBDOMAIN>.coralogix.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL, such as:
-	| |
-	|--|
-	| `https://api.coralogix.com/saml/metadata.xml` |
-	| `https://aws-client-prod.coralogix.com/saml/metadata.xml` |
+	
+	`https://api.coralogix.com/saml/metadata.xml`
+
+	or
+
+	`https://aws-client-prod.coralogix.com/saml/metadata.xml` 
 
 	> [!NOTE]
 	> The sign-on URL value isn't real. Update the value with the actual sign-on URL. Contact the [Coralogix Client support team](mailto:info@coralogix.com) to get the value. You can also refer to the patterns in the **Basic SAML Configuration** section in the Azure portal.

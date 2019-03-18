@@ -7,7 +7,7 @@ author: tulasim88
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: qna-maker`
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
@@ -85,12 +85,12 @@ The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in A
 
 1. Get your knowledge base ID, host url, and the endpoint key from the settings tab of your knowledge base in the QnA Maker portal.
 
-    - Sign in to [QnA Maker](https://qnamaker.ai)
-    - Go to your knowledge base
-    - Select the **Settings** tab
-    - **Publish** your knowledge base, if not already done so
+   - Sign in to [QnA Maker](https://qnamaker.ai)
+   - Go to your knowledge base
+   - Select the **Settings** tab
+   - **Publish** your knowledge base, if not already done so
 
-    ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## Test the bot
 

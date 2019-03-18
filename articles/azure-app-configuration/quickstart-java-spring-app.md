@@ -26,7 +26,7 @@ You can use any code editor to complete the steps in this quickstart. However, [
 
 ## Prerequisites
 
-To complete this quickstart, install a supported [Java Development Kit (JDK)](https://aka.ms/azure-jdks) with version 8 and [Apache Maven](http://maven.apache.org/) with version 3.0 or above.
+To complete this quickstart, install a supported [Java Development Kit (JDK)](https://aka.ms/azure-jdks) with version 8 and [Apache Maven](https://maven.apache.org/) with version 3.0 or above.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

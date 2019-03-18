@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,14 +101,14 @@ First, enable Azure AD single sign-on in the Azure portal:
 
     ![Palo Alto Networks Captive Portal Basic SAML Configuration pane](common/idp-intiated.png)
 
-    1. For **Identifier**, enter a URL that has the pattern
-    `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. For **Identifier**, enter a URL that has the pattern
+      `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. For **Reply URL**, enter a URL that has the pattern
-    `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. For **Reply URL**, enter a URL that has the pattern
+      `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-	> [!NOTE]
-	> Update the placeholder values in this step with the actual identifier and reply URLs. To get the actual values, contact [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Update the placeholder values in this step with the actual identifier and reply URLs. To get the actual values, contact [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
 
 5. In the **SAML Signing Certificate** section, next to **Federation Metadata XML**, select **Download**. Save the downloaded file on your computer.
 
@@ -156,7 +156,7 @@ Next, create a test user named *Britta Simon* in the Azure portal:
 
     1. For **Name**, enter **BrittaSimon**.
   
-    2. For **User name**, enter **BrittaSimon@\<your_company_domain\>**. For example, **BrittaSimon@contoso.com**.
+    2. For **User name**, enter **BrittaSimon\@\<your_company_domain\>**. For example, **BrittaSimon\@contoso.com**.
 
     3. For **Password**, enter a password. We recommend that you keep a record of the password you enter. You can select the **Show Password** check box to display the password.
 

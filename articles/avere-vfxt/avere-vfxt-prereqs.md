@@ -147,7 +147,7 @@ You must create the cluster node role before you can create the Avere vFXT for A
 
 The role name is used when creating the cluster. In this example, the name is ``avere-operator``.
 
-## (Optional) Create a storage service endpoint in your virtual network
+## Create a storage service endpoint in your virtual network (if needed)
 
 A [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network. It is recommended for any Avere vFXT for Azure cluster that uses Azure Blob for back-end data storage. 
 
@@ -168,7 +168,7 @@ Create the storage service endpoint from the Azure portal.
 1. Leave the service as ``Microsoft.Storage`` and choose the cluster's subnet.
 1. At the bottom, click **Add**.
 
-  ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
+   ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
 
 
 ## Next step: Create the vFXT cluster

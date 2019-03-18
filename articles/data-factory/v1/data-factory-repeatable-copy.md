@@ -119,7 +119,7 @@ Source table:
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL
 	)
-	```
+    ```
 
 Destination table: 
 
@@ -129,9 +129,9 @@ Destination table:
        [Name] [nvarchar](256) NOT NULL,
        [AdfSliceIdentifier] [binary](32) NULL
 	)
-	```
+    ```
 
-2. Use it in the copy activity as follows:
+1. Use it in the copy activity as follows:
    
     ```json
     "sink":  

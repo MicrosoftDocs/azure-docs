@@ -200,7 +200,7 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 	c. In **Last Name** text box, enter the last name of user like **Simon**.
 
-	d. In **E-mail Address** text box, enter the email of user like **Brittasimon@contoso.com**.
+	d. In **E-mail Address** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	e. In the **Password** text box, enter your password.
 	

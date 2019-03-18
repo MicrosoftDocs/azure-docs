@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-This feature requires one Azure AD Premium license for you as the gobal administrator of the tenant. If you don't have one, in Azure AD, select **Licenses** > **Products** > **Try/Buy**.
+This feature requires one Azure AD Premium license for you as the global administrator of the tenant. If you don't have one, in Azure AD, select **Licenses** > **Products** > **Try/Buy**.
 
 You're not required to assign licenses to the users for them to be members in dynamic groups. You only need the minimum number of available Azure AD Premium P1 licenses in the tenant to cover all such users. 
 
@@ -41,18 +41,18 @@ You're not required to assign licenses to the users for them to be members in dy
 
 First, you'll create a group for your guest users who all are from a single partner company. They need special licensing, so it's often more efficient to create a group for this purpose.
 
-1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the gobal administrator for your tenant.
+1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your tenant.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
-  ![select the new group command](./media/groups-dynamic-tutorial/new-group.png)
+   ![select the new group command](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
   
-  * Select **Security** as the group type
-  * Enter `Guest users Contoso` as the name and description for the group
-  * Change **Membership type** to **Dynamic User**
-  * Select **Add dynamic query**
+   * Select **Security** as the group type
+   * Enter `Guest users Contoso` as the name and description for the group
+   * Change **Membership type** to **Dynamic User**
+   * Select **Add dynamic query**
   
 4. Select **Advanced rule**, and in the **Advanced rule** box, enter:
-  `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
+   `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Select **Add query** to close the blade.
 6. On the **Group** blade, select **Create** to create the group.
 

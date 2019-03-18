@@ -13,7 +13,7 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
 
@@ -79,7 +79,7 @@ For a complete example of a large scale set template, refer to [https://github.c
 ## Converting an existing scale set to span multiple placement groups
 To make an existing virtual machine scale set capable of scaling to more than 100 VMs, you need to change the _singlePlacementGroup_ property to _false_ in the scale set model. You can test changing this property with the [Azure Resource Explorer](https://resources.azure.com/). Find an existing scale set, select _Edit_ and change the _singlePlacementGroup_ property. If you do not see this property, you may be viewing the scale set with an older version of the Microsoft.Compute API.
 
->[!NOTE] 
-You can change a scale set from supporting a single placement group only (the default behavior) to a supporting multiple placement groups, but you cannot convert the other way around. Therefore make sure you understand the properties of large scale sets before converting.
+> [!NOTE]
+> You can change a scale set from supporting a single placement group only (the default behavior) to a supporting multiple placement groups, but you cannot convert the other way around. Therefore make sure you understand the properties of large scale sets before converting.
 
 

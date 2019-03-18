@@ -3,7 +3,6 @@ title: "Business continuity and disaster recovery in Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: "lisaguthrie"
 ms.author: "lcozzens"
 ms.date: "01/28/2019"

@@ -29,52 +29,52 @@ Although a **suggester** has several properties, it is primarily a collection of
 
 You can have only one **suggester** resource for each index (specifically, one **suggester** in the **suggesters** collection).
 
-## Creating a suggester 
+## Creating a suggester
 
-You can create a **suggester** at any time, but the impact on your index varies based on the fields. 
+You can create a **suggester** at any time, but the impact on your index varies based on the fields.
 
 + New fields added to a suggester as part of the same update are the least impactful in that no index rebuild is required.
 + Existing fields added to a suggester, however, changes the field definition, necessitating a full rebuild of the index.
 
- **Suggesters** work best when used to suggest specific documents rather than loose terms or phrases. The best candidate fields are titles, names, and other relatively short phrases that can identify an item. Less effective are repetitive fields, such as categories and tags, or very long fields such as descriptions or comments fields.  
+**Suggesters** work best when used to suggest specific documents rather than loose terms or phrases. The best candidate fields are titles, names, and other relatively short phrases that can identify an item. Less effective are repetitive fields, such as categories and tags, or very long fields such as descriptions or comments fields.
 
-After a suggester is created, add the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) in your query logic to invoke the feature.  
+After a suggester is created, add the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) in your query logic to invoke the feature.
 
-Properties that define a **suggester** include the following:  
+Properties that define a **suggester** include the following:
 
-|Property|Description|  
-|--------------|-----------------|  
-|`name`|The name of the **suggester**. You use the name of the **suggester** when calling the [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|  
-|`searchMode`|The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.|  
-|`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used. |  
+|Property|Description|
+|--------------|-----------------|
+|`name`|The name of the **suggester**. You use the name of the **suggester** when calling the [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|
+|`searchMode`|The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.|
+|`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used. |
 
-## Suggester example  
- A **suggester** is part of the index definition. Only one **suggester** can exist in the **suggesters** collection in the current version, alongside the **fields** collection and **scoringProfiles**.  
+## Suggester example
+A **suggester** is part of the index definition. Only one **suggester** can exist in the **suggesters** collection in the current version, alongside the **fields** collection and **scoringProfiles**.
 
-```  
-{  
-  "name": "hotels",  
-  "fields": [  
-     . . .   
-   ],  
-  "suggesters": [  
-    {  
-    "name": "sg",  
-    "searchMode": "analyzingInfixMatching",  
-    "sourceFields": ["hotelName", "category"]  
-    }  
-  ],  
-  "scoringProfiles": [  
-     . . .   
-  ]  
-}  
+```
+{
+  "name": "hotels",
+  "fields": [
+    . . .
+  ],
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["hotelName", "category"]
+    }
+  ],
+  "scoringProfiles": [
+    . . .
+  ]
+}
 
-```  
+```
 
-## See also  
- [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [Update Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)   
- [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)   
- [Index operations &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)   
- [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+## See also
+[Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+[Update Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  
+[Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  
+[Index operations &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  
+[Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  
+[Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

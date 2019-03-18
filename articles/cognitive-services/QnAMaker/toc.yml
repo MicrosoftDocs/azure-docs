@@ -68,6 +68,7 @@
   items:
   - name: Knowledge base
     href: Concepts/knowledge-base.md
+    displayName: metadata, pair
   - name: Development lifecyle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
@@ -78,6 +79,7 @@
     href: Concepts/confidence-score.md
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
+    displayName: metadata, pair
 - name: How-to guides
   items:
   - name: Manage knowledge base
@@ -90,6 +92,7 @@
       href: Tutorials/migrate-knowledge-base.md
     - name: Edit a knowledge base
       href: How-To/edit-knowledge-base.md
+      displayName: metadata, pair
     - name: Collaborate on a knowledge base
       href: How-To/collaborate-knowledge-base.md      
     - name: Create a knowledge base in a different language

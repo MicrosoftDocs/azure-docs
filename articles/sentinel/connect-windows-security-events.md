@@ -31,8 +31,8 @@ You can stream all security events from the Windows Servers connected to your Az
 - **Minimal** - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.
 - **None** - No security or AppLocker events.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Set up the Windows security events connector

@@ -8,13 +8,15 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
 ---
 
 # Quickstart: Communicate to device applications in C# via IoT Hub device streams (preview)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub device streams](./iot-hub-device-streams-overview.md) allow service and device applications to communicate in a secure and firewall-friendly manner. This quickstart involves two C# programs that leverage device streams to send data back and forth (echo).
 
@@ -23,6 +25,11 @@ ms.author: rezas
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+
+  - **Central US**
+  - **Central US EUAP**
 
 The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
 
@@ -135,7 +142,7 @@ dotnet run "<DeviceConnectionString>"
 dotnet run <DeviceConnectionString>
 ```
 
-At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echos back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
+At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echoes back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
 
 Console output on the device-side:
 ![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Console output on the device-side")

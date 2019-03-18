@@ -94,7 +94,7 @@ This scenario assumes that a user:
 
 - Is able to access email
 
-Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc (if configured for the application and platform).
+Any Intune app protection policies are activated at the time the access corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform).
 
 ### Configuration 
 
@@ -289,13 +289,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require one of the selected controls**   
+   - **Require one of the selected controls**   
  
-    ![Conditional access](./media/app-based-conditional-access/11.png)
+     ![Conditional access](./media/app-based-conditional-access/11.png)
 
 
 
@@ -385,13 +385,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require all the selected controls**   
+   - **Require all the selected controls**   
  
-    ![Conditional access](./media/app-based-conditional-access/13.png)
+     ![Conditional access](./media/app-based-conditional-access/13.png)
 
 
 
@@ -417,13 +417,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require all the selected controls**   
+   - **Require all the selected controls**   
  
-    ![Conditional access](./media/app-based-conditional-access/64.png)
+     ![Conditional access](./media/app-based-conditional-access/64.png)
 
 
 

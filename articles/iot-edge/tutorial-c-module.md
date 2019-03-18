@@ -118,7 +118,7 @@ The environment file stores the credentials for your container registry and shar
 
 Add code to your C module that allows it to read in data from the sensor, check whether the reported machine temperature has exceeded a safe threshold, and pass that information on to IoT Hub.
 
-5. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
    1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** folder.
 
@@ -135,19 +135,19 @@ Add code to your C module that allows it to read in data from the sensor, check 
 
    4. Save the **CMakeLists.txt** file.
 
-   5. Open **modules** > **CModule** > **main.c**. At the buttom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Open **modules** > **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"
       ```
 
-6. In the **main.c** file, add a global variable called `temperatureThreshold` after the include section. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+1. In the **main.c** file, add a global variable called `temperatureThreshold` after the include section. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. Replace the entire `CreateMessageInstance` function with the following code. This function allocates a context for the callback.
+1. Replace the entire `CreateMessageInstance` function with the following code. This function allocates a context for the callback.
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -181,7 +181,7 @@ Add code to your C module that allows it to read in data from the sensor, check 
     }
     ```
 
-8. Replace the entire `InputQueue1Callback` function with the following code. This function implements the actual messaging filter.
+1. Replace the entire `InputQueue1Callback` function with the following code. This function implements the actual messaging filter.
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -243,7 +243,7 @@ Add code to your C module that allows it to read in data from the sensor, check 
     }
     ```
 
-9. Add a `moduleTwinCallback` function. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
+1. Add a `moduleTwinCallback` function. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
 
     ```c
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
@@ -261,35 +261,35 @@ Add code to your C module that allows it to read in data from the sensor, check 
     }
     ```
 
-10. Replace the `SetupCallbacksForModule` function with the following code.
+1. Replace the `SetupCallbacksForModule` function with the following code.
 
-    ```c
-    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
-    {
-        int ret;
+   ```c
+   static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
+   {
+       int ret;
 
-        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else
-        {
-            ret = 0;
-        }
+       if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else
+       {
+           ret = 0;
+       }
 
-        return ret;
-    }
-    ```
+       return ret;
+   }
+   ```
 
-11. Save the main.c file.
+1. Save the main.c file.
 
-12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
+1. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
    1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **CModule** is set to the Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** if that is your IoT Edge device's architecture. 
 
@@ -301,19 +301,19 @@ Add code to your C module that allows it to read in data from the sensor, check 
 
    4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
-13. Add the CModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
+1. Add the CModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
 
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
+   ```json
+       "CModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
 
    ![Add CModule twin to deployment template](./media/tutorial-c-module/module-twin.png)
 
-14. Save the **deployment.template.json** file.
+1. Save the **deployment.template.json** file.
 
 ## Build and push your solution
 

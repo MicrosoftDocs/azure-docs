@@ -131,7 +131,7 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 1. **Log into Azure Pipelines** to confirm ability to create build definitions.
 
-2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
+2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .NET Core.
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -150,9 +150,9 @@ Azure DevOps and Azure DevOps Server provide a highly configurable and manageabl
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Select the **plus** button to add a new Release under the **Releases tab** in the Build and Release page of Visual Studio Online (VSO).
+1. Select the **plus** button to add a new Release under the **Releases tab** in the Build and Release page of Visual Studio Online (VSO).
 
-    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Apply the **Azure App Service Deployment** template.
 
@@ -206,7 +206,7 @@ Azure DevOps and Azure DevOps Server provide a highly configurable and manageabl
 
 14. Select the **subscription** for the Azure Stack endpoint.
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Set the Azure Stack web app name as the **App service name**.
 
@@ -295,11 +295,11 @@ The following screenshot is an example of a DNS records page:
 
 ![Example DNS records page](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  In Domain Name Registrar, select **Add or Create** to create a record. Some providers have different links to add different record types. Consult the provider's documentation.
+1. In Domain Name Registrar, select **Add or Create** to create a record. Some providers have different links to add different record types. Consult the provider's documentation.
 
-2.  Add a CNAME record to map a subdomain to the app's default hostname.
+2. Add a CNAME record to map a subdomain to the app's default hostname.
 
-  For the www.northwindcloud.com domain example, add a CNAME record that maps the name to <app\_name>.azurewebsites.net.
+   For the www.northwindcloud.com domain example, add a CNAME record that maps the name to <app\_name>.azurewebsites.net.
 
 After adding the CNAME, the DNS records page looks like the following example:
 
@@ -307,47 +307,47 @@ After adding the CNAME, the DNS records page looks like the following example:
 
 ### Enable the CNAME record mapping in Azure
 
-1.  In a new tab, sign in to the Azure portal,
+1. In a new tab, sign in to the Azure portal,
 
-2.  Navigate to App Services.
+2. Navigate to App Services.
 
-3.  Select web app.
+3. Select web app.
 
-4.  In the left navigation of the app page in the Azure portal, select **Custom domains**.
+4. In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
-5.  Select the **+** icon next to **Add hostname**.
+5. Select the **+** icon next to **Add hostname**.
 
-1.  Type the fully qualified domain name, such as `www.northwindcloud.com`.
+1. Type the fully qualified domain name, such as `www.northwindcloud.com`.
 
-2.  Select **Validate**.
+2. Select **Validate**.
 
-3.  If indicated, add additional records of other types (`A` or `TXT`) to the domain name registrars DNS records. Azure will provide the values and types of these records:
+3. If indicated, add additional records of other types (`A` or `TXT`) to the domain name registrars DNS records. Azure will provide the values and types of these records:
 
-    a.  An **A** record to map to the app's IP address.
+   a.  An **A** record to map to the app's IP address.
 
-    b.  A **TXT** record to map to the app's default hostname <app_name>.azurewebsites.net. App Service uses this record only at configuration time, to verify custom domain ownership. After verification, delete the TXT record.
+   b.  A **TXT** record to map to the app's default hostname <app_name>.azurewebsites.net. App Service uses this record only at configuration time, to verify custom domain ownership. After verification, delete the TXT record.
 
-4.  Complete this task in the domain registrar tab and revalidate until the **Add hostname** button is activated.
+4. Complete this task in the domain registrar tab and revalidate until the **Add hostname** button is activated.
 
-5.  Make sure that **Hostname record type is set to **CNAME (www.example.com or any subdomain)**.
+5. Make sure that **Hostname record type is set to **CNAME (www.example.com or any subdomain)**.
 
-6.  Select **Add hostname**.
+6. Select **Add hostname**.
 
-7.  Type the fully qualified domain name, such as `northwindcloud.com`.
+7. Type the fully qualified domain name, such as `northwindcloud.com`.
 
-8.  Select **Validate**.
+8. Select **Validate**.
 
-9.  The **Add** is activated.
+9. The **Add** is activated.
 
 10. Make sure that **Hostname record type is set to **A record (example.com)**.
 
 11. **Add hostname**.
 
-  It might take some time for the new hostnames to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+    It might take some time for the new hostnames to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
   
-  ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  In the case of an error, a verification error notification will appear at the bottom of the page. ![Verification error](media/azure-stack-solution-geo-distributed/image32.png)
+    In the case of an error, a verification error notification will appear at the bottom of the page. ![Verification error](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  The above steps may be repeated to map a wildcard domain (\*.northwindcloud.com).. This allows the addition of any additional subdomains to this app service without having to create a separate CNAME record for each one. Follow the registrar instructions to configure this setting.
@@ -478,15 +478,15 @@ When IIS or **Certreq.exe** are used to generate the certificate request, instal
 
 #### Upload the SSL certificate
 
-1.  Select **SSL settings** in the left navigation of the web app.
+1. Select **SSL settings** in the left navigation of the web app.
 
-2.  Select **Upload Certificate**.
+2. Select **Upload Certificate**.
 
-3.  In **PFX Certificate File**, select PFX file.
+3. In **PFX Certificate File**, select PFX file.
 
-4.  4. In **Certificate password**, type the password created when exporting the PFX file.
+4. 1. In **Certificate password**, type the password created when exporting the PFX file.
 
-5.  Select **Upload**.
+5. Select **Upload**.
 
 ![Upload certificate](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -503,9 +503,9 @@ When App Service finishes uploading the certificate, it appears in the **SSL set
 
 1.  In the **Add SSL Binding** page, use the drop downs to select the domain name to secure, and the certificate to use.
 
-2.  In **SSL Type**, select whether to use [**Server Name Indication (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)or IP-based SSL.
+2.  In **SSL Type**, select whether to use [**Server Name Indication (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)or IP-based SSL.
 
--   **SNI-based SSL**- Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SNI-based SSL**- Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **IP-based SSL**- Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, secure them all using the same SSL certificate. This is the traditional option for SSL binding.
 
@@ -529,7 +529,7 @@ The **Custom domain** page is updated with the new, dedicated IP address. Copy t
 
 #### Test HTTPS
 
-In various browsers, browse to https://<your.custom.domain>to ensure the web ap is served.
+In various browsers, browse to https://<your.custom.domain>to ensure the web app is served.
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image42.png)
 
@@ -584,23 +584,23 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 
 ### Add Traffic Manager endpoints
 
-1.  In the portals search bar, search for the **Traffic Manager profile **name created in the preceding section and select the traffic manager profile in the results that the displayed.
+1. In the portals search bar, search for the **Traffic Manager profile **name created in the preceding section and select the traffic manager profile in the results that the displayed.
 
-2.  In **Traffic Manager profile**, in the **Settings** section, select **Endpoints**.
+2. In **Traffic Manager profile**, in the **Settings** section, select **Endpoints**.
 
-3.  Select **Add**.
+3. Select **Add**.
 
-4.  Adding the Azure Stack Endpoint.
+4. Adding the Azure Stack Endpoint.
 
-5.  For **Type**, select **External endpoint**.
+5. For **Type**, select **External endpoint**.
 
-6.  Provide a **Name** for this endpoint, ideally the name of the Azure Stack.
+6. Provide a **Name** for this endpoint, ideally the name of the Azure Stack.
 
-7.  For fully qualified domain name (**FQDN**), the use external URL for the Azure Stack Web App.
+7. For fully qualified domain name (**FQDN**), the use external URL for the Azure Stack Web App.
 
-8.  Under Geo-mapping, select a region/continent where the resource is located, for example, **Europe.**
+8. Under Geo-mapping, select a region/continent where the resource is located, for example, **Europe.**
 
-9.  Under the Country/Region drop-down that appears, select the country that will apply to this endpoint, for example, **Germany**.
+9. Under the Country/Region drop-down that appears, select the country that will apply to this endpoint, for example, **Germany**.
 
 10. Keep **Add as disabled** unchecked.
 
@@ -624,12 +624,12 @@ The app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by
 
 16. Select **OK**
 
-  > [!Note]  
-  >  Create at least one endpoint with a geographic scope of All (World) to serve as the default endpoint for the resource.
+    > [!Note]  
+    >  Create at least one endpoint with a geographic scope of All (World) to serve as the default endpoint for the resource.
 
-1.  When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
+1. When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
-  ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Global Enterprise relies on Azure Geo-Distribution capabilities**
 

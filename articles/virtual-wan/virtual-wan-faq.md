@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: 
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.

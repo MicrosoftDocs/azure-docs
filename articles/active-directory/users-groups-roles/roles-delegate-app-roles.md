@@ -35,8 +35,8 @@ To grant the ability to manage application access in the Azure portal:
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator role in the tenant.
 2. When you have sufficient permissions, open the [Roles and administrators page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Open one of the following roles to see its member assignments:
-  * **Application administrator**
-  * **Cloud application administrator**
+   * **Application administrator**
+   * **Cloud application administrator**
 4. On the **Members** page for the role, select **Add member**.
 5. Select one or more members to add to the role. <!--Members can be users or groups.-->
 
@@ -48,8 +48,8 @@ By default, all users can create application registrations, but you can selectiv
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator role in the tenant.
 2. When you have obtained sufficient permissions, set one or both of the following:
-  * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
-  * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
+   * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
+   * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
 3. Then assign users needing this permission to be members of the Application developer role as needed.
 
 When a user registers an application, they are automatically added as the first owner for the application.

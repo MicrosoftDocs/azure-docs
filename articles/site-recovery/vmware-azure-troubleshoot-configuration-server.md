@@ -20,9 +20,9 @@ The source machine registers with the configuration server when you install the 
 1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (The ProgramData folder might be a hidden folder. If you don't see the ProgramData folder, in File Explorer, on the **View** tab, in the **Show/hide** section, select the **Hidden items** check box.) Failures might be caused by multiple issues.
 
 2. Search for the string **No Valid IP Address found**. If the string is found:
-    1. Verify that the requested host ID is the same as the host ID of the source machine.
-    2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
-    3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
+   1. Verify that the requested host ID is the same as the host ID of the source machine.
+   2. Verify that the source machine has at least one IP address assigned to the physical NIC. For agent registration with the configuration server to succeed, the source machine must have at least one valid IP v4 address assigned to the physical NIC.
+   3. Run one of the following commands on the source machine to get all the IP addresses of the source machine:
       - For Windows: `> ipconfig /all`
       - For Linux: `# ifconfig -a`
 
@@ -79,7 +79,7 @@ A certificate that's required to authenticate Site Recovery can't be created. Re
 
 ## Failure to activate Windows Licence from Server Standard EVALUATION to Server Standard
 
-1. As part of Configuration server deployment through OVF, an evaluation licence is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+1. As part of Configuration server deployment through OVF, an evaluation license is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
 2. If you are unable to activate Windows license, reach out to [Windows support team](https://aka.ms/Windows_Support) to resolve the issue.
 
 ## Register source machine with configuration server

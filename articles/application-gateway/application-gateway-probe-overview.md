@@ -31,7 +31,7 @@ If the default probe check fails for server A, the application gateway removes i
 
 ### Probe Matching
 
-By default, an HTTP(S) response with status code 200 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what constitutes a healthy response.
+By default, an HTTP(S) response with status code between 200 and 399 is considered healthy. Custom health probes additionally support two matching criteria. Matching criteria can be used to optionally modify the default interpretation of what constitutes a healthy response.
 
 The following are matching criteria: 
 
@@ -60,7 +60,7 @@ Once the match criteria is specified, it can be attached to probe configuration 
 > [!NOTE]
 > The port is the same port as the back-end HTTP settings.
 
-The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes.
+The default probe looks only at http:\//127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes.
 
 ### Probe intervals
 

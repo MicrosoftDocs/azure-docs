@@ -26,17 +26,17 @@ Example scenarios include the following:
 
 1. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). 
 
-  Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
+   Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
 
 2. Use a filter if the search experience comes with a filter requirement:
 
- * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
- * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
- * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
+   * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
+   * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+   * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
 3. Use a filter if you want search criteria on a numeric field. 
 
-  Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
+   Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
 
 ### Alternative methods for reducing scope
 

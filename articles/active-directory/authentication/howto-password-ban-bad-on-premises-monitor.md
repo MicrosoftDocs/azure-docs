@@ -314,7 +314,7 @@ Text logging is disabled by default. A restart of the Proxy service is required 
 
 PowerShell cmdlets that result in a state change (for example, Register-AzureADPasswordProtectionProxy) will normally log an outcome event to the Operational log.
 
-In addtional, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
+In addition, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
