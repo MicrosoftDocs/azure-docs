@@ -118,12 +118,12 @@ TimescaleDB is a time-series database that is packaged as an extension for Postg
 [Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/).
 
 ### Installing TimescaleDB
-To install TimescaleDB you need to include it in the server's shared preload libraries. A change to Postgres's shared preload libraries requires a **server reboot** to take effect.
+To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's shared preload libraries requires a **server reboot** to take effect.
 
 > [!NOTE]
 > TimescaleDB can be enabled on Azure Database for PostgreSQL versions 9.6 and 10
 
-Using the [Azure Portal](https://portal.azure.com/)
+Using the [Azure portal](https://portal.azure.com/)
 
 1. Select your Azure Database for PostgreSQL server.
 
@@ -141,7 +141,7 @@ timescaledb
 6. After the notification, **restart** the server to apply these changes. To learn how to restart a server, see [Restart an Azure Database for PostgreSQL server](howto-restart-server-portal.md).
 
 
-You can now enable TimescaleDB in your desired Postgres database. Connect to the database and issue the following command:
+You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
