@@ -54,7 +54,7 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 ### Import errors
 
-* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different tokenizer than the app currently uses. To fix this you either need to change the tokenizer version in the app file, then import the version, or you need to import the file as an app. This means the new app has a different app ID but uses the tokenizer version specified in the file. 
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different tokenizer than the app currently uses. To fix this, you have two choices. Your first choice is to change the tokenizer version in the app file, then import the version. This changes how the utterances are tokenized but allows you to keep the same app ID. The second choice is to [import the file as an app](luis-how-to-start-new-app.md#import-an-app-from-file), instead of a version. This means the new app has a different app ID but uses the tokenizer version specified in the file. 
 
 <a name = "export-version"></a>
 
