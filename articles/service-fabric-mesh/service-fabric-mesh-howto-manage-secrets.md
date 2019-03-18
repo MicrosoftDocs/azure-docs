@@ -211,9 +211,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - A secret cannot be deleted while it is being referenced by a Mesh application.
 - Deleting a Secrets resource deletes all Secrets/Resources versions.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### List Secrets in Subscription
 ```azurecli-interactive

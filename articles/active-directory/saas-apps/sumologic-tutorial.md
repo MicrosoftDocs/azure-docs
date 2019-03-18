@@ -104,7 +104,8 @@ To configure Azure AD single sign-on with SumoLogic, perform the following steps
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<tenantname>.SumoLogic.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+   b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<tenantname>.us2.sumologic.com` |

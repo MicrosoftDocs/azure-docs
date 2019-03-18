@@ -1,5 +1,5 @@
 ---
-title: Microsoft Graph APIs for Azure AD Privileged Identity Management (PIM) (Preview) | Microsoft Docs
+title: Microsoft Graph APIs for PIM (Preview) | Microsoft Docs
 description: Provides information about using the Microsoft Graph APIs for Azure Active Directory Privileged Identity Management (PIM) (Preview).
 services: active-directory
 documentationcenter: ''

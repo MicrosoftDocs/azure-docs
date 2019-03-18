@@ -17,11 +17,11 @@ As you manage clusters in Azure Kubernetes Service (AKS), application uptime bec
 This best practices article focuses on considerations that help you plan for business continuity and disaster recovery in AKS. You learn how to:
 
 > [!div class="checklist"]
-* Plan for AKS clusters in multiple regions
-* Route traffic across multiple clusters with Azure Traffic Manager
-* Use geo-replication for your container image registries
-* Plan for application state across multiple clusters
-* Replicate storage across multiple regions
+> * Plan for AKS clusters in multiple regions
+> * Route traffic across multiple clusters with Azure Traffic Manager
+> * Use geo-replication for your container image registries
+> * Plan for application state across multiple clusters
+> * Replicate storage across multiple regions
 
 ## Plan for multi-region deployment
 

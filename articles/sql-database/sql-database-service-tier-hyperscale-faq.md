@@ -39,7 +39,7 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 - The Business Critical service tier is appropriate for business workloads where IO latency is a priority.
 
 | | Resource type | General Purpose |  Hyperscale | Business Critical |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Best for** |All|  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements and the ability to auto-scale storage and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
 |  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
 | **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |

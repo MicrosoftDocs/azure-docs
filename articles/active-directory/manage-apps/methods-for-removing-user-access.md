@@ -35,21 +35,21 @@ To disable all user sign-ins to an application, follow the steps listed in the [
 
 To **delete an application**, follow these instructions:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  Click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. Click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  Click **All Applications** to view a list of all your applications.
+5. Click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to delete.
+6. Select the application you want to delete.
 
-7.  Once the application loads, click **Delete** icon from the top application’s **Overview** pane.
+7. Once the application loads, click **Delete** icon from the top application’s **Overview** pane.
 
 ## I want to disable all future user consent operations to any application
 
