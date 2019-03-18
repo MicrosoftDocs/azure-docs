@@ -310,17 +310,17 @@ Now Contoso admins can start replicating the **OSTICKETWEB** VM.
 
 3. They select the **OSTICKETWEB** VM for replication. 
 
-    - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
-    - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
+   - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
+   - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
 
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. In the VM properties, they select the account that's used by the process server to automatically install Mobility Service on the machine.
 
      ![Mobility service](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
-6.  They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+6. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 
 
