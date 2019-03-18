@@ -85,8 +85,6 @@
         items:
         - name: Jobs - API console
           href: try-review-api-job.md
-        - name: Reviews - API console
-          href: try-review-api-review.md
     - name: Manage team
       href: Review-Tool-User-Guide/SubTeams.md
     - name: Use tags
@@ -101,6 +99,10 @@
       href: Review-Tool-User-Guide/Connectors.md
     - name: View dashboard
       href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: Define and use reviews
+    items:
+    - name: REST API
+    - try-review-api-review.md
   - name: Define and use workflows
     items:
     - name: Review tool (browser)
