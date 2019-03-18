@@ -33,11 +33,11 @@ sections:
           image:
             src: ../media/index/i_guidelines.svg
           title: Best practices when using the Anomaly Detector API
-        - href: /azure/cognitive-services/anomaly-detector/how-to/install-and-use-anomaly-detector-containers
-          html: <p>Use the Anomaly Detector API locally or in the cloud with Docker containers.</p>
+        - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+          html: <p>Adjust the anomaly detection sensitvity, use different detection modes, and more.</p>
           image:
             src: ../media/index/i_guidelines.svg
-          title: Install and use an Anomaly Detector Docker container
+          title: Using the Anomaly Detection API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
