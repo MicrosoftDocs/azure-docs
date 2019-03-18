@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -289,7 +289,7 @@ sudo yum -q --security check-update
 
 There's currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
 
-## <a name="firstparty-predownload"></a>First party patching and pre-download
+## <a name="firstparty-predownload"></a>Advanced settings
 
 Update Management relies on Windows Update to download and install Windows Updates. As a result, we respect many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will manage those updates as well. If you want to enable downloading updates before an update deployment occurs, update deployments can go faster and be less likely to exceed the maintenance window.
 
@@ -303,6 +303,15 @@ You can also set this with PowerShell, run the following PowerShell on a system 
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
 $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
+```
+
+### Disable automatic installation
+
+Azure VMs have Automatic installation of updates enabled by default. This can cause updates to be installed before you schedule them to be installed by Update Management. You can disable this behavior by setting the `NoAutoUpdate` registry key to `1`. The following PowerShell snippet shows you one way to do this.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 ```
 
 ### Enable updates for other Microsoft products
@@ -608,10 +617,6 @@ To remove a VM from Update Management:
 * In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
 * Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## Troubleshoot
-
-To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)
-
 ## Next steps
 
 Continue to the tutorial to learn how to manage updates for your Windows virtual machines.
@@ -623,4 +628,4 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 * [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
 
 * To learn how to interact with Update Management through the REST API, see [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)
-
+* To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)

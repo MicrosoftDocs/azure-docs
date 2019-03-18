@@ -123,7 +123,7 @@ Along with installing the pods required for your project, the installation comma
 1. Retrieve the service connection string for your IoT hub. You can copy this string from the [Azure portal](https://portal.azure.com) from the **iothubowner** policy in the **Shared access policies** blade, or retrieve it with the following CLI command:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Open the sample workspace in XCode.

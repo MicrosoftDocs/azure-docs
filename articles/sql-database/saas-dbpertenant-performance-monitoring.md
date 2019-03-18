@@ -22,7 +22,7 @@ The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Simulate usage on the tenant databases by running a provided load generator
 > * Monitor the tenant databases as they respond to the increase in load
 > * Scale up the Elastic pool in response to the increased database load
@@ -165,17 +165,17 @@ As an alternative to scaling up the pool, create a second pool and move database
 1. Click **+ New pool** to create a pool on the current server.
 1. On the **Elastic pool** template:
 
-    1. Set **Name** to *Pool2*.
-    1. Leave the pricing tier as **Standard Pool**.
-    1. Click **Configure pool**,
-    1. Set **Pool eDTU** to *50 eDTU*.
-    1. Click **Add databases** to see a list of databases on the server that can be added to *Pool2*.
-    1. Select any 10 databases to move these to the new pool, and then click **Select**. If you've been running the load generator, the service already knows that your performance profile requires a larger pool than the default 50 eDTU size and recommends starting with a 100 eDTU setting.
+   1. Set **Name** to *Pool2*.
+   1. Leave the pricing tier as **Standard Pool**.
+   1. Click **Configure pool**,
+   1. Set **Pool eDTU** to *50 eDTU*.
+   1. Click **Add databases** to see a list of databases on the server that can be added to *Pool2*.
+   1. Select any 10 databases to move these to the new pool, and then click **Select**. If you've been running the load generator, the service already knows that your performance profile requires a larger pool than the default 50 eDTU size and recommends starting with a 100 eDTU setting.
 
-    ![recommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![recommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. For this tutorial, leave the default at 50 eDTUs, and click **Select** again.
-    1. Select **OK** to create the new pool and to move the selected databases into it.
+   1. For this tutorial, leave the default at 50 eDTUs, and click **Select** again.
+   1. Select **OK** to create the new pool and to move the selected databases into it.
 
 Creating the pool and moving the databases takes a few minutes. As databases are moved they remain online and fully accessible until the very last moment, at which point any open connections are closed. As long as you have some retry logic, clients will then connect to the database in the new pool.
 

@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
+ms.lastreviewed: 03/14/2019
 
 ---
 # Enable backup for Azure Stack from the administration portal
@@ -61,14 +61,17 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 		Export-Certificate `
 		    -Cert $cert `
 		    -FilePath c:\certs\AzSIBCCert.cer 
-	```
+    ```
 
-    > [!Note]  
-    > **1901 and above**: Azure Stack accepts a certificate to encrypt infrastructure backup data. Make sure to store the certificate with the public and private key in a secure location. For security reasons, it is not recommended that you use the certificate with the public and private keys to configure backup settings. For more information on how to manage the lifecycle of this certificate, see [Infrastructure Backup Service best practices](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 and above**: Azure Stack accepts a certificate to encrypt infrastructure backup data. Make sure to store the certificate with the public and private key in a secure location. For security reasons, it is not recommended that you use the certificate with the public and private keys to configure backup settings. For more information on how to manage the lifecycle of this certificate, see [Infrastructure Backup Service best practices](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 or earlier**: Azure Stack accepts a symmetric key to encrypt infrastructure backup data. Use the [New-AzsEncryptionKey64 cmdlet to create a key](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). After you upgrade from 1811 to 1901, backup settings will retain the encryption key. Recommendation is to update backup settings to use a certificate. Encryption key support is now deprecated. You will have at least 3 releases to update settings to use a certificate. 
 
 10. Select **OK** to save your backup controller settings.
 
 ![Azure Stack - Backup controller settings](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## Start backup
 To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. After the task completes, you can confirm the settings in **Essentials**:
@@ -111,7 +114,7 @@ New backups will start to use the public key in the new certificate. There is no
 ![Azure Stack - view certificate thumbprint](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### Backwards compatibility mode
-If you configured backup before updating to 1901, the settings are carried over with no change in behavior. In this case, encryption key is supported for backwards compatibility. You have the option updating the encryption key or switching to use a certificate. You will have three releases to continue updating the encryption key. Use this time to transition to a certificate. 
+If you configured backup before updating to 1901, the settings are carried over with no change in behavior. In this case, encryption key is supported for backwards compatibility. You have the option updating the encryption key or switching to use a certificate. You will have at least three releases to continue updating the encryption key. Use this time to transition to a certificate. To create a new encryption key use the [New-AzsEncryptionKeyBase64 cmdlet](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack - using encryption key in backward compatibility mode](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

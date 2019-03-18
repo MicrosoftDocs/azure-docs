@@ -80,6 +80,7 @@ The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipe
 ```
 
 ## Syntax details
+
 | Property | Description | Required |
 | --- | --- | --- |
 | name |Name of the activity |Yes |
@@ -122,7 +123,7 @@ To execute this Pig script in a Data Factory pipeline, do the following steps:
 1. Create a linked service to register [your own HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or configure [on-demand HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Let’s call this linked service **HDInsightLinkedService**.
 2. Create a [linked service](data-factory-azure-blob-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service **StorageLinkedService**.
 3. Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset **PigSampleIn** and the output dataset **PigSampleOut**.
-4. Copy the Pig query in a file the Azure Blob Storage configured in step #2. If the Azure storage that hosts the data is different from the one that hosts the query file, create a separate Azure Storage linked service. Refer to the linked service in the activity configuration. Use **scriptPath **to specify the path to pig script file and **scriptLinkedService**. 
+4. Copy the Pig query in a file the Azure Blob Storage configured in step #2. If the Azure storage that hosts the data is different from the one that hosts the query file, create a separate Azure Storage linked service. Refer to the linked service in the activity configuration. Use **scriptPath** to specify the path to pig script file and **scriptLinkedService**. 
    
    > [!NOTE]
    > You can also provide the Pig script inline in the activity definition by using the **script** property. However, we do not recommend this approach as all special characters in the script needs to be escaped and may cause debugging issues. The best practice is to follow step #4.

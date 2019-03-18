@@ -60,16 +60,16 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
   - The **recover** and **purge** actions have their own permissions associated in a key vault access policy.
 - Set a resource lock on the key vault to control who can delete this critical resource and help to prevent accidental or unauthorized deletion.  [Learn more about resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Grant the SQL Database server access to the key vault using its Azure Active Directory (Azure AD) Identity.  When using the Portal UI, the Azure AD identity gets automatically created and the key vault access permissions are granted to the server.  Using PowerShell to configure TDE with BYOK, the Azure AD identity must be created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) and [Configure TDE with BYOK for Managed Instance](http://aka.ms/sqlmibyoktdepowershell) for detailed step-by-step instructions when using PowerShell.
+- Grant the SQL Database server access to the key vault using its Azure Active Directory (Azure AD) Identity.  When using the Portal UI, the Azure AD identity gets automatically created and the key vault access permissions are granted to the server.  Using PowerShell to configure TDE with BYOK, the Azure AD identity must be created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) and [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) for detailed step-by-step instructions when using PowerShell.
 
   > [!NOTE]
   > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy, the  server loses access to the key vault, and TDE encrypted databases are inaccessible within 24 hours.
 
-- When using firewalls and virtual networks with Azure Key Vault, you must configure the following:
-  - Allow trusted Microsoft services to bypass this firewall – chose YES
+- When using firewalls and virtual networks with Azure Key Vault, you must configure the following: 
+  - Allow trusted Microsoft services to bypass this firewall – chose YES
 
- > [!NOTE]
- > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases are inaccessible within 24 hours.
+  > [!NOTE]
+  > If TDE encrypted SQL databases lose access to the key vault because they cannot bypass the firewall, the databases are inaccessible within 24 hours.
 
 - Enable auditing and reporting on all encryption keys: Key Vault provides logs that are easy to inject into other security information and event management (SIEM) tools. Operations Management Suite (OMS) [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) is one example of a service that is already integrated.
 - To ensure high-availability of encrypted databases, configure each SQL Database server with two Azure Key Vaults that reside in different regions.

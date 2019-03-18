@@ -3,7 +3,7 @@ title: Web service logging - Azure Machine Learning Studio | Microsoft Docs
 description: Learn how to enable logging for Machine Learning Studio web services. Logging provides additional information to help troubleshoot the APIs.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 

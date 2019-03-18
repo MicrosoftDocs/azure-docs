@@ -51,7 +51,7 @@ Connect simulated Raspberry Pi to an IoT hub that you create. Then you run a sam
 Click the button to launch Raspberry Pi online simulator.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
 
 There are three areas in the web simulator.
 
@@ -65,8 +65,8 @@ There are three areas in the web simulator.
    * **Reset** - Reset the coding area to the default sample application.
    * **Fold/Expand** - On the right side there is a button for you to fold/expand the console window.
 
-> [!NOTE] 
-The Raspberry Pi web simulator is now available in preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> [!NOTE]
+> The Raspberry Pi web simulator is now available in preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Overview of Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

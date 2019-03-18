@@ -178,8 +178,6 @@
       href: backup-and-restore.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
-    - name: Maintenance schedule
-      href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Maintenance schedules
