@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
