@@ -23,8 +23,8 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 ## Prerequisites
 
 * **A Hadoop cluster on HDInsight**. See [Get Started with HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](/hdinsight-hadoop-linux-use-ssh-unix.md).
-* The [URI scheme](/hdinsight-hadoop-linux-information#URI-and-scheme.md) for your clusters primary storage. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* The [URI scheme](../hdinsight-hadoop-linux-information#URI-and-scheme.md) for your clusters primary storage. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be wasbs:// or abfss://, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
 * Optional.  If Planning to use PowerShell, you will need the [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installed.
 
@@ -32,7 +32,7 @@ HDInsight also includes Jython, which is a Python implementation written in Java
 > The storage account used in this article was Azure Storage with [secure transfer](/../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` is used throughout the article.
 
 ## Storage configuration
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produce output to at least `/tezstaging`.  A default hadoop configuration will contain `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which are not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
+No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in this article will produce output to at least `/tezstaging`.  A default hadoop configuration will contain `/tezstaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which are not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/tezstaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](../hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > The steps in this document make the following assumptions:  
@@ -311,7 +311,7 @@ Here's what this example does:
 3. Next, it iterates over the records in `LOG` and uses `GENERATE` to invoke the `create_structure` method contained in the Python/Jython script loaded as `myfuncs`. `LINE` is used to pass the current record to the function.
 4. Finally, the outputs are dumped to STDOUT using the `DUMP` command. This command displays the results after the operation completes.
 
-### Create file (shell)
+### Create file
 
 On your development environment, create a text file named `pigudf.py`. Use the following code as the contents of the file:
 
