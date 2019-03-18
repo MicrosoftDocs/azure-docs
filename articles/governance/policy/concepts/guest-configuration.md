@@ -92,18 +92,13 @@ The following table shows a list of supported operating system on Azure images:
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration can audit any server running a supported OS.  If you would like to audit
-> servers that use a custom image, you need to duplicate the **DeployIfNotExists** definition
+> Guest Configuration can audit nodes running a supported OS.  If you would like to audit
+> virtual machines that use a custom image, you need to duplicate the **DeployIfNotExists** definition
 > and modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
-The following table lists operating systems that aren't supported:
-
-|Operating system|Notes|
-|-|-|
-|Windows client | Client operating systems (such as Windows 7 and Windows 10) aren't supported.
-|Windows Server 2016 Nano Server | Not supported.|
+Windows Server Nano Server is not supported in any version.
 
 ### Guest Configuration Extension network requirements
 
