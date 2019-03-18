@@ -97,7 +97,15 @@ Two-factor verification requires you to use two pieces of verification info, lik
 3. Select **Save** to save your changes.
 
 ## Review your organization’s terms of use statement
-You can choose to review your organization’s terms of use statement, if it’s available. After you’re done looking at it, you can select **Done** to return to the **Profile** page.
+You can choose to review your organization’s terms of use statement, if it’s available.
+
+1. From the **Manage account** area of the **Profile** page, select **Review terms of use**.
+
+2. Review your organization's terms of use and select **Accept** to confirm that you've read and understood the terms of use for your organization.
+
+    ![Terms of use page from the My Apps portal](media/myapps-portal/myapps-portal-tou-page.png)
+
+    If your organization doesn't have a terms of use, you can select **Done** to return to the **Profile** page.
 
 ## Sign out of everywhere
 You can choose to sign out of everywhere you’re currently signed in to using your work or school account. This includes all apps and devices.
