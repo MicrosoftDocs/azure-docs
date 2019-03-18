@@ -34,10 +34,4 @@ You can use your work or school account with the web-based **My Apps** portal, t
 |[Troubleshoot the My Apps portal](myapps-portal-end-user-troubleshoot.md)|Review some troubleshooting tips for the **My Apps** portal before you contact your Helpdesk for assistance.|
 
 ## Next steps
-- [Access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).
-
-- [Change your profile information](myapps-portal-end-user-update-profile.md).
-
-- [View and update your **Groups** information](myapps-portal-end-user-groups.md).
-
-- Depending on your role and permissions, you may be able to [perform access reviews](myapps-portal-end-user-access-reviews.md) to provide or deny user or group access to your organization's apps.
+After you've reviewed this overview content, you can continue on to access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).

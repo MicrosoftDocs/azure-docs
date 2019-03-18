@@ -75,4 +75,4 @@ If your administrator has given you permission to perform your own access review
 
 - [View and update your groups-related information](myapps-portal-end-user-groups.md).
 
-- Depending on your role and permissions, you may be able to [perform access reviews](myapps-portal-end-user-access-reviews.md) to provide or deny user or group access to your organization's apps.
+- [Perform your own access reviews](myapps-portal-end-user-access-reviews.md).
