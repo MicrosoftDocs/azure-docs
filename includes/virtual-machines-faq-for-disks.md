@@ -346,7 +346,7 @@ You can either stop and start the VM that the disk is attached to or, detach and
 
 **What regions are the managed disk sizes of 8, 16, and 32 TiB supported in?**
 
-The 8, 16, and 32 TiB disk SKUs are supported in all regions under Azure public cloud. Support for Microsoft Azure Government and China 21Vianet are not yet available.
+The 8, 16, and 32 TiB disk SKUs are supported in all regions under Azure public cloud. Support for Microsoft Azure Government and Microsoft Azure Operated by 21Vianet in China are not yet available.
 
 **Do we support enabling Host Caching on all disk sizes?**
 
