@@ -1,6 +1,6 @@
 ---
-title: What are Azure AD Access Reviews? | Microsoft Docs
-description: Using Azure Active Directory Access Reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
+title: What are Azure AD access reviews? | Microsoft Docs
+description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,9 +18,9 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# What are Azure AD Access Reviews?
+# What are Azure AD access reviews?
 
-Azure Active Directory (Azure AD) Access Reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed on a regular basis to make sure only the right people have continued access.
+Azure Active Directory (Azure AD) access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed on a regular basis to make sure only the right people have continued access.
 
 Here's a video that provides a quick overview of access reviews:
 
@@ -47,12 +47,12 @@ Azure AD enables you to collaborate internally within your organization and with
 
 ## Where do you create reviews?
 
-Depending on what you want to review, you will create your access review in Azure AD Access Reviews, Azure AD enterprise apps (in preview), or Azure AD PIM.
+Depending on what you want to review, you will create your access review in Azure AD access reviews, Azure AD enterprise apps (in preview), or Azure AD PIM.
 
 | Access rights of users | Reviewers can be | Review created in | Reviewer experience |
 | --- | --- | --- | --- |
-| Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self review | Azure AD Access Reviews</br>Azure AD groups | Access panel |
-| Assigned to a connected app | Specified reviewers</br>Self review | Azure AD Access Reviews</br>Azure AD enterprise apps (in preview) | Access panel |
+| Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self review | Azure AD access reviews</br>Azure AD groups | Access panel |
+| Assigned to a connected app | Specified reviewers</br>Self review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
 | Azure AD directory role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
 | Azure resource role | Specified reviewers</br>Self review | Azure AD PIM | Azure portal |
 
@@ -83,13 +83,13 @@ To enable access reviews, follow these steps.
 
 1. Click **All services** and find the access reviews service.
 
-1. Click **Access Reviews**.
+1. Click **Access reviews**.
 
-    ![All services - Access Reviews](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![All services - Access reviews](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. In the navigation list, click **Onboard** to open the **Onboard access reviews** page.
 
-    ![Access Reviews onboard](./media/access-reviews-overview/onboard-button.png)
+    ![Access reviews onboard](./media/access-reviews-overview/onboard-button.png)
 
 1. Click **Create** to enable access reviews in the current directory.
 
@@ -97,7 +97,7 @@ To enable access reviews, follow these steps.
 
     The next time you start access reviews, the access review options will be enabled.
 
-    ![Access Reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
+    ![Access reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## Next steps
 
