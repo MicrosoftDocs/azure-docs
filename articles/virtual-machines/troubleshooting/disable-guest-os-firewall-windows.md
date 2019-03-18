@@ -67,7 +67,7 @@ If you have a working Azure agent, you can use [Custom Script Extension](../exte
     ```
 
 > [!Note]
-> If the firewall is set through a Group Policy Object, this method may not work because this command changes only the local registry entries. If a policy is in place, it will override this change. 
+> If the firewall is set through a Group Policy Object, this method may not work because this command changes only the local registry entries. If a policy is in place, it will override this change. 
 
 #### Mitigation 3: PSTools commands
 

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -148,7 +148,6 @@ Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running 
 4. Wait until the **Last Sync Time** has updated, and is later than the time at which you deleted the VM. This step is important, because if the secondary endpoint has not been fully updated with the VHD files when the failover occurs, then the VM may not function properly in the new primary region.
 5. Initiate the account failover.
 6. Wait until the account failover is complete and the secondary region has become the new primary region.
-6. Create a storage account in the new primary region and copy your unmanaged disk to it.
 7. Create a VM in the new primary region and reattach the VHDs.
 8. Start the new VM.
 

@@ -125,7 +125,7 @@ Azure Repos
 
 1. Log into Azure Pipelines to confirm ability to create build definitions.
 
-2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core.
+2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .NET Core.
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -263,7 +263,7 @@ Now that the endpoint information exists, the Azure Pipelines to Azure Stack con
 
 Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from Azure Repos to deploy to both clouds.
 
-### Add code to a Azure Repos project
+### Add code to an Azure Repos project
 
 1.  Sign in to Azure Repos with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
 
@@ -283,7 +283,7 @@ Use [Azure Resource Manager templates like web](https://azure.microsoft.com/reso
 
 2.  Navigate to the **Build Web Application** page for the project.
 
-3.  In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
+3.  In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .NET Core.
 
 4.  Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 

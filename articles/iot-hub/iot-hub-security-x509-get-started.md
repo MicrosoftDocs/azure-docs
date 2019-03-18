@@ -1,13 +1,13 @@
 ---
 title: Tutorial for X.509 security in Azure IoT Hub | Microsoft Docs
 description: Get started on the X.509 based security in your Azure IoT hub in a simulated environment.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
 ---
 
 # Set up X.509 security in your Azure IoT hub
@@ -60,7 +60,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 10. Once the certificate is successfully uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
 
-   ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

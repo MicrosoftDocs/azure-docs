@@ -33,7 +33,7 @@ Import-Module Az.AnalysisServices
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription by using the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) command. Follow the on-screen directions.
+Sign in to your Azure subscription by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command. Follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount

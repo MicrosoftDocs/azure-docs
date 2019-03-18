@@ -65,7 +65,7 @@ The portal doesn't provide the option to assign the network interface to applica
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
 
 ## View network interface settings
@@ -93,7 +93,7 @@ If an IPv6 address is assigned to a network interface, the PowerShell output ret
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic list](/cli/azure/network/nic#az_network_nic_list) to view network interfaces in the subscription; [az network nic show](/cli/azure/network/nic#az_network_nic_show) to view settings for a network interface|
+|CLI|[az network nic list](/cli/azure/network/nic) to view network interfaces in the subscription; [az network nic show](/cli/azure/network/nic) to view settings for a network interface|
 |PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to view network interfaces in the subscription or view settings for a network interface|
 
 ## Change DNS servers
@@ -153,7 +153,7 @@ You can change the subnet, but not the virtual network, that a network interface
 
 |Tool|Command|
 |---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## Add to or remove from application security groups

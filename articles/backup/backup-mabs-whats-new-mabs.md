@@ -49,7 +49,7 @@ Find more information about the installation/upgrade steps for MABS [here](https
 
 
 > [!NOTE]
-
+> 
 > MABS has the same code base as System Center Data Protection Manager. MABS v3 is equivalent to Data Protection Manager 1807.
 
 ## Next steps

@@ -263,7 +263,7 @@ Often, using only a resource group name related to resources won't provide enoug
 
 - [Learn about](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) tagging and tag limitations.
 - [Review](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell and CLI examples to set up tagging, and to apply tags from a resource group to its resources.
-- [Read](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
+- [Read](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure tagging best practices.
 
 
 ## Best practice: Implement blueprints
@@ -584,7 +584,7 @@ Azure resources generate a fair number of logging metrics and telemetry data.
 
 - By default, most resource types don't have diagnostic logging enabled.
 - By enabling diagnostic logging across your resources, you can query logging data, and build alerts and playbooks based on it.
-- When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Log Analytics. 
+- When you enable diagnostic logging, each resource will have a specific set of categories. You select one or more logging categories, and a location for the log data. Logs can be sent to a storage account, event hub, or to Azure Monitor logs. 
 
 
 ![Diagnostic logging](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -675,7 +675,7 @@ As with any production system, making any type of change can impact your environ
 Azure has a Change Tracking solution in Azure automation:
 
 - The solution tracks changes to Windows and Linux software and files, Windows registry keys, Windows services, and Linux daemons.
-- Changes on monitored servers are sent to the Log Analytics service in the cloud for processing.
+- Changes on monitored servers are sent to the Azure Monitor service in the cloud for processing.
 - Logic is applied to the received data and the cloud service records the data.
 - On the Change Tracking dashboard, you can easily see the changes that were made in your server infrastructure.
 

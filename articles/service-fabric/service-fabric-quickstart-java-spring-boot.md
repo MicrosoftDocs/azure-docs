@@ -101,7 +101,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
        <ServiceTypes>
           <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
@@ -157,7 +157,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     ./install.sh
     ```
 
-1. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
+1. Open your favorite web browser and access the application by accessing `http://localhost:8080`.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

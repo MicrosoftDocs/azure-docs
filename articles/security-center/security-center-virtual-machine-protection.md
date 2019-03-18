@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
 
 ---
@@ -140,21 +140,21 @@ There are three types of icons represented in this list:
 
 1. Select a web application. A summary view opens with three tabs:
 
-  - **Recommendations**:  based on assessments performed by Security Center that failed.
-  - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
+   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Passed assessments**: list of assessments performed by Security Center that passed.
+   - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
 
-  Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
+   Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
 
-  ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Select a recommendation to see a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
 
- - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
+   - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
 
- -  Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
+   - Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
-    ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## Virtual machine scale sets
 Security Center automatically discovers whether you have scales sets and recommends that you install the Microsoft Monitoring Agent on these scale sets. 
@@ -164,7 +164,7 @@ To install the Microsoft Monitoring Agent:
 1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
 2. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
 
- ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 If you want to set new scale sets to automatically install the Microsoft Monitoring Agent:
 1. Go to Azure Policy and click **Definitions**.
@@ -222,7 +222,11 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
 |Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
-
+|Virtual machine scale set |4|Enable diagnostics logs in Virtual Machine Scale Sets|Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes. This is useful when a security incident occurs, or your network is compromised.|
+|Virtual machine scale set|35|Remediate vulnerabilities in security configuration on your virtual machine scale sets|Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. |
+|Virtual machine scale set|5|Remediate endpoint protection health failures on virtual machine scale sets|Remediate endpoint protection health failures on your virtual machine scale sets to protect them from threats and vulnerabilities. |
+|Virtual machine scale set|10|Install endpoint protection solution on virtual machine scale sets|Install an endpoint protection solution on your virtual machine scale sets, to protect them from threats and vulnerabilities. |
+|Virtual machine scale set|40|Install system updates on virtual machine scale sets|Install missing system security and critical updates to secure your Windows and Linux virtual machine scale sets. |
  
 
 

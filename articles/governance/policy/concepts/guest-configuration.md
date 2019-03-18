@@ -4,7 +4,7 @@ description: Learn how Azure Policy uses Guest Configuration to audit settings i
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -17,9 +17,6 @@ Policy can audit settings inside a virtual machine. The validation is performed 
 Configuration extension and client. The extension, through the client, validates settings such as
 the configuration of the operating system, application configuration or presence, environment
 settings, and more.
-
-> [!IMPORTANT]
-> Currently, only **built-in** policies are supported with Guest Configuration.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -94,7 +91,9 @@ The following table shows a list of supported operating system on Azure images:
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest Configuration is not currently supported on custom virtual machine images.
+> Guest Configuration can audit any server running a supported OS.  If you would like to audit
+> servers that use a custom image, you need to duplicate the **DeployIfNotExists** definition
+> and modify the **If** section to include your image properties.
 
 ### Unsupported client types
 
@@ -104,6 +103,24 @@ The following table lists operating systems that aren't supported:
 |-|-|
 |Windows client | Client operating systems (such as Windows 7 and Windows 10) aren't supported.
 |Windows Server 2016 Nano Server | Not supported.|
+
+### Guest Configuration Extension network requirements
+
+To communicate with the Guest Configuration resource provider in Azure, virtual machines require
+outbound access to Azure datacenters on port **443**. If you're using a private virtual network in
+Azure and don't allow outbound traffic, exceptions must be configured using [Network Security
+Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. At
+this time, a service tag doesn't exist for Azure Policy Guest Configuration.
+
+For IP address lists, you can download [Microsoft Azure Datacenter IP
+Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and
+has the currently deployed ranges and any upcoming changes to the IP ranges. You only need to allow
+outbound access to the IPs in the regions where your VMs are deployed.
+
+> [!NOTE]
+> The Azure Datacenter IP address XML file lists the IP address ranges that are used in the Microsoft Azure datacenters. The file includes compute, SQL, and storage ranges.
+> An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
+> It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
 
 ## Guest Configuration definition requirements
 
@@ -141,6 +158,14 @@ inside Linux and Windows virtual machines* initiative contains 18 policies. Ther
 **DeployIfNotExists** and **Audit** policy definition pairs for Windows and three pairs for Linux.
 For each, the **DeployIfNotExists** [policy definition rule](definition-structure.md#policy-rule)
 limits the systems evaluated.
+
+## Client log files
+
+The Guest Configuration extension writes log files to the following locations:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
 
 ## Next steps
 

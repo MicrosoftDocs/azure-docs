@@ -37,6 +37,8 @@ If you have an on-premises Active Directory environment and you want to join you
 
 This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  The minimum required domain functional and forest functional levels for Windows 10 hybrid Azure AD join is Windows Server 2008 R2. On lower versions, the user may not get a Primary Refresh Token during Windows logon due to LSA issues 
 
 ## Plan your implementation
 
@@ -112,7 +114,7 @@ If your Windows 10 domain joined devices are already [Azure AD registered](https
  - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined. 
  - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
-FIPS-compliant TPMs aren't supported for Hybrid Azure AD join. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join.
+FIPS-compliant TPMs aren't supported for Hybrid Azure AD join. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 ## Review how to control the hybrid Azure AD join of your devices
 

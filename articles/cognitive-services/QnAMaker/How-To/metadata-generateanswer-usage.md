@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
-ms.author: tulasim88
+ms.author: tulasim
 ---
 
 # Get a knowledge answer with the GenerateAnswer API and metadata

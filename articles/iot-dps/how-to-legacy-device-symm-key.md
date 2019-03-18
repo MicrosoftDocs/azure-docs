@@ -109,23 +109,23 @@ The SDK includes the sample code for the simulated device. This simulated device
 
 ## Create a symmetric key enrollment group
 
-1. Sign in to the [Azure portal](http://portal.azure.com), and open your Device Provisioning Service instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
 
 2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page. 
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
-    - **Group name**: Enter **mylegacydevices**.
+   - **Group name**: Enter **mylegacydevices**.
 
-    - **Attestation Type**: Select **Symmetric Key**.
+   - **Attestation Type**: Select **Symmetric Key**.
 
-    - **Auto Generate Keys**: Check this box.
+   - **Auto Generate Keys**: Check this box.
 
-    - **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
+   - **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
 
-    - **Select the IoT hubs this group can be assigned to**: Select one of your hubs.
+   - **Select the IoT hubs this group can be assigned to**: Select one of your hubs.
 
-    ![Add enrollment group for symmetric key attestation](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Add enrollment group for symmetric key attestation](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Once you saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab. 
 
@@ -290,7 +290,7 @@ Be aware that this leaves the derived device key included as part of the image, 
 
 * To learn more Reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md) 
 * [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
-* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned ](how-to-unprovision-devices.md) 
+* To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

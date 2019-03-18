@@ -37,11 +37,11 @@ An App Service can only be accessed with the configured hostnames in the custom 
 
 To achieve this with Application Gateway, we use the switch “Pick Hostname from Backend Address” in the HTTP Settings and for the probe to work, we use “Pick Hostname from Backend HTTP Settings” in the probe configuration.
 
-![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
+![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
 Due to this, when the App Service does a redirection, it uses the hostname “example.azurewebsites.net” in the Location header, instead of the original hostname unless configured otherwise. You can check the example request and response headers below.
-
-Request headers to Application Gateway:
+```
+## Request headers to Application Gateway:
 
 Request URL: http://www.contoso.com/path
 
@@ -49,7 +49,7 @@ Request Method: GET
 
 Host: www.contoso.com
 
-Response headers:
+## Response headers:
 
 Status Code: 301 Moved Permanently
 
@@ -60,7 +60,7 @@ Server: Microsoft-IIS/10.0
 Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
 
 X-Powered-By: ASP.NET
-
+```
 In the above example, you can notice that the response header has a status code of 301 for redirection and the location header has the App Service’s hostname instead of the original hostname “www.contoso.com”.
 
 ## Solution
@@ -71,32 +71,34 @@ Once we do that, App Service will do the redirection (if any) on the same origin
 
 To achieve this, you must own a custom domain and follow the process mentioned below.
 
-- Register the domain to the custom domain list of the App Service. For this, you must have a CNAME in your custom domain pointing to App Service’s FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+- Register the domain to the custom domain list of the App Service. For this, you must have a CNAME in your custom domain pointing to App Service’s FQDN. For more information, see [Map an existing custom DNS name to Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+
+![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - Once that is done, your App Service is ready to accept the hostname “www.contoso.com”. Now change your CNAME entry in DNS to point it back to Application Gateway’s FQDN. For example, “appgw.eastus.cloudapp.azure.com”.
 
 - Make sure that your domain “www.contoso.com” resolves to Application Gateway’s FQDN when you do a DNS query.
 
-- Set your custom probe to disable “Pick Hostname from Backend HTTP Settings”. This can be done from the portal by unchecking the checkbox in the probe settings and in PowerShell by not using the -PickHostNameFromBackendHttpSettings switch.
+- Set your custom probe to disable “Pick Hostname from Backend HTTP Settings”. This can be done from the portal by unchecking the checkbox in the probe settings and in PowerShell by not using the -PickHostNameFromBackendHttpSettings switch in the Set-AzApplicationGatewayProbeConfig command. In the hostname field of the probe, enter your App Service's FQDN "example.azurewebsites.net" as the probe requests sent from Application Gateway will carry this in the host header.
 
   > [!NOTE]
-  > While doing this step, please make sure that your custom probe is not associated to your backend HTTP settings.
+  > While doing the next step, please make sure that your custom probe is not associated to your backend HTTP settings because your HTTP settings still has the "Pick Hostname from Backend Address" switch enabled at this point.
 
-- Set your Application Gateway’s HTTP settings to disable “Pick Hostname from Backend Address”. This can be done from the portal by unchecking the checkbox and in PowerShell by not using the -PickHostNameFromBackendAddress switch.
+- Set your Application Gateway’s HTTP settings to disable “Pick Hostname from Backend Address”. This can be done from the portal by unchecking the checkbox and in PowerShell by not using the -PickHostNameFromBackendAddress switch in the Set-AzApplicationGatewayBackendHttpSettings command.
 
 - Associate the custom probe back to the backend HTTP settings and verify the backend health if it is healthy.
 
 - Once this is done, Application Gateway should now forward the same hostname “www.contoso.com” to the App Service and the redirection will happen on the same hostname. You can check the example request and response headers below.
-
-  Request headers to Application Gateway:
+  ```
+  ## Request headers to Application Gateway:
 
   Request URL: http://www.contoso.com/path
 
   Request Method: GET
 
-  Host: [www.contoso.com](http://www.contoso.com)
+  Host: www.contoso.com
 
-  Response headers:
+  ## Response headers:
 
   Status Code: 301 Moved Permanently
 
@@ -107,7 +109,7 @@ To achieve this, you must own a custom domain and follow the process mentioned b
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
   X-Powered-By: ASP.NET
-
-## Next steps
+  ```
+  ## Next steps
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).

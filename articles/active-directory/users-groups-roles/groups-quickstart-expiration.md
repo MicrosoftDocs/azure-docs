@@ -31,15 +31,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisite
 
-You must be a Global Administrator or User Account Administrator in the tenant to set up group expiration.
+You must be a Global administrator or User administrator in the organization to set up group expiration.
 
 ## Turn on user creation for groups
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global Administrator or User Account Administrator for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a Global administrator or User administrator for the organization.
 
 2. Select **Groups**, and then select **General**.
   
-  ![Self-service group settings](./media/groups-quickstart-expiration/self-service-settings.png)
+   ![Self-service group settings](./media/groups-quickstart-expiration/self-service-settings.png)
 
 3. Set  **Users can create Office 365 groups** to **Yes**.
 
@@ -49,7 +49,7 @@ You must be a Global Administrator or User Account Administrator in the tenant t
 
 1. Iin to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
   
-  ![Expiration settings](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![Expiration settings](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. Set the expiration interval. Select a preset value or enter a custom value over 31 days. 
 

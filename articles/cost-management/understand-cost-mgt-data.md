@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -57,8 +57,9 @@ The following table shows unsupported offers.
 | **Support Plans** | Azure Government Pro-Direct Support | MS-AZR-USGOV-0042P |
 | **Support Plans** | Azure Government Developer Support | MS-AZR-USGOV-0043P |
 
-For customers with Pay-As-You-Go, MSDN, and Visual Studio offer categories, data is available in Cost Management starting from 10/02/2018.
+For customers with Pay-As-You-Go, MSDN, and Visual Studio offer categories, data is available in Cost Management starting from 10/02/2018. To access data for your subscription before 10/02/2018, you can use the [Azure Account Center](https://account.azure.com/subscriptions) to download your usage details in a CSV file or you can use the [Usage Details API](/rest/api/consumption/usagedetails).
 
+## Determine your offer type
 If you don't see data for a subscription and you want to determine if your subscription falls under the supported offers, you can validate that your subscription is supported. To validate that an Azure subscription is supported, sign-in to the [Azure portal](https://portal.azure.com). Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, click on the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
 
 ![Example of the Subscription Overview tab showing Offer and Offer ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -89,7 +90,7 @@ The following tables show data that's included or isn't in Cost Management.
 
 ## Rated usage data refresh schedule
 
-Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](https://aka.ms/costmgmt/docs). Keep the following points in mind as you review costs:
+Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](index.yml). Keep the following points in mind as you review costs:
 
 - Estimated charges for the current billing period are updated six times per day.
 - Estimated charges for the current billing period can change as you incur more usage.

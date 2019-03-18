@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
 
 ---
@@ -113,9 +113,7 @@ They could send additional telemetry to your account by using the instrumentatio
 If you share code with other projects, remember to remove your instrumentation key.
 
 ## Is the data encrypted?
-Not inside the servers at present.
-
-All data is encrypted as it moves between data centers.
+All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
@@ -153,12 +151,12 @@ Via code:
 
 - Remove ServerTelemetryChannel from configuration file
 - Add this snippet to your configuration:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### NetCore
 
@@ -235,6 +233,7 @@ However, you can implement such a feature in your application. All the SDKs incl
 The SDKs vary between platforms, and there are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
 
 #### Classes of data sent in different scenarios
+
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
@@ -250,6 +249,7 @@ The SDKs vary between platforms, and there are several components that you can i
 For [SDKs for other platforms][platforms], see their documents.
 
 #### The classes of collected data
+
 | Collected data class | Includes (not an exhaustive list) |
 | --- | --- |
 | **Properties** |**Any data - determined by your code** |

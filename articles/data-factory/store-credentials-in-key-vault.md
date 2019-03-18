@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/13/2019
 ms.author: jingwang
 ---
 
@@ -81,6 +81,9 @@ The following properties are supported when you configure a field in linked serv
 **Using authoring UI:**
 
 Select **Azure Key Vault** for secret fields while creating the connection to your data store/compute. Select the provisioned Azure Key Vault Linked Service and provide the **Secret name**. You can optionally provide a secret version as well. 
+
+>[!TIP]
+>For connectors using connection string in linked service like SQL Server, Blob storage, etc., you can choose either to store only the secret field e.g. password in AKV, or to store the entire connection string in AKV. You can find both options on the UI.
 
 ![Configure AKV secret](media/store-credentials-in-key-vault/configure-akv-secret.png)
 

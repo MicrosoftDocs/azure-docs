@@ -14,7 +14,7 @@ ms.workload: identity
 
 This article begins a series of articles that help organizations implement a complete Azure Active Directory (Azure AD) hybrid identity solution. This solution was outlined as the [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). It covers the business outcomes and goals organizations can focus on to implement a robust and secure hybrid identity solution. 
 
-The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in process to and how users authenticate make everything in the cloud possible.
+The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in and authentication process makes everything in the cloud possible.
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. Don't take this decision lightly, for the following reasons:
 
@@ -129,10 +129,10 @@ Refer to [implementing pass-through authentication](https://docs.microsoft.com/a
 
 * **Advanced scenarios**. A federated authentication solution is usually required when customers have an authentication requirement that Azure AD doesn't support natively. See detailed information to help you [choose the right sign-in option](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Consider the following common requirements:
 
-	* Authentication that requires smartcards or certificates.
-	* On-premises MFA servers or third-party multifactor providers.
-	* Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-	* Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
+  * Authentication that requires smartcards or certificates.
+  * On-premises MFA servers or third-party multifactor providers.
+  * Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
 
 * **Business continuity**. Federated systems typically require a load-balanced array of servers, known as a farm. This farm is configured in an internal network and perimeter network topology to ensure high availability for authentication requests.
 
@@ -155,7 +155,7 @@ The following diagrams outline the high-level architecture components required f
 
 	![Azure AD hybrid identity with Password hash synchronization](media/azure-ad/azure-ad-authn-image2.png)
 
-* Agent requirements of pass-through authentication:
+* Agent requirements of pass-through authentication, using two agents for redundancy:
 
 	![Azure AD hybrid identity with Pass-through Authentication](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -198,7 +198,7 @@ Use or enable password hash synchronization for whichever authentication method 
 
    * Organizations that previously turned on password hash synchronization changed their authentication method to use password hash synchronization. They were back online in a matter of hours. By using access to email via Office 365, they worked to resolve issues and access other cloud-based workloads.
 
-   * Organizations that didn’t previously enable password hash synchronization had to resort to untrusted external consumer email systems for communications and resolving issues. In those cases, it took them weeks or more to be up and running again.
+   * Organizations that didn’t previously enable password hash synchronization had to resort to untrusted external consumer email systems for communications to resolve issues. In those cases, it took them weeks to restore their on-premises identity infrastructure, before users were able to sign-in to cloud-based apps again.
 
 3. **Identity protection**. One of the best ways to protect users in the cloud is Azure AD Identity Protection with Azure AD Premium P2. Microsoft continually scans the Internet for user and password lists that bad actors sell and make available on the dark web. Azure AD can use this information to verify if any of the usernames and passwords in your organization are compromised. So it's critical to enable password hash synchronization no matter what authentication method you use, whether that's federated or pass-through authentication. Leaked credentials are presented as a report. Use this information to block or force users to change their passwords when they try to sign in with leaked passwords.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 02/26/2019
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues 
@@ -62,16 +62,16 @@ Any errors experienced during the upload and refresh processes are included in t
 
 2. Click the _Microsoft Data Box Gateway folder_. This folder has two subfolders:
 
-    - Upload folder that has log files for upload errors.
-    - Refresh folder for errors during refresh.
+   - Upload folder that has log files for upload errors.
+   - Refresh folder for errors during refresh.
 
-    Here is a sample log file for refresh.
+     Here is a sample log file for refresh.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. When you see an error in this file (highlighted in the sample), note down the error code, in this case it is 16001. Look up the description of this error code against the following error reference.
 
@@ -98,6 +98,7 @@ Any errors experienced during the upload and refresh processes are included in t
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    Couldn't upload data to the account as the account or share is disabled.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    Couldn't connect to the container because the account permissions are either wrong or out of date. Check your access.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    Couldn't add new data as the container is full. Check the Azure specifications for supported container sizes based on type. For example, Azure File only supports a maximum file size of 5 TB.                                     |
+    |    2009            |    ERROR_CLOUD_CONTAINER_MISSING                |     Couldn't upload data because the container associated with the share doesn't exist.                                     |    
     |    2997            |    ERROR_ITEM_CANCELED                                     |    An unexpected error occurred. This is a transient error that will resolve itself.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    An unexpected error occurred. The error may resolve itself but if it persists for more than 24 hours, contact Microsoft Support.                                                                                                     |
     |    16000           |    RefreshException                                        |    Couldn't bring down this file.                                                                                                                                                                                                        |

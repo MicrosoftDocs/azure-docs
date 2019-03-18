@@ -13,6 +13,9 @@ ms.date: 11/06/2018
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
+> [!IMPORTANT]  
+> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+
 Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Using an Azure Virtual Network enables the following scenarios:
 
 * Connecting to HDInsight directly from an on-premises network.
@@ -106,8 +109,8 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
     * [Create HDInsight using Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
+   > [!IMPORTANT]  
+   > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
 
 ## <a id="multinet"></a>Connecting multiple networks
 
@@ -119,8 +122,8 @@ Azure provides name resolution for Azure services that are installed in a virtua
 
 * Any resource that is in the same Azure Virtual Network, by using the __internal DNS name__ of the resource. For example, when using the default name resolution, the following are example internal DNS names assigned to HDInsight worker nodes:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Both these nodes can communicate directly with each other, and other nodes in HDInsight, by using internal DNS names.
 
@@ -139,29 +142,29 @@ To enable name resolution between the virtual network and resources in joined ne
 
 4. Configure forwarding between the DNS servers. The configuration depends on the type of remote network.
 
-    * If the remote network is an on-premises network, configure DNS as follows:
+   * If the remote network is an on-premises network, configure DNS as follows:
         
-        * __Custom DNS__ (in the virtual network):
+     * __Custom DNS__ (in the virtual network):
 
-            * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
+         * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
 
-            * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
+         * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
 
-        * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
+     * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
 
-        This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
+       This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
 
-    * If the remote network is another Azure Virtual Network, configure DNS as follows:
+   * If the remote network is another Azure Virtual Network, configure DNS as follows:
 
-        * __Custom DNS__ (in each virtual network):
+     * __Custom DNS__ (in each virtual network):
 
-            * Requests for the DNS suffix of the virtual networks are forwarded to the custom DNS servers. The DNS in each virtual network is responsible for resolving resources within its network.
+         * Requests for the DNS suffix of the virtual networks are forwarded to the custom DNS servers. The DNS in each virtual network is responsible for resolving resources within its network.
 
-            * Forward all other requests to the Azure recursive resolver. The recursive resolver is responsible for resolving local and internet resources.
+         * Forward all other requests to the Azure recursive resolver. The recursive resolver is responsible for resolving local and internet resources.
 
-        The DNS server for each network forwards requests to the other, based on DNS suffix. Other requests are resolved using the Azure recursive resolver.
+       The DNS server for each network forwards requests to the other, based on DNS suffix. Other requests are resolved using the Azure recursive resolver.
 
-    For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
+     For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
@@ -187,11 +190,11 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 		$nodes += $node
 	}
 	$nodes | sort-object Type
-	```
+    ```
 
 	```azurecli
 	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
-	```
+    ```
 
     In the list of nodes returned, find the FQDN for the head nodes and use the FQDNs to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
 
@@ -226,7 +229,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 3. Create or modify the network security groups or user-defined routes for the subnet that you plan to install HDInsight into.
 
     * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDI management services can reach the cluster from outside VNET.
-    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firwall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
+    * __User-defined routes__: If you plan to use UDRs, create a route for each IP address and set the __Next hop type__ to __Internet__. You should also allow any other outbound traffic from the VNET with no restriction. For example, you can route all other traffic to your Azure firewall or network virtual appliance (hosted in Azure) for monitoring purposes but the outgoing traffic should not be blocked.
 
 For more information on network security groups or user-defined routes, see the following documentation:
 
@@ -236,7 +239,7 @@ For more information on network security groups or user-defined routes, see the 
 
 #### Forced tunneling to on-premise
 
-Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premise networks. If you are using Azure Firewall or a netwrok virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
+Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling to the on-premise networks. If you are using Azure Firewall or a network virtual appliance hosted in Azure, you can use UDRs to route the traffic to it for monitoring purposes and allow all outgoing traffic.
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
@@ -275,6 +278,7 @@ If you use network security groups, you must allow traffic from the Azure health
     | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
+    | France | France Central| 20.188.39.64</br>40.89.157.135 | 443 | Inbound |
     | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 | Inbound |
     | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 | Inbound |
     | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 | Inbound |
@@ -637,9 +641,9 @@ This example makes the following assumptions:
     };
     ```
     
-    * Replace the `10.0.0.0/16` and `10.1.0.0/16` values with the IP address ranges of your virtual networks. This entry allows resources in each network to make requests of the DNS servers.
+   * Replace the `10.0.0.0/16` and `10.1.0.0/16` values with the IP address ranges of your virtual networks. This entry allows resources in each network to make requests of the DNS servers.
 
-    Any requests that are not for the DNS suffixes of the virtual networks (for example, microsoft.com) is handled by the Azure recursive resolver.
+     Any requests that are not for the DNS suffixes of the virtual networks (for example, microsoft.com) is handled by the Azure recursive resolver.
 
 4. To use the configuration, restart Bind. For example, `sudo service bind9 restart` on both DNS servers.
 

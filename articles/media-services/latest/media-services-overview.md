@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -46,9 +46,9 @@ This version provides the following capabilities:
 
 * **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
 * **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage. Currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
-* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
-* **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
-* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
+* **Notifications** that monitor job progress or states, or Live Events start/stop and error events. Notifications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
+* **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Live Events, and more.
+* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Live Events, and more.
 * **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
 
 ## Naming conventions
@@ -73,7 +73,7 @@ See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) 
 
 ## How can I get started with v3?
 
-For information on how to start developing with the Media Services v3 API using variuos tools and SDKs, see [Start developing](developers-guide.md).
+For information on how to start developing with the Media Services v3 API using various tools and SDKs, see [Start developing](developers-guide.md).
 
 ## v3 content map
 
@@ -85,7 +85,7 @@ The Media Services v3 content is organized according to the following structure 
 | Quickstarts | Show fundamental day-1 instructions for new customers to quickly try out Media Services.|
 | Tutorials | Show scenario-based procedures for some of the top Media Services tasks.|
 | Samples | Links to code samples. |
-| Concepts | Contain in-depth explanation of Media Services v3 functionality and diagrams. The fundamental concepts described in these topics should be reviewed prior to starting development.<br/><br/>* Cloud upload and storage<br/>* Encoding<br/>* Media analytics<br/>* Packaging, delivery, protection<br/>* Live streaming<br/>* Continuous monitoring<br/>* Player clients<br/><br/>and more. |
+| Concepts | Contain in-depth explanation of [Media Services v3 concepts and functionality](concepts-overview.md). The fundamental concepts described in these topics should be reviewed prior to starting development.<br/><br/>* Cloud upload and storage<br/>* Encoding<br/>* Media analytics<br/>* Packaging, delivery, protection<br/>* Live streaming<br/>* Monitoring<br/>* Player clients<br/><br/>and more. |
 | How-to guides | Demonstrate how to complete a task.|
 
 ## Next steps

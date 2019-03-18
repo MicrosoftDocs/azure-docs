@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -39,7 +39,7 @@ This is likely because the agent is unable to send heartbeats to the service bec
 
 ### Agent process on machine was shut down while executing test. What to expect?
 
-If the agent process is shut down ungracefully for example, machine restarted, process killed (CTRL+C on the agent window is considered graceful shutdown) then the test that was running on it will continue to show as **running**. If the agent is restarted, then the agent will update the status of the test to **cancelled**. If the agent is not restarted, then the test appears as **running** and you must manually cancel the test.
+If the agent process is shut down ungracefully for example, machine restarted, process killed (CTRL+C on the agent window is considered graceful shutdown) then the test that was running on it will continue to show as **running**. If the agent is restarted, then the agent will update the status of the test to **canceled**. If the agent is not restarted, then the test appears as **running** and you must manually cancel the test.
 
 > [!Note]
 > Tests within a workflow are scheduled to run sequentially. **Pending** tests will not get executed until tests in the **running** state in the same workflow complete.

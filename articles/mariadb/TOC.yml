@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure DB for MariaDB
+  - name: What is Azure DB for MariaDB?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -17,7 +17,7 @@
       href: connect-workbench.md
 - name: Tutorials
   items:
-  - name: 1 - Design a Database
+  - name: Design a Database
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
@@ -135,6 +135,8 @@
       href: howto-restart-server-portal.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/mariadb
   - name: REST API
     href: /rest/api/mariadb
   - name: Resource Manager template

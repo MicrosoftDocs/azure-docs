@@ -94,7 +94,7 @@ For account management audit trails, view and choose the columns that you want t
 For more information on working with activity logs, see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
 
 ### Diagnostics logs
-You can enable data access audit and diagnostic logging in the Azure portal and send the logs to an Azure Blob storage account, an event hub, or Log Analytics.
+You can enable data access audit and diagnostic logging in the Azure portal and send the logs to an Azure Blob storage account, an event hub, or Azure Monitor logs.
 
 ![Diagnostics logs](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostics logs")
 

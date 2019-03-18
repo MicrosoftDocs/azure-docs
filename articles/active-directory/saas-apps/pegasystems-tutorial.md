@@ -167,7 +167,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
 	
-1. Perform following actions on **Create Aauthentication Service** screen:
+1. Perform following actions on **Create Authentication Service** screen:
 
 	![Configure Single Sign-On Save button](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

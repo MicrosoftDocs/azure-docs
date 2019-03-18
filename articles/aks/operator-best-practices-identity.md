@@ -60,7 +60,7 @@ rules:
   verbs: ["*"]
 ```
 
-A RoleBinding is then created that binds the Azure AD user *developer1@contoso.com* to the RoleBinding, as shown in the following YAML manifest:
+A RoleBinding is then created that binds the Azure AD user *developer1\@contoso.com* to the RoleBinding, as shown in the following YAML manifest:
 
 ```yaml
 ind: RoleBinding
@@ -78,7 +78,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-When *developer1@contoso.com* is authenticated against the AKS cluster, they have full permissions to resources in the *finance-app* namespace. In this way, you logically separate and control access to resources. Kubernetes RBAC should be used in conjunction with Azure AD-integration, as discussed in the previous section.
+When *developer1\@contoso.com* is authenticated against the AKS cluster, they have full permissions to resources in the *finance-app* namespace. In this way, you logically separate and control access to resources. Kubernetes RBAC should be used in conjunction with Azure AD-integration, as discussed in the previous section.
 
 ## Use pod identities
 

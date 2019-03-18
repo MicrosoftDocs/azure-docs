@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -21,7 +21,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app or using a [LUIS container](luis-container-howto.md). 
 
 |Area|Limit|
-|--|:--|--|
+|--|:--|
 | [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
@@ -35,7 +35,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
 | [Utterance][utterances] | 500 characters|
-| [Utterances][utterances] | 15,000 per application|
+| [Utterances][utterances] | 15,000 per application - there is no limit on the number of utterances per intent|
 | [Versions](luis-concept-version.md)| no limit |
 | [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
 

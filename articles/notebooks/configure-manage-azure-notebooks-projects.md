@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -62,7 +62,9 @@ To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data
 >
 > 1. Copy project files manually to the VM.
 >
-> 2. Embed the files within a setup notebook that you run first before the primary notebook. In the setup notebook, create a code cell for each file where the cell contains the file contents. Then at the top of each cell, insert the command `%writefile <filename>`, where `<filename>` is the name of the file to receive the contents. When you run the notebook, it creates all those files on the VM. For an example, see the [setup.ipynb file in the Microsoft Pet Detector demo](https://github.com/microsoft/connect-petdetector) (GitHub).
+> 2. Embed the files within a setup notebook that you run first before the primary notebook. In the setup notebook, create a code cell for each file where the cell contains the file contents. Then at the top of each cell, insert the command `%%writefile <filename>`, where `<filename>` is the name of the file to receive the contents. When you run the notebook, it creates all those files on the VM. For an example, see the [setup.ipynb file in the Microsoft Pet Detector demo](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![Using a %%writefile command at the beginning of a code cell](media/setup-notebook-writefile-command.png)
 
 ## Edit project metadata
 
@@ -71,7 +73,7 @@ On the project dashboard, select **Project Settings**, then select the **Informa
 | Setting | Description |
 | --- | --- |
 | Project name | A friendly name for your project that Azure Notebooks uses for display purposes. For example, "Hello World in Python". |
-| Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, and is limited to 30 characters. If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, for example, "My Project Name" turns into "my-project-name". |
+| Project ID | A custom identifier that becomes part of the URL you use to share a project. This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](create-clone-jupyter-notebooks.md#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
 | Public project | If set, allows anyone with the link to access the project. When creating a private project, clear this option. |
 | Hide clones | If set, other users can't see a list of clones that have been made for this project. Hiding clones is useful for projects that are shared with many people who are not part of the same organization, such as when using a notebook for teaching a class. |
 

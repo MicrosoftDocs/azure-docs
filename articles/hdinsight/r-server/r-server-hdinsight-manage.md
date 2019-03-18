@@ -12,7 +12,7 @@ ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
-In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
+In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding multiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
 
 ## Prerequisites
 
@@ -304,7 +304,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
 
    * For **Name**, provide a name for the script action.
 
-    * For **Bash script URI**, enter  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
+     * For **Bash script URI**, enter  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
 
    * Select the check box only for **Worker**.
 

@@ -143,7 +143,7 @@ When you deploy using the `build.ps1` script in the Connected Factory GitHub rep
 
 You can also add an Azure Maps account key to your solution accelerator after deployment. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **Application settings**. Set the **MapApiQueryKey** to the [key of your Azure Maps account](../azure-maps/how-to-manage-account-keys.md). Save the settings and then navigate to **Overview** and restart the App Service.
 
-### How do I create a Azure Maps account?
+### How do I create an Azure Maps account?
 
 See, [How to manage your Azure Maps account and keys](../azure-maps/how-to-manage-account-keys.md).
 
@@ -169,15 +169,15 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

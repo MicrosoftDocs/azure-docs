@@ -24,10 +24,6 @@ ms.collection: M365-identity-device-management
 
 ## General questions
 
-**Q: When will Azure AD Password Protection reach General Availability (GA)?**
-
-GA is planned for Q1 CY2019 (before end of March 2019). Thank you to everyone who has supplied feedback on the feature to date - we appreciate it!
-
 **Q: What guidance should users be given on how to select a secure password?**
 
 Microsoft's current guidance on this topic can be found at the following link:
@@ -87,6 +83,10 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 **Q: Is it okay to deploy the Azure AD Password Protection Proxy service side by side with other services such as Azure AD Connect?**
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
+
+**Q: In what order should the DC agents and proxies be installed and registered?**
+
+Any ordering of Proxy agent installation, DC agent installation, forest registration, and Proxy registration  is supported.
 
 **Q: Should I be concerned about the performance hit on my domain controllers from deploying this feature?**
 

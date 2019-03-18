@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
 
@@ -23,6 +23,8 @@ ms.author: jgao
 
 Learn how to generate a Resource Manager template using the Azure portal, and the process of editing and deploying the template from the portal. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
+![resource manager template quickstart portal diagram](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+
 After completing the tutorial, you deploy an Azure Storage account. The same process can be used to deploy other Azure resources.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -31,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Creating a Resource Manager template from scratch is not an easy task, especially if you are new to Azure deployment and your are not familiar with the JSON format. Using the Azure portal, you can configure a resource, for example an Azure Storage account. Before you deploy the resource, you can export your configuration into a Resource Manager template. You can save the template and reuse it in the future.
 
-Many experienced template developers use this method to generate working templates when they try to deploy Azure resources that they are not familiar with.
+Many experienced template developers use this method to generate templates when they try to deploy Azure resources that they are not familiar with. For more information about exporting templates by using the portal, see [Export resource groups to templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates). The other way to find a working template is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource** > **Storage** > **Storage account - blob, file, table, queue**.
@@ -39,8 +41,10 @@ Many experienced template developers use this method to generate working templat
     ![Create an Azure storage account using the Azure portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Enter the following information:
 
-    - **Resource group**: Select **Create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *mystorage1016rg*. Resource group is a container for Azure resources. Resource group makes it easier to manage Azure resources.
-    - **Name**: Give your storage account a unique name. On the screenshot, the name is *mystorage1016*.
+    |Name|Value|
+    |----|----|
+    |**Resource group**|Select **Create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *mystorage1016rg*. Resource group is a container for Azure resources. Resource group makes it easier to manage Azure resources. |
+    |**Name**|Give your storage account a unique name. The storage account name must be unique across all of Azure, and it contain only lowercase letters and numbers. Name must be between 3 and 24 characters. If you get an error message saying "The storage account name 'mystorage1016' is already taken", try using **&lt;your name>storage&lt;Today's date in MMDD>**, for example **johndolestorage1016**. For more information, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     You can use the default values for the rest of the properties.
 
@@ -49,7 +53,7 @@ Many experienced template developers use this method to generate working templat
     > [!NOTE]
     > Some of the exported templates require some edits before you can deploy them.
 
-4. Select **Review + create** on the bottom of the screen.
+4. Select **Review + create** on the bottom of the screen. Do not select **Create** in the next step.
 5. Select **Download a template for automation** on the bottom of the screen. The portal shows the generated template:
 
     ![Generate a template from the portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
@@ -58,13 +62,14 @@ Many experienced template developers use this method to generate working templat
 
     There are six parameters defined. One of them is called **storageAccountName**. The second highlighted part on the previous screenshot shows how to reference this parameter in the template. In the next section, you edit the template to use a generated name for the storage account.
 
-    In the template, one Azure resource is defined. The type is [Microsoft.Storage/storageAccounts]. See how the resource is defined, and the definition structure.
-6. Select **Download**. Save **template.json** from the downloaded package to your computer. In the next section, you use a template deployment tool to edit the template.
-7. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next section when you deploy the template.
+    In the template, one Azure resource is defined. The type is `Microsoft.Storage/storageAccounts`. Take a look of how the resource is defined, and the definition structure.
+6. Select **Download** from the top of the screen. 
+7. Open the downloaded zip file, and then save **template.json** to your computer. In the next section, you use a template deployment tool to edit the template.
+8. Select the **Parameter** tab to see the values you provided for the parameters. Write down these values, you need them in the next section when you deploy the template.
 
     ![Generate a template from the portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Using both the template and the parameters files, you can create a resource, in this tutorial, an Azure storage account.
+    Using both the template file and the parameters file, you can create a resource, in this tutorial, an Azure storage account.
 
 ## Edit and deploy the template
 
@@ -80,79 +85,82 @@ Azure requires that each Azure service has a unique name. The deployment could f
 4. Select **Create**.
 5. Select **Build your own template in the editor**.
 6. Select **Load file**, and then follow the instructions to load template.json you downloaded in the last section.
-7. Add one variable as shown in the following screenshot:
+7. Make the following three changes to the template:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    ```
     ![Azure Resource Manager templates](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Two template functions are used here: `concat()` and `uniqueString()`.
+   - Remove the **storageAccountName** parameter as shown in the previous screenshot.
+   - Add one variable called **storageAccountName** as shown in the previous screenshot:
 
-8. Remove the **storageAccountName** parameter highlighted in the previous screenshot.
-9. Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly defined variable instead of the parameter:
+       ```json
+       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       ```
 
-    ```json
-    "name": "[variables('storageAccountName')]",
-    ```
+       Two template functions are used here: `concat()` and `uniqueString()`.
+   - Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly defined variable instead of the parameter:
 
-    The final template shall look like:
+       ```json
+       "name": "[variables('storageAccountName')]",
+       ```
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "location": {
-                "type": "string"
-            },
-            "accountType": {
-                "type": "string"
-            },
-            "kind": {
-                "type": "string"
-            },
-            "accessTier": {
-                "type": "string"
-            },
-            "supportsHttpsTrafficOnly": {
-                "type": "bool"
-            }
-        },
-        "variables": {
-            "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-        },
-        "resources": [
-            {
-                "name": "[variables('storageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2018-07-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "accessTier": "[parameters('accessTier')]",
-                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-                },
-                "dependsOn": [],
-                "sku": {
-                    "name": "[parameters('accountType')]"
-                },
-                "kind": "[parameters('kind')]"
-            }
-        ],
-        "outputs": {}
-    }
-    ```
-7. Select **Save**.
-8. Enter the following values:
+     The final template shall look like:
 
-    - **Resource group**: select **Create new** and name your resource group with a unique name.
-    - **Location**: select a location for the resource group. For example, **Central US**. 
-    - **Location**: select a location for the storage account. For example, **Central US**.
-    - **Account Type**: Enter **Standard_LRS** for this quickstart.
-    - **Kind**: Enter **StorageV2** for this quickstart.
-    - **Access Tier**: Enter **Hot** for this quickstart.
-    - **Https Traffic Only Enabled**.  Select **true** for this quickstart.
-    - **I agree to the terms and conditions stated above**: (select)
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "location": {
+               "type": "string"
+           },
+           "accountType": {
+               "type": "string"
+           },
+           "kind": {
+               "type": "string"
+           },
+           "accessTier": {
+               "type": "string"
+           },
+           "supportsHttpsTrafficOnly": {
+               "type": "bool"
+           }
+       },
+       "variables": {
+           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       },
+       "resources": [
+           {
+               "name": "[variables('storageAccountName')]",
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-07-01",
+               "location": "[parameters('location')]",
+               "properties": {
+                   "accessTier": "[parameters('accessTier')]",
+                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               },
+               "dependsOn": [],
+               "sku": {
+                   "name": "[parameters('accountType')]"
+               },
+               "kind": "[parameters('kind')]"
+           }
+       ],
+       "outputs": {}
+     }
+     ```
+8. Select **Save**.
+9. Enter the following values:
+
+    |Name|Value|
+    |----|----|
+    |**Resource group**|Select the resource group name you created in the last section. |
+    |**Location**|Select a location for the storage account. For example, **Central US**. |
+    |**Account Type**|Enter **Standard_LRS** for this quickstart. |
+    |**Kind**|Enter **StorageV2** for this quickstart. |
+    |**Access Tier**|Enter **Hot** for this quickstart. |
+    |**Https Traffic Only Enabled**| Select **true** for this quickstart. |
+    |**I agree to the terms and conditions stated above**|(select)|
 
     Here is a screenshot of a sample deployment:
 

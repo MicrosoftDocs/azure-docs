@@ -45,7 +45,7 @@ Select **OK**.
 
 ### Create and publish the web app
 
-In **App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
+In **App Name**, type a unique app name (valid characters are `a-z`, `0-9`, and `-`), or accept the automatically generated unique name. The URL of the web app is `https://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
 
 Select **Create** to start creating the Azure resources.
 
@@ -53,4 +53,4 @@ Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and t
 
 ![Published ASP.NET web app in Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-The app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`. Take note of this URL as it will be used later on.
+The app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `https://<app_name>.azurewebsites.net`. Take note of this URL as it will be used later on.

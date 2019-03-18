@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
 ---
 
@@ -32,11 +32,13 @@ This topic shows you the search options that enable you to find exact moments wi
 
 	If you click one of the results, the player brings you to that moment in the video. You can achieve the player/insights view and synchronization in your application. For more information, see [Embed Video Indexer widgets into your application](video-indexer-embed-widgets.md). 
 4. Search the detailed breakdown of the video.
+    
+    If you want to create your own clip based on the video that you found, press the **Edit** button. This page shows you video along with its insights as filters. For more information, see [View and edit Video Indexer insights](video-indexer-view-edit.md). 
 
-	If you want to create your own breakdown based on the video that you found, press the **Edit** button. This page shows you the full breakdown of a video. You can search within the breakdown to only show the lines you are interested in. For more information, see [View and edit Video Indexer insights](video-indexer-view-edit.md).
-
-	In this example, we searched the "identity protection" text. We also applied additional filters, as shown in the screen below.
-
+    You can search within the video to only show the lines you are interested in and use the side insights to filter the parts you want to see. When you finish, you can preview your clip and press **Publish** to create the new clip that appears in your gallery.
+    
+    In the following example, we searched for the "mixed reality" text. We also applied additional filters, as shown in the screen below.
+    
 	![Search](./media/video-indexer-search/video-indexer-search03.png)
 
 ## Next steps 
