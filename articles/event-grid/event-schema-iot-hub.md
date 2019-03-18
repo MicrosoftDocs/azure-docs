@@ -29,6 +29,7 @@ Azure IoT Hub emits the following event types:
 | Microsoft.Devices.DeviceDeleted | Published when a device is deleted from an IoT hub. | 
 | Microsoft.Devices.DeviceConnected | Published when a device is connected to an IoT hub. |
 | Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
+| Microsoft.Devices.DeviceTelemetry | Published when a telemetry message is sent to an IoT hub. |
 
 ## Example event
 
@@ -52,6 +53,40 @@ The schema for DeviceConnected and DeviceDisconnected events have the same struc
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+The schema for DeviceTelemetry events is shown below. This event is raised when a telemetry event is sent to an IoT Hub:
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
