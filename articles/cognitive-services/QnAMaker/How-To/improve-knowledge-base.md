@@ -1,14 +1,14 @@
 ---
 title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 
+description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 author: diberry
 manager: nitinme 
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: diberry
 ---
 
@@ -149,7 +149,11 @@ When the client application (such as a chat bot) receives the response, the top 
 
 The client application displays all the questions with an option for the user to select the question that most represents their intention. 
 
-Once user selects one of the existing questions. The user feedback is sent to QnA Maker's [Train](https://www.aka.ms/activelearningsamplebot) API to continue the active learning feedback loop. 
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
+
+## Train API
+
+The Train API signature is:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -158,7 +162,46 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-Learn more about how to use active learning with an [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+Use the [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) to see active learning in an end-to-end scenario.
+
+You call Train with an HTTP POST request. The **request URL** has the following format: 
+
+```
+https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
+```
+
+|HTTP request property|Name|Type|Purpose|
+|--|--|--|--|
+|URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
+|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
+|Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
+|Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Post Body|JSON object|JSON|The training feedback|
+
+The JSON body has several settings:
+
+|JSON body property|Type|Purpose|
+|--|--|--|--|
+|`feedbackRecords`|array|List of feedback.|
+|`userId`|string|The user ID in the client application's conversation. Optional.|
+|`userQuestion`|string|Exact text of the question. Required.|
+|`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+An example JSON body looks like:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+A successful response returns a status of 204 and no JSON response body. 
 
 ## Active learning is saved in the exported app's tsv file
 
