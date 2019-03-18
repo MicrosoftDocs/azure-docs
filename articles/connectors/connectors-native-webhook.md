@@ -36,14 +36,6 @@ when the expected event happens. The trigger *unsubscribes* if you remove the
 trigger and save your logic app, or when you change your logic app from 
 enabled to disabled.
 
-The webhook action then waits until that service calls the URL 
-before the logic app resumes running. The logic app unsubscribes 
-from the service or endpoint in these cases: 
-
-* When the webhook action succesfully finishes.
-* If the logic app run is canceled while waiting for a response.
-* Before the logic app times out.
-
 Here's an example that shows how to set up an HTTP trigger in the Logic App Designer. 
 The steps assume that you have already deployed or are accessing an API that follows 
 the [webhook subscribe and unsubscribe pattern in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
@@ -74,7 +66,7 @@ The webhook action then waits until that service calls the URL
 before the logic app resumes running. The logic app unsubscribes 
 from the service or endpoint in these cases: 
 
-* When the webhook action succesfully finishes.
+* When the webhook action successfully finishes.
 * If the logic app run is canceled while waiting for a response.
 * Before the logic app times out.
 
