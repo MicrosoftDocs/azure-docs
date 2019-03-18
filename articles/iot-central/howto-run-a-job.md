@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 02/04/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ---
@@ -53,7 +53,7 @@ If you would like to stop a job that is currently running, select the name of th
 
 ### Run a stopped job
 
-If you would like to run a job that is currently stopped, select the name of the stopped job that you would like to run. Choose the **Run** button on the panel. The job status changes to reflect that the job is now running again.
+To run a job that is currently stopped, select the name of the stopped job that you would like to run. Choose the **Run** button on the panel. The job status changes to reflect that the job is now running again.
 
    ![Resumed job](./media/howto-run-a-job/resumejob.png)
 
@@ -65,7 +65,7 @@ To copy an existing job you've created, select it from the main jobs page and se
 
 ## View the job status
 
-Once a job has been created, the **Status** column updates with the latest status message of the job. The status messages mean the following:
+After a job has been created, the **Status** column updates with the latest status message of the job. The status messages mean the following:
 
 | Status message       | Status meaning                                          |
 | -------------------- | ------------------------------------------------------- |
