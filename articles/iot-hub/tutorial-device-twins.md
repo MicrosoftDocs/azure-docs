@@ -71,7 +71,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -258,4 +258,4 @@ az group delete --name tutorial-iot-hub-rg
 In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
 > [!div class="nextstepaction"]
-[Implement a device firmware update process](tutorial-firmware-update.md)
+> [Implement a device firmware update process](tutorial-firmware-update.md)

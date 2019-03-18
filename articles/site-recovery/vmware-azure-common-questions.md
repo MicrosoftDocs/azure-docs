@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
 ---
@@ -33,7 +33,7 @@ You need an Azure subscription, a Recovery Services vault, a cache storage accou
 If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account or managed disk based on your configuration. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### Can I use Guest OS server license on Azure?
-Yes, Microsoft Software Assurance customers can use [Azure Hybrid Benefit](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
+Yes, Microsoft Software Assurance customers can use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
 
 ## Pricing
 
@@ -44,6 +44,27 @@ Please refer to our FAQ on licensing [here](https://aka.ms/asr_pricing_FAQ) for 
 ### How can I calculate approximate charges during the use of Site Recovery?
 
 You can use [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Azure Site Recovery. For detailed estimate on costs, run the deployment planner tool(https://aka.ms/siterecovery_deployment_planner) and analyze the [cost estimation report](https://aka.ms/asr_DP_costreport).
+
+### Is there any difference in cost when I replicate directly to managed disk?
+
+Managed disks are charged slightly different than storage accounts. Please see example below for a source disk of size 100 GiB. The example is specific to differential cost of storage. This cost does not include the cost for snapshots, cache storage and transactions.
+
+* Standard storage account Vs. Standard HDD Managed Disk
+
+    - **Provisioned storage disk by ASR**: S10
+    - **Standard storage account charged on consumed volume**: $5 per month
+    - **Standard managed disk charged on provisioned volume**: $5.89 per month
+
+* Premium storage account Vs. Premium SSD Managed Disk 
+    - **Provisioned storage disk by ASR**: P10
+    - **Premium storage account charged on provisioned volume**: $17.92 per month
+    - **Premium managed disk charged on provisioned volume**: $17.92 per month
+
+Learn more on [detailed pricing of managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### Do I incur additional charges for Cache Storage Account with managed disks?
+
+No, you do not incur additional charges for cache. Cache is always part of VMware to Azure architecture. When you replicate to standard storage account, this cache storage is part of the same target storage account.
 
 ### I have been an Azure Site Recovery user for over a month. Do I still get the first 31 days free for every protected instance?
 
@@ -118,6 +139,15 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 ### How can I change storage account after machine is protected?
 
 You need to disable and enable replication to either upgrade or downgrade the storage account type.
+
+### Can I replicate to storage accounts for new machine?
+
+No, beginning Mar'19, you can replicate to managed disks on Azure from the portal. 
+Replication to storage accounts for a new machine is only available via REST API and Powershell. Use API version 2016-08-10 or 2018-01-10 for replicating to storage accounts.
+
+### What are the benefits in replicating to managed disks?
+
+Read the article on how [Azure Site Recovery simplifies disaster recovery with managed disks](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
 
 ### How can I change Managed Disk type after machine is protected?
 
@@ -202,9 +232,11 @@ While possible, the Azure VM running the configuration server would need to comm
 We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ### When I'm setting up the configuration server, can I download and install MySQL manually?
+
 Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
 
 ### Can I avoid downloading MySQL but let Site Recovery install it?
+
 Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
  
 ### Can I use the configuration server VM for anything else?

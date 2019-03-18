@@ -45,10 +45,10 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
 > [!NOTE]
 > The DLVM supports all NC and ND series GPU VM instances. When provisioning the DLVM, you must choose one of the locations in Azure that has GPUs. Check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) page for the available locations and look for **NC-Series**, **NCv2-Series**, **NCv3-Series**, or **ND-Series** under **Compute**. 
 
-   2. **Settings**: Select one of the NC series (NC, NCv2, NCv3) or ND series GPU virtual machine sizes that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Settings**: Select one of the NC series (NC, NCv2, NCv3) or ND series GPU virtual machine sizes that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Summary**: Verify that all information you entered is correct.
-   5. **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
+1. **Summary**: Verify that all information you entered is correct.
+1. **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 > [!NOTE]
 > The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.

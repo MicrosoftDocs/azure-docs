@@ -237,7 +237,7 @@ Set up a Self-hosted Integration Runtime on a machine with access to your data s
 
 Before you use the Informix source in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
 
-Create an ODBC linked service to link a IBM Informix data store to an Azure data factory as shown in the following example:
+Create an ODBC linked service to link an IBM Informix data store to an Azure data factory as shown in the following example:
 
 ```json
 {

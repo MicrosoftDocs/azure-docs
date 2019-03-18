@@ -53,7 +53,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 ## Prerequisites
 
 > [!IMPORTANT]
-- Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1902.
+> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1902.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 

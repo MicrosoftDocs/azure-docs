@@ -260,4 +260,4 @@ If there are other articles that are related to a news article, the news article
 ## Next steps
 
 > [!div class="nextstepaction"]
-[How to page through Bing News Search results](../paging-news.md)
+> [How to page through Bing News Search results](../paging-news.md)

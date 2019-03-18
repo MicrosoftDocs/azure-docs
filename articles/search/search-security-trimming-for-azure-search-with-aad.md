@@ -16,13 +16,13 @@ This article demonstrates how to use Azure Active Directory (AAD) security ident
 
 This article covers the following tasks:
 > [!div class="checklist"]
-- Create AAD groups and users
-- Associate the user with the group you have created
-- Cache the new groups
-- Index documents with associated groups
-- Issue a search request with group identifiers filter
-
->[!NOTE]
+> - Create AAD groups and users
+> - Associate the user with the group you have created
+> - Cache the new groups
+> - Index documents with associated groups
+> - Issue a search request with group identifiers filter
+> 
+> [!NOTE]
 > Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## Prerequisites

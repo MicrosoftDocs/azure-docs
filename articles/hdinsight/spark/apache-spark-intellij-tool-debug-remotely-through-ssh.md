@@ -29,23 +29,23 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
    b. Select a Java or Scala template based on your preference. Select between the following options:
 
-      - **Spark Project (Java)**
+   - **Spark Project (Java)**
 
-      - **Spark Project (Scala)**
+   - **Spark Project (Scala)**
 
-      - **Spark Project with Samples (Scala)**
+   - **Spark Project with Samples (Scala)**
 
-      - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
+   - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
 
-      This example uses a **Spark Project with Samples (Scala)** template.
+     This example uses a **Spark Project with Samples (Scala)** template.
 
    c. In the **Build tool** list, select either of the following, according to your need:
 
-      - **Maven**, for Scala project-creation wizard support
+   - **Maven**, for Scala project-creation wizard support
 
-      - **SBT**, for managing the dependencies and building for the Scala project 
+   - **SBT**, for managing the dependencies and building for the Scala project 
 
-      ![Create a debug project](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
+     ![Create a debug project](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
    d. Select **Next**.     
  
@@ -164,7 +164,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 
 ### Create and run applications
 * [Create a standalone application using Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster](apache-spark-intellij-tool-plugin.md)

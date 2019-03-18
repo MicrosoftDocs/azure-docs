@@ -104,6 +104,7 @@ To configure Azure AD single sign-on with Fieldglass, perform the following step
     a. In the **Identifier** text box, type a URL as  `https://www.fieldglass.com` or follow the pattern: `https://<company name>.fgvms.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
     | |
 	|--|
 	| `https://www.fieldglass.net/<company name>`|

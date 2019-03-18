@@ -103,6 +103,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 The `az postgres server georestore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

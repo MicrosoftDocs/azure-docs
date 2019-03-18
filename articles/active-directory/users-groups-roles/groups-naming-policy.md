@@ -79,15 +79,15 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.
   
-  ```
-  Uninstall-Module AzureADPreview
-  ```
+   ```
+   Uninstall-Module AzureADPreview
+   ```
 3. Install the latest version of AzureADPreview.
   
-  ```
-  Install-Module AzureADPreview
-  ```
-If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
+   ```
+   Install-Module AzureADPreview
+   ```
+   If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
 
 ## Configure the group naming policy for a tenant using Azure AD PowerShell
 
@@ -95,11 +95,11 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
 
 2. Run the following commands to prepare to run the cmdlets.
   
-  ```
-  Import-Module AzureADPreview
-  Connect-AzureAD
-  ```
-  In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
+   ```
+   Import-Module AzureADPreview
+   Connect-AzureAD
+   ```
+   In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
 3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
 
@@ -107,35 +107,35 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
 
 1. Fetch the current naming policy to view the current settings.
   
-  ```
-  $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ```
+   ```
+   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+   ```
   
 2. Display the current group settings.
   
-  ```
-  $Setting.Values
-  ```
+   ```
+   $Setting.Values
+   ```
   
 ### Set the naming policy and custom blocked words
 
 1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
+   ```
   
 2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
-  ```
-  $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
+   ```
   
 3. Save the settings for the new policy to be effective, such as in the following example.
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
   
 That's it. You've set your naming policy and added your blocked words.
 
@@ -170,21 +170,21 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =""
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =""
+   ```
   
 2. Empty the custom blocked words. 
   
-  ```
-  $Setting["CustomBlockedWordsList"]=""
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=""
+   ```
   
 3. Save the settings.
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
 
 
 ## Naming policy experiences across Office 365 apps
