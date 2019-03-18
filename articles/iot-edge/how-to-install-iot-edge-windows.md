@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
@@ -20,8 +20,8 @@ To learn more about the IoT Edge runtime, see [Understand the Azure IoT Edge run
 
 This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. Windows support is currently in Preview.
 
->[!NOTE]
-Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
 
 ## Prerequisites
 
@@ -47,6 +47,8 @@ For more information about what's included in the latest version of IoT Edge, se
 
 Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container engine. For production scenarios, use the Moby engine included in the installation script to run Windows containers on your Windows device. For developing and testing, you can run Linux containers on your Windows device, but you need to install and configure a container engine before installing IoT Edge. For either scenario, see the following sections for prerequisites to prepare your device. 
 
+If you want to install IoT Edge on a virtual machine, enable nested virtualization and allocate at least 2-GB memory. How you enable nested virtualization is different depending on the hypervisor your use. For Hyper-V, generation 2 virtual machines have nested virtualization enabled by default. For VMWare, there's a toggle to enable the feature on your virtual machine. 
+
 #### Moby engine for Windows containers
 
 For Windows devices running IoT Edge in production scenarios, Moby is the only officially supported container engine. The installation script automatically installs the Moby engine on your device before installing IoT Edge. Prepare your device by turning on the Containers feature. 
@@ -59,7 +61,7 @@ For Windows devices running IoT Edge in production scenarios, Moby is the only o
 
 If you're using Windows to develop and test containers for Linux devices, you can use [Docker for Windows](https://www.docker.com/docker-windows) as your container engine. Docker can be configured to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). You need to install Docker and configure it before installing IoT Edge. Linux containers are not supported on Windows devices in production. 
 
-If your IoT Edge device is a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V. If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2-GB memory.
+If your IoT Edge device is a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V.
 
 ## Install IoT Edge on a new device
 

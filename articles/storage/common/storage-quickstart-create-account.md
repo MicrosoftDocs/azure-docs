@@ -273,4 +273,5 @@ In this quick start, you've created a general-purpose v2 standard storage accoun
 
 > [!div class="nextstepaction"]
 > [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
+
 ---

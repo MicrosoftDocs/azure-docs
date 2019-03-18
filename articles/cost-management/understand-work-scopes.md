@@ -214,7 +214,7 @@ When working with Cost Management APIs, knowing the scope is critical. Use the f
 4. Copy the resource ID field value.
 5. Your scope is: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management is currently supported in Azure Global (https://management.azure.com) and Azure Government (https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Cost Management is currently supported in [Azure Global](https://management.azure.com) and [Azure Government](https://management.usgovcloudapi.net). For more information about Azure Government, see [Azure Global and Government API endpoints](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
 ## Next steps
 

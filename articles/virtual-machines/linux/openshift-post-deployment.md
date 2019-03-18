@@ -71,23 +71,23 @@ Take note of the appId property returned from the command for a later step.
 
 In the Azure portal:
 
-1.  Select **Azure Active Directory** > **App Registration**.
-2.  Search for your app registration (for example, OCPAzureAD).
-3.  In the results, click the app registration.
-4.  Under **Settings**, select **Required permissions**.
-5.  Under **Required Permissions**, select **Add**.
+1. Select **Azure Active Directory** > **App Registration**.
+2. Search for your app registration (for example, OCPAzureAD).
+3. In the results, click the app registration.
+4. Under **Settings**, select **Required permissions**.
+5. Under **Required Permissions**, select **Add**.
 
-  ![App Registration](media/openshift-post-deployment/app-registration.png)
+   ![App Registration](media/openshift-post-deployment/app-registration.png)
 
-6.  Click Step 1: Select API, and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
+6. Click Step 1: Select API, and then click **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Click **Select** at the bottom.
 
-  ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
+   ![App Registration Select API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions**, and then click **Select**.
+7. On Step 2: Select Permissions, select **Sign in and read user profile** under **Delegated Permissions**, and then click **Select**.
 
-  ![App Registration Access](media/openshift-post-deployment/app-registration-access.png)
+   ![App Registration Access](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Select **Done**.
+8. Select **Done**.
 
 ### Configure OpenShift for Azure AD authentication
 

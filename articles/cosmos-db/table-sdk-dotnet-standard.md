@@ -12,7 +12,7 @@ ms.date: 10/18/2018
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
 > [!div class="op_single_selector"]
-
+> 
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)

@@ -58,8 +58,8 @@ Azure supports several types of network access control, such as:
 
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
->[!NOTE]
-Storage Firewalls are covered in the [Azure storage security overview](security-storage-overview.md) article
+> [!NOTE]
+> Storage Firewalls are covered in the [Azure storage security overview](security-storage-overview.md) article
 
 #### Network security rules (NSGs)
 
@@ -362,8 +362,8 @@ Azure Network Watcher can help you troubleshoot, and provides a whole new set of
 
 For more information on Network Watcher and how to start testing some of the functionality in your labs, see [Azure network watcher monitoring overview](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### Azure Security Center
 

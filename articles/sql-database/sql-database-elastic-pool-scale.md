@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 3/06/2019
+ms.date: 3/14/2019
 ---
 # Scale elastic pool resources in Azure SQL Database
 
@@ -20,7 +20,6 @@ This article describes how to scale the compute and storage resources available 
 ## Change compute resources (vCores or DTUs)
 
 After initially picking the number of vCores or eDTUs, you can scale an elastic pool up or down dynamically based on actual experience using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
-
 
 ### Impact of changing service tier or rescaling compute size
 
@@ -65,6 +64,9 @@ The latency to change the service tier or rescale the compute size of a single d
 You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
 ## Change elastic pool storage size
+
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ### vCore-based purchasing model
 

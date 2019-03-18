@@ -31,7 +31,7 @@ This article provides answers to common questions about deploying disaster recov
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 ### How does the free tier for Azure Site Recovery work?
 Every instance that is protected with Azure Site Recovery is free for the first 31 days of protection. From the 32nd day onwards, protection for the instance is charged at the rates above.
-###During the first 31 days, will I incur any other Azure charges?
+### During the first 31 days, will I incur any other Azure charges?
 Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions and data transfer. A recovered virtual machine might also incur Azure compute charges. Get complete details on pricing [here](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### What are the best practices for configuring Site Recovery on Azure VMs?
@@ -101,7 +101,7 @@ Because of their extra content, application-consistent snapshots are the most in
 Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
 
 ### What is the minimum frequency of application-consistent recovery point generation?
-Site Recovery can creates a application-consistent recovery point with a minimum frequency of in 1 hour.
+Site Recovery can creates an application-consistent recovery point with a minimum frequency of in 1 hour.
 
 ### How are recovery points generated and saved?
 To understand how Site Recovery generates recovery points, let's take an example of a replication policy that has a recovery point retention window of 24 hours and an app-consistent frequency snapshot of 1 hour.
@@ -113,7 +113,7 @@ The following screenshot illustrates the example. In the screenshot:
 1. For time less than the last 1 hour, there are recovery points with a frequency of 5 minutes.
 2. For time beyond the last 1 hour, Site Recovery keeps only 1 recovery point.
 
-  ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![List of generated recovery points](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### How far back can I recover?
