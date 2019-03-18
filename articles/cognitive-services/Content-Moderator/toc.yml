@@ -113,8 +113,6 @@
     href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
     href: ./export-delete-data.md
-  - name: Azure webinar series
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: Reference
   items:
   - name: Content Moderator API
@@ -145,6 +143,8 @@
       href: samples-rest.md
     - name: Other Azure samples
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+  - name: Azure webinar series
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: FAQ
     href: FAQs.md
   - name: Pricing and limits
