@@ -78,14 +78,14 @@ This article will demonstrate individual enrollments.
 1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 1. Under the **Add Enrollment**, enter the following information:
-    - Select **TPM** as the identity attestation *Mechanism*.
-    - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
-    - Select an IoT hub linked with your provisioning service.
-    - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-    - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+   - Select **TPM** as the identity attestation *Mechanism*.
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
+   - Select an IoT hub linked with your provisioning service.
+   - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
+   - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, click the **Save** button. 
 
-    ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
@@ -97,11 +97,11 @@ This article will demonstrate individual enrollments.
 
 1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
 
-    > [!NOTE]
-        > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
-
-    > [!NOTE]
-        > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
+   > [!NOTE]
+   > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
+   > 
+   > [!NOTE]
+   > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
 
 1. Navigate to the samples folder.
 

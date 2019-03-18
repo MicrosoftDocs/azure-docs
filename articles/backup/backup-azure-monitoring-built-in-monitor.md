@@ -87,9 +87,9 @@ When notification is configured, you will receive a welcome or introductory emai
 If the frequency was set to an hourly digest and an alert was raised and resolved within an hour, it will not be a part of the upcoming hourly digest.
 
 > [!NOTE]
->
-* If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
-* To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> 
+> * If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
+> * To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## Next steps
 
