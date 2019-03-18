@@ -132,9 +132,9 @@ Using the [Azure portal](https://portal.azure.com/):
 3. Search for the `shared_preload_libraries` parameter.
 
 4. Copy and paste the following as the value for `shared_preload_libraries`
-```
-timescaledb
-```
+   ```
+   timescaledb
+   ```
 
 5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
 
