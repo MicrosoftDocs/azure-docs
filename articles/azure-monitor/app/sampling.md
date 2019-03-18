@@ -465,12 +465,26 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
   There are 2 AdaptiveSamplingTelemetryProcessors added by default, and one includes Event type in sampling, and the other excludes
   Event type from sampling. This configuration means that the SDK will try to limit telemetry items to five telemetry items of Event types, and five telemetry items of all other types combined, thereby ensuring that Events are sampled separately from other Telemetry types. Events are typically used for
   business telemetry, and most likely should not be affected by diagnostic telemetry volumes.
-  Use the examples in the earlier section of the document to change this default behavior.
+  
+  The following shows the default ApplicationInsights.Config file generated. As described, there are two separate separate AdaptiveSamplingTelemetryProcessor nodes added, one excluding Event types, and another including it. In Asp.Net Core, exact same default behavior is enabled in code. Use the examples in the earlier section of the document to change this default behavior.
+
+```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <ExcludedTypes>Event</ExcludedTypes>
+        </Add>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <IncludedTypes>Event</IncludedTypes>
+        </Add>
+    </TelemetryProcessors>
+```    
 
 *Can telemetry be sampled more than once?*
 
 * No. SamplingTelemetryProcessors ignore items from sampling considerations if the item is already sampled. The same is true for Ingestion sampling as well, which won't
-apply sampling to those items already sampling in the SDK itself.'
+apply sampling to those items already sampled in the SDK itself.'
 
 *Why isn't sampling a simple "collect X percent of each telemetry type"?*
 
