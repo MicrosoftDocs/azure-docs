@@ -86,7 +86,7 @@ The output from the **ansible-playbook* command looks similar to the following s
   TASK [Create resource group] **************************************************************************************
   changed: [localhost]
 
-  TASK [Create a Azure Container Services (AKS) cluster] ***************************************************
+  TASK [Create an Azure Container Services (AKS) cluster] ***************************************************
   changed: [localhost]
 
   PLAY RECAP *********************************************************************************************************
