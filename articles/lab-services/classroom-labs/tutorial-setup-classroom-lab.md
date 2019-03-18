@@ -123,7 +123,7 @@ If the **Restrict access** is enabled for the lab, only users in the list of use
 1. Select **Get registration link** on the toolbar.
 2. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard.
 
-    ![Registration link]../media/tutorial-setup-classroom-lab/registration-link.png)
+    ![Registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
 1. On the **User registration** dialog box, select **Close**. 
 2. Share the registration link with a student so that the student can register for the class.
 
