@@ -38,7 +38,7 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 3. In the confirmation email from Power BI, select **Yes, that's me**.
 
-4. Sign in to the [Office 365 Admin center](https://portal.office.com/admintakeover) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
+4. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
    ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -52,10 +52,10 @@ When you complete the preceding steps, you are now the global administrator of t
 
 ### Adding the domain name to a managed tenant in Azure AD
 
-1. Open the [Office 365 Admin center](https://portal.office.com/admintakeover).
+1. Open the [Microsoft 365 admin center](https://admin.microsoft.com).
 2. Select **Users** tab, and create a new user account with a name like *user\@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
 3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
-4. Open **Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
+4. Open **Domains** tab in the Microsoft 365 admin center, select the domain name and select **Remove**. 
   
    ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   

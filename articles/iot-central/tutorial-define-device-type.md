@@ -68,7 +68,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
      For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
-## Create a new custom device template
+## Create a device template
 
 As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
@@ -80,11 +80,15 @@ To add a new device template to your application, you need to go to the **Device
 
 The following steps show you how to create a new **Connected Air Conditioner** device template for devices that send temperature telemetry to your application:
 
-1. On the **Device Templates** page, select **+**:
+1. On the **Device Templates** page, select **+ New**:
 
     ![Device Templates page, Create Device Template](./media/tutorial-define-device-type/newtemplate.png)
 
-3. On the **Custom Device Template** page, enter **Connected Air Conditioner** as the name of your device, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+2. The page shows the templates you can choose from.
+
+    ![Device Template Library](./media/tutorial-define-device-type/devicetemplatelibrary.png)
+
+3. Select the **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
 
     ![Custom Device](./media/tutorial-define-device-type/createcustomdevice.png)
 
