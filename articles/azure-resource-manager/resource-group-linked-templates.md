@@ -68,7 +68,7 @@ To nest the template within the main template, use the **template** property and
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2018-07-01",
             "name": "[variables('storageName')]",
             "location": "West US",
             "properties": {
@@ -104,7 +104,7 @@ To link to an external template and parameter file, use **templateLink** and **p
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2017-05-10",
+    "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
     "mode": "Incremental",
