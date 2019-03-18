@@ -26,13 +26,12 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-
 ## Install the NuGet SDK Package
 1. Create a new Console solution in Visual Studio.
 1. Right click on the solution and click **Manage NuGet Packages for Solution**
 1. Mark the **Include Prerelease** checkbox.
 1. Select the **Browse** tab, and Search for **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Select the NuGet package and install it.
+1. Select the NuGet package and install it. You may need v2.8.0 for now (3-18-2019), as opposed to v3.0.0, until a bug in the software is fixed.
 
 > [!Tip]
 >  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
