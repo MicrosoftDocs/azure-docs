@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Datasets
-description: Azure Data Factory Mapping Data Flow has sepecific dataset compatability
+description: Azure Data Factory Mapping Data Flow has specific dataset compatibility
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
