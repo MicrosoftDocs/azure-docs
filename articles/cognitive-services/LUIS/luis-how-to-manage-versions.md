@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
 ---
 
@@ -51,6 +51,10 @@ Select a version from the list, then select **Make Active** from the toolbar.
     ![Manage section, versions page, importing new version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Once you import a version, the new version becomes the active version.
+
+### Import errors
+
+If you get a **tokenizer error** when importing, that means you are trying to import a version that uses a different tokenizer. To fix this, you need to create a new app with that app file or change the tokenizer version in the app file. This change will cause a change in how utterances are tokenized. 
 
 <a name = "export-version"></a>
 
