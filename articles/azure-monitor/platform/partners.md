@@ -178,7 +178,7 @@ ScienceLogic delivers the next generation IT service assurance platform for mana
 
 ## Serverless360
 
-![Serverless360 Logo](./media/partners/Serverless360.png)
+![Serverless360 Logo](./media/partners/serverless360.png)
 
 Serverless360 is a one platform tool to operate, manage, and monitor Azure serverless components. Manageability is one of the key challenges with serverless implementations. Hundreds of small, discrete serverless services are scattered in various places – managing and operating such solutions is complex. Serverless360 solves these challenges with rich set of sophisticated tools. It can monitor serverless services like Azure Functions, Logic Apps, Event Grids, Service Bus Queues, Topics, Relays, Event Hubs, Storage queues, files, blob, and tables. Serverless360 is available in the Azure Marketplace. These capabilities are available on both SaaS and private hosting (hosted on your own environment).  
 
