@@ -153,21 +153,13 @@ Once the user selects one of the existing questions, the client application send
 
 ## Train API
 
-The Train API signature is:
+Active learning feedback is sent to QnA Maker with the Train API POST request. The API signature is:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
 Authorization: EndpointKey <endpoint-key>
 Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
-```
-
-Use the [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) to see active learning in an end-to-end scenario.
-
-You call Train with an HTTP POST request. The **request URL** has the following format: 
-
-```
-https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
 ```
 
 |HTTP request property|Name|Type|Purpose|
@@ -202,6 +194,8 @@ An example JSON body looks like:
 ```
 
 A successful response returns a status of 204 and no JSON response body. 
+
+Use the [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) to see active learning in an end-to-end scenario.
 
 ## Active learning is saved in the exported app's tsv file
 
