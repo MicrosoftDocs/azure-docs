@@ -156,7 +156,7 @@ Unfortunately, other object-based spatializer plugins can't be supported at this
 
     ![Assign Acoustics Asset](media/acoustics-asset-assign.png)
 
-* Now add an ambient sound:
+* Now add an empty actor and do the following:
 
     ![Acoustics Component Usage](media/acoustics-component-usage.png)
 

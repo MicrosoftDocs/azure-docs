@@ -98,7 +98,7 @@ After assigning the materials, switch to the **Probes** tab.
 5. The data files for this scene will be named using the prefix provided here. The default is "[Level Name]_AcousticsData".
 6. Click the **Calculate** button to voxelize the scene and calculate the probe point locations. This is done locally on your machine, and must be done prior to doing a bake. After the probes have been calculated, the controls above will be disabled, and this button will change to say **Clear**. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.
 
-In this version of Project Acoustics, probes can't be placed manually and must be placed through the automated process provided in the **Probes** tab.
+Probes must be placed through the automated process provided in the **Probes** tab.
 
 
 ### What the "Calculate" button calculates
@@ -128,7 +128,7 @@ If you don't see any voxels or probes overlaid on your level, make sure real-tim
 ### Voxels
 
 Voxels are shown in the scene window as green cubes around participating geometry. Voxels that contain only air are not shown. There is a large green box around your entire scene that denotes the complete voxel volume that will be used in the simulation.
-Move around your scene and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
+Move around your scene and verify that the acoustically-occluding geometry has voxels. Also, check that non-acoustics objects such as collision meshes haven't been voxelized. The scene camera has to be within about 5 meters of the object for the voxels to show.
 
 If you compare the voxels created with coarse resolution vs fine resolution, you will see that the coarse voxels are twice as large.
 
