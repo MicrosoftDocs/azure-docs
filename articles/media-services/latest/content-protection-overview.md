@@ -133,7 +133,7 @@ DASH encrypted with Widevine or/and PlayReady
 
 #### URL examples
 
-Smoth Streaming encrypted with PlayReady
+Smooth Streaming encrypted with PlayReady
 `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(encryption=cenc)`
 
 ### Browsers
