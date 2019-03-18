@@ -19,25 +19,11 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-You require an existing backend certificate to generate the authentication certificates or trusted root certificates required for whitelisting backend instances with application gateway. The backend certificate can same as SSL certificate or different for added security. Application gateway does not provide you any mechanism to create or purchase an SSL certificate. For testing purposes, you can create a self-signed certificate but you should not use it for production workloads. 
-
-### Create a self-signed root certificate
-
-Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For additional parameter information, see [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
-
-1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
-2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
-
-```powershell
-  $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-  -Subject "CN=appgwpmtest" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
-```
+You require an existing backend certificate to generate the authentication certificates or trusted root certificates required for whitelisting backend instances with application gateway. The backend certificate can be same as SSL certificate or different for added security. Application gateway does not provide you any mechanism to create or purchase an SSL certificate. For testing purposes, you can create a self-signed certificate but you should not use it for production workloads. 
 
 ## Export authentication certificate from a backend certificate (for v1 SKU)
 
-Authentication certificate is required to whitelist backend instances in application gateway v1 SKU. Authentication certificate is the public key of backend server certificates in Base-64 encoded X.509(.CER) format. In this example, we will use an SSL certificate for the backend certificate and export its public key to be used as authentication certification.
+Authentication certificate is required to whitelist backend instances in application gateway v1 SKU. Authentication certificate is the public key of backend server certificates in Base-64 encoded X.509(.CER) format. In this example, we will use an SSL certificate for the backend certificate and export its public key to be used as authentication certification. Also, in this example, we will use the Windows Certificate Manager tool to export the required certificates. You can choose to use any other tool as per your convenience.
 
 From your SSL certificate, export the public key .cer file (not the private key). The following steps help you export the .cer file in Base-64 encoded X.509(.CER) format for your certificate:
 
