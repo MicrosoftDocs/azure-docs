@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Remove a Service Fabric cluster running in Azure
 
-This tutorial is part four of a series, and shows you how to delete a Service Fabric cluster running in Azure. To completely delete a Service Fabric cluster you also need to delete the resources used by the cluster. You have two options: either delete the resource group that the cluster is in (which deletes the cluster resource and all other resources in the resource group) or specifically delete the cluster resource and it's associated resources (but not other resources in the resource group).
+This tutorial is part five of a series, and shows you how to delete a Service Fabric cluster running in Azure. To completely delete a Service Fabric cluster you also need to delete the resources used by the cluster. You have two options: either delete the resource group that the cluster is in (which deletes the cluster resource and all other resources in the resource group) or specifically delete the cluster resource and it's associated resources (but not other resources in the resource group).
 
 In this tutorial, you learn how to:
 
@@ -30,6 +30,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure using a template
+> * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Delete a cluster
