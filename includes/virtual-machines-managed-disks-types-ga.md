@@ -16,9 +16,7 @@ Azure premium SSDs deliver high-performance and low-latency disk support for vir
 
 ### Disk size
 
-Sizes marked with an asterisk are currently in preview.
-
-| Premium SSD sizes | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60* | P70* | P80* |
+| Premium SSD sizes | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
 |-------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
 | Disk size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,095 | 8,192 | 16,384 | 32,767 |
 | IOPS per disk | Up to 120 | Up to 240 | Up to 500 | Up to 1,100 | Up to 2,300 | Up to 5,000 | Up to 7,500 | Up to 7,500 | Up to 12,500 | Up to 15,000 | Up to 20,000 |
@@ -30,9 +28,7 @@ Azure standard SSDs are a cost-effective storage option optimized for workloads 
 
 ### Disk size
 
-Sizes marked with an asterisk are currently in preview.
-
-| Standard SSD sizes | E4 | E6 | E10 | E15 | E20 | E30 | E40 | E50 | E60* | E70* | E80* |
+| Standard SSD sizes | E4 | E6 | E10 | E15 | E20 | E30 | E40 | E50 | E60 | E70 | E80 |
 |--------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
 | Disk size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,095 | 8,192 | 16,384 | 32,767 |
 | IOPS per disk | Up to 120 | Up to 240 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 1,300 | Up to 2,000 | Up to 2,000 |
@@ -44,9 +40,7 @@ Azure standard HDDs deliver reliable, low-cost disk support for VMs running late
 
 ### Disk size
 
-Sizes marked with an asterisk are currently in preview.
-
-| Standard Disk Type | S4 | S6 | S10 | S15 | S20 | S30 | S40 | S50 | S60* | S70* | S80* |
+| Standard Disk Type | S4 | S6 | S10 | S15 | S20 | S30 | S40 | S50 | S60 | S70 | S80 |
 |--------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
 | Disk size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,095 | 8,192 | 16,384 | 32,767 |
 | IOPS per disk | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 1,300 | Up to 2,000 | Up to 2,000 |

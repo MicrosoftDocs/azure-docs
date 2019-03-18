@@ -47,12 +47,9 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the [VM size](sizes.md). Temporary disks are assigned a drive letter of *D:* by default.
 
-
-
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is needed. Each data disk has a maximum capacity of 4 terabytes. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached. 
-
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is needed. Each data disk has a maximum capacity of 4 terabytes. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached.
 
 ## VM disk types
 
@@ -64,11 +61,11 @@ Azure provides two types of disks.
 
 ### Premium disk performance
 
-|Premium storage disk type | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Disk size (round up) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB)
-| Max IOPS per disk | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 | 12,500 |
-Throughput per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+| Premium SSD sizes | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
+|-------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
+| Disk size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,095 | 8,192 | 16,384 | 32,767 |
+| IOPS per disk | Up to 120 | Up to 240 | Up to 500 | Up to 1,100 | Up to 2,300 | Up to 5,000 | Up to 7,500 | Up to 7,500 | Up to 12,500 | Up to 15,000 | Up to 20,000 |
+| Throughput per disk | Up to 25 MiB/sec | Up to 50 MiB/sec | Up to 100 MiB/sec | Up to 125 MiB/sec | Up to 150 MiB/sec | Up to 200 MiB/sec | Up to 250 MiB/sec | Up to 250 MiB/sec| Up to 480 MiB/sec | Up to 750 MiB/sec | Up to 750 MiB/sec |
 
 While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks is sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [VM types and sizes](./sizes.md).
 
