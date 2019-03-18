@@ -52,7 +52,7 @@ Before you begin this tutorial:
 
 Azure Monitor logs collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. You can run queries in Azure Monitor logs to gain insights and troubleshoot what is happening in your cluster.
 
-To access the Service Fabric Analytics solution, go to the [Azure Portal](https://portal.azure.com) and select the resource group in which you created the Service Fabric Analytics solution.
+To access the Service Fabric Analytics solution, go to the [Azure portal](https://portal.azure.com) and select the resource group in which you created the Service Fabric Analytics solution.
 
 Select the resource **ServiceFabric(mysfomsworkspace)**.
 
