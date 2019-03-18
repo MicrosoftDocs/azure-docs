@@ -129,7 +129,7 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 - [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/en-us/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/)
 - [Microsoft and FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP)
 
-### Mainframe migration
+### More migration resources
 
 - [Platform Modernization Alliance: IBM Db2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

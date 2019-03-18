@@ -103,7 +103,7 @@ Blob storage provides the largest volume of storage on Azure. In addition to sto
 
 - [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Mainframe rehosting on Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Move mainframe storage to Azure](mainframe-storage-on-Azure.md)
+- [Move mainframe compute to Azure](mainframe-compute-on-Azure.md)
 - [Deciding when to use Azure Blobs, Azure Files, or Azure Disks](https://docs.microsoft.com/en-us/azure/storage/common/storage-decide-blobs-files-disks)
 - [Standard SSD Managed Disks for Azure VM workloads](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-standard-ssd)
 
@@ -121,7 +121,7 @@ Blob storage provides the largest volume of storage on Azure. In addition to sto
 - [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/en-us/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/)
 - [Microsoft and FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP)
 
-### Mainframe migration
+### More migration resources
 
 - [Platform Modernization Alliance: IBM Db2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 - [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
