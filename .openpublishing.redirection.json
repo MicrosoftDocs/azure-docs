@@ -36281,6 +36281,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Acoustics/getting-started.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/bake-ui-walkthrough.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/unity-baking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/sample-walkthrough.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
