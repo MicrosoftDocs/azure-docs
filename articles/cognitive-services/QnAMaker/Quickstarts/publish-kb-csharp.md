@@ -37,7 +37,7 @@ This quickstart calls QnA Maker APIs:
 ## Create knowledge base project
 
 1. Open Visual Studio 2017 Community edition.
-1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstart`. Accept the defaults for the remaining settings.
+1. Create a new **Console App (.NET Core)** project and name the project `QnaMakerQuickstart`. Accept the defaults for the remaining settings.
 
 ## Add required dependencies
 

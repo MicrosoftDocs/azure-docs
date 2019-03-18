@@ -513,11 +513,11 @@ We've fixed an issue so specific administrator roles can now create and update d
 
 The roles are:
 
-- Global administrator or Company Writer
+- Global administrator
 
-- Intune Service Administrator
+- Intune administrator
 
-- User Account Administrator
+- User administrator
 
 For more information, see [Create a dynamic group and check status](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 

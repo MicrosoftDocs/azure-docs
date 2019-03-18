@@ -56,7 +56,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
     
         az provider show --namespace Microsoft.NetApp
 
-  The command output appears as follows:
+   The command output appears as follows:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

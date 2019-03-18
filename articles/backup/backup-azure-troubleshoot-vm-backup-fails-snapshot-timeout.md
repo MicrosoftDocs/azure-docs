@@ -51,7 +51,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
 > [!NOTE]
-	> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
@@ -128,7 +128,7 @@ Your recent backup job failed because there is an existing backup job in progres
 		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Retry backup operation.
 
-If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#restore-considerations).
+If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## Causes and solutions
@@ -163,15 +163,15 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
 1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
+   > [!NOTE]
+   > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
 
 2. Ensure that the Azure agent is running on the VM by running the following command: `ps -e`
 
- If the process isn't running, restart it by using the following commands:
+   If the process isn't running, restart it by using the following commands:
 
- * For Ubuntu: `service walinuxagent start`
- * For other distributions: `service waagent start`
+   * For Ubuntu: `service walinuxagent start`
+   * For other distributions: `service waagent start`
 
 3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Run a new test backup. If the failure persists, collect the following logs from the VM:
@@ -233,7 +233,7 @@ After removing the lock, the restore points have to be cleaned up. To clean up t
 After removing lock, trigger an ad hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-	> Automatic cleanup will happen after few hours of triggering the ad hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
+> Automatic cleanup will happen after few hours of triggering the ad hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 

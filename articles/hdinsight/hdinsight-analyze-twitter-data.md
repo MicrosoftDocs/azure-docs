@@ -451,7 +451,7 @@ You have finished all the preparation work. Now, you can invoke the Hive script 
 ### Submit a Hive job
 Use the following Windows PowerShell script to run the Hive script. You will need to set the first variable.
 
-> [!NOTE]  
+> [!NOTE]
 > To use the tweets and the [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell

@@ -1,7 +1,7 @@
 ---
 title: Migrate from Custom Speech Service to Speech Services
 titlesuffix: Azure Cognitive Services
-description: The Custom Speech Service is now part of the Speech Service. Switch to the Speech Service to benefit from the latest quality and feature updates.
+description: The Custom Speech Service is now part of the Speech Services. Switch to the Speech Services to benefit from the latest quality and feature updates.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 Use this article to migrate your applications from the Custom Speech Service to the Speech Service.
 
-The Custom Speech Service is now part of the Speech Service. Switch to the Speech Service to benefit from the latest quality and feature updates.
+The Custom Speech Service is now part of the Speech Service. Switch to the Speech Services to benefit from the latest quality and feature updates.
 
 ## Migration for new customers
 
@@ -33,11 +33,11 @@ The pricing model is simpler, using an hour-based pricing model for the Speech S
 
 3. Follow the quickstart guides and SDK samples to use the correct APIs. If you use the REST APIs, you also need to use the correct endpoints and resource keys.
 
-4. Update the client application to use the Speech Service and APIs.
+4. Update the client application to use the Speech Services and APIs.
 
 ## Migration for existing customers
 
-Migrate your existing resource keys to the Speech Service on the Speech Service portal. Use the following steps:
+Migrate your existing resource keys to the Speech Services on the Speech Services portal. Use the following steps:
 
 > [!NOTE]
 > Resource keys can only be migrated within the same region.
@@ -50,10 +50,10 @@ Migrate your existing resource keys to the Speech Service on the Speech Service 
 
 ## Next steps
 
-* [Try out Speech Service for free](get-started.md).
+* [Try out Speech Services for free](get-started.md).
 * Learn [speech to text](./speech-to-text.md) concepts.
 
 ## See also
 
 * [What is the Speech Service](overview.md)
-* [Speech Service and SDK documentation](speech-sdk.md#get-the-sdk)
+* [Speech Services and Speech SDK documentation](speech-sdk.md#get-the-sdk)

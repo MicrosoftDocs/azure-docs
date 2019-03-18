@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/15/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -90,7 +90,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 ### General Purpose service tier: Generation 5 compute platform (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -102,7 +102,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Log rate limits (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|Log rate limits (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
@@ -118,7 +118,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 ### General Purpose service tier: Generation 5 compute platform (part 2)
 
 |Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -159,7 +159,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Log rate limits (MBps)|6|12|18|24|30|36|
+|Log rate limits (MBps)|7.5|15|22.5|30|37.5|45|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -178,7 +178,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
-|Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Memory (GB)|81.6|91.8|102|122.4|163.2|204|
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
@@ -187,7 +187,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Log rate limits (MBps)|
+|Log rate limits (MBps)|52.5|60|67.5|75|80|80|
 |Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -203,7 +203,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 #### Business Critical service tier: Generation 5 compute platform (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -215,7 +215,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Log rate limits (MBps)|48|48|48|48|48|48|48|
+|Log rate limits (MBps)|7.5|15|22.5|30|37.5|45|52.5|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
@@ -231,7 +231,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 #### Business Critical service tier: Generation 5 compute platform (part 2)
 
 |Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -243,7 +243,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Target IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Log rate limits (MBps)|48|48|48|48|48|48|48|
+|Log rate limits (MBps)|60|67.5|75|90|120|120|120|
 |Max concurrent workers per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|

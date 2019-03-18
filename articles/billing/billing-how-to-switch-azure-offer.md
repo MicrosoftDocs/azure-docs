@@ -112,4 +112,4 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

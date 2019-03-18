@@ -29,10 +29,10 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	
 	![Sign in](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * You must use the same provider you used when you signed up for Video Indexer.
-    > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
-    > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
+   > [!Important]
+   > * You must use the same provider you used when you signed up for Video Indexer.
+   > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
+   > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
 
 2. Subscribe.
 
@@ -68,7 +68,7 @@ To make things easier, you can use the **Authorization** API > **GetAccounts** t
 
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
  
-You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](http://api-portal.videoindexer.ai/).
+You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://api-portal.videoindexer.ai/).
 
 ## Location
 

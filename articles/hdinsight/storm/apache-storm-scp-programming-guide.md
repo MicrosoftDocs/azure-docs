@@ -26,7 +26,7 @@ In Storm, an application topology defines a graph of computation. Each node in a
 
 SCP supports best efforts, at-least-once and exactly-once data processing. In a distributed streaming processing application, various errors may happen during data processing, such as network outage, machine failure, or user code error etc. At-least-once processing ensures all data will be processed at least once by replaying automatically the same data when error happens. At-least-once processing is simple and reliable and suits well many applications. However, when an application requires exact counting, at-least-once processing is insufficient since the same data could potentially be played in the application topology. In that case, exactly-once processing is designed to make sure the result is correct even when the data may be replayed and processed multiple times.
 
-SCP enables .NET developers to develop real time data process applications while leveraging on Java Virtual Machine (JVM) with Storm under the covers. The .NET and JVM communicate via TCP local sockets. Basically each Spout/Bolt is a .Net/Java process pair, where the user logic runs in .Net process as a plugin.
+SCP enables .NET developers to develop real time data process applications while leveraging on Java Virtual Machine (JVM) with Storm under the covers. The .NET and JVM communicate via TCP local sockets. Basically each Spout/Bolt is a .NET/Java process pair, where the user logic runs in .NET process as a plugin.
 
 To build a data processing application on top of SCP, several steps are needed:
 
@@ -444,7 +444,7 @@ Here,
 3. [0,1] means a hash set of field Ids, starting from 0.
 
 ### Hybrid topology
-The native Storm is written in Java. And SCP.Net has enhanced it to enable C\# developers to write C\# code to handle their business logic. But it also supports hybrid topologies, which contains not only C\# spouts/bolts, but also Java Spout/Bolts.
+The native Storm is written in Java. And SCP.NET has enhanced it to enable C\# developers to write C\# code to handle their business logic. But it also supports hybrid topologies, which contains not only C\# spouts/bolts, but also Java Spout/Bolts.
 
 ### Specify Java Spout/Bolt in spec file
 In spec file, "scp-spout" and "scp-bolt" can also be used to specify Java Spouts and Bolts, here is an example:
@@ -556,7 +556,7 @@ In host mode, user code is compiled as DLL, and is invoked by SCP platform. So S
 
 ## SCP Programming Examples
 ### HelloWorld
-**HelloWorld** is a simple example to show a taste of SCP.Net. It uses a non-transactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** randomly generates sentences, and emit these sentences to **splitter**. The bolt **splitter** splits the sentences to words and emit these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
+**HelloWorld** is a simple example to show a taste of SCP.NET. It uses a non-transactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** randomly generates sentences, and emit these sentences to **splitter**. The bolt **splitter** splits the sentences to words and emit these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
 
 There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec** for this example. In the C\# code, it can find out whether ack is enabled by getting the pluginConf from Java side.
 

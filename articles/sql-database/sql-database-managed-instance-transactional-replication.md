@@ -55,7 +55,7 @@ The **Subscriber** is an instance or server that is receiving the changes made o
   >[!NOTE]
   > A pull subscription is not supported when the distributor is an Instance database and the subscriber is not. 
 
-There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replication | Single and pooled databases | Instance  databases|
@@ -71,7 +71,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQ_REPL40532 (Cannot open server \<name> requested by the login. The login failed.)
-  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### Supportabilty matrix for Instance Databases and On-premises systems
   The replication supportability matrix for instance databases is the same as the one for SQL Server on-premises. 

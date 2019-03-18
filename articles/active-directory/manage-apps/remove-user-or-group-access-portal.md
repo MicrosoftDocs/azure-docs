@@ -63,7 +63,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## Next steps
+   ## Next steps
 
 - [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)
