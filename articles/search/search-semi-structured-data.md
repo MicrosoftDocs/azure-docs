@@ -14,7 +14,7 @@ ms.custom: seodec2018
 
 # Tutorial: Search semi-structured data in Azure cloud storage
 
-Search solutions based on Azure Search can include semi-structured data, such as JSON, imported from Azure blob storage. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
+Search solutions based on Azure Search can include semi-structured data, such as JSON, imported from Azure blob storage. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
 
 In this tutorial, use the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) and a REST client to perform the following tasks:
 
@@ -46,21 +46,13 @@ For the REST calls covered in this tutorial, your search api-key is required. Yo
 
   ![Semi-structured search](media/search-semi-structured-data/keys.png)
 
-## Download the sample data
+## Prepare sample data
 
-A sample data set has been prepared for you. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder.
+1. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
-Contained in the sample are example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have converted them to JSON for your convenience.
+2. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, open the **data** container, and click **Upload**.
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
-## Upload the sample data
-
-In the Azure portal, navigate back to the storage account created in the [previous tutorial](../storage/blobs/storage-unstructured-search.md). Then open the **data** container, and click **Upload**.
-
-Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
+3. Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
 
   ![Semi-structured search](media/search-semi-structured-data/clinicalupload.png)
 
@@ -250,7 +242,7 @@ The response should look like:
 
 ## Search your JSON files
 
-You can now issue queries against the index. For this taks, use [**Search explorer**](search-explorer.md) in the portal.
+You can now issue queries against the index. For this task, use [**Search explorer**](search-explorer.md) in the portal.
 
   ![Unstructured search](media/search-semi-structured-data/indexespane.png)
 
