@@ -25,7 +25,7 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain one in five events, a sampling rate of 20%. 
 * Adaptive Sampling is enabled by default in all the latest version of Asp.Net and Asp.Net Core Software Development Kits (SDKs).
-* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*,  in the ASP.NET SDK in the ApplicationInsights.config file, in the Asp.Net Core SDK via code Or in the Java SDK in the ApplicationInsights.xml file.
+* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*,  in the ASP.NET SDK in the ApplicationInsights.config file, in the Asp.Net Core SDK via code or in the Java SDK in the ApplicationInsights.xml file.
 * If you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". `itemCount==1`when sampling is not in operation.
 * If you write Analytics queries, you should [take account of sampling](../../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
@@ -34,35 +34,15 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 
 There are three alternative sampling methods:
 
-* **Ingestion sampling** 
-works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app,but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app. Ingestion sampling works uniformly for all servers and clients.
-
-If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
-
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app. This is the default sampling in ASP.NET Web SDK v 2.0.0-beta3 and Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1.  Adaptive sampling is currently only available for ASP.NET server-side telemetry. 
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app. This is the default sampling in ASP.NET Web SDK v 2.0.0-beta3 and Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1.  Adaptive sampling is currently only available for ASP.NET server-side telemetry.
 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET or ASP.NET Core or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
-## Ingestion sampling
+* **Ingestion sampling**
+Works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app. Ingestion sampling works uniformly for all servers and clients.
 
-This form of sampling operates at the point where the telemetry from your web server, browsers, and devices reaches the Application Insights service endpoint. Although it doesn't reduce the telemetry traffic sent from your app, it does reduce the amount processed and retained (and charged for) by Application Insights.
+If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
-Use this type of sampling if your app often goes over its monthly quota and you don't have the option of using either of the SDK-based types of sampling. 
-
-Set the sampling rate in the Usage and estimated costs page:
-
-![From the application Overview blade, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/04.png)
-
-Like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. Metric counts such as request rate and exception rate are correctly retained.
-
-Data points that are discarded by sampling are not available in any Application Insights feature such as [Continuous Export](../../azure-monitor/app/export-telemetry.md).
-
-Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampling is in operation. Adaptive sampling is enabled by default when ASP.NET/ASP.NET Core SDK is enabled in Visual Studio or enabled in Azure Web App extensions or by using Status Monitor, and ingestion sampling is disabled. If the sampling rate at the SDK is less than 100% (i.e items are being sampled)  then the ingestion sampling rate that you set is ignored.
-
-> [!WARNING]
-> The value shown on the tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if SDK sampling is in operation.
->
->
 
 ## Adaptive sampling at your Asp.Net/Asp.Net Core Web Applications
 
@@ -218,7 +198,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.
 
-Just other sampling techniques, this also retains related items. For each HTTP request event, the request and its related events are either discarded or transmitted together.
+Like other sampling techniques, this also retains related items. For each HTTP request event, the request and its related events are either discarded or transmitted together.
 
 In Metrics Explorer, rates such as request and exception counts are multiplied by a factor to compensate for the sampling rate, so that they are approximately correct.
 
@@ -300,7 +280,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     {
         var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
 
-        var builder = configuration .TelemetryProcessorChainBuilder;
+        var builder = configuration.TelemetryProcessorChainBuilder;
         // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
         // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
@@ -353,6 +333,28 @@ The telemetry types that can be included or excluded from sampling are: Dependen
 
 <a name="other-web-pages"></a>
 
+
+
+## Ingestion sampling
+
+This form of sampling operates at the point where the telemetry from your web server, browsers, and devices reaches the Application Insights service endpoint. Although it doesn't reduce the telemetry traffic sent from your app, it does reduce the amount processed and retained (and charged for) by Application Insights.
+
+Use this type of sampling if your app often goes over its monthly quota and you don't have the option of using either of the SDK-based types of sampling. 
+
+Set the sampling rate in the Usage and estimated costs page:
+
+![From the application Overview blade, click Settings, Quota, Samples, then select a sampling rate, and click Update.](./media/sampling/04.png)
+
+Like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. Metric counts such as request rate and exception rate are correctly retained.
+
+Data points that are discarded by sampling are not available in any Application Insights feature such as [Continuous Export](../../azure-monitor/app/export-telemetry.md).
+
+Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampling is in operation. Adaptive sampling is enabled by default when ASP.NET/ASP.NET Core SDK is enabled in Visual Studio or enabled in Azure Web App extensions or by using Status Monitor, and ingestion sampling is disabled. If the sampling rate at the SDK is less than 100% (i.e items are being sampled)  then the ingestion sampling rate that you set is ignored.
+
+> [!WARNING]
+> The value shown on the tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if SDK sampling is in operation.
+>
+>
 ## Sampling for web pages with JavaScript
 You can configure web pages for fixed-rate sampling from any server. 
 
@@ -422,7 +424,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 If RetainedPercentage for any type is less than 100, then that item is being sampled.
 
-**Application Insights does not sample session, metrics and performance counters telemetry types in any sampling techniques described above. These types are always excludes from sampling as reduction in precision can be highly undesirable for these telemetry types**
+**Application Insights does not sample session, metrics and performance counters telemetry types in any sampling techniques described above. These types are always excluded from sampling as reduction in precision can be highly undesirable for these telemetry types**
 
 ## How does sampling work?
 
