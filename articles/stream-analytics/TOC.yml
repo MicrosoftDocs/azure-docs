@@ -115,7 +115,7 @@
       href: stream-analytics-monitoring.md
     - name: Monitor jobs- PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitor jobs- Azure .Net SDK
+    - name: Monitor jobs- Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
     - name: Monitor jobs- Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
