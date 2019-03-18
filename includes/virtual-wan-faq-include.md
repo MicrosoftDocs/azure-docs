@@ -120,7 +120,7 @@ A connection coming into Virtual WAN VPN is always an active-active tunnel (for 
 
 ### How is traffic routed on the Azure backbone?
 
-The traffic follows the pattern: branch device ->ISP->Microsoft Edge->Microsoft DC (hub VNet)->Microsoft edge->ISP->branch device
+The traffic follows the pattern: branch device ->ISP->Microsoft edge->Microsoft DC (hub VNet)->Microsoft edge->ISP->branch device
 
 ### In this model, what do you need at each site? Just an internet connection?
 
