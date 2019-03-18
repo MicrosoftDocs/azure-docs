@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -51,7 +51,9 @@ There are three key requirements for this scenario to work correctly:
 See the Create Routes section in this tutorial to see how these routes are created.
 
 >[!NOTE]
->Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need to configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.
+>Azure Firewall must have direct internet connectivity. By default, AzureFirewallSubnet should only allow a UDR >0.0.0.0/0 with the **NextHopType** value set as **Internet**. 
+>
+>If you enable forced tunneling to on-premises via ExpressRoute or Application Gateway, you may need to explicitly >configure a UDR 0.0.0.0/0 with the NextHopType value set as Internet and associate it with your >AzureFirewallSubnet. If your organization requires forced tunneling for Azure Firewall traffic, please contact >support so that we can whitelist your subscription and ensure the required firewall Internet connectivity is >maintained.
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
