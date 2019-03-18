@@ -104,7 +104,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## Share registration link with students
+## Send an email with the registration link
 1. Switch to the **Users** view if you are not on the page already. 
 2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
 3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
