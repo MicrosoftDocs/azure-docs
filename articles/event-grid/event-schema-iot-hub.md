@@ -168,6 +168,14 @@ The contents of the data object are different for each event publisher. For **De
 | deviceConnectionStateEventInfo | object | Device connection state event information
 | sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. See [how to use sequence number](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
+The contents of the data object are different for each event publisher. For **Device Telemetry** IoT Hub event, the data object contains the device-to-cloud message in [IoT hub message format](../iot-hub/iot-hub-devguide-messages-construct.md) and has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| body | string | The content of the message from the device. |
+| properties | string | Application properties are user-defined strings that can be added to the message. These fields are optional. |
+| system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. |
+
 The contents of the data object are different for each event publisher. For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
 
 | Property | Type | Description |
