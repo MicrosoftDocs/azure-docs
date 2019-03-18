@@ -84,11 +84,11 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Device Templates page, Create Device Template](./media/tutorial-define-device-type/newtemplate.png)
 
-2. Start by either selecting an existing template or creating your own by choosing the **Custom** option.
+2. The page shows the templates you can choose from.
 
     ![Device Template Library](./media/tutorial-define-device-type/devicetemplatelibrary.png)
 
-3. Click the **Custom Device Template** option, enter **Connected Air Conditioner** as the name of your device, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+3. Select the **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
 
     ![Custom Device](./media/tutorial-define-device-type/createcustomdevice.png)
 

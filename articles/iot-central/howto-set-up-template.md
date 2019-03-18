@@ -41,11 +41,11 @@ From this device template, an operator can create and connect real fan devices w
 
 2. To create a template, start by selecting **+New**.
 
-3. Next, you can choose from the existing pre-built templates to get started quickly, or select **Custom**, enter a name, and click **Create** to build your own template from scratch.
+3. To get started quickly, choose from the existing pre-built templates. Otherwise, select **Custom**, enter a name, and click **Create** to build your own template from scratch.
 
    ![Device template library](./media/howto-set-up-template/newtemplate.png)
 
-4. Now that you have created your custom template, you will land onto the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
+4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
 The following sections describe each of the tabs on the **Device Template** page.
 
