@@ -161,7 +161,7 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 
 - grant_type: “**client_credentials**”
 
--  resource: “**https://graph.microsoft.com**”
+-  resource: `https://graph.microsoft.com`
 
 - client_id: \<your client ID\>
 

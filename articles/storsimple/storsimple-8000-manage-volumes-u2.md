@@ -231,7 +231,7 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
    * If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
    * If you are configuring a locally pinned volume as tiered or _vice-versa_, the following message appears.
    
-    ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Click **Save** to save the changes. When prompted for confirmation, click **Yes** to start the conversion process. 
 

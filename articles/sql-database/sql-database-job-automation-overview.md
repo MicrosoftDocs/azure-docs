@@ -32,8 +32,8 @@ There are several scenarios when you could use job automation:
   - Aggregate data from a collection of Azure SQL databases into a single destination table.
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 - Data movements
- - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changed in the database.
- - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
+  - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changed in the database.
+  - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
 
 ## Overview
 
@@ -156,9 +156,9 @@ Some of the SQL Agent features that are available in SQL Server are not supporte
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.
 - Enabling/disabling Agent is currently not supported in Managed Instance. SQL Agent is always running.
 - Notifications are partially supported
- - Pager is not supported.
- - NetSend is not supported.
- - Alerts are not yet not supported.
+  - Pager is not supported.
+  - NetSend is not supported.
+  - Alerts are not yet not supported.
 - Proxies are not supported.
 - Eventlog is not supported.
 
