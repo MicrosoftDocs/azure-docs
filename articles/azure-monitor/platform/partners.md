@@ -227,7 +227,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 
 [Learn more.][turbonomic-doc]
 
-## Next Steps
+## Next steps
 - [Learn more about Azure Monitor](../../azure-monitor/overview.md)
 - [Access metrics using the REST API](rest-api-walkthrough.md)
 - [Stream the Activity Log to a non-Microsoft service](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
