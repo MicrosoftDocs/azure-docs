@@ -10,7 +10,7 @@ tags:
 keywords:
 ---
 
-# PLACEHOLDER - Install TmaxSoft OpenFrame on Azure
+# Install TmaxSoft OpenFrame on Azure
 
 This document explains how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads. As Figure 1 shows, OpenFrame includes multiple components that create the mainframe emulation environment on Azure. For example, OpenFrame online services replace the mainframe middleware such as IBM Customer Information Control System (CICS), and OpenFrame Batch, with its TJES component, replaces the IBM mainframe’s Job Entry Subsystem (JES).
 
@@ -114,21 +114,21 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
      [./media/image3.png](./media/image3.png)
 
-1.  Click **Add**.
+3.  Click **Add**.
 
-![](media/5f527a489f0e13538d6a04dbb075c4ba.png)
+    ![](media/5f527a489f0e13538d6a04dbb075c4ba.png)
 
-1.  To the right of **Operating Systems**, click **More**.
+4.  To the right of **Operating Systems**, click **More**.
 
-![](media/dae625ac4844c9a7b3c9cd7f9c581e2e.png)
+     ![](media/dae625ac4844c9a7b3c9cd7f9c581e2e.png)
 
-1.  Click **CentOS-based 7.3** to follow this walk-through exactly, or you can choose another supported Linux distribution.
+5.  Click **CentOS-based 7.3** to follow this walk-through exactly, or you can choose another supported Linux distribution.
 
      [./media/image6.png](./media/image6.png)
 
-1.  In the **Basics** settings, enter **Name**, **User name**, **Authentication type**, **Subscription** (Pay-As-You-Go is the AWS style of payment), and **Resource group** (use an existing one or create a TmaxSoft group).
+6.  In the **Basics** settings, enter **Name**, **User name**, **Authentication type**, **Subscription** (Pay-As-You-Go is the AWS style of payment), and **Resource group** (use an existing one or create a TmaxSoft group).
 
-2.  When complete (including the public/private key pair for **Authentication type**), click **Submit**.
+7.  When complete (including the public/private key pair for **Authentication type**), click **Submit**.
 > [!NOTE]
 > If using an SSH public key for **Authentication type**, see the steps in the next section to generate the public/private key pair, then resume the steps here.
 
@@ -208,48 +208,48 @@ Now that the VM is created and you are logged on, you must perform a few setup s
 
 1. Map the name **ofdemo** to the local IP address by using vi to edit the hosts file (`vi /etc/hosts`). Assuming our IP is 192.168.96.148 ofdemo, this is before the change:
 
-```vi
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
-::1              localhost localhost.localdomain localhost6 localhost6.localdomain 
-<IP Address>    <your hostname>
-```
+    ```vi
+    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
+    ::1              localhost localhost.localdomain localhost6 localhost6.localdomain 
+    <IP Address>    <your hostname>
+    ```
 
      This is after the change:
 
-```vi
-127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
-::1              localhost localhost.localdomain localhost6 localhost6.localdomain 
-192.168.96.148   ofdemo
-```
+    ```vi
+    127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 
+    ::1              localhost localhost.localdomain localhost6 localhost6.localdomain 
+    192.168.96.148   ofdemo
+    ```
 
 2. Create groups and users:
 
-```vi
-[root@ofdemo ~]# adduser -d /home/oframe7 oframe7 
-[root@ofdemo ~]# passwd oframe7
-```
+    ```vi
+    [root@ofdemo ~]# adduser -d /home/oframe7 oframe7 
+    [root@ofdemo ~]# passwd oframe7
+    ```
 
 3. Change the password for user oframe7:
 
-```vi
-New password: 
-Retype new password: 
-passwd: all authentication tokens updated successfully.
-```
+    ```vi
+    New password: 
+    Retype new password: 
+    passwd: all authentication tokens updated successfully.
+    ```
 
 4. Update the kernel parameters in /etc/sysctl.conf:
 
-```vi
-[root@ofdemo ~]# vi /etc/sysctl.conf
-kernel.shmall = 7294967296 
-kernel.sem = 10000 32000 10000 10000
-```
+    ```vi
+    [root@ofdemo ~]# vi /etc/sysctl.conf
+    kernel.shmall = 7294967296 
+    kernel.sem = 10000 32000 10000 10000
+    ```
 
 5. Refresh the kernel parameters dynamically without reboot:
 
-```vi
-[root@ofdemo ~]# /sbin/sysctl -p
-```
+    ```vi
+    [root@ofdemo ~]# /sbin/sysctl -p
+    ```
 
 6. Install the required packages. Make sure the server is connected to the Internet, download the following packages, and then install them:
 
@@ -257,11 +257,13 @@ kernel.sem = 10000 32000 10000 10000
 -   glibc
 -   glibc.i686 glibc.x86\_64
 -   libaio
--   ncurses (Note: After installing the ncurses package, create the following symbolic link:
-```
-ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so
-ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
-```
+-   ncurses (Note: After installing the ncurses package, create the following symbolic link.)
+
+    ```
+    ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so
+    ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
+    ```
+
 -   gcc
 -   gcc-c++
 -   libaio-devel.x86\_64
@@ -271,6 +273,7 @@ ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
 
 **In case of Java RPM installation**
 Do the following:
+
 ```
 root@ofdemo ~]# rpm -ivh jdk-7u79-linux-x64.rpm 
 [root@ofdemo ~]# vi .bash_profile
@@ -295,120 +298,140 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)
 Tibero provides the several key functions in the OpenFrame environment on Azure:
 
 -   Tibero is used as the OpenFrame internal data store for various system functions.
-
+- 
 -   VSAM files, including KSDS, RRDS, and ESDS, use the Tibero database internally for data storage.
-
+- 
 -   The TACF data repository is stored in Tibero.
-
+- 
 -   The OpenFrame catalog information is stored in Tibero.
-
+- 
 -   The Tibero database can be used as a replacement for IBM Db2 to store application data.
 
 **To install Tibero**
 
 1. Verify that the Tibero binary installer file is present and review the version number.
-1. Copy the Tibero software to the Tibero user account (oframe):
-```
-[oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
-[oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/ 
-[oframe7@ofdemo ~]$ vi .bash_profile
-```
-1. Paste the following into .bash\_profile:
-```
-# Tibero6 ENV
-export TB_HOME=/opt/tmaxdb/tibero6 
-export TB_SID=TVSAM export TB_PROF_DIR=$TB_HOME/bin/prof 
-export LD_LIBRARY_PATH=$TB_HOME/lib:$TB_HOME/client/lib:$LD_LIBRARY_PATH 
-export PATH=$TB_HOME/bin:$TB_HOME/client/bin:$PATH
-```
-1. Execute:
-```
-[oframe7@ofdemo ~]$ source .bash_profile
-```
-1. Generate and modify the tip file (a configuration file for Tibero):
-```
-[oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
-[oframe7@ofdemo ~]$ vi $TB_HOME/config/$TB_SID.tip
-```
-1. Modify \$TB\_HOME/client/config/tbdsn.tbr and put 127.0.0.1 instead oflocalhost as shown:
-```
-TVSAM=( 
-(INSTANCE=(HOST=127.0.0.1) 
-(PT=8629) 
-(DB_NAME=TVSAM) 
-    	) 
-	)
-```
-1. Create the database. The following output appears:
-```
-Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. 
-Listener port = 8629
-Tibero 6
-TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
-Tibero instance started up (NOMOUNT mode).
- /--------------------- newmount sql ------------------------/ 
-create database character set MSWIN949 national character set UTF16; 
-/-----------------------------------------------------------/
-Database created.
-Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. 
-Listener port = 8629
-Tibero 6
-TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
-Tibero instance started up (NORMAL mode). 
-/opt/tmaxdb/tibero6/bin/tbsvr 
-………………………..
-Creating agent table... 
-Done. 
-For details, check /opt/tmaxdb/tibero6/instance/TVSAM/log/system_init.log.
-************************************************** 
-* Tibero Database TVSAM is created successfully on Fri Aug 12 19:10:43 UTC 2016. 
-*     Tibero home directory ($TB_HOME) = 
-*         /opt/tmaxdb/tibero6 
-*     Tibero service ID ($TB_SID) = TVSAM 
-*     Tibero binary path = 
-*         /opt/tmaxdb/tibero6/bin:/opt/tmaxdb/tibero6/client/bin 
-*     Initialization parameter file = 
-*         /opt/tmaxdb/tibero6/config/TVSAM.tip 
-* 
-* Make sure that you always set up environment variables $TB_HOME and 
-* $TB_SID properly before you run Tibero.
- ******************************************************************************
+2. Copy the Tibero software to the Tibero user account (oframe):
 
-1. To recycle Tibero, first shut it down: 
-```
-[oframe7@ofdemo ~]$$ tbdown 
-Tibero instance terminated (NORMAL mode).
-```
+    ```
+    [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
+    [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/ 
+    [oframe7@ofdemo ~]$ vi .bash_profile
+    ```
 
-1. Now boot Tibero:
-```
-[oframe7@ofdemo ~]$ tbboot 
-Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. Listener port = 8629
+3. Paste the following into .bash\_profile:
 
-Tibero 6  
-TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
-Tibero instance started up (NORMAL mode).
-```
+    ```
+    # Tibero6 ENV
+    export TB_HOME=/opt/tmaxdb/tibero6 
+    export TB_SID=TVSAM export TB_PROF_DIR=$TB_HOME/bin/prof 
+    export LD_LIBRARY_PATH=$TB_HOME/lib:$TB_HOME/client/lib:$LD_LIBRARY_PATH 
+    export PATH=$TB_HOME/bin:$TB_HOME/client/bin:$PATH
+    ```
 
-1. To create a tablespace, access the database using SYS user (sys/tmax), then create the necessary tablespace for the default volume and TACF:
-```
-[oframe7@ofdemo ~]$ tbsql tibero/tmax
-tbSQL 6  
-TmaxData Corporation Copyright (c) 2008-. All rights reserved.
-Connected to Tibero.
-```
-1. Now type the following SQL commands:
-```SQL> create tablespace "DEFVOL" datafile 'DEFVOL.dbf' size 500M autoextend on; create tablespace "TACF00" datafile 'TACF00.dbf' size 500M autoextend on; create tablespace "OFM_REPOSITORY" datafile 'ofm_repository.dbf' size 300M autoextend on;
-SQL> Tablespace 'DEFVOL' created.
-SQL> Tablespace 'TACF00' created.
-SQL> Tablespace ' OFM_REPOSITORY ' created.
-SQL> SQL> Disconnected.
-```
-1. Boot Tibero and verify that the Tibero processes are running:
-```
-[oframe7@ofdemo ~]$ tbboot 
-ps -ef | egrep tbsvr
-```
+4. Execute the bash profile. For example:
+
+    ```
+    [oframe7@ofdemo ~]$ source .bash_profile
+    ```
+
+5. Generate and modify the tip file (a configuration file for Tibero). For example:
+
+    ```
+    [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
+    [oframe7@ofdemo ~]$ vi $TB_HOME/config/$TB_SID.tip
+    ```
+
+6. Modify \$TB\_HOME/client/config/tbdsn.tbr and put 127.0.0.1 instead oflocalhost as shown:
+
+    ```
+    TVSAM=( 
+    (INSTANCE=(HOST=127.0.0.1) 
+        (PT=8629) 
+    (DB_NAME=TVSAM) 
+    	    ) 
+    	)
+    ```
+
+7. Create the database. The following output appears:
+
+    ```
+    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. 
+    Listener port = 8629
+    Tibero 6
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
+    Tibero instance started up (NOMOUNT mode).
+     /--------------------- newmount sql ------------------------/ 
+    create database character set MSWIN949 national character set UTF16; 
+    /-----------------------------------------------------------/
+    Database created.
+    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. 
+    Listener port = 8629
+    Tibero 6
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
+    Tibero instance started up (NORMAL mode). 
+    /opt/tmaxdb/tibero6/bin/tbsvr 
+    ………………………..
+    Creating agent table... 
+    Done. 
+    For details, check /opt/tmaxdb/tibero6/instance/TVSAM/log/system_init.log.
+    ************************************************** 
+    * Tibero Database TVSAM is created successfully on Fri Aug 12 19:10:43 UTC 2016. 
+    *     Tibero home directory ($TB_HOME) = 
+    *         /opt/tmaxdb/tibero6 
+    *     Tibero service ID ($TB_SID) = TVSAM 
+    *     Tibero binary path = 
+    *         /opt/tmaxdb/tibero6/bin:/opt/tmaxdb/tibero6/client/bin 
+    *     Initialization parameter file = 
+    *         /opt/tmaxdb/tibero6/config/TVSAM.tip 
+    * 
+    * Make sure that you always set up environment variables $TB_HOME and 
+    * $TB_SID properly before you run Tibero.
+     ******************************************************************************
+    ```
+
+8. To recycle Tibero, first shut it down using the `tbdown` command. For example: 
+
+    ```
+    [oframe7@ofdemo ~]$$ tbdown 
+    Tibero instance terminated (NORMAL mode).
+    ```
+
+9. Now boot Tibero using `tbboot`. For example:
+
+    ```
+    [oframe7@ofdemo ~]$ tbboot 
+    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. Listener port = 8629
+
+    Tibero 6  
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
+    Tibero instance started up (NORMAL mode).
+    ```
+
+10. To create a tablespace, access the database using SYS user (sys/tmax), then create the necessary tablespace for the default volume and TACF:
+
+    ```
+    [oframe7@ofdemo ~]$ tbsql tibero/tmax
+    tbSQL 6  
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved.
+    Connected to Tibero.
+    ```
+
+11. Now type the following SQL commands:
+
+    ```
+    SQL> create tablespace "DEFVOL" datafile 'DEFVOL.dbf' size 500M autoextend on; create tablespace "TACF00" datafile 'TACF00.dbf' size 500M autoextend on; create tablespace "OFM_REPOSITORY" datafile 'ofm_repository.dbf' size 300M autoextend on;
+    SQL> Tablespace 'DEFVOL' created.
+    SQL> Tablespace 'TACF00' created.
+    SQL> Tablespace ' OFM_REPOSITORY ' created.
+    SQL> SQL> Disconnected.
+    ```
+
+12. Boot Tibero and verify that the Tibero processes are running:
+
+    ```
+    [oframe7@ofdemo ~]$ tbboot 
+    ps -ef | egrep tbsvr
+    ```
 
 Output:
 
@@ -421,89 +444,96 @@ API provided by the open-source unixODBC project.
 
 To install ODBC:
 
-1.  Verify that the unixODBC-2.3.4.tar.gz installer file is present, or use the `wget unixODBC-2.3.4.tar.gz` command:
-```
-[oframe7\@ofdemo \~]\$ wget
-ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
-```
-2.  Unzip the binary:
-```
-[oframe7\@ofdemo \~]\$ tar -zxvf unixODBC-2.3.4.tar.gz
-```
+1. Verify that the unixODBC-2.3.4.tar.gz installer file is present, or use the `wget unixODBC-2.3.4.tar.gz` command. For example:
 
-3.  Navigate to unixODBC-2.3.4 directory and generate the Makefile by using the checking machine information:
+     ```
+     [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
+     ```
 
-[oframe7\@ofdemo unixODBC-2.3.4]\$ ./configure --prefix=/opt/tmaxapp/unixODBC/
---sysconfdir=/opt/tmaxapp/unixODBC/etc
+2. Unzip the binary. For example:
+
+     ```
+     [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
+     ```
+
+3. Navigate to unixODBC-2.3.4 directory and generate the Makefile by using the checking machine information. For example:
+
+     ```
+     [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
+     ```
 
 > [!NOTE]
 > By default, unixODBC is installed in /usr /local. To change the location, add `--prefix=/opt/tmaxapp/unixODBC/`
 > In addition, configuration files are installed in /etc by default. To change the location, add `-- sysconfdir=/opt/tmaxapp/unixODBC/etc`
 
-4.  Execute Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Execute Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5.  Copy the executable file in the program directory after compiling: `[oframe7@ofdemo unixODBC-2.3.4]$ make install`
+5. Copy the executable file in the program directory after compiling: `[oframe7@ofdemo unixODBC-2.3.4]$ make install`
 
-6.  Use vi to edit the bash profile and add the following:
-```
-    [oframe7@ofdemo unixODBC-2.3.4]$ vi ~/.bash_profile
+6. Use vi to edit the bash profile and add the following:
 
-    # UNIX ODBC ENV 
-    export ODBC_HOME=$HOME/unixODBC 
-    export PATH=$ODBC_HOME/bin:$PATH 
-    export LD_LIBRARY_PATH=$ODBC_HOME/lib:$LD_LIBRARY_PATH 
-    export ODBCINI=$HOME/unixODBC/etc/odbc.ini 
-    export ODBCSYSINI=$HOME
-```
-7.  Apply the ODBC. Edit the following files accordingly:
-```
-[oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
+     ```
+     [oframe7@ofdemo unixODBC-2.3.4]$ vi ~/.bash_profile
 
-[oframe7@ofdemo ~]$ cd
+     # UNIX ODBC ENV 
+     export ODBC_HOME=$HOME/unixODBC 
+     export PATH=$ODBC_HOME/bin:$PATH 
+     export LD_LIBRARY_PATH=$ODBC_HOME/lib:$LD_LIBRARY_PATH 
+     export ODBCINI=$HOME/unixODBC/etc/odbc.ini 
+     export ODBCSYSINI=$HOME
+     ```
 
-[oframe7@ofdemo ~]$ odbcinst -j unixODBC 2.3.4
-DRIVERS............: /home/oframe7/odbcinst.ini 
-SYSTEM DATA SOURCES: /home/oframe7/odbc.ini 
-FILE DATA SOURCES..: /home/oframe7/ODBCDataSources 
-USER DATA SOURCES..: /home/oframe7/unixODBC/etc/odbc.ini 
-SQLULEN Size.......: 8 
-SQLLEN Size........: 8 
-SQLSETPOSIROW Size.: 8
+7. Apply the ODBC. Edit the following files accordingly:
 
-[oframe7@ofdemo ~]$ vi odbcinst.ini
+     ```
+     [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
 
-[Tibero]
-Description = Tibero ODBC driver for Tibero6 
-Driver = /opt/tmaxdb/tibero6/client/lib/libtbodbc.so 
-Setup = 
-FileUsage = 
-CPTimeout = 
-CPReuse = 
-Driver Logging = 7
+     [oframe7@ofdemo ~]$ cd
 
-[ODBC]
-Trace = NO 
-TraceFile = /home/oframe7/odbc.log 
-ForceTrace = Yes 
-Pooling = No 
-DEBUG = 1
+     [oframe7@ofdemo ~]$ odbcinst -j unixODBC 2.3.4
+     DRIVERS............: /home/oframe7/odbcinst.ini
+     SYSTEM DATA SOURCES: /home/oframe7/odbc.ini
+     FILE DATA SOURCES..: /home/oframe7/ODBCDataSources
+     USER DATA SOURCES..: /home/oframe7/unixODBC/etc/odbc.ini
+     SQLULEN Size.......: 8
+     SQLLEN Size........: 8
+     SQLSETPOSIROW Size.: 8
 
-[oframe7@ofdemo ~]$ vi odbc.ini
+     [oframe7@ofdemo ~]$ vi odbcinst.ini
 
-[TVSAM]
-Description = Tibero ODBC driver for Tibero6 
-Driver = Tibero 
-DSN = TVSAM 
-SID = TVSAM 
-User = tibero 
-password = tmax
+     [Tibero]
+     Description = Tibero ODBC driver for Tibero6
+     Driver = /opt/tmaxdb/tibero6/client/lib/libtbodbc.so
+     Setup = 
+     FileUsage = 
+     CPTimeout = 
+     CPReuse = 
+     Driver Logging = 7
 
-```
-8.  Create a symbolic link and validate the Tibero database connection:
+     [ODBC]
+     Trace = NO 
+     TraceFile = /home/oframe7/odbc.log 
+     ForceTrace = Yes 
+     Pooling = No 
+     DEBUG = 1
+
+     [oframe7@ofdemo ~]$ vi odbc.ini
+
+     [TVSAM]
+     Description = Tibero ODBC driver for Tibero6 
+     Driver = Tibero 
+     DSN = TVSAM 
+     SID = TVSAM 
+     User = tibero 
+     password = tmax
+     ```
+
+8. Create a symbolic link and validate the Tibero database connection:
+
      ```
      [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbc.so $ODBC_HOME/lib/libodbc.so.1 [oframe7@ofdemo ~]$ ln $ODBC_HOME/lib/libodbcinst.so 
      $ODBC_HOME/lib/libodbcinst.so.1
-     
+
      [oframe7@ofdemo lib]$ isql TVSAM tibero tmax
      ```
 
@@ -511,4 +541,920 @@ Output:
 
 [ODBC output showing connected](./media/odbc_01)
 
+## Install OpenFrame Base
 
+The Base application server is installed before the individual services that OpenFrame uses to manage the system on Azure, including the transaction handling server processes.
+
+**To install OpenFrame Base**
+
+1. Make sure the Tibero installation succeeded, then verify that the following OpenFrame\_Base7\_0\_Linux\_x86\_64.bin installer file and base.properties configuration file are present.
+
+2. Update the bash profile with the following Tibero-specific information:
+
+     ```
+     alias ofhome='cd $OPENFRAME_HOME' 
+     alias ulog='cd $OPENFRAME_HOME/log/tmax/ulog' 
+     alias sysjcl='cd $OPENFRAME_HOME/volume_default/SYS1.JCLLIB' 
+     alias sysload='cd $OPENFRAME_HOME/volume_default/SYS1.LOADLIB' 
+     alias sysproc='cd $OPENFRAME_HOME/volume_default/SYS1.PROCLIB' 
+     alias oscsrc='cd $OPENFRAME_HOME/osc/oivp' 
+     alias osisrc='cd $OPENFRAME_HOME/osi/oivp' 
+     alias defvol='cd $OPENFRAME_HOME/volume_default'
+     ```
+
+3. Execute the bash profile:`[oframe7@ofdemo ~]$ . .bash_profile`
+4. Ensure that the Tibero processes are running: `[oframe7@ofdemo ~]$ ps -ef|grep tbsvr`
+
+     Output:
+
+     [Base](./media/base_01.png)
+
+> [!IMPORTANT]
+> Make sure you start Tibero before installation.
+
+5. Generate license at technet.tmaxsoft.com and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
+
+     ```
+     [oframe7@ofdemo ~]$ cp license.dat /opt/tmaxapp/OpenFrame/core/license/
+     [oframe7@ofdemo ~]$ cp lictjes.dat lictacf.dat licosc.dat $OPENFRAME_HOME/license/
+     ```
+
+6. Download the OpenFrame Base binary and base.properties files:
+
+     ```
+     [oframe7@ofdemo ~]$ vi base.properties
+     OPENFRAME_HOME= <appropriate location for installation> ex. /opt/tmaxapp/OpenFrame TP_HOST_NAME=<your IP Hostname> ex. ofdemo 
+     TP_HOST_IP=<your IP Address> ex. 192.168.96.148 
+     TP_SHMKEY=63481 
+     TP_TPORTNO=6623 
+     TP_UNBLOCK_PORT=6291 
+     TP_NODE_NAME=NODE1 
+     TP_NODE_LIST=NODE1 
+          MASCAT_NAME=SYS1.MASTER.ICFCAT 
+     MASCAT_CREATE=YES 
+     DEFAULT_VOLSER=DEFVOL 
+     VOLADD_DEFINE=YES TSAM_USERNAME=tibero 
+     TSAM_PASSWORD=tmax 
+     TSAM_DATABASE=oframe 
+     DATASET_SHMKEY=63211 
+     DSLOCK_DATA=SYS1.DSLOCK.DATA 
+     DSLOCK_LOG=SYS1.DSLOCK.LOG 
+     DSLOCK_SEQ=dslock_seq.dat 
+     DSLOCK_CREATE=YES 
+     OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
+     ```
+
+7. Execute the installer using the base.properties file. For example:
+
+    ```
+    [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
+    [oframe7@ofdemo ~]$ ./OpenFrame_Base7_0_Linux_x86_64.bin -f base.properties
+    ```
+
+    When complete, the Installation Complete message is diplayed.
+
+8. Verify the OpenFrame Base directory structure:
+
+     ```
+     [oframe7@ofdemo OpenFrame]$ ls -ltr
+     total 44 
+
+     drwxrwxr-x. 4 oframe7 oframe7 61 Nov 30 16:57 UninstallerData 
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 bin 
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 cpm drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 data 
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 include 
+     drwxrwxr-x. 2 oframe7 oframe7 8192 Nov 30 16:57 lib 
+     drwxrwxr-x. 6 oframe7 oframe7 48 Nov 30 16:57 log 
+     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 profile 
+     drwxrwxr-x. 7 oframe7 oframe7 62 Nov 30 16:57 sample 
+     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 schema 
+     drwxrwxr-x. 2 oframe7 oframe7 6 Nov 30 16:57 temp 
+     drwxrwxr-x. 3 oframe7 oframe7 16 Nov 30 16:57 shared 
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 license 
+     drwxrwxr-x. 23 oframe7 oframe7 4096 Nov 30 16:58 core 
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 config 
+     drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:58 scripts 
+     drwxrwxr-x. 2 oframe7 oframe7 25 Nov 30 16:58 volume_default
+     ```
+
+9. Start OpenFrame Base:
+
+     ```
+     [oframe7@ofdemo ~]$ cp /usr/lib/libtermcap.so.2 $TMAXDIR/lib
+     Startup Tmax Server
+     [oframe7@ofdemo ~]$ tmboot
+     ```
+
+     [tmboot command output](./media/base_02.png)
+
+10. Verify the process status is ready using the tmadmin command in si. RDY is displayed in the **status** column for each of the processes:
+
+     [tmadmin command output](./media/base_03.png)
+
+11. Shut down OpenFrame Base:
+
+     ```
+     [oframe7@ofdemo ~]$ tmdown 
+     Do you really want to down whole Tmax? (y : n): y
+
+     TMDOWN for node(NODE1) is starting: 
+     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(vtammgr:43) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(ofruisvr:41) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: SERVER(ofrsmlog:42) downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: CLH downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: CLL downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: TLM downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: TMM downed: Wed Sep  7 15:37:21 2016 
+     TMDOWN: TMAX is down
+     ```
+
+## Install OpenFrame Batch
+
+OpenFrame Batch consists of several components that simulate mainframe batch environments and is used to run batch jobs on Azure.
+
+**To install Batch**
+
+1. Make sure the base installation succeeded, then verify that the OpenFrame\_Batch7\_0\_Fix2\_MVS\_Linux\_x86\_64.bin installer file and batch.properties configuration file are present:
+
+2. At the command prompt, type `vi batch.properties` to edit the batch.properties file using vi.
+
+3. Modify the parameters as follows:
+
+     ```
+     OPENFRAME_HOME = /opt/tmaxapp/OpenFrame
+     DEFAULT_VOLSER=DEFVOL 
+     TP_NODE_NAME=NODE1 
+     TP_NODE_LIST=NODE1 
+     RESOURCE_SHMKEY=66991 
+     #JOBQ_DATASET_CREATE=YES 
+     #OUTPUTQ_DATASET_CREATE=YES 
+     DEFAULT_JCLLIB_CREATE=YES 
+     DEFAULT_PROCLIB_CREATE=YES 
+     DEFAULT_USERLIB_CREATE=YES 
+     TJES_USERNAME=tibero 
+     TJES_PASSWORD=tmax 
+     TJES_DATABASE=oframe 
+     BATCH_TABLE_CREATE=YES
+     ```
+
+4. To execute the batch installer, at the command prompt type:
+
+     ```
+     ./OpenFrame_Batch7_0_Fix2_MVS_Linux_x86_64.bin -f batch.properties
+     ```
+
+5. When the installation is complete, start the installed OpenFrame suites by typing 'tmboot' at the command prompt.
+
+     [tmboot output](./media/tmboot_01.png)
+
+6. Type `tmadmin` at the command prompt to check the OpenFrame process.
+
+     [Tmax Admin screen](./media/tmadmin_01.png)
+
+7. Execute the following commands:
+
+     ```
+     $$2 NODE1 (tmadm): quit 
+     ADM quit for node (NODE1)
+     ```
+
+8. Use the `tmdown` command to start up and shut down Batch:
+
+     ```
+     [oframe7@ofdemo ~]$tmdown
+     Do you really want to down whole Tmax? (y : n): y
+
+     TMDOWN for node(NODE1) is starting: 
+     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:44) downed: Wed Sep  7 16:01:46 2016
+     TMDOWN: SERVER(vtammgr: 43) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:45) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:46) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:47) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjschd:54) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjinit:55) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:48) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjspbk:57) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:49) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:50) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:51) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:52) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjmsvr:53) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmjhist:56) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofruisvr:41) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(obmtsmgr:59) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofrpmsvr:58) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: SERVER(ofrsmlog:42) downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: CLL downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: TLM downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: CLH downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: TMM downed: Wed Sep  7 16:01:46 2016 
+     TMDOWN: TMAX is down
+     ```
+
+## Install TACF
+
+TACF Manager is an OpenFrame service module that controls user access to systems and resources through RACF security.
+
+**To install TACF**
+
+1. Verify that the OpenFrame\_Tacf7\_0\_Fix2\_Linux\_x86\_64.bin installer file and tacf.properties configuration file are present.
+2. Make sure the Batch installation succeeded, then use vi to open the tacf.properties file (`vi tacf.properties`).
+3. Modify the TACF parameters:
+
+     ```
+     OPENFRAME_HOME=/opt/tmaxapp/OpenFrame 
+     USE_OS_AUTH=NO 
+     TACF_USERNAME=tibero 
+     TACF_PASSWORD=tmax 
+     TACF_DATABASE=oframe 
+     TACF_TABLESPACE=TACF00 
+     TACF_TABLE_CREATE=YES
+     ```
+
+4. After completing TACF installer, apply the TACF environment variables. At the command prompt, type:
+
+     ```
+     source \~/.bash\_profile
+     ```
+
+5. Execute the TACF installer. At the command prompt, type:
+
+     ```
+     ./OpenFrame_Tacf7_0_Fix2_Linux_x86_64.bin -f tacf.properties
+     ```
+
+     The output looks something like this:
+
+     ```
+     Wed Dec 07 17:36:42 EDT 2016
+     Free Memory: 18703 kB 
+     Total Memory: 28800 kB
+
+     4 Command Line Args: 
+     0:  -f 1:  tacf.properties 
+     2:  -m 
+     3:  SILENT 
+     java.class.path: 
+     /tmp/install.dir.41422/InstallerData 
+     /tmp/install.dir.41422/InstallerData/installer.zip 
+     ZGUtil.CLASS_PATH: 
+     /tmp/install.dir.41422/InstallerData 
+     tmp/install.dir.41422/InstallerData/installer.zip 
+     sun.boot.class.path: 
+     /tmp/install.dir.41422/Linux/resource/jre/lib/resources.jar /tmp/install.dir.41422/Linux/resource/jre/lib/rt.jar /tmp/install.dir.41422/Linux/resource/jre/lib/sunrsasign.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jsse.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jce.jar /tmp/install.dir.41422/Linux/resource/jre/lib/charsets.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jfr.jar /tmp/install.dir.41422/Linux/resource/jre/classes
+     ```
+
+6. At the command prompt, type `tmboot` to restart OpenFrame. The output looks something like this:
+
+     ```
+     TMBOOT for node(NODE1) is starting: 
+     Welcome to Tmax demo system: it will expire 2016/11/4 
+     Today: 2016/9/7 
+     TMBOOT: TMM is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: CLL is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: CLH is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: TLM(tlm) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrsasvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrlhsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrdmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrdsedt) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrcmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofruisvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrsmlog) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(vtammgr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjschd) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjinit) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjhist) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmjspbk) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(ofrpmsvr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(obmtsmgr) is starting: Wed Sep  7 17:48:53 2016 
+     TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
+     ```
+
+7. Verify that the process status is ready using `tmadmin` in the `si` command. For example:
+
+     ```
+     [oframe7\@ofdemo \~]\$ tmadmin
+     ```
+
+     In the **status** column, RDY appears:
+
+     [RDY in the status column](./media/tmboot_02.png)
+
+8. Execute the following commands:
+
+     ```
+     $$2 NODE1 (tmadm): quit 
+     DM quit for node (NODE1)
+
+     [oframe7@ofdemo ~]$ tacfmgr 
+     Input USERNAME  : ROOT 
+     Input PASSWORD  : SYS1
+
+     TACFMGR: TACF MANAGER START!!!
+     QUIT TACFMGR: TACF MANAGER END!!!
+
+     [oframe7@ofdemo ~]$ tmdow
+     ```
+
+9. Shut the server down using the `tmdown` command. The output looks something like this:
+
+     ```
+     [oframe7@ofdemo ~]$ tmdown 
+     Do you really want to down whole Tmax? (y : n): y
+
+     TMDOWN for node(NODE1) is starting: 
+     TMDOWN: SERVER(ofrlhsvr:37) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(ofrdsedt:39) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmjschd:54) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmjmsvr:47) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmjmsvr:48) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(ofrdmsvr:38) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmjmsvr:50) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmjhist:56) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(ofrsasvr:36) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(ofrcmsvr:40) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmjspbk:57) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(tmsvr:60) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(ofrpmsvr:58) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: SERVER(obmtsmgr:59) downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: CLL downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: CLH downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: TLM downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: TMM downed: Wed Sep  7 17:50:50 2016 
+     TMDOWN: TMAX is down
+     ```
+
+## Install ProSort
+
+ProSort is a utility used in batch transactions for sorting data.
+
+**To install ProSort**
+
+1. Make sure the Batch installation was successful, and then verify that the **prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz** installer file is present.
+
+2. Execute the installer using the properties file. At the command prompt, type:
+
+     ```
+     tar -zxvf prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz
+     ```
+
+3. Move the prosort directory to the home location. At the command prompt, type:
+
+     ```
+     mv prosort /opt/tmaxapp/prosort
+     ```
+
+4. Create a license subdirectory and copy the license file there. For example:
+
+     ```
+     cd /opt/tmaxapp/prosort 
+     mkdir license 
+     cp /opt/tmaxsw/oflicense/prosort/license.xml /opt/tmaxapp/prosort/license
+     ```
+
+5. Open bash.profile in vi (`vi .bash_profile`) and update it as follows:
+
+     ```
+     #       PROSORT
+
+     PROSORT_HOME=/opt/tmaxapp/prosort 
+     PROSORT_SID=gbg 
+     PATH=$PATH:$PROSORT_HOME/bin LD_LIBRARY_PATH=$PROSORT_HOME/lib:$LD_LIBRARY_PATH LIBPATH$PROSORT_HOME/lib:$LIBPATH 
+     export PROSORT_HOME PROSORT_SID 
+     PATH LD_LIBRARY_PATH LIBPATH 
+     PATH=$PATH:$OPENFRAME_HOME/shbin 
+     export PATH
+     ```
+6. To execute the bash profile, at the command prompt, type: ` . .bash_profile`
+7.  Create the configuration file. For example:
+
+     ```
+     oframe@oframe7: cd /opt/tmaxapp/prosort/config 
+     oframe@oframe7: ./gen_tip.sh 
+     Using PROSORT_SID "gbg"
+      /home/oframe7/prosort/config/gbg.tip generated
+     ```
+
+8. Create the symbolic link. For example:
+
+     ```
+     oframe@oframe7: cd /opt/tmaxapp/OpenFrame/util/ 
+     oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
+     ```
+
+9. Verify the ProSort installation by executing the `prosort -h` command. For example:
+
+     ```
+     oframe@oframe7: prosort -h
+
+     Usage: prosort [options] [sort script files]
+     options ------
+     -h             Display this information 
+     -v             Display version information 
+     -s             Display state information 
+     -j             Display profile information 
+     -x             Use SyncSort compatible mode
+     ```
+
+## Install OFCOBOL
+
+OFCOBOL is the OpenFrame compiler that interprets the mainframe’s COBOL programs. To install OFCOBOL:
+
+1. Make sure that the Batch/Online installation succeeded, then verify that the OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64.bin installer file is present.
+
+2. To execute the OFCOBOL installer, at the command prompt, type:
+
+     ```
+      ./OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64.bin
+     ```
+
+3. Read the licensing agreement and press Enter to continue.
+
+4. Accept the licensing agreement. When the installation is complete, the following appears:
+
+     ```
+     Choose Install Folder 
+     --------------------
+     Where would you like to install?
+     Default Install Folder: /home/oframe7/OFCOBOL
+
+     ENTER AN ABSOLUTE PATH, OR PRESS <ENTER> TO ACCEPT THE DEFAULT : /opt/tmaxapp/OFCOBOL
+
+     INSTALL FOLDER IS: /opt/tmaxapp/OFCOBOL 
+     IS THIS CORRECT? (Y/N): Y[oframe7@ofdemo ~]$ vi .bash_profile
+
+     ============================================================================ Installing... 
+     ------------
+     [==================|==================|==================|==================] 
+     [------------------|------------------|------------------|------------------]
+
+     =============================================================================== Installation Complete 
+     --------------------
+     Congratulations. OpenFrame_COBOL has been successfully installed
+     PRESS <ENTER> TO EXIT THE INSTALLER
+     ```
+
+5. Open the bash profile in vi (`vi .bash_profile`) and verify that is updated with OFCOBOL variables.
+6. Execute the bash profile. At the command prompt, type:
+
+     ```
+      source ~/.bash_profile
+     ```
+
+7. Copy the OFCOBOL license to the installed folder. For example:
+     ```
+     mv licofcob.dat $OFCOB_HOME/license
+     ```
+8. Go to the OpenFrame tjclrun.conf configuration file and open it in vi. For example:
+     ```
+     [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
+     [oframe7@ofdemo ~]$ vi tjclrun.conf
+     ```
+
+   Here's the SYSLIB section before the change:
+     ```
+     [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib
+     ```
+   Here's the SYSLIB section after the change:
+     ```
+     [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
+     :${OFCOB_HOME}/lib
+     ```
+9. Review the OpenFrame\_COBOL\_InstallLog.log file in vi and verify that there are no errors. For example:
+     ```
+     [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
+     …….. 
+     Summary 
+     ------
+     Installation: Successful. 
+     131 Successes 
+     0 Warnings 
+     0 NonFatalErrors 
+     0 FatalError
+     ```
+10. Use the `ofcob --version ` command and review the version number to verify the installation. For example:
+     ```
+     [oframe7@ofdemo ~]$ ofcob --version 
+     OpenFrame COBOL Compiler 3.0.54 
+     CommitTag:: 645f3f6bf7fbe1c366a6557c55b96c48454f4bf
+     ```
+11. Reboot OpenFrame using the `tmdown/tmboot` command.
+
+## Install OFASM
+
+OFASM is the OpenFrame compiler that interprets the mainframe’s assembler programs.
+
+**To install OFASM**
+
+1. Make sure that the Batch/Online installation succeeded, then verify that the
+    OpenFrame\_ASM3\_0\_Linux\_x86\_64.bin installer file is present.
+
+2. Execute the installer. For example:
+     ```
+     [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
+     ```
+3. Read the licensing agreement and press Enter to continue.
+4. Accept the licensing agreement.
+5. Verify the bash profile is updated with OFASM variables. For example:
+     ```
+     [oframe7@ofdemo ~]$ source .bash_profile
+     [oframe7@ofdemo ~]$ ofasm --version 
+     # TmaxSoft OpenFrameAssembler v3 r328 
+     (3ff35168d34f6e2046b96415bbe374160fcb3a34)
+
+     [oframe7@ofdemo OFASM]$ vi .bash_profile
+
+     # OFASM ENV 
+     export OFASM_HOME=/opt/tmaxapp/OFASM 
+     export OFASM_MACLIB=$OFASM_HOME/maclib/free_macro 
+     export PATH="${PATH}:$OFASM_HOME/bin:" 
+     export LD_LIBRARY_PATH="./:$OFASM_HOME/lib:$LD_LIBRARY_PATH"
+     ```
+6. Open the OpenFrame tjclrun.conf configuration file in vi and edit it as follows:
+     ```
+     [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
+     [oframe7@ofdemo ~]$ vi tjclrun.conf
+     ```
+     Here is the [SYSLIB] section *before* the change:
+     ```
+     [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib
+     ```
+     Here is the [SYSLIB] section *after* the change:
+     ```
+     [SYSLIB] [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
+     ```
+
+7. Open the OpenFrame\_ASM\_InstallLog.log file in vi and verify that there are no errors. For example:
+     ```
+     [oframe7@ofdemo ~]$ vi 
+     $OFASM_HOME/UninstallerData/log/OpenFrame_ASM_InstallLog.log 
+     …….. 
+     Summary 
+     ------
+
+     Installation: Successful.
+
+     55 Successes 
+     0 Warnings 
+     0 NonFatalErrors 
+     0 FatalErrors
+     ```
+8. Reboot OpenFrame by issuing one of the following commands:
+     ```
+     tmdown / tmboot
+     ```
+     —or—
+     ```
+     oscdown / oscboot
+     ```
+
+## Install OSC
+
+OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OLTP transactions and other management functions.
+
+**To install OSC**
+
+1. Make sure the base installation succeeded, then verify that the OpenFrame\_OSC7\_0\_Fix2\_Linux\_x86\_64.bin installer file and osc.properties configuration file are present.
+2. Edit the following parameters in the osc.properties file:
+     ```
+     OPENFRAME_HOME=/opt/tmaxapp/OpenFrame OSC_SYS_OSC_NCS_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_NCS OSC_APP_OSC_TC_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_TC
+     ```
+
+3. Execute the installer using the properties file as shown:
+
+     ```
+     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin [oframe7@ofdemo ~]$ ./OpenFrame_OSC7_0_Fix2_Linux_x86_64.bin -f osc.properties
+     ```
+
+     When finished, the "Installation Complete" message is displayed.
+
+4. Verify that the bash profile is updated with OSC variables.
+5. Review the OpenFrame\_OSC7\_0\_Fix2\_InstallLog.log file. It should look something like this:
+
+     ```
+     Summary 
+     ------ 
+     Installation: Successful.
+
+     233 Successes
+     0 Warnings
+     0 NonFatalErrors
+     0 FatalError
+     ```
+
+6. Use vi to open the ofsys.seq configuration file. For example:
+
+     ```
+     vi $OPENFRAME_HOME/config/ofsys.seq
+     ```
+
+7. In the \#BASE and \#BATCH sections, edit the parameters as shown.
+
+     ```
+     Before changes
+     #BASE
+     ofrsasvr
+     ofrlhsvr
+     ofrdmsvr
+     ofrdsedt
+     ofrcmsvr
+     ofruisvr
+     ofrsmlog
+     vtammgr
+     TPFMAGENT
+
+     #BATCH 
+     #BATCH#obmtsmgr
+     #BATCH#ofrpmsvr
+     #BATCH#obmjmsvr
+     #BATCH#obmjschd
+     #BATCH#obmjinit
+     #BATCH#obmjhist
+     #BATCH#obmjspbk
+     #TACF #TACF#tmsvr
+
+     After changes 	#BATCH
+     #BASE          obmtsmgr 
+     ofrsasvr       ofrpmsvr
+     ofrlhsvr       obmjmsvr
+     ofrdmsvr       obmjschd
+     ofrdsedt       obmjinit
+     ofrcmsvr       obmjhist
+     ofruisvr       obmjspbk
+     ofrsmlog
+     vtammgr        #TACF
+     TPFMAGENT      tmsvr
+    ```
+
+8. Copy the license file. For example:
+
+     ```
+     [oframe7@ofdemo ~]$ cp /home/oframe7/oflicense/ofonline/licosc.dat 
+
+     $OPENFRAME_HOME/license
+
+     [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/license 
+     oframe@oframe7/OpenFrame/license / ls -l 
+     -rwxr-xr-x. 1 oframe mqm 80 Sep 12 01:37 licosc.dat 
+     -rwxr-xr-x. 1 oframe mqm 80 Sep  8 09:40 lictacf.dat 
+     -rwxrwxr-x. 1 oframe mqm 80 Sep  3 11:54 lictjes.da
+     ```
+
+9. To start up and shut down OSC, initialize the CICS region shared memory by typing `osctdlinit OSCOIVP1` at the command prompt.
+
+10. Run `oscboot` to boot up OSC. The output looks something like this:
+
+     ```
+     OSCBOOT : pre-processing       [ OK ]
+
+     TMBOOT for node(NODE1) is starting: 
+     Welcome to Tmax demo system: it will expire 2016/11/4 
+     Today: 2016/9/12 
+          TMBOOT: TMM is starting: Mon Sep 12 01:40:25 2016 
+          TMBOOT: CLL is starting: Mon Sep 12 01:40:25 2016 
+          TMBOOT: CLH is starting: Mon Sep 12 01:40:25 2016 
+          TMBOOT: TLM(tlm) is starting: Mon Sep 12 01:40:25 2016 
+     ```
+
+11. To verify that the process status is ready, use the `tmadmin` command in si. All the processes should display RDY in the **status** column.
+
+     [Processes displaying RDY](./media/tmadmin_02.png)
+
+12. Shut OSC down using the `oscdown` command.
+
+## Install JEUS
+
+JEUS (Java Enterprise User Solution) provides the presentation layer of the OpenFrame web application server.
+
+Before installing JEUS, install the Apache Ant package, which provides the libraries and command-line tools needed to install JEUS.
+
+**To install Apache Ant**
+
+1. Download Ant binary using the `wget` command. For example:
+
+     ```
+     wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
+     ```
+
+2. Use the `tar` utility to extract the binary file and move it to an appropriate location. For example:
+
+     ```
+     tar -xvzf apache-ant-1.9.7-bin.tar.gz
+     ```
+
+3. For efficiency, create a symbolic link:
+
+     ```
+     ln -s apache-ant-1.9.7 ant
+     ```
+
+4. Open the bash profile in vi (`vi .bash_profile`)and update it with the following variables:
+
+     ```
+     # Ant ENV
+     export ANT_HOME=$HOME/ant 
+     export PATH=$HOME/ant/bin:$PATH
+     ```
+
+5.  Apply the modified environment variable. For example:
+
+     ```
+     [oframe7\@ofdemo \~]\$ source \~/.bash\_profile
+     ```
+
+**To install JEUS**
+
+1. Expand the installer using the `tar` utility. For example:
+
+     ```
+     [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
+     ```
+
+2. Create a **jeus** folder (`mkdir jeus7`) and unzip the binary.
+3. Change to the **setup** directory (or use the JEUS parameter for your own environment). For example:
+
+     ```
+     [oframe7@ofdemo ~]$ cd jeus7/setup/
+     ```
+
+4. Execute `ant clean-all` before performing the build. The output looks something like this:
+
+     ```
+     Buildfile: /home/oframe7jeus7/setup/build.xml
+
+     clean-bin:
+     delete-domain:
+     [echo] Deleting a domain configuration: domain = jeus_domain
+     delete-nodesxml:
+     clean-config:
+     clean-all:
+     BUILD SUCCESSFUL
+     Total time: 0 seconds
+     ```
+
+5.  Make a backup of the domain-config-template.properties file. For example:
+
+     ```
+     [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
+     ```
+
+6. Open the domain-config-template.properties file in vi:
+
+     ```
+     [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
+     ```
+
+7. Change `jeus.password=jeusadmin nodename=Tmaxsoft` to `jeus.password=tmax1234 nodename=ofdemo`
+
+8. Execute the `ant install` command to build JEUS.
+9.  Update the .bash\_profile file with the JEUS variables as shown:
+
+     ```
+     # JEUS ENV 
+     export JEUS_HOME=/opt/tmaxui/jeus7 PATH="/opt/tmaxui/jeus7/bin:/opt/tmaxui/jeus7/lib/system:/opt/tmaxui/jeus7/webserver/bin:$ {PATH}" 
+     export PATH
+     ```
+
+10. Execute the bash profile. For example:
+
+     ```
+     [oframe7@ofdemo setup]$ . .bash_profile
+     ```
+
+11.  *Optional*. Create an alias for easy shutdown and boot of JEUS components:
+
+     ```     
+     # JEUS alias
+
+     alias dsboot='startDomainAdminServer -domain jeus_domain -u administrator -p jeusadmin'
+     alias msboot='startManagedServer -domain jeus_domain -server server1 -u administrator -p jeusadmin' 
+     alias msdown=‘jeusadmin -u administrator -p tmax1234 "stop-server server1“’ 
+     alias dsdown=‘jeusadmin -domain jeus_domain -u administrator -p tmax1234 "local-shutdown“’
+     ```
+
+12.  To verify the installation, start the domain admin server as shown:
+
+     ```
+     [oframe7@ofdemo ~]$ startDomainAdminServer -domain jeus_domain -u administrator -p jeusadmin
+     ```
+
+13.  Verify by web logon using the syntax `http: //  < IP > : < PORT > /webadmin/login`. For example, http://192.168.92.133:9736/webadmin/login.
+     
+     The logon screen appears:
+
+     [JEUS WebAdmin logon screen](./media/jeus_01.png)
+
+     > [!NOTE]
+     > If you experience any issues with port security, open port 9736 or disable the firewall (`systemctl stop firewall`).
+
+14. To change the hostname for server1, click **Lock & Edit**, then click **server1**. In the Server window, change the hostname as follows:
+
+    1.  Change **Nodename** to **ofdemo**.
+    2.  Click **OK** on the right side of the window.
+    3.  Click **Apply changes** on the lower left side of the window and for description, enter *Hostname change*.
+
+     [JEUS WebAdmin screen](./media/jeus_02.png)
+
+15. Verify that the configuration is successful in the confirmation screen.
+
+     [jeus_domain Server screen](./media/jeus_03.png)
+
+16. Start the managed server process “server1” using the following command:
+
+     ```
+     [oframe7@ofdemo ~]$ startManagedServer -domain jeus_domain -server server1 -u administrator -p jeusadmin
+     ```
+
+## Install OFGW
+
+OFGW Is the OpenFrame gateway that supports communication between the 3270 terminal emulator and the OSI base and manages the sessions between the terminal emulator and OSI.
+
+**To install OFGW**
+
+1. Make sure that JEUS was installed successfully, then verify that the OFGW7\_0\_1\_Generic.bin installer file is present.
+2. Execute the installer. For example:
+
+     ```
+     [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
+     ````
+
+3. Use the following locations for the corresponding prompts:
+     -   JEUS Home directory
+     -   JEUS Domain Name
+     -   JEUS Server Name
+     -   Tibero Driver
+     -   Tmax Node ID ofdemo
+
+4. Accept the rest of the defaults, then press Enter to exit the installer.
+
+5. Verify that the URL for OFGW is working as expected:
+
+     ```
+     Type URL 
+     http://192.168.92.133:8088/webterminal/ and press enter
+      < IP >               :8088/webterminal/
+     ```
+
+     The following screen appears:
+
+     [OpenFrame WebTerminal](./media/ofgw_01.png)
+
+## Install OFManager
+
+OFManager provides operation and management functions for OpenFrame in the web environment.
+
+**To install OFManager**
+
+1. Verify that the OFManager7\_Generic.bin installer file is present.
+2. Execute the installer. For example:
+
+     ```
+     OFManager7_Generic.bin
+     ```
+
+3.  Press Enter to continue, then accept the license agreement.
+4.  Choose the install folder.
+5.  Accept the defaults.
+6.  Choose Tibero as the database.
+7.  Press Enter to exit the installer.
+8.  Verify that the URL for OFManager is working as expected:
+
+     ```
+     Type URL http://192.168.92.133:8088/ofmanager and press enter <  IP >  : < PORT >  ofmanager Enter ID:   ROOT 
+     Password: SYS1
+     ```
+
+The start screen appears:
+
+![](media/ofmanager_01.png.png)
+
+That completes the installation of the OpenFrame components.
+
+## Learn more
+
+If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
+
+-   [Get started with Azure](https://docs.microsoft.com/azure/)
+-   [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)
+-   [Azure Virtual Data Center Lift-and-Shift Guide](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
