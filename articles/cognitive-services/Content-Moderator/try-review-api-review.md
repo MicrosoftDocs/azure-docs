@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: how-to
+ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
 # reviews how-to for REST API
