@@ -31,9 +31,9 @@
       href: search-query-dotnet.md
 - name: Tutorials
   items:
-  - name: Index Azure SQL data
+  - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
-  - name: Index Azure blob data
+  - name: Index Azure blobs
     href: search-semi-structured-data.md
   - name: Index with AI (Cognitive Services)
     href: cognitive-search-tutorial-blob.md
@@ -121,8 +121,6 @@
         href: index-add-suggesters.md
       - name: Autocomplete example
         href: search-autocomplete-tutorial.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -215,6 +213,8 @@
       href: search-filters.md
     - name: Facet filters
       href: search-filters-facets.md
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
     - name: Filter and OrderBy expression syntax
       href: query-odata-filter-orderby-syntax.md
   - name: Relevance tuning
