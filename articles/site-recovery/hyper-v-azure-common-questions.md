@@ -133,7 +133,7 @@ For replication, a Hyper-V VM must be running a supported operating system. In a
 
 Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
 
-###Can I extend replication?
+### Can I extend replication?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?

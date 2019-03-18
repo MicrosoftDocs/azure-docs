@@ -87,4 +87,4 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

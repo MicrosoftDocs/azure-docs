@@ -251,7 +251,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     </TelemetryProcessors>
    
     ```
-### Alternative: enable fixed-rate sampling in your server code
+   ### Alternative: enable fixed-rate sampling in your server code
 	
 	Instead of setting the sampling parameter in the .config file, you can programmatically set these values. 
 

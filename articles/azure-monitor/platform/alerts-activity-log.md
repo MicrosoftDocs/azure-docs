@@ -21,13 +21,13 @@ These alerts are for Azure resources, can be created by using an Azure Resource 
 ## Azure portal
 
 > [!NOTE]
-
+> 
 >  While creating the alert rules, ensure the following:
-
+> 
 > - Subscription in the scope is not different from the subscription where the alert is created.
-- Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
-- There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
-- When the category is "administrative". You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+> - Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
+> - There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
+> - When the category is "administrative". You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
 
 ### Create with Azure portal
 
@@ -44,36 +44,36 @@ Use the following procedure:
 
 3. **Under Define Alert condition,** provide the following information, and click **Done**.
 
-    - **Alert Target:** To view and select the target for the new alert, use **Filter by subscription** / **Filter by resource type** and select the resource or resource group from the list displayed.
+   - **Alert Target:** To view and select the target for the new alert, use **Filter by subscription** / **Filter by resource type** and select the resource or resource group from the list displayed.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > you can select a resource, resource group, or an entire subscription for activity log signal.
 
-    > you can select a resource, resource group, or an entire subscription for activity log signal.
-
-    **Alert target sample view**
+     **Alert target sample view**
      ![Select Target](media/alerts-activity-log/select-target.png)
 
-    - Under **Target Criteria**, click **add criteria** and all available signals for the target are displayed including those from various categories of  **Activity Log**; with category name appended in **Monitor Service** name.
+   - Under **Target Criteria**, click **add criteria** and all available signals for the target are displayed including those from various categories of  **Activity Log**; with category name appended in **Monitor Service** name.
 
-    - Select the signal from the list displayed of various operations possible for the type **Activity Log**.
+   - Select the signal from the list displayed of various operations possible for the type **Activity Log**.
 
-    You can select the log history timeline and the corresponding alert logic for this target signal:
+     You can select the log history timeline and the corresponding alert logic for this target signal:
 
-    **Add criteria screen**
+     **Add criteria screen**
 
-    ![add criteria](media/alerts-activity-log/add-criteria.png)
+     ![add criteria](media/alerts-activity-log/add-criteria.png)
 
-    **History time**: Events available for selected operation is can be plotted over the last 6/12/24 hours (or) Over the last Week.
+     **History time**: Events available for selected operation is can be plotted over the last 6/12/24 hours (or) Over the last Week.
 
-    **Alert logic**:
+     **Alert logic**:
 
      - **Event Level**- The severity level of the event. _Verbose_, _Informational_, _Warning_, _Error_, or _Critical_.
      - **Status**: The status of the event. _Started_, _Failed_, or _Succeeded_.
      - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
-        Sample signal graph with alert logic applied:
+       Sample signal graph with alert logic applied:
 
-        ![ criteria selected](media/alerts-activity-log/criteria-selected.png)
+       ![ criteria selected](media/alerts-activity-log/criteria-selected.png)
 
 4. Under **define alert rules details**, provide the following details:
 
@@ -110,15 +110,15 @@ Alternatively, a simple analogy for understanding conditions on which alert rule
 
     You can use the available filters - _Subscription_, _Resource group_,  _Resource_, _Signal Type_, or _Status_ to find the activity rule that you want to edit.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > You can only edit **Description** , **Target criteria** and **Action groups**.
 
-    > You can only edit **Description** , **Target criteria** and **Action groups**.
+3. Select the rule and double-click to edit the rule options. Make the required changes and then click **Save**.
 
-3.  Select the rule and double-click to edit the rule options. Make the required changes and then click **Save**.
+   ![ manage alert rules](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ manage alert rules](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
+4. You can disable, enable, or delete a rule. Select the appropriate option at the top of the window, after selecting the rule as detailed in step 2.
 
 
 ## Azure Resource Template
