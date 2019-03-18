@@ -3,7 +3,7 @@ title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: yoavfrancis
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2019
-ms.author: monhaber
+ms.date: 03/18/2019
+ms.author: yoavfrancis
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
@@ -48,7 +48,7 @@ Security Center assesses the configuration of your resources to identify securit
 See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection, agents, and workspaces
-Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets (VMSS), IaaS containers and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
+Security Center collects data from your Azure virtual machines (VMs), Virtual machine scale sets (VMSS), IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
 
 ### Am I billed for Azure Monitor logs on the workspaces created by Security Center?
 No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, do not incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
@@ -112,7 +112,7 @@ To select an existing Log Analytics workspace:
    - Select **Cancel** to cancel the operation.
 
 ### What if the Microsoft Monitoring Agent was already installed as an extension on the VM?<a name="mmaextensioninstalled"></a>
-When the Monitoring Agent is installed as an extension, the extension configuration allows reporting only to a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from the VM in the workspace already connected, provided that the "security" or "securityFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.
+When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Security Center does not override existing connections to user workspaces. Security Center will store security data from a VM in a workspace that is already connected, provided that the "security" or "securityFree" solution has been installed on it. Security Center may upgrade the extension version to the latest version in this process.
 
 For more information, see [Automatic provisioning in cases of a preexisting agent installation](security-center-enable-data-collection.md#preexisting).
 
@@ -120,14 +120,11 @@ For more information, see [Automatic provisioning in cases of a preexisting agen
 ### What if I had a Microsoft Monitoring Agent directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
 The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported).
-In case the configured workspace is a user workspace (not Security Center's default workspace), you'll need to install the "security/"securityFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
+IF the configured workspace is a user workspace (not Security Center's default workspace), you will need to install the "security/"securityFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
 
-For existing machines on subscriptions onboarded to Security Center until 2019-03-17, when an existing agent would be detected, the Microsoft Monitoring Agent extension would not be installed and the machine would not be affected. For such machines, please head to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
+For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
 
-   > [!NOTE]
-   > For Linux VMs, Multi-homing is not supported (This is a Log Analytics/Microsft Monitoring Agent limitation). Do not enable auto provisioning on a subscription which has Linux VMs with direct agent installed. Instead, please manually select the workspace the VM is reporting to in the "Security Policy" blade, assuming it resides in a subscription to which you have permissions, and select the free/standard tier to install the "securityFree"/"security" solution on it.
-
-For more information, see the next section [What happens if a SCOM or OMS direct agent is already installed on my VM?](#scomomsinstalled)
+ For more information, see the next section [What happens if a SCOM or OMS direct agent is already installed on my VM?](#scomomsinstalled)
 
 ### What happens if a SCOM agent is already installed on my VM?<a name="scomomsinstalled"></a>
 Security center will install the Microsoft Monitoring Agent extension side-by-side to the existing SCOM. The existing SCOM agent will continue to report to the SCOM server normally. Please note that the SCOM agent and Microsoft Monitoring Agent share common run-time libraries, which will be updated to the lastest version during this proccess.
