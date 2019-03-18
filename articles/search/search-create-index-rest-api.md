@@ -160,7 +160,7 @@ Results should look similar to this (truncated to the first two fields for brevi
 
 ## 2 - Load documents
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Paste this example into PowerShell to create a **$body** object containing the documents you want to upload. 
 
