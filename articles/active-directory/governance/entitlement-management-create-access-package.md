@@ -314,3 +314,4 @@ Prerequisites: User administrator, Catalog owner, Access package manager
 
 ## Next steps
 
+- [Manage access for guest users](entitlement-management-guest-users.md)

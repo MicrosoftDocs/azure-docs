@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a catalog creating end user or admin, I want add one or more resources to an access package so that users access rights to those are time limited.
 
 ---
-# Manage a resource in Azure AD entitlement management (Preview)
+# Manage resources in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -70,5 +70,4 @@ If you are a catalog creator, you can add to an access package in your catalog a
 
 ## Next steps
 
-Once you have added the resources, you can add them to your access packages.
-
+- [Create and manage an access package](entitlement-management-create-access-package.md)

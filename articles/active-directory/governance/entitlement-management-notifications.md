@@ -50,3 +50,4 @@ Users are notified when their access request has expired (timed-out). When a use
 
 ## Next steps
 
+- [Request access to an access package](entitlement-management-request-access.md)

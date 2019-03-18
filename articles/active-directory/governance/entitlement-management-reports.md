@@ -52,3 +52,4 @@ Intro
 
 ## Next steps
 
+- [Manage resources](entitlement-management-resources.md)

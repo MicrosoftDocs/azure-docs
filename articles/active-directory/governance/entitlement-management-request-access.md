@@ -90,6 +90,6 @@ If you submit an access request and the request is still in the **pending approv
 
 If you are requesting access to an access package that has multiple policies that apply, you might be asked to select a policy. For example, an access package manager might configure an access package with two policies for two groups of internal employees. The first policy might allow access for 60 days and require approval. The second policy might allow access for 2 days and not require approval. If you encounter this scenario, you must select the policy you want to use.
 
-
 ## Next steps
 
+- [Approve or deny access requests](entitlement-management-approve-requests.md)

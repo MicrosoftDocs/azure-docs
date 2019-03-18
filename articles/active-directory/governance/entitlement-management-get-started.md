@@ -285,4 +285,5 @@ In this step, you add an additional policy for users who are not yet in the reso
 
 ## Next steps
 
-You can learn more about other Azure AD identity governance features, such as access reviews and privileged identity management, in the [identity governance overview](identity-governance-overview.md).
+- [Create and manage a catalog](entitlement-management-create-catalog.md)
+- [Create and manage an access package](entitlement-management-create-access-package.md)

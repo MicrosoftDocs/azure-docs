@@ -65,7 +65,7 @@ Azure AD entitlement management can help address these challenges.
 
 ## What can I do with entitlement management?
 
-- Govern the lifecycle of access for both internal and external users
+- Govern the lifecycle of access for both internal and guest users
 - Define bundles of resources a user needs
 - Define rules for how to request resources and when access expires
 - Delegate managers to manage resources and approve requests
@@ -166,3 +166,4 @@ To better understand entitlement management and its documentation, you should re
 
 ## Next steps
 
+- [Tutorial: Get started with Azure AD entitlement management](entitlement-management-get-started.md)

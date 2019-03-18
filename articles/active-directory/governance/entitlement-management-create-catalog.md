@@ -108,3 +108,4 @@ Prerequisites: User administrator, or Catalog owner
 
 ## Next steps
 
+- [Create and manage an access package](entitlement-management-create-access-package.md)
