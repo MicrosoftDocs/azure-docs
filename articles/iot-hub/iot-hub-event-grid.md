@@ -65,6 +65,42 @@ The following example shows the schema of a device connected event:
 }]
 ```
 
+### Device connected schema
+
+The following example shows the schema of a device connected event: 
+
+```json
+[{  
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/91D45678-8DEC-567A-BE2A-213B4567DDI0/RESOURCEGROUPS/IOT-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/DEVICETELEMETRYTEST",
+  "subject": "devices/d1",
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+            },
+            "Location": "Seattle"        
+        },
+        "properties": {            
+            "Status": "Active"        
+        },
+        "systemProperties": {            
+          "iothub-content-type": "application/json",
+          "iothub-content-encoding": "utf-8",
+          "iothub-connection-device-id": "d1",
+          "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+          "iothub-connection-auth-generation-id": "123455432199234570",
+          "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+          "iothub-message-source": "Telemetry"        
+        }    
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
 ### Device created schema
 
 The following example shows the schema of a device created event: 
