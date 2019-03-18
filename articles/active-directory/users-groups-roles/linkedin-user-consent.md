@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -28,7 +28,7 @@ To see LinkedIn information in Microsoft apps and services, users must consent t
 
 Access to LinkedIn information within Microsoft apps and services makes it easier for your users to connect, engage, and build professional relationships with colleagues, customers, and partners inside and outside your organization. New users can get up to speed faster by connecting with colleagues, learning more about them, and easily accessing more information. Here is an example of how LinkedIn information appears on the profile card in Microsoft apps:
 
-![Enabling LinkedIn integration](./media/linkedin-user-consent/display-example.png)
+![Enabling LinkedIn integration in your organization](./media/linkedin-user-consent/display-example.png)
 
 ## Enable and announce LinkedIn integration
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -37,11 +37,12 @@ You can enable or disable LinkedIn integration for your entire tenant or for onl
 1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD tenant.
 2. Select **Users**.
 3. On the **Users** blade, select **User settings**.
-4. Under **LinkedIn integration**:
-   * Select **Yes** to enable LinkedIn integration for all users in your tenant
-   * Select **Selected** to enable LinkedIn integration for only selected tenant users
-   * Select **No** to disable LinkedIn integration for all users
-   ![Enabling LinkedIn integration](./media/linkedin-integration/linkedin-integration.png)
+4. Under **LinkedIn account connections**:
+
+  * Select **Yes** to consent for all users in the organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
+  * Select **Selected** to consent for only selected users in the organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
+  * Select **No** to withdraw consent for users in your organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
+   ![Enabling LinkedIn integration in the organization](./media/linkedin-integration/linkedin-integration.png)
 5. Save your settings when you're done by selecting **Save**.
 
 ## Enable or disable LinkedIn integration for your users in Group Policy
