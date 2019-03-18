@@ -75,7 +75,7 @@ Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agen
         uninstall.sh -Y
         ```
 2. Restart the VM before you configure replication.
-3. 
+
 ## Next steps
 
 [Review troubleshooting](site-recovery-extension-troubleshoot.md) for the Site Recovery extension on the Azure VM agent.
