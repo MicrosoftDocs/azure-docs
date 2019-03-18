@@ -20,6 +20,9 @@ This article dives deeper into how to use the continuous data export feature in 
 > Once again, when you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
 
 
+[!INCLUDE [iot-central-storage-data-export](../../includes/iot-central-storage-data-export.md)]
+
+
 ## Prerequisites
 
 - You must be an administrator in your IoT Central application
