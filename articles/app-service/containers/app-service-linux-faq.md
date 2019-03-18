@@ -40,7 +40,7 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 | Tomcat    | the location of a script to perform any necessary configruations for your app |
 | Node.js   | the PM2 configuration file or your script file                                |          
 | .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-| Ruby      | the Ruby script that you want to initialize your app with                     
+| Ruby      | the Ruby script that you want to initialize your app with                     |
 
 ## Management
 
