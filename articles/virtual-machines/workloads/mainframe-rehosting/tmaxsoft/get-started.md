@@ -1,3 +1,15 @@
+---
+title: Get started with TmaxSoft OpenFrame | Microsoft Docs
+description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure virtual machines (VMs).
+services: virtual-machines-linux
+documentationcenter:
+author: njray
+manager: edprice
+editor: edprice
+tags:
+keywords:
+---
+
 # Get started with TmaxSoft OpenFrame
 
 TmaxSoft OpenFrame is a popular mainframe rehosting solution that makes it easy to lift your existing mainframe assets and shift them to Microsoft Azure. Lift-and-shift is the no-code approach to quickly migrating existing applications as-is to a mainframe emulation environment on Azure. 
@@ -16,4 +28,3 @@ To run the OpenFrame environment on Azure, you must have a valid product license
 **Next steps**
 
 - [Install TmaxSoft OpenFrame on Azure](./install-openframe-on-azure.md)
-
