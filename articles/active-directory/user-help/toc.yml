@@ -93,8 +93,14 @@
 - name: My Apps portal help
   items:
   - name: Overview
-    href: user-help-my-apps-overview.md
-  - name: What is the My Apps portal?
-    href: active-directory-saas-access-panel-introduction.md
+    href: myapps-portal-end-user-overview.md
+  - name: Access and use the My Apps portal
+    href: myapps-portal-end-user-access.md
+  - name: Update your profile and account info
+    href: myapps-portal-end-user-update-profile.md
+  - name: Update your groups info
+    href: myapps-portal-end-user-groups.md
+  - name: Review access review for yourself
+    href: ../governance/review-your-access.md
   - name: Troubleshoot issues
-    href: active-directory-saas-access-panel-user-help.md
+    href: myapps-portal-end-user-troubleshoot.md

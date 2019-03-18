@@ -25,7 +25,7 @@ Learn how to find and fix [single sign-on](../manage-apps/what-is-single-sign-on
 
 ## Before you begin
 
-We recommend installing the [My Apps Secure Sign-in Extension](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). This browser extension makes it easy to gather the SAML request and SAML response information that you need to resolving issues with single sign-on. In case you cannot install the extension, this article shows you how to resolve issues both with and without the extension installed.
+We recommend installing the [My Apps Secure Sign-in Extension](../user-help/myapps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). This browser extension makes it easy to gather the SAML request and SAML response information that you need to resolving issues with single sign-on. In case you cannot install the extension, this article shows you how to resolve issues both with and without the extension installed.
 
 To download and install the My Apps Secure Sign-in Extension, use one of the following links.
 
