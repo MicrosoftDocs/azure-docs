@@ -220,7 +220,7 @@ Workflow Copy-Files
 
 ## Checkpoints
 
-A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity.
+A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity. Azure Automation has a feature called [fair share](automation-runbook-execution.md#fair-share), where any runbook that runs for 3 hours is unloaded to allow other runbooks to run. Eventually, the unloaded runbook will be reloaded, and when it is, it will resume execution from the last checkpoint taken in the runbook. In order to guarantee that the runbook will eventually complete, you must add checkpoints at intervals that run for less than 3 hours. If during each run a new checkpoint is added, and if the runbook gets evicted after 3 hours due to an error, then the runbook will be resumed indefinitely.
 
 In the following sample code, an exception occurs after Activity2 causing the workflow to end. When the workflow is run again, it starts by running Activity2 since this was just after the last checkpoint set.
 
