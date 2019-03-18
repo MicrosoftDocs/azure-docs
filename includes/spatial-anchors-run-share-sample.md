@@ -27,7 +27,7 @@ Save the scene by selecting **File** > **Save**.
 
 ## To deploy the app to an Android device
 
-Sign in on your Android device and connect it your computer by using a USB cable.
+Sign in on your Android device and connect it to your computer by using a USB cable.
 
 Open **Build Settings** by selecting **File** > **Build Settings**.
 
