@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/18/2019
 ms.author: diberry
 ---
 
 # Create entities without utterances
 
-The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
+The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events, or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
 
 You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
 
@@ -51,7 +51,7 @@ A simple entity describes a single concept. Use the following procedure to creat
 
 <a name="add-regular-expression-entities"></a>
 
-## Add regular expression entities for highly-structured concepts
+## Add regular expression entities for highly structured concepts
 
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 

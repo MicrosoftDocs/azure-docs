@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/18/2019
 ms.author: diberry
 ---
 # Phrase list features in your LUIS app
