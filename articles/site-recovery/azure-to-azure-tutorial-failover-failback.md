@@ -1,6 +1,6 @@
 ---
-title: Fail over and fail back Azure IaaS VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
-description: Learn how to fail over and fail back Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
+title: Fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
+description: Learn how to fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -11,11 +11,11 @@ ms.author: raynew
 ms.custom: mvc
 ---
 
-# Fail over and Reprotect Azure VMs between Azure regions
+# Fail over and reprotect Azure VMs between regions
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
-This tutorial describes how to fail over a single Azure VM to a secondary Azure region. After you've failed over, you fail back to the primary region when it's available. In this tutorial, you learn how to:
+This tutorial describes how to fail over an Azure VM to a secondary Azure region. After you've failed over, you reprotect the VM. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Fail over the Azure VM
@@ -73,9 +73,6 @@ After failover of the VM, you need to reprotect it so that it replicates back to
    resources marked (new) are created as part of the reprotect operation.
 4. Click **OK** to trigger a reprotect job. This job seeds the target site with the latest data. Then, it replicates the deltas to the primary region. The VM is now in a protected state.
 
-> [!NOTE]
-> See the ["how to" section](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more details about the reprotection work flow and what happens during reprotection.
-
-
 ## Next steps
-- Read [how to failback. ](azure-to-azure-tutorial-failback.md).
+- After reprotecting, you can [failback to the primary region](azure-to-azure-tutorial-failback.md) when it's available.
+- [Learn more](zure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) about the reprotection flow.
