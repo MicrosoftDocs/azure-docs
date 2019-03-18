@@ -1,6 +1,6 @@
 ---
-title: Identify issues with the diagnostics role service (preview)  - Azure
-description: Describes the Windows Virtual Desktop diagnostics role service and how to use it.
+title: Identify issues with the diagnostics feature (preview)  - Azure
+description: Describes the Windows Virtual Desktop diagnostics feature and how to use it.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Identify issues with the diagnostics role service (Preview)
+# Identify issues with the diagnostics feature (Preview)
 
-The Windows Virtual Desktop diagnostics role service (preview) is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
+Windows Virtual Desktop (preview) offers a diagnostics feature (preview) is a Remote Desktop role that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 
 * Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
 * Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
@@ -108,6 +108,54 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 ```
 
 The **-Outcome** parameter can also be combined with other optional filtering parameters.
+
+## Common error scenarios
+
+Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
+
+* Internal Issue: specifies scenarios which cannot be mitigated by the tenant administrator and need to be resolved as support issue. When raising a ticket provide the activity ID, tenant name and approximate timeframe the issue occurred.
+* External Issue: relate to scenarios which can be mitigated by the system administrator. These are external to Windows Virtual Desktop.
+
+The following table lists common errors your admins might run into.
+
+>[!NOTE]
+>This preview doesn't include a complete categorization of errors and will be updated on a regular basis. To ensure you have the most up-to-date information, be sure to check back on this article at least once a month.
+
+### External management error codes
+
+|Numeric code|Error code|Suggested solution|
+|---|---|---|
+|3|UnauthorizedAccess|The user who tried to run the administrative PowerShell cmdlet either doesn't have permissions to do so or mistyped their username.|
+|1000|TenantNotFound|The tenant name you entered doesn't match any existing tenants. Review the tenant name for typos and try again.|
+|1006|TenantCannotBeRemovedHasSessionHostPools|You can't delete a tenant as long it contains objects. Delete the session host pools first, then try again.|
+|2000|HostPoolNotFound|The host pool name you entered doesn't match any existing host pools. Review the host pool name for typos and try again.|
+|2005|HostPoolCannotBeRemovedHasApplicationGroups|You can't delete a host pool as long as it contains objects. Remove all app groups in the host pool first.|
+|2004|HostPoolCannotBeRemovedHasSessionHosts|Remove all sessions hosts first before deleting the session host pool.|
+|5001|SessionHostNotFound|The session host you queried might be offline. Check the host pool's status.|
+|5008|SessionHostUserSessionsExist |You must sign out all users on the session host before executing your intended management activity.|
+|6000|AppGroupNotFound|The app group name you entered doesn't match any existing app groups. Review the app group name for typos and try again.|
+|6022|RemoteAppNotFound|The RemoteApp name you entered doesn't match any RemoteApps. Review RemoteApp name for typos and try again.|
+|6010|PublishedItemsExist|The name of the resource you're trying to publish is the same as a resource that already exists. Change the resource name and try again.|
+|7002|NameNotValidWhiteSpace|Don’t use white space in the name.|
+|8000|InvalidAuthorizationRoleScope|The role name you entered doesn't match any existing role names. Review the role name for typos and try again. |
+|8001|UserNotFound |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
+|8005|UserNotFoundInAAD |The user name you entered doesn't match any existing user names. Review the name for typos and try again.|
+|8008|TenantConsentRequired|Follow this documentation to provide consent for your tenant.|
+
+### External connection error codes
+
+|Numeric code|Error code|Suggested solution|
+|---|---|---|
+|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|The session host is not correctly joined to the Active Directory.|
+|-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|The connections failed because the session host is unavailable. Check the session host's health.|
+|-2146233088|ConnectionFailedClientDisconnect|If you see this error frequently, make sure the user's computer is connected to the network.|
+|-2146233088|ConnectionFailedNoHealthyRdshAvailable|The session the host user tried to connect to isn't healthy. Debug the virtual machine.|
+|-2146233088|ConnectionFailedUserNotAuthorized|The user doesn't have permission to access the published app or desktop. The error might appear after the admin removed published resources. Ask the user to refresh the feed in the Remote Desktop application.|
+|2|FileNotFound|The application the user tried to access is either incorrectly installed or set to an incorrect path.|
+|3|InvalidCredentials|The username or password the user entered doesn't match any existing usernames or passwords. Review the credentials for typos and try again.|
+|8|ConnectionBroken|The connection between Client and Gateway or Server dropped. No action needed unless it happens unexpectedly.|
+|14|UnexpectedNetworkDisconnect|The connection to the network dropped. Ask the user to connect again.|
+|24|ReverseConnectFailed|The host virtual machine has no direct line of sight to RD Gateway. Ensure the Gateway IP address can be resolved.|
 
 ## Next steps
 
