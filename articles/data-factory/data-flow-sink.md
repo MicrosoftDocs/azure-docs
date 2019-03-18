@@ -63,7 +63,7 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 
 * Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
 * Truncate table (removes all rows from your target table before completing the data flow)
-* Recreate table (performs drop/create of your target table before completing the data flow)
+* Recreate table (performs drop/create of your target table before completing the data flow). To create a new table definition in your target database, make sure to set the new table name in your sink SQL dataset. You can do this by clicking the "Edit" checkbox below the table name in the dataset.
 * Batch size for large data loads. Enter a number to bucket writes into chunks
 * Enable staging: This will instruct ADF to use Polybase when loading Azure Data Warehouse as your sink dataset
 
