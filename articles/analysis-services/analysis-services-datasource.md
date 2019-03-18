@@ -47,14 +47,14 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| Oracle |Microsoft OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET | |
-| Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET | |
+| Oracle |Microsoft OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET |
+| Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
 
 ### In-memory only
 
 |Datasource  |  
-|---------|---------|
+|---------|
 |Access Database     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
@@ -78,7 +78,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase Database     |  
 |XML table<sup>[1](#tab1400b)</sup>    |  
-|||
+||
  
 <a name="tab1400b">1</a> Tabular 1400 and higher models only.
 

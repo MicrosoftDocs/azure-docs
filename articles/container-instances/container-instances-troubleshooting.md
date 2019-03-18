@@ -21,7 +21,7 @@ This article shows how to troubleshoot common issues for managing or deploying c
 When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information on Azure naming conventions, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center.
 
 | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Container group name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Container name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |

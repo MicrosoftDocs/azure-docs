@@ -318,24 +318,24 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 1. Start **Azure PowerShell** and run the following command:
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-	```powershell
-	Connect-AzAccount   	
-	```  
+	   ```powershell
+	   Connect-AzAccount   	
+	   ```  
    * Run the following command to view all the subscriptions for this account.
    
-	```powershell
-	Get-AzSubscription
-	```   
+	   ```powershell
+   	 Get-AzSubscription
+	   ```   
    * Run the following command to select the subscription that you want to work with.
     
-	```powershell
-	Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-	```    
+	   ```powershell
+	   Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+	   ```
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
 	```powershell   
 	New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
-	```
+    ```
 
 ## Monitor pipeline
 

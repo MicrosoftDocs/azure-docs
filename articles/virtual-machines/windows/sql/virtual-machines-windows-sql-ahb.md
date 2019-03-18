@@ -57,7 +57,7 @@ The following steps will register the SQL resource provider with your Azure subs
 1. Type `sql` in the filter to bring up the SQL-related resource providers. 
 1. Select either *Register*, *Re-register*, or *Unregister* for the  **Microsoft.SqlVirtualMachine** provider depending on your desired action. 
 
-  ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
+   ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### With Azure CLI
 The following code snippet will register the SQL resource provider with your Azure subscription. 

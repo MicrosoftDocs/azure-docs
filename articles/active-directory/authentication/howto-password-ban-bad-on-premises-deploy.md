@@ -21,6 +21,7 @@ ms.collection: M365-identity-device-management
 | --- |
 | Azure Active Directory (Azure AD) password protection is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
 Now that you understand [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
 
 ## Deployment strategy
@@ -29,11 +30,11 @@ We recommend that you start deployments in audit mode. Audit mode is the default
 
 During the audit stage, many organizations find out that:
 
-* They need to improve existing operational processes to use more-secure passwords.
+* They need to improve existing operational processes to use more secure passwords.
 * Users often use unsecure passwords.
-* They need to inform users about the upcoming change in security enforcement, possible impact on them, and how to choose more-secure passwords.
+* They need to inform users about the upcoming change in security enforcement, possible impact on them, and how to choose more secure passwords.
 
-After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more-secure passwords. Focused monitoring during this time is a good idea.
+After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more secure passwords. Focused monitoring during this time is a good idea.
 
 ## Deployment requirements
 
@@ -105,34 +106,35 @@ There are two required installers for Azure AD password protection. They're avai
 
       The `Register-AzureADPasswordProtectionProxy` cmdlet supports the following three authentication modes.
 
-      * Interactive authentication mode:
+     * Interactive authentication mode:
 
-         ```powershell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
-         ```
-         > [!NOTE]
-         > This mode doesn't work on Server Core operating systems. Instead, use one of the following authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.
 
-      * Device-code authentication mode:
+        ```powershell
+        Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
+        ```
+        > [!NOTE]
+        > This mode doesn't work on Server Core operating systems. Instead, use one of the following authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.
 
-         ```powershell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
-         ```
+     * Device-code authentication mode:
 
-         You then complete authentication by following the displayed instructions on a different device.
+        ```powershell
+        Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
+        To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
+        ```
 
-      * Silent (password-based) authentication mode:
+        You then complete authentication by following the displayed instructions on a different device.
 
-         ```powershell
-         $globalAdminCredentials = Get-Credential
-         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
-         ```
+     * Silent (password-based) authentication mode:
 
-         > [!NOTE]
-         > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+        ```powershell
+        $globalAdminCredentials = Get-Credential
+        Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
+        ```
 
-      You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
+        > [!NOTE]
+        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+
+       You don't currently have to specify the *-ForestCredential* parameter, which is reserved for future functionality.
 
    
    Registration of the proxy service for password protection is necessary only once in the lifetime of the service. After that, the proxy service will automatically perform any other necessary maintenance.
@@ -145,33 +147,33 @@ There are two required installers for Azure AD password protection. They're avai
 
       The `Register-AzureADPasswordProtectionForest` cmdlet supports the following three authentication modes.
 
-      * Interactive authentication mode:
+     * Interactive authentication mode:
 
-         ```powershell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
-         ```
-         > [!NOTE]
-         > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.  
+        ```powershell
+        Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
+        ```
+        > [!NOTE]
+        > This mode won't work on Server Core operating systems. Instead use one of the following two authentication modes. Also, this mode might fail if Internet Explorer Enhanced Security Configuration is enabled. The workaround is to disable that Configuration, register the proxy, and then re-enable it.  
 
-      * Device-code authentication mode:
+     * Device-code authentication mode:
 
-         ```powershell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
-         ```
+        ```powershell
+        Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
+        To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
+        ```
 
-         You then complete authentication by following the displayed instructions on a different device.
+        You then complete authentication by following the displayed instructions on a different device.
 
-      * Silent (password-based) authentication mode:
-         ```powershell
-         $globalAdminCredentials = Get-Credential
-         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
-         ```
+     * Silent (password-based) authentication mode:
+        ```powershell
+        $globalAdminCredentials = Get-Credential
+        Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
+        ```
 
-         > [!NOTE]
-         > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
+        > [!NOTE]
+        > This mode fails if Azure Multi-Factor Authentication is required. In that case, use one of the previous two authentication modes.
 
-      These examples only succeed if the currently signed-in user is also an Active Directory domain administrator for the root domain. If this isn't the case, you can supply alternative domain credentials via the *-ForestCredential* parameter.
+       These examples only succeed if the currently signed-in user is also an Active Directory domain administrator for the root domain. If this isn't the case, you can supply alternative domain credentials via the *-ForestCredential* parameter.
 
    > [!NOTE]
    > If multiple proxy servers are installed in your environment, it doesn't matter which proxy server you use to register the forest.

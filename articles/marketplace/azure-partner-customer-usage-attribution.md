@@ -276,7 +276,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
    - For usage association issues, select **Other**.
    - For access issues with the Azure Marketplace CPP, select **Access Problem**.
    
-    ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Select **Start Request**.
 

@@ -48,13 +48,13 @@ However, you might have created your functions by using the editor in the Azure 
 
 + **From the Azure portal:**
 
-    1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
+  1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
 
-    2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
+  2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
 
-        ![Download the function app project](./media/deployment-zip-push/download-project.png)
+      ![Download the function app project](./media/deployment-zip-push/download-project.png)
 
-    The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
+     The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
 
 + **Using REST APIs:**
 

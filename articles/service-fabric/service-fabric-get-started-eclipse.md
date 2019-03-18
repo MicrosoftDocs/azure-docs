@@ -138,8 +138,8 @@ To publish your application to the cloud, follow these steps:
    - The `ClientKey` field should point to a PEM-formatted .pem or .key file on your local machine that contains the private key for your client or cluster certificate.
    - The `ClientCert` field should point to a PEM-formatted .pem or .crt file on your local machine that contains the certificate data for your client or cluster. certificate. 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
@@ -147,8 +147,8 @@ To publish your application to the cloud, follow these steps:
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
 2. Right-click your Service Fabric application, and then select **Service Fabric**.
 3. From the context menu, click **Publish Application...**.
@@ -156,8 +156,8 @@ To publish your application to the cloud, follow these steps:
 
     ![Publish Dialog Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  You can follow the progress of the publish operation in the Console window.
-5.  To verify that your application is running, open Service Fabric Explorer on your Azure cluster in a browser window. For the example above, this would be: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
+4. You can follow the progress of the publish operation in the Console window.
+5. To verify that your application is running, open Service Fabric Explorer on your Azure cluster in a browser window. For the example above, this would be: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
 
 
 On secure Linux clusters, if your application contains Reliable Services services, you will also need to configure a certificate that your services can use to call Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).

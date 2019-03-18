@@ -183,17 +183,17 @@
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby
-    href: http://azure.github.io/azure-storage-ruby
+    href: https://azure.github.io/azure-storage-ruby
   - name: PHP
-    href: http://azure.github.io/azure-storage-php/
+    href: https://azure.github.io/azure-storage-php/
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/storage
   - name: C++
-    href: http://azure.github.io/azure-storage-cpp
+    href: https://azure.github.io/azure-storage-cpp
   - name: iOS
-    href: http://azure.github.io/azure-storage-ios/
+    href: https://azure.github.io/azure-storage-ios/
   - name: Android
-    href: http://azure.github.io/azure-storage-android
+    href: https://azure.github.io/azure-storage-android
   - name: REST
     items:
     - name: Blobs, Queues, Tables, and Files
@@ -218,7 +218,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=storage
   - name: Azure Storage Explorer
@@ -250,7 +250,7 @@
       - name: Resource provider
         href: https://github.com/Azure/azure-sdk-for-net
     - name: Node.js
-      href: http://azure.github.io/azure-storage-node/
+      href: https://azure.github.io/azure-storage-node/
     - name: Java
       href: https://github.com/Azure/azure-storage-java
     - name: C++

@@ -45,7 +45,7 @@ and fetch the relevant accounts** only.
 
 1. Select **Filter** at the top of the pane.
 2. On the Filter pane, it allows you to specify **account name**,
-    **subscription ID, or **status** to fine-tune the list of storage
+    **subscription ID**, or **status** to fine-tune the list of storage
     accounts to be displayed. Use them as appropriate.
 3. Select **Update**. The list should refresh accordingly.
    

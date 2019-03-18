@@ -136,8 +136,8 @@ To configure Azure AD single sign-on with Flatter Files, perform the following s
    
     a. In the **Domain** textbox, type your registered domain.
    
-    >[!NOTE]
-    >If you don't have a registered domain yet, contact your Flatter Files support team via [support@flatterfiles.com](mailto:support@flatterfiles.com). 
+   > [!NOTE]
+   > If you don't have a registered domain yet, contact your Flatter Files support team via [support@flatterfiles.com](mailto:support@flatterfiles.com). 
     
     b. In **Identity Provider URL** textbox, paste the value of **Login URL** which you have copied form Azure portal.
    

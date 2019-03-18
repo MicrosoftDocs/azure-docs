@@ -37,7 +37,7 @@ The following graphic shows the flow of the next several steps. More details are
     **Criteria**
 
     | Setting | Description and value |
-    | --- | --- | --- |
+    | --- | --- |
     | **Time aggregation** | Select an aggregation criteria, such as **Average**. |
     | **Metric name** | Select the metric you want the scale operation to be based on, such as **Cache Utilization**. |
     | **Time grain statistic** | Choose between **Average**, **Minimum**, **Maximum**, and **Sum**. |
@@ -49,7 +49,7 @@ The following graphic shows the flow of the next several steps. More details are
     **Action**
 
     | Setting | Description and value |
-    | --- | --- | --- |
+    | --- | --- |
     | **Operation** | Choose the appropriate option to scale in or scale out. |
     | **Instance count** | Choose the number of nodes or instances you want to add or remove when a metric condition is met. |
     | **Cool down (minutes)** | Choose an appropriate time interval to wait between scale operations. Start with the default of five minutes. |
@@ -60,7 +60,7 @@ The following graphic shows the flow of the next several steps. More details are
 1. In the **Instance limits** section on the left, provide values for each setting.
 
     | Setting | Description and value |
-    | --- | --- | --- |
+    | --- | --- |
     | **Minimum** | The number of instances that your cluster won't scale below, regardless of utilization. |
     | **Maximum** | The number of instances that your cluster won't scale above, regardless of utilization. |
     | **Default** | The default number of instances. This setting is used if there are problems with reading the resource metrics. |

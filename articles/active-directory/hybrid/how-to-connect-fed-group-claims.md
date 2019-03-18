@@ -108,60 +108,60 @@ Some applications require the group membership information to appear in the 'rol
 
 Group claims can also be configured in the [Optional Claims](../../active-directory/develop/active-directory-optional-claims.md) section of the [Application Manifest](../../active-directory/develop/reference-app-manifest.md).
 
- 1. In the portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
+1. In the portal ->Azure Active Directory -> Application Registrations->Select Application->Manifest
 
- 2. Enable group membership claims by changing the groupMembershipClaim
+2. Enable group membership claims by changing the groupMembershipClaim
 
-    The valid values are:
+   The valid values are:
 
-    - "All"
-    - "SecurityGroup"
-    - "DistributionList"
-    - "DirectoryRole"
+   - "All"
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
 
-    For example:
+   For example:
 
-    ```json
-    "groupMembershipClaims": "SecurityGroup"
-    ```
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
 
-    By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
+   By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
 
- 3. Set group name configuration optional claims.
+3. Set group name configuration optional claims.
 
-    If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
+   If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
 
-    - idToken for the OIDC ID token
-    - accessToken for the OAuth/OIDC access token
-    - Saml2Token for SAML tokens.
+   - idToken for the OIDC ID token
+   - accessToken for the OAuth/OIDC access token
+   - Saml2Token for SAML tokens.
 
-    > [!NOTE]
-    > The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens
+   > [!NOTE]
+   > The Saml2Token type applies to both SAML1.1 and SAML2.0 format tokens
 
-    For each relevant token type, modify the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
+   For each relevant token type, modify the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
 
- ```json
- {
-    "name": "groups",
-    "source": null,
-    "essential": false,
-    "additionalProperties": []
- }
- ```
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
 
- | Optional Claims Schema | Value |
- |----------|-------------|
- | **name:** | Must be "groups" |
- | **source:** | Not used. Omit or specify null |
- | **essential:** | Not used. Omit or specify false |
- | **additionalProperties:** | List of additional properties.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+   | Optional Claims Schema | Value |
+   |----------|-------------|
+   | **name:** | Must be "groups" |
+   | **source:** | Not used. Omit or specify null |
+   | **essential:** | Not used. Omit or specify false |
+   | **additionalProperties:** | List of additional properties.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
 
- In additionalProperties only one of "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name” are required.  If more than one is present, the first is used and any others ignored.
+   In additionalProperties only one of "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name” are required.  If more than one is present, the first is used and any others ignored.
 
- Some applications require group information about the user in the role claim.  To change the claim type to from a group claim to a role claim, add “emit_as_roles” to additional properties.  The group values will be emitted in the role claim.
+   Some applications require group information about the user in the role claim.  To change the claim type to from a group claim to a role claim, add “emit_as_roles” to additional properties.  The group values will be emitted in the role claim.
 
- > [!NOTE]
- > If "emit_as_roles" is used any Application Roles configured that the user is assigned will not appear in the role claim
+   > [!NOTE]
+   > If "emit_as_roles" is used any Application Roles configured that the user is assigned will not appear in the role claim
 
 ### Examples
 

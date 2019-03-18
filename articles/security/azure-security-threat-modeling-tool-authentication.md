@@ -19,6 +19,7 @@ ms.author: jegeib
 ---
 
 # Security Frame: Authentication | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
@@ -486,7 +487,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### SAS Token
+  #### SAS Token
 * Gets internally generated when using symmetric key but we can generate and use it explicitly as well
 * Define a protocol : `var Http = require('azure-iot-device-http').Http;`
 * Create a sas token :
@@ -503,7 +504,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -511,7 +512,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### Certificates
+  #### Certificates
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
 * Provision a device that accepts secured connection using certificates.
     ```javascript
