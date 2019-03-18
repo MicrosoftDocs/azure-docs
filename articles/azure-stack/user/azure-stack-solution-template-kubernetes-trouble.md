@@ -116,66 +116,51 @@ When you deploy your Kubernetes cluster, you can review the deployment status to
 
     Each item has a status icon of green or red.
 
-## Get logs from a VM
+## Review deployment logs
 
-To generate the logs, you need to connect to the master VM for your cluster, open a bash prompt, and then run a script. The master VM can be found in your cluster resource group, and is named `k8s-master-<sequence-of-numbers>`. 
+If the Azure Stack portal does not provide enough information for you to troubleshoot or overcome a deployment failure, the next step is to dig into the cluster logs. To manually retrieve the deployment logs, you typically need to connect to one of the cluster's master virtual machines. A simpler alternative approach would be to download and execute this [Bash script](https://aka.ms/AzsK8sLogCollectorScript) provided by the Azure Stack team. This script connects to the DVM and cluster's virtual machines, collects relevant system and cluster logs, and downloads them back to your workstation.
 
 ### Prerequisites
 
-You need a bash prompt on the machine that you use to manage Azure Stack. Use bash to run the scripts that access the logs. On a Windows machine, you can use the bash prompt that's installed with Git. To get the most recent version of git, see [Git downloads](https://git-scm.com/downloads).
+You will need a Bash prompt on the machine that you use to manage Azure Stack. On a Windows system, an easy way of getting a Bash prompt is by installing [Git for Windows](https://git-scm.com/downloads). Once installed, look for _Git Bash_ in your start menu.
 
-### Get logs
+### Retrieving the logs
 
-To get logs, take the following steps:
+Follow these steps to collect and download the cluster logs:
 
-1. Open a bash prompt. If you're using Git on a Windows machine, you can open a bash prompt from the following path: `c:\programfiles\git\bin\bash.exe`.
-2. Run the following bash commands:
+1. Open a Bash prompt. From a Windows system, open _Git Bash_ or execute this program: `C:\Program Files\Git\git-bash.exe`.
+
+2. Download the log collector script by running the following commands in your Bash prompt:
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > On Windows, you don't need to run `sudo`. Instead, you can just use `chmod 744 getkuberneteslogs.sh`.
-
-3. In the same session, run the following command with the parameters updated to match your environment:
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
-    ```
-
-4. Review the parameters, and set the values based on your environment.
+3. Look for the information required by the script and execute it:
 
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
-    | -f, --force | Do not prompt before uploading the private key. | |
-    | -i, --identity-file | The RSA private key file to connect the Kubernetes master VM. They key must start with: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
-    | -h, --help  | Print the command usage for `getkuberneteslogs.sh` script. | |
-    | -m, --master-host          | The public IP or the fully qualified domain name (FQDN) of the Kubernetes cluster master VM. The VM name starts with `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | The user name of the Kubernetes cluster master VM. You set this name when you configure the marketplace item.                                                                    | azureuser                                                                     |
+    | -u, --user          | The user name passed to the marketplace item when creating the Kubernetes cluster. Needed to remote in to the Kubernetes nodes | azureuser (default value)
+    | -i, --identity-file | The RSA private key file passed to the marketplace item when creating the Kubernetes cluster. Needed to remote in to the Kubernetes nodes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -d, --vmd-host      | The public IP or the fully qualified domain name (FQDN) of the DVM. The virtual machine name starts with `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external
+    | -m, --master-host   | The public IP or the fully qualified domain name (FQDN) of a Kubernetes master node. The virtual machine name starts with `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -h, --help  | Print command usage. | |
 
-
-
-
-   When you add your parameter values, it might look something like the following code:
+   When you add your parameter values, it might look something like this:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    A successful run creates the logs.
+4. After a few minutes, the script will output the collected logs to a directory named `KubernetesLogs_{{time-stamp}}`. There you will find a directory for each virtual machine that belongs to the cluster.
 
-    ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    The log collector script will also look for errors in the log files and include troubleshooting steps if it happens to find a known issue. Make sure you are running the latest version of the script to increase chances of finding known issues.
 
-
-1. Retrieve the logs in the folders that were created by the command. The command creates new folders and time stamps them.
-    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> Check out this GitHub [repository](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) to learn more details about the log collector script.
 
 ## Next steps
 
