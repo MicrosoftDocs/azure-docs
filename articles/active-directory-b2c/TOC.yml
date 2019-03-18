@@ -291,6 +291,8 @@
     items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+    - name: Cookie definitions
+      href: cookie-definitions.md
     - name: Region availability & data residency
       href: active-directory-b2c-reference-tenant-type.md
     - name: Enable billing
