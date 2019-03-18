@@ -20,7 +20,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using PowerShell and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and content is contained in the request body as well-formed JSON content.
+This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using PowerShell and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and searcable content is provided in the request body as well-formed JSON content.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This article walks you through the process of creating, loading, and querying an
 
 A URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-  1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
+  1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
   2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -78,7 +78,7 @@ Unless you are using the portal, an index must exist on the service before you c
 
 Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels" and has the field definitions you see below. The index definition specifies a [language analyzers](index-add-language-analyzers.md) for the `description_fr` field because it is intended to store French text, which we'll add in a later example.
+This index is named "hotels" and has the field definitions you see below. The index definition specifies a [language analyzer](index-add-language-analyzers.md) for the `description_fr` field because it is intended to store French text, which we'll add in a later example.
 
 Paste this example into PowerShell to create a **$body** object containing the index schema.
 
@@ -339,7 +339,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 ```
 ## Clean up 
 
-You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using.
+You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using so that you can step through other tutorials.
 
 ```powershell
 # Set the URI to the hotel index
