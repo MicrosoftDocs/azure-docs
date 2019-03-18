@@ -7,7 +7,7 @@
     displayName: overview
     href: what-is-ml-studio.md
   - name: Compare our ML products
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning       
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
 - name: Tutorials
   items:
