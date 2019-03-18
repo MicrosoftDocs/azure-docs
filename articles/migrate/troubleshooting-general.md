@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ---
 
@@ -48,41 +48,39 @@ If you are unable to export the assessment report from the portal, try using the
 
 1. Install *armclient* on your computer (if you don’t have it already installed):
 
-  a. In an administrator Command Prompt window, run the following command:
+   a. In an administrator Command Prompt window, run the following command:
     ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. In an administrator Windows PowerShell window, run the following command:
+   b. In an administrator Windows PowerShell window, run the following command:
     ```choco install armclient```
 
-2.	Get the download URL for the assessment report using Azure Migrate REST API
+2. Get the download URL for the assessment report using Azure Migrate REST API
 
-  a.	In an administrator Windows PowerShell window, run the following command:
-      ```armclient login```
+   a.    In an administrator Windows PowerShell window, run the following command:
+     ```armclient login```
 
-  This opens the Azure login pop-up where you need to logon to Azure.
+   This opens the Azure login pop-up where you need to logon to Azure.
 
-  b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
+   b.    In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Sample request and output:
+      Sample request and output:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copy the URL from the response and open it in a browser to download the assessment report.
 
 4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
-### Performance data for disks and networks adapters shows as zeros
+### Performance data for CPU, memory and disks is showing up as zeroes
 
-This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
-
-To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it.
+Azure Migrate continuously profiles the on-premises environment to collect performance data of the on-premises VMs. If you have just started the discovery of your environment, you need to wait for at least a day for the performance data collection to be done. If an assessment is created without waiting for one day, the performance metrics will show up as zeroes. After waiting for a day, you can either create a new assessment or update the existing assessment by using the 'Recalculate' option in the assessment report.
 
 ### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
 
@@ -97,9 +95,9 @@ You can go to the **Essentials** section in the **Overview** page of the project
 1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
 3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
-  - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
-  - Go to Home > Inventory
-  - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
+   - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
+   - Go to Home > Inventory
+   - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
 4. If the deployment still fails, contact Azure Migrate support.
 
 
@@ -302,15 +300,15 @@ To collect Event Tracing for Windows, do the following:
 1. Open the browser and navigate and log in [to the portal](https://portal.azure.com).
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
- - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
+   - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
+   - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
- - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
- - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
+   - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
+   - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
- - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
- - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
+   - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
+   - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
 7. Close Developer Tools.
 
 ## Collector error codes and recommended actions

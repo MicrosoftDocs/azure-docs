@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -39,6 +39,8 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="vnet"></a>1. Create a virtual network
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
@@ -57,12 +59,12 @@ Create as many sites as you need that correspond to your physical locations. For
 2. On the **VPN sites** page, click **+Create site**.
 3. On the **Create site** page, fill in the following fields:
 
-  * **Name** - This is the name by which you want to refer to your on-premises site.
-  * **Public IP address** - This is the public IP address of the VPN device that resides on your on-premises site.
-  * **Private address space** - This is the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site.
-  * **Subscription** - Verify the subscription.
-  * **Resource Group** - The resource group you want to use.
-  * **Location**.
+   * **Name** - This is the name by which you want to refer to your on-premises site.
+   * **Public IP address** - This is the public IP address of the VPN device that resides on your on-premises site.
+   * **Private address space** - This is the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site.
+   * **Subscription** - Verify the subscription.
+   * **Resource Group** - The resource group you want to use.
+   * **Location**.
 4. Click **Show advanced** to view additional settings. You can select **BGP** to enable BGP, which will enable this functionality on all connections created for this site in Azure. You can also enter **Device information** (optional fields). This can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
 5. Click **Confirm**.
 6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.

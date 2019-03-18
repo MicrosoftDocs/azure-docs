@@ -540,7 +540,7 @@ In this section, you use the Azure Resource Manager template to create Azure-SSI
     ```json
     {
     	"contentVersion": "1.0.0.0",
-    	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     	"parameters": {},
     	"variables": {},
     	"resources": [{

@@ -123,8 +123,6 @@
     href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
-  - name: High performance computing
-    href: high-performance-computing.md
   - name: Infrastructure example
     href: infrastructure-example.md
 - name: How-to guides
@@ -458,7 +456,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-machine
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ

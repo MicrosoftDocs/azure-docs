@@ -46,7 +46,7 @@ A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box ord
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance. To transfer more data, you need to order more disks.
 
 ### Q. How can I check if Data Box Disks are available in my region? 
-A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#).  
+A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
@@ -124,11 +124,11 @@ A. The toolset available with the Data Box Disk contains three tools:
  - **Data Box Disk Split Copy tool**: Use this tool when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. This tool is currently available for Windows. This tool is not supported with managed disks. This tool also validates as it copies the data, hence you can skip the validation step when using this tool.
 
 The toolset is available both for Windows and Linux. You can download the toolset here:
- - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
- - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
+- [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
+- [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
  
- ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
- A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+  ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
+  A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
 
 
 ## Verify and upload

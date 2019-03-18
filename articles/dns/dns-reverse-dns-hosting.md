@@ -128,7 +128,7 @@ The following example walks you through the process of creating a PTR record in 
 1. For **DOMAIN NAME**, enter the fully qualified domain name (FQDN) of the resource that uses the IP.
 1. Select **OK** at the bottom of the pane to create the DNS record.
 
- !["Add record set" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure5.png)
+   !["Add record set" pane, with boxes filled in](./media/dns-reverse-dns-hosting/figure5.png)
 
 The following examples show how to complete this task by using PowerShell or Azure CLI.
 
@@ -266,6 +266,6 @@ For more information, see [Import and export a DNS zone file using Azure CLI](dn
 
 ## Next steps
 
-For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+For more information on reverse DNS, see [reverse DNS lookup on Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).

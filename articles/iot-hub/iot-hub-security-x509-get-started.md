@@ -60,7 +60,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 10. Once the certificate is successfully uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
 
-   ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

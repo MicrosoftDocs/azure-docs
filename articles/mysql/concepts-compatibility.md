@@ -16,7 +16,7 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | **Driver** | **Links** | **Compatible Versions** | **Incompatible Versions** | **Notes** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | For PHP 7.0 connection with SSL MySQLi, add MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT in the connection string. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` option to false.|
-| .Net | [MySqlConnector on GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installation package from Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 and after | 0.26.5 and before | |
+| .NET | [MySqlConnector on GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installation package from Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 and after | 0.26.5 and before | |
 | MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | An encoding bug may cause connections to fail on some non-UTF8 Windows systems. |
 | Nodejs |  [MySQLjs on GitHub](https://github.com/mysqljs/mysql/) <br> Installation package from NPM:<br> Run `npm install mysql` from NPM | 2.15 | 2.14.1 and before | |
 | GO | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 and before | Use allowNativePasswords=true in the connection string |

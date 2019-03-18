@@ -20,7 +20,7 @@ Azure SignalR Service can be configured in different modes. When used with Azure
 
 In the Azure portal, locate the *Settings* page of your SignalR Service resource. Set the *Service mode* to *Serverless*.
 
-![SignalR Service Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
+![SignalR Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
 ## Azure Functions development
 
@@ -121,17 +121,11 @@ Example:
 
 To enable CORS on an Azure Function app, go to the CORS configuration screen under the *Platform features* tab of your Function app in the Azure portal.
 
-Add an entry with the origin base URL of your web application.
+CORS with Access-Control-Allow-Credentials must be enabled for the SignalR client to call the negotiate function. Select the checkbox to enable it.
+
+In the *Allowed origins* section, add an entry with the origin base URL of your web application.
 
 ![Configuring CORS](media/signalr-concept-serverless-development-config/cors-settings.png)
-
-In addition to adding the origin, CORS with credentials support must also be enabled. Currently, this feature can only be enabled using the Azure command line interface (CLI) or REST APIs. You can execute a command in Azure Cloud Shell to enable this feature.
-
-Using the Azure CLI or Cloud Shell, execute this command, replacing `<>` placeholders with valid values.
-
-```bash
-az resource update --resource-group <resource_group_name> --parent sites/<function_app_name> --name web --namespace Microsoft.Web --resource-type config --set properties.cors.supportCredentials=true --api-version 2015-06-01
-```
 
 ### Using App Service Authentication
 

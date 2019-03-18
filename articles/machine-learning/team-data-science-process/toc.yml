@@ -250,7 +250,7 @@
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
     - name: Stack Overflow
-      href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+      href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
       

@@ -285,15 +285,17 @@
       href: azure-stack-app-service-capacity-planning.md
     - name: Before you get started
       href: azure-stack-app-service-before-you-get-started.md
-    - name: Deploy App Service resource provider
+    - name: Deploy App Service
       href: azure-stack-app-service-deploy.md
+    - name: Deploy App Service for high availability
+      href: app-service-deploy-ha.md
     - name: Deploy App Service offline
       href: azure-stack-app-service-deploy-offline.md
     - name: Update App Service
       href: azure-stack-app-service-update.md
     - name: Update App Service Offline
       href: azure-stack-app-service-update-offline.md
-    - name: Add more web worker roles
+    - name: Add App Service infrastructure roles
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configure deployment sources
       href: azure-stack-app-service-configure-deployment-sources.md

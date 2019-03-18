@@ -59,13 +59,13 @@ Azure Resource Manager capabilities will always be introduced to global Azure fi
 
 1. Import the psm1 module and execute the Test-AzureRmureRmTemplateFunctions cmdlet:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 The script deploys multiple, minimized templates, each containing only unique template functions. The output of the script reports the supported and unavailable template functions.
 

@@ -304,7 +304,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
 
    * For **Name**, provide a name for the script action.
 
-    * For **Bash script URI**, enter  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
+     * For **Bash script URI**, enter  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
 
    * Select the check box only for **Worker**.
 

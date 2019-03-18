@@ -1,7 +1,7 @@
 ---
 title: Use Ansible to manage your Azure dynamic inventories
 description: Learn how to use Ansible to manage your Azure dynamic inventories
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarchermsft
 manager: jeconnoc
@@ -125,9 +125,9 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Create a file (to contain your playbook) named `nginx.yml` as follows:
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
 1. Insert the following code into the newly created `nginx.yml` file:
 

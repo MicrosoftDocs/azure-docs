@@ -204,10 +204,10 @@ A.  Once the order status for **Data Copy** shows as **Complete**, you should be
 
 ### Q. Where is my data located in Azure after the upload?
 A.  When you copy the data to Data Box, depending on whether the data is block blob or page blob or Azure files, the data is uploaded to one of the following paths in your Azure Storage account.
- - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
- -	`https://<storage_account_name>.file.core.windows.net/<sharename>`
+- `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+- `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
- Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+  Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
 A.  If the container names have uppercase letter, then those names are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more information on best practices for naming shares, containers, files, go to:

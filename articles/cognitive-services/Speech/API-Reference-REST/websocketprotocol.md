@@ -86,7 +86,7 @@ Clients *must* support HTTP cookies as specified in [RFC 6265](https://tools.iet
 
 ### HTTP redirection
 
-Clients *must* support the standard redirection mechanisms specified by the [HTTP protocol specification](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Clients *must* support the standard redirection mechanisms specified by the [HTTP protocol specification](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### Speech endpoints
 
@@ -94,9 +94,9 @@ Clients *must* use an appropriate endpoint of Speech Service. The endpoint is ba
 
 | Mode | Path | Service URI |
 | -----|-----|-----|
-| Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 For more information, see the [Service URI](../GetStarted/GetStartedREST.md#service-uri) page.
 

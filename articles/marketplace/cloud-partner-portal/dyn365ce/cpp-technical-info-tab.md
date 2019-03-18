@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
 ---
 
@@ -54,7 +54,7 @@ The following table describes these fields.
 |  Filename of your package     |  Filename of your package (.zip).  This name is *not* public and will be used internally by Dynamics 365 certification team.  |
 |  Url                          |  URL of an Azure Storage account that contains the uploaded package file. This URL should include a read-only SAS key to allow our team to pick up your package for verification.  |
 | More than one crm package     | Select Yes ONLY if you are supporting multiple versions of crm with different packages.  Each version will have a corresponding package file tht you must create individually.  |
-| Scenario and use case asset   | Enables the upload of a functional specification document for your application, for use by the Dynamics 365 validation team.  The preferred format for this spec is the [E2E User Scenario Template](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Scenario and use case asset   | Enables the upload of a functional specification document for your application, for use by the Dynamics 365 validation team.  The preferred format for this spec is the [E2E User Scenario Template](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

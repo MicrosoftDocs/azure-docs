@@ -1,18 +1,18 @@
 ---
 title: Configure Service Map in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
-ms.author: bwren
+ms.date: 03/11/2019
+ms.author: magoedte
 ---
 # Configure Service Map in Azure
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. You can use it to view your servers as you think of them--interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required, other than installation of an agent.
@@ -22,8 +22,10 @@ This article describes the details of configuring Service Map and onboarding age
 ## Supported Azure regions
 Service Map is currently available in the following Azure regions:
 - East US
-- West Europe
 - West Central US
+- Canada Central
+- UK South
+- West Europe
 - Southeast Asia
 
 ## Supported Windows operating systems
@@ -34,6 +36,7 @@ The following section list the supported operating systems for the Dependency ag
 >
 
 ### Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -53,17 +56,13 @@ The following section list the supported operating systems for the Dependency ag
 - Only default and SMP Linux kernel releases are supported.
 - Nonstandard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
 - Custom kernels, including recompiles of standard kernels, are not supported.
-- CentOSPlus kernel is not supported.
+- CentOSPlus kernel is supported.
 - Oracle Unbreakable Enterprise Kernel (UEK) is covered in a later section of this article.
 
 ### Red Hat Linux 7
 
 | OS version | Kernel version |
 |:--|:--|
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
@@ -72,49 +71,36 @@ The following section list the supported operating systems for the Dependency ag
 
 | OS version | Kernel version |
 |:--|:--|
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
+
+### CentOSPlus
+| OS version | Kernel version |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
 ### Ubuntu Server
 
 | OS version | Kernel version |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-### Oracle Enterprise Linux 6 with Unbreakable Enterprise Kernel
-| OS version | Kernel version
-|:--|:--|
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
-
-### Oracle Enterprise Linux 5 with Unbreakable Enterprise Kernel
+### SUSE Linux 11 Enterprise Server
 
 | OS version | Kernel version
 |:--|:--|
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 11 SP4 | 3.0.* |
 
-## SUSE Linux 12 Enterprise Server
+### SUSE Linux 12 Enterprise Server
 
 | OS version | Kernel version
 |:--|:--|
-|12 SP2 | 4.4.* |
-|12 SP3 | 4.4.* |
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
 ## Dependency agent downloads
 

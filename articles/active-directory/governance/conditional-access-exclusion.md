@@ -97,7 +97,7 @@ Let's cover two examples where you can use access reviews to manage exclusions i
 Let's say you have a conditional access policy that blocks access from certain countries. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 > [!NOTE]
-> A Global Administrator or User Account Administrator role is required to create access reviews.
+> A Global administrator or User administrator role is required to create access reviews.
 
 1. The review will reoccur every week.
 

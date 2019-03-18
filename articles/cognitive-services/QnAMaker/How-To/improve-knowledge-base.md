@@ -149,7 +149,7 @@ When the client application (such as a chat bot) receives the response, the top 
 
 The client application displays all the questions with an option for the user to select the question that most represents their intention. 
 
-Once user selects one of the existing questions. The user feedback is sent to QnA Maker's [Train](http://www.aka.ms/activelearningsamplebot) API to continue the active learning feedback loop. 
+Once user selects one of the existing questions. The user feedback is sent to QnA Maker's [Train](https://www.aka.ms/activelearningsamplebot) API to continue the active learning feedback loop. 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train

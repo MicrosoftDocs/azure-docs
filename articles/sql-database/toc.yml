@@ -324,6 +324,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
+    - name: Overview
+      href: sql-database-features-index.yml
     - name: SQL features comparison
       href: sql-database-features.md
     - name: Multi-model capabilities
@@ -382,8 +384,6 @@
       href: sql-database-insights-alerts-portal.md
     - name: Troubleshoot connectivity
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: Configure backup retention using Azure vault (deprecated)
-      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Manage file space
       href: sql-database-file-space-management.md
     - name: Use Resource Health for connectivity issues
@@ -694,7 +694,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/sql-azure
+    href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
@@ -702,7 +702,7 @@
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories
-    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
   - name: Elastic jobs (deprecated)
     items:
     - name: Elastic jobs (deprecated)

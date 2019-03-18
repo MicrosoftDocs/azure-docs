@@ -40,7 +40,7 @@ Any entity that sends data to an event hub is an event producer, or *event publi
 
 ### Publishing an event
 
-You can publish an event via AMQP 1.0, Kafka 1.0 (and later), or HTTPS. Event Hubs provides [client libraries and classes](event-hubs-dotnet-framework-api-overview.md) for publishing events to an event hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 1 MB, regardless of whether it is a single event or a batch. Publishing events larger than this threshold results in an error. It is a best practice for publishers to be unaware of partitions within the event hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
+You can publish an event via AMQP 1.0, Kafka 1.0 (and later), or HTTPS. Event Hubs provides [client libraries and classes](event-hubs-dotnet-framework-api-overview.md) for publishing events to an event hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](https://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 1 MB, regardless of whether it is a single event or a batch. Publishing events larger than this threshold results in an error. It is a best practice for publishers to be unaware of partitions within the event hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
 
 The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. AMQP has higher network costs when initializing the session, however HTTPS requires additional SSL overhead for every request. AMQP has higher performance for frequent publishers.
 
@@ -149,13 +149,15 @@ Event data:
 
 It is your responsibility to manage the offset.
 
-## Capacity
+## Scaling with Event Hubs
 
-Event Hubs has a highly scalable parallel architecture and there are several key factors to consider when sizing and scaling.
+There are two factors which influence scaling with Event Hubs.
+*	Throughput units
+*	Partitions
 
 ### Throughput units
 
-The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput unit includes the following capacity:
+The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput lets you:
 
 * Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first).
 * Egress: Up to 2 MB per second or 4096 events per second.
@@ -164,9 +166,13 @@ Beyond the capacity of the purchased throughput units, ingress is throttled and 
 
 Throughput units are pre-purchased and are billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace and are shared across all event hubs in that namespace.
 
-You can purchase more throughput units in blocks of 20, up to 100 throughput units, by contacting Azure support. Beyond that limit, you can purchase blocks of 100 throughput units.
+### Partitions
 
-We recommend that you balance throughput units and partitions to achieve optimal scale. A single partition has a minimum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an event hub.
+Partitions let you scale for your downstream processing. Because of the partitioned consumer model that Event Hubs offers with partitions, you can scale-out while processing your events concurrently. An Event Hub can have up to 32 partitions.
+
+We recommend that you balance 1:1 throughput units and partitions to achieve optimal scale. A single partition has a guaranteed Ingress and Egress of up to one throughput unit. While you may be able to achieve higher throughput on a partition, performance is not guaranteed. This is why we strongly recommend that the number of partitions in an event hub be greater than or equal to the number of throughput units.
+
+Given the total throughput you plan on needing, you know the number of throughput units you require and the minimum number of partitions, but how many partitions should you have? Choose number of partitions based on the downstream parallelism you want to achieve as well as your future throughput needs. There is no charge for the number of partitions you have within an Event Hub.
 
 For detailed Event Hubs pricing information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 

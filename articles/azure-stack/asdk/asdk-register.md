@@ -36,7 +36,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration will need to be run on another computer or the language mode will need to be set to **FullLanguageMode** before continuing.
 
-The Azure AD account used for registration needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](..\azure-stack-registration-role.md) rather than using global administrator credentials.
+The Azure AD account used for registration needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](../azure-stack-registration-role.md) rather than using global administrator credentials.
 
 ## Register Azure Stack with Azure
 Follow these steps to register the ASDK with Azure.
