@@ -20,7 +20,7 @@ In this article, you create a C++ console application for Ubuntu Linux 16.04 or 
 
 ## Prerequisites
 
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
 
 ## Install Speech SDK
 
@@ -74,7 +74,7 @@ Download and install the SDK as follows:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
+1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
@@ -117,7 +117,7 @@ Download and install the SDK as follows:
    ./helloworld
    ```
 
-1.  In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
 
    ```text
    Say something...

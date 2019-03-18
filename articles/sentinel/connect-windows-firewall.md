@@ -28,7 +28,7 @@ The Windows firewall connector allows you to easily connect your Windows firewal
 
 
 > [!NOTE]
-
+> 
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Enable the connector 

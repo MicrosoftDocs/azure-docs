@@ -25,7 +25,7 @@ ms.author: jowargo
 
 This tutorial shows you how to use Azure Notification Hubs and Firebase Cloud Messaging (FCM) to push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications by using Firebase Cloud Messaging (FCM).
 
-The completed code for this tutorial can be downloaded from GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
+The completed code for this tutorial can be downloaded from GitHub [here](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp).
 
 In this tutorial, you take the following steps:
 
@@ -88,7 +88,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
@@ -107,7 +107,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section if it doesn't already exist. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
     ```
 
 2. Add the following plugin at the end of the file if it doesn't already exist. 
@@ -182,8 +182,8 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
         }
         ```
 
-    > [!IMPORTANT]
-    > Enter the **name** and the **DefaultListenSharedAccessSignature** of your notification hub before proceding further. 
+     > [!IMPORTANT]
+     > Enter the **name** and the **DefaultListenSharedAccessSignature** of your notification hub before proceding further. 
 2. Add another class named `MyInstanceIDService`. This class is your Instance ID listener service implementation.
 
     The code for this class calls your `IntentService` to [refresh the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.

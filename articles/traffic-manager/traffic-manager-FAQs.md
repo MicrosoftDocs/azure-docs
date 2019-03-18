@@ -337,6 +337,7 @@ No, Traffic Manager does not allow you to mix endpoint addressing types within a
 When a query is received against a profile, Traffic Manager first finds the endpoint that needs to be returned as per the routing method specified and the health status of the endpoints. It then looks at the record type requested in the incoming query and the record type associated with the endpoint before returning a response based on the table below.
 
 For profiles with any routing method other than MultiValue:
+
 |Incoming query request| 	Endpoint type| 	Response Provided|
 |--|--|--|
 |ANY |	A / AAAA / CNAME |	Target Endpoint| 
@@ -347,6 +348,7 @@ For profiles with any routing method other than MultiValue:
 |CNAME |	CNAME |	Target Endpoint|
 |CNAME 	|A / AAAA |	NODATA |
 |
+
 For profiles with routing method set to MultiValue:
 
 |Incoming query request| 	Endpoint type |	Response Provided|

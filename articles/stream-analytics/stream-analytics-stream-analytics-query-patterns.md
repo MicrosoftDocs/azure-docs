@@ -104,7 +104,7 @@ For example, provide a string description for how many cars of the same make pas
 **Output**:
 
 | CarsPassed | Time |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 
@@ -616,6 +616,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 
 
 **Input**:
+
 | LicensePlate | Make | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -628,6 +629,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **Output**:
+
 | TollID | Count |
 | --- | --- |
 | 1 | 2 |

@@ -14,7 +14,7 @@ ms.custom: "include file"
 The following table lists quota information specific to Azure Service Bus messaging. For information about pricing and other quotas for Service Bus, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Quota name | Scope | Notes | Value |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Maximum number of Basic or Standard namespaces per Azure subscription |Namespace |Subsequent requests for additional Basic or Standard namespaces are rejected by the Azure portal. |100|
 | Maximum number of Premium namespaces per Azure subscription |Namespace |Subsequent requests for additional Premium namespaces are rejected by the portal. |25 |
 | Queue or topic size |Entity |Defined upon creation of the queue or topic. <br/><br/> Subsequent incoming messages are rejected, and an exception is received by the calling code. |1, 2, 3, 4 GB or 5 GB.<br /><br />In the Premium SKU, and the Standard SKU with [partitioning](/azure/service-bus-messaging/service-bus-partitioning) enabled, the maximum queue or topic size is 80 GB. |

@@ -5,15 +5,13 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ---
-## Open the sample project in Unity
+## Set up your device
 
-[!INCLUDE [Clone Sample Repo](spatial-anchors-clone-sample-repository.md)]
-
-## To set up for an Android Device
+### Set up an Android Device
 
 [!INCLUDE [Android Unity Build Settings](spatial-anchors-unity-android-build-settings.md)]
 
-## To set up for an iOS Device
+### Set up an iOS Device
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
@@ -29,7 +27,7 @@ Save the scene by selecting **File** -> **Save**.
 
 ## To deploy to an Android device
 
-Power on the Android device, sign in, and connect it to the PC using a USB cable.
+Sign in on your Android device, and connect it to the PC using a USB cable.
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 

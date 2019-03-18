@@ -105,23 +105,23 @@ Let's train the model more by creating another train dialog.
 
 Let's better tune the system using alternative inputs. You can add alternative input while teaching or later.
 
-5. On the left panel, click "Train Dialogs", then select "What can you do?" from the list of Train Dialogs.
-6. Click the "What can you do?" utterance in the chat panel.
-7. In the "Add alternative input..." field, type "help" and hit enter.
-8. Click the "Save Changes" button.
+1. On the left panel, click "Train Dialogs", then select "What can you do?" from the list of Train Dialogs.
+1. Click the "What can you do?" utterance in the chat panel.
+1. In the "Add alternative input..." field, type "help" and hit enter.
+1. Click the "Save Changes" button.
 
 ![](../media/tutorial8_helpalternates.png)
 
 Let's add another alternative input to handle Houston.
 
-9. Click the "What's the weather in Seattle?" utterance in the chat panel.
-10. In the "Add alternative input..." field, type "forecast for Houston" and hit enter.
-	- The error message highlights the fact alternative inputs must be semantically equivalent and contain the same entities as the original utterance; not just the same values of entities. The presence of the same entities is required.
-11. Click on "Houston" and select "city" from the Entities List.
-12. In the "Add alternative input..." field, type "forecast for Seattle" and hit enter.
-13. Click on "Seattle" and select "city" from the Entities List.
-14. Click the "Save Changes" button.
-15. Click the "Save Edit" button.
+1. Click the "What's the weather in Seattle?" utterance in the chat panel.
+1. In the "Add alternative input..." field, type "forecast for Houston" and hit enter.
+   - The error message highlights the fact alternative inputs must be semantically equivalent and contain the same entities as the original utterance; not just the same values of entities. The presence of the same entities is required.
+1. Click on "Houston" and select "city" from the Entities List.
+1. In the "Add alternative input..." field, type "forecast for Seattle" and hit enter.
+1. Click on "Seattle" and select "city" from the Entities List.
+1. Click the "Save Changes" button.
+1. Click the "Save Edit" button.
 
 ### Testing the Model
 

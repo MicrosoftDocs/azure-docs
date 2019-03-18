@@ -151,12 +151,12 @@ Via code:
 
 - Remove ServerTelemetryChannel from configuration file
 - Add this snippet to your configuration:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### NetCore
 
@@ -233,6 +233,7 @@ However, you can implement such a feature in your application. All the SDKs incl
 The SDKs vary between platforms, and there are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
 
 #### Classes of data sent in different scenarios
+
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
@@ -248,6 +249,7 @@ The SDKs vary between platforms, and there are several components that you can i
 For [SDKs for other platforms][platforms], see their documents.
 
 #### The classes of collected data
+
 | Collected data class | Includes (not an exhaustive list) |
 | --- | --- |
 | **Properties** |**Any data - determined by your code** |
