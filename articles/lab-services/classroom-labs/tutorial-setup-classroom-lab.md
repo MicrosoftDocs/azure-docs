@@ -105,11 +105,6 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
 
 ## Share registration link with students
-To send the registration link to students, use one of the following methods. The first method shows you how to send emails to students with the registration link and an optional message. The second method shows you how to get the registration link that you can share with others any way you want. 
-
-If the **Restrict access** is enabled for the lab, only users in the list of users can use the registration link to register to the lab. This option is enabled by default. 
-
-### Send email to users
 1. Switch to the **Users** view if you are not on the page already. 
 2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
 3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
@@ -118,14 +113,6 @@ If the **Restrict access** is enabled for the lab, only users in the list of use
 4. On the **Send registration link by email** page, follow these steps: 
     1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
     2. On the **Send registration link by email** page, select **Send**. 
-
-### Get registration link
-1. Select **Get registration link** on the toolbar.
-2. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard.
-
-    ![Registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. On the **User registration** dialog box, select **Close**. 
-2. Share the registration link with a student so that the student can register for the class.
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:
