@@ -49,8 +49,8 @@ You can also provide configuration settings manually. This is the preferred solu
 5. Once the app registration has been added, click on the app registration name, click on **Settings** at the top, then click on **Properties** 
 6. In the **App ID URI** box, paste in the Application URL (from step 1), also in the **Home Page URL** paste in the Application URL (from step 1) as well, then click **Save**
 7. Now click on the **Reply URLs**, edit the **Reply URL**, paste in the Application URL (from step 1), then appended to the end of the URL, */.auth/login/aad/callback* (For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Click **Save**.
-    * Consider using the same app registration for multiple environments when using Slots of your Web App service by simply adding more **Reply URLs**.
-    * Consider using separate app registrations to avoid permissions being shared between environments, so that a bug in new code you are testing does not affect production.
+> [!NOTE]
+> You can use the same app registration for multiple domains by adding additional **Reply URLs**. Make sure to model each App Service instance with its own registration so it has its own permissions and consent. Also consider using separate app registrations for separate site slots. This is to avoid permissions being shared between environments, so that a bug in new code you are testing does not affect production.
 8. At this point, copy the **Application ID** for the app. Keep it for later use. You will need it to configure your App Service app.
 9. Close the **Registered app** page. On the **App registrations** page, click on the **Endpoints** button at the top, then copy the **WS-FEDERATION SIGN-ON ENDPOINT** URL but remove the `/wsfed` ending from the URL. The end result should look like `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. The domain name may be different for a sovereign cloud. This will serve as the Issuer URL for later.
 
