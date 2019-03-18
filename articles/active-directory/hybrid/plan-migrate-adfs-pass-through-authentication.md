@@ -255,11 +255,11 @@ First, change the sign-in method:
    ![Screenshot of the Ready to configure page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 8. Verify these settings:
-  * **Federation** is set to **Disabled**.
-  * **Seamless single sign-on** is set to **Enabled**.
-  * **Pass-through authentication** is set to **Enabled**.<br />
+   * **Federation** is set to **Disabled**.
+   * **Seamless single sign-on** is set to **Enabled**.
+   * **Pass-through authentication** is set to **Enabled**.<br />
 
-  ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Next. deploy additional authentication methods:
 
@@ -267,16 +267,16 @@ Next. deploy additional authentication methods:
 2. On the **Pass-through authentication** page, select the **Download** button.
 3. On the **Download agent** page, select **Accept terms and download**.
 
-  Additional authentication agents start to download. Install the secondary authentication agent on a domain-joined server. 
+   Additional authentication agents start to download. Install the secondary authentication agent on a domain-joined server. 
 
-  > [!NOTE]
-  > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the **User sign-in** section of the Azure AD Connect tool. Install any additional authentication agents on a separate server. We recommend that you have two or three additional authentication agents available. 
+   > [!NOTE]
+   > The first agent is always installed on the Azure AD Connect server itself as part of the configuration changes made in the **User sign-in** section of the Azure AD Connect tool. Install any additional authentication agents on a separate server. We recommend that you have two or three additional authentication agents available. 
 
 4. Run the authentication agent installation. During installation, you must enter the credentials of a Global Administrator account.
 
-  ![Screenshot that shows the Install button on the Microsoft Azure AD Connect Authentication Agent Package page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Screenshot that shows the Install button on the Microsoft Azure AD Connect Authentication Agent Package page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![Screenshot that shows the sign-in page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Screenshot that shows the sign-in page](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. When the authentication agent is installed, you can return to the pass-through authentication agent health page to check the status of the additional agents.
 

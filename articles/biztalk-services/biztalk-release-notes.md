@@ -20,7 +20,7 @@ ms.author: deonhe
 # Release Notes for Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.

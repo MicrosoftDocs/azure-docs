@@ -78,28 +78,28 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Installer][3]
 
 7. On the next page:
-    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
-        - Provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
-    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
+   1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
+      - Provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
+   2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
     
-    > [!NOTE]
-    > App Service can only be deployed into the **Default Provider Subscription**.
-    >
+      > [!NOTE]
+      > App Service can only be deployed into the **Default Provider Subscription**.
+      >
     
-    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-    4. Click **Next**.
+   3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
+   4. Click **Next**.
 
-    ![App Service Installer][4]
+      ![App Service Installer][4]
 
 8. You now have the option to deploy into an existing Virtual Network as configured through the steps [here](azure-stack-app-service-before-you-get-started.md#virtual-network), or allow the App Service installer to create a Virtual Network and associated Subnets.
-    1. Select **Create VNet with default settings**, accept the defaults, and then click **Next**, or;
-    2. Select **Use existing VNet and Subnets**.
-        1. Select the **Resource Group** that contains your Virtual Network;
-        2. Choose the correct **Virtual Network** name you wish to deploy into;
-        3. Select the correct **Subnet** values for each of the required role subnets;
-        4. Click **Next**
+   1. Select **Create VNet with default settings**, accept the defaults, and then click **Next**, or;
+   2. Select **Use existing VNet and Subnets**.
+       1. Select the **Resource Group** that contains your Virtual Network;
+       2. Choose the correct **Virtual Network** name you wish to deploy into;
+       3. Select the correct **Subnet** values for each of the required role subnets;
+       4. Click **Next**
 
-    ![App Service Installer][5]
+      ![App Service Installer][5]
 
 9. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a file server which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
 
@@ -148,7 +148,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     > ```
     > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) for more details.
    
-   ![App Service Installer][12]
+    ![App Service Installer][12]
 
 13. Review the role instance and SKU options. The defaults are populated with the minimum number of instances and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
@@ -206,7 +206,7 @@ To deploy App Service in a disconnected environment, you must first create an of
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> If you chose to deploy into an existing virtual network and a internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+> If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 > * Source: Any
 > * Source port range: *
 > * Destination: IP Addresses
