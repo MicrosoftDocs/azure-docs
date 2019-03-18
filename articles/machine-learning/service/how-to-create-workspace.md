@@ -1,37 +1,45 @@
 ---
 title: Create a workspace
 titleSuffix: Azure Machine Learning service
-description: Learn how to create an Azure Machine Learning service workspace to manage
+description: Learn how to create an Azure Machine Learning service workspace 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
-ms.author: shipatel
-author: shivp950
-ms.date: 09/24/2018
-ms.custom: seodec18
+ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.date: 03/15/2019
 
 ---
 
-# Create and manage Azure Machine Learning service workspaces
+# Create a Azure Machine Learning service workspace
 
-In this article, you'll create, view, and delete [**Azure Machine Learning service workspaces**](concept-azure-machine-learning-architecture.md#workspace).   or [with Python code](https://aka.ms/aml-sdk).
+In this article, you'll create an [**Azure Machine Learning service workspace**](concept-azure-machine-learning-architecture.md#workspace).  The workspace is your top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
 
 To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
-## Use the Azure portal
+You can create a workspace from any of the following:
+
+* The Azure portal
+* The Azure Machine Learning SDK for Python
+* Azure Resource Manager templates
+* The Azure Machine Learning CLI
+
+## <a name="portal"></a> Use the Azure portal
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Use the SDK
+## <a name="sdk"></a> Use the SDK
 
-Create your workspace in a Jupyter Notebook using the Python SDK.
+Create your workspace in a Jupyter Notebook using the Python SDK.  
 
-1. Create and/or cd to the directory you want to use for the quickstart and tutorials.
+1. [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md) if you haven't already done so.
 
-1. To launch Jupyter Notebook, enter this command:
+1. Create and/or cd to the directory you want to use.
+
+1. To launch Jupyter Notebook, enter this command in your activated conda environment:
 
     ```shell
     jupyter notebook
@@ -61,6 +69,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
+### Write a workspace configuration file
 
 1. Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.  
 
@@ -92,9 +101,11 @@ To create a workspace with the CLI, see [Use the CLI extension for Azure Machine
 
 ## Next steps
 
-* See how your code connects to and uses a workspace in these quickstarts:
+* See how your code can connect to and use a workspace in these quickstarts:
+
     * Run a [Jupyter notebook in the cloud](quickstart-get-started.md)
     * Run a [Jupyter notebook on your own server](quickstart-create-workspace-with-python.md)
 
 * Follow the [full-length tutorial](tutorial-train-models-with-aml.md) to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning service.
 
+* Learn more about the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk).
