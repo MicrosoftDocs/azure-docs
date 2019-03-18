@@ -336,15 +336,19 @@ New Managed Disk sizes 8 TiB, 16 TiB, and 32 TiB are currently in Preview. We do
 
 The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB.
 
-**What are the recommended VM sizes for large disk sizes (>4TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
+**What are the recommended VM sizes for larger disk sizes (>4TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 
-To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4TB) beyond 500 IOPS and 60 MiB/s, you should use one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-Series VMs.
+To achieve the disk throughput of Standard SSD and Standard HDD large disk sizes (>4TB) beyond 500 IOPS and 60 MiB/s, we recommend you deploy a new VM from one of the following VM sizes to optimize your performance: B-series, DSv2-series, Dsv3-Series, ESv3-Series, Fs-series, Fsv2-series, M-series, GS-series, NCv2-series, NCv3-series, or Ls-Series VMs. Attaching large disks to existing VMs or VMs that are not using the recommended sizes above may experience lower performance.
 
-**What regions are the managed disk sizes larger than 4 TiB supported in?**
+**How can I upgrade my disks (>4TiB) which were deployed during the larger disk sizes preview in order to get the higher IOPS & bandwidth at GA?**
 
-The preview of managed disk sizes beyond 4 TiB are supported in all Azure Production regions except Gov, China, and Germany. 
+You can either stop and start the VM that the disk is attached to or, detach and re-attach your disk. The performance targets of larger disk sizes have been increased for both premium SSDs and standard SSDs at GA.
 
-**Do we support enabling Host Caching on the newer disk sizes?**
+**What regions are the managed disk sizes of 8, 16, and 32 TiB supported in?**
+
+The 8, 16, and 32 TiB disk SKUs are supported in all regions under Azure public cloud. Support for Microsoft Azure Government and China 21Vianet are not yet available.
+
+**Do we support enabling Host Caching on all disk sizes?**
 
 We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4TiB. For disk sizes more than 4 TiB, we don’t support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
