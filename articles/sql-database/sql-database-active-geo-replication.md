@@ -110,6 +110,12 @@ You can upgrade or downgrade a primary database to a different compute size (wit
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
 
+> Important to reference here:
+Primary database in failover group cannot scale to higher tier unless secondary database is scaled to higher tier first. If you try to scale primary database to a higher tier before scaling secondary, it fails with this message:
+
+Error code: .
+Error message: The source database 'Primaryserver.DBName cannot have higher edition than the target database 'Secondaryserver.DBName’. Upgrade the edition on the target before upgrading source.
+
 ## Preventing the loss of critical data
 
 Due to the high latency of wide area networks, continuous copy uses an asynchronous replication mechanism. Asynchronous replication makes some data loss unavoidable if a failure occurs. However, some applications may require no data loss. To protect these critical updates, an application developer can call the [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system procedure immediately after committing the transaction. Calling **sp_wait_for_database_copy_sync** blocks the calling thread until the last committed transaction has been transmitted to the secondary database. However, it does not wait for the transmitted transactions to be replayed and committed on the secondary. **sp_wait_for_database_copy_sync** is scoped to a specific continuous copy link. Any user with the connection rights to the primary database can call this procedure.
