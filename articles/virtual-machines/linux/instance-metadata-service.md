@@ -630,7 +630,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
   255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
 ```
 
-3. Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`) which is (`10.0.1.10`) in this example.
+1. Run the following command and use the address of the Interface for Network Destination (`0.0.0.0`) which is (`10.0.1.10`) in this example.
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
@@ -674,9 +674,9 @@ Puppet | https://github.com/keirans/azuremetadata
 9. I get request timed out for my call to the service?
    * Metadata calls must be made from the primary IP address assigned to the network card of the VM, in addition in case you have changed your routes there must be a route for 169.254.0.0/16 address out of your network card.
 10. I updated my tags in virtual machine scale set but they don't appear in the instances unlike VMs?
-   * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
+    * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
 
-   ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
+    ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## Next steps
 

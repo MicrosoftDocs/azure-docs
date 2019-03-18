@@ -69,7 +69,7 @@ To start the streaming endpoint, do the following:
 2. In the Settings window, click Streaming endpoints.
 3. Click the default streaming endpoint.
 
-	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+    The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
 4. Click the Start icon.
 5. Click the Save button to save your changes.
@@ -813,8 +813,6 @@ Once you have the AccessPolicy and Locator set, you can download files using the
 
 > [!NOTE]
 > You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 

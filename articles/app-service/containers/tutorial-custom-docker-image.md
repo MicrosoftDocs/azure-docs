@@ -310,7 +310,7 @@ SSH enables secure communication between a container and a client. In order for 
 	```bash
 	#!/bin/bash
 	service ssh start
-	```
+    ```
      
 ### Open SSH connection to container
 

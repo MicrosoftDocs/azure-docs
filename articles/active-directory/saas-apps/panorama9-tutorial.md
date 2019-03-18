@@ -195,18 +195,18 @@ In the case of Panorama9, provisioning is a manual task.
 
 1. In the menu on the top, click **Manage**, and then click **Users**.
    
-  ![Users](./media/panorama9-tutorial/ic790027.png "Users")
+   ![Users](./media/panorama9-tutorial/ic790027.png "Users")
 
 1. In the Users section, Click **+** to add new user.
 
- ![Users](./media/panorama9-tutorial/ic790028.png "Users")
+   ![Users](./media/panorama9-tutorial/ic790028.png "Users")
 
 1. Go to the User data section, type the email address of a valid Azure Active Directory user you want to provision into the **Email** textbox.
 
 1. Come to the Users section, Click **Save**.
    
 > [!NOTE]
-    > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+> The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
 ### Assigning the Azure AD test user
 

@@ -811,13 +811,13 @@ There are two main classes of failures that can happen via either failure path:
     - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
     - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
 - Server failures 
-    - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
-    - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of two parts:
-        1. A reparse tag, which indicates to the operating system that the Azure File Sync file system filter (StorageSync.sys) may need to do some action on IO to the file. 
-        2. Reparse data, which indicates to the file system filter the URI of the file on the associated cloud endpoint (the Azure file share). 
+  - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
+  - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of two parts:
+    1. A reparse tag, which indicates to the operating system that the Azure File Sync file system filter (StorageSync.sys) may need to do some action on IO to the file. 
+    2. Reparse data, which indicates to the file system filter the URI of the file on the associated cloud endpoint (the Azure file share). 
         
-        The most common way a reparse point could become corrupted is if an administrator attempts to modify either the tag or its data. 
-    - *Network connectivity issues*. In order to tier or recall a file, the server must have internet connectivity.
+       The most common way a reparse point could become corrupted is if an administrator attempts to modify either the tag or its data. 
+  - *Network connectivity issues*. In order to tier or recall a file, the server must have internet connectivity.
 
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
@@ -840,14 +840,14 @@ To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 i
 If files fail to tier to Azure Files:
 
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. 
-    1. Verify the files exist in the Azure file share.
+   1. Verify the files exist in the Azure file share.
 
-    > [!NOTE]
-    > A file must be synced to an Azure file share before it can be tiered.
+      > [!NOTE]
+      > A file must be synced to an Azure file share before it can be tiered.
 
-    2. Verify the server has internet connectivity. 
-    3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
-        - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
+   2. Verify the server has internet connectivity. 
+   3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
+       - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
 > [!NOTE]
 > An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.

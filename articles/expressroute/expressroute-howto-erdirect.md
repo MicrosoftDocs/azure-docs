@@ -20,103 +20,103 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 1. Sign in to Azure and select the subscription. The ExpressRoute Direct resource and ExpressRoute circuits must be in the same subscription.
 
-  ```powershell
-  Connect-AzAccount 
+   ```powershell
+   Connect-AzAccount 
 
-  Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
-  ```
+   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   ```
 2. List all locations where ExpressRoute Direct is supported.
   
-  ```powershell
-  Get-AzExpressRoutePortsLocation
-  ```
+   ```powershell
+   Get-AzExpressRoutePortsLocation
+   ```
 
-  **Example output**
+   **Example output**
   
-  ```powershell
-  Name                : Equinix-Ashburn-DC2
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-D
+   ```powershell
+   Name                : Equinix-Ashburn-DC2
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-D
                         C2
-  ProvisioningState   : Succeeded
-  Address             : 21715 Filigree Court, DC2, Building F, Ashburn, VA 20147
-  Contact             : support@equinix.com
-  AvailableBandwidths : []
+   ProvisioningState   : Succeeded
+   Address             : 21715 Filigree Court, DC2, Building F, Ashburn, VA 20147
+   Contact             : support@equinix.com
+   AvailableBandwidths : []
 
-  Name                : Equinix-Dallas-DA3
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Dallas-DA
+   Name                : Equinix-Dallas-DA3
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Dallas-DA
                         3
-  ProvisioningState   : Succeeded
-  Address             : 1950 N. Stemmons Freeway, Suite 1039A, DA3, Dallas, TX 75207
-  Contact             : support@equinix.com
-  AvailableBandwidths : []
+   ProvisioningState   : Succeeded
+   Address             : 1950 N. Stemmons Freeway, Suite 1039A, DA3, Dallas, TX 75207
+   Contact             : support@equinix.com
+   AvailableBandwidths : []
 
-  Name                : Equinix-San-Jose-SV1
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
+   Name                : Equinix-San-Jose-SV1
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
                         SV1
-  ProvisioningState   : Succeeded
-  Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
-  Contact             : support@equinix.com
-  AvailableBandwidths : []
-  ```
+   ProvisioningState   : Succeeded
+   Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
+   Contact             : support@equinix.com
+   AvailableBandwidths : []
+   ```
 3. Determine if a location listed above has available bandwidth
 
-  ```powershell
-  Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
-  ```
+   ```powershell
+   Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+   ```
 
-  **Example output**
+   **Example output**
 
-  ```powershell
-  Name                : Equinix-San-Jose-SV1
-  Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
+   ```powershell
+   Name                : Equinix-San-Jose-SV1
+   Id                  : /subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-San-Jose-
                         SV1
-  ProvisioningState   : Succeeded
-  Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
-  Contact             : support@equinix.com
-  AvailableBandwidths : [
+   ProvisioningState   : Succeeded
+   Address             : 11 Great Oaks Blvd, SV1, San Jose, CA 95119
+   Contact             : support@equinix.com
+   AvailableBandwidths : [
                           {
                             "OfferName": "100 Gbps",
                             "ValueInGbps": 100
                           }
                         ]
-  ```
+   ```
 4. Create an ExpressRoute Direct resource based on the location chosen above
 
-  ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
+   ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
 
-  If Dot1Q encapsulation is selected, you must manage uniqueness of the C-Tag (VLAN) across the entire ExpressRoute Direct resource.  
+   If Dot1Q encapsulation is selected, you must manage uniqueness of the C-Tag (VLAN) across the entire ExpressRoute Direct resource.  
 
-  > [!IMPORTANT]
-  > ExpressRoute Direct can only be one encapsulation type. Encapsulation cannot be changed after ExpressRoute Direct creation.
-  > 
+   > [!IMPORTANT]
+   > ExpressRoute Direct can only be one encapsulation type. Encapsulation cannot be changed after ExpressRoute Direct creation.
+   > 
  
-  ```powershell 
-  $ERDirect = New-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
-  ```
+   ```powershell 
+   $ERDirect = New-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+   ```
 
-  > [!NOTE]
-  > The Encapsulation attribute could also be set to Dot1Q. 
-  >
+   > [!NOTE]
+   > The Encapsulation attribute could also be set to Dot1Q. 
+   >
 
-  **Example output:**
+   **Example output:**
 
-  ```powershell
-  Name                       : Contoso-Direct
-  ResourceGroupName          : Contoso-Direct-rg
-  Location                   : westcentralus
-  Id                         : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
+   ```powershell
+   Name                       : Contoso-Direct
+   ResourceGroupName          : Contoso-Direct-rg
+   Location                   : westcentralus
+   Id                         : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
                                ressRoutePorts/Contoso-Direct
-  Etag                       : W/"<etagnumber> "
-  ResourceGuid               : <number>
-  ProvisioningState          : Succeeded
-  PeeringLocation            : Equinix-Seattle-SE2
-  BandwidthInGbps            : 100
-  ProvisionedBandwidthInGbps : 0
-  Encapsulation              : QinQ
-  Mtu                        : 1500
-  EtherType                  : 0x8100
-  AllocationDate             : Saturday, September 1, 2018
-  Links                      : [
+   Etag                       : W/"<etagnumber> "
+   ResourceGuid               : <number>
+   ProvisioningState          : Succeeded
+   PeeringLocation            : Equinix-Seattle-SE2
+   BandwidthInGbps            : 100
+   ProvisionedBandwidthInGbps : 0
+   Encapsulation              : QinQ
+   Mtu                        : 1500
+   EtherType                  : 0x8100
+   AllocationDate             : Saturday, September 1, 2018
+   Links                      : [
                                  {
                                    "Name": "link1",
                                    "Etag": "W/\"<etagnumber>\"",
@@ -144,47 +144,47 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
                                    "ProvisioningState": "Succeeded"
                                  }
                                ]
-  Circuits                   : []
-  ```
+   Circuits                   : []
+   ```
 
 ## <a name="state"></a>Change Admin State of links
 
   This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
 1. Get ExpressRoute Direct details.
 
-  ```powershell
-  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-  ```
+   ```powershell
+   $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   ```
 2. Set Link to Enabled. Repeat this step to set each link to enabled.
 
-  Links[0] is the primary port and Links[1] is the secondary port.
+   Links[0] is the primary port and Links[1] is the secondary port.
 
-  ```powershell
-  $ERDirect.Links[0].AdminState = “Enabled”
-  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
-  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-  $ERDirect.Links[1].AdminState = “Enabled”
-  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
-  ```
-  **Example output:**
+   ```powershell
+   $ERDirect.Links[0].AdminState = “Enabled”
+   Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+   $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   $ERDirect.Links[1].AdminState = “Enabled”
+   Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+   ```
+   **Example output:**
 
-  ```powershell
-  Name                       : Contoso-Direct
-  ResourceGroupName          : Contoso-Direct-rg
-  Location                   : westcentralus
-  Id                         : /subscriptions/<number>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
+   ```powershell
+   Name                       : Contoso-Direct
+   ResourceGroupName          : Contoso-Direct-rg
+   Location                   : westcentralus
+   Id                         : /subscriptions/<number>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/exp
                              ressRoutePorts/Contoso-Direct
-  Etag                       : W/"<etagnumber> "
-  ResourceGuid               : <number>
-  ProvisioningState          : Succeeded
-  PeeringLocation            : Equinix-Seattle-SE2
-  BandwidthInGbps            : 100
-  ProvisionedBandwidthInGbps : 0
-  Encapsulation              : QinQ
-  Mtu                        : 1500
-  EtherType                  : 0x8100
-  AllocationDate             : Saturday, September 1, 2018
-  Links                      : [
+   Etag                       : W/"<etagnumber> "
+   ResourceGuid               : <number>
+   ProvisioningState          : Succeeded
+   PeeringLocation            : Equinix-Seattle-SE2
+   BandwidthInGbps            : 100
+   ProvisionedBandwidthInGbps : 0
+   Encapsulation              : QinQ
+   Mtu                        : 1500
+   EtherType                  : 0x8100
+   AllocationDate             : Saturday, September 1, 2018
+   Links                      : [
                                {
                                  "Name": "link1",
                                  "Etag": "W/\"<etagnumber>\"",
@@ -212,10 +212,10 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
                                  "ProvisioningState": "Succeeded"
                                }
                              ]
-  Circuits                   : []
-  ```
+   Circuits                   : []
+   ```
 
-  Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
 
 ## <a name="circuit"></a>Create a circuit
 

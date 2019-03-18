@@ -89,14 +89,14 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Basics**:
 
-    - Select **Import into Azure**.
-    - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, and hyphens.
-        - The name must start with a letter, and may not contain spaces.
-    - Select a subscription.
-    - Enter or select a resource group.  
+   - Select **Import into Azure**.
+   - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
+       - The name may contain only lowercase letters, numbers, and hyphens.
+       - The name must start with a letter, and may not contain spaces.
+   - Select a subscription.
+   - Enter or select a resource group.  
 
-    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. In **Job details**:
 
@@ -108,21 +108,21 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Return shipping info**:
 
-    - Select the carrier from the dropdown list.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region. 
+   - Select the carrier from the dropdown list.
+   - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
+   - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region. 
         
-        > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+       > [!TIP] 
+       > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. In the **Summary**:
 
-    - Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
-    - Click **OK** to create the import job.
+   - Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
+   - Click **OK** to create the import job.
 
-    ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## Step 3: Ship the drives 
 

@@ -65,13 +65,13 @@ Logical AND operator. Same as &&
 <code>asin</code>
 ==============================
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse sine value
+Calculates an inverse sine value
 * ``asin(0) -> 0.0``
 *********************************
 <code>atan</code>
 ==============================
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse tangent value
+Calculates an inverse tangent value
 * ``atan(0) -> 0.0``
 *********************************
 <code>atan2</code>
@@ -1000,7 +1000,7 @@ Converts any numeric or string to a float value. An optional Java decimal format
 <code>toInteger</code>
 ==============================
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string]) => integer</b></code><br/><br/>
-Converts any numeric or string to a integer value. An optional Java decimal format can be used for the conversion.Truncates any long, float, double
+Converts any numeric or string to an integer value. An optional Java decimal format can be used for the conversion.Truncates any long, float, double
 * ``toInteger(123) -> 123``
 * ``toInteger('123') -> 123``
 * ``toInteger('$123', '$###') -> 123``

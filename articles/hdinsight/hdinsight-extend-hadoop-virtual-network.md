@@ -109,8 +109,8 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
     * [Create HDInsight using Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Create HDInsight using an Azure Resource Manager template](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
+   > [!IMPORTANT]  
+   > Adding HDInsight to a virtual network is an optional configuration step. Be sure to select the virtual network when configuring the cluster.
 
 ## <a id="multinet"></a>Connecting multiple networks
 
@@ -122,8 +122,8 @@ Azure provides name resolution for Azure services that are installed in a virtua
 
 * Any resource that is in the same Azure Virtual Network, by using the __internal DNS name__ of the resource. For example, when using the default name resolution, the following are example internal DNS names assigned to HDInsight worker nodes:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Both these nodes can communicate directly with each other, and other nodes in HDInsight, by using internal DNS names.
 
@@ -142,29 +142,29 @@ To enable name resolution between the virtual network and resources in joined ne
 
 4. Configure forwarding between the DNS servers. The configuration depends on the type of remote network.
 
-    * If the remote network is an on-premises network, configure DNS as follows:
+   * If the remote network is an on-premises network, configure DNS as follows:
         
-        * __Custom DNS__ (in the virtual network):
+     * __Custom DNS__ (in the virtual network):
 
-            * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
+         * Forward requests for the DNS suffix of the virtual network to the Azure recursive resolver (168.63.129.16). Azure handles requests for resources in the virtual network
 
-            * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
+         * Forward all other requests to the on-premises DNS server. The on-premises DNS handles all other name resolution requests, even requests for internet resources such as Microsoft.com.
 
-        * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
+     * __On-premises DNS__: Forward requests for the virtual network DNS suffix to the custom DNS server. The custom DNS server then forwards to the Azure recursive resolver.
 
-        This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
+       This configuration routes requests for fully qualified domain names that contain the DNS suffix of the virtual network to the custom DNS server. All other requests (even for public internet addresses) are handled by the on-premises DNS server.
 
-    * If the remote network is another Azure Virtual Network, configure DNS as follows:
+   * If the remote network is another Azure Virtual Network, configure DNS as follows:
 
-        * __Custom DNS__ (in each virtual network):
+     * __Custom DNS__ (in each virtual network):
 
-            * Requests for the DNS suffix of the virtual networks are forwarded to the custom DNS servers. The DNS in each virtual network is responsible for resolving resources within its network.
+         * Requests for the DNS suffix of the virtual networks are forwarded to the custom DNS servers. The DNS in each virtual network is responsible for resolving resources within its network.
 
-            * Forward all other requests to the Azure recursive resolver. The recursive resolver is responsible for resolving local and internet resources.
+         * Forward all other requests to the Azure recursive resolver. The recursive resolver is responsible for resolving local and internet resources.
 
-        The DNS server for each network forwards requests to the other, based on DNS suffix. Other requests are resolved using the Azure recursive resolver.
+       The DNS server for each network forwards requests to the other, based on DNS suffix. Other requests are resolved using the Azure recursive resolver.
 
-    For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
+     For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
@@ -190,11 +190,11 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 		$nodes += $node
 	}
 	$nodes | sort-object Type
-	```
+    ```
 
 	```azurecli
 	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
-	```
+    ```
 
     In the list of nodes returned, find the FQDN for the head nodes and use the FQDNs to connect to Ambari and other web services. For example, use `http://<headnode-fqdn>:8080` to access Ambari.
 
@@ -641,9 +641,9 @@ This example makes the following assumptions:
     };
     ```
     
-    * Replace the `10.0.0.0/16` and `10.1.0.0/16` values with the IP address ranges of your virtual networks. This entry allows resources in each network to make requests of the DNS servers.
+   * Replace the `10.0.0.0/16` and `10.1.0.0/16` values with the IP address ranges of your virtual networks. This entry allows resources in each network to make requests of the DNS servers.
 
-    Any requests that are not for the DNS suffixes of the virtual networks (for example, microsoft.com) is handled by the Azure recursive resolver.
+     Any requests that are not for the DNS suffixes of the virtual networks (for example, microsoft.com) is handled by the Azure recursive resolver.
 
 4. To use the configuration, restart Bind. For example, `sudo service bind9 restart` on both DNS servers.
 

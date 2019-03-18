@@ -1225,6 +1225,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/search/search-import-data-rest-api.md",
+      "redirect_url": "/azure/search/search-create-index-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-query-rest-api.md",
+      "redirect_url": "/azure/search/search-create-index-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/search-howto-index-documentdb.md",
       "redirect_url": "/azure/search/search-howto-index-cosmosdb",
       "redirect_document_id": true
@@ -36278,6 +36288,21 @@
     {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/getting-started.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/bake-ui-walkthrough.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/unity-baking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/sample-walkthrough.md",
+      "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
       "redirect_document_id": false
     },
     {
