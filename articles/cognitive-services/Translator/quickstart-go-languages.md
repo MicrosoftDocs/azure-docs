@@ -24,7 +24,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Go project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `get-languages.go`.
+Create a new Go project using your favorite IDE or editor or new folder on your desktop. Then copy this code snippet into your project/folder in a file named `get-languages.go`.
 
 ```go
 package main

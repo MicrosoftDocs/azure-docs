@@ -204,7 +204,7 @@ Images are versioned automatically when you register multiple images with the sa
 
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a id="deploy"></a> Deploy the image
+## <a id="deploy"></a> Deploy as a web service
 
 When you get to deployment, the process is slightly different depending on the compute target that you deploy to. Use the information in the following sections to learn how to deploy to:
 
@@ -388,7 +388,48 @@ Project Brainwave makes it possible to achieve ultra-low latency for real-time i
 
 For a walkthrough of deploying a model using Project Brainwave, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
-### <a id="iotedge"></a> Deploy to Azure IoT Edge
+## Test web service deployments
+
+To test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = service.run(input_data = test_sample)
+print(prediction)
+```
+
+The webservice is a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+
+## <a id="update"></a> Update the web service
+
+When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+
+```python
+from azureml.core.webservice import Webservice
+from azureml.core.image import Image
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
+
+# Update the image used by the service
+service.update(image = new_image)
+print(service.state)
+```
+
+For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
+
+## <a id="iotedge"></a> Deploy to Azure IoT Edge
 
 An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Using the Azure IoT Hub, you can deploy machine learning models to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
 
@@ -399,7 +440,7 @@ Azure IoT Edge modules are deployed to your device from a container registry. Wh
 >
 > If you are unfamiliar with Azure IoT, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/) and [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) for basic information. Then use the other links in this section to learn more about specific operations.
 
-#### Set up your environment
+### Set up your environment
 
 * A development environment. For more information, see the [How to configure a development environment](how-to-configure-environment.md) document.
 
@@ -407,7 +448,7 @@ Azure IoT Edge modules are deployed to your device from a container registry. Wh
 
 * A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### <a id="getcontainer"></a> Get the container registry credentials
+### <a id="getcontainer"></a> Get the container registry credentials
 
 To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
 
@@ -452,7 +493,7 @@ You can get the credentials in two ways:
 
      These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
 
-#### Prepare the IoT device
+### Prepare the IoT device
 
 Register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
 
@@ -462,54 +503,13 @@ Other methods of registering a device are:
 * [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
-#### Deploy the model to the device
+### Deploy the model to the device
 
 To deploy the model to the device, use the registry information gathered in the [Get container registry credentials](#getcontainer) section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
 
 You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) and [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
-## Testing web service deployments
-
-To test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
-
-```python
-import json
-
-test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
-]})
-test_sample = bytes(test_sample,encoding = 'utf8')
-
-prediction = service.run(input_data = test_sample)
-print(prediction)
-```
-
-The webservice is a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
-
-## <a id="update"></a> Update the web service
-
-When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
-
-```python
-from azureml.core.webservice import Webservice
-from azureml.core.image import Image
-
-service_name = 'aci-mnist-3'
-# Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
-
-# point to a different image
-new_image = Image(workspace = ws, id="myimage2:1")
-
-# Update the image used by the service
-service.update(image = new_image)
-print(service.state)
-```
-
-For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
-
-## Clean up
+## Clean up resources
 
 To delete a deployed web service, use `service.delete()`.
 
@@ -519,21 +519,9 @@ To delete a registered model, use `model.delete()`.
 
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## Troubleshooting
-
-* __If there are errors during deployment__, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
-
-* The logs may contain an error that instructs you to __set logging level to DEBUG__. To set the logging level, add the following lines to your scoring script, create the image, and then create a service using the image:
-
-    ```python
-    import logging
-    logging.basicConfig(level=logging.DEBUG)
-    ```
-
-    This change enables additional logging, and may return more information on why the error is occurring.
-
 ## Next steps
 
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-run-batch-predictions.md)
