@@ -146,7 +146,7 @@ You can join an already existing group from the **Groups** page.
 
 ## Next steps
 
-- [Access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
 
 - [Change your profile information](myapps-portal-end-user-update-profile.md).
 

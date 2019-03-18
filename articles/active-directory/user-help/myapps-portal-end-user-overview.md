@@ -34,4 +34,4 @@ You can use your work or school account with the web-based **My Apps** portal, t
 |[Troubleshoot the My Apps portal](myapps-portal-end-user-troubleshoot.md)|Review some troubleshooting tips for the **My Apps** portal before you contact your Helpdesk for assistance.|
 
 ## Next steps
-After you've reviewed this overview content, you can continue on to access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).
+After you've reviewed this overview content, you can continue on to [access and use apps on the My Apps portal](myapps-portal-end-user-access.md).

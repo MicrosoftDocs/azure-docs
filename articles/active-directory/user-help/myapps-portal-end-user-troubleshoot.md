@@ -71,7 +71,7 @@ If after trying these things you still can't access your app, you must contact y
 ## Next steps
 After you sign in to the **My Apps** portal, you can also update your profile and account information, your group information, and access review information (if you have permission).
 
-- [Access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
 
 - [Change your profile information](myapps-portal-end-user-update-profile.md).
 

@@ -69,10 +69,8 @@ If your administrator has given you permission to perform your own access review
 
 ## Next steps
 
-- [Access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
 
 - [Change your profile information](myapps-portal-end-user-update-profile.md).
 
 - [View and update your groups-related information](myapps-portal-end-user-groups.md).
-
-- [Perform your own access reviews](myapps-portal-end-user-access-reviews.md).

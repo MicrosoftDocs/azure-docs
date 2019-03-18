@@ -110,7 +110,7 @@ You can choose to sign out of everywhere you’re currently signed in to using y
 ## Next steps
 After you finish your updates on the **Profile** page, you can:
 
-- [Access and use apps on the **My Apps** portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
 
 - [View and update your groups-related information](myapps-portal-end-user-groups.md).
 
