@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/15/2019
+ms.date: 03/17/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -152,7 +152,7 @@ To better understand entitlement management and its documentation, you should re
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
 | catalog | A container of related resources and access packages. A catalog can be configured to be visible outside the current directory. |
-| Default catalog | A catalog that is always available. To add resources to the Default catalog requires certain permissions. |
+| Default catalog | A built-in catalog that is always available. To add resources to the Default catalog requires certain permissions. |
 | access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
 | access package manager | Users that can manage all access packages within a catalog. |
 | access request | A request to access an access package. A request typically goes through a workflow. |
