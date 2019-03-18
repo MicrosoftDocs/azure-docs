@@ -35,6 +35,16 @@ To add the other services needed to test the message routing, you perform the re
 > * ...in the storage account.
 > * ...in the Power BI visualization.
 
+## Prerequisites
+
+- You must have finished part 1 of this tutorial, and have the resources still available for testing. 
+
+- Install [Visual Studio](https://www.visualstudio.com/). 
+
+- A Power BI account to analyze the default endpoint's stream analytics. ([Try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).)
+
+- An Office 365 account to send notification e-mails. 
+
 ## Create a Logic App  
 
 The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue. 
