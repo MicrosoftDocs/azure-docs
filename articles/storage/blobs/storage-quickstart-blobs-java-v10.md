@@ -162,11 +162,11 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 1. To upload a file to a blob, get a reference to the blob in the target container. 
 2. After you get the blob reference, you can upload a file to it by using either of the following APIs:
 
-    * Low-level APIs. Examples are [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), also called PutBlob, and [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), also called PutBLock, in the instance of **BlockBlobURL**. 
+   * Low-level APIs. Examples are [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), also called PutBlob, and [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), also called PutBLock, in the instance of **BlockBlobURL**. 
 
-    * High-level APIs provided in the [TransferManager class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). An example is the [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) method. 
+   * High-level APIs provided in the [TransferManager class](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). An example is the [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) method. 
 
-    This operation creates the blob if it doesn't already exist. It overwrites the blob if it already exists.
+     This operation creates the blob if it doesn't already exist. It overwrites the blob if it already exists.
 
 The sample code creates a local file to be used for the upload and download. It stores the file to be uploaded as **sourceFile** and stores the URL of the blob in **blob**. The following example uploads the file to your container called **quickstart**.
 

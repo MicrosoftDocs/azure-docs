@@ -221,11 +221,11 @@ With the validation complete, Contoso admins can use the TFS Migration Tool to b
 
 6. They review the identity log map file that shows the accounts that will be brought into Azure DevOps Services during the import. 
 
-    - Active identities refer to identities that will become users in Azure DevOps Services after the import.
-    - On Azure DevOps Services, these identities will be licensed, and show up as a user in the organization after migration.
-    - These identities are marked as **Active** in the **Expected Import Status** column in the file.
+   - Active identities refer to identities that will become users in Azure DevOps Services after the import.
+   - On Azure DevOps Services, these identities will be licensed, and show up as a user in the organization after migration.
+   - These identities are marked as **Active** in the **Expected Import Status** column in the file.
 
-    ![Prepare](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Prepare](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

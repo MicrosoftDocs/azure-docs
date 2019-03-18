@@ -90,7 +90,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --hub-name YourIoTHubName \
+      --name YourIoTHubName \
       --output table
     ```
 

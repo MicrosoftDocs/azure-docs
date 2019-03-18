@@ -112,7 +112,7 @@ You use a PowerShell script to create the resources.  When you run the script, y
     
     Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     ```
-It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
+   It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
 
 If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 

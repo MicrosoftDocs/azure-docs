@@ -45,11 +45,8 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **India** | 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | 2 |Japan West, Japan East |Osaka, Tokyo |
 | **South Korea** | 2 |Korea Central, Korea South |Busan, Seoul|
-| **South Africa** | 3 |[South Africa West+, South Africa North+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cape Town, Johannesburg |
+| **South Africa** | 3 |South Africa West, South Africa North |Cape Town, Johannesburg |
 | **South America** | 3 |Brazil South |Sao Paulo |
-
-
- **+** denotes coming soon
 
 ### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
@@ -229,7 +226,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | Amsterdam |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
-| **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** | Teraco | Cape Town, Johannesburg | 
+| **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** | Teraco | Cape Town, Johannesburg |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Amsterdam, Frankfurt |
 | **[Post](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | Amsterdam |
@@ -241,7 +238,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdam |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
-| **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
+| **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapore |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | Sao Paulo |
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | New York |

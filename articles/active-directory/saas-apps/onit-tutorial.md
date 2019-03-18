@@ -229,11 +229,11 @@ In the case of Onit, provisioning is a manual task.
    
    ![Add User](./media/onit-tutorial/IC791181.png "Add User")
    
-  1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
-  1. Click **Create**.    
+   1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
+   1. Click **Create**.    
    
- > [!NOTE]
- > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+   > [!NOTE]
+   > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
 ### Assign the Azure AD test user
 

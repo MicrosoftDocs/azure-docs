@@ -83,15 +83,15 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
 
 - One new file is created:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -175,6 +175,10 @@ Select **View** > **Team Explorer** (Ctrl+\, Ctrl+M) > **Project** > **Changes**
           }
       }
       ```
+
+## Send ILogger logs to Application Insights
+
+Application Insights supports capturing logs sent via ILogger. To setup logging checkout the code samples [here](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## Synthetic transactions with PowerShell
 

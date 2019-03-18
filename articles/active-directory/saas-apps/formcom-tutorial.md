@@ -107,6 +107,7 @@ To configure Azure AD single sign-on with Form.com, perform the following steps:
     `https://<subdomain>.form.com`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
+    
     | |
 	|--|
 	| `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |

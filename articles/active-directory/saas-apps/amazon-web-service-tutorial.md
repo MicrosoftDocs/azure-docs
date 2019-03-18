@@ -269,7 +269,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	b. In the policy document, add the below JSON.
 
-	```
+    ```
 
 	{
 
@@ -295,7 +295,7 @@ To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the
 
 	}
 
-	```
+    ```
 
 	c. Click on **Review Policy button** to validate the policy.
 

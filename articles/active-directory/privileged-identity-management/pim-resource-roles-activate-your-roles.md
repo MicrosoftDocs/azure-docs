@@ -31,9 +31,13 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. Open **Azure AD Privileged Identity Management**. For information about how to add the PIM tile to your dashboard, see [Start using PIM](pim-getting-started.md).
 
-1. Click **My roles** to see a list of your eligible Azure AD directory roles and Azure resource roles.
+1. Click **My roles**.
 
     ![Azure AD directory roles and Azure resource roles - My roles](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+
+1. Click **Azure resource roles** to see a list of your eligible Azure resource roles.
+
+   ![Azure resource roles](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. In the **Azure resource roles** list, find the role you want to activate.
 

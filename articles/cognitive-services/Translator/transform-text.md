@@ -35,14 +35,14 @@ The method is a RESTful service using GET over HTTP. It supports simple XML and 
 The return value provides the transformed sentence.
 
 > [!div class="tabbedCodeSnippets"]
-```json
-GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
-{
-int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message
-string sentence;   // transformed text
-}
-```
+> ```json
+> GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
+> {
+> int ec;            // A positive number representing an error condition
+> string em;         // A descriptive error message
+> string sentence;   // transformed text
+> }
+> ```
 
 ## Example
 

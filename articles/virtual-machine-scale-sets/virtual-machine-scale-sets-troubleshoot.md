@@ -68,7 +68,7 @@ Some things to consider include:
     
     ![Cloud Explorer][explorer]
     
-   You see a bunch of tables where the data from each VM is being stored. Taking Linux and the CPU metric as an example, look at the most recent rows. The Visual Studio cloud explorer supports a query language so you can run a query. For example, you can run a query for “Timestamp gt datetime’2016-02-02T21:20:00Z’” to make sure you get the most recent events. The timezone corresponds to UTC. Does the data you see in there correspond to the scale rules you set up? In the following example, the CPU for machine 20 started increasing to 100% over the last five minutes.
+    You see a bunch of tables where the data from each VM is being stored. Taking Linux and the CPU metric as an example, look at the most recent rows. The Visual Studio cloud explorer supports a query language so you can run a query. For example, you can run a query for “Timestamp gt datetime’2016-02-02T21:20:00Z’” to make sure you get the most recent events. The timezone corresponds to UTC. Does the data you see in there correspond to the scale rules you set up? In the following example, the CPU for machine 20 started increasing to 100% over the last five minutes.
     
     ![Storage Tables][tables]
     

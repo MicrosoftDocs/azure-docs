@@ -291,7 +291,7 @@ The reports provide the audit record for the event name, the actor who performed
 |Sign-ins from possibly infected devices |Individual user Activity |   |
 |Users with anomalous sign-in activity |Groups activity report |   |
 | |Password Reset Registration Activity Report |   |
-| |Password reset activity |   | |
+| |Password reset activity |   |
 
 
 

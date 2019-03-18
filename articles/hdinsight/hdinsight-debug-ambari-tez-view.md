@@ -86,14 +86,14 @@ Use the following steps to run a Hive query that uses Tez:
 
 5. The tabs on this page allow you to view the following information:
 
-    * **Query Details**: Details about the Hive query.
-    * **Timeline**: Information about how long each stage of processing took.
-    * **Configurations**: The configuration used for this query.
+   * **Query Details**: Details about the Hive query.
+   * **Timeline**: Information about how long each stage of processing took.
+   * **Configurations**: The configuration used for this query.
 
-    From __Query Details__ you can use the links to find information about the __Application__ or the __DAG__ for this query.
+     From __Query Details__ you can use the links to find information about the __Application__ or the __DAG__ for this query.
     
-    * The __Application__ link displays information about the YARN application for this query. From here you can access the YARN application logs.
-    * The __DAG__ link displays information about the directed acyclic graph for this query. From here you can view a graphical representation of the DAG. You can also find information on the vertices within the DAG.
+   * The __Application__ link displays information about the YARN application for this query. From here you can access the YARN application logs.
+   * The __DAG__ link displays information about the directed acyclic graph for this query. From here you can view a graphical representation of the DAG. You can also find information on the vertices within the DAG.
 
 ## Next Steps
 
