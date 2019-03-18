@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 The security of most or all business assets in the modern organization depends on the integrity of the privileged accounts that administer and manage IT systems. Malicious actors including cyber-attackers often target admin accounts and other elements of privileged access to attempt to rapidly gain access to sensitive data and systems using credential theft attacks. For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer. For more information about the latest threats to endpoints and the cloud, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). This article can help you develop a roadmap toward closing the gaps between your current plans and the guidance described here.
 
-> [!NOTE] 
+> [!NOTE]
 > Microsoft is committed to the highest levels of trust, transparency, standards conformance, and regulatory compliance. Learn more about how the Microsoft global incident response team mitigates the effects of attacks against cloud services, and how security is built into Microsoft business products and cloud services at [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security) and Microsoft compliance targets at [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
@@ -99,7 +99,7 @@ The first person to use Azure AD Privileged Identity Management in your tenant i
 
 #### Identify and categorize accounts that are in highly privileged roles 
 
-After turning on Azure AD Privileged Identity Management, view the users who are in the directory roles Global administrator, Privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. If you do not have Azure AD PIM in your tenant, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role as this role is generic: a user who is assigned this admin role has the same permissions across all cloud services for which your organization has subscribed, regardless of whether they’ve been assigned this role in the Office 365 portal, the Azure portal, or by using the Azure AD module for Microsoft PowerShell. 
+After turning on Azure AD Privileged Identity Management, view the users who are in the directory roles Global administrator, Privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. If you do not have Azure AD PIM in your tenant, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role as this role is generic: a user who is assigned this admin role has the same permissions across all cloud services for which your organization has subscribed, regardless of whether they’ve been assigned this role in the Microsoft 365 admin center, the Azure portal, or by using the Azure AD module for Microsoft PowerShell. 
 
 Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to admin roles:
 
@@ -136,7 +136,7 @@ With the increase in bring-your-own-device (BYOD) and work-from-home policies an
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD, including additional roles beyond those listed in Stage 1.
-* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the Office 365 admin center. Use the Office Admin Center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security best practices for Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security best practices for Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
 * Perform the inventory in other services your organization relies on, such as Azure, Intune, or Dynamics 365.
 * Ensure that your admin accounts (accounts that are used for administration purposes, not just users’ day-to-day accounts) have working email addresses attached to them and have registered for Azure MFA or use MFA on-premises.
 * Ask users for their business justification for administrative access.
@@ -166,9 +166,7 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA for high-exposure accounts](../authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
-* [MFA for every admin account associated with an individual user](../authentication/howto-mfa-userstates.md) for other connected SaaS apps 
-* MFA for all admins for Microsoft SaaS apps, including administrators in roles managed in Exchange Online and the Office portal
+* [MFA using conditional access policies](../authentication/howto-mfa-getstarted.md) for all users in your organization.
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -184,10 +182,9 @@ Secure Score figures out what Office 365 services you’re using (like OneDrive,
 
 The [plan for security and compliance](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) outlines the approach for how an Office 365 customer should configure Office 365 and leverage other EMS capabilities. Then, review steps 3-6 of how to [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) and the guide for how to [monitor security and compliance in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
-
 #### Configure Office 365 Activity Monitoring (if using Office 365)
 
-You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. For more information, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. For more information, see [Activity reports in the Microsoft 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### Establish incident/emergency response plan owners
 
