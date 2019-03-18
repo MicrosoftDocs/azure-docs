@@ -151,6 +151,8 @@ The client application displays all the questions with an option for the user to
 
 Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
 
+Use the [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) to see active learning in an end-to-end scenario.
+
 ## Train API
 
 Active learning feedback is sent to QnA Maker with the Train API POST request. The API signature is:
@@ -195,9 +197,9 @@ An example JSON body looks like:
 
 A successful response returns a status of 204 and no JSON response body. 
 
-Use the [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) to see active learning in an end-to-end scenario.
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
-## Active learning is saved in the exported app's tsv file
+## Active learning is saved in the exported knowledge base
 
 When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
 
