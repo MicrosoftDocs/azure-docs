@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 --- 
 
-# Azure Data Factory Alter Row Transformations
+# Azure Data Factory Alter Row Transformation
 
 Use the Alter Row transformation to set insert, delete, update, and upsert policies on rows. You can add one-to-many conditions as expressions. Each of those conditions can result in a row (or rows) being inserted, updated, deleted, or upsert. Alter Row can produce both DDL & DML actions against your database.
 

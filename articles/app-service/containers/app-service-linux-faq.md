@@ -30,9 +30,17 @@ If you have a question, comment on this article.
 
 You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-For Node.js, you specify the PM2 configuration file or your script file. For .NET Core, specify your compiled DLL name as `dotnet <myapp>.dll`. For Ruby, you can specify the Ruby script that you want to initialize your app with.
+| Stack     | Expected Value                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | a command to start your `.jar` application                                    |
+| Tomcat    | the location of a script to perform any necessary configruations for your app |
+| Node.js   | the PM2 configuration file or your script file                                |          
+| .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| Ruby      | the Ruby script that you want to initialize your app with                     
 
 ## Management
 

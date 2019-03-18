@@ -61,8 +61,8 @@ First, create a new project in the Google Developers Console to obtain a client 
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
    
-    > [!NOTE]
-    > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
+     > [!NOTE]
+     > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
 
    ![Create OAuth client ID](media/google-federation/google-create-oauth-client-id.png)
 
