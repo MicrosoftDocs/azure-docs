@@ -1,5 +1,5 @@
 ---
-title: Configuring event ordering policies
+title: Configuring event ordering policies for Azure Stream Analytics
 description: This article describes how to go about configuring even ordering settings in Stream Analytics
 services: stream-analytics
 author: sidram
@@ -9,7 +9,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
 ---
-# Configuring event ordering policies
+# Configuring event ordering policies for Azure Stream Analytics
 
 This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query.
 
@@ -49,7 +49,7 @@ Yes. By default, out-of-order policy is set to zero (00 minutes and 00 seconds).
 
 If one of the partitions of your inputs doesn't receive events, you should expect your output to be delayed by the late arrival policy value. To learn why, read the InputPartition error section below. 
 
-## I see LateInputEvents messages in my activity log. What should I do? 
+## I see LateInputEvents messages in my activity log
 
 These messages are shown to inform you that events have arrived late and are either dropped or adjusted according to your configuration. You can ignore these messages if you have configured late arrival policy appropriately. 
 
@@ -59,7 +59,7 @@ Example of this message is: <br>
 "message":"First Occurred: 02/04/2019 17:11:48 | Resource Name: ASAjob | Message: Source 'ASAjob' had 24 data errors of kind 'LateInputEvent' between processing times '2019-02-04T17:10:49.7250696Z' and '2019-02-04T17:11:48.7563961Z'. Input event with application timestamp '2019-02-04T17:05:51.6050000' and arrival time '2019-02-04T17:10:44.3090000' was sent later than configured tolerance.","type":"DiagnosticMessage","correlation ID":"49efa148-4asd-4fe0-869d-a40ba4d7ef3b"} 
 </code>
 
-## I see InputPartitionNotProgressing in my activity log. What should I do? 
+## I see InputPartitionNotProgressing in my activity log
 
 Your input source (Event Hub/IoT Hub) likely has multiple partitions. Azure Stream Analytics produces output for time stamp t1 only after all the partitions that are combined are at least at time t1. For example, assume that the query reads from an event hub partition that has two partitions. One of the partitions, P1, has events until time t1. The other partition, P2, has events until time t1 + x. Output is then produced until time t1. But if there's an explicit Partition by PartitionId clause, both the partitions progress independently. 
 
