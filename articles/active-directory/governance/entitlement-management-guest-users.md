@@ -1,5 +1,5 @@
 ---
-title: Manage access for external users in Azure AD entitlement management (Preview)
+title: Manage access for guest users in Azure AD entitlement management (Preview)
 description: #Required; article description that is displayed in search results.
 services: active-directory
 documentationCenter: ''
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# Manage access for external users in Azure AD entitlement management (Preview)
+# Manage access for guest users in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -43,3 +43,4 @@ With entitlement management Contoso would be able to define a policy that allows
 
 ## Next steps
 
+- [Manage resources](entitlement-management-resources.md)

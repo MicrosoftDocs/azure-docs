@@ -78,8 +78,8 @@
       href: entitlement-management-request-access.md
     - name: Approve requests
       href: entitlement-management-approve-requests.md
-    - name: Manage access for external users
-      href: entitlement-management-external-users.md
+    - name: Manage access for guest users
+      href: entitlement-management-guest-users.md
     - name: View reports
       href: entitlement-management-reports.md
   - name: Terms of use
