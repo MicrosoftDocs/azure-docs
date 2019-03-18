@@ -108,7 +108,6 @@ There are two required installers for Azure AD password protection. They're avai
 
      * Interactive authentication mode:
 
-
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
