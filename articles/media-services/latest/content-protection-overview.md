@@ -108,7 +108,11 @@ The HLS protocol supports the following container formats and encryption schemes
 |MPG2-TS |CENC (PlayReady) ||
 |CMAF(fmp4) |CENC (PlayReady) ||
 
-HLS/CMAF + FairPlay (including H265) is supported and has been tested on Mac (Mojave and the latest Mac versions). iOS has been tested starting from v11.
+HLS/CMAF + FairPlay (including HEVC / H.265) is supported and has been tested on the following devices:
+
+* iOS v11 or higher 
+* iPhone 8 or above
+* MacOS high Sierra with Intel 7th Gen CPU
 
 ### MPEG-DASH
 
