@@ -31,15 +31,20 @@ If your administrator has given you permission to view the **Groups** tile, you 
 - **As a group owner.** View details, create a new group, add or remove members, or delete your group.
 
 ### To view your Groups information
-1.	Sign in to your work or school account, [go to the **My Apps** portal](myapps-portal-end-user-access.md).
 
-2. From the **Apps** page, select the **Groups** tile.
+1.	Sign in to your work or school account.
 
-    The **Groups** page appears, showing your group-related information.
+2.	Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
+
+    ![Apps page in the My Apps portal](media/myapps-portal/myapps-portal-apps-page-groups-tile.png)
+
+3. Select the **Groups** tile to see your group-related information.
 
     ![Groups page with both owned and member groups](media/myapps-portal/myapps-portal-groups-page.png)
 
-3. Based on your permissions, you can use the **Groups** page to:
+4. Based on your permissions, you can use the **Groups** page to:
 
     - **Review the groups you own.** View information about any groups you own within your organization from the **Groups I own** area. Selecting a specific group name provides you with more details about the group, including the group type, the number of members, the join policy, and the active members list.
 
