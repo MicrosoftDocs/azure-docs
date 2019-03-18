@@ -40,7 +40,9 @@ When importing the schema of Data Flow datasets, you will see an Import Schema b
 
 ## Create new table
 
-In Data Flow, you can ask ADF to create a new table definition in your target database by setting a dataset in the Sink transformation that has a new table name. In the SQL dataset, click "Edit" below the table name and enter a new table name. Then, in the Sink Transformation, turn on "Allow Schema Drift".
+In Data Flow, you can ask ADF to create a new table definition in your target database by setting a dataset in the Sink transformation that has a new table name. In the SQL dataset, click "Edit" below the table name and enter a new table name. Then, in the Sink Transformation, turn on "Allow Schema Drift". Seth the "Import Schema" setting to None.
+
+![Source Transformation schema](media/data-flow/dataset2.png "SQL Schema")
 
 ## Delimited text dataset
 
