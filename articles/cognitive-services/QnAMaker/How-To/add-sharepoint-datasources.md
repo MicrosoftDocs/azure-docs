@@ -18,9 +18,9 @@ When you add a secured Sharepoint document to your knowledge base, as the QnA Ma
 
 If the QnA Maker knowledge base manager is not the Active Directory manager, you will need to communicate with the Active Directory manager to finish this process.
 
-## Add Sharepoint data source in QnA Maker portal
+## Knowledge base manager: add Sharepoint data source in QnA Maker portal
 
-When the **QnA Maker manager** adds a secured Sharepoint document to a knowledge base, the manager initiates a request for permission that the Active Directory manager needs to complete.
+When the **QnA Maker manager** adds a secured Sharepoint document to a knowledge base, the knowledge base manager initiates a request for permission that the Active Directory manager needs to complete.
 
 The request begins with a pop-up to authenticate to an Active Directory account. 
 
@@ -28,19 +28,21 @@ The request begins with a pop-up to authenticate to an Active Directory account.
 
 Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that he needs to allow the QnA Maker app (not the QnA Maker manager) access to the Sharepoint resource. The Active Directory manager will need to do this for every Sharepoint resource, but not every document in that resource. 
 
-## Grant Active Directory access to QnA Maker
+## Active directory manager: grant file read access to QnA Maker
 
-The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the Sharepoint resource. This can be done in two places: Azure portal for Apps, Azure portal for Active Directory.
+The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the Sharepoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=files.read%20openid%20profile&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal Sharepoint enterprise app to have file read permissions. 
 
+<!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharepoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
-
+-->
+<!--
 ### Grant access from the interactive pop-up window 
-
-[Question for Prakul - what if the AAD manager is not logged in? What are the circumstances that make the interactive pop-up happen? Only if the QnA Maker manager is the same person as the AAD manager? ]
 
 The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharepoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharepoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
 
 ![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+-->
+<!--
 
 ### Grant access from the App Registrations list
 
@@ -80,6 +82,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Select a Sign-On account with permissions to grant permissions for the Active Directory. 
 
+-->
   
 <!--
 
