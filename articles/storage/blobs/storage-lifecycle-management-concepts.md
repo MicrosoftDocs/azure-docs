@@ -167,7 +167,7 @@ Valid filters include:
 
 ### Rule actions
 
-Actions are applied to the filtered blobs when the execution condition is met.
+Actions are applied to the filtered blobs when the run condition is met.
 
 Lifecycle management supports tiering and deletion of blobs and deletion of blob snapshots. Define at least one action for each rule on blobs or blob snapshots.
 
@@ -182,7 +182,7 @@ If you define more than one action on the same blob, lifecycle management applie
 
 The run conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
 
-| Action execution condition | Condition value | Description |
+| Action run condition | Condition value | Description |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions |
 | daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions | 
