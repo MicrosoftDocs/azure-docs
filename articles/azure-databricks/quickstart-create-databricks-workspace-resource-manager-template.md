@@ -20,6 +20,10 @@ In this quickstart, as part of the Spark job, you analyze a radio channel subscr
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
+> [!Note]
+> This tutorial cannot be carried out using **Azure Free Trial Subscription**.
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+
 ## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure Resource Manager template.
