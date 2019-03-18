@@ -1,23 +1,24 @@
 ---
 title: Quickstart - Require terms of use to be accepted before accessing cloud apps that are protected by Azure Active Directory conditional access | Microsoft Docs
-description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by by Azure Active Directory conditional access.
+description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory conditional access.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies, terms of use
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-#Customer intent: As a IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
+#Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Require terms of use to be accepted before accessing cloud apps 
@@ -75,7 +76,7 @@ This section provides you with the steps to create a sample ToU. When you create
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+5. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
     ![Conditional access](./media/require-tou/03.png) 
 

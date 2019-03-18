@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Monitor a storage account in the Azure portal
 
@@ -17,7 +17,7 @@ ms.component: common
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics and Billing](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
-> 
+>
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >
 
@@ -40,17 +40,17 @@ ms.component: common
 
 1. When you finish the monitoring configuration, select **Save**.
 
-A default set of metrics is displayed in charts on the storage account blade, as well as the individual service blades (blob, queue, table, and file). Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to [configure which metrics](#how-to-customize-metrics-charts) are displayed in the chart.
+A default set of metrics is displayed in charts on the storage account blade, as well as the individual service blades (blob, queue, table, and file). Once you've enabled metrics for a service, it may take up to an hour for data to appear in its charts. You can select **Edit** on any metric chart to configure which metrics are displayed in the chart.
 
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](../common/storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage uses [table storage](../common/storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](../common/storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## Customize metrics charts
 
-Use the following procedure to choose which storage metrics to view in a metrics chart. 
+Use the following procedure to choose which storage metrics to view in a metrics chart.
 
 1. Start by displaying a storage metric chart in the Azure portal. You can find charts on the **storage account blade** and in the **Metrics** blade for an individual service (blob, queue, table, file).
 
@@ -92,7 +92,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 3. Enter a **Name** and **Description** for your new alert rule.
 4. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
 5. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
+6. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../../azure-monitor/platform/alerts-webhooks.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal.
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 
@@ -110,7 +110,7 @@ You can add Azure Storage metrics charts for any of your storage accounts to you
    ![Tile gallery in Azure portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Select **Done customizing** near the top of the dashboard when you're done adding charts.
 
-Once you've added charts to your dashboard, you can further customize them as described in [Customize metrics charts](#how-to-customize-metrics-charts).
+Once you've added charts to your dashboard, you can further customize them as described in Customize metrics charts.
 
 ## Configure logging
 
@@ -124,13 +124,13 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Click **Save**.
 
-The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Storage Explorer](http://storageexplorer.com), or programmatically using the storage client library or PowerShell.
+The diagnostics logs are saved in a blob container named *$logs* in your storage account. You can view the log data using a storage explorer like the [Microsoft Storage Explorer](https://storageexplorer.com), or programmatically using the storage client library or PowerShell.
 
 For information about accessing the $logs container, see [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
 

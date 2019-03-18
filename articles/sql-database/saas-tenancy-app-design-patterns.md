@@ -1,16 +1,17 @@
 ---
 title: "Multi-tenant SaaS patterns - Azure SQL Database | Microsoft Docs"
 description: "Learn about the requirements and common data architecture patterns of multi-tenant software as a service (SaaS) database applications that run in the Azure cloud environment."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "billgib"
-manager: "craigg"
-ms.service: "sql-database"
-ms.custom: "scale out apps"
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.reviewer: genemi
-ms.author: "billgib"
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+manager: craigg
+ms.date: 01/25/2019
 ---
 # Multi-tenant SaaS database tenancy patterns
 
@@ -88,11 +89,11 @@ With database-per-tenant, customizing the schema for one or more individual tena
 
 #### Elastic pools
 
-When databases are deployed in the same resource group, they can be grouped into elastic database pools.  The pools provide a cost-effective way of sharing resources across many databases.  This pool option is cheaper than requiring each database to be large enough to accommodate the usage peaks that it experiences.  Even though pooled databases share access to resources they can still achieve a high degree of performance isolation.
+When databases are deployed in the same resource group, they can be grouped into elastic pools.  The pools provide a cost-effective way of sharing resources across many databases.  This pool option is cheaper than requiring each database to be large enough to accommodate the usage peaks that it experiences.  Even though pooled databases share access to resources they can still achieve a high degree of performance isolation.
 
 ![Design of multi-tenant app with database-per-tenant, using elastic pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Log Analytics.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
+Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Azure Monitor logs.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
 
 #### Operations scale for database-per-tenant
 
@@ -131,7 +132,7 @@ Two variations of a multi-tenant database model are discussed in what follows, w
 
 ## F. Multi-tenant app with a single multi-tenant database
 
-The simplest multi-tenant database pattern uses a single single database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
+The simplest multi-tenant database pattern uses a single database to host data for all tenants.  As more tenants are added, the database is scaled up with more storage and compute resources.  This scale up might be all that is needed, although there is always an ultimate scale limit.  However, long before that limit is reached the database becomes unwieldy to manage.
 
 Management operations that are focused on individual tenants are more complex to implement in a multi-tenant database.  And at scale these operations might become unacceptably slow.  One example is a point-in-time restore of the data for just one tenant.
 

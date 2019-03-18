@@ -4,21 +4,39 @@ description: This article answers frequently asked questions about Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/05/2018
-ms.component: hybrid
+ms.topic: reference
+ms.date: 11/02/2018
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect FAQ
 
 ## General installation
+
+**Q: How can I harden my Azure AD Connect server to decrease the security attack surface?**
+
+Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
+
+* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups
+
+To learn more, see: 
+
+* [Securing administrators groups](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Securing built-in administrator accounts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Security improvement and sustainment by reducing attack surfaces](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Reducing the Active Directory attack surface](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **Q: Will installation work if the Azure Active Directory (Azure AD) Global Admin has two-factor authentication (2FA) enabled?**  
 As of the February 2016 builds, this scenario is supported.
 
@@ -42,7 +60,7 @@ No, multiple connectors for the same AD domain are not supported.
 **Q: Can I move the Azure AD Connect database from the local database to a remote SQL Server instance?**   
 Yes, the following steps provide general guidance on how to do this. We are currently working on a more detailed document.
 1. Back up the LocalDB ADSync database.
-The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to *(localdb)\.\ADSync*, and then back up the ADSync database.
+The simplest way to do this is to use SQL Server Management Studio installed on the same machine as Azure AD Connect. Connect to *(LocalDb).\ADSync*, and then back up the ADSync database.
 
 2. Restore the ADSync database to your remote SQL Server instance.
 
@@ -70,6 +88,9 @@ No, Azure AD Connect does not support on-premises forests or domains where the N
 
 **Q: Is pure IPv6 environment supported?**  
 No, Azure AD Connect does not support a pure IPv6 environment.
+
+**Q:I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?**</br>
+ No, using Azure AD Connect over NAT is not supported. 
 
 ## Federation
 **Q: What do I do if I receive an email that asks me to renew my Office 365 certificate?**  

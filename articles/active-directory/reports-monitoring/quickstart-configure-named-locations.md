@@ -4,20 +4,22 @@ description: Learn how to configure named locations.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to label trusted IP address ranges in my organization so that I can whitelist them and configure location-based conditional access.
+ms.collection: M365-identity-device-management
 ---
+
 # Quickstart: Configure named locations in Azure Active Directory
 
 With named locations, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
@@ -48,19 +50,16 @@ To complete this quickstart, you need:
 
 6. Fill out the form on the new page. 
 
-    * In the **Name** box, type a name for your named location.
-    * In the **IP ranges** box, type the IP range in CIDR format.  
-    * Click **Create**.
+   * In the **Name** box, type a name for your named location.
+   * In the **IP ranges** box, type the IP range in CIDR format.  
+   * Click **Create**.
     
-	![The New blade](./media/quickstart-configure-named-locations/61.png)
-
+     ![The New blade](./media/quickstart-configure-named-locations/61.png)
 
 ## Next steps
 
 For more information, see:
 
-- [Conditional access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-
+- [Azure AD Conditional access](../active-directory-conditional-access-azure-portal.md).
 - [Location conditions in Azure AD conditional access](../conditional-access/location-condition.md)
-
-- [Risky sign-ins report in the Azure AD portal](concept-risky-sign-ins.md).  
+- [Risky sign-ins report](concept-risky-sign-ins.md).  

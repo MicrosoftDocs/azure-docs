@@ -1,5 +1,5 @@
 ---
-title: Lucene query examples for Azure Search | Microsoft Docs
+title: Lucene query examples - Azure Search
 description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Search service.
 author: HeidiSteen
 manager: cgronlun
@@ -9,6 +9,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Lucene syntax query examples for building advanced queries in Azure Search
@@ -169,7 +170,7 @@ When setting the factor level, the higher the boost factor, the more relevant th
 
 ## Example 6: Regex
 
-A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
 In this query, search for jobs with either the term Senior or Junior: `search=business_title:/(Sen|Jun)ior/``.
 
@@ -201,7 +202,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
 
 * [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
-* [Query your Azure Search Index using the REST API](search-query-rest-api.md)
+* [Query your Azure Search Index using the REST API](search-create-index-rest-api.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 

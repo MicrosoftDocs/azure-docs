@@ -11,13 +11,15 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
 ---
 
 # Create Event Grid custom topic with PowerShell
 
 This script creates an Event Grid custom topic.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +33,7 @@ This script uses the following command to create the custom topic. Each command 
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmEventGridTopic](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridtopic) | Create an Event Grid custom topic. |
+| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Create an Event Grid custom topic. |
 
 ## Next steps
 

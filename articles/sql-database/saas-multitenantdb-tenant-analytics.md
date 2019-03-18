@@ -1,20 +1,21 @@
 ---
 title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
-keywords: "sql tutorial"
-services: "sql-database"
-author: "stevestein"
-manager: craigg
-ms.service: "sql-database"
-ms.custom: "scale out apps"
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a multi-tenant app."
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.author: anjangsh
-ms.reviewer: billgib, genemi
+author: stevestein
+ms.author: sstein
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
 ---
-# Cross-tenant analytics using extracted data
-
-In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
+# Cross-tenant analytics using extracted data - multi-tenant app
+ 
+In this tutorial, you walk through a complete analytics scenario for a multitenant implementation. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract data** from each tenant database into an analytics store.
 2.	**Optimize the extracted data** for analytics processing.
@@ -87,7 +88,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
     - To use SQL database with columnstore, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P@ssword1*.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-mt-\<User\>** and **catalog-mt-\<User\>** servers using Login = *developer*, Password = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -169,7 +170,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
+5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
@@ -234,5 +235,6 @@ Congratulations!
 
 ## Additional resources
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Elastic Jobs](sql-database-elastic-jobs-overview.md).
+- [Cross-tenant analytics using extracted data - single-tenant app](saas-tenancy-tenant-analytics.md) 

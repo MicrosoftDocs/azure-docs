@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
-ms.author: manshuk
+ms.date: 09/28/2018
+ms.author: banders
 
 ---
 # Understand Azure reservation usage for your Pay-As-You-Go subscription
@@ -58,9 +58,11 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter id appears for any VM that qualifies for the reservation discount.
 5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. So, this meter covers the extra charge of the Windows software. To find the meter corresponding to D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md). If you have the Azure Hybrid Benefit, this extra charge is not applied.
 
-## Usage for SQL Database reserved capacity reservations
+## Usage for SQL Database & Cosmos DB reserved capacity reservations
 
-For the following sections, assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
+The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well. 
+
+Assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
 
 | Field | Value |
 |---| --- |
@@ -71,7 +73,7 @@ For the following sections, assume that you are running a SQL Database Gen 4 in 
 
 ### Statement section of CSV file
 
-Filter on **Reserved Instance Usage** meter name. You see something like the following screenshot:
+Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. You see something like the following screenshot:
 
 ![CSV file for SQL Database reserved capacity](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -99,6 +101,8 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+

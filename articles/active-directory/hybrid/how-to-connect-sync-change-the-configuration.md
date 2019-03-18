@@ -4,18 +4,19 @@ description: Walks you through how to make a change to the configuration in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Make a change to the default configuration
 The purpose of this article is to walk you through how to make changes to the default configuration in Azure Active Directory (Azure AD) Connect sync. It provides steps for some common scenarios. With this knowledge, you should be able to make simple changes to your own configuration based on your own business rules.
@@ -206,7 +207,7 @@ Before enabling synchronization of the UserType attribute, you must first decide
 
     If you choose this approach, you must ensure that the designated attribute is populated with the correct value for all existing user objects in on-premises Active Directory that are synchronized to Azure AD before enabling synchronization of the UserType attribute.
 
-- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. 
+- Alternatively, you can derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as **Guest** if their on-premises AD userPrincipalName attribute ends with domain part <em>@partners.fabrikam123.org</em>. 
 
     As mentioned previously, Azure AD Connect does not permit the UserType attribute on existing Azure AD users to be changed by Azure AD Connect. Therefore, you must ensure that the logic you have decided is consistent with how the UserType attribute is already configured for all existing Azure AD users in your tenant.
 
@@ -284,11 +285,11 @@ The inbound synchronization rule permits the attribute value to flow from the so
     | --- | --- | --- | --- | --- |
     | Direct | UserType | extensionAttribute1 | Unchecked | Update |
 
-    In another example, you want to derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD userPrincipalName attribute ends with domain part *@partners.fabrikam123.org*. You can implement an expression like this:
+    In another example, you want to derive the value for the UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises AD userPrincipalName attribute ends with domain part <em>@partners.fabrikam123.org</em>. You can implement an expression like this:
 
     | Flow type | Target attribute | Source | Apply once | Merge type |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
+    | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | Unchecked | Update |
 
 7. Click **Add** to create the inbound rule.
 
@@ -343,8 +344,8 @@ You can use the following steps to verify the changes while manually running the
    3. In the pop-up dialog box, select **Full Import** and then click **OK**.
    4. Wait for the operation to finish.
 
-    > [!NOTE]
-    > You can skip a full import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any changes during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > You can skip a full import on the on-premises AD Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any changes during [Step 2: Add the source attribute to the on-premises AD Connector schema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Run a **Full import** on the **Azure AD Connector**:
 

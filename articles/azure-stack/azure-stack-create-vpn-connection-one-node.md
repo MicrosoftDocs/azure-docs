@@ -1,9 +1,9 @@
-﻿---
+---
 title: Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments | Microsoft Docs
 description: Step-by-step procedure that a cloud administrator uses to create a site-to-site VPN connection between two single-node Azure Stack Development Kit environments.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -12,10 +12,12 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
+
 ROBOTS: NOINDEX
 
 
@@ -52,6 +54,7 @@ On both POC1 and POC2, prepare an offer so that a user can subscribe to the offe
 The following table summarizes the network configuration for both Azure Stack Development Kit environments. Use the procedure that appears after the table to add the External BGPNAT address that is specific for your network.
 
 **Network configuration table**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Virtual network name     |VNET-01|VNET-02 |

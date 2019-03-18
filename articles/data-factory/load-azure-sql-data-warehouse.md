@@ -31,6 +31,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 > [!NOTE]
 > For more information, see [Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory](connector-azure-sql-data-warehouse.md).
+
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -79,7 +80,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Select Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and passworkd. Click **Test connection** to validate the settings, then select **Finish**.
+    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
    
     ![Configure Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -101,7 +102,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
     ![Select Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and passworkd. Click **Test connection** to validate the settings, then select **Finish**.
+    c. In the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password. Click **Test connection** to validate the settings, then select **Finish**.
    
     ![Configure Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

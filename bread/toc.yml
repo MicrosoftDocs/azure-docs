@@ -9,13 +9,16 @@
       - name: Hybrid identity
         tocHref: /azure/active-directory/hybrid/
         topicHref: /azure/active-directory/hybrid/    
-      - name: Identity Protection
+      - name: Fundamentals
+        tocHref: /azure/active-directory/fundamentals/
+        topicHref: /azure/active-directory/fundamentals/
+      - name: Identity protection
         tocHref: /azure/active-directory/identity-protection/
         topicHref: /azure/active-directory/identity-protection/
       - name: Devices
         tocHref: /azure/active-directory/devices/
         topicHref: /azure/active-directory/devices/
-      - name: Conditional Access
+      - name: Conditional access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
       - name: Authentication
@@ -30,28 +33,34 @@
       - name: Managed identities for Azure resources
         tocHref: /azure/active-directory/managed-identities-azure-resources/
         topicHref: /azure/active-directory/managed-identities-azure-resources/
-      - name: User Help
+      - name: User help
         tocHref: /azure/active-directory/user-help/
         topicHref: /azure/active-directory/user-help/         
+      - name: B2B
+        tocHref: /azure/active-directory/b2b/
+        topicHref: /azure/active-directory/b2b/
       - name: B2C
         tocHref: /azure/active-directory-b2c/
         topicHref: /azure/active-directory-b2c/
-      - name: Domain Services
+      - name: Domain services
         tocHref: /azure/active-directory-domain-services/
         topicHref: /azure/active-directory-domain-services/
       - name: Users, groups, and roles
         tocHref: /azure/active-directory/users-groups-roles/
         topicHref: /azure/active-directory/users-groups-roles/
-      - name: Access reviews
+      - name: Identity governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
-      - name: Manage applications
+      - name: Application management
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
+        items:
+        - name: SaaS application tutorials
+          tocHref: /azure/active-directory/saas-apps/
+          topicHref: /azure/active-directory/saas-apps/tutorial-list
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
-        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -65,6 +74,9 @@
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Azure App Configuration
+    tocHref: /azure/azure-app-configuration/
+    topicHref: /azure/azure-app-configuration/
   - name: App Service
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
@@ -87,15 +99,24 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
-  - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/application-insights/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
+  - name: Azure Data Explorer
+    tocHref: /azure/data-explorer/
+    topicHref: /azure/data-explorer/
+  - name: Azure Digital Twins
+    tocHref: /azure/digital-twins/
+    topicHref: /azure/digital-twins/
+  - name: Azure Monitor
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/azure-monitor/
+  - name: Azure Spatial Anchors
+    tocHref: /azure/spatial-anchors/
+    topicHref: /azure/spatial-anchors/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -105,6 +126,10 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
+    items:
+    - name: Durable Functions
+      tocHref: /azure/azure-functions/durable/
+      topicHref: /azure/azure-functions/durable/durable-functions-overview
   - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
@@ -117,12 +142,43 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
-  - name: Azure portal
+  - name: Azure portal customization
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/\
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/
+    items:
+      - name: IoT Hub
+        tocHref: /azure/iot-hub/
+        topicHref: /azure/iot-hub/
+      - name: IoT Central
+        tocHref: /azure/iot-central/
+        topicHref: /azure/iot-central/
+      - name: IoT Edge
+        tocHref: /azure/iot-edge/
+        topicHref: /azure/iot-edge/
+      - name: Azure Digital Twins
+        tocHref: /azure/digital-twins/
+        topicHref: /azure/digital-twins/
+      - name: IoT Solution Accelerators
+        tocHref: /azure/iot-accelerators/
+        topicHref: /azure/iot-accelerators/
+      - name: IoT Hub Device Provisioning Service
+        tocHref: /azure/iot-dps/
+        topicHref: /azure/iot-dps/
+      - name: Time Series Insights
+        tocHref: /azure/time-series-insights/
+        topicHref: /azure/time-series-insights/
+      - name: Azure Maps
+        tocHref: /azure/azure-maps/
+        topicHref: /azure/azure-maps/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
+  - name: SignalR Service
+    tocHref: /azure/azure-signalr/
+    topicHref: /azure/azure-signalr/
   - name: Azure Stack
     tocHref: /azure/azure-stack/
     topicHref: /azure/azure-stack/
@@ -150,6 +206,9 @@
   - name: Blockchain Workbench
     tocHref: /azure/blockchain-workbench/
     topicHref: /azure/blockchain-workbench/
+  - name: Bot Service
+    tocHref: /azure/bot-service/
+    topicHref: /azure/bot-service/    
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
@@ -198,22 +257,16 @@
       topicHref: /azure/cognitive-services/computer-vision/
     - name: Content Moderator
       tocHref: /azure/cognitive-services/content-moderator/
-      topicHref: /azure/cognitive-services/content-moderator/overview
+      topicHref: /azure/cognitive-services/content-moderator/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-    - name: Custom Speech Service
-      tocHref: /azure/cognitive-services/custom-speech-service/
-      topicHref: /azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home
     - name: Speaker Recognition
       tocHref: /azure/cognitive-services/speaker-recognition/
       topicHref: /azure/cognitive-services/speaker-recognition/home
     - name: Custom Vision Service
       tocHref: /azure/cognitive-services/custom-vision-service/
       topicHref: /azure/cognitive-services/custom-vision-service/
-    - name: Emotion
-      tocHref: /azure/cognitive-services/emotion/
-      topicHref: /azure/cognitive-services/emotion/home
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
@@ -247,7 +300,7 @@
     - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
-    - name: Speech Service (preview)
+    - name: Speech Service
       tocHref: /azure/cognitive-services/Speech-Service/
       topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
@@ -270,7 +323,7 @@
       topicHref: /azure/cognitive-services/project-personality-chat/overview    
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
-      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
+      topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -293,6 +346,16 @@
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
+  - name: Data Box family
+    tocHref: /azure/databox-family/
+    topicHref: /azure/databox-family/
+    items:
+    - name: Data Box offline transfer
+      tocHref: /azure/databox/
+      topicHref: /azure/databox/
+    - name: Data Box online transfer
+      tocHref: /azure/databox-online/
+      topicHref: /azure/databox-online/ 
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -305,6 +368,9 @@
   - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
+  - name: Dedicated HSM
+    tocHref: /azure/dedicated-hsm/
+    topicHref: /azure/dedicated-hsm/
   - name: Devtest Lab
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/
@@ -323,6 +389,28 @@
   - name: Firewall
     tocHref: /azure/firewall/
     topicHref: /azure/firewall/
+  - name: Front Door Service
+    tocHref: /azure/frontdoor/
+    topicHref: /azure/frontdoor/
+  - name: Genomics
+    tocHref: /azure/genomics/
+    topicHref: /azure/genomics/    
+  - name: Governance
+    tocHref: /azure/governance/
+    topicHref: /azure/governance/
+    items:
+      - name: Blueprints
+        tocHref: /azure/governance/blueprints/
+        topicHref: /azure/governance/blueprints/
+      - name: Management Groups
+        tocHref: /azure/governance/management-groups/
+        topicHref: /azure/governance/management-groups/
+      - name: Policy
+        tocHref: /azure/governance/policy/
+        topicHref: /azure/governance/policy/
+      - name: Resource Graph
+        tocHref: /azure/governance/resource-graph/
+        topicHref: /azure/governance/resource-graph/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -354,34 +442,37 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
-    items:  
-    - name: IoT Fundamentals
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT Hub
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/ 
-    - name: IoT Hub Device Provisioning Service
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT solution accelerators
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: IoT Central
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/         
-    - name: Maps
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/                     
+  - name: Azure API for FHIR
+    tocHref: /azure/healthcare-apis
+    topicHref: /azure/healthcare-apis
+#  - name: Internet of Things
+#    tocHref: /azure/iot-fundamentals/
+#    topicHref: /azure/iot-fundamentals/
+#    items:  
+#    - name: IoT Fundamentals
+#      tocHref: /azure/iot-fundamentals/
+#      topicHref: /azure/iot-fundamentals/
+#    - name: IoT Edge
+#      tocHref: /azure/iot-edge/
+#      topicHref: /azure/iot-edge/
+#    - name: IoT Hub
+#      tocHref: /azure/iot-hub/
+#      topicHref: /azure/iot-hub/ 
+#    - name: IoT Hub Device Provisioning Service
+#      tocHref: /azure/iot-dps/
+#      topicHref: /azure/iot-dps/
+#    - name: IoT solution accelerators
+#     tocHref: /azure/iot-accelerators/
+#      topicHref: /azure/iot-accelerators/
+#    - name: IoT Central
+#      tocHref: /azure/iot-central/
+#      topicHref: /azure/iot-central/         
+#    - name: Maps
+#      tocHref: /azure/azure-maps/
+#      topicHref: /azure/azure-maps/
+#    - name: Time Series Insights
+#      tocHref: /azure/time-series-insights/
+#      topicHref: /azure/time-series-insights/                     
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
@@ -391,9 +482,6 @@
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
-  - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/log-analytics/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -401,7 +489,7 @@
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/
     items:
-      - name: Services (preview)
+      - name: Service
         tocHref: /azure/machine-learning/service
         topicHref: /azure/machine-learning/service/
       - name: Studio
@@ -429,15 +517,15 @@
       - name: v2
         tocHref: /azure/media-services/previous/
         topicHref: /azure/media-services/previous/
+      - name: Video Indexer
+        tocHref: /azure/media-services/video-indexer/
+        topicHref: /azure/media-services/video-indexer/        
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
   - name: Mobile Services
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
-  - name: Monitoring And Diagnostics
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/monitoring-and-diagnostics/
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -454,37 +542,15 @@
   - name: Networking
     tocHref: /azure/networking/
     topicHref: /azure/networking/networking-overview
+  - name: Notebooks
+    tocHref: /azure/notebooks/
+    topicHref: /azure/notebooks/azure-notebooks-overview
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: Policy documentation
-    tocHref: /azure/azure-policy/
-    topicHref: /azure/azure-policy/
-    items:
-      - name: Overview of Azure Policy
-        tocHref: /azure/azure-policy/azure-policy-introduction/
-        topicHref: /azureazure-policy/azure-policy-introduction/
-      - name: Assign a policy - Portal
-        tocHref: /azure/azure-policy/assign-policy-definition/
-        topicHref: /azureazure-policy/assign-policy-definition/
-      - name: Assign a policy - PowerShell
-        tocHref: /azure/azure-policy/assign-policy-definition-ps/
-        topicHref: /azureazure-policy/assign-policy-definition-ps/
-      - name: Assign a policy - Azure CLI
-        tocHref: /azure/azure-policy/assign-policy-definition-cli/
-        topicHref: /azureazure-policy/assign-policy-definition-cli/
-      - name: Create and manage Azure Policy
-        tocHref: /azure/azure-policy/create-manage-polic/
-        topicHref: /azureazure-policy/create-manage-polic/
-      - name: Policy templates
-        tocHref: /azure/azure-policy/json-samples/
-        topicHref: /azureazure-policy/json-samples/
-      - name: Azure Policy definition structure
-        tocHref: /azure/azure-policy/policy-definition/
-        topicHref: /azureazure-policy/policy-definition/
   - name: PostgreSQL
     tocHref: /azure/postgresql/
     topicHref: /azure/postgresql/
@@ -494,9 +560,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
-  - name: Redis Cache
-    tocHref: /azure/redis-cache/
-    topicHref: /azure/redis-cache/
+  - name: Azure Cache for Redis
+    tocHref: /azure/azure-cache-for-redis/
+    topicHref: /azure/azure-cache-for-redis/
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
@@ -521,6 +587,9 @@
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
+  - name: Azure Sentinel
+    tocHref: /azure/sentinel/
+    topicHref: /azure/sentinel/
   - name: Service Bus
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/
@@ -533,6 +602,9 @@
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
+  - name: Service Fabric Mesh
+    tocHref: /azure/service-fabric-mesh/
+    topicHref: /azure/service-fabric-mesh/
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
@@ -582,11 +654,17 @@
     items:
       - name: Workloads
         tocHref: /azure/virtual-machines/workloads/
-        topicHref: /azure/virtual-machines/workloads/sap/get-started
+        topicHref: /azure/virtual-machines/workloads/workloads
         items:
           - name: SAP
             tocHref: /azure/virtual-machines/workloads/sap/
             topicHref: /azure/virtual-machines/workloads/sap/get-started
+          - name: Oracle
+            tocHref: /azure/virtual-machines/workloads/oracle/
+            topicHref: /azure/virtual-machines/workloads/oracle/oracle-considerations
+          - name: Mainframe rehosting
+            tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
+            topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
       - name: Linux
         tocHref: /azure/virtual-machines/linux/
         topicHref: /azure/virtual-machines/linux/
@@ -601,6 +679,9 @@
           - name: Windows classic deployments
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
+          - name: SQL VM
+            tocHref: /azure/virtual-machines/windows/sql
+            topicHref: /azure/virtual-machines/windows/sql
   - name: Virtual Network
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/

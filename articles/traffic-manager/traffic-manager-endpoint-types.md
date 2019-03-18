@@ -4,10 +4,7 @@ description: This article explains different types of endpoints that can be used
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-
-ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -33,8 +30,9 @@ The following sections describe each endpoint type in greater depth.
 
 Azure endpoints are used for Azure-based services in Traffic Manager. The following Azure resource types are supported:
 
-* 'Classic' IaaS VMs and PaaS cloud services.
+* PaaS cloud services.
 * Web Apps
+* Web App Slots
 * PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). The publicIpAddress must have a DNS name assigned to be used in a Traffic Manager profile.
 
 PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.
@@ -60,7 +58,7 @@ Nested endpoints combine multiple Traffic Manager profiles to create flexible tr
 
 Some additional considerations apply when configuring Web Apps as endpoints in Traffic Manager:
 
-1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App.
+1. Only Web Apps at the 'Standard' SKU or above are eligible for use with Traffic Manager. Attempts to add a Web App of a lower SKU fail. Downgrading the SKU of an existing Web App results in Traffic Manager no longer sending traffic to that Web App. For more information on supported plans see the [App Service Plans](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
 2. When an endpoint receives an HTTP request, it uses the 'host' header in the request to determine which Web App should service the request. The host header contains the DNS name used to initiate the request, for example 'contosoapp.azurewebsites.net'. To use a different DNS name with your Web App, the DNS name must be registered as a custom domain name for the App. When adding a Web App endpoint as an Azure endpoint, the Traffic Manager profile DNS name is automatically registered for the App. This registration is automatically removed when the endpoint is deleted.
 3. Each Traffic Manager profile can have at most one Web App endpoint from each Azure region. To work around for this constraint, you can configure a Web App as an External endpoint. For more information, see the [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints).
 

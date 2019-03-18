@@ -3,19 +3,19 @@ title: 'Azure Active Directory Domain Services: Join a CoreOS Linux VM to a mana
 description: Join a CoreOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Join a CoreOS Linux virtual machine to a managed domain
@@ -110,10 +110,9 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 > [!NOTE]
 > **Troubleshooting:**
 > If *adcli* is unable to find your managed domain:
-  * Ensure that the domain is reachable from the virtual machine (try ping).
-  * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-  * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
->
+>   * Ensure that the domain is reachable from the virtual machine (try ping).
+>   * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+>   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
 
 Start the SSSD service. In your SSH terminal, type the following command:
   ```

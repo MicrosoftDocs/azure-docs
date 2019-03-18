@@ -1,16 +1,14 @@
 ---
-title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud"
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-ms.author: ghogen
-ms.date: "07/09/2018"
+ms.author: zarhoads
+ms.date: "09/26/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (.NET Core and VS Code)
 
@@ -26,11 +24,14 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
-
-  ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
 - [Visual Studio Code](https://code.visualstudio.com/download).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 or higher.
+- A Kubernetes cluster running Kubernetes 1.9.6 or later, in the EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast region.
+
+    ```cmd
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+    ```
 
 ## Set up Azure Dev Spaces
 
@@ -38,7 +39,6 @@ The Azure CLI and the Azure Dev Spaces extension can be installed and run on Win
 
 Follow these steps to set up Azure Dev Spaces:
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.43 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 
@@ -50,12 +50,12 @@ Follow these steps to set up Azure Dev Spaces:
 1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
-   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at http://localhost:<port>` 
+   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'` 
 
    Open this URL in a browser window, and you should see the web app load. 
    
    > [!Note]
-   > On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative http://localhost:<portnumber> URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
+   > On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
 
 ### Update a content file
 
@@ -140,4 +140,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 Learn how Azure Dev Spaces helps you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-netcore.md)
+> [Working with multiple containers and team development](multi-service-netcore.md)

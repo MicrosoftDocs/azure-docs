@@ -2,23 +2,20 @@
 title: Add additional Azure storage accounts to HDInsight 
 description: Learn how to add additional Azure storage accounts to an existing HDInsight cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.author: hrasheed
 ---
 
 # Add additional storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure storage accounts to HDInsight. The steps in this document add a storage account to an existing Linux-based HDInsight cluster.
+Learn how to use script actions to add additional Azure storage accounts to HDInsight. The steps in this document add a storage account to an existing Linux-based HDInsight cluster. This article applies to [Azure Storage](hdinsight-hadoop-use-blob-storage.md) and only additional storage accounts (not the default cluster storage account). This article does not apply to [Azure Data Lake Storage Gen1](hdinsight-hadoop-use-data-lake-store.md) and [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-> [!IMPORTANT]
-> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
+> [!IMPORTANT]  
+> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## How it works
 
@@ -40,9 +37,9 @@ During processing, the script performs the following actions:
 
 * Adds the storage account to the core-site.xml file.
 
-* Stops and restarts the Oozie, YARN, MapReduce2, and HDFS services. Stopping and starting these services allows them to use the new storage account.
+* Stops and restarts the [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), and [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) services. Stopping and starting these services allows them to use the new storage account.
 
-> [!WARNING]
+> [!WARNING]  
 > Using a storage account in a different location than the HDInsight cluster is not supported.
 
 ## The script
@@ -55,9 +52,9 @@ __Requirements__:
 
 ## To use the script
 
-This script can be used from the Azure portal, Azure PowerShell, or the Azure CLI 1.0. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
+This script can be used from the Azure portal, Azure PowerShell, or the Azure Classic CLI. For more information, see the [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > When using the steps provided in the customization document, use the following information to apply this script:
 >
 > * Replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
@@ -68,7 +65,7 @@ This script can be used from the Azure portal, Azure PowerShell, or the Azure CL
 
 ### Storage accounts not displayed in Azure portal or tools
 
-When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
+When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure Classic CLI do not display the additional storage account either.
 
 The storage information isn't displayed because the script only modifies the core-site.xml configuration for the cluster. This information is not used when retrieving the cluster information using Azure management APIs.
 
@@ -82,17 +79,17 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Set `$clusterName` to the name of the HDInsight cluster. Set `$storageAccountName` to the name of the storage account. When prompted, enter the cluster login (admin) and password.
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Set `$PASSWORD` to the cluster login (admin) account password. Set `$CLUSTERNAME` to the name of the HDInsight cluster. Set `$STORAGEACCOUNTNAME` to the name of the storage account.
 >
-> This example uses [curl (http://curl.haxx.se/)](http://curl.haxx.se/) and [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) to retrieve and parse JSON data.
+> This example uses [curl (https://curl.haxx.se/)](https://curl.haxx.se/) and [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) to retrieve and parse JSON data.
 
 When using this command, replace __CLUSTERNAME__ with the name of the HDInsight cluster. Replace __PASSWORD__ with the HTTP login password for the cluster. Replace __STORAGEACCOUNT__ with the name of the storage account added using script action. Information returned from this command appears similar to the following text:
 
@@ -129,14 +126,14 @@ To work around this problem, you must remove the existing entry for the storage 
 
 If the storage account is in a different region than the HDInsight cluster, you may experience poor performance. Accessing data in a different region sends network traffic outside the regional Azure data center and across the public internet, which can introduce latency.
 
-> [!WARNING]
+> [!WARNING]  
 > Using a storage account in a different region than the HDInsight cluster is not supported.
 
 ### Additional charges
 
 If the storage account is in a different region than the HDInsight cluster, you may notice additional egress charges on your Azure billing. An egress charge is applied when data leaves a regional data center. This charge is applied even if the traffic is destined for another Azure data center in a different region.
 
-> [!WARNING]
+> [!WARNING]  
 > Using a storage account in a different region than the HDInsight cluster is not supported.
 
 ## Next steps

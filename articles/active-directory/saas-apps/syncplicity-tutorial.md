@@ -1,14 +1,14 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Syncplicity | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Syncplicity.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 896a3211-f368-46d7-95b8-e4768c23be08
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Syncplicity
 
@@ -202,7 +203,7 @@ For AAD users to be able to sign in, they must be provisioned to Syncplicity app
    
     ![Manage Users](./media/syncplicity-tutorial/ic769764.png "Manage Users")
 
-1. Type the **Email addressess** of an AAD account you want to provision, select **User** as **Role**, and then click **NEXT**.
+1. Type the **Email addresses** of an AAD account you want to provision, select **User** as **Role**, and then click **NEXT**.
    
     ![Account Information](./media/syncplicity-tutorial/ic769765.png "Account Information")
    

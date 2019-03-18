@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with IQNavigator VMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IQNavigator VMS.
 services: active-directory
@@ -8,7 +8,7 @@ manager: femila
 
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with IQNavigator VMS
 
@@ -34,7 +35,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with IQNavigator VMS, you need the following items:
 
 - An Azure AD subscription
-- A IQNavigator VMS single sign-on enabled subscription
+- An IQNavigator VMS single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -87,7 +88,7 @@ To configure and test Azure AD single sign-on with IQNavigator VMS, you need to 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a IQNavigator VMS test user](#creating-a-iqnavigator-vms-test-user)** - to have a counterpart of Britta Simon in IQNavigator VMS that is linked to the Azure AD representation of user.
+1. **[Creating an IQNavigator VMS test user](#creating-a-iqnavigator-vms-test-user)** - to have a counterpart of Britta Simon in IQNavigator VMS that is linked to the Azure AD representation of user.
 1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -171,7 +172,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
 
-### Creating a IQNavigator VMS test user
+### Creating an IQNavigator VMS test user
 
 The objective of this section is to create a user called Britta Simon in IQNavigator VMS. Work with  [IQNavigator VMS support team](https://www.beeline.com/iqn-product-support/) to add the users in the IQNavigator VMS account.
 

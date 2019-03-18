@@ -7,7 +7,6 @@ ms.author: maghan
 manager: kfile
 layout: LandingPage
 ms.service: power-bi-embedded
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/31/2018
 ---

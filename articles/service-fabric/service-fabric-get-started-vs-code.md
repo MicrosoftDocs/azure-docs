@@ -47,7 +47,7 @@ The following prerequisites must be installed on all environments.
 
 The following prerequisites must be installed for Java development:
 
-* [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version 1.8)
+* [Java SDK](https://aka.ms/azure-jdks) (version 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
@@ -103,9 +103,9 @@ The **Service Fabric: Publish Application** command deploys your Service Fabric 
 ### Service Fabric: Deploy Application (Localhost)
 The **Service Fabric: Deploy Application** command deploys your Service Fabric application to your local cluster. Make sure your local cluster is running before using the command. 
 
-1.  Select the **Service Fabric: Deploy Application** command
-2.  View the local cluster with Service Fabric Explorer (http://localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
-3.  You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
+1. Select the **Service Fabric: Deploy Application** command
+2. View the local cluster with Service Fabric Explorer (http://localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
+3. You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
 
 > [!NOTE]
 > Deploying Java applications to the local cluster is not supported on Windows machines.

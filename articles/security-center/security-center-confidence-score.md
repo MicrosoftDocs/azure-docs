@@ -4,7 +4,7 @@ description: " Learn how to work with the Azure Security Center confidence score
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999
@@ -25,7 +25,7 @@ The confidence score in Security Center can help your team triage and prioritize
 
 ## How the confidence score is triggered
 
-Alerts are generated when suspicious processes are detected running on your virtual machines. Security Center reviews and analyzes these alerts on Windows virtual machines running in Azure. It performs automated checks and correlations using advanced algorithms across multiple entities and data sources across the organization, and all your Azure resources, and presents with with a confidence score which is a measure of how confident Security Center is that the alert is genuine and needs to be investigated.
+Alerts are generated when suspicious processes are detected running on your virtual machines. Security Center reviews and analyzes these alerts on Windows virtual machines running in Azure. It performs automated checks and correlations using advanced algorithms across multiple entities and data sources across the organization, and all your Azure resources, and presents with a confidence score which is a measure of how confident Security Center is that the alert is genuine and needs to be investigated.
 
 ## Understanding the confidence score
 
@@ -41,7 +41,7 @@ To view the confidence score:
 To view the data that contributed to Security Center's confidence in an alert:
 - In the Security alert blade, under **Confidence**, view the observations that contributed to the confidence score and gain insights related to the alert. This provides you with more insight into the nature of the activities that caused the alert.
 
- ![Suspicious confidence score][2]
+  ![Suspicious confidence score][2]
 
 Use Security Center’s confidence score to prioritize alert triage in your environment. The confidence score saves you time and effort by automatically investigating alerts, applying industry best practices and intelligent algorithms, and acting as a virtual analyst to determine which threats are real and where you need to focus your attention.
 

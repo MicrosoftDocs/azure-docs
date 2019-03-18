@@ -3,24 +3,22 @@ title: How to assign users and groups to an application | Microsoft Docs
 description: Assign users to the application to grant access
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
-
-ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
-ms.author: barbkess
+ms.date: 10/01/2018
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
-# How to assign users and groups to an application
-
-Before your users can do any of the following for a specific application, you need to first **assign them to the application** to grant them access:
+# Assign users and groups to an application in Azure Active Directory
+This article shows you how to assign users or groups to an application in Azure Active Directory (Azure AD). Users must first be assigned to an application before an administrator can grant them access to do the following:
 
 -   Access an application by **navigating to the application’s URL directly** (also known as SP-initiated sign-on).
 
@@ -30,17 +28,19 @@ Before your users can do any of the following for a specific application, you ne
 
 -   See an application appear on their [Office 365 Application Launcher](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## Methods to assign applications with Azure Active Directory 
+## Prerequisites
+Before you can assign users and groups to an application, you must require user assignment. To require user assignment:
 
-There are 3 ways you can assign applications with Azure Active Directory:
+1. Log in to the Azure portal with an administrator account.
+2. Click on the **All services** item in the main menu.
+3. Choose the directory you are using for the application.
+4. Click on the **Enterprise applications** tab.
+5. Select the application from the list of applications associated with this directory.
+6. Click the **Properties** tab.
+7. Change the **User assignment required?** toggle to Yes.
+8. Click the **Save** button at the top of the screen.
 
--   [Assign a user directly to an application as an administrator](#assign-a-user-directly-as-an-administrator)
-
--   [Assign a group directly to an application as an administrator](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Enable self-service application access to allow users to find their own applications](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## Assign a user directly as an administrator
+## Assign users
 
 To assign one or more users to an application directly, follow the steps below:
 
@@ -54,7 +54,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to assign a user to from the list.
 
@@ -78,7 +78,7 @@ To assign one or more users to an application directly, follow the steps below:
 
 After a short period of time, the users you have selected be able to launch these applications using the methods described in the solution description section.
 
-## Assign a group directly to an application as an administrator
+## Assign groups
 
 To assign one or more groups to an application directly, follow the steps below:
 
@@ -92,7 +92,7 @@ To assign one or more groups to an application directly, follow the steps below:
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to assign a user to from the list.
 
@@ -116,31 +116,31 @@ To assign one or more groups to an application directly, follow the steps below:
 
 After a short period of time, the users within the groups you have selected be able to launch these applications using the methods described in the solution description section. If these are dynamic groups, there may be some additional processing delay in these assignments appearing for users within these assigned groups.
 
-## Enable self-service application access to allow users to find their own applications
+## Enable self-service application access
 
 Self-service application access is a great way to allow users to self-discover applications, optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for Password Single-Sign On Applications right from their access panels.
 
 To enable self-service application access to an application, follow the steps below:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to enable Self-service access to from the list.
+6. Select the application you want to enable Self-service access to from the list.
 
-7.  Once the application loads, click **Self-service** from the application’s left hand navigation menu.
+7. Once the application loads, click **Self-service** from the application’s left hand navigation menu.
 
-8.  To enable Self-service application access for this application, turn the **Allow users to request access to this application?** toggle to **Yes.**
+8. To enable Self-service application access for this application, turn the **Allow users to request access to this application?** toggle to **Yes.**
 
-9.  Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
+9. Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
 
 10. **Optional:** If you wish to require a business approval before users are allowed access, set the **Require approval before granting access to this application?** toggle to **Yes**.
 
@@ -148,10 +148,10 @@ To enable self-service application access to an application, follow the steps be
 
 12. **Optional:** To specify the business approvers who are allowed to approve access to this application, click the selector next to the label **Who is allowed to approve access to this application?** to select up to 10 individual business approvers.
 
-  >[!NOTE]
-  >Groups are not supported.
-  >
-  >
+    >[!NOTE]
+    >Groups are not supported.
+    >
+    >
 
 13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, click the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
 

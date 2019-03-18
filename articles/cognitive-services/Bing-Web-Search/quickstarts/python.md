@@ -1,27 +1,32 @@
 ---
 title: "Quickstart: Perform a search with Python - Bing Web Search API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Python and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using Python, and receive a JSON response
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
-ms.author: erhopf
+ms.date: 03/12/2019
+ms.author: aahi
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
 ---
 
 # Quickstart: Use Python to call the Bing Web Search API  
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response in less than 10 minutes.  
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Python application sends a search request to the API, and shows the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Click the launch Binder badge:
+This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Select the launch binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
+
+## Prerequisites
+
+* [Python 2.x or 3.x](https://www.python.org/)
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Define variables
 
@@ -60,7 +65,7 @@ search_results = response.json()
 
 ## Format and display the response
 
-The `search_results` object includes the search results and metadata such as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
+The `search_results` object includes the search results and metadata like related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
 
 ```python
 from IPython.display import HTML
@@ -73,9 +78,9 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
-## Sample code on Github
+## Sample code on GitHub
 
-If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Manage Azure DC/OS cluster with Marathon REST API
+title: (DEPRECATED) Manage Azure DC/OS cluster with Marathon REST API
 description: Deploy containers to an Azure Container Service DC/OS cluster by using the Marathon REST API.
 services: container-service
 author: iainfoulds
@@ -12,7 +12,9 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# DC/OS container management through the Marathon REST API
+# (DEPRECATED) DC/OS container management through the Marathon REST API
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads. Although frameworks are available for many popular workloads, this document gets you started creating and scaling container deployments by using the Marathon REST API. 
 
@@ -125,8 +127,6 @@ From your tunneled connection, run the following command to scale out the applic
 
 > [!NOTE]
 > The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -184,14 +184,12 @@ Run the following command to scale out the application:
 
 > [!NOTE]
 > The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## Next steps
-* [Read more about the Mesos HTTP endpoints](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Read more about the Mesos HTTP endpoints](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Read more about the Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

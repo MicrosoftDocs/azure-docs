@@ -22,8 +22,8 @@ ms.author: jegeib
 | Product/Service | Article |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF- Do not include serviceDebug node in configuration file](#servicedebug)</li><li>[WCF- Do not include serviceMetadata node in configuration file](#servicemetadata)</li></ul> |
-| **Web API** | <ul><li>[Ensure that proper exception handling is done in ASP.NET Web API ](#exception)</li></ul> |
-| **Web Application** | <ul><li>[Do not expose security details in error messages ](#messages)</li><li>[Implement Default error handling page ](#default)</li><li>[Set Deployment Method to Retail in IIS](#deployment)</li><li>[Exceptions should fail safely](#fail)</li></ul> |
+| **Web API** | <ul><li>[Ensure that proper exception handling is done in ASP.NET Web API](#exception)</li></ul> |
+| **Web Application** | <ul><li>[Do not expose security details in error messages](#messages)</li><li>[Implement Default error handling page](#default)</li><li>[Set Deployment Method to Retail in IIS](#deployment)</li><li>[Exceptions should fail safely](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF- Do not include serviceDebug node in configuration file
 
@@ -68,7 +68,7 @@ Disable debugging information in the service. This can be accomplished by removi
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5, MVC 6 |
 | **Attributes**              | N/A  |
-| **References**              | [Exception Handling in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model Validation in ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **References**              | [Exception Handling in ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [Model Validation in ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Steps** | By default, most uncaught exceptions in ASP.NET Web API are translated into an HTTP response with status code `500, Internal Server Error`|
 
 ### Example
@@ -176,7 +176,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Check the links in the references section for additional details about exceptional handling and model validation in ASP.Net Web API 
+Check the links in the references section for additional details about exceptional handling and model validation in ASP.NET Web API 
 
 ## <a id="messages"></a>Do not expose security details in error messages
 

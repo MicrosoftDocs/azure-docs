@@ -1,5 +1,5 @@
 ---
-title: Cognitive search documentation resources (Azure Search) | Microsoft Docs
+title: Cognitive search documentation resources - Azure Search
 description: An annotated list of articles, tutorials, samples, and blog posts related to cognitive search workloads in Azure Search.
 services: search
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 # Documentation resources for cognitive search workloads
 
@@ -38,7 +39,7 @@ The following articles are the complete documentation for cognitive search.
   + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
-  + [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)

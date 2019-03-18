@@ -5,17 +5,18 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, GDPR, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/23/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 
 # User Privacy and Azure Active Directory Pass-through Authentication
@@ -67,7 +68,7 @@ To view logs related to the Pass-through Authentication Agent, open the **Event 
 
 ### Delete Authentication Agent trace log files
 
-You should regularly check the contents of **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** and delete the contents of this folder every 48 hours. 
+You should regularly check the contents of <strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\</strong> and delete the contents of this folder every 48 hours. 
 
 >[!IMPORTANT]
 >If the Authentication Agent service is running, you'll not be able to delete the current log file in the folder. Stop the service before trying again. To avoid user sign-in failures, you should have already configured Pass-through Authentication for [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
@@ -101,4 +102,4 @@ If audit logging is enabled, this product may generate security logs for your Do
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-- [**Troubleshoot**](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
+* [**Troubleshoot**](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

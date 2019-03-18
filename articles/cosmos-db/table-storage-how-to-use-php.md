@@ -1,16 +1,13 @@
 ---
-title: How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP | Microsoft Docs
+title: How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
 ---
 # How to use Azure Storage Table service or the Azure Cosmos DB Table API from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,19 +38,19 @@ In this guide, you use Storage Table service or Azure Cosmos DB features that ca
 ## Get the client library
 
 1. Create a file named composer.json in the root of your project and add the following code to it:
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
-2. Download [composer.phar](http://getcomposer.org/composer.phar) in your root. 
+   }
+   }
+   ```
+2. Download [composer.phar](https://getcomposer.org/composer.phar) in your root. 
 3. Open a command prompt and execute the following command in your project root:
-```
-php composer.phar install
-```
-Alternatively, go to the [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) on GitHub to clone the source code.
+   ```
+   php composer.phar install
+   ```
+   Alternatively, go to the [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) on GitHub to clone the source code.
 
 
 ## Add required references
@@ -505,7 +502,7 @@ Now that you've learned the basics of the Azure Table service and Azure Cosmos D
 * [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [download]: https://packagist.org/packages/microsoft/azure-storage-table
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 [table-service-timeouts]: https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations
 
 [table-data-model]: https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model

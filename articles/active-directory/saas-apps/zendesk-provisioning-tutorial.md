@@ -9,13 +9,14 @@ manager: beatrizd-msft
 
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Zendesk for automatic user provisioning
@@ -73,6 +74,10 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ### Important tips for assigning users to Zendesk
 
+*    Zendesk roles are automatically and dynamically populated in the Azure portal UI today. Before assigning Zendesk roles to users, ensure that an initial sync is completed against Zendesk to retrieve the latest roles in your Zendesk tenant.
+
+*    It is recommended that a single Azure AD user is assigned to Zendesk to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
+  
 *	It is recommended that a single Azure AD user is assigned to Zendesk to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 *	When assigning a user to Zendesk, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
@@ -102,14 +107,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Secret Token**, and **Domain** of your Zendesk's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk tenant. Example: admin@contoso.com.
+   * In the **Admin Username** field, populate the username of the admin account on your Zendesk tenant. Example: admin@contoso.com.
 
-	*   In the **Secret Token** field, populate the secret token as described in Step 6.
+   * In the **Secret Token** field, populate the secret token as described in Step 6.
 
-	*   In the **Domain** field, populate the subdomain of your Zendesk tenant.
-	Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
+   * In the **Domain** field, populate the subdomain of your Zendesk tenant.
+     Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
 
-6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**. 
+6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**.
+   Ensure that **Token Access** is set to  **Enabled**.
 
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
@@ -161,6 +167,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector Limitations
 * Zendesk supports usage of groups for Users with Agent roles only. For more information, please refer to [Zendesk's documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* When a custom role is assigned to a user and/or group, the Azure AD automatic user provisioning service will also assign the default role **Agent**. Only **Agents** can be assigned a custom role. For more information, refer to this [Zendesk API documentation](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## Additional resources
 

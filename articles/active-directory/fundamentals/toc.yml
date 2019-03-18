@@ -15,8 +15,8 @@
     href: active-directory-groups-view-azure-portal.md
 - name: 'Concepts'
   items:
-  - name: Azure identity management
-    href: identity-fundamentals.md
+  - name: Identity secure score
+    href: identity-secure-score.md 
   - name: Groups and access management
     href: active-directory-manage-groups.md
   - name: Group-based licensing
@@ -34,16 +34,18 @@
   items:
   - name: 'Organization'
     items:
-    - name: Sign up for Azure AD Premium
-      href: active-directory-get-started-premium.md    
     - name: Sign up for Azure AD as an organization
       href: sign-up-organization.md
+    - name: Sign up for Azure AD Premium
+      href: active-directory-get-started-premium.md    
     - name: Add a custom domain name
       href: add-custom-domain.md
     - name: Add company branding
       href: customize-branding.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
+    - name: Add your privacy info
+      href: active-directory-properties-area.md
   - name: 'Groups'
     items:
     - name: Create a group and add members
@@ -80,7 +82,5 @@
     href: active-directory-faq.md
   - name: Azure Active Directory deployment plans
     href: active-directory-deployment-plans.md
-  - name: Manage your Azure AD Directory
-    href: active-directory-administer.md
-  - name: Azure identity solutions
-    href: understand-azure-identity-solutions.md    
+  - name: Archive for What's new? in Azure AD
+    href: whats-new-archive.md    

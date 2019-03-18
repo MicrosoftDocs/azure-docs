@@ -1,10 +1,10 @@
-﻿---
+---
 title: Understanding Azure CDN billing | Microsoft Docs
 description: This FAQ describes how Azure CDN billing works.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: v-deasim
+ms.author: magattus
 
 ---
 # Understanding Azure CDN billing
@@ -36,7 +36,7 @@ A billing region is a geographic area used to determine what rate is charged for
 
 For information about point-of-presence (POP) regions, see [Azure CDN POP locations by region](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). For example, a POP located in Mexico is in the North America region and is therefore included in zone 1. 
 
-For information about Azure CDN pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+For information about Azure CDN pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## How are delivery charges calculated by region?
 The Azure CDN billing region is based on the location of the source server delivering the content to the end user. The destination (physical location) of the client is not considered the billing region.

@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with InTime | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and InTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: d4e2c6e1-ae5d-4d2c-8ffc-1b24534d376a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with InTime
 
@@ -35,7 +36,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with InTime, you need the following items:
 
 - An Azure AD subscription
-- A InTime single sign-on enabled subscription
+- An InTime single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -85,7 +86,7 @@ To configure and test Azure AD single sign-on with InTime, you need to complete 
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a InTime test user](#create-a-intime-test-user)** - to have a counterpart of Britta Simon in InTime that is linked to the Azure AD representation of user.
+1. **[Create an InTime test user](#create-a-intime-test-user)** - to have a counterpart of Britta Simon in InTime that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -165,7 +166,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a InTime test user
+### Create an InTime test user
 
 In this section, you create a user called Britta Simon in InTime. Work with [InTime support team](mailto:hdollard@intimesoft.com) to add the users in the InTime platform. Users must be created and activated before you use single sign-on.
 

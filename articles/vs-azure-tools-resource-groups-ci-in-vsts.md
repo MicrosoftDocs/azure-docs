@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous integration in Azure DevOps Services using Azure Resource Group projects | Microsoft Docs
 description: Describes how to set up continuous integration in Azure DevOps Services by using Azure Resource Group deployment projects in Visual Studio.
 services: visual-studio-online
@@ -88,7 +88,7 @@ The following procedures walk you through the steps necessary to configure conti
       For Azure CLI, use:
       
       `azure account show`
-   8. To get a Service Principal ID, Service Principal Key, and Tenant ID, follow the procedure in [Create Active Directory application and service principal using portal](resource-group-create-service-principal-portal.md) or [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
+   8. To get a Service Principal ID, Service Principal Key, and Tenant ID, follow the procedure in [Create Active Directory application and service principal using portal](active-directory/develop/howto-create-service-principal-portal.md) or [Authenticating a service principal with Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Add the Service Principal ID, Service Principal Key, and Tenant ID values to the **Add Azure Subscription** dialog box and then choose the **OK** button.
       
       You now have a valid Service Principal to use to run the Azure PowerShell script.
@@ -132,7 +132,7 @@ The following procedures walk you through the steps necessary to configure conti
 
 1. Edit your Azure DevOps Services build pipeline to add two new build steps. Choose the build pipeline under the **Build definitions** category and then choose the **Edit** link.
    
-   ![Edit build defintion][12]
+   ![Edit build definition][12]
 2. Add the new build steps to the build pipeline using the **Add build step…** button.
    
    ![Add build step][13]

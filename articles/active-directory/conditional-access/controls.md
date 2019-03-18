@@ -5,45 +5,44 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand the controls in conditional access so that I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the controls in conditional access so that I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 
-# What are access controls in Azure Active Directory conditional access? 
+# What are access controls in Azure Active Directory conditional access?
 
-With [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
+With [Azure Active Directory (Azure AD) conditional access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens").
 
 ![Control](./media/controls/10.png)
 
-
-In the context of conditional access, 
+In the context of conditional access,
 
 - "**When this happens**" is called **conditions**
 
 - "**Then do this**" is called **access controls**
 
-
 The combination of a condition statement with your controls represents a conditional access policy.
 
 ![Control](./media/controls/61.png)
 
-Each control is either a requirement that must be fulfilled by the person or system signing in, or a restriction on what the user can do after signing in. 
+Each control is either a requirement that must be fulfilled by the person or system signing in, or a restriction on what the user can do after signing in.
 
-There are two types of controls: 
+There are two types of controls:
 
 - **Grant controls** - To gate access
 
@@ -55,30 +54,32 @@ This topic explains the various controls that are available in Azure AD conditio
 
 With grant controls, you can either block access altogether or allow access with additional requirements by selecting the desired controls. For multiple controls, you can require:
 
-- All selected controls to be fulfilled (*AND*) 
+- All selected controls to be fulfilled (*AND*)
 - One selected control to be fulfilled (*OR*)
 
 ![Control](./media/controls/17.png)
 
-
-
 ### Multi-factor authentication
 
-You can use this control to require multi-factor authentication to access the specified cloud app. This control supports the following multi-factor providers: 
+You can use this control to require multi-factor authentication to access the specified cloud app. This control supports the following multi-factor providers:
 
-- Azure Multi-Factor Authentication 
+- Azure Multi-Factor Authentication
 
 - An on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS).
- 
+
 Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the primary credentials of a valid user.
-
-
 
 ### Compliant device
 
-You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from [managed devices](require-managed-devices.md). Requiring a compliant device is one option you have to define what a managed device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are [registered](../devices/overview.md) to your Azure Active Directory and are marked as compliant by Intune (for any device OS) or by your third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported.
+You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to only grant access to the selected cloud apps from [managed devices](require-managed-devices.md). Requiring a device to be marked as compliant is one option you have to limit access to managed devices. A device can be marked as compliant by Intune (for any device OS) or by your third-party MDM system for Windows 10 devices. Third-party MDM systems for device OS types other than Windows 10 are not supported. 
 
-For more information, see [set up Azure Active Directory device-based conditional access policies](require-managed-devices.md).
+Your device needs to be registered to Azure AD before it can be marked as compliant. To register a device, you have three options: 
+
+- [Azure AD registered devices](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD joined devices](../devices/overview.md#azure-ad-joined-devices)  
+- [Hybrid Azure AD joined devices](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+For more information, see [how to require managed devices for cloud app access with conditional access](require-managed-devices.md).
 
 ### Hybrid Azure AD joined device
 
@@ -86,25 +87,18 @@ Requiring a Hybrid Azure AD joined device is another option you have to configur
 
 For more information, see [set up Azure Active Directory device-based conditional access policies](require-managed-devices.md).
 
-
-
-
-
 ### Approved client app
 
 Because your employees use mobile devices for both personal and work tasks, you might want to have the ability to protect company data accessed using devices even in the case where they are not managed by you.
 You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data independent of any mobile-device management (MDM) solution.
 
-
 With approved client apps, you can require a client app that attempts to access your cloud apps to support [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app. A conditional access policy that requires approved client apps is  also known as [app-based conditional access policy](app-based-conditional-access.md). For a list of supported approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
-
 
 ### Terms of Use
 
-You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed. 
+You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed.
 
-
-### Custom controls 
+### Custom controls (preview)
 
 You can create custom controls in Conditional Access that redirect your users to a compatible service to satisfy further requirements outside of Azure Active Directory. This allows you to use certain external multi-factor authentication and verification providers to enforce Conditional Access rules, or to build your own custom service. To satisfy this control, a user’s browser is redirected to the external service, performs any required authentication or validation activities, and is then redirected back to Azure Active Directory. If the user was successfully authenticated or validated, the user continues in the Conditional Access flow. 
 
@@ -117,13 +111,12 @@ These controls allow the use of certain external or custom services as condition
 Providers currently offering a compatible service include:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-
+- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
-
+- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
+- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
-
 
 For more information on those services, contact the providers directly.
 
@@ -139,9 +132,7 @@ The option to create a custom control is in the **Manage** section of the **Cond
 
 Clicking **New custom control**, opens a blade with a textbox for the JSON data of your control.  
 
-
 ![Control](./media/controls/81.png)
-
 
 ### Deleting custom controls
 
@@ -157,9 +148,6 @@ To delete a custom control, you must first ensure that it isn’t being used in 
 
 To edit a custom control, you must delete the current control and create a new control with the updated information.
 
-
-
-
 ## Session controls
 
 Session controls enable limited experience within a cloud app. The session controls are enforced by cloud apps and rely on additional information provided by Azure AD to the app about the session.
@@ -168,13 +156,16 @@ Session controls enable limited experience within a cloud app. The session contr
 
 ### Use app enforced restrictions
 
-You can use this control to require Azure AD to pass the device information to the cloud app. This helps the cloud app know if the user is coming from a compliant device or domain joined device. This control is currently only supported with SharePoint as the cloud app. SharePoint uses the device information to provide users a limited or full experience depending on the device state.
-To learn more about how to require limited access with SharePoint, see [control access from unmanaged devices](https://aka.ms/spolimitedaccessdocs).
+You can use this control to require Azure AD to pass device information to the selected cloud apps. The device information enables the cloud apps to know whether a connection is initiated from a compliant or domain-joined device. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users, depending on the device state, with a limited or full experience.
 
+To learn more, see:
 
+- [Enabling limited access with SharePoint Online](https://aka.ms/spolimitedaccessdocs)
+
+- [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## Next steps
 
 - If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
+- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md).

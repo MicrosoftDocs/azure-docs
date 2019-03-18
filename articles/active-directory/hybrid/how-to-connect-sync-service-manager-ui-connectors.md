@@ -4,7 +4,7 @@ description: Understand the Connectors tab in the Synchronization Service Manage
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
 # Using connectors with the Azure AD Connect Sync Service Manager
 
@@ -37,7 +38,7 @@ The Connectors tab is used to manage all systems the sync engine is connected to
 | Import Connector |Do not use. |
 | Update Connector |Do not use. |
 | Refresh Schema |Refreshes the cached schema. It is preferred to use the option in the installation wizard instead, since that also updates sync rules. |
-| [Search Connector Space](#search-connector-space) |Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
+| [Search Connector Space](#search-connector-space) |Used to find objects and to Follow an object and its data through the system. |
 
 ### Delete
 The delete action is used for two different things.  
@@ -80,7 +81,7 @@ To resolve the issue, update the AD DS user account using the following:
 3. Select the AD Connector which is configured to use the AD DS account.
 4. Under Actions, select **Properties**.
 5. In the pop-up dialog, select Connect to Active Directory Forest:
-6. The Forest name indicates the corresponding on-prem AD.
+6. The Forest name indicates the corresponding on premises AD.
 7. The User name indicates the AD DS account used for synchronization.
 8. Enter the new password of the AD DS account in the Password textbox
 ![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)

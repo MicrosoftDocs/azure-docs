@@ -2,9 +2,10 @@
 title: Refactor a Contoso Linux service desk app to the Azure App Service and Azure MySQL | Microsoft Docs
 description: Learn how Contoso refactors on-premises Linux app by migrating it to Azure App Service using GitHub for Web Tier and Azure SQL Database.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
 ---
 
@@ -29,6 +30,7 @@ Article 10: Refactor a Linux app on Azure Web Apps and Azure MySQL | Contoso mig
 [Article 11: Refactor TFS on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
 [Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the database with Azure SQL Database. | Available
 [Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel360 app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available
+[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
 
 In this article, Contoso migrates a two-tier Linux Apache MySQL PHP (LAMP) service desk app (osTicket) to Azure. If you'd like to use this open-source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
 
@@ -102,7 +104,7 @@ Contoso will complete the migration process as follows:
 **Service** | **Description** | **Cost**
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | The service runs and scales applications using the Azure PaaS service for websites.  | Pricing is based on the size of the instances, and the features required. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
-[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | A load balancer that uses DNS to direct users to Azure, or external websites and services. | Pricing is based on the number of DNS queries received, and the number of monitored endpoints. | [Learn more](https://azure.microsoft.com/pricing/details/traffic-manager/).
+[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | A load balancer that uses DNS to direct users to Azure, or external websites and services. | Pricing is based on the number of DNS queries received, and the number of monitored endpoints. [Learn more](https://azure.microsoft.com/pricing/details/traffic-manager/).
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | The database is based on the open-source MySQL Server engine. It provides a fully managed, enterprise-ready community MySQL database, as a service for app development and deployment. | Pricing based on compute, storage, and backup requirements. [Learn more](https://azure.microsoft.com/pricing/details/mysql/).
 
  
@@ -156,7 +158,7 @@ Contoso admins provision two Web apps (one in each region) using Azure App Servi
 
 **Need more help?**
 
-- Learn about [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview).
+- Learn about [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/overview).
 - Learn about [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 
 
@@ -247,7 +249,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Tney can verify the server name and login from **Overview** in the MySQL instance in the Azure portal.
+11. They can verify the server name and login from **Overview** in the MySQL instance in the Azure portal.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 

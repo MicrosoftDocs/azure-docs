@@ -1,17 +1,15 @@
 ---
-title: Manage network interfaces in Azure Site Recovery for on-premises to Azure replication | Microsoft Docs
-description: Describes how to manage network interfaces for on-premises to Azure replication with Azure Site Recovery
-services: site-recovery
-author: mayanknayar
+title: Manage network interfaces in Azure Site Recovery for on-premises disaster recovery to Azure | Microsoft Docs
+description: Describes how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: mayg
 
 ---
-# Manage virtual machine network interfaces for on-premises to Azure replication
-
+# Manage virtual machine network interfaces for on-premises disaster recovery to Azure
 A virtual machine (VM) in Azure must have at least one network interface attached to it. It can have as many network interfaces attached to it as the VM size supports.
 
 By default, the first network interface attached to an Azure virtual machine is defined as the primary network interface. All other network interfaces in the virtual machine are secondary network interfaces. Also by default, all outbound traffic from the virtual machine is sent out the IP address that's assigned to the primary IP configuration of the primary network interface.

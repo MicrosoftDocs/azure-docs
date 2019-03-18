@@ -12,9 +12,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 01/14/2019
 ---
 
 # Quickstart: create a Linux server virtual machine by using Azure CLI in Azure Stack
@@ -41,8 +42,8 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure CLI.
 
 A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the [az group create](/cli/azure/group#az-group-create) command to create a resource group.
 
->[!NOTE]
- Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
+> [!NOTE]
+>  Values are assigned for all the variables in the code examples. However, you can assign new values if you want to.
 
 The following example creates a resource group named myResourceGroup in the local location.
 
@@ -69,7 +70,7 @@ The public IP address is returned in the **PublicIpAddress** parameter. Write do
 
 ## Open port 80 for web traffic
 
-Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm) command to open the desired port.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -77,7 +78,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## Use SSH to connect to the virtual machine
 
-From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](http://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
+From a client computer with SSH installed, connect to the virtual machine. If you're working on a Windows client, use [Putty](https://www.putty.org/) to create the connection. To connect to the virtual machine, use the following command:
 
 ```bash
 ssh <publicIpAddress>

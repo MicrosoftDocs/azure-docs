@@ -1,27 +1,29 @@
 ---
 
-title: Best practices for securing administrative access in Azure AD | Microsoft Docs
+title: Best practices for secure admin access - Azure Active Directory | Microsoft Docs
 description: Ensure that your organization’s administrative access and admin accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
 services: active-directory 
 keywords: 
 author: curtand
 manager: mtillman
+
 ms.author: curtand
-ms.date: 06/25/2018
+ms.date: 01/31/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.custom: it-pro
-ms.reviewer: martincoetzer, MarkMorow
+ms.reviewer: "martincoetzer; MarkMorow"
 
+ms.collection: M365-identity-device-management
 ---
 
 # Securing privileged access for hybrid and cloud deployments in Azure AD
 
-The security of most or all business assets in the modern organization depends on the integrity of the privileged accounts that administer and manage IT systems. Malicious actors including cyber-attackers often target admin accounts and other elements of privileged access to attempt to rapidly gain access to sensitive data and systems using credential theft attacks. For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer. For more information about the latest threats to endpoints and the cloud, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). This article can help you develop a roadmap toward closing the gaps between your current plans and the guidance described here.
+The security of most or all business assets in the modern organization depends on the integrity of the privileged accounts that administer and manage IT systems. Malicious actors including cyber-attackers often target admin accounts and other elements of privileged access to attempt to rapidly gain access to sensitive data and systems using credential theft attacks. For cloud services, prevention and response are the joint responsibilities of the cloud service provider and the customer. For more information about the latest threats to endpoints and the cloud, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). This article can help you develop a roadmap toward closing the gaps between your current plans and the guidance described here.
 
-> [!NOTE] 
+> [!NOTE]
 > Microsoft is committed to the highest levels of trust, transparency, standards conformance, and regulatory compliance. Learn more about how the Microsoft global incident response team mitigates the effects of attacks against cloud services, and how security is built into Microsoft business products and cloud services at [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security) and Microsoft compliance targets at [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
@@ -79,9 +81,9 @@ Stage 1 of the roadmap is focused on critical tasks that are fast and easy to im
 
 #### Turn on Azure AD Privileged Identity Management
 
-If you have not already turned on Azure AD Privileged Identity Management (PIM), do so in your production tenant. After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly-privileged roles in your directory.
+If you have not already turned on Azure AD Privileged Identity Management (PIM), do so in your production tenant. After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
 
-Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. These solutions help you protect access to applications and resources across the on-premises environment and into the cloud. If you do not already have Azure AD Premium P2 or EMS E5 and wish to evaluate more of the capabilities referenced in this roadmap, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use these license trials to try Azure AD Privileged Identity Management and Azure AD Identity Protection, to monitor activity using Azure AD advanced security reporting, auditing, and alerts.
+Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. These solutions help you protect access to applications and resources across the on-premises environment and into the cloud. If you don't already have Azure AD Premium P2 or EMS E5 and wish to evaluate more of the features referenced in this roadmap, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use these license trials to try Azure AD Privileged Identity Management and Azure AD Identity Protection, to monitor activity using Azure AD advanced security reporting, auditing, and alerts.
 
 After you have turned on Azure AD Privileged Identity Management:
 
@@ -97,9 +99,9 @@ The first person to use Azure AD Privileged Identity Management in your tenant i
 
 #### Identify and categorize accounts that are in highly privileged roles 
 
-After turning on Azure AD Privileged Identity Management, view the users who are in the directory roles Global administrator, Privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. If you do not have Azure AD PIM in your tenant, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role as this role is generic: a user who is assigned this admin role has the same permissions across all cloud services for which your organization has subscribed, regardless of whether they’ve been assigned this role in the Office 365 portal, the Azure portal, or by using the Azure AD module for Microsoft PowerShell. 
+After turning on Azure AD Privileged Identity Management, view the users who are in the directory roles Global administrator, Privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. If you do not have Azure AD PIM in your tenant, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role as this role is generic: a user who is assigned this admin role has the same permissions across all cloud services for which your organization has subscribed, regardless of whether they’ve been assigned this role in the Microsoft 365 admin center, the Azure portal, or by using the Azure AD module for Microsoft PowerShell. 
 
-Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
+Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to admin roles:
 
 * Individually assigned to administrative users, and can also be used for non-administrative purposes (for example, personal email)
 * Individually assigned to administrative users and designated for administrative purposes only
@@ -110,7 +112,7 @@ Remove any accounts that are no longer needed in those roles, and categorize the
 
 #### Define at least two emergency access accounts 
 
-Ensure that you do not get into a situation where they could be inadvertently locked out of the administration of your Azure AD tenant due to an inability to sign in or activate an existing individual user's account as an administrator. For example, if the organization is federated to an on-premises identity provider, that identity provider may be unavailable so users cannot sign in on-premises. You can mitigate the impact of accidental lack of administrative access by storing two or more emergency access accounts in your tenant.
+Make sure that you don't get into a situation where they could be inadvertently locked out of the administration of your Azure AD tenant due to an inability to sign in or activate an existing individual user's account as an administrator. For example, if the organization is federated to an on-premises identity provider, that identity provider may be unavailable so users cannot sign in on-premises. You can mitigate the impact of accidental lack of administrative access by storing two or more emergency access accounts in your tenant.
 
 Emergency access accounts help organizations restrict privileged access within an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to emergency for 'break glass' scenarios where normal administrative accounts cannot be used. Organizations must ensure the aim of controlling and reducing the emergency account's usage to only that time for which it is necessary. 
 
@@ -124,17 +126,17 @@ Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual us
 
 ![Stage 2](./media/directory-admin-roles-secure/stage-two.png)
 
-Stage 2 of the roadmap is focused on mitigating the most frequently used attack techniques of credential theft and abuse and is designed to be implemented in approximately 2-4 weeks. This stage of the Secured Privileged Access roadmap includes the following actions.
+Stage 2 of the roadmap focuses on mitigating the most frequently used attack techniques of credential theft and abuse and can be implemented in approximately 2-4 weeks. This stage of the Secured Privileged Access roadmap includes the following actions.
 
 ### General preparation
 
-#### Conduct a inventory of services, owners, and admins
+#### Conduct an inventory of services, owners, and admins
 
 With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/security-management-and-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD, including additional roles beyond those listed in Stage 1.
-* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the Office 365 admin center. Use the Office Admin Center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security best practices for Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
+* Beyond the roles defined in Azure AD, Office 365 comes with a set of admin roles that you can assign to users in your organization. Each admin role maps to common business functions, and gives people in your organization permissions to do specific tasks in the [Microsoft 365 admin center](https://admin.microsoft.com). Use the Microsoft 365 admin center to find out which users in your organization have admin access to Office 365, including via roles not managed in Azure AD. For more information, see [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) and [Security best practices for Office 365](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3).
 * Perform the inventory in other services your organization relies on, such as Azure, Intune, or Dynamics 365.
 * Ensure that your admin accounts (accounts that are used for administration purposes, not just users’ day-to-day accounts) have working email addresses attached to them and have registered for Azure MFA or use MFA on-premises.
 * Ask users for their business justification for administrative access.
@@ -164,9 +166,7 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA for high-exposure accounts](../authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
-* [MFA for every admin account associated with an individual user](../authentication/howto-mfa-userstates.md) for other connected SaaS apps 
-* MFA for all admins for Microsoft SaaS apps, including administrators in roles managed in Exchange Online and the Office portal
+* [MFA using conditional access policies](../authentication/howto-mfa-getstarted.md) for all users in your organization.
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
@@ -182,10 +182,9 @@ Secure Score figures out what Office 365 services you’re using (like OneDrive,
 
 The [plan for security and compliance](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) outlines the approach for how an Office 365 customer should configure Office 365 and leverage other EMS capabilities. Then, review steps 3-6 of how to [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) and the guide for how to [monitor security and compliance in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
-
 #### Configure Office 365 Activity Monitoring (if using Office 365)
 
-You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. For more information, see [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
+You can monitor how people in your organization are using Office 365 services, enabling you to identify users who have an administrative account and who may not need Office 365 access due to not signing into those portals. For more information, see [Activity reports in the Microsoft 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### Establish incident/emergency response plan owners
 
@@ -207,7 +206,7 @@ Microsoft accounts from other programs, such as Xbox, Live, and Outlook should n
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD 
@@ -244,7 +243,7 @@ Attackers may attempt to target privileged accounts to gain access to an organiz
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 
-The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more information, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+The National Institute of Standards and Technology’s (NIST) provides guidelines for incident handling, particularly for analyzing incident-related data and determining the appropriate response to each incident. For more information, see [The (NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
@@ -334,7 +333,7 @@ In addition to managing your privileged access accounts, we recommend you review
 * Only grant privileged access when needed, and remove it afterward (just-in-time).
 * Retain and review audit activity relating to privileged accounts.
 
-For more information on building a complete security roadmap, see [Microsoft cloud IT architecture resources](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or see [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+For more information on building a complete security roadmap, see [Microsoft cloud IT architecture resources](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or see [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 This final ongoing stage of the Secured Privileged Access roadmap includes the following components.
 
@@ -385,7 +384,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
-For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](http://aka.ms/Office365SIM).
+For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
 
 ## FAQ: Common questions we receive regarding securing privileged access  
 

@@ -1,19 +1,19 @@
 ---
-title: Use Azure Database Migration Service module in Microsoft Azure PowerShell to migrate SQL Server on-premises to Azure SQL DB | Microsoft Docs
-description: Learn to migrate from on-premises SQL Server to Azure SQL by using Azure PowerShell.
+title: Migrate SQL Server to Azure SQL Database with Database Migration Service and PowerShell | Microsoft Docs
+description: Learn to migrate from on-premises SQL Server to Azure SQL Database by using Azure PowerShell.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 03/12/2019
 ---
 
-# Migrate SQL Server on-premises to Azure SQL DB using Azure PowerShell
+# Migrate SQL Server on-premises to Azure SQL Database using Azure PowerShell
 In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to Azure SQL Database by using the `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
@@ -32,7 +32,7 @@ To complete these steps, you need:
 - An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 - To have created a VNET by using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [ Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
+- To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
 - To download and install the AzureRM.DataMigration module from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); be sure to open the powershell command window using run as an Administrator.
 - To ensure that the credentials used to connect to source SQL Server instance has the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
 - To ensure that the credentials used to connect to target Azure SQL DB instance has the CONTROL DATABASE permission on the target Azure SQL Database databases.
@@ -57,7 +57,7 @@ This cmdlet expects the following required parameters:
 - *Azure Resource Group name*. You can use [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) command to create Azure Resource group as previously shown and provide its name as a parameter.
 - *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service 
 - *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia
-- *Sku*. This parameter corresponds to DMS Sku name. Currently supported Sku names are *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *Sku*. This parameter corresponds to DMS Sku name. The currently supported Sku name is *GeneralPurpose_4vCores*.
 - *Virtual Subnet Identifier*. You can use cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) to create a subnet. 
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and  subnet called *MySubnet*.
@@ -200,6 +200,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## Deleting the DMS instance
+After the migration is complete, you can delete the Azure DMS instance:
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## Next steps

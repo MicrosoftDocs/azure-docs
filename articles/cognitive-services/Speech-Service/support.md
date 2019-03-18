@@ -1,18 +1,21 @@
 ---
 title: Support and help options
-description: Know how to obtain help and support for questions and problems when you create applications that integrate with Azure Cognitive Services Speech
+titlesuffix: Azure Cognitive Services
+description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
 services: cognitive-services
 author: wolfma61
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.subservice: speech-service
+ms.topic: conceptual
 ms.date: 07/26/2018
-ms.author: wolfma 
+ms.author: wolfma
 ---
 
 # Support and help options
 
-Are you just starting to explore the functionality of the Speech service? Are you implementing a new feature to your application? Here are suggestions about where you can get help as a developer.
+Are you just starting to explore the functionality of the Speech Services? Are you implementing a new feature to your application? Here are suggestions about where you can get help as a developer.
 
 > [!div class="checklist"]
 > * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to *Speech service*.
@@ -23,7 +26,7 @@ Are you just starting to explore the functionality of the Speech service? Are yo
 
 ## Stay informed
 
-News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). For the latest information about Speech service, track the [Speech service blog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
+News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## Search
 
@@ -39,6 +42,13 @@ For faster results, scope your search to Stack Overflow, the documentation, and 
 
 Where *{Your Search Terms}* is your search keywords.
 
+## Create an Azure support request
+
+Azure customers can create and manage support requests in the Azure portal.
+
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal for the United States government](https://portal.azure.us)
+
 ## Post a question to Stack Overflow
 
 Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
@@ -47,11 +57,11 @@ If you can't find an answer to your problem via search, submit a new question to
 
 |Component/Area  |Tags  |
 |---------|---------|
-|Speech Recognition |[[microsoft-cognitive+speech-to-text]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Speech Synthesis |[[microsoft-cognitive+text-to-speech]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Speech Translation |[[microsoft-cognitive+translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Speech Intent |[[microsoft-cognitive+luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Speech Recognition |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Speech Synthesis |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Speech Intent |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
@@ -62,8 +72,41 @@ If you can't find an answer to your problem via search, submit a new question to
 
 Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following list contains links to the sample repositories:
 
-* [Speech SDK](https://aka.ms/csspeech/samples)
-* [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+You can create a bug report, feature request, or ask an general question and share best practices. For bug reports, please follow the provided template:
+
+**Describe the bug**
+
+A clear and concise description of what the bug is.
+
+**To Reproduce**
+
+Steps to reproduce the behavior:
+1. ...
+2. ...
+
+**Expected behavior**
+
+A clear and concise description of what you expected to happen.
+
+**Version of the Cognitive Services Speech SDK**
+
+Which version of the SDK are you using.
+
+**Platform, Operating System, and Programming Language**
+
+ - OS: [e.g. Windows, Linux, Android, iOS, ...] - please be specific
+ - Hardware - x64, x86, ARM, ...
+ - Browser  [e.g. Chrome, Safari] (if applicable)- please be specific
+
+**Additional context**
+
+ - Error messages, log information, stack trace, ...
+ - If you report an error for a specific service interaction, please report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
+ - Any other additional information
+
 
 ## UserVoice forum
 

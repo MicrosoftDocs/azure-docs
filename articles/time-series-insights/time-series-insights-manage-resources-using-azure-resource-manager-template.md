@@ -1,5 +1,5 @@
 ﻿---
-title: How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs
+title: 'How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs'
 description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
+ms.custom: seodec18
 ---
 # Create Time Series Insights resources using Azure Resource Manager templates
 
 This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
 
 Time Series Insights supports the following resources:
+
    | Resource | Description |
    | --- | --- |
    | Environment | A Time Series Insights environment is a logical grouping of events which are read from event brokers, stored, and made available for query. For more information see [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
@@ -27,6 +29,7 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 
 - [Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
@@ -57,7 +60,7 @@ To create a parameters file, copy the [201-timeseriesinsights-environment-with-e
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -108,7 +111,7 @@ As an example, the following parameters file would be used to create an environm
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -260,7 +263,7 @@ Outputs                 :
 The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) or [optional parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## Next steps

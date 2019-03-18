@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with HR2day by Merces
 
@@ -85,11 +86,11 @@ In HR2day by Merces, assign the **user name** in Azure AD to  **Username** to es
 
 To configure and test Azure AD single sign-on with HR2day by Merces, you need to complete the following building blocks:
 
-1. [Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on): Enable your users to use this feature.
-1. [Create an Azure AD test user](#creating-an-azure-ad-test-user): Test Azure AD single sign-on with Britta Simon.
-1. [Create an HR2day by Merces test user](#creating-an-hr2day-by-merces-test-user): Create a counterpart of Britta Simon in HR2day by Merces that is linked to the Azure AD representation of user.
-1. [Assign the Azure AD test user](#assigning-the-azure-ad-test-user): Enable Britta Simon to use Azure AD single sign-on.
-1. [Test single sign-on](#testing-single-sign-on): Verify whether the configuration works.
+1. Configure Azure AD single sign-on: Enable your users to use this feature.
+1. Create an Azure AD test user: Test Azure AD single sign-on with Britta Simon.
+1. Create an HR2day by Merces test user: Create a counterpart of Britta Simon in HR2day by Merces that is linked to the Azure AD representation of user.
+1. Assign the Azure AD test user: Enable Britta Simon to use Azure AD single sign-on.
+1. Test single sign-on: Verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -128,8 +129,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure single sign-on](./media/hr2day-tutorial/tutorial_hr2day_00.png)
 	
-	> [!NOTE] 
-    Before you can configure the SAML assertion, you must contact the [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section.	
+   > [!NOTE]
+   >  Before you can configure the SAML assertion, you must contact the [HR2day by Merces Client support team](mailto:servicedesk@merces.nl) and request the value of the unique identifier attribute for your tenant. You need this value to complete the steps in the next section. 
 
 1. In the **Single sign-on** dialog box, in the **User Attributes** section, configure the SAML token attribute as shown in the following image. Then take the following steps.
 	
@@ -170,7 +171,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	> [!TIP]
    	>You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab. Then access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature in the [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+   > 
 
 ### Create an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.

@@ -1,25 +1,26 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+title: Configure hybrid Azure Active Directory join for managed domains | Microsoft Docs
+description: Learn how to configure hybrid Azure Active Directory join for managed domains.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
-#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains
 
@@ -51,7 +52,9 @@ This tutorial assumes that you are familiar with:
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
   
 
-To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
+To configure the scenario in this article, you need:
+
+- The [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
 
 Verify that Azure AD Connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well.
 
@@ -66,7 +69,7 @@ Hybrid Azure AD join requires the devices to have access to the following Micros
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
 
-If your organization requires access to the Internet via an outbound proxy, starting with Windows 10 1709, you can configure proxy settings on your computer using a group policy object (GPO). If your computer is running anything older than Windows 10 1709, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to do device registration with Azure AD. 
+If your organization requires access to the Internet via an outbound proxy, starting with Windows 10 1709, you can [configure proxy settings on your computer using a group policy object (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). If your computer is running anything older than Windows 10 1709, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to do device registration with Azure AD. 
 
 If your organization requires access to the Internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration using machine context, it is necessary to configure outbound proxy authentication using machine context. Follow up with your outbound proxy provider on the configuration requirements. 
 
@@ -138,6 +141,11 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
+- Configure Seamless Single Sign-On (SSO)
+
+- Control Windows down-level devices 
+
+
 ### Update device settings 
 
 To register Windows down-level devices, you need to make sure that the device settings to allow users to register devices in Azure AD are set. In the Azure portal, you can find this setting  under:
@@ -154,13 +162,24 @@ The following policy must be set to **All**: **Users may register their devices 
 
 ### Configure the local intranet settings for device registration
 
-To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
+To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 
 - `https://autologon.microsoftazuread-sso.com`.
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
+
+
+### Configure Seamless SSO
+
+To successfully complete hybrid Azure AD join of your Windows down-level devices in a managed domain that is using Pass-through Authentication (PTA) or Password Hash Sync (PHS) as your Azure AD cloud authentication method, you must also [configure Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## Verify the registration
 
@@ -170,7 +189,7 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device id** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
-- The value for **Enabled** must be **True** for devices that are used in conditional access. 
+- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access. 
 
 
 **To check the service details:**

@@ -1,23 +1,19 @@
 ---
-title: Azure Cosmos DB Table API for Python | Microsoft Docs
+title: Azure Cosmos DB Table API for Python
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-editor: ''
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: sngun
-ms.custom: 
+author: wmengmsft
+ms.author: wmeng
 
 ---
 # Azure Cosmos DB Table API SDK for Python: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
@@ -26,10 +22,10 @@ ms.custom:
 |   |   |
 |---|---|
 |**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**API documentation**|[Python API reference documentation](https://azure.github.io/azure-cosmosdb-python/)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.

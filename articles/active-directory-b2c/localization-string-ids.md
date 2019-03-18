@@ -1,16 +1,16 @@
 ---
 title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
-description: Specify the the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
+description: Specify the IDs for a content definition with an Id of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Localization string IDs
@@ -29,7 +29,7 @@ The following Ids are used for a content definition with an ID of `api.signupors
 | **logonIdentifier_email** | Email Address |
 | **requiredField_email** | Please enter your email |
 | **invalid_email** | Please enter a valid email address |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Sign in with your user name |
 | **logonIdentifier_username** | Username |
 | **requiredField_username** | Please enter your user name |

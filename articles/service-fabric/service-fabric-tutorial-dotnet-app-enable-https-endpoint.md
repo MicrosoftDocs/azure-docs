@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -50,10 +50,10 @@ Before you begin this tutorial:
 
 ## Obtain a certificate or create a self-signed development certificate
 
-For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My` certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=localhost":
+For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority). For development and test purposes, you can create and use a self-signed certificate. The Service Fabric SDK provides the *CertSetup.ps1* script, which creates a self-signed certificate and imports it into the `Cert:\LocalMachine\My` certificate store. Open a command prompt as administrator and run the following command to create a cert with the subject "CN=mytestcert":
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 If you already have a certificate PFX file, run the following to import the certificate into the `Cert:\LocalMachine\My` certificate store:
@@ -79,8 +79,8 @@ Launch Visual Studio as an **administrator** and open the Voting solution. In So
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -114,7 +114,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-Update the `ServiceInstanceListener` to use the new *EndpointHttps* endpoint and listen on port 443.
+Update the `ServiceInstanceListener` to use the new *EndpointHttps* endpoint and listen on port 443. When configuring the web host to use Kestrel server, you must configure Kestrel to listen for IPv6 addresses on all network interfaces: `opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`.
 
 ```csharp
 new ServiceInstanceListener(
@@ -154,7 +154,9 @@ serviceContext =>
         }))
 ```
 
-Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.  Replace "&lt;your_CN_value&gt;" with "localhost" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
+Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.  
+
+Replace "&lt;your_CN_value&gt;" with "mytestcert" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -187,8 +189,8 @@ In Solution Explorer, open *VotingWeb/PackageRoot/ServiceManifest.xml*.  In the 
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -228,12 +230,13 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 Modify the *Setup.bat* file properties to set **Copy to Output Directory** to "Copy if newer".
+
 ![Set file properties][image1]
 
 In Solution Explorer, right-click **VotingWeb** and select **Add**->**New Item** and add a new file named "SetCertAccess.ps1".  Edit the *SetCertAccess.ps1* file and add the following script:
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -277,8 +280,9 @@ if ($cert -eq $null)
     }
 }
 
-#Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 
 ### Run the setup script as a local administrator
 
@@ -289,7 +293,7 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -333,7 +337,7 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 
 ## Run the application locally
 
-In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https://localhost:443".
+In Solution Explorer, select the **Voting** application and set the **Application URL** property to "<https://localhost:443>".
 
 Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to [https://localhost:443](https://localhost:443). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
@@ -341,9 +345,9 @@ Save all files and hit F5 to run the application locally.  After the application
 
 ## Install certificate on cluster nodes
 
-Before deploying the application to the Azure, install the certificate into the `Cert:\LocalMachine\My` store of the remote cluster nodes.  When the front-end web service starts on a cluster node, the startup script will lookup the certificate and configure access permissions.
+Before deploying the application to the Azure, install the certificate into the `Cert:\LocalMachine\My` store of all the remote cluster nodes.  Services can move to different nodes of the cluster.  When the front-end web service starts on a cluster node, the startup script will lookup the certificate and configure access permissions.
 
-First, export the certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**.  Right-click on the *localhost* certificate, and select **All Tasks**>**Export**.
+First, export the certificate to a PFX file. Open the certlm.msc application and navigate to **Personal**>**Certificates**.  Right-click on the *mytestcert* certificate, and select **All Tasks**>**Export**.
 
 ![Export certificate][image4]
 

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 03/15/2019
 ms.author: sedusch
 
 ---
@@ -156,11 +156,11 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
    Set max update domain
 1. Create Virtual Machine 1  
    Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
    Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Select Availability Set created earlier  
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
@@ -204,6 +204,9 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
          * Repeat the steps above for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
       1. Additional ports for the ASCS ERS
          * Repeat the steps above for ports 33**02**, 5**02**13, 5**02**14, 5**02**16 and TCP for the ASCS ERS
+
+> [!IMPORTANT]
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### Create Pacemaker cluster
 
@@ -252,6 +255,30 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo yum -y install glusterfs-fuse resource-agents resource-agents-sap
    </code></pre>
+
+1. **[A]** Check version of resource-agents-sap
+
+   Make sure that the version of the installed resource-agents-sap package is at least 3.9.5-124.el7
+   <pre><code>sudo yum info resource-agents-sap
+   
+   # Loaded plugins: langpacks, product-id, search-disabled-repos
+   # Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
+   # Installed Packages
+   # Name        : resource-agents-sap
+   # Arch        : x86_64
+   # Version     : <b>3.9.5</b>
+   # Release     : <b>124.el7</b>
+   # Size        : 100 k
+   # Repo        : installed
+   # From repo   : rhel-sap-for-rhel-7-server-rpms
+   # Summary     : SAP cluster resource agents and connector script
+   # URL         : https://github.com/ClusterLabs/resource-agents
+   # License     : GPLv2+
+   # Description : The SAP resource agents and connector script interface with
+   #          : Pacemaker to allow SAP instances to be managed in a cluster
+   #          : environment.
+   </code></pre>
+
 
 1. **[A]** Add mount entries
 
@@ -691,7 +718,7 @@ Follow these steps to install an SAP application server.
    
    [root@nw1-cl-0 ~]# pcs resource clear rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 

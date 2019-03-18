@@ -4,7 +4,7 @@ description: This article demonstrates how to customize security center assessme
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 18/30/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
 
 ---
@@ -29,7 +29,7 @@ Azure Security Center monitors security configurations by applying a set of [ove
 By customizing the rules, organizations can control which configuration options are more appropriate for their environment. You can set a customized assessment policy and then apply it on all applicable machines in the subscription.
 
 > [!NOTE]
-> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, and 2012 R2 operating systems only.
+> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, 2012 R2, and 2016 operating systems only.
 > - The configuration applies to all VMs and computers that are connected to all workspaces under the selected subscription.
 > - OS security configuration customization is available only on the Security Center standard tier.
 >
@@ -57,7 +57,7 @@ To customize the default OS security configuration in Security Center, do the fo
 3.  In the row of the subscription you want to customize, click **Edit settings**.
 
 4. Select **Edit security configurations**.  
-    
+
     ![The "Edit security configurations" window](media/security-center-customize-os-security-config/blade.png)
 
 5. Follow the steps to download, edit, and upload the modified file.
@@ -118,7 +118,7 @@ For a list of other potential errors, see [Error codes](#error-codes).
 The following three sections contain examples of the preceding rules. The *expectedValue* and *state* attributes can be changed.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -141,7 +141,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -158,7 +158,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -213,7 +213,7 @@ New custom rules are marked with a new custom source (!= "Microsoft"). The *rule
 Example of a new custom rule:
 
 **Registry**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -222,7 +222,7 @@ Example of a new custom rule:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -230,7 +230,7 @@ Example of a new custom rule:
     }
 ```
 **Security policy**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -245,7 +245,7 @@ Example of a new custom rule:
    }
 ```
 **Audit policy**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -272,7 +272,7 @@ All potential errors are listed in the following table:
 
 | **Error**                                | **Description**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
 | BaselineInvalidStringError               | The property *{0}* cannot contain *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | The baseline configuration rules list contains a rule with value *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |

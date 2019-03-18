@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: fbb76765-92d7-4801-9833-573b11b4d910
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SumoLogic
 
@@ -112,6 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantname>.SumoLogic.com`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<tenantname>.us2.sumologic.com` |

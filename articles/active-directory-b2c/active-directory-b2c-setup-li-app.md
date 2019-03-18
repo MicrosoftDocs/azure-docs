@@ -1,23 +1,23 @@
-﻿---
-title: Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C | Microsoft Docs
+---
+title: Set up sign-up and sign-in with a LinkedIn account - Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with LinkedIn accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C
 
 ## Create a LinkedIn application
 
-To use a LinkedIn account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a LinkedIn account, you can get it at [https://www.linkedin.com/](https://www.linkedin.com/).
+To use a LinkedIn account as an [identity provider](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a LinkedIn account, you can get it at [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Sign in to the [LinkedIn Developers website](https://www.developer.linkedin.com/) with your LinkedIn account credentials.
 2. Select **My Apps**, and then click **Create Application**.
@@ -29,10 +29,7 @@ To use a LinkedIn account as an identity provider in Azure Active Directory (Azu
 ## Configure a LinkedIn account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-li-app/switch-directories.png)
-
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Provide a **Name**. For example, enter *LinkedIn*.

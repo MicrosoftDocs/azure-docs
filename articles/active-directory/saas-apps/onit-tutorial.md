@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Onit | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Onit.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: bc479a28-8fcd-493f-ac53-681975a5149c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Onit
 
@@ -228,11 +229,11 @@ In the case of Onit, provisioning is a manual task.
    
    ![Add User](./media/onit-tutorial/IC791181.png "Add User")
    
-  1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
-  1. Click **Create**.    
+   1. Type the **Name** and the **Email Address** of a valid Azure AD account you want to provision into the related textboxes.
+   1. Click **Create**.    
    
- > [!NOTE]
- > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
+   > [!NOTE]
+   > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
 ### Assign the Azure AD test user
 

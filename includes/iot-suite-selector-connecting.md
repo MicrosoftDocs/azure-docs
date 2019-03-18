@@ -32,11 +32,11 @@ The sample device also:
 * Responds to actions triggered from the **Devices** page in the solution.
 * Responds to configuration changes send from the **Devices** page in the solution.
 
-To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Before you start
 
-Before you write any code for your device, deploy your Remote Monitoring solution accelerator and add a new physical device to the solution.
+Before you write any code for your device, deploy your Remote Monitoring solution accelerator and add a new real device to the solution.
 
 ### Deploy your Remote Monitoring solution accelerator
 
@@ -51,13 +51,13 @@ When the deployment process for the Remote Monitoring solution finishes, click *
 > [!NOTE]
 > If you have already added a device in your solution, you can skip this step. However, the next step requires your device connection string. You can retrieve a device's connection string from the [Azure portal](https://portal.azure.com) or using the [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI tool.
 
-For a device to connect to the solution accelerator, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device the solution. You include the device connection string in your client application later in this tutorial.
+For a device to connect to the solution accelerator, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device to the solution. You include the device connection string in your client application later in this tutorial.
 
-To add a device to your Remote Monitoring solution, complete the following steps on the **Devices** page in the solution:
+To add a device to your Remote Monitoring solution, complete the following steps on the **Device Explorer** page in the solution:
 
-1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
+1. Choose **+ New device**, and then choose **Real** as the **Device type**:
 
-    ![Add a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Add a real device](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Enter **Physical-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
 
@@ -67,7 +67,7 @@ To add a device to your Remote Monitoring solution, complete the following steps
 
     ![Retrieve credentials](media/iot-suite-selector-connecting/credentials.png)
 
-You've now added a physical device to the Remote Monitoring solution accelerator and noted its device connection string. In the following sections, you implement the client application that uses the device connection string to connect to your solution.
+You've now added a real device to the Remote Monitoring solution accelerator and noted its device connection string. In the following sections, you implement the client application that uses the device connection string to connect to your solution.
 
 The client application implements the built-in **Chiller** device model. A solution accelerator device model specifies the following about a device:
 
