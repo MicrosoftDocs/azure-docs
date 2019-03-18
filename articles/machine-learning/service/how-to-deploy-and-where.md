@@ -203,7 +203,7 @@ Images are versioned automatically when you register multiple images with the sa
 
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a id="deploy"></a> Deploy the image
+## <a id="deploy"></a> Deploy as a web service
 
 When you get to deployment, the process is slightly different depending on the compute target that you deploy to. Use the information in the following sections to learn how to deploy to:
 
@@ -387,89 +387,9 @@ Project Brainwave makes it possible to achieve ultra-low latency for real-time i
 
 For a walkthrough of deploying a model using Project Brainwave, see the [Deploy to a FPGA](how-to-deploy-fpga-web-service.md) document.
 
-### <a id="iotedge"></a> Deploy to Azure IoT Edge
+## Define schema
 
-An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Using the Azure IoT Hub, you can deploy machine learning models to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
-
-Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
-
-> [!IMPORTANT]
-> The information in this section assumes that you are already familiar with Azure IoT Hub and Azure IoT Edge modules. While some of the information in this section is specific to Azure Machine Learning service, the majority of the process to deploy to an edge device happens in the Azure IoT service.
->
-> If you are unfamiliar with Azure IoT, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/) and [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) for basic information. Then use the other links in this section to learn more about specific operations.
-
-#### Set up your environment
-
-* A development environment. For more information, see the [How to configure a development environment](how-to-configure-environment.md) document.
-
-* An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
-
-* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
-
-#### <a id="getcontainer"></a> Get the container registry credentials
-
-To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
-
-You can get the credentials in two ways:
-
-+ **In the Azure portal**:
-
-  1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
-
-  1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
-
-     ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
-
-  1. Once in the container registry, select **Access Keys** and then enable the admin user.
-
-     ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
-
-  1. Save the values for **login server**, **username**, and **password**.
-
-+ **With a Python script**:
-
-  1. Use the following Python script after the code you ran above to create a container:
-
-     ```python
-     # Getting your container details
-     container_reg = ws.get_details()["containerRegistry"]
-     reg_name=container_reg.split("/")[-1]
-     container_url = "\"" + image.image_location + "\","
-     subscription_id = ws.subscription_id
-     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
-     from azure.mgmt import containerregistry
-     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
-     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
-     username = result.username
-     password = result.passwords[0].value
-     print('ContainerURL{}'.format(image.image_location))
-     print('Servername: {}'.format(reg_name))
-     print('Username: {}'.format(username))
-     print('Password: {}'.format(password))
-     ```
-  1. Save the values for ContainerURL, servername, username, and password.
-
-     These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
-
-#### Prepare the IoT device
-
-Register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
-
-Other methods of registering a device are:
-
-* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
-
-#### Deploy the model to the device
-
-To deploy the model to the device, use the registry information gathered in the [Get container registry credentials](#getcontainer) section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
-
-You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) and [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
-
-## Deploy with Swagger schema support
-
-Custom decorators can be used for automatic Swagger schema generation and input type manipulation when deploying the web service. In the `score.py` file, you provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to auto-generate the schema. The following types are currently supported:
+Custom decorators can be used for [OpenAPI](https://swagger.io/docs/specification/about/) specification generation and input type manipulation when deploying the web service. In the `score.py` file, you provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to auto-generate the schema. The following types are currently supported:
 
 * `pandas`
 * `numpy`
@@ -529,7 +449,29 @@ service.wait_for_deployment(show_output=True)
 print(service.swagger_uri)
 ```
 
-## Testing web service deployments
+
+
+When you create a new image, you must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+
+```python
+from azureml.core.webservice import Webservice
+from azureml.core.image import Image
+
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
+
+# Update the image used by the service
+service.update(image = new_image)
+print(service.state)
+```
+
+For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
+
+## Test web service deployments
 
 To test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
 
@@ -570,6 +512,86 @@ print(service.state)
 
 For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
 
+## <a id="iotedge"></a> Deploy to Azure IoT Edge
+
+An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Using the Azure IoT Hub, you can deploy machine learning models to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
+
+Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
+
+> [!IMPORTANT]
+> The information in this section assumes that you are already familiar with Azure IoT Hub and Azure IoT Edge modules. While some of the information in this section is specific to Azure Machine Learning service, the majority of the process to deploy to an edge device happens in the Azure IoT service.
+>
+> If you are unfamiliar with Azure IoT, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/) and [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) for basic information. Then use the other links in this section to learn more about specific operations.
+
+### Set up your environment
+
+* A development environment. For more information, see the [How to configure a development environment](how-to-configure-environment.md) document.
+
+* An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+
+* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+
+### <a id="getcontainer"></a> Get the container registry credentials
+
+To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
+
+You can get the credentials in two ways:
+
++ **In the Azure portal**:
+
+  1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
+
+  1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
+
+     ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Once in the container registry, select **Access Keys** and then enable the admin user.
+
+     ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. Save the values for **login server**, **username**, and **password**.
+
++ **With a Python script**:
+
+  1. Use the following Python script after the code you ran above to create a container:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. Save the values for ContainerURL, servername, username, and password.
+
+     These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
+
+### Prepare the IoT device
+
+Register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
+
+Other methods of registering a device are:
+
+* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
+### Deploy the model to the device
+
+To deploy the model to the device, use the registry information gathered in the [Get container registry credentials](#getcontainer) section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
+
+You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) and [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
+
 ## Clean up
 
 To delete a deployed web service, use `service.delete()`.
@@ -580,21 +602,9 @@ To delete a registered model, use `model.delete()`.
 
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## Troubleshooting
-
-* __If there are errors during deployment__, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
-
-* The logs may contain an error that instructs you to __set logging level to DEBUG__. To set the logging level, add the following lines to your scoring script, create the image, and then create a service using the image:
-
-    ```python
-    import logging
-    logging.basicConfig(level=logging.DEBUG)
-    ```
-
-    This change enables additional logging, and may return more information on why the error is occurring.
-
 ## Next steps
 
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-run-batch-predictions.md)

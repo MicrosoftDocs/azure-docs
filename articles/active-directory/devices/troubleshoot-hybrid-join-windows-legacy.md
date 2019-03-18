@@ -17,7 +17,7 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
-#Customer intent: As a IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.
+#Customer intent: As an IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.
 
 ms.collection: M365-identity-device-management
 ---
