@@ -113,9 +113,9 @@ dblink and postgres_fdw allow you to connect from one PostgreSQL server to anoth
 Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers.
 
 ## TimescaleDB
-TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads.
+TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/).
+[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/)
 
 ### Installing TimescaleDB
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's shared preload libraries requires a **server reboot** to take effect.
@@ -123,15 +123,15 @@ To install TimescaleDB, you need to include it in the server's shared preload li
 > [!NOTE]
 > TimescaleDB can be enabled on Azure Database for PostgreSQL versions 9.6 and 10
 
-Using the [Azure portal](https://portal.azure.com/)
+Using the [Azure portal](https://portal.azure.com/):
 
 1. Select your Azure Database for PostgreSQL server.
 
-2. On the left menu, select **Server Parameters**.
+2. On the sidebar, select **Server Parameters**.
 
 3. Search for the `shared_preload_libraries` parameter.
 
-4. Copy and paste the following as the value for `shared_preload_libraries`:
+4. Copy and paste the following as the value for `shared_preload_libraries`
 ```
 timescaledb
 ```
