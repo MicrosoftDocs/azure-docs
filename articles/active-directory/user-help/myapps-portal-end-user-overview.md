@@ -29,7 +29,7 @@ You can use your work or school account with the web-based **My Apps** portal, t
 |------|------------|
 |[Access and use the My Apps portal](myapps-portal-end-user-access.md)|Learn how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device.|
 |[Update your profile and account info](myapps-portal-end-user-update-profile.md)|Learn how to update the information included on the **Profile** page of the **My Apps** portal.|
-|[View your Groups information](myapps-portal-end-user-groups.md)|Learn how to view and manage your groups-related information on the **Groups** page of the **My Apps** portal.|
+|[Update your Groups info](myapps-portal-end-user-groups.md)|Learn how to view and manage your groups-related information on the **Groups** page of the **My Apps** portal.|
 |[Perform your own access reviews](myapps-portal-end-user-access-reviews.md)|Learn how to view and perform access reviews to allow or deny user or group access to your organization's apps on the **Access Reviews** page of the **My Apps** portal.|
 |[Troubleshoot the My Apps portal](myapps-portal-end-user-troubleshoot.md)|Review some troubleshooting tips for the **My Apps** portal before you contact your Helpdesk for assistance.|
 

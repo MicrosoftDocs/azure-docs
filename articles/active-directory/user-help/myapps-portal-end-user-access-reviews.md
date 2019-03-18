@@ -24,12 +24,12 @@ You can use your work or school account with the web-based **My Apps** portal, t
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
 ## Manage access reviews
-If your administrator has given you permission to conduct your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
+If your administrator has given you permission to perform your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
 
 >[!Note]
 >If you don't see the **Access reviews** tile it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
 
-### To conduct access reviews
+### To perform your access reviews
 
 1.	Sign in to your work or school account.
 
