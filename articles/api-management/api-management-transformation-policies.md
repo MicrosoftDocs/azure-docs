@@ -284,13 +284,13 @@ In this example the policy routes the request to a service fabric backend, using
 
 > [!IMPORTANT]
 >  Note that by default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
->
+> 
 >  Please note the following considerations when using the `set-body` policy.
->
->  -   If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
-> -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
-> -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
-> -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
+> 
+> - If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
+>   -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
+>   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
+>   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
  For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
@@ -583,11 +583,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> Rewrite URL
  The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
 
--   Public URL - `http://api.example.com/storenumber/ordernumber`
+- Public URL - `http://api.example.com/storenumber/ordernumber`
 
--   Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
+  This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
 
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.

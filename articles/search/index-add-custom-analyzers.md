@@ -36,17 +36,17 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  Popular scenarios enabled by custom analyzers include:  
 
--   Phonetic search. Add a phonetic filter to enable searching based on how a word sounds, not how it’s spelled.  
+- Phonetic search. Add a phonetic filter to enable searching based on how a word sounds, not how it’s spelled.  
 
--   Disable lexical analysis. Use the Keyword analyzer to create searchable fields that are not analyzed.  
+- Disable lexical analysis. Use the Keyword analyzer to create searchable fields that are not analyzed.  
 
--   Fast prefix/suffix search. Add the Edge N-gram token filter to index prefixes of words to enable fast prefix matching. Combine it with the Reverse token filter to do suffix matching.  
+- Fast prefix/suffix search. Add the Edge N-gram token filter to index prefixes of words to enable fast prefix matching. Combine it with the Reverse token filter to do suffix matching.  
 
--   Custom tokenization. For example, use the Whitespace tokenizer to break sentences into tokens using whitespace as a delimiter  
+- Custom tokenization. For example, use the Whitespace tokenizer to break sentences into tokens using whitespace as a delimiter  
 
--   ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
+- ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
- This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Search](search-analyzers.md#examples).
+  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Search](search-analyzers.md#examples).
 
 ## Validation rules  
  Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.

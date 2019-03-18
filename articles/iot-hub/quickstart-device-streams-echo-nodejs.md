@@ -82,7 +82,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Make a note of the returned value, which looks like this:
@@ -102,7 +102,7 @@ As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the se
 Assuming the device-side application is running, follow the steps below to run the service-side application in Node.js:
 
 - Provide your service credentials and device ID as environment variables.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -110,11 +110,11 @@ Assuming the device-side application is running, follow the steps below to run t
   # In Windows
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
-```
-Change `MyDevice` to the device ID you chose for your device.
+  ```
+  Change `MyDevice` to the device ID you chose for your device.
 
 - Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
   
   # Install the preview service SDK, and other dependencies
@@ -122,7 +122,7 @@ Change `MyDevice` to the device ID you chose for your device.
   npm install
 
   node echo.js
-```
+  ```
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.
 

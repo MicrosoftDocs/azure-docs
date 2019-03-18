@@ -20,11 +20,11 @@ To learn more about Event Grid, see [Azure Event Grid](https://docs.microsoft.co
 In this tutorial you will learn, how to:
 
 > [!div class="checklist"]
-* Upload geofence area in the Azure Maps, Data service using the Data Upload API.
-*	Set up an Event Grid to handle geofence events.
-*	Setup geofence events handler.
-*	Set up alerts in response to geofence events using Logic Apps.
-*	Use Azure Maps geofence service APIs to track whether a construction asset is within the construction site or not.
+> * Upload geofence area in the Azure Maps, Data service using the Data Upload API.
+> *   Set up an Event Grid to handle geofence events.
+> *   Setup geofence events handler.
+> *   Set up alerts in response to geofence events using Logic Apps.
+> *   Use Azure Maps geofence service APIs to track whether a construction asset is within the construction site or not.
 
 
 ## Prerequisites
@@ -145,9 +145,9 @@ Open the Postman app and follow the following steps to upload the construction s
 
 5. Click send and review the response header. The location header contains the URI to access or download the data for future use. It also contains a unique `udId` for the uploaded data.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## Set up an event handler
 
@@ -158,15 +158,15 @@ You can see all [supported event handlers](https://docs.microsoft.com/azure/even
 
 1. Create a Logic App in Azure portal
 
-  ![create Logic Apps](./media/tutorial-geofence/logic-app.png)
+   ![create Logic Apps](./media/tutorial-geofence/logic-app.png)
 
 2. Select an HTTP request trigger and then select "send an email" as an action in the outlook connector
   
-  ![Logic Apps schema](./media/tutorial-geofence/logic-app-schema.png)
+   ![Logic Apps schema](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Save the logic app to generate the HTTP URL endpoint and copy the HTTP URL.
 
-  ![Logic Apps endpoint](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Logic Apps endpoint](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## Create an Azure Maps Events subscription
@@ -203,53 +203,53 @@ Following are five HTTP GET Geofencing API requests, with different correspondin
  
 1. Location 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Geofence query 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Geofence query 1](./media/tutorial-geofence/geofence-query1.png)
 
-  If you look at the response above, the negative distance from the main geofence means that the equipment is inside the geofence and the positive from the subsite geofence means that it is outside the subsite geofence. 
+   If you look at the response above, the negative distance from the main geofence means that the equipment is inside the geofence and the positive from the subsite geofence means that it is outside the subsite geofence. 
 
 2. Location 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Geofence query 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Geofence query 2](./media/tutorial-geofence/geofence-query2.png)
 
-  If you look at the preceding JSON response carefully the equipment is outside the subsite, but is inside the main fence. It does not trigger an event and no email is sent.
+   If you look at the preceding JSON response carefully the equipment is outside the subsite, but is inside the main fence. It does not trigger an event and no email is sent.
 
 3. Location 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence query 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Geofence query 3](./media/tutorial-geofence/geofence-query3.png)
 
-  A state change has occurred and now the equipment is within both the main and subsite geofences. This publishes an event and a notification email will be sent to the Operations Manager.
+   A state change has occurred and now the equipment is within both the main and subsite geofences. This publishes an event and a notification email will be sent to the Operations Manager.
 
 4. Location 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Geofence query 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Geofence query 4](./media/tutorial-geofence/geofence-query4.png)
 
    By observing the corresponding response carefully, you can note that no event gets published here even though the equipment has exited the subsite geofence. If you look at the user's specified time in the GET request, you can see that the subsite geofence has expired relative to this time and the equipment is still in the main geofence. You can also see the geometry ID of the subsite geofence under `expiredGeofenceGeometryId` in the response body.
 
 
 5. Location 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence query 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Geofence query 5](./media/tutorial-geofence/geofence-query5.png)
 
-  You can see that the equipment has left the main construction site geofence. It publishes an event, it is a serious violation, and a critical alert email is sent to the Operations Manager.
+   You can see that the equipment has left the main construction site geofence. It publishes an event, it is a serious violation, and a critical alert email is sent to the Operations Manager.
 
 ## Next steps
 

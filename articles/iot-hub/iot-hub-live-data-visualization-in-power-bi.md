@@ -32,11 +32,11 @@ You learn how to visualize real-time sensor data that your Azure IoT hub receive
 
 ## What you need
 
- * Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
-
-   * An active Azure subscription.
-   * An Azure IoT hub under your subscription.
-   * A client application that sends messages to your Azure IoT hub.
+* Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+  
+  * An active Azure subscription.
+  * An Azure IoT hub under your subscription.
+  * A client application that sends messages to your Azure IoT hub.
 
 * A Power BI account. ([Try Power BI for free](https://powerbi.microsoft.com/))
 
