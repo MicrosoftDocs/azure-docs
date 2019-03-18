@@ -54,7 +54,7 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 ### Import errors
 
-If you get a **tokenizer error** when importing, that means you are trying to import a version that uses a different tokenizer. To fix this, you need to create a new app with that app file or change the tokenizer version in the app file. This change will cause a change in how utterances are tokenized. 
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different tokenizer than the app currently uses. To fix this you either need to change the tokenizer version in the app file, then import the version, or you need to import the file as an app. This means the new app has a different app ID but uses the tokenizer version specified in the file. 
 
 <a name = "export-version"></a>
 
