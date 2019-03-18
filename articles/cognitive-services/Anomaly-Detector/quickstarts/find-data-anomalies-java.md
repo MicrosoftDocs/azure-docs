@@ -116,7 +116,4 @@ A successful response is returned in JSON. Click TBD to see the response from th
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Visualize anomalies using Python](../tutorials/visualize-anomalies-using-python.md)
-
 > [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)
