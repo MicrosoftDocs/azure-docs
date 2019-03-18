@@ -124,9 +124,9 @@ Once an Azure Resource Manager template repository has been configured in the la
 	![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
 ## Automate deployment of environments
-Azure DevTest Labs provide the ability to use an [Azure Resource Management Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to create an environment with a set of resources in the lab. These environments can contain any Azure resources that can be created using Resource Manager templates. DevTest Lab environments allow users to readily deploy complex infrastructures in a consistent way within the confines of the lab. Currently, adding an environment to a DevTest Lab using the Azure Portal is feasible when creating it once, but in a development or a testing situation, where multiple creations occur, an automated deployment allows for an improved experience.
+Azure DevTest Labs provides the ability to use an [Azure Resource Management Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to create an environment with a set of resources in the lab. These environments can contain any Azure resources that can be created using Resource Manager templates. DevTest Labs environments allow users to readily deploy complex infrastructures in a consistent way within the confines of the lab. Currently, adding an environment to a lab using the Azure portal is feasible when creating it once, but in a development or a testing situation, where multiple creations occur, an automated deployment allows for an improved experience.
 
-Complete the following steps in the [Configure your own template repositories](#configure-your-own-template-repositories) section before proceding further: 
+Complete the following steps in the [Configure your own template repositories](#configure-your-own-template-repositories) section before proceeding further: 
 
 1. Create the Resource Manager template that defines the resources being created. 
 2. Set up the Resource Manager template in Git a repository. 
@@ -140,7 +140,7 @@ Save the PowerShell script in the next section to your hard disk (for example: d
 ```
 
 #### Sample script
-Here is the sample script to create an envionrment in your lab. The comments in the script help you understand the script better. 
+Here is the sample script to create an environment in your lab. The comments in the script help you understand the script better. 
 
 ```powershell
 #Requires -Version 3.0
