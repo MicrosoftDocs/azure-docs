@@ -254,7 +254,7 @@ Remember that the query condition for the messages being routed to storage is `l
 ],
 ```
 
-This json is the rest of the IoT Hub section, which contains default information and the SKU for the hub.
+This json shows the rest of the IoT Hub section, which contains default information and the SKU for the hub.
 
 ```json
             "fallbackRoute": {

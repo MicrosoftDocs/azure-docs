@@ -136,9 +136,9 @@ First, set up the endpoint for the storage account, then create the message rout
 
 These variables are set:
 
-**resourceGroup**: There are two of these -- set them both to your resource group.
+**resourceGroup**: There are two occurrences of this field -- set both of them to your resource group.
 
-**name**: This is the name of the IoT Hub to which the routing will apply./
+**name**: This field is the name of the IoT Hub to which the routing will apply.
 
 **endpointName**: This field is the name identifying the endpoint. 
 
@@ -148,9 +148,9 @@ These variables are set:
 
 **storageConnectionString**: This value is retrieved from the storage account set up in the previous script. It is used by the routing to access the storage account.
 
-**containerName**: This is the name of the container in the storage account to which data will be written.
+**containerName**: This field is the name of the container in the storage account to which data will be written.
 
-**Encoding**: Set this field to either `AVRO` or `JSON`. This is the format of the stored data. The default is AVRO.
+**Encoding**: Set this field to either `AVRO` or `JSON`. This designates the format of the stored data. The default is AVRO.
 
 **routeName**: This field is the name of the route you are setting up. 
 

@@ -151,17 +151,17 @@ These variables are set:
 
 **storageConnectionString**: This value is retrieved from the storage account set up in the previous script. It is used by the message routing to access the storage account.
 
-  **resourceGroup**: There are two of these -- set them both to your resource group.
+  **resourceGroup**: There are two occurrences of resource group -- set them to your resource group.
 
 **endpoint subscriptionID**: This field is set to the Azure subscriptionID for the endpoint. 
 
 **endpointType**: This field is the type of endpoint. This value must be set to `azurestoragecontainer`, `eventhub`, `servicebusqueue`, or `servicebustopic`. For your purposes here, set it to `azurestoragecontainer`.
 
-**iotHubName**: This is the name of the hub that will do the routing.
+**iotHubName**: This field is the name of the hub that will do the routing.
 
-**containerName**: This is the name of the container in the storage account to which data will be written.
+**containerName**: This field is the name of the container in the storage account to which data will be written.
 
-**encoding**: This will be either `avro` or `json`. This is the format of the stored data.
+**encoding**: This field will be either `avro` or `json`. This denotes the format of the stored data.
 
 **routeName**: This field is the name of the route you are setting up. 
 

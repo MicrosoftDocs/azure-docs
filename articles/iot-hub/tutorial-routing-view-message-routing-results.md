@@ -16,7 +16,7 @@ ms.custom: mvc
 
 In [part 1 of this tutorial](tutorial-routing.md), you set up the resources in Azure to allow an IoT Hub to route messages automatically depending on the properties found in each message. You could do this using the portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 
-The purpose of part 2 of this tutorial is to set up different applications to handle the routed messages, and then send nmessage to the IoT Hub to see tne routing work. For example, you can use a Logic App to check for new entries on the Service Bus queue and send notifications in e-mail. The following table shows how the data is routed.
+The purpose of part 2 of this tutorial is to set up different applications to handle the routed messages, and then send messages to the IoT Hub to see the routing work. For example, you can use a Logic App to check for new entries on the Service Bus queue and send notifications in e-mail. The following table shows how the data is routed.
 
 |value |Result|
 |------|------|
