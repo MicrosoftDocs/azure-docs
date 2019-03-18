@@ -195,9 +195,11 @@ In this step, you perform the steps as the internal requester user and request a
 
 1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **Internal requester** user.
 
-1. Find the X access package in the list of all access packages.
+1. Find the **First access package** in the list of all access packages.
 
-1. Click the chevron to view more details on the access package.
+    ![My Access portal - Access packages](./media/entitlement-management-get-started/my-access-access-packages.png)
+
+1. Click the chevron to view more details about the access package.
 
 1. Click **Request access**.
 
@@ -227,7 +229,7 @@ In this step, you sign in as the approver user and approve the access request fo
 
 1. In the **Reason** box, type a reason.
 
-1. Click **Approve**
+1. Click **Approve**.
 
 ## Step 7: Validate that access has been assigned
 
@@ -237,9 +239,9 @@ In this step, you sign in as the approver user and approve the access request fo
 
 1. In the left menu, click **Access package**.
 
-1. Find the X access package. If you do no see the package, wait 5 minutes and refresh the page.
+1. Find the **First access package**. If you do not see the package, wait 5 minutes and refresh the page.
 
-1. Click the X access package.
+1. Click the **First access package**.
 
 1. Click the **Resources** tab. You should see the **Test** group.
 
@@ -269,6 +271,17 @@ In this step, you add an additional policy for users who are not yet in the reso
 
 ## Step 13: Clean up resources
 
+1. In entitlement management, open **First catalog** and delete **First access package**.
+
+1. Delete **First catalog**.
+
+1. In Azure Active Directory, remove the **Internal requester** user from the **Internal requesters** group.
+
+1. Delete the **Internal requesters** group.
+
+1. Delete the **Internal requester** user.
+
+1. Delete the **Approver** user.
 
 ## Next steps
 
