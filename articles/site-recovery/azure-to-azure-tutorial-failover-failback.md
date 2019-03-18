@@ -75,4 +75,4 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 
 ## Next steps
 - After reprotecting, you can [failback to the primary region](azure-to-azure-tutorial-failback.md) when it's available.
-- [Learn more](zure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) about the reprotection flow.
+- [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) about the reprotection flow.
