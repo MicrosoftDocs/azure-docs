@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 03/15/2019
 ms.author: pareshmu
 ---
 # ExpressRoute partners and peering locations
