@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/18/2019
 
 ---
 
 # Test Terraform modules in Azure by using Terratest
 
 > [!NOTE]
-> The sample code is this article is tested to work with Terratest versions before 0.12 and may not work correctly with subsequent versions.
+> The sample code in this article is tested to work with Terratest versions before 0.12 and may not work correctly with subsequent versions. For this reason, the article has been removed from the TOC and will be added back when an upcoming release addresses the issues.
 
 You can use Azure Terraform modules to create reusable, composable, and testable components. Terraform modules incorporate encapsulation that's useful in implementing infrastructure as code processes.
 
