@@ -102,13 +102,13 @@ The HLS protocol supports the following container formats and encryption schemes
 
 |Container format|Encryption scheme|URL example|
 |---|---|---|
-|All|AES||
+|All|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) ||
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) ||
 |CMAF(fmp4) |CENC (PlayReady) ||
 
-HLS/CMAF + FairPlay (including HEVC / H.265) is supported and has been tested on the following devices:
+HLS/CMAF + FairPlay (including HEVC / H.265) is supported on the following devices:
 
 * iOS v11 or higher 
 * iPhone 8 or above
