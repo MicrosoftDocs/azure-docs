@@ -133,7 +133,7 @@ We are going to save this transform in a file. In this example, we name the file
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if a Transform with a desired name and "recipe" already exist. If it does, reuse it. The following `show` command returns the `customTransformName` transform if it exists:
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first check if one already exist. If the Transform exists, reuse it. The following `show` command returns the `customTransformName` transform if it exists:
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName

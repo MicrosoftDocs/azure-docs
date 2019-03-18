@@ -166,23 +166,23 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     This command looks at the recommendations generated for user ID 4.
 
-    * The **user-ratings.txt** file is used to retrieve movies that have been rated.
+   * The **user-ratings.txt** file is used to retrieve movies that have been rated.
 
-    * The **moviedb.txt** file is used to retrieve the names of the movies.
+   * The **moviedb.txt** file is used to retrieve the names of the movies.
 
-    * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
+   * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
 
      The output from this command is similar to the following text:
 
-        Seven Years in Tibet (1997), score=5.0
-        Indiana Jones and the Last Crusade (1989), score=5.0
-        Jaws (1975), score=5.0
-        Sense and Sensibility (1995), score=5.0
-        Independence Day (ID4) (1996), score=5.0
-        My Best Friend's Wedding (1997), score=5.0
-        Jerry Maguire (1996), score=5.0
-        Scream 2 (1997), score=5.0
-        Time to Kill, A (1996), score=5.0
+       Seven Years in Tibet (1997), score=5.0
+       Indiana Jones and the Last Crusade (1989), score=5.0
+       Jaws (1975), score=5.0
+       Sense and Sensibility (1995), score=5.0
+       Independence Day (ID4) (1996), score=5.0
+       My Best Friend's Wedding (1997), score=5.0
+       Jerry Maguire (1996), score=5.0
+       Scream 2 (1997), score=5.0
+       Time to Kill, A (1996), score=5.0
 
 ## Delete temporary data
 

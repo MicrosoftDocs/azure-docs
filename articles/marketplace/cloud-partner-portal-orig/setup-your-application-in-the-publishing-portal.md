@@ -28,11 +28,11 @@ You are now ready to set up your application in the publishing portal.
 
 ![Selecting a new offer](./media/CRMScreenShot14.png)
 
-3. A new offer "Editor" view is now opened for you, and we are ready to start authoring.
+1. A new offer "Editor" view is now opened for you, and we are ready to start authoring.
 
 ![New Offer screen](./media/CRMScreenShot15.png)
 
-4. The "forms" that need to be filled out are visible on the left within the "Editor" view. Each "form" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (\*).
+1. The "forms" that need to be filled out are visible on the left within the "Editor" view. Each "form" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (\*).
 
 There are four main forms for authoring a Dynamics 365 for Customer Engagement offer
 

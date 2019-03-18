@@ -192,14 +192,14 @@ All data that is sent back and forth is encrypted on the wire.
 ### Audit logs
 All access to the serial console is currently logged in the [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logs of the virtual machine. Access to these logs are owned and controlled by the Azure virtual machine administrator.
 
->[!CAUTION]
-No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII.
+> [!CAUTION]
+> No access passwords for the console are logged. However, if commands run within the console contain or output passwords, secrets, user names, or any other form of personally identifiable information (PII), those will be written to the VM boot diagnostics logs. They will be written along with all other visible text, as part of the implementation of the serial console's scroll back function. These logs are circular and only individuals with read permissions to the diagnostics storage account have access to them. However, we recommend following the best practice of using the Remote Desktop for anything that may involve secrets and/or PII.
 
 ### Concurrent usage
 If a user is connected to the serial console and another user successfully requests access to that same virtual machine, the first user will be disconnected and the second user connected to the same session.
 
->[!CAUTION]
-This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows, there's an automatic timeout enabled in SAC; for Linux, you can configure the terminal timeout setting.
+> [!CAUTION]
+> This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows, there's an automatic timeout enabled in SAC; for Linux, you can configure the terminal timeout setting.
 
 ## Accessibility
 Accessibility is a key focus for the Azure serial console. To that end, we've ensured that the serial console is accessible for the visual and hearing impaired, as well as people who might not be able to use a mouse.
@@ -211,6 +211,7 @@ Use the **Tab** key on your keyboard to navigate in the serial console interface
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Common scenarios for accessing the serial console
+
 Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
 Incorrect firewall rules | Access serial console and fix Windows firewall rules.
@@ -250,7 +251,7 @@ Serial console does not work with a storage account firewall. | Serial console b
 
 **Q. How can I send feedback?**
 
-A. Provide feedback by creating a GitHub issue at https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of http://feedback.azure.com.
+A. Provide feedback by creating a GitHub issue at https://aka.ms/serialconsolefeedback. Alternatively (less preferred), you can send feedback via azserialhelp@microsoft.com or in the virtual machine category of https://feedback.azure.com.
 
 **Q. Does the serial console support copy/paste?**
 

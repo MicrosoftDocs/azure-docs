@@ -1,21 +1,21 @@
 ---
 title: Create knowledge base
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Use the QnA Maker portal, to add create a knowledge base with chit-chat. This makes your app engaging. Add a pre-populated set of the top chit-chat into your KB as a starting point for your bot's chit-chat and save you the time and cost of writing them from scratch.     
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Use the QnA Maker API service portal, to add create a knowledge base with chit-chat. This makes your app engaging. Add a pre-populated set of the top chit-chat into your KB as a starting point for your bot's chit-chat and save you the time and cost of writing them from scratch.     
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
 
-# Quickstart: Create a knowledge base using the QnA Maker portal
+# Quickstart: Create a knowledge base using the QnA Maker API service portal
 
-QnA Maker makes it simple to add your existing data sources when creating a knowledge base. You can create a new QnA Maker knowledge base from the following document types:
+The QnA Maker API service portal makes it simple to add your existing data sources when creating a knowledge base. You can create a new QnA Maker knowledge base from the following document types:
 
 <!-- added for scanability -->
 * FAQ pages

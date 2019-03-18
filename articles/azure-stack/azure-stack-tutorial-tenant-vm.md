@@ -126,8 +126,8 @@ Now that you’ve created an offer, you can test it. You'll sign in as a user, s
    From the user portal you can provision a virtual machine using the new subscription.
 
    a. Sign in to the user portal with a user account.
-      - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-   - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
+   - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
+     - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
    b.  On the dashboard, select **+Create a resource** > **Compute** > **Windows Server 2016 Datacenter Eval**, and then select **Create**.
 

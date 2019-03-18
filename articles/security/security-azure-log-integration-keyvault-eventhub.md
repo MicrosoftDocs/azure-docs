@@ -25,8 +25,8 @@ The preferred method for integrating Azure logs is by using your SIEM vendor's A
  
 Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you've learned here to create your own steps to support your company's unique requirements.
 
->[!WARNING]
-The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands "as is" in your live environment. You must customize them based on your unique environment.
+> [!WARNING]
+> The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands "as is" in your live environment. You must customize them based on your unique environment.
 
 
 This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.

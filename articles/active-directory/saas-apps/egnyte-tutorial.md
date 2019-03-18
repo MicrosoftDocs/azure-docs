@@ -175,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -226,7 +226,7 @@ To enable Azure AD users to log in to Egnyte, they must be provisioned into Egny
     
     ![New Standard User](./media/egnyte-tutorial/ic787825.png "New Standard User")   
 
-	a. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	a. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	b. In **Username** text box, enter the username of user like **Brittasimon**.
 
