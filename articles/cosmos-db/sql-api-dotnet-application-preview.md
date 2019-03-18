@@ -1,6 +1,6 @@
 ---
-title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK.
-description: This tutorial describes how to create an ASP .Net MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
+title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .NET preview SDK.
+description: This tutorial describes how to create an ASP .NET MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,7 +10,7 @@ ms.date: 12/03/2018
 ms.author: dech
 ---
 
-# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK 
+# Tutorial: Develop an ASP.NET MVC web application with Azure Cosmos DB by using .NET preview SDK 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -21,9 +21,9 @@ ms.author: dech
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .Net SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .NET SDK V3 that is currently in preview. The following image shows the web page that you will build by using the sample in this article:
  
-![Screen shot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![Screenshot of the todo list MVC web application created by this tutorial - ASP NET MVC tutorial step by step](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 If you don't have time to complete the tutorial, you can download the complete sample project from [GitHub][GitHub]. 
 
@@ -50,7 +50,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 * Microsoft Azure SDK for .NET for Visual Studio 2017, available through the Visual Studio Installer.
 
-All the screen shots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version, it is possible that your screens and options may not match entirely, but if you meet the above prerequisites this solution should work.
+All the screenshots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version, it is possible that your screens and options may not match entirely, but if you meet the above prerequisites this solution should work.
 
 ## <a name="create-an-azure-cosmos-account"></a>Step 1: Create an Azure Cosmos account
 
@@ -86,7 +86,7 @@ Now that we have most of the ASP.NET MVC framework code that we need for this so
 
 1. The Azure Cosmos DB .NET SDK is packaged and distributed as a NuGet package. To get the NuGet package in Visual Studio, use the NuGet package manager in Visual Studio by right-clicking on the project in **Solution Explorer** and then select **Manage NuGet Packages**.
    
-   ![Screen shot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
+   ![Screenshot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
 2. The **Manage NuGet Packages** dialog box appears. In the NuGet **Browse** box, type **Microsoft.Azure.Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** 3.0.0.1-preview version. It downloads and installs the Azure Cosmos DB package and its dependencies, such as Newtonsoft.Json. Select **OK** in the **Preview** window, and **I Accept** in the **License Acceptance** window to complete the installation.
    
@@ -124,7 +124,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 1. Select **MVC 5 Controller - Empty** and select **Add**.
 
-   ![Screen shot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![Screenshot of the Add Scaffold dialog box with the MVC 5 Controller - Empty option highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. Name your new controller, **ItemController, and replace the code in that file with the following code:
 
@@ -146,7 +146,7 @@ Next, let's create the following three views:
 
 1. In **Solution Explorer**, expand the **Views** folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
    
-   ![Screen shot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
+   ![Screenshot of Solution Explorer showing the Item folder that Visual Studio created with the Add View commands highlighted](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. In the **Add View** dialog box, update the following values:
    
@@ -155,7 +155,7 @@ Next, let's create the following three views:
    * In the **Model class** box, select ***Item (todo.Models)***.
    * In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Screen shot showing the Add View dialog box](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Screenshot showing the Add View dialog box](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
 
 3. After you add these values, select **Add** and let Visual Studio create a new template view. Once done, it opens the cshtml file that is created. You can close that file in Visual Studio as you will come back to it later.
 
@@ -230,13 +230,13 @@ The first thing to do here is add a class that contains the logic to connect to 
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
+   This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
 
 Now if you run the application, it calls into your **ItemController** that calls the GetItems methods from the TodoItemService class that you define in the next section. 
 
 If you build and run this project now, you should now see something that looks this.    
 
-![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
+![Screenshot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="run-the-application"></a>Step 6: Run the application locally
@@ -245,17 +245,17 @@ To test the application on your local machine, use the following steps:
 
 1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
    
-   ![Screen shot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![Screenshot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. Click the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected otherwise the new item is added in a completed state and doesn't appear on the initial list.
    
 3. Click **Create** and you are redirected back to the **Index** view and your item appears in the list. You can add a few more items to your todo list.
 
-    ![Screen shot of the Index view](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
+    ![Screenshot of the Index view](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
   
 4. Click **Edit** next to an **Item** on the list and you are taken to the **Edit** view where you can update any property of your object, including the **Completed** flag. If you mark the **Complete** flag and click **Save**, the **Item** is removed from the list of incomplete tasks.
    
-   ![Screen shot of the Index view with the Completed box checked](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
+   ![Screenshot of the Index view with the Completed box checked](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
 
 5. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
@@ -277,7 +277,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
 In a few seconds, Visual Studio publishes your web application and launch a browser where you can see your project running in Azure!
 
 ## Next steps
-In this tutorial, you've learned how to build a ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
+In this tutorial, you've learned how to build an ASP.NET MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Build a Java application to access data stored in SQL API account of Azure Cosmos DB]( sql-api-java-application.md)

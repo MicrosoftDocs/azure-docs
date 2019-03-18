@@ -4,7 +4,7 @@ description: This document addresses recommendations in Azure Security Center th
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
@@ -61,7 +61,7 @@ To enable auditing, select **ON** under the **Auditing** option.
 |SQL|30|Remediate vulnerabilities on your SQL databases|SQL Vulnerability Assessment scans your database for security vulnerabilities and exposes any deviations from best practices such as misconfigurations, excessive permissions and unprotected sensitive data. Resolving the vulnerabilities found can greatly improve your database security stature.|
 |SQL|20|Provision an Azure AD administrator for SQL server|Provision an Azure AD administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.|
 |Storage account|15|Disable unrestricted network access to storage account|Audit unrestricted network access in your storage account firewall settings. Instead, configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific Internet or on-premise clients, access can be granted to traffic from specific Azure virtual networks or to public Internet IP address ranges.|
-|Storage account|1||Migrate storage accounts to new AzureRM resources|Use new Azure Resource Manager v2, for your storage accounts to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management.|
+|Storage account|1|Migrate storage accounts to new AzureRM resources|Use new Azure Resource Manager v2, for your storage accounts to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management.|
 
 
 

@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -30,116 +30,87 @@ You can use the interactive feature verification testing framework to request te
 
 This article describes a simple manual scenario. The test checks replacing a disk in Azure Stack. The framework gathers diagnostic logs at each step. You can debug issues as you find them. The framework also allows the sharing of logs produced by other tools or processes, and enables you to provide feedback on the scenario.
 
-## Overview of a test pass
+> [!Important]  
+> This article references the steps to perform Disk Identification. This is simply a demonstration, as any results gathered from the Test Pass workflow may not be used for new solution verification.
 
-A test for disk replacement is a common scenario. In this example, the test has seven steps:
+## Overview of interactive testing
 
-1.  Create a new **Test Pass** workflow.
-2.  Select the **Disk Identification Test**.
-3.  Start the test.
-4.  Choose the actions in the interactive verification scenario.
-5.  Check the result of the scenario.
-6.  Send the test result to Microsoft.
-7.  Check the status in the VaaS portal.
+A test for disk replacement is a common scenario. In this example, the test has five steps:
+
+1. Create a new **Test Pass** workflow.
+2. Select the **Disk Identification Test**.
+3. Complete the manual step when prompted.
+4. Check the result of the scenario.
+5. Send the test result to Microsoft.
 
 ## Create a new test pass
 
-1.  Navigate to the [Azure Stack Validation portal](https://www.azurestackvalidation.com) and sign in.
+If you do not have an existing test pass available, please follow the directions for [scheduling a test](azure-stack-vaas-schedule-test-pass.md).
 
-2.  Create a new solution or choose an existing one.
+## Schedule the test
 
-3.  Select **Start** on the **Test Pass** tile.
-
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image1.png)
-
-4.  Enter a name for the  **Test Pass** workflow.
-
-5.  Enter the environment and common test parameters by following the instructions in the [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md) article.
-
-6.  The diagnostics connection string must follow the format specified in the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) section in the [Workflow common parameters](azure-stack-vaas-parameters.md) article.
-
-7.  Enter the required parameters for the test.
-
-8.  Select the agent to run the interactive test run.
-
-> [!Note]  
-> Domain admin user and password must be specified for disk identification interactive feature verification test.
-
-![Alt text](media/azure-stack-vaas-interactive-feature-verification/image2.png)
-
-## Select the test
-
-1.  Select **Disk Identification Test\<version>**.
+1. Select **Disk Identification Test**.
 
     > [!Note]  
     > The version of the test will increment as improvements to the test collateral are made. The highest version should always be used unless Microsoft indicates otherwise.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-2.  Provide the domain admin user and password by selecting **Edit**.
+1. Provide the domain admin username and password by selecting **Edit**.
 
-3.  Select the appropriate test execution agent/DVM to launch the test on.
+1. Select the appropriate test execution agent/DVM to launch the test on.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-4.  Select **Submit** to start the test.
+1. Select **Submit** to start the test.
 
-![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
-## Start the test
+1. Access the UI for the interactive test from the agent selected in the previous step.
 
-The Disk Identification Test prompts show on the computer that runs the VaaS agent. Usually this is the DVM or Jumpbox for the Azure Stack instance.
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
-
-## Choose the actions
-
-1.  Follow the **Documentation** and **Validation** links to review instructions from Microsoft on how to perform this scenario.
+1. Follow the **Documentation** and **Validation** links to review instructions from Microsoft on how to perform this scenario.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-2.  Select **Next**.
+1. Select **Next**.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
-3.  Follow the instructions to run the precheck script.
+1. Follow the instructions to run the precheck script.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-4.  Once the precheck script is completed successfully, run the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
+1. Once the precheck script has completed successfully, run the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
-5.  Do not close the dialog box while you are performing the manual scenario.
+    > [!Important]  
+    > Do not close the dialog box while you are performing the manual scenario.
 
-6.  When you are finished performing the manual scenario, follow the instructions to run the post check script.
+1. When you are finished performing the manual scenario, follow the instructions to run the post check script.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-7.  On successful completion of the manual scenario (Disk replacement), select **Next**.
+1. On successful completion of the manual scenario (Disk replacement), select **Next**.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
-> [!Important]  
-> If you close the window, the test will stop before it is done.
+    > [!Important]  
+    > If you close the window, the test will stop before it is done.
 
-## Check the status
-
-1.  When the test is complete, you will be asked to provide feedback.
+1. Provide feedback for the test experience. These questions will help Microsoft assess the success rate and release quality of the scenario.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
-2.  These questions will help Microsoft assess the success rate and release quality of the scenario.
-
-## Send the test result
-
-1.  Attach any log files you wish to submit to Microsoft.
+1. Attach any log files you wish to submit to Microsoft.
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
-2.  Accept the feedback submission EULA.
+1. Accept the feedback submission EULA.
 
-3.  Select **Submit** to send the results to Microsoft.
+1. Select **Submit** to send the results to Microsoft.
 
 ## Next steps
 

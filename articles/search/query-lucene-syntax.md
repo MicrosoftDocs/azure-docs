@@ -36,20 +36,20 @@ The following example finds documents in the index using the Lucene query syntax
 
 The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  Alternatively, use POST:  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 For additional examples, see [Lucene query syntax examples for building queries in Azure Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
@@ -60,13 +60,13 @@ For additional examples, see [Lucene query syntax examples for building queries 
 ##  <a name="bkmk_fields"></a> Field-scoped queries  
  You can specify a `fieldname:searchterm` construction to define a fielded query operation, where the field is a single word, and the search term is also a single word or a phrase, optionally with boolean operators. Some examples include the following:  
 
--   genre:jazz NOT history  
+- genre:jazz NOT history  
 
--   artists:("Miles Davis" "John Coltrane")
+- artists:("Miles Davis" "John Coltrane")
 
- Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, in this case searching for two distinct artists in the `artists` field.  
+  Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, in this case searching for two distinct artists in the `artists` field.  
 
- The field specified in `fieldname:searchterm` must be a `searchable` field.  See [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.  
+  The field specified in `fieldname:searchterm` must be a `searchable` field.  See [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.  
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzy search  
  A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

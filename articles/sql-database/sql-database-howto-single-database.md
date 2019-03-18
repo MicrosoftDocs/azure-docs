@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
@@ -19,7 +19,7 @@ In this section you can find various guides, scripts, and explanations that can 
 
 ## Migrate
 
-- [Migrate to SQL Database](sql-database-cloud-migrate.md) – Learn about the recommended migration process and tools for migration to a managed instance.
+- [Migrate to SQL Database](sql-database-single-database-migrate.md) – Learn about the recommended migration process and tools for migration to a managed instance.
 - Learn how to [manage SQL database after migration](sql-database-manage-after-migration.md).
 
 ## Configure features

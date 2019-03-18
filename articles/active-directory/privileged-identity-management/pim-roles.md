@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
+ms.collection: M365-identity-device-management
 ---
 
 # Roles you cannot manage in PIM

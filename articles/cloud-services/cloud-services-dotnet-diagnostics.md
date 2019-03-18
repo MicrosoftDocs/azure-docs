@@ -109,7 +109,7 @@ namespace WorkerRole1
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
 
             return base.OnStart();
         }
@@ -195,9 +195,9 @@ If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostic
 ## Next Steps
 [See a list of related Azure virtual-machine diagnostic articles](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
 
-[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

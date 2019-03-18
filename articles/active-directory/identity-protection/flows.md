@@ -18,6 +18,7 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in experiences with Azure AD Identity Protection
 With Azure Active Directory Identity Protection, you can:

@@ -9,7 +9,7 @@ ms.author: mikeray
 ## Start your PowerShell session
  
 
-Run the [**Connect-Az Account**](https://docs.microsoft.com/powershell/module/az.accounts/connect-azmaccount) cmdlet and you will be presented with a sign-in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+Run the [**Connect-Az Account**](https://docs.microsoft.com/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and you will be presented with a sign-in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
 
 ```powershell
 Connect-AzAccount

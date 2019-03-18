@@ -1,11 +1,11 @@
 ---
 title: Database security - Azure Cosmos DB
 description: Learn how Azure Cosmos DB provides database protection and data security for your data.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: rafats
+ms.author: rimman
 
 ---
 
@@ -53,7 +53,7 @@ Let's look back at the preceding list - how many of those security requirements 
 Let's dig into each one in detail.
 
 |Security requirement|Azure Cosmos DB's security approach|
-|---|---|---|
+|---|---|
 |Network security|Using an IP firewall is the first layer of protection to secure your database. Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. The IP-based access controls are similar to the firewall rules used by traditional database systems, but they are expanded so that an Azure Cosmos DB database account is only accessible from an approved set of machines or cloud services. <br><br>Azure Cosmos DB enables you to enable a specific IP address (168.61.48.0), an IP range (168.61.48.0/8), and combinations of IPs and ranges. <br><br>All requests originating from machines outside this allowed list are blocked by Azure Cosmos DB. Requests from approved machines and cloud services then must complete the authentication process to be given access control to the resources.<br><br>Learn more in [Azure Cosmos DB firewall support](firewall-support.md).|
 |Authorization|Azure Cosmos DB uses hash-based message authentication code (HMAC) for authorization. <br><br>Each request is hashed using the secret account key, and the subsequent base-64 encoded hash is sent with each call to Azure Cosmos DB. To validate the request, the Azure Cosmos DB service uses the correct secret key and properties to generate a hash, then it compares the value with the one in the request. If the two values match, the operation is authorized successfully and the request is processed, otherwise there is an authorization failure and the request is rejected.<br><br>You can use either a [master key](secure-access-to-data.md#master-keys), or a [resource token](secure-access-to-data.md#resource-tokens) allowing fine-grained access to a resource such as a document.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|
 |Users and permissions|Using the master key for the account, you can create user resources and permission resources per database. A resource token is associated with a permission in a database and determines whether the user has access (read-write, read-only, or no access) to an application resource in the database. Application resources include container, documents, attachments, stored procedures, triggers, and UDFs. The resource token is then used during authentication to provide or deny access to the resource.<br><br>Learn more in [Securing access to Azure Cosmos DB resources](secure-access-to-data.md).|

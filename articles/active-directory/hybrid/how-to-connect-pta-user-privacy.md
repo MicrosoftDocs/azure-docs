@@ -16,6 +16,7 @@ ms.date: 07/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 
 # User Privacy and Azure Active Directory Pass-through Authentication
@@ -101,4 +102,4 @@ If audit logging is enabled, this product may generate security logs for your Do
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-- [**Troubleshoot**](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
+* [**Troubleshoot**](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

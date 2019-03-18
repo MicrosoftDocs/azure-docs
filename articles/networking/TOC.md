@@ -11,7 +11,7 @@
 ### [Disaster recovery using Azure DNS and Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Plan and design
 ### [Virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Cross-premises connectivity - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Cross-premises connectivity - dedicated private](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Backend connectivity interoperability
 #### [Preface and Test Setup](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -76,6 +76,6 @@
 ## [Pricing](https://azure.microsoft.com/pricing)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=virtual-network)
 

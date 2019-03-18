@@ -19,6 +19,7 @@ ms.author: jegeib
 ---
 
 # Security Frame: Cryptography | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application** | <ul><li>[Use only approved symmetric block ciphers and key lengths](#cipher-length)</li><li>[Use approved block cipher modes and initialization vectors for symmetric ciphers](#vector-ciphers)</li><li>[Use approved asymmetric algorithms, key lengths, and padding](#padding)</li><li>[Use approved random number generators](#numgen)</li><li>[Do not use symmetric stream ciphers](#stream-ciphers)</li><li>[Use approved MAC/HMAC/keyed hash algorithms](#mac-hash)</li><li>[Use only approved cryptographic hash functions](#hash-functions)</li></ul> |
@@ -93,7 +94,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | <p>Products must use only approved message authentication code (MAC) or hash-based message authentication code (HMAC) algorithms.</p><p>A message authentication code (MAC) is a piece of information attached to a message that allows its recipient to verify both the authenticity of the sender and the integrity of the message using a secret key. The use of either a hash-based MAC ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) or [block-cipher-based MAC](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) is permissible as long as all underlying hash or symmetric encryption algorithms are also approved for use; currently this includes the HMAC-SHA2 functions (HMAC-SHA256, HMAC-SHA384 and HMAC-SHA512) and the CMAC/OMAC1 and OMAC2 block cipher-based MACs (these are based on AES).</p><p>Use of HMAC-SHA1 may be permissible for platform compatibility, but you will be required to file an exception to this procedure and undergo your organization's Crypto review. Truncation of HMACs to less than 128 bits is not permitted. Using customer methods to hash a key and data is not approved, and must undergo your organization's Crypto Board review prior to use.</p>|
+| **Steps** | <p>Products must use only approved message authentication code (MAC) or hash-based message authentication code (HMAC) algorithms.</p><p>A message authentication code (MAC) is a piece of information attached to a message that allows its recipient to verify both the authenticity of the sender and the integrity of the message using a secret key. The use of either a hash-based MAC ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) or [block-cipher-based MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) is permissible as long as all underlying hash or symmetric encryption algorithms are also approved for use; currently this includes the HMAC-SHA2 functions (HMAC-SHA256, HMAC-SHA384 and HMAC-SHA512) and the CMAC/OMAC1 and OMAC2 block cipher-based MACs (these are based on AES).</p><p>Use of HMAC-SHA1 may be permissible for platform compatibility, but you will be required to file an exception to this procedure and undergo your organization's Crypto review. Truncation of HMACs to less than 128 bits is not permitted. Using customer methods to hash a key and data is not approved, and must undergo your organization's Crypto Board review prior to use.</p>|
 
 ## <a id="hash-functions"></a>Use only approved cryptographic hash functions
 
@@ -225,7 +226,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Identity Server - Keys, Signatures and Cryptography ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **References**              | [Identity Server - Keys, Signatures and Cryptography](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Steps** | Ensure that signing keys are rolled over when using Identity Server. The link in the references section explains how this should be planned without causing outages to applications relying on Identity Server. |
 
 ## <a id="client-server"></a>Ensure that cryptographically strong client ID, client secret are used in Identity Server

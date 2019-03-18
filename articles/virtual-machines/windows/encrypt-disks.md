@@ -83,7 +83,7 @@ New-AzKeyVault -Location $location `
 
 You can store cryptographic keys by using either software or Hardware Security Model (HSM) protection.  A standard Key Vault only stores software-protected keys. Using an HSM requires a premium Key Vault at an additional cost. To create a premium Key Vault, in the preceding step add the *-Sku "Premium"* parameter. The following example uses software-protected keys since we created a standard Key Vault. 
 
-For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey). The following example creates a key named *myKey*:
+For both protection models, the Azure platform needs to be granted access to request the cryptographic keys when the VM boots to decrypt the virtual disks. Create a cryptographic key in your Key Vault with [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). The following example creates a key named *myKey*:
 
 ```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `
@@ -116,7 +116,7 @@ Encrypt your VM with [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.co
 $keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
-$keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
+$keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $keyVaultName -Name myKey).Key.kid;
 
 Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
     -VMName "myVM" `

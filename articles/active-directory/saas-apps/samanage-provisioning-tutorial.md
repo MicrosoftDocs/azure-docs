@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Samanage for automatic user provisioning
@@ -103,9 +104,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username** and **Admin Password** of your Samanage account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Samanage tenant. Example: admin@contoso.com.
+   * In the **Admin Username** field, populate the username of the admin account on your Samanage tenant. Example: admin@contoso.com.
 
-	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
+   * In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Samanage. If the connection fails, ensure your Samanage account has Admin permissions and try again.
 

@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Rollbar
 
@@ -214,7 +215,7 @@ To enable Azure AD users to log in to Rollbar, they must be provisioned into Rol
 
 	![Invite People](./media/rollbar-tutorial/user2.png)
 
-1. In the textbox, enter the name of user like **brittasimon@contoso.com** and the click **Add/Invite**.
+1. In the textbox, enter the name of user like **brittasimon\@contoso.com** and the click **Add/Invite**.
 
 	![Invite People](./media/rollbar-tutorial/user3.png)
 

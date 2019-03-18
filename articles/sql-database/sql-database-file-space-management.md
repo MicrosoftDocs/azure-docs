@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database file space management| Microsoft Docs
-description: This page describes how to manage file space with Azure SQL Database, and provides code samples for how to determine if you need to shrink a database as well as how to perform a database shrink operation.
+title: Azure SQL Database single/pooled databases file space management| Microsoft Docs
+description: This page describes how to manage file space with single and pooled databases in Azure SQL Database, and provides code samples for how to determine if you need to shrink a single or a pooled database as well as how to perform a database shrink operation.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,15 +11,22 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 03/12/2019
 ---
-# Manage file space in Azure SQL Database
+# Manage file space for single and pooled databases in Azure SQL Database
 
-This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
+This article describes different types of storage space for single and pooled databases in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
+
+> [!NOTE]
+> This article does not apply to the managed instance deployment option in Azure SQL Database.
 
 ## Overview
 
-In Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+With single and pooled databases in Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
 
 Monitoring file space usage and shrinking data files may be necessary in the following scenarios:
 
@@ -31,7 +38,7 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 
 Most storage space metrics displayed in the Azure portal and the following APIs only measure the size of used data pages:
 
-- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+- Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 However, the following APIs also measure the size of space allocated for databases and elastic pools:
@@ -41,7 +48,7 @@ However, the following APIs also measure the size of space allocated for databas
 
 ### Shrinking data files
 
-The SQL DB service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [Reclaim unused allocated space](#reclaim-unused-allocated-space). 
+The SQL Database service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [reclaim unused allocated space](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance. 
@@ -62,9 +69,9 @@ The following diagram illustrates the relationship between the different types o
 
 ![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
 
-## Query a database for storage space information
+## Query a single database for storage space information
 
-The following queries can be used to determine storage space quantities for a database.  
+The following queries can be used to determine storage space quantities for a single database.  
 
 ### Database data space used
 
@@ -138,7 +145,7 @@ Modify the following PowerShell script to return a table listing the space alloc
 
 The query results for determining the space allocated for each database in the pool can be added together to determine the total space allocated for the elastic pool. The elastic pool space allocated should not exceed the elastic pool max size.  
 
-The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) to install.
+The PowerShell script requires SQL Server PowerShell module – see [Download PowerShell module](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) to install.
 
 ```powershell
 # Resource group name
@@ -153,7 +160,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName
@@ -219,7 +226,7 @@ For more information about this command, see [SHRINKDATABASE](https://docs.micro
 
 ### Auto-shrink
 
-Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than SHRINKDATABASE or SHRINKFILE.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than SHRINKDATABASE and SHRINKFILE.
+Alternatively, auto shrink can be enabled for a database.  Auto shrink reduces file management complexity and is less impactful to database performance than `SHRINKDATABASE` or `SHRINKFILE`.  Auto shrink can be particularly helpful for managing elastic pools with many databases.  However, auto shrink can be less effective in reclaiming file space than `SHRINKDATABASE` and `SHRINKFILE`.
 To enable auto shrink, modify the name of the database in the following command.
 
 
@@ -228,7 +235,7 @@ To enable auto shrink, modify the name of the database in the following command.
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) options. 
+For more information about this command, see [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) options. 
 
 ### Rebuild indexes
 

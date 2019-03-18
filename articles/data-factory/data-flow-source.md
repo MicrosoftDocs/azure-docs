@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
---- 
+---
 
 # Mapping Data Flow Source Transformation
 
@@ -69,7 +69,7 @@ You can optionally choose to partition the connections based on a query. For thi
 ## Source file management
 ![New Source Settings](media/data-flow/source2.png "New settings")
 
-* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset defintion.
+* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset definition.
 * List of Files. Same as a file set. Point to a text file that you create with a list of relative path files to process.
 * Column to store file name will store the name of the file from the source in a column in your data. Enter a new name here to store the file name string.
 * After Completion (You can choose to do nothing with the source file after the data flow executes, delete the source file(s) or move the source files. The paths for move are relative paths.

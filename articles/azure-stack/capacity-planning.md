@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
@@ -45,7 +45,7 @@ A further description of the complexities of capacity calculations is describe l
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> Standard D2 VMs.
-
+> 
 > <sup>2</sup> Virtual core to physical core ratio.
 
 As mentioned above, the VM capacity is determined by available memory. The virtual-cores to physical-core ratios exemplify how the VM density will change available CPU capacity unless the solution is constructed with a larger number of physical cores (another CPU is chosen). The same is true of storage capacity and storage cache capacity.

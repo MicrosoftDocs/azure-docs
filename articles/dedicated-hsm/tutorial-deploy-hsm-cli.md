@@ -4,7 +4,7 @@ description: Tutorial showing how to deploy a dedicated HSM using the CLI into a
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.service: key-vault
@@ -241,8 +241,8 @@ If you have finished with just the HSM device, then it can be deleted as a resou
 9. `syslog rotate`
 
 
->[!NOTE]
-if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
 
 If you have finished with resources in this resource group, then you can remove them all with the following command:

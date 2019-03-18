@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health Agent Installation
 This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -30,13 +31,13 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Outbound connectivity to the Azure service endpoints | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list. See [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Outbound connectivity based on IP Addresses | For IP address based filtering on firewalls, refer to the [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).|
 | SSL Inspection for outbound traffic is filtered or disabled | The agent registration step or data upload operations may fail if there is SSL inspection or termination for outbound traffic at the network layer. Read more about [how to setup SSL inspection](https://technet.microsoft.com/library/ee796230.aspx) |
-| Firewall ports on the server running the agent |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.<br /><br /><li>TCP port 443</li><li>TCP port 5671</li> <br />Read more about [enable firewall ports](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Firewall ports on the server running the agent |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.<br /><br /><li>TCP port 443</li><li>TCP port 5671</li> <br />Note that port 5671 is no longer required for the latest version of agent. Upgrade to the latest version so only port 443 is required. Read more about [enable firewall ports](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https:\//sts.contoso.com</li> Read more about [how to configure IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
 | Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent. Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.  [Update](https://www.microsoft.com/download/details.aspx?id=40855) the Windows Management Framework.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
 ### Outbound connectivity to the Azure service endpoints
- During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, make sure that the following URLs are not blocked by default. Do not disable security monitoring or inspection of these URLs, but allow them as you would other internet traffic. They permit communication with Azure AD Connect Health service endpoints. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Domain Environment | Required Azure service endpoints |
 | --- | --- |
@@ -113,7 +114,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS 2.0 service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+4. To enable auditing, open a Command Prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Close **Local Security Policy**.
 <br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
 6. Open the **AD FS Management** snap-in. To open the AD FS Management snap-in, click **Start**, point to **Programs**, point to **Administrative Tools**, and then click **AD FS 2.0 Management**.
@@ -126,7 +127,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add it to the list, and then click **OK**.
-4. To enable auditing, open a command prompt with elevated privileges and run the following command: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
 5. Close **Local Security Policy**.
 <br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
 6. Open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
@@ -138,7 +139,7 @@ In order for the Usage Analytics feature to gather and analyze data, the Azure A
 1. Open **Local Security Policy** by opening **Server Manager** on the Start screen, or Server Manager in the taskbar on the desktop, then click **Tools/Local Security Policy**.
 2. Navigate to the **Security Settings\Local Policies\User Rights Assignment** folder, and then double-click **Generate security audits**.
 3. On the **Local Security Setting** tab, verify that the AD FS service account is listed. If it is not present, click **Add User or Group** and add the AD FS service account to the list, and then click **OK**.
-4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. To enable auditing, open a command prompt with elevated privileges and run the following command: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>
 5. Close **Local Security Policy**.
 <br />   -- **The following steps are only required for primary AD FS servers.** -- <br />
 6. Open the **AD FS Management** snap-in (in Server Manager, click Tools, and then select AD FS Management).
@@ -229,6 +230,28 @@ If you completed the configuration, these services should already be running. Ot
 
 ![Verify Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### Quick agent installation in multiple servers
+1. Create a user account in Azure AD with a password.
+2. Assign the **Owner** role for this local AAD account in Azure AD Connect Health via the portal. Follow the steps [here](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Assign the role to all service instances. 
+3. Download the .exe MSI file in local domain controller for installation.
+4. Run the following script to registration. Replace the parameters with the new user account created and its password. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. Once you are done, you can remove access for the local account by doing one or more of the following: 
+    * Remove the role assignment for the local account for AAD Connect Health
+    * Rotate the password for the local account. 
+    * Disable the AAD local account
+    * Delete the AAD local account  
 
 ## Agent Registration using PowerShell
 After installing the appropriate agent setup.exe, you can perform the agent registration step using the following PowerShell commands depending on the role. Open a PowerShell Window and execute the appropriate command:

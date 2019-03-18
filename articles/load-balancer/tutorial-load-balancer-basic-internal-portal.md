@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
 ---
@@ -82,24 +82,27 @@ Create a Basic internal load balancer by using the portal. The name and IP addre
 
 1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Load Balancer**.
    
-1. In the **Create load balancer** pane, type or select these values:
+2. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Basic**.                          |
+    | Virtual network           | Select *MyVNet*.                          |    
+| Public IP address | Select **Create new**. |
+    | Public IP address assignment              | Select **Static**.   |
+    | Private IP address|Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.  |
+
+3. In the **Review + create** tab, click **Create**. 
    
-   - **Name**: Type *MyLoadBalancer*.
-   - **Type**: Select **Internal**. 
-   - **SKU**: Select **Basic**.
-   - **Virtual network**: Select **Choose a virtual network**, and then select **MyVNet**.
-   - **Subnet**: Select **Choose a subnet**, and then select **MyBackendSubnet**.
-   - **IP address assignment**: Select **Static** if not selected.
-   - **Private IP address**: Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.
-   - **ResourceGroup**: Drop down **Select existing** and select **MyResourceGroupLB**. 
-   
-1. Select **Create**.
-   
-![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## Create Basic load balancer resources
 
-In this section, you  configure load balancer settings for a back-end address pool and a health probe, and specify load balancer rules.
+In this section, you configure load balancer settings for a back-end address pool and a health probe, and specify load balancer rules.
 
 ### Create a back-end address pool
 
@@ -177,7 +180,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![Add a load balancer rule](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## Test the load balancer
 

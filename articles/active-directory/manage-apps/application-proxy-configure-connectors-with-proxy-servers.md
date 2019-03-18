@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Work with existing on-premises proxy servers

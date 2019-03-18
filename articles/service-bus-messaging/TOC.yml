@@ -143,8 +143,6 @@
         href: service-bus-auto-forwarding.md
       - name: Transaction processing
         href: service-bus-transactions.md
-      - name: Paired namespace implementation
-        href: service-bus-paired-namespaces.md
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
@@ -188,8 +186,16 @@
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Python
+    href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
+  - name: PHP
+    href: https://github.com/Azure/azure-sdk-for-php
+  - name: Ruby
+    href: https://github.com/Azure/azure-sdk-for-ruby
+  - name: Go
+    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicebus
   - name: REST
@@ -227,6 +233,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=service-bus
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azureservicebus
+    href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus

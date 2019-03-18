@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -26,7 +26,7 @@ The EventSource name for the Stateful Reliable Services StatefulServiceBase clas
 
 Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567),
 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
-[Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+[Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
 | Event name | Event ID | Level | Event description |

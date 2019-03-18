@@ -17,6 +17,7 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Configure risk policies in Azure Active Directory identity protection (refreshed)
 
@@ -25,6 +26,8 @@ Azure AD detects risk events that are indicators for potentially compromised ide
 
 - With the sign-in risk policy, you can configure a response to real-time risk events that were detected during a user's sign-in. 
 - With the user risk policy, you can configure a response to all active user risks that have been detected for a user over time.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## What is the sign-in risk policy?

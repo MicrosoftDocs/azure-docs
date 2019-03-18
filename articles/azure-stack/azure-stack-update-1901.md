@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-
+ms.lastreviewed: 02/09/2019
 ---
 
 # Azure Stack 1901 update
@@ -30,7 +30,14 @@ This article describes the contents of the 1901 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1901 update build number is **1.1901.0.95**.
+The Azure Stack 1901 update build number is **1.1901.0.95** or **1.1901.0.99** after February 26th, 2019. See the following note:
+
+> [!IMPORTANT]  
+> Microsoft has discovered an issue that can impact customers updating from 1811 (1.1811.0.101) to 1901, and has released an updated 1901 package to address the  issue: build 1.1901.0.99, updated from 1.1901.0.95. Customers that have already updated to 1.1901.0.95 do not need to take further action.
+>
+> Connected customers that are on 1811 will automatically see the new 1901 (1.1901.0.99) package available in the Administrator portal, and should install it when ready. Disconnected customers can download and import the new 1901 package using the same process [described here](azure-stack-apply-updates.md).
+>
+> Customers with either version of 1901 will not be impacted when installing the next full or hotfix package.
 
 ## Hotfixes
 
@@ -52,13 +59,15 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 ## Prerequisites
 
 > [!IMPORTANT]
-- Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901.
+> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+- When Azure Stack is managed by System Center Operations Manager (SCOM), be sure to update the Management Pack for Microsoft Azure Stack to version 1.0.3.11 before applying 1901.
 
 ## New features
 
@@ -76,7 +85,7 @@ This update includes the following new features and improvements for Azure Stack
    * **AzureRm.Storage**  
          AzureRm rollup module now includes the already published version 5.0.4 supporting the **api-version 2017-10-01**.  
    * **AzureRm.Compute**  
-         Added simple parameter sets in `New-AzureRMVM` and `NewAzureRMVMSS`, `-ImageName` parameter supports specifying user images.  
+         Added simple parameter sets in `New-AzureRmVM` and `New-AzureRmVmss`, `-Image` parameter supports specifying user images.  
    * **AzureRm.Insights**  
          AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
 
@@ -86,7 +95,7 @@ This update includes the following new features and improvements for Azure Stack
          Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
    * **Azs.Fabric.Admin Module**  
          `Get-AzsInfrastructureVolume` has been deprecated. Use the new cmdlet `Get-AzsVolume`.  
-         `Get-AzsStorageSystem` has been deprecated.  Use the new  new cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStorageSystem` has been deprecated.  Use the new cmdlet `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` has been deprecated. The `StorageSubSystem` object contains the capacity property.  
    * **Azs.Compute.Admin Module**  
          Bug fix - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Calling `ConvertTo-PlatformImageObject` only in the success path.  
@@ -104,7 +113,7 @@ To review the reference for the updated modules, see [Azure Stack Module Referen
 - Fixed an issue in which after updating your DNS Settings for your Virtual Network from **Use Azure Stack DNS** to **Custom DNS**, the instances were not updated with the new setting.
 
 - <!-- 3235634 – IS, ASDK -->
-Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, required specifying the suffix as **Standard_A2_v2** (lowercase v). As with global Azure, you can now use **Standard_A2_V2** (uppercase V).
+  Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, required specifying the suffix as **Standard_A2_v2** (lowercase v). As with global Azure, you can now use **Standard_A2_V2** (uppercase V).
 
 <!-- 2869209 – IS, ASDK --> 
 - Fixed an issue when using the [Add-AzsPlatformImage cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), in which you had to use the **-OsUri** parameter as the storage account URI where the disk is uploaded. You can now also use the local path to the disk.
@@ -132,7 +141,7 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 - Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
 
 <!-- 2724873 - IS --> 
-- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
+- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleUnitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
 
 <!-- 2724961- IS ASDK --> 
 - Fixed an issue in which you registered the **Microsoft.Insight** resource provider in the subscription settings, and created a Windows VM with Guest OS Diagnostic enabled, but the CPU Percentage chart in the VM overview page did not show metrics data. The data now correctly displays.
@@ -170,34 +179,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
    ```
 
-- There are currently extensions in Azure Stack that successfully deploy without explicitly needing to download the extensions through marketplace syndication. The following versions of these extensions are being removed. Azure Stack operators must now explicitly syndicate these extensions from the Azure Stack marketplace:
-
-   | Type                     | Version        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   It is recommended that when deploying extensions, Azure Stack users set `autoUpgradeMinorVersion` to **true**. For example:
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
-   ```
-
-- There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the [new release of the capacity planner](http://aka.ms/azstackcapacityplanner).
+- There is a new consideration for accurately planning Azure Stack capacity. With the 1901 update, there is now a limit on the total number of Virtual Machines that can be created.  This limit is intended to be temporary to avoid solution instability. The source of the stability issue at higher numbers of VMs is being addressed but a specific timeline for remediation has not yet been determined. With the 1901 update, there is now a per server limit of 60 VMs with a total solution limit of 700.  For example, an 8 server Azure Stack VM limit would be 480 (8 * 60).  For a 12 to 16 server Azure Stack solution the limit would be 700. This limit has been created keeping all the compute capacity considerations in mind such as the resiliency reserve and the CPU virtual to physical ratio that an operator would like to maintain on the stamp. For more information, see the new release of the capacity planner.  
+In the event that the VM scale limit has been reached, the following error codes would be returned as a result: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - The Compute API version has increased to 2017-12-01.
 
@@ -288,7 +272,7 @@ The following are post-installation known issues for this build version.
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **AzureStack-DiskRP-Client** is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
@@ -305,9 +289,9 @@ The following are post-installation known issues for this build version.
 <!-- 3632798 - IS, ASDK -->
 - In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 

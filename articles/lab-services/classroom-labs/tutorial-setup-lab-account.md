@@ -44,7 +44,9 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     2. Select the **Azure subscription** in which you want to create the lab account.
     3. For **Resource group**, select **Create new**, and enter a name for the resource group.
     4. For **Location**, select a location/region in which you want the lab account to be created. 
-    5. Select **Create**. 
+    5. For **Peer virtual network**, select a peer virtual network (VNet) for the lab network. Labs created in this account are connected to the selected VNet and have access to the resources in the selected VNet. 
+    6. For the **Allow lab creator to pick lab location** field, specify whether you want lab creators to be able to select a location for the lab. By default, the option is disabled. When it's disabled, lab creators can't specify a location for the lab they are creating. The labs are created in the closest geographical location to lab account. When it's enabled, a lab creator can select a location at the time of creating a lab. 
+    7. Select **Create**. 
 
         ![Create a lab account window](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**. 
@@ -61,7 +63,7 @@ To set up a classroom lab in a lab account, the user must be a member of the **L
 
 To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
 
-1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add role assignment** on the toolbar. 
+1. On the **Lab Account** page, select **Access control (IAM)**, select **+ Add** on the toolbar, and then select **+ Add role assignment** on the toolbar. 
 
     ![Access Control -> Add Role Assignment button](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. On the **Add role assignment** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 

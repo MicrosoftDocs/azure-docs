@@ -13,6 +13,7 @@ ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Add or delete users using Azure Active Directory
@@ -32,17 +33,17 @@ You can create a new user using the Azure Active Directory portal.
 
     ![Add new user, User page with user info](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-    - **Name (required).** The first and last name of the new user. For example, Mary Parker.
+   - **Name (required).** The first and last name of the new user. For example, Mary Parker.
 
-    - **User name (required).** The user name of the new user. For example, mary@contoso.com. 
+   - **User name (required).** The user name of the new user. For example, mary@contoso.com. 
     
-        The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name, such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
+       The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name, such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
 
-    - **Profile.** Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
+   - **Profile.** Optionally, you can add more information about the user. You can also add user information at a later time. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
 
-    - **Groups.** Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
+   - **Groups.** Optionally, you can add the user to one or more existing groups. You can also add the user to groups at a later time. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
-    - **Directory role.** Optionally, you can add the user to a directory role. You can assign the user to be a global administrator, or to one or more of the other administrator roles in Azure AD. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
+   - **Directory role.** Optionally, you can add the user to a directory role. You can assign the user to be a global administrator, or to one or more of the other administrator roles in Azure AD. For more information about assigning roles, see [How to assign roles to users](active-directory-users-assign-role-azure-portal.md).
 
 4. Copy the auto-generated password provided in the **Password** box. You'll need to give this password to the user for the initial sign-in process.
 

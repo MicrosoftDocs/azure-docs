@@ -36,47 +36,47 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-  Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Sign-on URL**. Select **Create** when done.
+   Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Sign-on URL**. Select **Create** when done.
 
-  ![Create Azure AD registration](media/aad-integration/app-registration.png)
+   ![Create Azure AD registration](media/aad-integration/app-registration.png)
 
 2. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
 
-  Save the updates once complete.
+   Save the updates once complete.
 
-  ![Update group membership to all](media/aad-integration/edit-manifest.png)
+   ![Update group membership to all](media/aad-integration/edit-manifest.png)
 
 3. Back on the Azure AD application, select **Settings** > **Keys**.
 
-  Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an Azure AD enabled AKS cluster, this value is referred to as the `Server application secret`.
+   Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an Azure AD enabled AKS cluster, this value is referred to as the `Server application secret`.
 
-  ![Get the application private key](media/aad-integration/application-key.png)
+   ![Get the application private key](media/aad-integration/application-key.png)
 
 4. Return to the Azure AD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
 
-  ![Select graph API](media/aad-integration/graph-api.png)
+   ![Select graph API](media/aad-integration/graph-api.png)
 
 5. Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
-  ![Set application graph permissions](media/aad-integration/read-directory.png)
+   ![Set application graph permissions](media/aad-integration/read-directory.png)
 
 6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
 
-  ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
+   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-  Select **Done**.
+   Select **Done**.
 
 7. Choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
-  ![Set application graph permissions](media/aad-integration/grant-permissions.png)
+   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
 
-  When the permissions have been successfully granted, the following notification is displayed in the portal:
+   When the permissions have been successfully granted, the following notification is displayed in the portal:
 
-  ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
+   ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
 8. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
-  ![Get application ID](media/aad-integration/application-id.png)
+   ![Get application ID](media/aad-integration/application-id.png)
 
 ## Create client application
 
@@ -84,27 +84,27 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
 1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-  Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Select **Create** when done.
+   Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Select **Create** when done.
 
-  ![Create AAD registration](media/aad-integration/app-registration-client.png)
+   ![Create AAD registration](media/aad-integration/app-registration-client.png)
 
 2. From the Azure AD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
 
-  ![Configure application permissions](media/aad-integration/select-api.png)
+   ![Configure application permissions](media/aad-integration/select-api.png)
 
 3. Place a check mark next to the application and click **Select**.
 
-  ![Select AKS AAD server application endpoint](media/aad-integration/select-server-app.png)
+   ![Select AKS AAD server application endpoint](media/aad-integration/select-server-app.png)
 
-  Select **Done**
+   Select **Done**
 
 4. Select your server API from the list and then choose **Grant Permissions**:
 
-  ![Grant permissions](media/aad-integration/grant-permissions-client.png)
+   ![Grant permissions](media/aad-integration/grant-permissions-client.png)
 
 5. Back on the AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Client application ID`.
 
-  ![Get the application ID](media/aad-integration/application-id-client.png)
+   ![Get the application ID](media/aad-integration/application-id-client.png)
 
 ## Get tenant ID
 
@@ -216,7 +216,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 Once complete, the authentication token is cached. You are only reprompted to log in when the token has expired or the Kubernetes config file re-created.
 
-If you are seeing an authorization error message after signing in successfully, check that the user you are signing in as is not a Guest in the Azure AD (this is often the case if you are using a federated login from a different directory).
+If you are seeing an authorization error message after signing in successfully, check whether:
+1. The user you are signing in as is not a Guest in the Azure AD instance (this is often the case if you are using a federated login from a different directory).
+2. The user is not a member of more than 200 groups.
 
 ```console
 error: You must be logged in to the server (Unauthorized)

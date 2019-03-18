@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
---- 
+---
 
 # Mapping Data Flow Debug Mode
 

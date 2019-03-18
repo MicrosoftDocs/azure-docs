@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory
@@ -183,7 +184,6 @@ You did these things:
 To roll out the application to more users in your organization, we recommend using automatic user provisioning.
 
 > [!div class="nextstepaction"]
->[Learn how to as
->sign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
+> [Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
 
 

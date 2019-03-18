@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 
+ms.collection: M365-identity-device-management
 ---
 # Eliminate bad passwords in your organization
 
@@ -56,7 +57,7 @@ Normalization has two parts.  First, all uppercase letters are changed to lower 
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 Example: assume that the password “blank” is banned, and a user tries to change their password to “Bl@nK”. Even though “Bl@nk” is not specifically banned, the normalization process converts this password to “blank”, which is a banned password.
 
@@ -94,7 +95,7 @@ Example: a user changes their password to “C0ntos0Blank12”
 
 After normalization, this password becomes “contosoblank12”. The matching process finds that this password contains two banned passwords: contoso and blank. This password is then given a score:
 
-[contoso] + [blank] = [1] + [2] = 4 points
+[contoso] + [blank] + [1] + [2] = 4 points
 Since this password is under 5 points, it will be rejected.
 
 Example: a user changes their password to “ContoS0Bl@nkf9!”.

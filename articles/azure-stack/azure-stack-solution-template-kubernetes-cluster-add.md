@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
@@ -28,7 +28,7 @@ ms.lastreviewed: 01/16/2019
 
 You can offer Kubernetes as a Marketplace item to your users. Your users can, then, deploy Kubernetes in a single, coordinated operation.
 
-The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. The Kubernetes Cluster Marketplace item 0.3.0 requires Azure Stack version 1808. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace. The cluster depends on an Ubuntu server, custom script, and the Kubernetes items to be in the marketplace.
+The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace. The cluster depends on an Ubuntu server, custom script, and the Kubernetes Cluster Marketplace item to be in the marketplace.
 
 ## Create a plan, an offer, and a subscription
 
@@ -217,12 +217,12 @@ Add the Kubernetes from the Marketplace:
 1. Enter `Custom Script for Linux`.
 
 1. Select the script with the following profile:
-    - **Offer**: Custom Script for Linux 2.0
-    - **Version**: 2.0.6 (or latest version)
-    - **Publisher**: Microsoft Corp
+   - **Offer**: Custom Script for Linux 2.0
+   - **Version**: 2.0.6 (or latest version)
+   - **Publisher**: Microsoft Corp
 
-    > [!Note]  
-    > More than one version of Custom Script for Linux may be listed. You will need to add the last version of the item.
+     > [!Note]  
+     > More than one version of Custom Script for Linux may be listed. You will need to add the last version of the item.
 
 1. Select **Download.**
 

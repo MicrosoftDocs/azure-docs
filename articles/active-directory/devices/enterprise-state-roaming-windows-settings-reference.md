@@ -18,6 +18,7 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Windows 10 roaming settings reference
 The following is a complete list of all the settings that will be roamed or backed up in Windows 10. 

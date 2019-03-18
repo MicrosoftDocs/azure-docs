@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Tableau Online for automatic user provisioning
@@ -101,13 +102,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Domain**, **Admin Username**, **Admin Password**, and **Content URL** of your Tableau Online account:
 
-	*   In the **Domain** field, populate subdomain based on Step 6.
+   * In the **Domain** field, populate subdomain based on Step 6.
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Clarizen Tenant. Example: admin@contoso.com.
+   * In the **Admin Username** field, populate the username of the admin account on your Clarizen Tenant. Example: admin@contoso.com.
 
-	*   In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
+   * In the **Admin Password** field, populate the password of the admin account corresponding to the admin username.
 
-	*   In the **Content URL** field, populate subdomain based on Step 6.
+   * In the **Content URL** field, populate subdomain based on Step 6.
 
 6. After logging in to your administrative account for Tableau Online, the values for **Domain** and **Content URL** can be extracted from the URL of the Admin page.
 

@@ -41,7 +41,7 @@ After you have a B2C tenant, you need to register your application using the [Az
 3. In the left-hand navigation pane, choose **All Services**, click **App Registrations**, and click **Add**.
 4. Follow the prompts and create a new application. 
     1. Select **Web App / API** as the Application Type.    
-    2. Provide **any Sign-on URL** (e.g. https://B2CGraphAPI) as it's not relevant for this example.  
+    2. Provide **any Sign-on URL** (e.g. `https://B2CGraphAPI`) as it's not relevant for this example.  
 5. The application will now show up in the list of applications, click on it to obtain the **Application ID** (also known as Client ID). Copy it as you'll need it in a later section.
 6. In the Settings menu, click **Keys**.
 7. In the **Passwords** section, enter the key description and select a duration, and then click **Save**. Copy the key value (also known as Client Secret) for use in a later section.
@@ -58,7 +58,7 @@ Now you need to configure your application to get all the required permissions t
 You now have an application that has permission to create, read and update users from your B2C tenant.
 
 > [!NOTE]
-> Granting permissions make take a few minutes to fully process.
+> Granting permissions may take a few minutes to fully process.
 > 
 > 
 

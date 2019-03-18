@@ -17,6 +17,7 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Find out when a specific user will be able to access an application

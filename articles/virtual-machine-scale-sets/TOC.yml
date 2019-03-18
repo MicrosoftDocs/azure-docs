@@ -119,20 +119,16 @@
     href: ../virtual-machines/windows/maintenance-and-updates.md
     maintainContext: true
   - name: Disk storage
-    href: ../virtual-machines/windows/about-disks-and-vhds.md
-    maintainContext: true
     items:
     - name: Managed Disks
       href: ../virtual-machines/windows/managed-disks-overview.md
       maintainContext: true
-    - name: Premium storage
-      href: ../virtual-machines/windows/premium-storage.md
+    - name: Select a disk type
+      href: ../virtual-machines/windows/disks-types.md
       maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
-    - name: Standard storage
-      href: ../virtual-machines/windows/standard-storage.md
       maintainContext: true
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
@@ -151,9 +147,6 @@
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: High performance computing
-    href: ../virtual-machines/windows/high-performance-computing.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -286,4 +279,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set

@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.

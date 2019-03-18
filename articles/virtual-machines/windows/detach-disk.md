@@ -24,12 +24,9 @@ ms.subservice: disks
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](premium-storage.md#pricing-and-billing).
->
->
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](disks-types.md#billing).
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -47,11 +44,10 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 The disk stays in storage but is no longer attached to a virtual machine.
 
-
 ## Detach a data disk using the portal
 
 1. In the left menu, select **Virtual Machines**.
-2. Select the virtual machine that has the data disk you want to detach and click **Stop** to deallocate the VM.
+2. Select the virtual machine that has the data disk you want to detach and click **Stop** to de-allocate the VM.
 3. In the virtual machine pane, select **Disks**.
 4. At the top of the **Disks** pane, select **Edit**.
 5. In the **Disks** pane, to the far right of the data disk that you would like to detach, click the ![Detach button image](./media/detach-disk/detach.png) detach button.
@@ -61,5 +57,5 @@ The disk stays in storage but is no longer attached to a virtual machine.
 The disk stays in storage but is no longer attached to a virtual machine.
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+If you want to reuse the data disk, you can just [attach it to another VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

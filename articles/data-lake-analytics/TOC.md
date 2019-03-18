@@ -69,7 +69,7 @@
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Reference
-## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/az.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
@@ -85,6 +85,6 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

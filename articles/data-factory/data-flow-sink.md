@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
---- 
+---
 
 # Mapping Data Flow Sink Transformation
 

@@ -34,7 +34,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 ## Key features of Data Lake Storage Gen2
 
--   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), and [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) to access data stored in Data Lake Storage Gen2.
+-   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) is available within all Apache Hadoop environments, including [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), and [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) to access data stored in Data Lake Storage Gen2.
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 
@@ -73,10 +73,10 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | Platform |  Supported Version(s) | More Information |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 2.6+ | [Hortonworks documentation](https://docs.hortonworks.com/) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## Next steps
 

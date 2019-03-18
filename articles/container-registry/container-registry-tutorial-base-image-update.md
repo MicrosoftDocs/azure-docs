@@ -145,7 +145,7 @@ Now, run the container locally with `docker run`. Replace **\<run-id\>** with th
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
-Navigate to http://localhost:8080 in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
+Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
 ![Screenshot of sample application rendered in browser][base-update-01]
 
@@ -258,7 +258,7 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
 [az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr-run
+[az-acr-task-run]: /cli/azure/acr#az-acr-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

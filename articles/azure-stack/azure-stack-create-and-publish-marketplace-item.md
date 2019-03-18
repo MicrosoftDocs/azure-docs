@@ -65,19 +65,19 @@ ms.lastreviewed: 01/08/2019
 
 10. Replace **My Marketplace Items** with a list of the categories where your Marketplace item should appear:
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. For any further edits to Manifest.json, refer to [Reference: Marketplace item manifest.json](#reference-marketplace-item-manifestjson).
 
 12. To package the folders into an .azpkg file, open a command prompt and run the following command:
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > The full path to the output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
@@ -188,8 +188,8 @@ Icons and text for Marketplace items as seen in the Azure Stack portal are as fo
 
 ### Create blade
 
-![Create blade](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Create blade](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### Marketplace item details blade
 
-![Marketplace item details blade](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Marketplace item details blade](media/azure-stack-create-and-publish-marketplace-item/image3.png)

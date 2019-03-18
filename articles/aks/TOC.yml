@@ -168,6 +168,8 @@
       href: kubernetes-service-principal.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
+    - name: Secure pod traffic with network policies (preview)
+      href: use-network-policies.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
     - name: Authenticate with ACR

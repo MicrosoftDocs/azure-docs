@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with G Suite
 
@@ -145,12 +146,13 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
 	| `google.com` |
-	| `http://google.com` |
-	| `http://google.com/a/<yourdomain.com>` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
@@ -162,12 +164,13 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
 	| `google.com` |
-	| `http://google.com` |
-	| `http://google.com/a/<yourdomain.com>` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
     
     > [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
@@ -216,7 +219,7 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
 ### Configure G Suite Single Sign-On
 
-1. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
+1. Open a new tab in your browser, and sign into the [G Suite Admin Console](https://admin.google.com/) using your administrator account.
 
 2. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 
@@ -262,7 +265,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -313,9 +316,9 @@ When you click the G Suite tile in the Access Panel, you should be automatically
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)

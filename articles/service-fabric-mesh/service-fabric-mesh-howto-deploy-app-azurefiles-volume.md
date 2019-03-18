@@ -4,7 +4,7 @@ description: Learn how to store state in an Azure Service Fabric Mesh applicatio
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
-manager: jeconnoc
+manager: chakdan
 editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
@@ -82,7 +82,7 @@ To mount the volume in your service, add a `volumeRefs` to the `codePackages` el
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {

@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -26,7 +26,7 @@ ROBOTS: NOINDEX
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-After scheduling tests against your Azure Stack solution, Validation as a Service (VaaS) will begin reporting test execution status. This information is available in the VaaS portal along with actions like rescheduling and cancelling tests.
+After scheduling tests against your Azure Stack solution, Validation as a Service (VaaS) will begin reporting test execution status. This information is available in the VaaS portal along with actions like rescheduling and canceling tests.
 
 ## Navigate to the workflow tests summary page
 
@@ -40,7 +40,7 @@ After scheduling tests against your Azure Stack solution, Validation as a Servic
 
 ## Change workflow parameters
 
-Each workflow type lets you to edit the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) specified during workflow creation.
+You may edit the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) specified during workflow creation for any type of workflow.
 
 1. On the tests summary page, select the **Edit** button.
 
@@ -60,9 +60,9 @@ In **Test Pass** workflows, both the **Add tests** and **Edit** buttons allow yo
 
 ## Managing test instances
 
-For unofficial runs (i.e., the **Test Pass** workflow), the tests summary page lists the tests scheduled against the Azure Stack solution.
+For unofficial runs (that is, the **Test Pass** workflow), the tests summary page lists the tests scheduled against the Azure Stack solution.
 
-For official runs (i.e., the **validation** workflows), the tests summary page lists the tests required for completing validation of the Azure Stack solution. Validation tests are scheduled from this page.
+For official runs (that is, the **validation** workflows), the tests summary page lists the tests required for completing validation of the Azure Stack solution. Validation tests are scheduled from this page.
 
 Each scheduled test instance shows the following information:
 
@@ -81,7 +81,7 @@ Each scheduled test instance shows the following information:
 
 ### Actions
 
-Each test instance lists available actions you can take when you click on its context menu **[...]** in the test instances table.
+Each test instance lists available actions you can take when you select its context menu **[...]** in the test instances table.
 
 #### View information about the test definition
 
@@ -118,7 +118,7 @@ Select **View operations** from the context menu to view a detailed status of op
 
 #### Download logs for a completed test instance
 
-Select **Download logs** from the context menu to download a `.zip` file of the logs output during test execution. This action is available only for tests that have completed, i.e., a test with a status of either `Cancelled`, `Failed`, `Aborted`, or `Succeeded`.
+Select **Download logs** from the context menu to download a `.zip` file of the logs output during test execution. This action is available only for tests that have completed, that is, a test with a status of either `Cancelled`, `Failed`, `Aborted`, or `Succeeded`.
 
 #### Reschedule a test instance or schedule a test
 
@@ -140,9 +140,9 @@ In the Test Pass workflow, **rescheduling** a test instance reuses the same set 
 
 #### Cancel a test instance
 
-A scheduled test may be cancelled if its status is `Pending` or `Running`.  
+A scheduled test may be canceled if its status is `Pending` or `Running`.  
 
-1. Select **Cancel** from the context menu to open a prompt for cancelling the test instance.
+1. Select **Cancel** from the context menu to open a prompt for canceling the test instance.
 
 1. Select **Submit** to cancel the test instance.
 

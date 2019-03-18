@@ -49,9 +49,9 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
     try:  
       dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
     except Exception as e:  
       # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
@@ -84,13 +84,13 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
     1.  **Sink** – for copying data into.
 
-        Select a storage created in the [prerequisite 1](#prerequisite), in the sink linked service.
+        Select a storage created in the prerequisite 1, in the sink linked service.
 
         ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
 
     1.  **Databricks** – for connecting to Databricks cluster
 
-        Create a Databricks linked service using access key generated in [prerequisite 2.c](#prerequisite). If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
+        Create a Databricks linked service using access key generated in prerequisite 2.c. If you have an *interactive cluster*, you may select that. (This example uses the *New job cluster* option.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 

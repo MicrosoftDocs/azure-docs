@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/25/18
+ms.date: 10/25/2018
 ms.author: yujhong
 ---
 

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
 
 ---
@@ -222,7 +222,7 @@ The following example of a Content Moderator JSON output was truncated.
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
 ## Next steps
 

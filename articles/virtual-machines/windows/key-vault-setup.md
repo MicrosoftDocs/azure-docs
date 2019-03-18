@@ -31,7 +31,7 @@ In Azure Resource Manager stack, secrets/certificates are modeled as resources t
 >
 
 ## Use PowerShell to set up Key Vault
-To create a key vault by using PowerShell, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md#vault).
+To create a key vault by using PowerShell, see [Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/quick-create-powershell.md).
 
 For new key vaults, you can use this PowerShell cmdlet:
 

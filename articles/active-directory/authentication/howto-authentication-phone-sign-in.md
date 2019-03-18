@@ -15,6 +15,7 @@ ms.reviewer: librown
 
 ms.custom: seo-update-azuread-jan
 
+ms.collection: M365-identity-device-management
 ---
 # Password-less phone sign-in with the Microsoft Authenticator app (public preview)
 

@@ -18,6 +18,7 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
@@ -259,7 +260,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## Code samples and other documentation
 
-Read the [client credentials overview documentation](http://aka.ms/msal-net-client-credentials) from the Microsoft Authentication Library
+Read the [client credentials overview documentation](https://aka.ms/msal-net-client-credentials) from the Microsoft Authentication Library
 
 | Sample | Platform |Description |
 |--------|----------|------------|

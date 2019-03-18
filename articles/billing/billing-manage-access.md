@@ -40,7 +40,7 @@ Those roles have access to billing information in the [Azure portal](https://por
 
 ### <a name="opt-in"></a> Allow users to download invoices
 
-After you assign the appropriate roles to members of your team, the Account Administrator must turn on  assess to download invoices in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
+After you assign the appropriate roles to members of your team, the Account Administrator must turn on access to download invoices in the Azure portal. Invoices older than December 2016 are available only to the Account Administrator.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. As the Account Administrator, select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
@@ -101,4 +101,4 @@ The Account Administrator is the legal owner of the subscription. By default, th
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

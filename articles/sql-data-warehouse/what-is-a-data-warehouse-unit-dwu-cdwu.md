@@ -32,7 +32,9 @@ Increasing DWUs:
 - Increases the maximum number of concurrent queries and concurrency slots.
 
 ## Service Level Objective
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000. 
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
 
@@ -61,7 +63,7 @@ Each performance tier uses a slightly different unit of measure for their data w
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
-As you increase data warehouse units, you are linearly increasing computing resources. Gen2 provides the best query performance and highest scale but has a higher entry price. It is designed for businesses that have a constant demand for performance. These systems make the most use of the cache. 
+As you increase data warehouse units, you are linearly increasing computing resources. Gen2 provides the best query performance and highest scale. These systems make the most use of the cache.
 
 ### Capacity limits
 Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -117,10 +119,13 @@ To change DWUs or cDWUs:
 3. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
 ### PowerShell
-To change the DWUs or cDWUs, use the [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+To change the DWUs or cDWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 For more information, see [PowerShell cmdlets for SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
@@ -176,7 +181,7 @@ FROM      sys.databases
 ;
 ```
 
-3. Submit the following query to check status of operation
+1. Submit the following query to check status of operation
 
 ```sql
 SELECT    *

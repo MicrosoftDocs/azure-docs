@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: a04b9383-3a60-4d54-9412-123daaddff3b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with dmarcian
 
@@ -101,6 +102,7 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
     ![dmarcian Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
     | |
 	| -- |
 	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -108,6 +110,7 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
 	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -119,6 +122,7 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
     ![dmarcian Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+	
     | |
 	|--|
 	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -138,15 +142,15 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
 
 2. Click on **Profile** on the top-right corner and navigate to **Preferences**.
 
-	![The Preferences ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+	![The Preferences](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Scroll down and click on **Single Sign-On** section, then click on **Configure**.
 
-	![The single ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+	![The single](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. On the **SAML Single Sign-On** page set the **Status** as **Enabled** and perform the following steps:
 
-	![The authentication ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+	![The authentication](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
 	* Under **Add dmarcian to your Identity Provider** section, click **COPY** to copy the **Assertion Consumer Service URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration section** on Azure portal.
 
@@ -181,7 +185,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -224,17 +228,17 @@ To enable Azure AD users to sign in to dmarcian, they must be provisioned into d
 
 2. Click on **Profile** on the top right-corner and navigate to **Manage Users**.
 
-	![The user ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+	![The user](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. On the right side of **SSO Users** section, click on **Add New User**.
 
-	![The add user ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+	![The add user](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. On the **Add New User** popup, perform the following steps:
 
-	![The new user ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+	![The new user](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-	a. In the **New User Email** textbox, enter the email of user like **brittasimon@contoso.com**.
+	a. In the **New User Email** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
 	b. If you want to give admin rights to the user, select **Make User an Admin**.
 
@@ -248,9 +252,9 @@ When you click the dmarcian tile in the Access Panel, you should be automaticall
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

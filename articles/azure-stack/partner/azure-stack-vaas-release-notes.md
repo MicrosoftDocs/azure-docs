@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 
 ---
 
@@ -25,14 +25,13 @@ ms.lastreviewed: 11/26/2018
 This article has the release notes for Azure Stack Validation as a Service.
 
 ## Version 4.0.5
+
 2019 January 17
 
--  Disk Identification Test updated to address storage pool inconsistencies. Version: 5.1.14.0  -> 5.1.15.0
--  Azure Stack Monthly Update Verification updated to address approved software and content validation inconsistencies. Version: 5.1.14.0  -> 5.1.15.0
--  OEM Extension Package Verification updated to do perform necessary checks *before* the Azure Stack update step. Version: 5.1.14.0  -> 5.1.15.0
--  Internal bug fixes
-
-
+- Disk Identification Test updated to address storage pool inconsistencies. Version: 5.1.14.0 -> 5.1.15.0
+- Azure Stack Monthly Update Verification updated to address approved software and content validation inconsistencies. Version: 5.1.14.0 -> 5.1.17.0
+- OEM Extension Package Verification updated to do perform necessary checks before the Azure Stack update step. Version: 5.1.14.0 -> 5.1.16.0
+- Internal bug fixes
 
 ## Version 4.0.2
 
@@ -40,10 +39,10 @@ This article has the release notes for Azure Stack Validation as a Service.
 
 If you are running the Azure Stack Monthly Update Verification workflow and the version for your OEM update package is not 1810 or higher, you will receive an error once you get to the OEM update step. This is a bug. A fix is being developed.The mitigation steps are as follows:
 
-1.	Run the OEM update as normal.
-2.	Execute Test-AzureStack after successful application of the package and save the output.
-3.	Cancel the test.
-4.  Send the saved output to VaaSHelp@microsoft.com to receive passing results for the run.
+1. Run the OEM update as normal.
+2. Execute Test-AzureStack after successful application of the package and save the output.
+3. Cancel the test.
+4. Send the saved output to VaaSHelp@microsoft.com to receive passing results for the run.
 
 ## Version 4.0.2
 
@@ -74,7 +73,7 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 
 - VaaS prerequisites and VHD updates
 
-    `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during Solution Validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
+    `Install-VaaSPrerequisites` now requires cloud admin credentials to address an issue during Package Validation. The documentation at [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) has been updated with the following:
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -101,11 +100,11 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 
   - Package signing notifications
 
-    When an OEM customization package is submitted as part of the Solution Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the email address of the registered Azure Active Directory contact for the tenant.
+    When an OEM customization package is submitted as part of the Package Validation workflow, the package format will be validated to ensure that it follows the published specification. If the package does not comply, the run will fail. E-mail notifications will be sent to the email address of the registered Azure Active Directory contact for the tenant.
 
   - Interactive test category
 
-    The **Interactive** test category has been added. These tests let partners to exercise interactive, non-automated Azure Stack scenarios.
+    The **Interactive** test category has been added. These tests exercise interactive, non-automated Azure Stack scenarios.
 
   - Interactive Feature Verification
 

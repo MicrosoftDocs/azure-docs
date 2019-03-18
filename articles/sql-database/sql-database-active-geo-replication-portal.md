@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
-This article shows you how to configure [active geo-replication for single and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database using the [Azure portal](http://portal.azure.com) and to initiate failover.
+This article shows you how to configure [active geo-replication for single and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database using the [Azure portal](https://portal.azure.com) and to initiate failover.
 
-For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with managed-instances](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ To configure active geo-replication by using the Azure portal, you need the foll
 * An Azure SQL database: The primary database that you want to replicate to a different geographical region.
 
 > [!Note]
-When using Azure portal, you can only create a secondary database within the same subscription as the primary. If secondary database is required to be in a different subscription, use  [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> When using Azure portal, you can only create a secondary database within the same subscription as the primary. If secondary database is required to be in a different subscription, use  [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## Add a secondary database
 
@@ -40,7 +40,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 > [!NOTE]
 > If the partner database already exists (for example, as a result of terminating a previous geo-replication relationship) the command fails.
 
-1. In the [Azure portal](http://portal.azure.com), browse to the database that you want to set up for geo-replication.
+1. In the [Azure portal](https://portal.azure.com), browse to the database that you want to set up for geo-replication.
 2. On the SQL database page, select **geo-replication**, and then select the region to create the secondary database. You can select any region other than the region hosting the primary database, but we recommend the [paired region](../best-practices-availability-paired-regions.md).
 
     ![Configure geo-replication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -60,7 +60,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 
 The secondary database can be switched to become the primary.  
 
-1. In the [Azure portal](http://portal.azure.com), browse to the primary database in the geo-replication partnership.
+1. In the [Azure portal](https://portal.azure.com), browse to the primary database in the geo-replication partnership.
 2. On the SQL Database blade, select **All settings** > **geo-replication**.
 3. In the **SECONDARIES** list, select the database you want to become the new primary and click **Failover**.
 
@@ -78,7 +78,7 @@ There is a short period during which both databases are unavailable (on the orde
 
 This operation permanently terminates the replication to the secondary database, and changes the role of the secondary to a regular read-write database. If the connectivity to the secondary database is broken, the command succeeds but the secondary does not become read-write until after connectivity is restored.  
 
-1. In the [Azure portal](http://portal.azure.com), browse to the primary database in the geo-replication partnership.
+1. In the [Azure portal](https://portal.azure.com), browse to the primary database in the geo-replication partnership.
 2. On the SQL database page, select **geo-replication**.
 3. In the **SECONDARIES** list, select the database you want to remove from the geo-replication partnership.
 4. Click **Stop Replication**.

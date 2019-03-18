@@ -6,11 +6,60 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Troubleshoot the Start/Stop VMs during off hours solution
+
+## <a name="deployment-failure"></a>Scenario: The Start/Stop VM solution fails to properly deploy
+
+### Issue
+
+When deploying the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md), you receive one of the following errors:
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.Insights'.
+```
+
+```
+The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
+```
+
+### Cause
+
+Deployments may fail because of one of the following reasons:
+
+1. There is already an Automation Account with the same name in the region selected.
+2. A policy is in place that disallows the deployment of the Start/Stop VMs solution.
+3. The `Microsoft.OperationsManagement`, `Microsoft.Insights`, or `Microsoft.Automation` resource types are not registered.
+4. Your Log Analytics workspace has a lock on it.
+
+### Resolution
+
+Review the following list for potential solutions to your problem or places to look:
+
+1. Automation accounts need to be unique within an Azure region, even if they are in different resource groups. Check your existing Automation Accounts in the target region.
+2. An existing policy prevents a resource that is required for the Start/Stop VM solution to be deployed. Go to your policy assignments in the Azure portal and check whether you have a policy assignment that disallows the deployment of this resource. To learn more about this, see [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+3. In order to deploy the Start/Stop VM solution, your subscription needs to be registered to the following Azure resource namespaces:
+    * `Microsoft.OperationsManagement`
+    * `Microsoft.Insights`
+    * `Microsoft.Automation`
+
+   See, [Resolve errors for resource provider registration](../../azure-resource-manager/resource-manager-register-provider-errors.md) to learn more about errors when registering providers.
+4. If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start/stop
 
@@ -86,7 +135,7 @@ Review the following list for potential solutions to your problem or places to l
 
 * To start and stop VMs, the RunAs account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
-* If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs.
+* If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 

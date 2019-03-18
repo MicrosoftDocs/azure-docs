@@ -29,9 +29,9 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resouce creation. Create a resource group using the [az group create][az-group-create] command.
+An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
-The following example creates a resource group named *myAKSCluster* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

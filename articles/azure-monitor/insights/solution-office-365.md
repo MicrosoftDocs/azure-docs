@@ -1,6 +1,6 @@
 ---
 title: Office 365 management solution in Azure | Microsoft Docs
-description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Log Analytics.
+description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -17,13 +17,15 @@ ms.author: bwren
 
 ![Office 365 logo](media/solution-office-365/icon.png)
 
-The Office 365 management solution allows you to monitor your Office 365 environment in Log Analytics.
+The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
 - Monitor user activities on your Office 365 accounts to analyze usage patterns as well as identify behavioral trends. For example, you can extract specific usage scenarios, such as files that are shared outside your organization or the most popular SharePoint sites.
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log searches](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
@@ -37,7 +39,7 @@ The following is required prior to this solution being installed and configured.
 This solution does not install any management packs in [connected management groups](../platform/om-agents.md).
   
 ## Install and configure
-Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
+Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-monitoring-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
 
 ### Required information
 Before you start this procedure, gather the following information.
@@ -63,7 +65,7 @@ The first step is to create an application in Azure Active Directory that the ma
 1. Click **New application registration**.
 
     ![Add app registration](media/solution-office-365/add-app-registration.png)
-1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use _http://localhost_ for the URL, and keep _Web app / API_ for the **Application type**
+1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use `http://localhost` for the URL, and keep _Web app / API_ for the **Application type**
     
     ![Create application](media/solution-office-365/create-application.png)
 1. Click **Create** and validate the application information.
@@ -83,11 +85,11 @@ The first step is to create an application in Azure Active Directory that the ma
     ![Select API](media/solution-office-365/select-api.png)
 
 1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
-    - Read service health information for your organization
-    - Read activity data for your organization
-    - Read activity reports for your organization
+   - Read service health information for your organization
+   - Read activity data for your organization
+   - Read activity reports for your organization
 
-    ![Select API](media/solution-office-365/select-permissions.png)
+     ![Select API](media/solution-office-365/select-permissions.png)
 
 1. Click **Select** and then **Done**.
 1. Click **Grant permissions** and then click **Yes** when asked for verification.
@@ -117,10 +119,10 @@ To enable the administrative account for the first time, you must provide admini
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
     
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
     $WorkspaceLocation
     
@@ -184,11 +186,11 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
@@ -359,17 +361,17 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 You may see the following error if invalid parameter values are provided.
 
 ```
-Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
-+ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 
 ## Uninstall
-You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-management-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
+You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-monitoring-solution). This will not stop data being collected from Office 365 into Azure Monitor though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
 
 1. Save the following script as *office365_unsubscribe.ps1*.
 
@@ -384,11 +386,11 @@ You can remove the Office 365 management solution using the process in [Remove a
     
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -473,9 +475,12 @@ You can remove the Office 365 management solution using the process in [Remove a
 The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../platform/agent-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
-It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.
+It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
 
 ## Using the solution
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 When you add the Office 365 solution to your Log Analytics workspace, the **Office 365** tile will be added to your dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
 ![Office 365 Summary Tile](media/solution-office-365/tile.png)  
 
@@ -495,9 +500,9 @@ The dashboard includes the columns in the following table. Each column lists the
 
 
 
-## Log Analytics records
+## Azure Monitor log records
 
-All records created in the Log Analytics workspace by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory, SharePoint, or OneDrive.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
+All records created in the Log Analytics workspace in Azure Monitor by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory, SharePoint, or OneDrive.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
 
 ### Common properties
 The following properties are common to all Office 365 records.
@@ -694,7 +699,7 @@ The following table provides sample log searches for update records collected by
 | Query | Description |
 | --- | --- |
 |Count of all the operations on your Office 365 subscription |OfficeActivity &#124; summarize count() by Operation |
-|Usage of SharePoint sites|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl | sort by Count asc|
+|Usage of SharePoint sites|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
 |File access operations by user type|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Search with a specific keyword|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Monitor external actions on Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
@@ -702,6 +707,6 @@ The following table provides sample log searches for update records collected by
 
 
 ## Next steps
-* Use Log Searches in [Log Analytics](../log-query/log-query-overview.md) to view detailed update data.
+* Use [log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  

@@ -51,7 +51,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
     * An Azure Data Lake Storage account that's accessible by the HDInsight cluster. For information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-        The URI format for scripts stored in Data Lake Storage is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+        The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
         > [!NOTE]  
         > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
@@ -407,9 +407,9 @@ Two types of open-source components are available in the HDInsight service:
 
 * **Built-in components**. These components are preinstalled on HDInsight clusters and provide core functionality of the cluster. The following components belong to this category:
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-    * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-    * [Apache Mahout](https://mahout.apache.org/). 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+  * [Apache Mahout](https://mahout.apache.org/). 
     
     A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
 

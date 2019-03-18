@@ -16,6 +16,7 @@ ms.date: 07/16/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 # Integrating Azure Active Directory with applications getting started guide
 

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Origami
 
@@ -203,7 +204,7 @@ In this section, you create a user called Britta Simon in Origami.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. In the **User Name** textbox, enter the email of user like **brittasimon@contoso.com**.
+    a. In the **User Name** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
     b. In the **Password** textbox, type a password.
 

@@ -4,8 +4,9 @@ description: Understand how to change domain delegation and use Azure DNS name s
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Delegation of DNS zones with Azure DNS
@@ -22,7 +23,7 @@ The Domain Name System is a hierarchy of domains. The hierarchy starts from the 
 
 **Domain registrar** - A domain registrar is a company who can provide Internet domain names. They verify if the Internet domain you want to use is available and allow you to purchase it. Once the domain name is registered, you are the legal owner for the domain name. If you already have an Internet domain, you will use the current domain registrar to delegate to Azure DNS.
 
-To find out more information on who owns a given domain name, or for information on how to buy a domain, see [Internet domain management in Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+For more information about accredited domain registrars, see [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### Resolution and delegation
 

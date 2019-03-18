@@ -19,13 +19,18 @@ Azure IoT Edge can make your IoT solution more efficient by moving workloads out
 
 For example, Custom Vision on an IoT Edge device could determine whether a highway is experiencing higher or lower traffic than normal, or whether a parking garage has available parking spots in a row. These insights can be shared with another service to take action. 
 
-
 In this tutorial, you learn how to: 
 
 > [!div class="checklist"]
+>
 > * Build an image classifier with Custom Vision.
 > * Develop an IoT Edge module that queries the Custom Vision web server on your device.
 > * Send the results of the image classifier to IoT Hub.
+
+<center>
+
+![Diagram - Tutorial architecture, stage and deploy classifier](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -40,7 +45,7 @@ Cloud resources:
 
 * A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 * A container registry. This tutorial uses [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-    * Know the credentials for your container registry [admin account](../container-registry/container-registry-authentication.md#admin-account).
+* Know the credentials for your container registry [admin account](../container-registry/container-registry-authentication.md#admin-account).
 
 Development resources:
 

@@ -17,6 +17,9 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
+  - name: Set and retrieve a secret - template
+    displayName: resource manager, resource manager template, arm
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: Azure Web Apps
@@ -107,7 +110,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.keyvault
+    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
@@ -120,6 +123,8 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Best Practices
+    href: key-vault-best-practices.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
   - name: Authentication, requests and responses
@@ -167,7 +172,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: http://blogs.technet.com/b/kv/
-- name: Product Feedback
-  href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://blogs.technet.com/b/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
 

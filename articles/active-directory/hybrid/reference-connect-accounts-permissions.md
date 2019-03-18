@@ -17,6 +17,7 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Accounts and permissions
 
@@ -243,7 +244,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 |Install using Express settings | [Express installation of Azure AD Connect](how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|After installation | [Verify the installation and assign licenses ](how-to-connect-post-installation.md)|
+|After installation | [Verify the installation and assign licenses](how-to-connect-post-installation.md)|
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

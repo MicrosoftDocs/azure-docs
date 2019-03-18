@@ -10,6 +10,7 @@ metadata:
   manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
+  ms.subservice: single-database
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview

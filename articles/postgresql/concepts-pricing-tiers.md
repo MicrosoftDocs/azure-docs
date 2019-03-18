@@ -38,35 +38,38 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 > [!IMPORTANT]
 > Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
+>
+> [!IMPORTANT]
+> Beginning February 19, 2019, new customers will not be able to provision compute generation 4 servers in Central US, East US, Japan East, North Europe, South Central US, Southeast Asia, West Europe. Previously created compute generation 4 servers will be migrated to compute generation 5 starting April 1, 2019 in these regions.
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | Central US |  | X |
 | East US |  | X |
-| East US 2 | X | X |
-| North Central US | X | X |
+| East US 2 |  | X |
+| North Central US |  | X |
 | South Central US | X | X |
-| West US | X | X |
+| West US |  | X |
 | West US 2 |  | X |
-| Brazil South | X | X |
-| Canada Central | X | X |
-| Canada East | X | X |
+| Brazil South |  | X |
+| Canada Central |  | X |
+| Canada East |  | X |
 | North Europe | X | X |
 | West Europe |  | X |
 | France Central |  | X |
 | UK South |  | X |
 | UK West |  | X |
-| East Asia | X | X |
+| East Asia |  | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
 | Australia Central |  | X |
 | Australia Central 2 |  | X |
 | Australia Southeast |  | X |
-| Central India | X | X |
+| Central India |  | X |
 | South India |  | X |
-| West India | X | X |
+| West India |  | X |
 | Japan East | X | X |
-| Japan West | X | X |
+| Japan West |  | X |
 | Korea Central |  | X |
 | Korea South |  | X |
 | China East 1 | X |  |

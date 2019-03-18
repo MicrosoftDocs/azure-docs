@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: juliako
 ---
 
@@ -29,7 +29,7 @@ For details, see [Scale media processing with CLI](media-reserved-units-cli-how-
 
 ### What is the recommended method to process videos?
 
-It is recommended that you submit Jobs using a HTTP(s) URL pointing to the video. For more information, [HTTP(s) ingest](job-input-from-http-how-to.md). You are not required to create an Asset with the input video before it can be processed.
+Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
 ### How does pagination work?
 
@@ -42,6 +42,29 @@ When using pagination, you should always use the next link to enumerate the coll
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
 You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
+
+## Content protection
+
+### How and where to get JWT token before using it to request license or key?
+
+1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
+
+* For an example of running STS, with either symmetric and asymmetric key, please see [https://aka.ms/jwt](https://aka.ms/jwt). 
+* For an example of a player based on Azure Media Player using such JWT token, see [https://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
+
+### How do you authorize requests to stream videos with AES encryption?
+
+The correct approach is to leverage STS (Secure Token Service):
+
+In STS, depending on user profile, add different claims (such as "Premium User", "Basic User", "Free Trial User"). With different claims in a JWT, the user can see different contents. Of course, for different content/asset, the ContentKeyPolicyRestriction will have the corresponding RequiredClaims.
+
+Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+
+For more information, see:
+
+- [Content protection overview](content-protection-overview.md)
+- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 
 ## Media Services v2 vs v3 
 
@@ -61,5 +84,4 @@ It is now recommended to use the server-side storage encryption (which is on by 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Media Services v3 overview](media-services-overview.md)
+[Media Services v3 overview](media-services-overview.md)

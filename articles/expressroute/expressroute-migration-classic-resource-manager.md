@@ -16,6 +16,9 @@ ms.custom: seodec18
 This article explains how to migrate ExpressRoute-associated virtual networks from the classic deployment model to the Azure Resource Manager deployment model after moving your ExpressRoute circuit. 
 
 ## Before you begin
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Verify that you have the latest version of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). Make sure that you fully understand the limits and limitations.
@@ -56,24 +59,24 @@ This section describes the steps to be followed to migrate a virtual network, ga
 2. Ensure that the virtual network has been prepared appropriately for the migration.
 3. Register your subscription for resource migration. To register your subscription for resource migration, use the following PowerShell snippet:
 
-  ```powershell 
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
+   ```powershell 
+   Select-AzSubscription -SubscriptionName <Your Subscription Name>
+   Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   ```
 4. Validate, prepare, and migrate. To move the virtual network, use the following PowerShell snippet:
 
-  ```powershell
-  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+   ```
 
-  You can also abort migration by running the following PowerShell cmdlet:
+   You can also abort migration by running the following PowerShell cmdlet:
 
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Abort $vnetName
+   ```
 
 ## Next steps
 * [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)

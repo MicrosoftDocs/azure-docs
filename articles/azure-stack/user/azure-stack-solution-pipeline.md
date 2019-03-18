@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
@@ -74,17 +74,17 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 ### Azure Stack requirements
 
 * Use an Azure Stack integrated system or deploy the Azure Stack Development Kit (ASDK). To deploy the ASDK:
-    * The [Tutorial: deploy the ASDK using the installer](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) gives detailed deployment instructions.
-    * Use the [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell script to automate ASDK post-deployment steps.
+  * The [Tutorial: deploy the ASDK using the installer](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) gives detailed deployment instructions.
+  * Use the [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell script to automate ASDK post-deployment steps.
 
     > [!Note]
     > The ASDK installation takes approximately seven hours to complete, so plan accordingly.
 
- * Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
- * Create [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
- * Create a [tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
- * Create a Web App in the tenant subscription. Make note of the new Web App URL for later use.
- * Deploy a Windows Server 2012 Virtual Machine in the tenant subscription. You will use this server as your build server and to run Azure DevOps Services.
+  * Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
+  * Create [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
+  * Create a [tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
+  * Create a Web App in the tenant subscription. Make note of the new Web App URL for later use.
+  * Deploy a Windows Server 2012 Virtual Machine in the tenant subscription. You will use this server as your build server and to run Azure DevOps Services.
 * Provide a Windows Server 2016 image with .NET 3.5 for a virtual machine (VM). This VM will be built on your Azure Stack as a private build agent.
 
 ### Developer tool requirements
@@ -93,8 +93,8 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 * [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed.
+  > [!Note]
+  > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed.
 
 ## Prepare the private Azure Pipelines agent for Azure DevOps Services integration
 
@@ -333,7 +333,7 @@ In this part of the tutorial you'll:
 > [!Note]
  > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from Azure DevOps Services to deploy to both clouds.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from Azure DevOps Services to deploy to both clouds.
 
 ### Add code to an Azure DevOps Services project
 
@@ -361,7 +361,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 2. Navigate to the **Build Web Application** page for the project.
 
-3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
+3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .NET Core.
 
     ![Add argument build pipeline](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

@@ -1,9 +1,9 @@
 ---
 title: Configure deployment sources for App Services on Azure Stack | Microsoft Docs
-description: How a service administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox and OneDrive) for App Services on Azure Stack
+description: How a service administrator can configure deployment sources (Git, GitHub, BitBucket, DropBox, and OneDrive) for App Services on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: sethm
+ms.date: 03/11/2019
+ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
 
@@ -101,7 +101,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 ![OneDrive Application - Add Web Platform][12]
 8. Add the **Microsoft Graph Permissions** - **Delegated Permissions**
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**  
+    - **User. Read**  
       ![OneDrive Application - Graph Permissions][13]
 9. Click **Save**.
 10.  In a new browser tab or window, sign in to the Azure Stack admin portal (https://adminportal.local.azurestack.external) as the service administrator.

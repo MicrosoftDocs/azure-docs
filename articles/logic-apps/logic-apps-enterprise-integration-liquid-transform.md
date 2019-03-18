@@ -89,25 +89,25 @@ In the search box, find and select your integration account.
 ## Add the Liquid action for JSON transformation
 
 1. In the Azure portal, follow these steps to 
-[create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. In the Logic App Designer, add the 
-[Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
-to your logic app.
+   [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
+   to your logic app.
 
 3. Under the trigger, choose **New step**. 
-In the search box, enter "liquid" as your filter, 
-and select this action: **Transform JSON to JSON - Liquid**
+   In the search box, enter "liquid" as your filter, 
+   and select this action: **Transform JSON to JSON - Liquid**
 
    ![Find and select Liquid action](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
 4. Click inside the **Content** box so that the dynamic content list appears, 
-and select the **Body** token.
+   and select the **Body** token.
   
    ![Select body](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
 5. From the **Map** list, select your Liquid template, 
-which is "JsonToJsonTemplate" in this example.
+   which is "JsonToJsonTemplate" in this example.
 
    ![Select map](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
@@ -118,9 +118,9 @@ which is "JsonToJsonTemplate" in this example.
    1. On your logic app menu, select **Workflow settings**.
 
    2. From the **Select an Integration account** list, 
-   select your integration account, and choose **Save**.
+      select your integration account, and choose **Save**.
 
-     ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## Test your logic app
 

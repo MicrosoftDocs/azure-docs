@@ -14,6 +14,7 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # View and assign administrator roles in Azure Active Directory
 

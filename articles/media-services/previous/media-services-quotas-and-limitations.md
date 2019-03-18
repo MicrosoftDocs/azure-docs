@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.author: juliako
 
 ---
-# Quotas and Limitations (legacy)
+# Quotas and Limitations
 
 This article describes quotas and limitations associated with Microsoft Azure Media Services.
 

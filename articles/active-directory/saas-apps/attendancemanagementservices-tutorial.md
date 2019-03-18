@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Attendance Management Services
 
@@ -202,7 +203,7 @@ To enable Azure AD users to log in to Attendance Management Services, they must 
 
 	![Add Employee](./media/attendancemanagementservices-tutorial/user4.png)
 
-	a. In the **OBCiD** textbox, type the email of user like **BrittaSimon@contoso.com**.
+	a. In the **OBCiD** textbox, type the email of user like **BrittaSimon\@contoso.com**.
 
 	b. In the **Password** textbox, type the password of user.
 

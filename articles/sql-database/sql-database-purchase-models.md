@@ -40,13 +40,15 @@ The following table and chart compare and contrast these two purchasing models.
 
 ## Compute costs
 
-The compute cost reflects the total compute capacity that is provisioned for the application. In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than in the general purpose service tier. For the same reason, the higher storage price per GB in the the business critical service tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different between these two service tiers because in both cases we use a class of standard storage.
+The compute cost reflects the total compute capacity that is provisioned for the application. In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than in the general purpose service tier. For the same reason, the higher storage price per GB in the business critical service tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different between these two service tiers because in both cases we use a class of standard storage.
 
 ## Storage costs
 
-Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
+Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance. 
 
-For backup storage of a single database, you are charged on a prorated basis for the storage that was allocated to the database backups minus the size of the database. For backup storage of an elastic pool, you are charged on a prorated basis for the storage that was allocated to the database backups of all the databases in the pool minus the maximum data size of the elastic pool. Any increase in the database size or elastic pool, or increase in the transaction rate, requires more storage and thus increases your backup storage bill.  When you increase the maximum data size, this new amount is deducted from the billed backup storage size.
+7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The size of the transaction log depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.
+
+For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page. 
 
 ## vCore-based purchasing model
 
@@ -59,7 +61,7 @@ The vCore-based purchasing model enables you to independently choose compute and
 - Backup storage (RA-GRS)
 
 > [!IMPORTANT]
-> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For moreinformation about managed instance charges, see [managed instances](sql-database-managed-instance.md).
+> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For more information about managed instance charges, see [managed instances](sql-database-managed-instance.md).
 > **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
@@ -96,7 +98,7 @@ Additional eDTUs can be added to an existing pool with no database downtime and 
 
 ### Determine the number of DTUs needed by a workload
 
-If you are looking to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, you can use the [DTU calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, you can use [query performance insight](sql-database-query-performance.md) to understand your database resource consumption (DTUs) to gain deeper insight for optimizing your workload. You can also use the [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV to view resource consumption for the last hour. Alternatively, the catalog view [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
+If you are looking to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, you can use the [DTU calculator](https://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, you can use [query performance insight](sql-database-query-performance.md) to understand your database resource consumption (DTUs) to gain deeper insight for optimizing your workload. You can also use the [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV to view resource consumption for the last hour. Alternatively, the catalog view [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
 
 ### Workloads that benefit from an elastic pool of resources
 

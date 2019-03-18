@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
@@ -110,7 +110,7 @@ The results should look like this:
 
 ## Next steps
 
-To migrate a SQL Server database, see [SQL Server database migration](sql-database-cloud-migrate.md).
+To migrate a SQL Server database, see [SQL Server database migration](sql-database-single-database-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

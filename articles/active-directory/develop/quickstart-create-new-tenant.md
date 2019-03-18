@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a dev environment
@@ -51,8 +52,8 @@ Many developers already have tenants through services or subscriptions that are 
 
 > [!TIP]
 > If you need to find the tenant ID, you can:
-* Hover over your account name to get the directory / tenant ID, or
-* Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
+> * Hover over your account name to get the directory / tenant ID, or
+> * Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
 
 If you don't have an existing tenant associated with your account, you'll see a GUID under your account name and you won't be able to perform actions like registering apps until you follow the steps of the next section.
 

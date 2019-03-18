@@ -3,8 +3,8 @@ title: 'Deploy App Services: Azure Stack | Microsoft Docs'
 description: Detailed guidance for deploying App Service in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,9 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/27/2019
 ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
 
 ---
@@ -25,7 +26,7 @@ ms.lastreviewed: 01/11/2019
 Use the guidance in this article to deploy App Service in Azure Stack.
 
 > [!IMPORTANT]  
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.4.
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack Development Kit (ASDK) before you deploy Azure App Service 1.5.
 
 You can give your users the ability to create web and API applications. To let users create these applications, you need to:
 
@@ -33,19 +34,19 @@ You can give your users the ability to create web and API applications. To let u
  - After you install the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
 > [!IMPORTANT]  
-> Before you run the resource provider installer, make sure that you've followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md).
+> Before you run the resource provider installer, make sure that you've followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md) and have read the [release notes](azure-stack-app-service-release-notes-update-five.md), which accompany the 1.5 release, to learn about new functionality, fixes, and any known issues which could affect your deployment.
 
 ## Run the App Service resource provider installer
 
 Installing the App Service resource provider takes at least an hour. The length of time needed depends on how many role instances you deploy. During the deployment, the installer runs the following tasks:
 
- - Create a blob container in the specified Azure Stack storage account.
- - Create a DNS zone and entries for App Service.
- - Register the App Service resource provider.
- - Register the App Service gallery items.
+- Create a blob container in the specified Azure Stack storage account.
+- Create a DNS zone and entries for App Service.
+- Register the App Service resource provider.
+- Register the App Service gallery items.
 
- > [!IMPORTANT]
- > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+  > [!IMPORTANT]
+  > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To deploy App Service resource provider, follow these steps:
 
@@ -69,8 +70,8 @@ To deploy App Service resource provider, follow these steps:
 
     a. Select **Connect** next to the **Azure Stack Subscriptions**.
 
-     - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Select **Sign In**.
-     - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and then select **Sign In**.
+   - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Select **Sign In**.
+   - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and then select **Sign In**.
 
    b. In **Azure Stack Subscriptions**, select the **Default Provider Subscription**.
 
@@ -94,7 +95,7 @@ To deploy App Service resource provider, follow these steps:
 
    ![App Service Installer][4]
 
-8. Enter the information for your file share and then select **Next**. The address of the file share must use the Fully Qualified Domain Name (FQDN), or the IP address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
+8. Enter the information for your file share and then select **Next**. The address of the file share must use the Fully Qualified Domain Name (FQDN), or the IP address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.  If you are using a file server which is domain joined, you must provide the full username including domain, for example, myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >The installer tries to test connectivity to the file share before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the file share information is correct, continue the deployment.
@@ -127,22 +128,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][10]
 
-11. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then select **Next**. The installer validates the SQL connection properties.
-
-    > [!NOTE]
-    > The installer tries to test connectivity to the SQL Server before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the SQL Server information is correct, continue the deployment.
-    >
-    > From Azure App Service on Azure Stack 1.3 onwards, the installer will check that the SQL Server has database containment enabled at the SQL Server level.  If it is not, you will be prompted with the following exception:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Refer to the [release notes for Azure App Service on Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) for more details.
+11. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then select **Next**. The installer validates the SQL connection properties.<br><br>The App Service installer tries to test connectivity to the SQL Server before proceeding. If you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the SQL Server information is correct, continue the deployment.
 
     ![App Service Installer][11]
 
@@ -194,6 +180,11 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][17]
 
+## Post-deployment Steps
+
+> [!IMPORTANT]  
+> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+
 ## Validate the App Service on Azure Stack installation
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
@@ -202,12 +193,12 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
-    If you're deploying to an existing virtual network and using an internal IP address to connect to your fileserver, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+    If you're deploying to an existing virtual network and using an internal IP address to connect to your file server, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the file server.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
 
     - Source: Any
     - Source port range: *
     - Destination: IP Addresses
-    - Destination IP address range: Range of IPs for your fileserver
+    - Destination IP address range: Range of IPs for your file server
     - Destination port range: 445
     - Protocol: TCP
     - Action: Allow
@@ -248,7 +239,7 @@ To create a test web app, follow these steps:
 
 1. In the Azure Stack tenant portal, select **+**, go to the Azure Marketplace, deploy a Django website, and then wait for the deployment to finish. The Django web platform uses a file system-based database. It doesn’t require any additional resource providers, such as SQL or MySQL.
 
-2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1@Server1*, with the user name and server name of your choice.
+2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1\@Server1*, with the user name and server name of your choice.
 
 3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, choose a database in the computer running SQL Server that's connected to your resource provider.
 

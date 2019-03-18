@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SD Elements
 
@@ -227,7 +228,7 @@ The objective of this section is to create a user called Britta Simon in SD Elem
    
     ![Creating a SD Elements test user](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. In the **E-mail** textbox, enter the email of user like **brittasimon@contoso.com**.
+    a. In the **E-mail** textbox, enter the email of user like **brittasimon\@contoso.com**.
    
     b. In the **First Name** textbox, enter the first name of user like **Britta**.
    

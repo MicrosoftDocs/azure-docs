@@ -13,10 +13,11 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Add your custom domain name using the Azure Active Directory portal
-Every new Azure AD tenant comes with an initial domain name, *domainname*.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names to the list. Adding custom domain names helps you to create user names that are familiar to your users, such as *alain@contoso.com*.
+Every new Azure AD tenant comes with an initial domain name, *domainname*.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names to the list. Adding custom domain names helps you to create user names that are familiar to your users, such as *alain\@contoso.com*.
 
 ## Before you begin
 Before you can add a custom domain name, you must create your domain name with a domain registrar. For an accredited domain registrar, see [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html).
@@ -82,9 +83,9 @@ After you register your custom domain name, you need to make sure it's valid in 
 
 ## Common verification issues
 - If Azure AD can't verify a custom domain name, try the following suggestions:
-    - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
+  - **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain and this process can take an hour or more.
 
-    - **Make sure the DNS record is correct.** Go back to the domain name registrar site and make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
+  - **Make sure the DNS record is correct.** Go back to the domain name registrar site and make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
 
     If you can't update the record on the registrar site, you must share the entry with someone that has the right permissions to add the entry and verify it's accurate.
 

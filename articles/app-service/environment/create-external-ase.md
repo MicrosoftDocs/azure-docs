@@ -19,8 +19,8 @@ ms.custom: seodec18
 
 > [!NOTE]
 > Each App Service Enviornment has a Virtual IP (VIP), which can be used to contact the App Service Environment.
->
-# Create an External App Service environment #
+> 
+> # Create an External App Service environment #
 
 Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE):
 

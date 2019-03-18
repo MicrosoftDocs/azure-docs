@@ -1,19 +1,19 @@
 ---
 title: Copy an Azure SQL database | Microsoft Docs
-description: Create transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
+description: Create a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ---
-# Copy an transactionally consistent copy of an Azure SQL database
+# Copy a transactionally consistent copy of an Azure SQL database
 
 Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
 
@@ -42,10 +42,14 @@ To copy a database by using the Azure portal, open the page for your database, a
 
 ## Copy a database by using PowerShell
 
-To copy a database by using PowerShell, use the [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+To copy a database by using PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
 
 ```PowerShell
-New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
+New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -ServerName $sourceserver `
     -DatabaseName "MySampleDatabase" `
     -CopyResourceGroupName "myResourceGroup" `

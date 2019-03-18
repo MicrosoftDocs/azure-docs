@@ -27,7 +27,7 @@ This tutorial uses Azure PowerShell within the Cloud Shell, which is constantly 
 
 ## Create a rules file
 
-In order to restrict what extensions can be installed, you need to have a [rule](/azure/azure-policy/policy-definition#policy-rule) to provide the logic to identify the extension.
+In order to restrict what extensions can be installed, you need to have a [rule](../../governance/policy/concepts/definition-structure.md#policy-rule) to provide the logic to identify the extension.
 
 This example shows you how to deny extensions published by 'Microsoft.Compute' by creating a rules file in Azure Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
@@ -67,7 +67,7 @@ When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit
 
 ## Create a parameters file
 
-You also need a [parameters](/azure/azure-policy/policy-definition#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
+You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the extensions to block. 
 
 This example shows you how to create a parameters file for VMs in Cloud Shell, but if you are working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
@@ -163,4 +163,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
 	
 ## Next steps
-For more information, see [Azure Policy](../../azure-policy/azure-policy-introduction.md).
+For more information, see [Azure Policy](../../governance/policy/overview.md).

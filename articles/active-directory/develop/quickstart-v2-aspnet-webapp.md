@@ -17,6 +17,7 @@ ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add sign-in with Microsoft to an ASP.NET web app
@@ -143,7 +144,7 @@ public void Configuration(IAppBuilder app)
 > |Where  |  |
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
-> | `Authority`    | The STS endpoint for user to authenticate. Usually https://login.microsoftonline.com/{tenant}/v2.0 for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
+> | `Authority`    | The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
 > | `RedirectUri`  | URL where users are sent after authentication against Azure AD v2.0 endpoint |
 > | `PostLogoutRedirectUri`     | URL where users are sent after signing-off |
 > | `Scope`     | The list of scopes being requested, separated by spaces |

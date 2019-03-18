@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
 
@@ -23,7 +23,7 @@ The Azure portal provides a way to quickly create an Azure Media Services (AMS) 
 
 You can have General Purpose v1 or General Purpose v2 as your primary storage account. Currently, the Azure portal only allows picking v1 but you can add v2 when creating you account using the API or Powershell. For more information about storage types, see [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
+The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
 
 This article shows how to create a Media Services account using the Azure portal.
 

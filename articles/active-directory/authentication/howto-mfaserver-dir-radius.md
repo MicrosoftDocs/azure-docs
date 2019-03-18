@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
+ms.collection: M365-identity-device-management
 ---
 # Integrate RADIUS authentication with Azure Multi-Factor Authentication Server
 
@@ -34,9 +35,9 @@ To configure RADIUS authentication, install the Azure Multi-Factor Authenticatio
 4. Click **Add**.
 5. Enter the IP address of the appliance/server that will authenticate to the Azure Multi-Factor Authentication Server, an application name (optional), and a shared secret.
 
-  The application name appears in reports and may be displayed within SMS or mobile app authentication messages.
+   The application name appears in reports and may be displayed within SMS or mobile app authentication messages.
 
-  The shared secret needs to be the same on both the Azure Multi-Factor Authentication Server and appliance/server.
+   The shared secret needs to be the same on both the Azure Multi-Factor Authentication Server and appliance/server.
 
 6. Check the **Require Multi-Factor Authentication user match** box if all users have been imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server or are exempt from two-step verification, leave the box unchecked.
 7. Check the **Enable fallback OATH token** box if you want to use OATH passcodes from mobile verification apps as a backup method.

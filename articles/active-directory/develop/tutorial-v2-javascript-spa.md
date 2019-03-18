@@ -3,7 +3,7 @@ title: Azure AD v2.0 JavaScript single-page application (SPA) guided setup | Mic
 description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 
@@ -14,8 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: andret
+ms.author: nacanuma
 ms.custom: aaddev 
+ms.collection: M365-identity-device-management
 ---
 
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-javascriptspa-introduction.md)]

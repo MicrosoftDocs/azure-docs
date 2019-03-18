@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
 ---
@@ -98,7 +98,7 @@ public void ConfigureServices(IServiceCollection services)
 
 - **Incoming configuration**
 
-  - For J2EE apps, add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
+  - For Java EE apps, add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml:
 
     ```xml
     <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
@@ -206,7 +206,7 @@ At times, you might want to customize the way component names are displayed in t
 ## Next steps
 
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
-- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloudrolename) for other SDKs.
+- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) for other SDKs.
 - Onboard all components of your microservice on Application Insights. Check out the [supported platforms](../../azure-monitor/app/platforms.md).
 - See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).

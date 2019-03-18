@@ -4,7 +4,7 @@ description: Use this article to help you plan for, generate, and then transfer 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
 
 ---
@@ -28,7 +28,7 @@ This functionality is not available for Azure China.
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
-> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [Get started with Azure Key Vault](key-vault-get-started.md).
+> For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
 
 More information about generating and transferring an HSM-protected key over the Internet:
 
@@ -58,7 +58,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | Thales HSM, smartcards, and support software |You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
 
@@ -139,6 +139,20 @@ KeyVault-BYOK-Tools-Japan.zip
 KeyVault-BYOK-Tools-Korea.zip
 
 71AB6BCFE06950097C8C18D532A9184BEF52A74BB944B8610DDDA05344ED136F
+
+- - -
+**South Africa:**
+
+KeyVault-BYOK-Tools-SouthAfrica.zip
+
+C41060C5C0170AAAAD896DA732E31433D14CB9FC83AC3C67766F46D98620784A
+
+- - -
+**UAE:**
+
+KeyVault-BYOK-Tools-UAE.zip
+
+FADE80210B06962AA0913EA411DAB977929248C65F365FD953BB9F241D5FC0D3
 
 - - -
 **Australia:**
@@ -242,7 +256,6 @@ Copy the BYOK toolset package from the USB drive or other portable storage, and 
 
 For this third step, do the following procedures on the disconnected workstation. To complete this step your HSM must be in initialization mode. 
 
-
 ### Step 3.1: Change the HSM mode to 'I'
 
 If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
@@ -252,13 +265,13 @@ If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button
 Start a command prompt and run the Thales new-world program.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
 > [!NOTE]
-> If your HSM supports newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite=DLf1024s160mRijndael with --cipher-suite=DLf3072s256mRijndael
+> If your HSM does not support the newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite= DLf3072s256mRijndael with --cipher-suite=DLf1024s160mRijndael
 
 Then do the following:
 
@@ -301,6 +314,12 @@ To validate the downloaded package:
    * For Korea:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-KOREA-1 -w BYOK-SecurityWorld-pkg-KOREA-1
+   * For South Africa:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-SA-1 -w BYOK-SecurityWorld-pkg-SA-1
+   * For UAE:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UAE-1 -w BYOK-SecurityWorld-pkg-UAE-1
    * For Australia:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
@@ -388,6 +407,12 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 * For Korea:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1
+* For South Africa:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1
+* For UAE:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1
 * For Australia:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
@@ -451,6 +476,12 @@ Run one of the following commands, depending on your geographic region or instan
 * For Korea:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-KOREA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-KOREA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For South Africa:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* For UAE:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UAE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UAE-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * For Australia:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
@@ -500,4 +531,4 @@ If the upload is successful, you see displayed the properties of the key that yo
 
 ## Next steps
 
-You can now use this HSM-protected key in your key vault. For more information, see the **If you want to use a hardware security module (HSM)** section in the [Getting started with Azure Key Vault](key-vault-get-started.md) tutorial.
+You can now use this HSM-protected key in your key vault. For more information, see the **If you want to use a hardware security module (HSM)** section in the [Getting started with Azure Key Vault](key-vault-overview.md) tutorial.

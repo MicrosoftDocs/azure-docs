@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 
+ms.collection: M365-identity-device-management
 ---
 # Permissions and consent in the Azure Active Directory v2.0 endpoint
 
@@ -54,13 +55,13 @@ In OAuth 2.0, these types of permissions are called *scopes*. They also often si
 * Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
-An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-scopes). Read on to learn more.
+An app most commonly requests these permissions by specifying the scopes in requests to the v2.0 authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and generally requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-permissions). Read on to learn more.
 
 ## Permission types
 
 Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
 
-* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-scopes). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -89,9 +90,9 @@ The `profile` scope can be used with the `openid` scope and any others. It gives
 
 ### offline_access
 
-The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the work account consent page, this scope appears as the "Access your data anytime" permission. On the personal Microsoft account consent page, it appears as the "Access your info anytime" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
+The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the consent page, this scope appears as the "Maintain access to data you have given it access to" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
-If your app does not request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
+If your app does not explicitly request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.  Note that while the `offline_access` scope is automatically requested by the server, your client must still request it in order to receive the refresh tokens. 
 
 For more information about how to get and use refresh tokens, see the [v2.0 protocol reference](active-directory-v2-protocols.md).
 
@@ -114,6 +115,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 The `scope` parameter is a space-separated list of delegated permissions that the app is requesting. Each permission is indicated by appending the permission value to the resource's identifier (the Application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
 After the user enters their credentials, the v2.0 endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the v2.0 endpoint asks the user to grant the requested permissions.
+
+> [!NOTE]
+> At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
 
 ![Work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -160,11 +164,11 @@ To configure the list of statically requested permissions for an application:
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
-### Recommended: Sign the user in to your app
+### Recommended: Sign the user into your app
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user in to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 ### Request the permissions from a directory admin
 
@@ -205,7 +209,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Parameter | Description |
-| --- | --- | --- |
+| --- | --- |
 | `tenant` | The directory tenant that granted your application the permissions it requested, in GUID format. |
 | `state` | A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | `admin_consent` | Will be set to `True`. |
@@ -219,7 +223,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Parameter | Description |
-| --- | --- | --- |
+| --- | --- |
 | `error` | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | `error_description` | A specific error message that can help a developer identify the root cause of an error. |
 
@@ -252,7 +256,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the v2.0 endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.
 
-The /.default scope can be used in any OAuth 2.0 flow, but is particularly neccesary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow
+The /.default scope can be used in any OAuth 2.0 flow, but is particularly necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow
 .md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]

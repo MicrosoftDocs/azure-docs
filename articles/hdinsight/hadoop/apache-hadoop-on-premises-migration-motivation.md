@@ -48,7 +48,7 @@ Azure HDInsight is a cloud distribution of the Hadoop components from the [Hort
 
 - **Extensibility with custom tools or third-party applications** - HDInsight clusters can be extended with installed components and can also be integrated with the other big data solutions by using [one-click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) deployments from the Azure Market place.
 
-- **Easy management, administration, and monitoring** - Azure HDInsight integrates with [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) to provide a single interface with which you can monitor all your clusters.
+- **Easy management, administration, and monitoring** - Azure HDInsight integrates with [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) to provide a single interface with which you can monitor all your clusters.
 
 - **Integration with other Azure services** - HDInsight can easily be integrated with other popular Azure services such as the following:
 

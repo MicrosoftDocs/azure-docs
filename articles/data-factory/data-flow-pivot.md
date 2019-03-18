@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
---- 
+---
 
 # Azure Data Factory Mapping Data Flow Pivot Transformation
 

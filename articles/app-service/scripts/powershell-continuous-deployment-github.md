@@ -22,13 +22,15 @@ ms.custom: mvc
 
 This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](powershell-deploy-github.md).
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure. Also, ensure that:
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure. Also, ensure that:
 
 - A connection with Azure has been created using the `az login` command.
 - The application code is in a public or private GitHub repository that you own.
 - You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
 ## Sample script
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-github-continuous/deploy-github-continuous.ps1?highlight=1-2 "Create a web app with continuous deployment from GitHub")]
 
@@ -37,7 +39,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Script explanation
@@ -46,10 +48,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Creates an App Service plan. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Creates a web app. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource in a resource group. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource in a resource group. |
 
 ## Next steps
 

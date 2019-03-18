@@ -3,7 +3,7 @@ title: App Service on Azure Stack overview | Microsoft Docs
 description: Overview of App Service on Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: jeffgilb
 manager: femila
 
 ms.assetid:
@@ -12,8 +12,8 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
-ms.author: sethm
+ms.date: 03/11/2019
+ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
 
@@ -50,7 +50,7 @@ Your application can be composed of multiple App Service apps of different kinds
 - Deploy both (front end and api) to a single web app
 - Deploy your front-end code to a web app and your back-end code to an API app.
 
-   [ ![App Service overview with monitoring data](media/azure-stack-app-service-overview/image01.png "App Service overview with monitoring data") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![App Service overview with monitoring data](media/azure-stack-app-service-overview/image01.png "App Service overview with monitoring data")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## What is an App Service plan?
 

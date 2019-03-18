@@ -60,6 +60,8 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 
 # [PowerShell](#tab/azure-powershell)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Use the [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive

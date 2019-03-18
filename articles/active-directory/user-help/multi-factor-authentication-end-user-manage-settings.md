@@ -14,6 +14,7 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Manage your settings for two-step verification

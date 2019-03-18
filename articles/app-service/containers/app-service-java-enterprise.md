@@ -1,7 +1,7 @@
 ---
 title:  Java Enterprise support on Linux - Azure App Service | Microsoft Docs
 description: Developer's guide to deploying Java Enterprise apps using Wildfly with Azure App Service on Linux.
-keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
+keywords: azure app service, web app, linux, oss, java, wildfly, enterprise, java ee, jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -18,7 +18,10 @@ ms.custom: seodec18
 
 # Java Enterprise guide for App Service on Linux
 
-Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (JEE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](https://wildfly.org/) application server.
+> [!NOTE] 
+> Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work. Please see the [Java developer's guide](app-service-linux-java.md) for information on our Java SE and Tomcat stacks.
+
+Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](https://wildfly.org/) application server.
 
 This guide provides key concepts and instructions for Java Enterprise developers using in App Service for Linux. If you've never deployed Java applications with Azure App Service for Linux, you should complete the [Java quickstart](quickstart-java.md) first. Questions about App Service for Linux that aren't specific to Java Enterprise are answered in the [Java developer's guide](app-service-linux-java.md) and the [App Service Linux FAQ](app-service-linux-faq.md).
 
@@ -37,7 +40,7 @@ You can write a startup Bash script to call the WildFly CLI to:
 - Configure messaging providers
 - Add other modules and dependencies to the Wildfly server configuration.
 
- The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
+  The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
 
 Do not use the interactive mode of the CLI to configure Wildfly. Instead, you can provide a script of commands to the JBoss CLI using the `--file` command, for example:
 

@@ -12,7 +12,7 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
+ms.date: 02/12/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
@@ -22,7 +22,15 @@ The SQL query editor is an Azure portal browser tool providing an easy way to ex
 
 To complete this tutorial, you need:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+
+  || Single database |
+  |:--- |:--- |
+  | Create| [Portal](sql-database-single-database-get-started.md) | 
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| 
+  |||
 
 > [!NOTE]
 > Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.
@@ -51,8 +59,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 Configuring an Active Directory (AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an AD admin for your SQL server.
 
 > [!NOTE]
-* Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
-* Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
+> * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
+> * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
 1. Select **All Resources** from the left-hand menu and then select your SQL server.
 

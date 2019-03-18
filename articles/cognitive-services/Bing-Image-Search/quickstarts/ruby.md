@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -82,7 +82,7 @@ puts "total number of returned matches: #{total_returned_images}"
 puts "Url to the thumbnail of the first returned search result: #{first_result}"
 ```
 
-## Sample JSON response
+## Example JSON response
 
 Responses from the Bing Image Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -126,7 +126,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 

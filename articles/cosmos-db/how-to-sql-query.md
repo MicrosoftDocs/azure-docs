@@ -1,9 +1,9 @@
 ---
 title: SQL queries for Azure Cosmos DB
-description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
+description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can be used as a JSON query language in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
 
@@ -155,7 +155,7 @@ Following are few aspects of the Cosmos DB query language through the examples y
 
 * The structured query language works with schema-less data. Therefore, the type system needs to be bound dynamically. The same expression could yield different types on different items. The result of a query is a valid JSON value, but is not guaranteed to be of a fixed schema.  
 
-* Azure Cosmos DB supports strict JSON items only. This means the type system and expressions are restricted to deal only with JSON types. Refer to the [JSON specification](http://www.json.org/) for more details.  
+* Azure Cosmos DB supports strict JSON items only. This means the type system and expressions are restricted to deal only with JSON types. Refer to the [JSON specification](https://www.json.org/) for more details.  
 
 * A Cosmos DB container is a schema-free collection of JSON items. The relations in data entities within and across items in a container are implicitly captured by containment and not by primary key and foreign key relations. This is an important aspect worth pointing out in light of the intra-item joins discussed later in this article.
 
@@ -1364,13 +1364,13 @@ The mathematical functions each perform a calculation, based on input values tha
 | CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
 | EXP (num_expr) | Returns the exponent of the specified numeric expression. |
-| [LOG (num_expr [,base])](#bk_log) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
+| LOG (num_expr ,base) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
 | LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
 | ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
 | TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
 | SQRT (num_expr) | Returns the square root of the specified numeric expression. |
 | SQUARE (num_expr) | Returns the square of the specified numeric expression. |
-| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
+| POWER (num_expr, num_expr) | Returns the power of the specified numeric expression to the value specified. |
 | SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
 | ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
 | ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
@@ -2114,9 +2114,9 @@ The second example shows a more complex query that returns multiple results from
 
 If a query's results cannot fit within a single page of results, then the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in subsequent results. The number of results per page can also be controlled through the `x-ms-max-item-count` number header. If the specified query has an aggregation function like `COUNT`, then the query page may return a partially aggregated value over the page of results. The clients must perform a second-level aggregation over these results to produce the final results, for example, sum over the counts returned in the individual pages to return the total count.
 
-To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for containers the index is always current with the item contents and query results match the consistency chosen for data. If the indexing policy is relaxed to Lazy, then queries can return stale results. For more information, see [Azure Cosmos DB Consistency Levels][consistency-levels].
+To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for containers the index is always current with the item contents and query results match the consistency chosen for data. For more information, see [Azure Cosmos DB Consistency Levels][consistency-levels].
 
-If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for range queries against paths configured for hash (equality) lookups, and for paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
+If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for queries with paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
 
 You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
 

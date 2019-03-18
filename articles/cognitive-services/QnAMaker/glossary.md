@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -37,4 +37,4 @@ A user query is the question that the end-user or tester asks of the knowledge b
 The response is the answer retrieved from the knowledge base, based on the best match for a given user query.
 
 ## Confidence Score
-The confidence score of the response is a numeric value between 0 and 100, 100 being an exact query match between user query and a question in knowledge base, that the response served is the correct, appropriate response for a given user query. Answers are typically ranked by the confidence score and the one with the higher confidence score is served as the default response.
+The confidence score of the response is a numeric value between 0 and 100, 100 being an exact query match between user query and a question in knowledge base, that the response served is the correct, appropriate response for a given user query. Answers are typically ranked by the confidence score and the one with the higher confidence score is served as the [default response](concepts/confidence-score.md#change-default-answer).

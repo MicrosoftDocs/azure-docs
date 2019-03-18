@@ -15,6 +15,7 @@ ms.reviewer: sahenry
 
 ms.custom: seo-update-azuread-jan
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot self-service password reset
 
@@ -176,10 +177,10 @@ For more information, review the connectivity prerequisites in the [Prerequisite
 
 To resolve connectivity problems or other transient problems with the service, restart the Azure AD Connect Sync service:
 
-   1. As an administrator, select **Start** on the server running Azure AD Connect.
-   1. Enter **services.msc** in the search field and select **Enter**.
-   1. Look for the **Microsoft Azure AD Sync** entry.
-   1. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
+1. As an administrator, select **Start** on the server running Azure AD Connect.
+1. Enter **services.msc** in the search field and select **Enter**.
+1. Look for the **Microsoft Azure AD Sync** entry.
+1. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
 
    ![Restart the Azure AD Sync service][Service restart]
 
@@ -269,13 +270,13 @@ To properly assist you, we ask that you provide as much detail as possible when 
 * **General description of the error**: What is the error? What was the behavior that was noticed? How can we reproduce the error? Provide as much detail as possible.
 * **Page**: What page were you on when you noticed the error? Include the URL if you're able to and a screenshot of the page.
 * **Support code**: What was the support code that was generated when the user saw the error?
-    * To find this code, reproduce the error, then select the **Support code** link at the bottom of the screen and send the support engineer the GUID that results.
+  * To find this code, reproduce the error, then select the **Support code** link at the bottom of the screen and send the support engineer the GUID that results.
 
     ![Find the support code at the bottom of the screen][Support code]
 
-    * If you're on a page without a support code at the bottom, select F12 and search for the SID and CID and send those two results to the support engineer.
+  * If you're on a page without a support code at the bottom, select F12 and search for the SID and CID and send those two results to the support engineer.
 * **Date, time, and time zone**: Include the precise date and time *with the time zone* that the error occurred.
-* **User ID**: Who was the user who saw the error? An example is *user@contoso.com*.
+* **User ID**: Who was the user who saw the error? An example is *user\@contoso.com*.
     * Is this a federated user?
     * Is this a pass-through authentication user?
     * Is this a password-hash-synchronized user?

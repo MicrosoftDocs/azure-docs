@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Rightscale
 
@@ -128,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 1. On the **Rightscale Configuration** section, click **Configure Rightscale** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-<CS>
+   <CS>
 1. To get SSO configured for your application, you need to sign-on to your RightScale tenant as an administrator.
 
     a. In the menu on the top, click the **Settings** tab and select **Single Sign-On**.
@@ -160,10 +161,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Click **Save**.
-<CE>
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+   <CE>
+   > [!TIP]
+   > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+   > 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.

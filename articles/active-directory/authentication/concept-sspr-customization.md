@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Customize the Azure AD functionality for self-service password reset
 
@@ -64,8 +65,8 @@ The graphics you choose are shown in the following circumstances:
 
 * After a user enters their username
 * If the user accesses the customized URL:
-    * By passing the `whr` parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
-    * By passing the `username` parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
+    * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 

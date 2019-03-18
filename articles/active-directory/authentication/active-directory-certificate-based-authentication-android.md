@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory certificate-based authentication on Android
 

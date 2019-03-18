@@ -17,6 +17,7 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Next steps and how to manage Azure AD Connect
 Use the operational procedures in this article to customize Azure Active Directory (Azure AD) Connect to meet your organization's needs and requirements.  
@@ -46,12 +47,16 @@ Use the Azure portal to check the status of a synchronization.
 4. At the top of the directory page, select **Directory Integration**.
 5. Under **integration with local active directory**, note the last sync time.
 
-<center>![Directory sync time](./media/how-to-connect-post-installation/verify.png)</center>
+<center>
+
+![Directory sync time](./media/how-to-connect-post-installation/verify.png)</center>
 
 ## Start a scheduled synchronization task
 If you need to run a synchronization task, you can do this by running through the Azure AD Connect wizard again.  You need to provide your Azure AD credentials.  In the wizard, select the **Customize synchronization options** task, and click **Next** to move through the wizard. At the end, ensure that the **Start the synchronization process as soon as the initial configuration completes** box is selected.
 
-<center>![Start synchronization](./media/how-to-connect-post-installation/startsynch.png)</center>
+<center>
+
+![Start synchronization](./media/how-to-connect-post-installation/startsynch.png)</center>
 
 For more information on the Azure AD Connect sync Scheduler, see [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md).
 

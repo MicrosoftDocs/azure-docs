@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: celested
+ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy

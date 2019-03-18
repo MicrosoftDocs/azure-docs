@@ -17,6 +17,7 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot password hash synchronization with Azure AD Connect sync
 This topic provides steps for how to troubleshoot issues with password hash synchronization. If passwords are not synchronizing as expected, it can be either for a subset of users or for all users.
@@ -220,7 +221,7 @@ To troubleshoot issues where no passwords are synchronized for a user:
 ## No passwords are synchronized: manual troubleshooting steps
 Follow these steps to determine why no passwords are synchronized:
 
-1. Is the Connect server in [staging mode](how-to-connect-sync-operations.md#staging-mode)? A server in staging mode does not synchronize any passwords.
+1. Is the Connect server in [staging mode](how-to-connect-sync-staging-server.md)? A server in staging mode does not synchronize any passwords.
 
 2. Run the script in the [Get the status of password sync settings](#get-the-status-of-password-sync-settings) section. It gives you an overview of the password sync configuration.  
 

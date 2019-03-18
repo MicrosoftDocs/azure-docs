@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 04/02/2018
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure self-service application assignment

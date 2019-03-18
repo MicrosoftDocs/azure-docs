@@ -188,7 +188,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.datafactories
+    href: /powershell/module/az.datafactory
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactories.models
   - name: REST
@@ -216,7 +216,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-data-factory
+    href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=data-factory
   - name: Process large-scale datasets using Data Factory and Batch

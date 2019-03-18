@@ -55,7 +55,7 @@ To complete the scenario, we use Service Bus queues to send invoice from Contoso
 * You must have a BizTalk Services subscription. For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
 * Register your BizTalk Services subscription on the BizTalk Services Portal. For instructions, see [Registering a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/hh689837.aspx)
 * You must have Visual Studio installed.
-* You must have BizTalk Services SDK installed. You can download the SDK from [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* You must have BizTalk Services SDK installed. You can download the SDK from [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## Step 1: Create the Service Bus queues
 This solution uses Service Bus queues to exchange messages between trading partners. Contoso and Northwind send messages to the queues from where the EAI and/or EDI bridges consume them. For this solution, you need three Service Bus queues:

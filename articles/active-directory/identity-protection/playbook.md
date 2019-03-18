@@ -18,6 +18,7 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection playbook
 
@@ -143,7 +144,7 @@ For more information, see [How to configure the sign-in risk policy](howto-sign-
 
 **To test a sign in risk policy, perform the following steps:**
 
-1. Sign-in to [https://portal.azure.com ](https://portal.azure.com) with global administrator credentials for your tenant.
+1. Sign-in to [https://portal.azure.com](https://portal.azure.com) with global administrator credentials for your tenant.
 
 2. Navigate to **Azure AD Identity Protection**.
 

@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: "it-pro;seo-update-azuread-jan"
 
+ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
@@ -39,11 +40,11 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 4. Sign in to the [Office 365 Admin center](https://portal.office.com/admintakeover) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
-  ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
+   ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
   
 5. Add the TXT record to prove that you own the domain name **fourthcoffee.xyz** at your domain name registrar. In this example, it is GoDaddy.com.
   
-  ![Add a txt record for the domain name](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![Add a txt record for the domain name](./media/domains-admin-takeover/become-admin-txt-record.png)
 
 When the DNS TXT records are verified at your domain name registrar, you can manage the Azure AD tenant.
 
@@ -52,22 +53,22 @@ When you complete the preceding steps, you are now the global administrator of t
 ### Adding the domain name to a managed tenant in Azure AD
 
 1. Open the [Office 365 Admin center](https://portal.office.com/admintakeover).
-2. Select **Users** tab, and create a new user account with a name like *user@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
+2. Select **Users** tab, and create a new user account with a name like *user\@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
 3. Ensure that the new user account has global admin privileges for the Azure AD tenant.
 4. Open **Domains** tab in the Office 365 Admin center, select the domain name and select **Remove**. 
   
-  ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user@fourthcoffeexyz.onmicrosoft.com*.
+5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD tenant.
   
 7. Select **Custom domain names**, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
   
-  ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domain added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user@fourthcoffeexyz.onmicrosoft.com* rather than *user@fourthcoffee.xyz*.
+> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Office 365 tenant must save their dashboards if the domain name is removed. They must sign in with a user name like *user\@fourthcoffeexyz.onmicrosoft.com* rather than *user\@fourthcoffee.xyz*.
 
 ## External admin takeover
 
@@ -127,42 +128,42 @@ cmdlet | Usage
 ### PowerShell example
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
-  ```
+   ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ```
+   ```
 2. Get a list of domains:
   
-  ```
+   ```
     Get-MsolDomain
-  ```
+   ```
 3. Run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
-  ```
+   ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ```
+   ```
 
 4. Copy the value (the challenge) that is returned from this command. For example:
-  ```
+   ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ```
+   ```
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step. The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box.
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ```
+   ```
   
-  For example:
+   For example:
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ```
+   ```
 
 A successful challenge returns you to the prompt without an error.
 

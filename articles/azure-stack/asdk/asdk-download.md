@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
@@ -27,15 +27,15 @@ After ensuring that your development kit host computer meets the basic requireme
 ## Download the ASDK
 1. Before you start the download, make sure that your computer meets the following prerequisites:
 
-  - The computer must have at least 60 GB of free disk space available on four separate, identical logical hard drives in addition to the operating system disk.
-  - [.NET Framework 4.6 (or a later version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) must be installed.
+   - The computer must have at least 60 GB of free disk space available on four separate, identical logical hard drives in addition to the operating system disk.
+   - [.NET Framework 4.6 (or a later version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) must be installed.
 
 2. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try) where you can download the Azure Stack Development Kit, provide your details, and then click **Submit**.
 3. Download and run the [Deployment Checker for Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) prerequisite checker script. This standalone script goes through the pre-requisites checks done by the setup for Azure Stack Development Kit. It provides a way to confirm you are meeting the hardware and software requirements, before downloading the larger package for Azure Stack Development Kit.
 4. Under **Download the software**, click **Azure Stack Development Kit**.
 
-  > [!NOTE]
-  > The ASDK download (AzureStackDevelopmentKit.exe) is approximately 10GB.
+   > [!NOTE]
+   > The ASDK download (AzureStackDevelopmentKit.exe) is approximately 10GB.
 
 ## Extract the ASDK
 1. After the download completes, click **Run** to launch the ASDK self-extractor (AzureStackDevelopmentKit.exe).

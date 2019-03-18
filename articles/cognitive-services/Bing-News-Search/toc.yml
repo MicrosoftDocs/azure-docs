@@ -5,9 +5,9 @@
   items:
     - name: What is the Bing News Search API?
       href: search-the-web.md
-      maintainContext: true
     - name: Compare the Bing Search APIs
       href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   items:
   - name: REST API
@@ -24,6 +24,8 @@
       href: python.md
     - name: Using Ruby
       href: ruby.md
+    - name: Using Go
+      href: go.md
   - name: SDK
     items:
     - name: Using C#

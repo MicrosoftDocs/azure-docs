@@ -5,7 +5,7 @@ description: Learn about cloud-based computing services that include a wide sele
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -72,7 +72,7 @@ Security benefits of Azure Active Directory (Azure AD) include the ability to:
 
 - Provision secure remote access to on-premises web applications through Azure AD Application Proxy.
 
-The [Azure Active Directory portal](http://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
+The [Azure Active Directory portal](https://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -110,7 +110,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 
 Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure portal or through the [Azure Active Directory portal](http://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
+In the Azure portal or through the [Azure Active Directory portal](https://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
 
 - Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to decide about whether an event is suspicious.
 
@@ -166,7 +166,7 @@ Subscriptions also have an association with a directory. The directory defines a
 
 Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions can expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) helps address this problem by offering fine-grained access management for Azure.
 
-![Secured resource access ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Secured resource access](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL databases within the same subscription.
 
@@ -189,8 +189,8 @@ Support at least one of the recommended encryption models detailed in the follow
 | Encryption Models |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Server Encryption | Server Encryption | Server Encryption | Client Encryption
-| Server-Side Encryption using Service Managed Keys | Server-side encryption using Customer-Managed Keys in Azure Key Vault | Server-side encryption using on-prem customer managed keys |
-| •	Azure Resource Providers perform the encryption and decryption operations <br> •	Microsoft manages the keys <br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations<br>•	Customer controls keys via Azure Key Vault<br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations <br>•	Customer controls keys On-Prem <br> •	Full cloud functionality| •	Azure services cannot see decrypted data <br>•	Customers keep keys on-premises (or in other secure stores). Keys are not available to Azure services <br>•	Reduced cloud functionality|
+| Server-Side Encryption using Service Managed Keys | Server-side encryption using Customer-Managed Keys in Azure Key Vault | Server-side encryption using on premises customer managed keys |
+| •	Azure Resource Providers perform the encryption and decryption operations <br> •	Microsoft manages the keys <br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations<br>•	Customer controls keys via Azure Key Vault<br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations <br>•	Customer controls keys On-premises <br> •	Full cloud functionality| •	Azure services cannot see decrypted data <br>•	Customers keep keys on-premises (or in other secure stores). Keys are not available to Azure services <br>•	Reduced cloud functionality|
 
 ### Enabling encryption at rest
 
@@ -271,7 +271,7 @@ You can learn more about Azure VPN option by reading the article [Planning and d
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) uses encryption, identity, and authorization policies to help secure your files and email. Azure RMS works across multiple devices — phones, tablets, and PCs by protecting both within your organization and outside your organization. This capability is possible because Azure RMS adds a level of protection that remains with the data, even when it leaves your organization’s boundaries.
 
-When you use Azure RMS to protect your files, you are using industry-standard cryptography with full support of [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). When you leverage Azure RMS for data protection, you have the assurance that the protection stays with the file, even if it is copied to storage that is not under the control of IT, such as a cloud storage service. The same occurs for files shared via e-mail, the file is protected as an attachment to an email message, with instructions how to open the protected attachment.
+When you use Azure RMS to protect your files, you are using industry-standard cryptography with full support of [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). When you leverage Azure RMS for data protection, you have the assurance that the protection stays with the file, even if it is copied to storage that is not under the control of IT, such as a cloud storage service. The same occurs for files shared via e-mail, the file is protected as an attachment to an email message, with instructions how to open the protected attachment.
 When planning for Azure RMS adoption we recommend the following:
 
 - Install the [RMS sharing app](https://technet.microsoft.com/library/dn339006.aspx). This app integrates with Office applications by installing an Office add-in so that users can easily protect files directly.
@@ -395,19 +395,19 @@ In addition, the checklist:
 
 Azure Operational Security is built on a framework that incorporates the knowledge gained through a various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Centre program, and deep awareness of the cybersecurity threat landscape.
 
-### Microsoft Azure Log Analytics
+### Microsoft Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, Log Analytics gives you the maximum flexibility and control for cloud-based management of your infrastructure.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, Azure Monitor logs gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-With Log Analytics, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, Log Analytics offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
+With Azure Monitor, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, Azure Monitor offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
 
-### Log analytics
+### Azure Monitor logs
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
-![Log analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Azure Monitor logs](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 This method allows you to consolidate data from a variety of sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
 
@@ -460,7 +460,7 @@ Auditing your network security is vital for detecting network vulnerabilities an
 
 ### Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your devOps process, and has connection points to a various development tools.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and Java EE, hosted on-premises or in the cloud. It integrates with your devOps process, and has connection points to a various development tools.
 
 It monitors:
 

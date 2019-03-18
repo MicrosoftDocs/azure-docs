@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Reports in Azure Multi-Factor Authentication
 
@@ -32,7 +33,9 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 2. On the left, select **Azure Active Directory** > **MFA Server**.
 3. Select the report that you wish to view.
 
-   <center>![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   <center>
+   
+   ![Cloud](./media/howto-mfa-reporting/report.png)</center>
 
 ## Azure AD sign-ins report
 

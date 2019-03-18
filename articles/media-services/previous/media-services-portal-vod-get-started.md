@@ -12,12 +12,12 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/08/2019
+ms.topic: conceptual
+ms.date: 02/12/2019
 ms.author: juliako
 
 ---
-# Get started with delivering content on demand by using the Azure portal (legacy)
+# Get started with delivering content on demand by using the Azure portal
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
@@ -147,7 +147,7 @@ Some considerations apply:
 
 * To begin streaming, start running the default streaming endpoint.
 * Make sure that the video has been published.
-* The Azure portal media player plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, select and copy the URL, and then paste it into another player. For example, you can test your video on the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* The Azure portal media player plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, select and copy the URL, and then paste it into another player. For example, you can test your video on the [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

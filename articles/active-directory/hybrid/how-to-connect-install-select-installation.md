@@ -17,6 +17,7 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Select which installation type to use for Azure AD Connect
 Azure AD Connect has two installation types for new installation: Express and customized. This topic helps you to decide which option to use during installation.

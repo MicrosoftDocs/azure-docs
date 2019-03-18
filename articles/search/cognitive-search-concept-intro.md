@@ -6,8 +6,8 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -87,25 +87,9 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 ## Where do I start?
 
-**Step 1: [Create an Azure Search resource](search-create-service-portal.md) in a region providing the APIs** 
+**Step 1: [Create an Azure Search resource](search-create-service-portal.md)** 
 
-+ West Central US
-+ South Central US
-+ East US
-+ East US 2
-+ West US
-+ West US 2
-+ Canada Central
-+ West Europe
-+ UK South
-+ North Europe
-+ Brazil South
-+ East Asia
-+ Southeast Asia
-+ Central India
-+ Australia East
-
-**Step 2: Hands-on experience to master the workflow**
+**Step 2: Try some quickstarts and examples for hands-on experience**
 
 + [Quickstart (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)

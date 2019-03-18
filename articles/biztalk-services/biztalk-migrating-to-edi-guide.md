@@ -97,7 +97,7 @@ If you need to migrate BizTalk Server orchestration processing to Microsoft Azur
 
 * [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) by Paolo Salvatori. 
 * [*Building apps with Windows Workflow Foundation and Azure* session](https://go.microsoft.com/fwlink/p/?LinkId=237314) from the Build 2011 conference.
-* [*Windows Workflow Foundation Developer Center*](https://go.microsoft.com/fwlink/p/?LinkId=237315) on MSDN.
+* [*Windows Workflow Foundation Developer Center*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Windows Workflow Foundation 4 (WF4) documentation*](https://msdn.microsoft.com/library/dd489441.aspx) on MSDN.
 
 ## Other Considerations

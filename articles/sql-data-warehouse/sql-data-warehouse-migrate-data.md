@@ -24,7 +24,7 @@ If your data starts in flat files, then you will first need to transfer it to Az
 
 PolyBase also provides a high-performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
 
-Follow [this tutorial]( /articles/data-factory/load-azure-sql-data-warehouse.md) to learn how to use ADF to load data into your data warehouse.
+Follow [this tutorial](../data-factory/load-azure-sql-data-warehouse.md) to learn how to use ADF to load data into your data warehouse.
 
 ## Integration Services
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
@@ -186,11 +186,11 @@ For more development tips, see [development overview][development overview].
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory]: http://azure.microsoft.com/services/data-factory/
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[ExpressRoute documentation]: http://azure.microsoft.com/documentation/services/expressroute/
+[Azure Data Factory]: https://azure.microsoft.com/services/data-factory/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
+[ExpressRoute documentation]: https://azure.microsoft.com/documentation/services/expressroute/
 
-[production version]: http://aka.ms/downloadazcopy/
-[preview version]: http://aka.ms/downloadazcopypr/
+[production version]: https://aka.ms/downloadazcopy/
+[preview version]: https://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
