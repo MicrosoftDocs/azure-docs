@@ -296,9 +296,6 @@
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions.md
       maintainContext: true
-    - name: Manage clusters with Azure portal
-      href: ../hdinsight-administer-use-management-portal.md
-      maintainContext: true
     - name: Monitor clusters using the Apache Ambari API
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true

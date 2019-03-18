@@ -174,7 +174,7 @@ HDInsight Enterprise Security Package has the following roles:
 ## Open the Ambari Management UI
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Open your HDInsight cluster. See [List and show clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Open your HDInsight cluster.
 3. Click **Dashboard** from the top menu to open Ambari.
 4. Log on to Ambari using the cluster administrator domain user name and password.
 5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.

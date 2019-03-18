@@ -215,13 +215,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 
 ## Test restricted access
 
-To verify that you have restricted access, use the following methods:
-
-* For **Windows-based** HDInsight clusters, use Remote Desktop to connect to the cluster. For more information, see [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Once connected, use the **Hadoop Command-Line** icon on the desktop to open a command prompt.
-
-* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+To verify that you have restricted access, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected to the cluster, use the following steps to verify that you can only read and list items on the SAS storage account:
 

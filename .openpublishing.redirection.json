@@ -36309,6 +36309,32 @@
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hive-analyze-sensor-data.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-analyze-twitter-data-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hive-analyze-website-log.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-analyze-twitter-data-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+      "redirect_document_id": false
+    }
+    ,
+    {
+      "source_path": "articles/hdinsight/hdinsight-administer-use-management-portal.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-administer-use-portal-linux",
+      "redirect_document_id": false
     }
   ]
 }

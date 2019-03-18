@@ -268,8 +268,6 @@ To learn more, see:
 * [HDInsight HBase overview][hdinsight-hbase-overview]:
   Apache HBase is an Apache, open-source, NoSQL database built on Apache Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
-
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: https://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf

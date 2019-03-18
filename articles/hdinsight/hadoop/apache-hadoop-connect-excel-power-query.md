@@ -49,7 +49,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
        **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
        
        **Note:** Power Query also allows you to import data from HDFS by clicking **From Other Sources**.
-4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. This account can be the [default storage account](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) or a linked storage account.  The format is *https://&lt;StorageAccountName>.blob.core.windows.net/*.
+4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. This account can be the default storage account or a linked storage account.  The format is *https://&lt;StorageAccountName>.blob.core.windows.net/*.
 5. For **Account Key**, enter the key for the Blob storage account, and then click **Save**. (You need to enter the account information only the first time you access this store.)
 6. In the **Navigator** pane on the left of the Query Editor, double-click the Blob storage container name. By default, the container name is the same name as the cluster name.
 7. Locate **HiveSampleData.txt** in the **Name** column (the folder path is **../hive/warehouse/hivesampletable/**), and then click **Binary** on the left of HiveSampleData.txt. HiveSampleData.txt comes with all the cluster. Optionally, you can use your own file.
