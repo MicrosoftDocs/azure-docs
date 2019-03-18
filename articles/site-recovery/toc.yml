@@ -23,6 +23,12 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
+  - name: Move Azure VMs
+    items:
+    - name: Move Azure VMs to another region
+      href: azure-to-azure-tutorial-migrate.md 
+    - name: Move Azure VMs to Availability Zones
+      href: move-Azure-VMs-AVset-Azone.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -59,19 +65,11 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Move Azure VMs
-    items:
-    - name: Overview
-      href: azure-to-azure-move-overview.md
-    - name: Move Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md 
-    - name: Move Azure VMs to Availability Zones
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
     href: site-recovery-faq.md
-  - name: About Azure VM disaster recovery to Azure
+  - name: About disaster recovery for Azure VMs 
     items:
     - name: Azure to Azure architecture
       href: azure-to-azure-architecture.md
@@ -79,12 +77,14 @@
       href: azure-to-azure-common-questions.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
+    - name: Using Site Recovery with Azure Backup
+      href: site-recovery-backup-interoperability.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM disaster recovery and Azure Backup Interoperability
-      href: site-recovery-backup-interoperability.md
+  - name: About moving Azure VMs
+    href: azure-to-azure-move-overview.md
   - name: About VMware VM disaster recovery to Azure
     items:
     - name: VMware disaster recovery overview
@@ -101,7 +101,7 @@
       href: concepts-types-of-failback.md
     - name: Multi-tenant support for VMware disaster recovery
       href: vmware-azure-multi-tenant-overview.md
-  - name: About Hyper-V VM disaster recovery to Azure
+ - name: About Hyper-V VM disaster recovery to Azure
     items:
     - name: Common questions
       href: hyper-v-azure-common-questions.md
