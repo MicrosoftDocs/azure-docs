@@ -59,7 +59,7 @@ After the DC Agent service receives a new password policy from Azure AD, the ser
 
 The DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Azure AD, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
 
-Whenever a Azure AD password protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
+Whenever an Azure AD password protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
 
 The DC Agent communicates with the proxy service via RPC over TCP. The proxy service listens for these calls on a dynamic or static RPC port, depending on the configuration.
 
