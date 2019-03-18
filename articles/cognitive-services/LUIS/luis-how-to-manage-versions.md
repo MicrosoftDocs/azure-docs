@@ -54,7 +54,7 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 ### Import errors
 
-* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#tokenizer-versions) than the app currently uses. To fix this, you have two choices. See [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions) for more information.
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#custom-tokenizer-versions) than the app currently uses. To fix this, you have two choices. See [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions) for more information.
 
 <a name = "export-version"></a>
 
