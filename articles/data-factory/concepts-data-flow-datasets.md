@@ -38,6 +38,10 @@ When creating a new Dataset, there is a checkbox labeled "Data Flow Compatible" 
 
 When importing the schema of Data Flow datasets, you will see an Import Schema button. Clicking that button will present you with two options: Import from the source or import from a local file. In most cases, you will import the schema directly from the source. However, if you have an existing schema file (Parquet file or CSV with headers), you can point to that local file and Data Factory will define the schema based upon that schema file.
 
+## Create new table
+
+In Data Flow, you can ask ADF to create a new table definition in your target database by setting a dataset in the Sink transformation that has a new table name. In the SQL dataset, click "Edit" below the table name and enter a new table name. Then, in the Sink Transformation, turn on "Allow Schema Drift".
+
 ## Delimited text dataset
 
 In the delimited text dataset, you will set the delimiter to handle either single delimiters ('\t' for TSV, ',' for CSV, '|' ...) or use multiple characters for delimiter. Set the header row toggle and then go into the Source transformation to auto-detect data types.
