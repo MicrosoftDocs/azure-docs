@@ -101,7 +101,7 @@
       href: concepts-types-of-failback.md
     - name: Multi-tenant support for VMware disaster recovery
       href: vmware-azure-multi-tenant-overview.md
- - name: About Hyper-V VM disaster recovery to Azure
+  - name: About Hyper-V VM disaster recovery to Azure
     items:
     - name: Common questions
       href: hyper-v-azure-common-questions.md
