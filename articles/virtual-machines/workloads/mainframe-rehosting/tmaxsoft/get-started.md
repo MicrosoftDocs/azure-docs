@@ -18,13 +18,9 @@ By moving some or all of your mainframe workloads to the cloud, you can moderniz
 
 ![OpenFrame rehosting environment on Azure](media/openframe_01.png)
 
-Figure 1. OpenFrame creates a rehosting environment on Azure for mainframe workloads
-
-![NOTE]
-To run the OpenFrame environment on Azure, you must have a valid product license or trial license from TmaxSoft.
+> [!NOTE]
+> To run the OpenFrame environment on Azure, you must have a valid product license or trial license from TmaxSoft.
 
 ## Next steps
-
-**Next steps**
 
 - [Install TmaxSoft OpenFrame on Azure](./install-openframe-on-azure.md)

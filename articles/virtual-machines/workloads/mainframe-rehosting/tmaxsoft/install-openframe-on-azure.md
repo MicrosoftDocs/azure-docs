@@ -12,13 +12,16 @@ keywords:
 
 # Install TmaxSoft OpenFrame on Azure
 
-This document explains how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads. As Figure 1 shows, OpenFrame includes multiple components that create the mainframe emulation environment on Azure. For example, OpenFrame online services replace the mainframe middleware such as IBM Customer Information Control System (CICS), and OpenFrame Batch, with its TJES component, replaces the IBM mainframe’s Job Entry Subsystem (JES).
+Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads. This tutorial walks you through each step.
 
-OpenFrame works with any relational database, including Oracle Database, Microsoft SQL Server, IBM Db2, and MySQL. This installation of OpenFrame uses the TmaxSoft Tibero relational database. Both OpenFrame and Tibero run on a Linux operating system. This deployment installs CentOS 7.3, although you can use other supported Linux distributions, and it installs the OpenFrame application server and the Tibero database on one virtual machine (VM).
+OpenFrame includes multiple components that create the mainframe emulation environment on Azure. For example, OpenFrame online services replace the mainframe middleware such as IBM Customer Information Control System (CICS), and OpenFrame Batch, with its TJES component, replaces the IBM mainframe’s Job Entry Subsystem (JES).
 
-Certain components must be installed separately. The tutorial steps you through the installation of the following components of the OpenFrame suite:
+OpenFrame works with any relational database, including Oracle Database, Microsoft SQL Server, IBM Db2, and MySQL. This installation of OpenFrame uses the TmaxSoft Tibero relational database. Both OpenFrame and Tibero run on a Linux operating system. This tutorial installs CentOS 7.3, although you can use other supported Linux distributions.The OpenFrame application server and the Tibero database are installed on one virtual machine (VM).
 
-**Main components**
+The tutorial steps you through the installation of the OpenFrame suite components. Some must be installed separately.
+
+Main OpenFrame components:
+
 - Required installation packages.
 - Tibero database.
 - Open Database Connectivity (ODBC) is used by applications in OpenFrame to communicate with the Tibero database.
@@ -33,9 +36,9 @@ Certain components must be installed separately. The tutorial steps you through 
 - OFGW, the OpenFrame gateway component that provides a 3270 listener.
 - OFManager, a solution that provides OpenFrame’s operation and management functions in the web environment.
 
-**Other required components**
-- OSI, the solution that replaces the mainframe middleware and IMS DC.
+Other required OpenFrame components:
 
+- OSI, the solution that replaces the mainframe middleware and IMS DC.
 - TJES, the solution that provides the mainframe’s JES environment.
 - OFTSAM, the solution that enables (V)SAM files to be used in the open system.
 - OFHiDB, the solution that replaces the mainframe’s IMS DB.
@@ -47,7 +50,7 @@ Certain components must be installed separately. The tutorial steps you through 
 
 The following figure provides an overview of the OpenFrame 7.0 architectural components installed in this tutorial:
 
-![OpenFrame components](media/93b80eaa92ca65f08a421bddaff48f94.png)
+![OpenFrame components](media/openframe_02.png)
 
 ## Azure system requirements
 
@@ -108,31 +111,30 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 **To create a VM**
 
-1.  Go to the Azure portal at <http://portal.azure.com> and sign in to your account.
+1. Go to the Azure portal at <http://portal.azure.com> and sign in to your account.
 
-2.  Click **Virtual machines**.
+2. Click **Virtual machines**.
 
-     [./media/image3.png](./media/image3.png)
+    ![Resource list in Azure portal](/media/vm_01.png)
 
-3.  Click **Add**.
+3. Click **Add**.
 
-    ![](media/5f527a489f0e13538d6a04dbb075c4ba.png)
+    ![Add option in Azure portal](/media/vm_02.png)
 
-4.  To the right of **Operating Systems**, click **More**.
+4. To the right of **Operating Systems**, click **More**.
 
-     ![](media/dae625ac4844c9a7b3c9cd7f9c581e2e.png)
+     ![More option in Azure portal](/media/vm_03.png)
 
-5.  Click **CentOS-based 7.3** to follow this walk-through exactly, or you can choose another supported Linux distribution.
+5. Click **CentOS-based 7.3** to follow this walk-through exactly, or you can choose another supported Linux distribution.
 
-     [./media/image6.png](./media/image6.png)
+     [Operating System options in Azure portal](/media/vm_04.png)
 
-6.  In the **Basics** settings, enter **Name**, **User name**, **Authentication type**, **Subscription** (Pay-As-You-Go is the AWS style of payment), and **Resource group** (use an existing one or create a TmaxSoft group).
+6. In the **Basics** settings, enter **Name**, **User name**, **Authentication type**, **Subscription** (Pay-As-You-Go is the AWS style of payment), and **Resource group** (use an existing one or create a TmaxSoft group).
 
-7.  When complete (including the public/private key pair for **Authentication type**), click **Submit**.
+7. When complete (including the public/private key pair for **Authentication type**), click **Submit**.
+
 > [!NOTE]
 > If using an SSH public key for **Authentication type**, see the steps in the next section to generate the public/private key pair, then resume the steps here.
-
-     [./media/image7.png](./media/image7.png)
 
 ### Generate a public/private key pair
 
@@ -154,53 +156,48 @@ When giving new individuals access the VM:
 
 2.  To open PuTTYgen, locate the PuTTY installation directory in C:\\Program Files\\PuTTY.
 
-     [./media/image8.png](./media/image8.png)
+    ![PuTTY interface](/media/puttygen_01.png)
 
 3.  Click **Generate**.
 
-     [./media/image9.png](./media/image9.png)
+    ![PuTTY Key Generator dialog box](/media/puttygen_02.png)
 
 4.  After generation, save both the public key and private key. Paste the contents of the public key in the **SSH public key** section of the **Create virtual machine \> Basics** pane (shown in steps 6 and 7 in the previous section).
 
-     [./media/image10.png](./media/image10.png)
+    ![PuTTY Key Generator dialog box](/media/puttygen_03.png)
 
 ### Configure VM features
 
 1. In Azure portal, in the **Choose a size** blade, choose the Linux machine hardware settings you want. The *minimum* requirements for installing both Tibero and OpenFrame are 2 CPUs and 4 GB RAM as shown in this example installation:
 
-     [./media/image11.png](./media/image11.png)
+    ![Create virtual machine - Basics](/media/createVM_01.png)
 
-2. To configure the optional features, on the **Settings** pane, use the default settings.
-
-     [./media/image12.png](./media/image12.png)
-
+2. Click **3 Settings** and use the default settings to configure optional features.
 3. Review your payment details.
 
-     [./media/image13.png](./media/image13.png)
+    ![Create virtual machine - Purchase](/media/createVM_02.png.png)
 
 4. Submit your selections. Azure begins to deploy the VM. This process typically takes a few minutes.
 
-     [./media/image14.png](./media/image14.png)
-
 5. When the VM is deployed, its dashboard is displayed, showing all the settings that were selected during the configuration. Make a note of the **Public IP address**.
 
-     [./media/image15.png](./media/image15.png)
+    ![tmax on Azure dashboard](/media/createVM_03.png.png)
 
 6. Open PuTTY.
 
 7. For **Host Name**, type your username and the public IP address you copied. For example, **username\@publicip**.
 
-     [./media/image16.png](./media/image16.png)
+    ![PuTTY Configuration dialog box](/media/putty_01.png)
 
 8. In the **Category** box, click **Connection \> SSH \> Auth**. Provide the path to your **private key** file.
 
-     [./media/image17.png](./media/image17.png)
+    ![PuTTY Configuration dialog box](/media/putty_02.png)
 
 9. Click **Open** to launch the PuTTY window. If successful, you are connected to your new CentOS VM running on Azure.
 
 10. To log on as root user, type **sudo bash**.
 
-     [./media/image18.png](./media/image18.png)
+    ![Root user logon in command window](/media/putty_03.png)
 
 ## Set up the environment and packages
 
@@ -251,43 +248,42 @@ Now that the VM is created and you are logged on, you must perform a few setup s
     [root@ofdemo ~]# /sbin/sysctl -p
     ```
 
-6. Install the required packages. Make sure the server is connected to the Internet, download the following packages, and then install them:
+6. Get the required packages: Make sure the server is connected to the Internet, download the following packages, and then install them:
 
--   dos2unix
--   glibc
--   glibc.i686 glibc.x86\_64
--   libaio
--   ncurses (Note: After installing the ncurses package, create the following symbolic link.)
+     - dos2unix
+     - glibc
+     - glibc.i686 glibc.x86\_64
+     - libaio
+     - ncurses
 
-    ```
-    ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so
-    ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
-    ```
+     > [!NOTE]
+     > After installing the ncurses package, create the following symbolic links:
+     `ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so`
+     `ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2`
 
--   gcc
--   gcc-c++
--   libaio-devel.x86\_64
--   strace
--   ltrace
--   gdb
+     - gcc
+     - gcc-c++
+     - libaio-devel.x86\_64
+     - strace
+     - ltrace
+     - gdb
 
-**In case of Java RPM installation**
-Do the following:
+7. In case of Java RPM installation, do the following:
 
 ```
-root@ofdemo ~]# rpm -ivh jdk-7u79-linux-x64.rpm 
+root@ofdemo ~]# rpm -ivh jdk-7u79-linux-x64.rpm
 [root@ofdemo ~]# vi .bash_profile
 
 # JAVA ENV
-export JAVA_HOME=/usr/java/jdk1.7.0_79/ 
-export PATH=$JAVA_HOME/bin:$PATH 
+export JAVA_HOME=/usr/java/jdk1.7.0_79/
+export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=$CLASSPATH:$JAVA_HOME/jre/lib/ext:$JAVA_HOME/lib/tools.jar
 
-[root@ofdemo ~]# source /etc/profile 
+[root@ofdemo ~]# source /etc/profile
 [root@ofdemo ~]# java –version
 
-java version "1.7.0_79" 
-Java(TM) SE Runtime Environment (build 1.7.0_79-b15) 
+java version "1.7.0_79"
+Java(TM) SE Runtime Environment (build 1.7.0_79-b15)
 Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)
 
 [root@ofdemo ~]# echo $JAVA_HOME /usr/java/jdk1.7.0_79/
@@ -297,28 +293,23 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode)
 
 Tibero provides the several key functions in the OpenFrame environment on Azure:
 
--   Tibero is used as the OpenFrame internal data store for various system functions.
-- 
--   VSAM files, including KSDS, RRDS, and ESDS, use the Tibero database internally for data storage.
-- 
--   The TACF data repository is stored in Tibero.
-- 
--   The OpenFrame catalog information is stored in Tibero.
-- 
--   The Tibero database can be used as a replacement for IBM Db2 to store application data.
+- Tibero is used as the OpenFrame internal data store for various system functions.
+- VSAM files, including KSDS, RRDS, and ESDS, use the Tibero database internally for data storage.
+- The TACF data repository is stored in Tibero.
+- The OpenFrame catalog information is stored in Tibero.
+- The Tibero database can be used as a replacement for IBM Db2 to store application data.
 
 **To install Tibero**
 
 1. Verify that the Tibero binary installer file is present and review the version number.
-2. Copy the Tibero software to the Tibero user account (oframe):
+2. Copy the Tibero software to the Tibero user account (oframe). For example:
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
-    [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/ 
-    [oframe7@ofdemo ~]$ vi .bash_profile
+    [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/
     ```
 
-3. Paste the following into .bash\_profile:
+3. Open .bash\_profile in vi (`vi .bash_profile`) and paste the following in it:
 
     ```
     # Tibero6 ENV
@@ -328,13 +319,13 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
     export PATH=$TB_HOME/bin:$TB_HOME/client/bin:$PATH
     ```
 
-4. Execute the bash profile. For example:
+4. To execute the bash profile, at the command prompt type:
 
     ```
-    [oframe7@ofdemo ~]$ source .bash_profile
+    source .bash_profile
     ```
 
-5. Generate and modify the tip file (a configuration file for Tibero). For example:
+5. Generate the tip file (a configuration file for Tibero), then open it in vi. For example:
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
@@ -345,51 +336,51 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 
     ```
     TVSAM=( 
-    (INSTANCE=(HOST=127.0.0.1) 
-        (PT=8629) 
-    (DB_NAME=TVSAM) 
-    	    ) 
-    	)
+    (INSTANCE=(HOST=127.0.0.1)
+        (PT=8629)
+    (DB_NAME=TVSAM)
+          )
+     )
     ```
 
 7. Create the database. The following output appears:
 
     ```
-    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. 
+    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
     Listener port = 8629
     Tibero 6
-    TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved.
     Tibero instance started up (NOMOUNT mode).
-     /--------------------- newmount sql ------------------------/ 
-    create database character set MSWIN949 national character set UTF16; 
+     /--------------------- newmount sql ------------------------/
+    create database character set MSWIN949 national character set UTF16;
     /-----------------------------------------------------------/
     Database created.
-    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. 
+    Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
     Listener port = 8629
     Tibero 6
-    TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
-    Tibero instance started up (NORMAL mode). 
-    /opt/tmaxdb/tibero6/bin/tbsvr 
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved.
+    Tibero instance started up (NORMAL mode).
+    /opt/tmaxdb/tibero6/bin/tbsvr
     ………………………..
-    Creating agent table... 
-    Done. 
+    Creating agent table...
+    Done.
     For details, check /opt/tmaxdb/tibero6/instance/TVSAM/log/system_init.log.
     ************************************************** 
-    * Tibero Database TVSAM is created successfully on Fri Aug 12 19:10:43 UTC 2016. 
-    *     Tibero home directory ($TB_HOME) = 
-    *         /opt/tmaxdb/tibero6 
-    *     Tibero service ID ($TB_SID) = TVSAM 
-    *     Tibero binary path = 
-    *         /opt/tmaxdb/tibero6/bin:/opt/tmaxdb/tibero6/client/bin 
-    *     Initialization parameter file = 
-    *         /opt/tmaxdb/tibero6/config/TVSAM.tip 
+    * Tibero Database TVSAM is created successfully on Fri Aug 12 19:10:43 UTC 2016.
+    *     Tibero home directory ($TB_HOME) =
+    *         /opt/tmaxdb/tibero6
+    *     Tibero service ID ($TB_SID) = TVSAM
+    *     Tibero binary path =
+    *         /opt/tmaxdb/tibero6/bin:/opt/tmaxdb/tibero6/client/bin
+    *     Initialization parameter file =
+    *         /opt/tmaxdb/tibero6/config/TVSAM.tip
     * 
-    * Make sure that you always set up environment variables $TB_HOME and 
+    * Make sure that you always set up environment variables $TB_HOME and
     * $TB_SID properly before you run Tibero.
      ******************************************************************************
     ```
 
-8. To recycle Tibero, first shut it down using the `tbdown` command. For example: 
+8. To recycle Tibero, first shut it down using the `tbdown` command. For example:
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
@@ -399,11 +390,11 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 9. Now boot Tibero using `tbboot`. For example:
 
     ```
-    [oframe7@ofdemo ~]$ tbboot 
+    [oframe7@ofdemo ~]$ tbboot
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof. Listener port = 8629
 
     Tibero 6  
-    TmaxData Corporation Copyright (c) 2008-. All rights reserved. 
+    TmaxData Corporation Copyright (c) 2008-. All rights reserved.
     Tibero instance started up (NORMAL mode).
     ```
 
@@ -435,7 +426,7 @@ Tibero provides the several key functions in the OpenFrame environment on Azure:
 
 Output:
 
-[Tibero output](./media/tibero_01.png)
+![Tibero output](/media/tibero_01.png)
 
 ## Install ODBC
 
@@ -463,18 +454,22 @@ To install ODBC:
      ```
 
 > [!NOTE]
-> By default, unixODBC is installed in /usr /local. To change the location, add `--prefix=/opt/tmaxapp/unixODBC/`
-> In addition, configuration files are installed in /etc by default. To change the location, add `-- sysconfdir=/opt/tmaxapp/unixODBC/etc`
+> By default, unixODBC is installed in /usr /local. To change the location, add:
+> `--prefix=/opt/tmaxapp/unixODBC/`
+> In addition, configuration files are installed in /etc by default. To change the location, add:
+> `-- sysconfdir=/opt/tmaxapp/unixODBC/etc`
 
 4. Execute Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5. Copy the executable file in the program directory after compiling: `[oframe7@ofdemo unixODBC-2.3.4]$ make install`
-
-6. Use vi to edit the bash profile and add the following:
+5. Copy the executable file in the program directory after compiling. For example:
 
      ```
-     [oframe7@ofdemo unixODBC-2.3.4]$ vi ~/.bash_profile
+     [oframe7@ofdemo unixODBC-2.3.4]$ make install
+     ```
 
+6. Use vi to edit the bash profile (`vi ~/.bash_profile`) and add the following:
+
+     ```
      # UNIX ODBC ENV 
      export ODBC_HOME=$HOME/unixODBC 
      export PATH=$ODBC_HOME/bin:$PATH 
@@ -483,7 +478,7 @@ To install ODBC:
      export ODBCSYSINI=$HOME
      ```
 
-7. Apply the ODBC. Edit the following files accordingly:
+7. Apply the ODBC. Edit the following files accordingly. For example:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -537,9 +532,9 @@ To install ODBC:
      [oframe7@ofdemo lib]$ isql TVSAM tibero tmax
      ```
 
-Output:
+The following output is displayed:
 
-[ODBC output showing connected](./media/odbc_01)
+![ODBC output showing connected to SQL](/media/odbc_01)
 
 ## Install OpenFrame Base
 
@@ -551,28 +546,30 @@ The Base application server is installed before the individual services that Ope
 
 2. Update the bash profile with the following Tibero-specific information:
 
-     ```
-     alias ofhome='cd $OPENFRAME_HOME' 
-     alias ulog='cd $OPENFRAME_HOME/log/tmax/ulog' 
-     alias sysjcl='cd $OPENFRAME_HOME/volume_default/SYS1.JCLLIB' 
-     alias sysload='cd $OPENFRAME_HOME/volume_default/SYS1.LOADLIB' 
-     alias sysproc='cd $OPENFRAME_HOME/volume_default/SYS1.PROCLIB' 
-     alias oscsrc='cd $OPENFRAME_HOME/osc/oivp' 
-     alias osisrc='cd $OPENFRAME_HOME/osi/oivp' 
+     ```bash
+     alias ofhome='cd $OPENFRAME_HOME'
+     alias ulog='cd $OPENFRAME_HOME/log/tmax/ulog'
+     alias sysjcl='cd $OPENFRAME_HOME/volume_default/SYS1.JCLLIB'
+     alias sysload='cd $OPENFRAME_HOME/volume_default/SYS1.LOADLIB'
+     alias sysproc='cd $OPENFRAME_HOME/volume_default/SYS1.PROCLIB'
+     alias oscsrc='cd $OPENFRAME_HOME/osc/oivp'
+     alias osisrc='cd $OPENFRAME_HOME/osi/oivp'
      alias defvol='cd $OPENFRAME_HOME/volume_default'
      ```
 
 3. Execute the bash profile:`[oframe7@ofdemo ~]$ . .bash_profile`
-4. Ensure that the Tibero processes are running: `[oframe7@ofdemo ~]$ ps -ef|grep tbsvr`
+4. Ensure that the Tibero processes are running. For example:
 
-     Output:
+     ```linux
+     [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
+     ```
 
-     [Base](./media/base_01.png)
+    ![Base](/media/base_01.png)
 
-> [!IMPORTANT]
-> Make sure you start Tibero before installation.
+     > [!IMPORTANT]
+     > Make sure you start Tibero before installation.
 
-5. Generate license at technet.tmaxsoft.com and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
+5. Generate license at [technet.tmaxsoft.com](https://technet.tmaxsoft.com/en/front/main/main.do) and PUT the OpenFrame Base, Batch, TACF, OSC licenses in the appropriate folder:
 
      ```
      [oframe7@ofdemo ~]$ cp license.dat /opt/tmaxapp/OpenFrame/core/license/
@@ -590,7 +587,7 @@ The Base application server is installed before the individual services that Ope
      TP_UNBLOCK_PORT=6291 
      TP_NODE_NAME=NODE1 
      TP_NODE_LIST=NODE1 
-          MASCAT_NAME=SYS1.MASTER.ICFCAT 
+     MASCAT_NAME=SYS1.MASTER.ICFCAT 
      MASCAT_CREATE=YES 
      DEFAULT_VOLSER=DEFVOL 
      VOLADD_DEFINE=YES TSAM_USERNAME=tibero 
@@ -613,11 +610,11 @@ The Base application server is installed before the individual services that Ope
 
     When complete, the Installation Complete message is diplayed.
 
-8. Verify the OpenFrame Base directory structure:
+8. Verify the OpenFrame Base directory structure using the `ls -ltr` command. For example:
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
-     total 44 
+     total 44
 
      drwxrwxr-x. 4 oframe7 oframe7 61 Nov 30 16:57 UninstallerData 
      drwxrwxr-x. 2 oframe7 oframe7 4096 Nov 30 16:57 bin 
@@ -645,11 +642,11 @@ The Base application server is installed before the individual services that Ope
      [oframe7@ofdemo ~]$ tmboot
      ```
 
-     [tmboot command output](./media/base_02.png)
+     ![tmboot command output](/media/base_02.png)
 
 10. Verify the process status is ready using the tmadmin command in si. RDY is displayed in the **status** column for each of the processes:
 
-     [tmadmin command output](./media/base_03.png)
+     ![tmadmin command output](/media/base_03.png)
 
 11. Shut down OpenFrame Base:
 
@@ -710,11 +707,11 @@ OpenFrame Batch consists of several components that simulate mainframe batch env
 
 5. When the installation is complete, start the installed OpenFrame suites by typing 'tmboot' at the command prompt.
 
-     [tmboot output](./media/tmboot_01.png)
+    ![tmboot output](/media/tmboot_01.png)
 
 6. Type `tmadmin` at the command prompt to check the OpenFrame process.
 
-     [Tmax Admin screen](./media/tmadmin_01.png)
+    ![Tmax Admin screen](/media/tmadmin_01.png)
 
 7. Execute the following commands:
 
@@ -859,7 +856,7 @@ TACF Manager is an OpenFrame service module that controls user access to systems
 
      In the **status** column, RDY appears:
 
-     [RDY in the status column](./media/tmboot_02.png)
+    ![RDY in the status column](/media/tmboot_02.png)
 
 8. Execute the following commands:
 
@@ -935,7 +932,7 @@ ProSort is a utility used in batch transactions for sorting data.
 
 5. Open bash.profile in vi (`vi .bash_profile`) and update it as follows:
 
-     ```
+     ```bash
      #       PROSORT
 
      PROSORT_HOME=/opt/tmaxapp/prosort 
@@ -946,8 +943,10 @@ ProSort is a utility used in batch transactions for sorting data.
      PATH=$PATH:$OPENFRAME_HOME/shbin 
      export PATH
      ```
+
 6. To execute the bash profile, at the command prompt, type: ` . .bash_profile`
-7.  Create the configuration file. For example:
+
+7. Create the configuration file. For example:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/prosort/config 
@@ -1054,11 +1053,13 @@ OFCOBOL is the OpenFrame compiler that interprets the mainframe’s COBOL progra
      0 FatalError
      ```
 10. Use the `ofcob --version ` command and review the version number to verify the installation. For example:
+
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
      OpenFrame COBOL Compiler 3.0.54 
      CommitTag:: 645f3f6bf7fbe1c366a6557c55b96c48454f4bf
      ```
+
 11. Reboot OpenFrame using the `tmdown/tmboot` command.
 
 ## Install OFASM
@@ -1071,12 +1072,15 @@ OFASM is the OpenFrame compiler that interprets the mainframe’s assembler prog
     OpenFrame\_ASM3\_0\_Linux\_x86\_64.bin installer file is present.
 
 2. Execute the installer. For example:
+
      ```
      [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
      ```
+
 3. Read the licensing agreement and press Enter to continue.
 4. Accept the licensing agreement.
 5. Verify the bash profile is updated with OFASM variables. For example:
+
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
      [oframe7@ofdemo ~]$ ofasm --version 
@@ -1091,21 +1095,28 @@ OFASM is the OpenFrame compiler that interprets the mainframe’s assembler prog
      export PATH="${PATH}:$OFASM_HOME/bin:" 
      export LD_LIBRARY_PATH="./:$OFASM_HOME/lib:$LD_LIBRARY_PATH"
      ```
+
 6. Open the OpenFrame tjclrun.conf configuration file in vi and edit it as follows:
+
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
      ```
+
      Here is the [SYSLIB] section *before* the change:
+
      ```
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib
      ```
+
      Here is the [SYSLIB] section *after* the change:
+
      ```
      [SYSLIB] [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
 7. Open the OpenFrame\_ASM\_InstallLog.log file in vi and verify that there are no errors. For example:
+
      ```
      [oframe7@ofdemo ~]$ vi 
      $OFASM_HOME/UninstallerData/log/OpenFrame_ASM_InstallLog.log 
@@ -1120,11 +1131,15 @@ OFASM is the OpenFrame compiler that interprets the mainframe’s assembler prog
      0 NonFatalErrors 
      0 FatalErrors
      ```
+
 8. Reboot OpenFrame by issuing one of the following commands:
+
      ```
      tmdown / tmboot
      ```
+
      —or—
+
      ```
      oscdown / oscboot
      ```
@@ -1239,7 +1254,7 @@ OSC is the OpenFrame environment similar to IBM CICS that supports high-speed OL
 
 11. To verify that the process status is ready, use the `tmadmin` command in si. All the processes should display RDY in the **status** column.
 
-     [Processes displaying RDY](./media/tmadmin_02.png)
+    ![Processes displaying RDY](/media/tmadmin_02.png)
 
 12. Shut OSC down using the `oscdown` command.
 
@@ -1363,7 +1378,7 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
      
      The logon screen appears:
 
-     [JEUS WebAdmin logon screen](./media/jeus_01.png)
+    ![JEUS WebAdmin logon screen](/media/jeus_01.png)
 
      > [!NOTE]
      > If you experience any issues with port security, open port 9736 or disable the firewall (`systemctl stop firewall`).
@@ -1374,11 +1389,11 @@ Before installing JEUS, install the Apache Ant package, which provides the libra
     2.  Click **OK** on the right side of the window.
     3.  Click **Apply changes** on the lower left side of the window and for description, enter *Hostname change*.
 
-     [JEUS WebAdmin screen](./media/jeus_02.png)
+    ![JEUS WebAdmin screen](/media/jeus_02.png)
 
 15. Verify that the configuration is successful in the confirmation screen.
 
-     [jeus_domain Server screen](./media/jeus_03.png)
+    ![jeus_domain Server screen](/media/jeus_03.png)
 
 16. Start the managed server process “server1” using the following command:
 
@@ -1418,7 +1433,7 @@ OFGW Is the OpenFrame gateway that supports communication between the 3270 termi
 
      The following screen appears:
 
-     [OpenFrame WebTerminal](./media/ofgw_01.png)
+    ![OpenFrame WebTerminal](/media/ofgw_01.png)
 
 ## Install OFManager
 
