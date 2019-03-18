@@ -74,7 +74,7 @@ Yes, you can direct traffic to a VNet using Virtual Hub Route Table.
  
 Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 
-### How do i calculate price of a hub?
+### How do I calculate price of a hub?
  
 You would pay for the service in the hub. For example, 10 branches or on-premise devices requiring to connect to Azure Virtual WAN would imply connecting to VPN end points in the hub. Lets say this is VPN of 1 scale unit = 500 Mbps, this is charged at $0.361/hr. Each connection is charged at $0.08/hr. For 10 connections, the total charge of service/hr would be $0.361 + $.8/hr. Data charges for traffic leaving azure apply. 
 
@@ -82,13 +82,13 @@ You would pay for the service in the hub. For example, 10 branches or on-premise
 
 Send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
 
-### What if a device i am using is not in the Virtual WAN partner list? Can i still use it to connect to Azure Virtual WAN VPN?
+### What if a device i am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
 
 Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity. 
 
 ### Is it possible to construct Azure Virtual WAN with a Resource Manager template?
 
-A simple configuration of one Virtual WAN with one hub and one vpnsite can be created using an [Azure Quick Start Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN is primarily a REST or Portal driven service.
+A simple configuration of one Virtual WAN with one hub and one vpnsite can be created using an [Azure quickstart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN is primarily a REST or Portal driven service.
 
 ### Is branch-to-branch connectivity allowed in Virtual WAN?
 
