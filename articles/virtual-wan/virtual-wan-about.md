@@ -17,7 +17,7 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 Azure Virtual WAN brings together many Azure cloud connectivity services such as Site-to-Site VPN (generally available), ExpressRoute (Preview), Point-to-Site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established using Virtual Network connections.
 
-![Virtual WAN diagram](./media/virtual-wan-about/vwan1.png)
+![Virtual WAN diagram](./media/virtual-wan-about/vwangraphic.png)
 
 This article provides a quick view into the network connectivity in Azure Virtual WAN. Virtual WAN offers the following advantages:
 
