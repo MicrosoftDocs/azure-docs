@@ -600,7 +600,7 @@
       - name: Java
         href: ../blobs/storage-java-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Python
-        href: ../blobs/storage-pyton-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../blobs/storage-python-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: REST
