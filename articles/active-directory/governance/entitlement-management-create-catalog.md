@@ -34,7 +34,7 @@ Intro
 
 You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the Catalog Owner. A Catalog Owner can add additional Catalog Owners.
 
-Prerequisites: User administrator, or Catalog creator
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog creator
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the **Identity Governance** page.
 
@@ -52,7 +52,7 @@ Prerequisites: User administrator, or Catalog creator
 
 To include resources in an access package, you must first add the resources to the catalog. The types of resources you can add include groups, applications, and SharePoint Online sites.
 
-Prerequisites: User administrator, or Catalog owner
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog owner
 
 1. On the **Catalogs** page, click to open the catalog you want to add resources to.
 
@@ -72,19 +72,19 @@ Prerequisites: User administrator, or Catalog owner
 
 You can remove resources from a catalog. A resource can only be removed from a catalog if it is not being used in any of the catalog's access packages.
 
-Prerequisites: User administrator, or Catalog owner
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog owner
 
 1. Open the **Resources** page for the catalog that has the resources you want to remove.
 
 1. Select the resources you want to remove.
 
 1. Click **Remove** (or open the context menu for the resource and click **Remove**).
- 
+
 ## Edit a catalog
 
 You can edit the name and description for a catalog. Users see this information in an access package's details.
 
-Prerequisites: User administrator, or Catalog owner
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog owner
 
 1. On the **Catalogs** page, open the catalog you want to edit.
 
@@ -93,12 +93,12 @@ Prerequisites: User administrator, or Catalog owner
 1. Edit the catalog's name or description.
 
 1. Click **Save**.
- 
+
 ## Delete a catalog
 
 You can delete a catalog, but only if it does not have any access packages.
 
-Prerequisites: User administrator, or Catalog owner
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog owner
 
 1. On the **Catalogs** page, open the catalog you want to delete.
 

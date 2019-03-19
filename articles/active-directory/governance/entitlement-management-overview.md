@@ -142,30 +142,33 @@ There are several ways that you can configure entitlement management for your or
 | 7 | Approve access request |  | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | Approver |
 | 8 | Use resources in access package |  |  | User |
 
-## Roles to perform tasks
+## Prerequisite roles
 
 To perform tasks in entitlement management, you must have the appropriate permissions. The following table lists the minimum roles you must have to perform certain tasks.
 
-| Task | User admin | Catalog creator | Catalog owner | Access package manager |
-| --- | :---: | :---: | :---: | :---: |
-| Create a catalog | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| Edit/delete a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| Add additional catalog owners | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| Add/remove resources to/from the **Default** catalog | :heavy_check_mark: |  |  |  |
-| Add/remove resources to/from a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| Create an access package in the **Default** catalog | :heavy_check_mark: |  :heavy_check_mark: |  |  |
-| Create an access package in a catalog | :heavy_check_mark: |   | :heavy_check_mark: |  |
-| Delete an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Add/remove access packages to/from a catalog | :heavy_check_mark: |  |  | :heavy_check_mark: |
-| Add/remove resource roles to/from an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Directly assign a user to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| View who has an assignment to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| View an access package's requests | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| View a request's fulfillment errors | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Cancel a pending request | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Hide an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| Task | User admin | Catalog creator | Catalog owner | Access package manager | Approver | User |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Create a catalog | :heavy_check_mark: | :heavy_check_mark: |  |  |  |  |
+| Edit/delete a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |  |  |
+| Add additional catalog owners | :heavy_check_mark: |  | :heavy_check_mark: |  |  |  |
+| Add/remove resources to/from the **Default** catalog | :heavy_check_mark: |  |  |  |  |  |
+| Add/remove resources to/from a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |  |  |
+| Create an access package in the **Default** catalog | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |  |
+| Create an access package in a catalog | :heavy_check_mark: |   | :heavy_check_mark: |  |  |  |
+| Delete an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| Add/remove access packages to/from a catalog | :heavy_check_mark: |  |  | :heavy_check_mark: |  |  |
+| Add/remove resource roles to/from an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| Directly assign a user to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| Specify who can request an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| View who has an assignment to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| View an access package's requests | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| View a request's fulfillment errors | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| Cancel a pending request | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| Hide an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| Approve an access request |  |  |  |  | :heavy_check_mark: |  |
+| Request an access package |  |  |  |  |  | :heavy_check_mark: |
 
-The person that creates a catalog automatically becomes the catalog's first Catalog Owner.
+The person that creates a catalog automatically becomes the catalog's first Catalog owner.
 
 ## Approval process
 

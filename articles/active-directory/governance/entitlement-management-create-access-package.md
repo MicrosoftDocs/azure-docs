@@ -32,7 +32,7 @@ Intro
 
 ## Create an access package
 
-Prerequisites: User administrator, Catalog creator, Catalog owner, or Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog owner
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the **Identity Governance** page.
 
@@ -130,7 +130,7 @@ Prerequisites: User administrator, Catalog creator, Catalog owner, or Access pac
 
 ## Add resource roles to an access package
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -148,7 +148,7 @@ Any users with existing assignments to the access package will automatically be 
 
 ## Remove resource roles from an access package
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -161,6 +161,8 @@ Any users with existing assignments to the access package will automatically hav
 ## Specify who can request an access package
 
 The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval and expiration settings. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to.
+
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -214,7 +216,7 @@ The way you specify who can request an access package is to create a policy. You
 
 You can directly assign specific users to an access package if you do not need them to request the access package.
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -236,7 +238,7 @@ Prerequisites: User administrator, Catalog owner, Access package manager
 
 ## View who has an assignment to an access package
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -254,7 +256,7 @@ Prerequisites: User administrator, Catalog owner, Access package manager
 
 ## View an access package's requests
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -264,7 +266,7 @@ Prerequisites: User administrator, Catalog owner, Access package manager
 
 ## View a request's fulfillment errors
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -282,6 +284,8 @@ Prerequisites: User administrator, Catalog owner, Access package manager
 
 You can only cancel a pending request that has not yet been fulfilled.
 
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
+
 1. In the Azure portal, open the access package.
 
 1. Click **Requests**.
@@ -294,7 +298,7 @@ You can only cancel a pending request that has not yet been fulfilled.
 
 Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal. If the **Discoverable** setting is set to **No**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct URL to the access package.
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
@@ -306,7 +310,7 @@ Prerequisites: User administrator, Catalog owner, Access package manager
 
 An access package can only be deleted if it has no active user assignments.
 
-Prerequisites: User administrator, Catalog owner, Access package manager
+[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, open the access package.
 
