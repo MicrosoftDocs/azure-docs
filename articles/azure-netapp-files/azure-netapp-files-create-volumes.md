@@ -100,7 +100,7 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
     * **SMB server (computer account) prefix**  
         This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
 
-        For example, if the naming standard that your organization uses for file servers is NAS-01, NAS-02...NAS-045, then you would enter in “NAS” for the prefix. 
+        For example, if the naming standard that your organization uses for file servers is NAS-01, NAS-02..., NAS-045, then you would enter “NAS” for the prefix. 
 
         The service will create additional machine accounts in Active Directory as needed.
 
@@ -162,7 +162,7 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
 4. Click **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume. 
     * Select your **Active Directory** connection from the drop-down list.
-    * Specify the name of the shared volume in  **Share Name**.
+    * Specify the name of the shared volume in  **Share name**.
 
     ![Specify SMB protocol](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
