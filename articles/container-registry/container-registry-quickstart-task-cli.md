@@ -14,7 +14,7 @@ ms.custom:
 
 [**ACR Tasks**][container-registry-tasks-overview] is a suite of features within Azure Container Registry to help you manage and modify container images across the container development lifecycle. ACR Tasks can help automate workflows in the cloud to build, run, test, push, and patch images in your registries. 
 
-In this quickstart, you use Azure CLI commands to quickly build, push, and run a Docker container image natively within Azure, offloading your "inner-loop" development cycle to Azure's compute resources. After this quickstart, explore more advanced features of ACR Tasks. ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel. 
+In this quickstart, you use Azure CLI commands to quickly build, push, and run a Docker container image natively within Azure, offloading your "inner-loop" development cycle to Azure. After this quickstart, explore more advanced features of ACR Tasks. ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel, among other scenarios. 
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
@@ -53,7 +53,7 @@ FROM hello-world
 Run the [az acr build][az-acr-build] command to build the image. When successfully built, the image is pushed to your registry. The following example pushes the `sample/hello-world:v1` image. The `.` at the end of the command sets the location of the Dockerfile, in this case the current directory.
 
 ```azurecli-interactive
-az acr build --image sample/hello-world --registry myContainerRegistry008 --file Dockerfile . 
+az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --file Dockerfile . 
 ```
 
 Output from a successful build and push is similar to the following:
@@ -75,7 +75,7 @@ Waiting for agent...
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
 Step 1/1 : FROM hello-world
-v1: Pulling from library/hello-world
+latest: Pulling from library/hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
 Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1
@@ -124,7 +124,7 @@ The `cmd` step in this example runs the container in its default configuration, 
 Run the container with the following command:
 
 ```azurecli-interactive
-az acr run --registry --registry myContainerRegistry008 --file quickrun.yaml .
+az acr run --registry myContainerRegistry008 --file quickrun.yaml .
 ```
 
 Output is similar to the following:
