@@ -235,7 +235,7 @@ Enable auto-protection to automatically back up all existing databases, and data
 - You cannot selectively protect or exclude databases from protection in an instance at the time of enabling auto-protection.
 - If your instance already includes some protected databases, they would continue to be protected under their respective policies even after you turn on auto-protection. However, all the un-protected databases and the databases that will get added in the future, will have only a single policy that you define at the time of enabling auto-protection, under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
 
-Steps to enable auto-protection as follows:
+Steps to enable auto-protection is as follows:
 
   1. In **Items to backup**, select the instance for which you want to enable auto-protection.
   2. Select the dropdown under **Autoprotect**, and set to **On**. Then click **OK**.
@@ -244,7 +244,7 @@ Steps to enable auto-protection as follows:
 
   3. Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
 
-If you need to disable auto-protection, click the instance name under **Configure Backup**, and select **Disable Auto-protect** for the instance. All databases will continue to back up. But future databases won't be automatically protected.
+If you need to disable auto-protection, click the instance name under **Configure Backup**, and select **Disable Auto-protect** for the instance. All databases will continue to back up, but future databases won't be automatically protected.
 
 ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
