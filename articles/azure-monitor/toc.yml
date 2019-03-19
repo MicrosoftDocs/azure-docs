@@ -822,6 +822,10 @@
           href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
           href: platform/alerts-managing-nagios-zabbix-scom.md   
+      - name: Migrate classic alerts
+        items:
+        - name: Use the migration tool
+          href: platform/alerts-using-migration-tool.md
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale
