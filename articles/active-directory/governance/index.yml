@@ -45,9 +45,8 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: <a href="/azure/active-directory/governance/access-reviews-overview">Tutorial - Get started</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-resources">Manage resources</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-create-catalog">Create a catalog</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-overview">What is entitlement management?</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-get-started">Tutorial - Get started</a>
       - html: <a href="/azure/active-directory/governance/entitlement-management-create-access-package">Create an access package</a>
   - title: Terms of use
     items:
