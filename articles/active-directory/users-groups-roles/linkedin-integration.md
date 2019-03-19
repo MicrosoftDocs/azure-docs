@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Consent to LinkedIn services for your Azure Active Directory organization
+# Consent to LinkedIn integration for your Azure Active Directory organization
 
 In this article, you can learn how to enable or disable LinkedIn integration for your organization in the Azure Active Directory (Azure AD) admin center.
 
