@@ -111,7 +111,7 @@ echo "Service Bus queue name = " $sbQueueName
 
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
-    --namespace-name $sbNameSpace \
+    --namespace-name $sbNamespace \
     --resource-group $resourceGroup
 
 # Create the IoT device identity to be used for testing.
