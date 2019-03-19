@@ -64,12 +64,6 @@
       - name: Use the HDInsight tools for Visual Studio
         href: ../hadoop/apache-hadoop-use-hive-visual-studio.md
         maintainContext: true
-      - name: Use Remote Desktop
-        href: ../hadoop/apache-hadoop-use-hive-remote-desktop.md
-        maintainContext: true
-      - name: Use the Query Console
-        href: ../hadoop/apache-hadoop-use-hive-query-console.md
-        maintainContext: true
     - name: Use a Java UDF with Apache Hive
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
@@ -109,17 +103,11 @@
     - name: Connect using the Apache Hive JDBC driver
       href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
       maintainContext: true
-    - name: Analyze stored sensor data
-      href: ../hadoop/apache-hive-analyze-sensor-data.md
-      maintainContext: true
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Analyze flight delay data
       href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
-    - name: Analyze website logs with Apache Hive
-      href: ../hadoop/apache-hive-analyze-website-log.md
       maintainContext: true
   - name: Extend clusters
     items:
