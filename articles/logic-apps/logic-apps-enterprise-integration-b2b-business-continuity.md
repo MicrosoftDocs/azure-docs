@@ -203,7 +203,7 @@ select the duplicate check settings in your EDIFACT agreement's Receive Settings
    The trigger should be connected to a primary region integration account. 
 
 3. Enter a connection name, select your *primary region integration account* 
-from the list, and choose **Create**.    
+   from the list, and choose **Create**.    
 
    ![Primary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
@@ -220,10 +220,10 @@ from the list, and choose **Create**.
    ![Add or update control numbers](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. To connect an action to a secondary region integration account, 
-select **Change connection** > **Add new connection** for a 
-list of the available integration accounts. Enter a connection name, 
-select your *secondary region integration account* from the list, 
-and choose **Create**.
+   select **Change connection** > **Add new connection** for a 
+   list of the available integration accounts. Enter a connection name, 
+   select your *secondary region integration account* from the list, 
+   and choose **Create**.
 
    ![Secondary region integration account name](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -232,7 +232,7 @@ and choose **Create**.
    ![Switch to raw inputs](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
 10. Select Body from the dynamic content picker, 
-and save the logic app.   
+   and save the logic app.   
 
    ![Dynamic content fields](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 

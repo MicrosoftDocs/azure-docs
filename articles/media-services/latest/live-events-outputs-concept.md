@@ -146,5 +146,4 @@ For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
 ## Next steps
 
-- [Streaming live events](live-streaming-overview.md)
-- [Live streaming tutorial](stream-live-tutorial-with-api.md)
+[Live streaming tutorial](stream-live-tutorial-with-api.md)

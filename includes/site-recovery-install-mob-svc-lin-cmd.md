@@ -6,21 +6,21 @@ ms.date: 10/26/2018
 ms.author: raynew
 ---
 1. Copy the installer to a local folder (for example, /tmp) on the server that you want to protect. In a terminal, run the following commands:
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. To install Mobility Service, run the following command:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. After installation is finished, Mobility Service must be registered to the configuration server. Run the following command to register Mobility Service with the configuration server:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 #### Mobility Service installer command line
 

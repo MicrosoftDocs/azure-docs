@@ -59,6 +59,7 @@ Parameter | Description
 `compute_target`| Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster. (Please note even though AmlCompute cluster is the commonly used target, it is also possible to choose other compute target types such as Azure VMs or even local computer.)
 `entry_script`| Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages`| List of Python packages to be installed via conda needed by your training script.  
+
 The constructor has another parameter called `pip_packages` that you use for any pip packages needed
 
 Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiment) object `experiment`. 

@@ -6,7 +6,7 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan

@@ -192,8 +192,8 @@ The following sample shows the output of the robocopy command to copy files to t
 To optimize the performance, use the following robocopy parameters when copying the data.
 
 |    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |
 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).

@@ -92,8 +92,8 @@ If you have installed the extension and are still experiencing issues, try the f
 
 ## How do I add a new app?
 
-1.	On the **Apps** page, select **Add App**.
-2.	Search for the app that you want to add, and then select **Add**.
+1. On the **Apps** page, select **Add App**.
+2. Search for the app that you want to add, and then select **Add**.
 
    > [!NOTE]
    > * You can access this option only if your administrator has enabled it for your account.

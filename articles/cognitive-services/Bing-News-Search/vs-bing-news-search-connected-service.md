@@ -82,14 +82,14 @@ This article provides details for using the Visual Studio Connected Service feat
 
 Now that you’ve added support for the Bing News Search API to your project, here’s how to use the API to add intelligent search to a web page.
 
-1.  In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton`. This makes the configuration object that contains the key settings available to the code in your project.
+1. In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton`. This makes the configuration object that contains the key settings available to the code in your project.
  
    ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc();
+           services.AddSingleton<IConfiguration>(Configuration);
+       }
    ```
 
 
