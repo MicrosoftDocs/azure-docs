@@ -33,7 +33,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 
 1. In the Azure portal, select **Storage Accounts** on the left menu.
 
-![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
 1. On the **Storage Accounts** window that appears, choose **Add**.
 1. Select the subscription in which to create the storage account.
@@ -43,9 +43,9 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Select a location for your storage account, or use the default location.
 1. For **Performance** select **Premium**.
 1. Select **Account kind** and choose **FileStorage (preview)**.
-1. Leave **Replication** set to its default value of **Locally-    redundant storage (LRS)**.
+1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
 
-![How to create a premium files storage account](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![How to create a premium files storage account](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. Select **Create**.
@@ -58,7 +58,7 @@ Once your storage account resource has been created, navigate to it.
 1. Select **+File share** to create a premium file share.
 1. Enter a name and a desired quota for your file share, then select **Create**.
 
-![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
+    ![Create a premium file share](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ## Clean up resources
 
