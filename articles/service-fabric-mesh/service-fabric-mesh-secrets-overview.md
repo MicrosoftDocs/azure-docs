@@ -22,10 +22,6 @@ A Mesh application Secret consists of:
 * A **Secrets** resource, which is a container that stores text secrets. Secrets contained within the **Secrets** resource are stored and transmitted securely.
 * One or more **Secrets/Values** resources that are stored in the **Secrets** resource container. Each **Secrets/Values** resource is distinguished by a version number.
 
-## Inline or stored in Azure Key Vault
-- Mesh applications and service resources include Managed Service Identity (MSI) with Azure Active Directory (AAD) in order to be able to access Secrets in Azure Key Vault.
-- Secrets and certificates can be auto rolled-over with policies.
-
 ## Next steps 
 To learn more about Service Fabric Mesh Secrets, see:
 - [Manage Service Fabric Mesh Application Secrets](service-fabric-mesh-howto-manage-secrets.md)

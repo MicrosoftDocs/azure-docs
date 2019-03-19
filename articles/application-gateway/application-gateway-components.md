@@ -13,7 +13,7 @@ ms.author: absha
 
  An application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools, such as Azure VMs, virtual machine scale sets, App Services, or on-premises/external servers. To do this, it uses several components described in this article.
 
-![application-gateway-components](.\media\application-gateway-components\application-gateway-components.png)
+![application-gateway-components](./media/application-gateway-components/application-gateway-components.png)
 
 ## Frontend IP address
 

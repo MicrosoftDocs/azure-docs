@@ -191,7 +191,7 @@ Consider the following points for better performance when using bulk executor li
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## Next steps
 * To learn about Nuget package details and release notes of bulk executor .NET library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

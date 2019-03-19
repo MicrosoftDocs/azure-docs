@@ -33,9 +33,6 @@ Azure Cosmos DB supports two indexing modes that you can configure on an Azure C
 
 Query consistency levels are maintained similar to the regular read operations. Azure Cosmos database returns an error if you query the container that has a None indexing mode. You can execute the queries as scans through the explicit **x-ms-documentdb-enable-scan** header in the REST API or the **EnableScanInQuery** request option by using the .NET SDK. Some query features, like ORDER BY are currently not supported with **EnableScanInQuery**, because they mandate a corresponding index.
 
-> [!NOTE]
-> Azure Cosmos DB has a third, Lazy indexing mode. However this is being de-emphasized because query performance and cost can be unpredictable. We recommend using Consistent indexing mode.
-
 ## Modifying the indexing policy
 
 In Azure Cosmos DB, you can update the indexing policy of a container at any time. A change in indexing policy on an Azure Cosmos container can lead to a change in the shape of the index. This change affects the paths that can be indexed, their precision and the consistency model of the index itself. A change in indexing policy effectively requires a transformation of the old index into a new index.
