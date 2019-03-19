@@ -14,13 +14,14 @@ ms.custom: seodec2018
 
 # Tutorial: Search semi-structured data in Azure cloud storage
 
-Search solutions based on Azure Search can include semi-structured data, such as JSON, imported from Azure blob storage. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be crawled on a per-field basis.
+Azure Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
 In this tutorial, use the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) and a REST client to perform the following tasks:
 
 > [!div class="checklist"]
 > * Configure an Azure Search data source for an Azure blob container
-> * Create and populate an Azure Search index and indexer to crawl the container and extract searchable content from semi-structured source data
+> * Create an Azure Search index to contain searchable content
+> * Configure and run an indexer to read the container and extract searchable content from Azure blob storage
 > * Search the index you just created
 
 > [!NOTE]
@@ -30,7 +31,7 @@ In this tutorial, use the [Azure Search REST APIs](https://docs.microsoft.com/re
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) to contain sample data.
 
 [Use Postman](https://www.getpostman.com/) or another REST client to send your requests. Instructions for setting up an HTTP request in Postman are provided in the next section.
 
