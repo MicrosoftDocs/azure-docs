@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create reviews using .NET - Content Moderator"
+title: "Create reviews using .NET - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to create reviews using Azure Content Moderator SDK for .NET.
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/19/2019
 ms.author: sajagtap
 
 ---
 
-# Quickstart: Create human reviews (.NET)
+# Create human reviews (.NET)
 
 Reviews store and display content for human moderators to assess. When a user completes a review, the results are sent to a specified callback endpoint. This guide provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 

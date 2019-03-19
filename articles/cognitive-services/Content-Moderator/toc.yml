@@ -73,8 +73,6 @@
       items:
       - name: Using the .NET SDK
         items:
-        - name: Reviews - .NET
-          href: moderation-reviews-quickstart-dotnet.md
         - name: Video reviews - .NET
           href: video-reviews-quickstart-dotnet.md
         - name: Video transcript reviews - .NET
@@ -97,6 +95,8 @@
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: REST API
       href: try-review-api-review.md
+    - name: .NET SDK
+      href: moderation-reviews-quickstart-dotnet.md
   - name: Define and use workflows
     items:
     - name: Review tool (browser)
