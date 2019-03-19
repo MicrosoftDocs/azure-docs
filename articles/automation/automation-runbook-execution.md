@@ -188,7 +188,7 @@ Runbooks ran in Azure sandboxes do not support calling processes (such as an .ex
 
 ### Device and application characteristics
 
-Automation jobs running in the cloud do not have access to performance metrics for memory or CPU. In fact, jobs do not have supported access to any device or application characteristics. The most common API customers use to query performance metrics on Windows is WMI. However, it does not matter what API is used. Jobs running in the cloud do not have access the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
+Runbook jobs ran in Azure sandboxes do not have access to any device or application characteristics. The most common API used to query performance metrics on Windows is WMI. Some of these common metrics are memory and CPU usage. However, it does not matter what API is used. Jobs running in the cloud do not have access the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
 
 ## Job statuses
 
