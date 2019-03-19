@@ -518,7 +518,7 @@ routing of all events from any source to any destination, providing:
 - [Application Insights](/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 ### Azure Alerts
-- [Alerts offer a method of monitoring Azure services and allow you to configure conditions over data. Alerts also provide notifications when an alert condition matches the monitoring data.
+- [Alerts](/azure/azure-monitor/platform/alerts-metric) offer a method of monitoring Azure services and allow you to configure conditions over data. Alerts also provide notifications when an alert condition matches the monitoring data.
 
 ### Azure Monitor logs
 [Azure Monitor logs](/azure/operations-management-suite/operations-management-suite-overview) is a collection of management services.

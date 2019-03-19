@@ -204,6 +204,6 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 * [Protect with AES encryption](protect-with-aes128.md)
 * [Protect with DRM](protect-with-drm.md)
-* [Design multi-drm content protection system with access control](design-multi-drm-system-with-access-control.md)
+* [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Frequently asked questions](frequently-asked-questions.md)
 
