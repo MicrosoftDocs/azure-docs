@@ -34,7 +34,7 @@ The Connection Metrics feature introduces two new tables in Azure Monitor logs -
 Records in these tables are generated from data reported by the Dependency Agent. Every record represents an observation over a 1-minute time interval. The TimeGenerated property indicates the start of the time interval. Each record contains information to identify the respective entity, that is, connection or port, as well as metrics associated with that entity. Currently, only network activity that occurs using TCP over IPv4 is reported. 
 
 #### Common fields and conventions 
-The following fields and conventions apply to both VMComputer and VMBoundPort: 
+The following fields and conventions apply to both VMConnection and VMBoundPort: 
 
 - Computer: Fully-qualified domain name of reporting machine 
 - AgentID: The unique identifier for a machine with the Log Analytics agent  
