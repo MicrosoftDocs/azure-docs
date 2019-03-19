@@ -61,7 +61,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-- When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1903.
+- When Azure Stack is managed by System Center Operations Manager, make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1903.
 
 - The package format for the Azure Stack update has changed from **.bin/.exe/.xml** to **.zip/.xml** starting with the 1902 release. Customers with connected Azure Stack scale units will see the **Update available** message in the portal. Customers that are not connected can now simply download and import the .zip file with the corresponding .xml.
 
@@ -106,7 +106,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 1436561	Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag	Diagnostics
 1404512	3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug	Diagnostics 
 -->
-- Improvements to Azure stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
+- Improvements to Azure Stack diagnostic tools to improve log collection reliability and performance. Additional logging for networking and identity services. 
 
 <!-- 1384958	Adding a Test-AzureStack group for Secret Rotation	Diagnostics -->
 - Improvements to the reliability of Test-AzureStack for secret rotation readiness test.
@@ -203,7 +203,7 @@ The following are post-installation known issues for this build version.
    The error occurs if you enable boot diagnostics on a VM but delete your boot diagnostics storage account. To work around this issue, recreate the storage account with the same name as you used previously.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
+- The Virtual Machine Scale Set creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
 <!-- TBD - IS ASDK --> 
 - After applying the 1903 update, you might encounter the following issues when deploying VMs with Managed Disks:
@@ -213,7 +213,7 @@ The following are post-installation known issues for this build version.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
-- An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+- An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to sign in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 - If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set Group Policy *Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options* to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is a default value). Otherwise, you won't be able to establish a PowerShell remote session and you'll receive an *Access is denied* error:
 
