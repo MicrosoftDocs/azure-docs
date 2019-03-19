@@ -42,7 +42,7 @@ Complete the following steps to enable combined registration:
 > [!NOTE]
 > Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https:/aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
 
-If you have configured the site to zone assignement list in Internet Explorer the following sites must be in the same zone:
+If you have configured the site to zone assignment list in Internet Explorer the following sites must be in the same zone:
 
 * [https://login.microsoftonline.com](https://login.microsoftonline.com)
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
