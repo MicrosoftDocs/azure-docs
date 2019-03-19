@@ -51,7 +51,7 @@ This command returns a JSON document describing the service, and then jq pulls o
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-    Authenticate by using the cluster administrator user and password, and then log in to Ambari.
+    Authenticate by using the cluster administrator user and password, and then sign in to Ambari.
 
     Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
@@ -243,7 +243,7 @@ For specific information on scaling your HDInsight cluster, see:
 
 ## How do I install Hue (or other Hadoop component)?
 
-HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster.md). A script action can be used to make the following changes:
+HDInsight is a managed service. If Azure detects a problem with the cluster, it may delete the failing node and create a node to replace it. If you manually install things on the cluster, they are not persisted when this operation occurs. Instead, use [HDInsight Script Actions](hdinsight-hadoop-customize-cluster-linux.md). A script action can be used to make the following changes:
 
 * Install and configure a service or web site.
 * Install and configure a component that requires configuration changes on multiple nodes in the cluster.
@@ -251,7 +251,6 @@ HDInsight is a managed service. If Azure detects a problem with the cluster, it 
 Script Actions are Bash scripts. The scripts run during cluster creation, and are used to install and configure additional components. Example scripts are provided for installing the following components:
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 For information on developing your own Script Actions, see [Script Action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
