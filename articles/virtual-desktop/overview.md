@@ -83,6 +83,10 @@ For optimal performance, make sure your network meets the following requirements
 * Network traffic may flow outside country borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
+## Provide feedback
+
+Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
+
 ## Get started
 
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
