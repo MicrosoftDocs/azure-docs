@@ -55,11 +55,11 @@ From your SSL certificate, export the public key .cer file (not the private key)
 
    ![Success](./media/certificates-for-backend-authentication/success.png)
 
-8. The exported certificate looks similar to this:
+   The exported certificate looks similar to this:
 
    ![Exported](./media/certificates-for-backend-authentication/exported.png)
 
-9. If you open the exported certificate using Notepad, you see something similar to this example. The section in blue contains the information that is uploaded to application gateway. If you open your certificate with Notepad and it does not look similar to this, typically this means you did not export it using the Base-64 encoded X.509(.CER) format. Additionally, if you want to use a different text editor, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
+8. If you open the exported certificate using Notepad, you see something similar to this example. The section in blue contains the information that is uploaded to application gateway. If you open your certificate with Notepad and it does not look similar to this, typically this means you did not export it using the Base-64 encoded X.509(.CER) format. Additionally, if you want to use a different text editor, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
 
    ![Open with Notepad](./media/certificates-for-backend-authentication/format.png)
 

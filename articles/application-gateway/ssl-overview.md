@@ -5,13 +5,13 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/14/2019
+ms.date: 3/19/2019
 ms.author: victorh
 
 ---
 # Overview of SSL termination and end to end SSL with Application Gateway
 
-Secure Sockets Layer (SSL) is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and browsers remain private and integral. Application gateway supports both SSL termination at the gateway as well as end to end SSL encryption.
+Secure Sockets Layer (SSL) is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and browsers remain private and encrypted. Application gateway supports both SSL termination at the gateway as well as end to end SSL encryption.
 
 ## SSL termination
 
