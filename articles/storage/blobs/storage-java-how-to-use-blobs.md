@@ -50,6 +50,14 @@ import com.microsoft.rest.v2.RestException;
 import io.reactivex.*;
 ```
 
+## Create a storage account
+
+To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
+
+![Enabling a hierarchical namespace](media/storage-java-how-to-use-blobs/enable-hierarchical-namespace.png)
+
 ## Get the connection string of your storage account
 
 Use same guidance as is presented in the related Java quickstart.
