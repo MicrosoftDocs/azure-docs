@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: jeedes
 
 ---
@@ -42,6 +42,8 @@ To configure Azure AD integration with Pingboard, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Pingboard supports **SP** and **IDP** initiated SSO
+
+* Pingboard supports [Automated user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial) 
 
 ## Adding Pingboard from the gallery
 
@@ -97,7 +99,7 @@ To configure Azure AD single sign-on with Pingboard, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![Pingboard Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -222,7 +224,7 @@ The objective of this section is to create a user called Britta Simon in Pingboa
 
 	a. In the **Full Name** textbox, type the full name of user like **Britta Simon**.
 
-	b. In the **Email** textbox, type the email address of user like **brittasimon\@contoso.com**.
+	b. In the **Email** textbox, type the email address of user like **brittasimon@contoso.com**.
 
 	c. In the **Job Title** textbox, type the job title of Britta Simon.
 
@@ -251,3 +253,4 @@ When you click the Pingboard tile in the Access Panel, you should be automatical
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
