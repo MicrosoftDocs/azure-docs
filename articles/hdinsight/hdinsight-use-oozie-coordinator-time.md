@@ -26,7 +26,7 @@ The following image shows the workflow you will implement:
 
 The workflow contains two actions:
 
-1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in a Apache log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
+1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in an Apache log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -649,11 +649,11 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 
 Remove the # signs if you want to run the additional functions.
 
-9. If your HDinsight cluster is version 2.1, replace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" with "https://$clusterName.azurehdinsight.net:443/oozie/v1/". HDInsight cluster version 2.1 does not supports version 2 of the web services.
-10. Click **Run Script** or press **F5** to run the script. The output will be similar to:
+1. If your HDinsight cluster is version 2.1, replace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" with "https://$clusterName.azurehdinsight.net:443/oozie/v1/". HDInsight cluster version 2.1 does not supports version 2 of the web services.
+1. Click **Run Script** or press **F5** to run the script. The output will be similar to:
 
-     ![Tutorial run workflow output][img-runworkflow-output]
-11. Connect to your SQL Database to see the exported data.
+    ![Tutorial run workflow output][img-runworkflow-output]
+1. Connect to your SQL Database to see the exported data.
 
 **To check the job error log**
 

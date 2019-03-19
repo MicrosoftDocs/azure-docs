@@ -99,13 +99,13 @@ Inside the virtual network, machines may make requests to Azure resources that a
 
 1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your directory.
 2. Fix the IP address range for the subnet
-  1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Select the virtual network you plan to use for Azure AD Domain Services.
-  3. Click on **Address Space** under Settings
-  4. Update the address range by clicking on the existing address range and editing it or adding an additional address range. Make sure the new address range is in a private IP range. Save your changes.
-  5. Click on **Subnets** in the left-hand navigation.
-  6. Click on the subnet you wish to edit in the table.
-  7. Update the address range and save your changes.
+   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Select the virtual network you plan to use for Azure AD Domain Services.
+   3. Click on **Address Space** under Settings
+   4. Update the address range by clicking on the existing address range and editing it or adding an additional address range. Make sure the new address range is in a private IP range. Save your changes.
+   5. Click on **Subnets** in the left-hand navigation.
+   6. Click on the subnet you wish to edit in the table.
+   7. Update the address range and save your changes.
 3. Follow [the Getting Started Using Azure AD Domain Services guide](active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. To ensure the alert is resolved, check your domain's health in two hours.
@@ -156,13 +156,13 @@ You can either move the subscription associated with Azure AD Domain Services ba
 
 Azure AD Domain Services creates specific resources while deploying in order to function properly, including public IP addresses, NICs, and a load balancer. If any of the named are deleted, this causes your managed domain to be in an unsupported state and prevents your domain from being managed. This alert is found when someone who is able to edit the Azure AD Domain Services resources deletes a needed resource. The following steps outline how to restore your managed domain.
 
-1.	Navigate to the Azure AD Domain Services health page
-  1.	Travel to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
-  2.	In the left-hand navigation, click **Health**
-2.	Check to see if the alert is less than 4 hours old
-  1.	On the health page, click the alert with the ID **AADDS109**
-  2.	The alert will have a timestamp for when it was first found. If that timestamp is less than 4 hours ago, there is a chance that Azure AD Domain Services can recreate the deleted resource.
-3.	If the alert is more than 4 hours old, the managed domain is in an unrecoverable state. You must delete and recreate Azure AD Domain Services.
+1. Navigate to the Azure AD Domain Services health page
+   1.    Travel to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
+   2.    In the left-hand navigation, click **Health**
+2. Check to see if the alert is less than 4 hours old
+   1.    On the health page, click the alert with the ID **AADDS109**
+   2.    The alert will have a timestamp for when it was first found. If that timestamp is less than 4 hours ago, there is a chance that Azure AD Domain Services can recreate the deleted resource.
+3. If the alert is more than 4 hours old, the managed domain is in an unrecoverable state. You must delete and recreate Azure AD Domain Services.
 
 
 ## AADDS110: The subnet associated with your managed domain is full
@@ -199,13 +199,13 @@ Our service principals need access to be able to manage and create resources on 
 
 1. Delete your managed domain from your tenant.
 2. Fix the IP address range for the subnet
-  1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Select the virtual network you plan to use for Azure AD Domain Services.
-  3. Click on **Address Space** under Settings
-  4. Update the address range by clicking on the existing address range and editing it or adding an additional address range. Save your changes.
-  5. Click on **Subnets** in the left-hand navigation.
-  6. Click on the subnet you wish to edit in the table.
-  7. Update the address range and save your changes.
+   1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Select the virtual network you plan to use for Azure AD Domain Services.
+   3. Click on **Address Space** under Settings
+   4. Update the address range by clicking on the existing address range and editing it or adding an additional address range. Save your changes.
+   5. Click on **Subnets** in the left-hand navigation.
+   6. Click on the subnet you wish to edit in the table.
+   7. Update the address range and save your changes.
 3. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Check your domain's health in two hours to ensure that you have completed the steps correctly.

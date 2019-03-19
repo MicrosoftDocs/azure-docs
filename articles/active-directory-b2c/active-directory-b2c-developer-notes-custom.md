@@ -102,6 +102,7 @@ Interfaces with external components and applications
 
 
 ### App-IEF integration
+
 | Feature | Development | Preview | GA | Notes |
 |--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
 | Query string parameter id_token_hint | x |  |  |  |
@@ -121,6 +122,7 @@ Interfaces with external components and applications
 
 
 ### Security
+
 | Feature | Development | Preview | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Policy Keys- Generate, Manual, Upload |  | x |  |  |
@@ -128,6 +130,7 @@ Interfaces with external components and applications
 
 
 ### Developer interface
+
 | Feature | Development | Preview | GA | Notes |
 |---------------------------------------------|-------------|---------|----|-------|
 | Azure Portal-IEF UX |  | x |  |  |
