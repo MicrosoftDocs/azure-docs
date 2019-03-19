@@ -116,6 +116,11 @@
     - name: Enforce Data Lake Store encryption
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Guest Configuration
+    items:
+    - name: Audit applications installed on Linux
+      displayName: audit, vm
+      href: samples/guest-configuration-applications-installed-linux.md
   - name: Key Vaults
     items:
     - name: Audit vaults for no virtual network endpoints
