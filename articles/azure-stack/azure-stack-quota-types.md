@@ -48,6 +48,7 @@ ms.lastreviewed: 12/07/2018
 
 > [!NOTE]  
 > It can take up to two hours before a storage quota is enforced.
+
 > Maxium capacity of managed disk is seperate from total storage quota, it should be set in Compute Quota.
 
 
