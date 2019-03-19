@@ -133,7 +133,7 @@ To configure Azure AD single sign-on with SumoLogic, perform the following steps
 
 ### Configure SumoLogic Single Sign-On
 
-1. In a different web browser window, log in to your SumoLogic company site as an administrator.
+1. In a different web browser window, sign in to your SumoLogic company site as an administrator.
 
 1. Go to **Manage \> Security**.
 
@@ -220,11 +220,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create SumoLogic test user
 
-In order to enable Azure AD users to log in to SumoLogic, they must be provisioned to SumoLogic. In the case of SumoLogic, provisioning is a manual task.
+In order to enable Azure AD users to sign in to SumoLogic, they must be provisioned to SumoLogic. In the case of SumoLogic, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **SumoLogic** tenant.
+1. sign in to your **SumoLogic** tenant.
 
 1. Go to **Manage \> Users**.
 
