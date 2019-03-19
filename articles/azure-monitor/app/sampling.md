@@ -147,7 +147,7 @@ Adaptive sampling is enabled by default for all ASP.NET Core applications. You c
 
 The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
 
-``` C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     // ...
@@ -168,7 +168,7 @@ Use extension methods of ```TelemetryProcessorChainBuilder``` as shown below to 
 > [!IMPORTANT]
 > If you use this method to configure sampling, please make sure to use aiOptions.EnableAdaptiveSampling = false; settings with AddApplicationInsightsTelemetry().
 
-``` C#
+```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
@@ -261,7 +261,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 1. **Disable adaptive sampling**:  Changes can be made in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
 
-    ``` C#
+    ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
     // ...
@@ -275,7 +275,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 2. **Enable the fixed-rate sampling module.** Changes can be made in the method ```Configure``` as shown in below snippet:
 
-    ``` C#
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
         var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
