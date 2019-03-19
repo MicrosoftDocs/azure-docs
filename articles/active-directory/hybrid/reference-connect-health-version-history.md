@@ -30,16 +30,16 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 
 ## March 2019
 **Agent Update:** 
-*  Azure AD Connect Health agent for AD DS (version 3.1.41.0) 
-1. .NET version collection.
-2. Improvement of performance counter collection when missing certain categories.
-3. Bug fix on preventing spawning of multiple Monitoring Agent instances.
+* Azure AD Connect Health agent for AD DS (version 3.1.41.0) 
+* .NET version collection.
+* Improvement of performance counter collection when missing certain categories.
+* Bug fix on preventing spawning of multiple Monitoring Agent instances.
 
-*  Azure AD Connect Health agent for AD FS (version 3.1.41.0) 
-1. Integrate and upgrade of AD FS test scripts using ADFSToolBox.
-2. .NET version collection.
-3. Improvement of performance counter collection when missing certain categories.
-4. Bug fix on preventing spawning of multiple Monitoring Agent instances.
+* Azure AD Connect Health agent for AD FS (version 3.1.41.0) 
+* Integrate and upgrade of AD FS test scripts using ADFSToolBox.
+* .NET version collection.
+* Improvement of performance counter collection when missing certain categories.
+* Bug fix on preventing spawning of multiple Monitoring Agent instances.
 
 
 ## November 2018
@@ -47,16 +47,16 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 * Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal
 
 **Agent Update:** 
-*  Azure AD Connect Health agent for AD DS (version 3.1.24.0) 
-1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
-2. Reduce Global Catalog alert noise
-3. Health agent registration bug fixes
+* Azure AD Connect Health agent for AD DS (version 3.1.24.0) 
+* Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
+* Reduce Global Catalog alert noise
+* Health agent registration bug fixes
 
-*	Azure AD Connect Health agent for AD FS (version 3.1.24.0)
-1. Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
-2. Support of Test-ADFSRequestToken for localized operating system
-3. Solved diagnostic agent EventHandler locking issue
-4. Health agent registration bug fixes
+* Azure AD Connect Health agent for AD FS (version 3.1.24.0)
+* Transport Layer Security (TLS) protocol version 1.2 compliance and enforcement
+* Support of Test-ADFSRequestToken for localized operating system
+* Solved diagnostic agent EventHandler locking issue
+* Health agent registration bug fixes
 
 ## August 2018 
 *  Azure AD Connect Health agent for Sync (version 3.1.7.0) released with Azure AD Connect version 1.1.880.0    
@@ -67,31 +67,31 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 * Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal 
 
 **Agent Update:** 
-*  Azure AD Connect Health agent for AD DS (version 3.1.7.0)    
-   1. Hotfix for [high CPU issue of monitoring agent with .NET Framework KB releases](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+* Azure AD Connect Health agent for AD DS (version 3.1.7.0)    
+  1. Hotfix for [high CPU issue of monitoring agent with .NET Framework KB releases](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
    
-*	Azure AD Connect Health agent for AD FS (version 3.1.7.0)  
-   1. Hotfix for [high CPU issue of monitoring agent with .NET Framework KB releases](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
-   2. Test results fixes on ADFS Server 2016 secondary server
+* Azure AD Connect Health agent for AD FS (version 3.1.7.0)  
+  1. Hotfix for [high CPU issue of monitoring agent with .NET Framework KB releases](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+  2. Test results fixes on ADFS Server 2016 secondary server
    
-*	Azure AD Connect Health agent for AD FS (version 3.1.2.0)  
-   1. Hotfix for agent memory management and related alerts specifically for version 3.0.244.0
+* Azure AD Connect Health agent for AD FS (version 3.1.2.0)  
+  1. Hotfix for agent memory management and related alerts specifically for version 3.0.244.0
 
 
 ## May 2018
 **Agent Update:**
-*	Azure AD Connect Health agent for AD DS (version 3.0.244.0)
- 1. Agent privacy improvement  
- 2. Bug fixes and general improvements
+* Azure AD Connect Health agent for AD DS (version 3.0.244.0)
+  1. Agent privacy improvement  
+  2. Bug fixes and general improvements
 
-*	Azure AD Connect Health agent for AD FS (version 3.0.244.0)
- 1. Agent Diagnostics Service and related PowerShell module improvements
- 2. Agent privacy improvement  
- 3. Bug fixes and general improvements
+* Azure AD Connect Health agent for AD FS (version 3.0.244.0)
+  1. Agent Diagnostics Service and related PowerShell module improvements
+  2. Agent privacy improvement  
+  3. Bug fixes and general improvements
 
 * Azure AD Connect Health agent for Sync (version 3.0.164.0) released with Azure AD Connect version 1.1.819.0 
- 1. Agent privacy improvement  
- 2. Bug fixes and general improvements
+  1. Agent privacy improvement  
+  2. Bug fixes and general improvements
 
 
 ## March 2018
@@ -100,10 +100,10 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 
 **Agent Update:**
 
-*	Azure AD Connect Health agent for AD DS (version 3.0.176.0)
+* Azure AD Connect Health agent for AD DS (version 3.0.176.0)
   1. Agent availability improvements 
   2. Bug fixes and general improvements
-*	Azure AD Connect Health agent for AD FS (version 3.0.176.0)
+* Azure AD Connect Health agent for AD FS (version 3.0.176.0)
   1. Agent availability improvements 
   2. Bug fixes and general improvements
 * Azure AD Connect Health agent for Sync (version 3.0.129.0) released with Azure AD Connect version 1.1.750.0  
@@ -113,11 +113,11 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## December 2017
 **Agent Update:**
 
-*	Azure AD Connect Health agent for AD DS (version 3.0.145.0)
+* Azure AD Connect Health agent for AD DS (version 3.0.145.0)
   1. Agent availability improvements 
   2. Added new agent troubleshooting commands
   3. Bug fixes and general improvements
-*	Azure AD Connect Health agent for AD FS (version 3.0.145.0)
+* Azure AD Connect Health agent for AD FS (version 3.0.145.0)
   1. Added new agent troubleshooting commands
   2. Agent availability improvements 
   3. Bug fixes and general improvements
@@ -131,10 +131,10 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## July 2017
 **Agent Update:**
 
-*	Azure AD Connect Health agent for AD DS (version 3.0.68.0)
+* Azure AD Connect Health agent for AD DS (version 3.0.68.0)
   1. Bug fixes and general improvements
   2. Sovereign cloud support
-*	Azure AD Connect Health agent for AD FS (version 3.0.68.0)
+* Azure AD Connect Health agent for AD FS (version 3.0.68.0)
   1. Bug fixes and general improvements
   2. Sovereign cloud support
 * Azure AD Connect Health agent for Sync (version 3.0.68.0) released with Azure AD Connect version 1.1.614.0
@@ -143,9 +143,9 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## April 2017      
 **Agent Update:**
 
-*	Azure AD Connect Health agent for AD FS (version 3.0.12.0)
+* Azure AD Connect Health agent for AD FS (version 3.0.12.0)
   1. Bug fixes and general improvements
-*	Azure AD Connect Health agent for AD DS (version 3.0.12.0)
+* Azure AD Connect Health agent for AD DS (version 3.0.12.0)
   1. Performance counters upload improvements
   2. Bug fixes and general improvements
 
@@ -153,13 +153,13 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 **Agent Update:**
 
 * Azure AD Connect Health agent for AD FS (version 2.6.408.0)
-1. Improvements in detecting client IP addresses in authentication requests
-2. Bug Fixes related to Alerts
+* Improvements in detecting client IP addresses in authentication requests
+* Bug Fixes related to Alerts
 * Azure AD Connect Health agent for AD DS (version 2.6.408.0)
-1. Bug fixes related to Alerts.
+* Bug fixes related to Alerts.
 * Azure AD Connect Health agent for Sync (version 2.6.353.0) released with Azure AD Connect version 1.1.281.0
-1. Provide the required data for the Synchronization Error Reports
-2. Bug fixes related to Alerts
+* Provide the required data for the Synchronization Error Reports
+* Bug fixes related to Alerts
 
 **New preview features:**
 

@@ -58,7 +58,7 @@ Execute following [docker run](https://docs.docker.com/engine/reference/run/) co
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to [http://localhost:8080](http://localhost:8080) to view the default web page served by Nginx in the running container. You should see a page similar to the following:
+Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. You should see a page similar to the following:
 
 ![Nginx on local computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -100,7 +100,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/run/) command to r
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Browse to [http://localhost:8080](http://localhost:8080) to view the running container.
+Browse to `http://localhost:8080` to view the running container.
 
 To stop and remove the container, press `Control`+`C`.
 

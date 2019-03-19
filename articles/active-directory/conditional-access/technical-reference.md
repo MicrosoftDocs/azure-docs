@@ -17,7 +17,7 @@ ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 
-#Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
 
 ms.collection: M365-identity-device-management
 ---

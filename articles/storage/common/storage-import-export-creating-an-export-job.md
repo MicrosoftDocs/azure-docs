@@ -13,34 +13,34 @@ ms.subservice: common
 # Creating an export job for the Azure Import/Export service
 Creating an export job for the Microsoft Azure Import/Export service using the REST API involves the following steps:
 
--   Selecting the blobs to export.
+- Selecting the blobs to export.
 
--   Obtaining a shipping location.
+- Obtaining a shipping location.
 
--   Creating the export job.
+- Creating the export job.
 
--   Shipping your empty drives to Microsoft via a supported carrier service.
+- Shipping your empty drives to Microsoft via a supported carrier service.
 
--   Updating the export job with the package information.
+- Updating the export job with the package information.
 
--   Receiving the drives back from Microsoft.
+- Receiving the drives back from Microsoft.
 
- See [Using the Windows Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure portal](https://portal.azure.com/) to create and manage import and export jobs.
+  See [Using the Windows Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure portal](https://portal.azure.com/) to create and manage import and export jobs.
 
 ## Selecting blobs to export
  To create an export job, you will need to provide a list of blobs that you want to export from your storage account. There are a few ways to select blobs to be exported:
 
--   You can use a relative blob path to select a single blob and all of its snapshots.
+- You can use a relative blob path to select a single blob and all of its snapshots.
 
--   You can use a relative blob path to select a single blob excluding its snapshots.
+- You can use a relative blob path to select a single blob excluding its snapshots.
 
--   You can use a relative blob path and a snapshot time to select a single snapshot.
+- You can use a relative blob path and a snapshot time to select a single snapshot.
 
--   You can use a blob prefix to select all blobs and snapshots with the given prefix.
+- You can use a blob prefix to select all blobs and snapshots with the given prefix.
 
--   You can export all blobs and snapshots in the storage account.
+- You can export all blobs and snapshots in the storage account.
 
- For more information about specifying blobs to export, see the [Put Job](/rest/api/storageimportexport/jobs) operation.
+  For more information about specifying blobs to export, see the [Put Job](/rest/api/storageimportexport/jobs) operation.
 
 ## Obtaining your shipping location
 Before creating an export job, you need to obtain a shipping location name and address by calling the [Get Location](https://portal.azure.com) or [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) operation. `List Locations` will return a list of locations and their mailing addresses. You can select a location from the returned list and ship your hard drives to that address. You can also use the `Get Location` operation to obtain the shipping address for a specific location directly.

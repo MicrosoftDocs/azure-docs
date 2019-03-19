@@ -30,7 +30,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 3. A schedule trigger to execute the pipeline every hour.
 
- ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Scenario1](media/pricing-concepts/scenario1.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |

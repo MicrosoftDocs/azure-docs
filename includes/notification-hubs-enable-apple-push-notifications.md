@@ -41,17 +41,17 @@ To be able to send push notifications to an iOS app, you must register your appl
 
 2. Update the following three fields for your new app and then click **Continue**:
 
-    * **Name**: Type a descriptive name for your app in the **Name** field in the **App ID Description** section.
-    * **Bundle Identifier**: Under the **Explicit App ID** section, enter a **Bundle Identifier** in the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* you use must match the organization identifier and product name you use when you create your XCode project. In the following screenshot *NotificationHubs* is used as an organization identifier and *GetStarted* is used as the product name. Making sure this value matches the value you use in your XCode project allows you to use the correct publishing profile with XCode.
-    * **Push Notifications**: Check the **Push Notifications** option in the **App Services** section.
+   * **Name**: Type a descriptive name for your app in the **Name** field in the **App ID Description** section.
+   * **Bundle Identifier**: Under the **Explicit App ID** section, enter a **Bundle Identifier** in the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* you use must match the organization identifier and product name you use when you create your XCode project. In the following screenshot *NotificationHubs* is used as an organization identifier and *GetStarted* is used as the product name. Making sure this value matches the value you use in your XCode project allows you to use the correct publishing profile with XCode.
+   * **Push Notifications**: Check the **Push Notifications** option in the **App Services** section.
 
-    ![Form to register a new App ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Form to register a new App ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    This action generates your App ID and requests you to confirm the information. Click **Register** to confirm the new App ID.
+     This action generates your App ID and requests you to confirm the information. Click **Register** to confirm the new App ID.
 
-    Once you click **Register**, you see the **Registration complete** screen, as shown in the following image. Click **Done**.
+     Once you click **Register**, you see the **Registration complete** screen, as shown in the following image. Click **Done**.
 
-    ![App ID registration complete showing entitlements](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![App ID registration complete showing entitlements](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. In the Developer Center, under App IDs, locate the app ID that you created, and click on its row.
 

@@ -68,23 +68,23 @@ The original response should look like this:
 
 ![Set outbound policy](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
-1.  Select **Demo Conference API**.
-2.  On the top of the screen, select **Design** tab.
-3.  Select **All operations**.
-4.  In the **Outbound processing** section, click the **</>** icon.
-5.  Position the cursor inside the **&lt;outbound&gt;** element.
-6.  In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
+1. Select **Demo Conference API**.
+2. On the top of the screen, select **Design** tab.
+3. Select **All operations**.
+4. In the **Outbound processing** section, click the **</>** icon.
+5. Position the cursor inside the **&lt;outbound&gt;** element.
+6. In the right window, under **Transformation policies**, click **+ Set HTTP header** twice (to insert two policy snippets).
 
-    ![Policies](./media/transform-api/transform-api.png)
+   ![Policies](./media/transform-api/transform-api.png)
 
-7.  Modify your **<outbound>** code to look like this:
+7. Modify your **<outbound>** code to look like this:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Policies](./media/transform-api/set-policy.png)
+   ![Policies](./media/transform-api/set-policy.png)
 
-8.  Click the **Save** button.
+8. Click the **Save** button.
 
 ## Replace original URLs in the body of the API response with APIM gateway URLs
 

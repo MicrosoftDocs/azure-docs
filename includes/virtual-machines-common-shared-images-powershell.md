@@ -91,7 +91,7 @@ $vmConfig = Set-AzVMSourceImage `
 
 This is similar to how you can currently specify use publisher, offer and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) to get the latest version of a Marketplace image. With this in mind, each image definition needs to have a unique set of these values.  
 
-##Create an image version
+## Create an image version
 
 Create an image version from a managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters.
 
