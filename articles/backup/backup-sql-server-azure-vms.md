@@ -49,16 +49,17 @@ Before you start, verify the following:
 
 ## Feature consideration and limitations
 
-- SQL Server backup can be configured in the Azure portal or PowerShell. We do not support CLI.
+- SQL Server backup can be configured in the Azure portal or **PowerShell**. We do not support CLI.
 - VM running SQL Server requires internet connectivity to access Azure public IP addresses.
 - SQL Server Always on **Failover Cluster Instances (FCIs)** aren't supported.
 - Backup and restore operations for mirror databases and database snapshots aren't supported.
 - Using more than one backup solutions to backup your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
 - Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure. Azure Backup can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always on availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.  
+- Azure Backup supports only Full and Copy-only Full backup types for **Read-only** databases
 - Databases with large number of files can't be protected. The maximum number of files that is supported is **~1000**.  
 - You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 - You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
-- We support databases up to 2TB in size; for sizes greater than that, performance issues may come up.
+- We support databases up to **2TB** in size; for sizes greater than that, performance issues may come up.
 - To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these number on you own. We will be publishing it shortly.
 - In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
 
@@ -66,7 +67,7 @@ Before you start, verify the following:
 
 Depending on the backup preference and backups types (full/differential/log/copy-only full), backups are taken from a particular node (primary/secondary).
 
-- Backup preference: Primary
+- **Backup preference: Primary**
 
 **Backup Type** | **Node**
     --- | ---
@@ -75,7 +76,7 @@ Depending on the backup preference and backups types (full/differential/log/copy
     Log |  Primary
     Copy-Only Full |  Primary
 
-- Backup preference: Secondary Only
+- **Backup preference: Secondary Only**
 
 **Backup Type** | **Node**
 --- | ---
@@ -84,7 +85,7 @@ Differential | Primary
 Log |  Secondary
 Copy-Only Full |  Secondary
 
-- Backup preference: Secondary
+- **Backup preference: Secondary**
 
 **Backup Type** | **Node**
 --- | ---
@@ -93,7 +94,7 @@ Differential | Primary
 Log |  Secondary
 Copy-Only Full |  Secondary
 
-- No Backup preference
+- **No Backup preference**
 
 **Backup Type** | **Node**
 --- | ---

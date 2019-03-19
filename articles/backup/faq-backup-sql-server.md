@@ -49,9 +49,7 @@ Yes. You can throttle the rate at which the backup policy runs to minimize the i
 As per SQL limitations, you can run Copy Only Full backup on Secondary Replica; however Full backup is not allowed.
 
 ## Can I protect availability groups on-premises?
-The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.
-
-However, if there’s a failover to the node in another region, and your backup preference requires to take backup from that node, it won’t happen as such.  
+No. Azure Backup protects SQL Server databases running in Azure. If an availability group (AG) is spread between Azure and on-premises machines, the AG can be protected only if the primary replica is running in Azure. Also, Azure Backup protects only the nodes that run in the same Azure region as the Recovery Services vault.
 
 ## Can I protect availability groups across regions?
 The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference. When your backup preference isn't met, backups fail and you get the failure alert.
@@ -75,10 +73,16 @@ If you do **stop backup with retain data**, no future backups will take place an
 
 If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance in the Configure Backup. However, unlike other up-protected databases that can be selected manually or that can get autoprotected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
 
-## If I change the name of the database after it has been protected, what will be the behavior.
+## If I change the name of the database after it has been protected, what will be the behavior?
 A re-named database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.
 
 You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
+
+##  Why can’t I see an added database for an autoprotected instance?
+A database that you [add to an autoprotected instance](backup-azure-sql-database.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Recover DBs**, as shown in the following image.
+
+  ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
+
 
 ## Next steps
 

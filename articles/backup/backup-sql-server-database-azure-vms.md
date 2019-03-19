@@ -229,12 +229,13 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
 ## Enable auto-protection  
 
-Enable auto-protection to automatically back up all existing databases, and databases that are added in the future to a standalone SQL Server instance or a SQL Server Always On Availability group.
+Enable auto-protection to automatically back up all existing databases, and databases that will be added in the future to a standalone SQL Server instance or a SQL Server Always on Availability group.
 
-  - When you turn on auto-protection and select a policy, the existing protected databases will continue to use previous policy.
-  - There is no limit on the number of databases you can select for auto-protection in one go.
+- There is no limit on the number of databases you can select for auto-protection in one go.
+- You cannot selectively protect or exclude databases from protection in an instance at the time of enabling auto-protection.
+- If your instance already includes some protected databases, they would continue to be protected under their respective policies even after you turn on auto-protection. However, all the un-protected databases and the databases that will get added in the future, will have only a single policy that you define at the time of enabling auto-protection, under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
 
-Enable auto-protection as follows:
+Steps to enable auto-protection as follows:
 
   1. In **Items to backup**, select the instance for which you want to enable auto-protection.
   2. Select the dropdown under **Autoprotect**, and set to **On**. Then click **OK**.
