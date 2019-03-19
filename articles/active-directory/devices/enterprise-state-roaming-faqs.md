@@ -5,10 +5,10 @@ services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
@@ -18,6 +18,7 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Settings and data roaming FAQ
 This article answers some questions IT administrators might have about settings and app data sync.
@@ -28,7 +29,7 @@ the PC settings that are built into the Windows operating system. Generally, the
 
 * *Theme*, which includes features such as desktop theme and taskbar settings.
 * *Internet Explorer settings*, including recently opened tabs and favorites.
-* *Edge browser settings*, such as favorites and reading list.
+* *Microsoft Edge browser settings*, such as favorites and reading list.
 * *Passwords*, including Internet passwords, Wi-Fi profiles, and others.
 * *Language preferences*, which includes settings for keyboard layouts, system language, date and time, and more.
 * *Ease of access features*, such as high-contrast theme, Narrator, and Magnifier.

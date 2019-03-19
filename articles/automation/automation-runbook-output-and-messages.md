@@ -3,7 +3,7 @@ title: Runbook Output and Messages in Azure Automation
 description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
@@ -214,8 +214,8 @@ You can see from the preceding screenshot that when you enable Verbose logging a
    
    ![Graphical Authoring Logging and Tracing page](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### Microsoft Azure Log Analytics
-Automation can send runbook job status and job streams to your Log Analytics workspace. With Log Analytics you can,
+### Microsoft Azure Monitor logs
+Automation can send runbook job status and job streams to your Log Analytics workspace. With Azure Monitor logs you can,
 
 * Get insight on your Automation jobs 
 * Trigger an email or alert based on your runbook job status (for example, failed or suspended) 
@@ -223,9 +223,10 @@ Automation can send runbook job status and job streams to your Log Analytics wor
 * Correlate jobs across Automation accounts 
 * Visualize your job history over time    
 
-For more information on how to configure integration with Log Analytics to collect, correlate and act on job data, see [Forward job status and job streams from Automation to Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+For more information on how to configure integration with Azure Monitor logs to collect, correlate and act on job data, see [Forward job status and job streams from Automation to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 
 ## Next steps
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
 * To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
+
 

@@ -1,22 +1,20 @@
 ---
-title: Indexing in Azure Cosmos DB MongoDB API
-description: Presents an overview of the indexing capabilities in Azure Cosmos DB MongoDB API.
-services: cosmos-db
-author: orestis-ms
-
+title: Indexing in Azure Cosmos DB's API for MongoDB
+description: Presents an overview of the indexing capabilities with Azure Cosmos DB's API for MongoDB.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
 
 ---
 
 
-# Indexing in the Azure Cosmos DB: MongoDB API
+# Indexing using Azure Cosmos DB's API for MongoDB
 
-Azure Cosmos DB MongoDB API leverages automatic index management capabilities of Azure Cosmos DB. As a result, users have access to the default indexing policies of Azure Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into the collection. For most scenarios, we recommend using the default indexing policy set on the account.
+Azure Cosmos DB's API for MongoDB leverages automatic index management capabilities of Cosmos DB. As a result, users have access to the default indexing policies of Cosmos DB. So, if no indexes have been defined by the user, or no indexes have been dropped, then all fields will be automatically indexed by default when inserted into a collection. For most scenarios, we recommend using the default indexing policy set on the account.
 
 ## Dropping the default indexes
 
@@ -95,5 +93,5 @@ The preceding command will cause the deletion of any documents in ```db.coll``` 
 Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the --noIndexRestore flag in the command line).
 
 ## Next steps
-* [How does Azure Cosmos DB index data?](../cosmos-db/index-policy.md)
-* [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
+* [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
+* [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)

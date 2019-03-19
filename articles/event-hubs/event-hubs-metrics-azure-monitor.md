@@ -1,6 +1,6 @@
 ---
-title: Metrics in Azure Monitor (preview) - Azure Event Hubs | Microsoft Docs
-description: Use Azure Monitoring to monitor Event Hubs
+title: Metrics in Azure Monitor - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use Azure Monitoring to monitor Azure Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -18,7 +18,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Azure Event Hubs metrics in Azure Monitor (preview)
+# Azure Event Hubs metrics in Azure Monitor
 
 Event Hubs metrics gives you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
@@ -28,7 +28,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Operation Management Suite and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Azure Monitor.
 
 ## Access metrics in the portal
 
@@ -36,7 +36,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![View successful metrics][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Peview)**. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics (preview)**.
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. To display metrics filtered to the scope of the event hub, select the event hub and then click **Metrics**.
 
 For metrics supporting dimensions, you must filter with the desired dimension value as shown in the following example:
 
@@ -44,7 +44,7 @@ For metrics supporting dimensions, you must filter with the desired dimension va
 
 ## Billing
 
-Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Log Analytics for advanced analysis.
+Using metrics in Azure Monitor is currently free. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Log Analytics for advanced analysis.
 
 The following metrics give you an overview of the health of your service. 
 

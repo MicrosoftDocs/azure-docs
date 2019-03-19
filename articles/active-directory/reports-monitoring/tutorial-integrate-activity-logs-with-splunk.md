@@ -1,10 +1,10 @@
 ---
-title: How to integrate Azure Active Directory logs with Splunk by using Azure Monitor (preview)  | Microsoft Docs
+title: Stream Azure Active Directory logs to Splunk using Azure Monitor (preview)  | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with Splunk by using Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: c4b605b6-6fc0-40dc-bd49-101d03f34665
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to integrate Azure AD logs with my Splunk instance so I can visualize Azure AD logs in the context of all other data collected in my environment.
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate Azure AD logs with Splunk using Azure Monitor (preview)

@@ -1,24 +1,20 @@
 ---
-title: How To Configure Azure ExpressRoute Direct | Microsoft Docs
-description: This page helps you configure ExpressRoute Direct (Preview)
+title: Configure ExpressRoute Direct - Azure | Microsoft Docs
+description: This page helps you configure ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2019
 ms.author: jaredro
+ms.custom: seodec18
 
 ---
 
-# How to configure ExpressRoute Direct (Preview)
+# How to configure ExpressRoute Direct
 
 ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute Direct is currently in Preview.
->
-> This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 ## <a name="resources"></a>Create the resource
 
@@ -65,7 +61,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 3. Determine if a location listed above has available bandwidth
 
   ```powershell
-  Get-AzureRMExpressRoutePortsLocations -Name "Equinix-San-Jose-SV1"
+  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Example output**
@@ -95,7 +91,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   > 
  
   ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName -$RGName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
   ```
 
   > [!NOTE]

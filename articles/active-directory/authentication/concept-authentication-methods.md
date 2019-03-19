@@ -4,15 +4,16 @@ description: What authentication methods are available in Azure AD for MFA and S
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # What are authentication methods?
 
@@ -169,6 +170,8 @@ Depending on the size of the CSV file, it may take a few minutes to process. Cli
 
 Once any errors have been addressed, the administrator then can activate each key by clicking **Activate** for the token to be activated and entering the OTP displayed on the token.
 
+Users may have a combination of up to 5 OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
+
 ## Mobile phone
 
 Two options are available to users with mobile phones.
@@ -223,6 +226,6 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 
 [Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
 
-[Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
+[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 
 [End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)

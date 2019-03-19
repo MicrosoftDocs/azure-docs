@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: The Custom Speech Service is now part of the Speech Service. Switch to the Speech Service to benefit from the latest quality and feature updates.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
@@ -34,12 +34,6 @@ The pricing model is simpler, using an hour-based pricing model for the Speech S
 3. Follow the quickstart guides and SDK samples to use the correct APIs. If you use the REST APIs, you also need to use the correct endpoints and resource keys.
 
 4. Update the client application to use the Speech Service and APIs.
-
-> [!NOTE]
-> * If you enabled speech in Language Understanding (LUIS), a single LUIS resource in the same region will work for LUIS as well as all the speech services. For more information, see [Recognize intents from speech](how-to-recognize-intents-from-speech-csharp.md).
-> * Text-to-text translation is not part of the Speech Service. This functionality requires its own Azure resource subscription.
- 
-
 
 ## Migration for existing customers
 

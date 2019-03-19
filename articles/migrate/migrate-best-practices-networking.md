@@ -12,10 +12,10 @@ ms.author: raynew
 
 # Best practices to set up networking for workloads migrated to Azure
 
-As you plan and design for migration, in addition to thinking about the migration itself, one of the most critical steps is the design and implementation of Azure networking. This article describes planning information and best practices for networking when you migrate to IaaS and PaaS implementations in Azure.
+As you plan and design for migration, in addition to the migration itself, one of the most critical steps is the design and implementation of Azure networking. This article describes best practices for networking when migrating to IaaS and PaaS implementations in Azure.
 
 > [!IMPORTANT]
-> The best practices and opinions described in this article are based on the Azure platform and service features available at the time of writing. Features and capabilities change over time. Not all recommendations might be applicable for your deployment, so select those that work for your environment.
+> The best practices and opinions described in this article are based on the Azure platform and service features available at the time of writing. Features and capabilities change over time. Not all recommendations might be applicable for your deployment, so select those that work for you.
 
 
 ## Design virtual networks
@@ -68,7 +68,7 @@ Consider the following:
 **Learn more:**
 
 - [Read about](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) a hub and spoke topology.
-- Get network recommendations for running Azure [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm#network-recommendations) and [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm#network-recommendations) VMs.
+- Get network recommendations for running Azure [Windows](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) and [Linux](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/linux-vm) VMs.
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) VNet peering.
 
 
@@ -115,7 +115,7 @@ Azure adds a DNS server by default when you deploy a VNet. This allows you to ra
 
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) name resolution when you use your own DNS server.
-- [Learn about](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS naming rules and restrictions.
+- [Learn about](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS naming rules and restrictions.
 
 
 ## Best practice: Set up availability zones
@@ -163,7 +163,7 @@ To implement a site-to-site VPN, you set up a VPN gateway in Azure.
 - Each VNet can have only one VPN gateway.
 - You can create multiple connections to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
 - Every Azure VPN gateway consists of two instances in an active-standby configuration.
-    - For planned maintenance or unplaned disruption to the active instance, failover occurs and the standby instance takes over automatically, and resumes the site-to-site or VNet-to-VNet connection. 
+    - For planned maintenance or unplanned disruption to the active instance, failover occurs and the standby instance takes over automatically, and resumes the site-to-site or VNet-to-VNet connection. 
     - The switchover causes a brief interruption.
     - For planned maintenance, connectivity should be restored within 10 to 15 seconds.
     - For unplanned issues, the connection recovery will be longer, about one to 1.5 minutes in the worst case.
@@ -184,7 +184,7 @@ When setting up a site-to-site VPN, you do the following:
 **Learn more:**
 
 - [Review](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) compatible on-premises VPN devices.
-- [Get an overview](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateway) of VPN gateways.
+- [Get an overview](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) of VPN gateways.
 - [Learn about](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable) highly available VPN connections.
 - [Learn about](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) planning and designing a VPN gateway.
 - [Review](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku) VPN gateway settings.
@@ -336,7 +336,7 @@ Service tags take the manual work out of assigning a rule to groups of Azure ser
 
 **Learn more:**
 
-- [Read about](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) NSGs.
+- [Read about](https://docs.microsoft.com/azure/virtual-network/security-overview) NSGs.
 - [Review](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) the service tags available for NSGs.
 
 

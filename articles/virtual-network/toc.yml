@@ -97,6 +97,9 @@
         href: tutorial-create-route-table-powershell.md
       - name: Azure CLI
         href: tutorial-create-route-table-cli.md
+      - name: Ansible
+        href: /azure/ansible/ansible-create-configure-route-table
+        maintainContext: true
     - name: Service endpoints
       items:
       - name: Azure PowerShell
@@ -127,7 +130,7 @@
       href: deploy-container-networking.md
     - name: Virtual machines
       items:
-      - name: Create a VM with a static public IP address
+      - name: Create VM - Static public IP address
         items:
         - name: Azure portal
           href: virtual-network-deploy-static-pip-arm-portal.md
@@ -135,6 +138,8 @@
           href: virtual-network-deploy-static-pip-arm-ps.md
         - name: Azure CLI
           href: virtual-network-deploy-static-pip-arm-cli.md
+      - name: Add public IP address to existing VM
+        href: associate-public-ip-address-vm.md
       - name: Create VM - Static private IP address
         items:
         - name: Azure portal
@@ -246,6 +251,8 @@
       href: virtual-network-troubleshoot-nva.md
     - name: Troubleshooting outbound SMTP connectivity
       href: troubleshoot-outbound-smtp-connectivity.md
+    - name: About IP address 168.63.129.16
+      href: what-is-ip-address-168-63-129-16.md
   - name: Classic
     items:
     - name: Create and manage a virtual network
@@ -336,6 +343,8 @@
     href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/virtual-network
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/allversions
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
 - name: Resources

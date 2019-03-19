@@ -1,25 +1,64 @@
 ---
-title: On-premises Azure AD password protection agent version release history
+title: On-premises Azure AD Password Protection agent version release history
 description: Documents version release and behavior change history
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 02/01/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
 
-# Preview:  Azure AD password protection agent version history
+# Preview:  Azure AD Password Protection agent version history
 
 |     |
 | --- |
-| Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## 1.2.65.0
+
+Release date: 2/1/2019
+
+Changes:
+
+* DC agent and proxy service are now supported on Server Core. Mininimum OS requirements are unchanged from before: Windows Server 2012 for DC agents, and Windows Server 2012 R2 for proxies.
+* The Register-AzureADPasswordProtectionProxy and Register-AzureADPasswordProtectionForest cmdlets now support device-code-based Azure authentication modes.
+* The Get-AzureADPasswordProtectionDCAgent cmdlet will ignore mangled and/or invalid service connection points. This fixes the bug where domain controllers would sometimes show up multiple times in the output.
+* The Get-AzureADPasswordProtectionSummaryReport cmdlet will ignore mangled and/or invalid service connection points. This fixes the bug where domain controllers would sometimes show up multiple times in the output.
+* The Proxy powershell module is now registered from %ProgramFiles%\WindowsPowerShell\Modules. The machine's PSModulePath environment variable is no longer modified.
+* A new Get-AzureADPasswordProtectionProxy cmdlet has been added to aid in discovering registered proxies in a forest or domain.
+* The DC agent uses a new folder in the sysvol share for replicating password policies and other files.
+
+   Old folder location:
+
+   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+
+   New folder location:
+
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
+
+   (This change was made to avoid false-positive "orphaned GPO" warnings.)
+
+   > [!NOTE]
+   > No migration or sharing of data will be done between the old folder and the new folder. Older DC agent versions will continue to use the old location until upgraded to this version or later. Once all DC agents are running version 1.2.65.0 or later, the old sysvol folder may be manually deleted.
+
+* The DC agent and proxy service will now detect and delete mangled copies of their respective service connection points.
+* Each DC agent will periodically delete mangled and stale service connection points in its domain, for both DC agent and proxy service connection points. Both DC agent and proxy service connection points are considered stale if its heartbeat timestamp is older than seven days.
+* The DC agent will now renew the forest certificate as needed.
+* The Proxy service will now renew the proxy certificate as needed.
+* Updates to password validation algorithm: the global banned password list and customer-specific banned password list (if configured) are combined prior to password validations. A given password may now be rejected (fail or audit-only) if it contains tokens from both the global and customer-specific list. The event log documentation has been updated to reflect this; please see [Monitor Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
+* Performance and robustness fixes
+* Improved logging
+
+> [!WARNING]
+> Time-limited functionality:  the DC agent service in this release (1.2.65.0) will stop processing password validation requests as of September 1st 2019.  DC agent services in prior releases (see list below) will stop processing as of July 1st 2019. The DC agent service in all versions will log 10021 events to the Admin event log in the two months leading up these deadlines. All time-limit restrictions will be removed in the upcoming GA release. The Proxy agent service is not time-limited in any version but should still be upgraded to the latest version in order to take advantage of all subsequent bug fixes and other improvements.
 
 ## 1.2.25.0
 
@@ -36,6 +75,7 @@ Fixes:
 Changes:
 
 * The minimum required OS level for the Proxy service is now Windows Server 2012 R2. The minimum required OS level for the DC agent service remains at Windows Server 2012.
+* The Proxy service now requires .NET version 4.6.2.
 * The password validation algorithm uses an expanded character normalization table. This may result in passwords being rejected that were accepted in prior versions.
 
 ## 1.2.10.0
@@ -70,4 +110,4 @@ Initial public preview release
 
 ## Next steps
 
-[Deploy Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md)
+[Deploy Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md)

@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 08/16/2018
+ ms.date: 02/07/2019
  ms.author: jdial
  ms.custom: include file
 
@@ -44,6 +44,7 @@ The following limits apply only for networking resources managed through Azure R
 | DNS Servers per virtual network |20 |
 | Private IP Addresses per virtual network |65536 |
 | Private IP Addresses per network interface |256 |
+| Private IP Addresses per virtual machine |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |
 | Network Interfaces (NIC) |65536 |
 | Network Security Groups (NSG) |5000 |
@@ -65,16 +66,18 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses - dynamic |(Basic) 1000 |contact support |
 | Public IP addresses - static |(Basic) 200 |contact support |
 | Public IP addresses - static |(Standard) 200 |contact support |
+| Public IP Prefix size (preview) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Default limit |
-| --- | --- | --- |
+| --- | --- |
 | Load Balancers | 1000 | 
 | Rules per resource, Basic | 250 |
 | Rules per resource, Standard | 1500 | 
 | Rules per IP configuration | 299 |
+| Rules per NIC | 500 |
 | Frontend IP configurations, Basic | 200 |
 | Frontend IP configurations, Standard | 600 |
 | Backend pool, Basic | 100, single Availability Set |
@@ -82,7 +85,5 @@ The following limits apply only for networking resources managed through Azure R
 | Backend resources per Load Balancer, Standard * | 150 |
 | HA Ports, Standard | 1 per internal frontend |
 
-** Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
-
-[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
+** Up to 150 resources, any combination of standalone virtual machine resources, availability sets resources, and virtual machine scale set resources.
 

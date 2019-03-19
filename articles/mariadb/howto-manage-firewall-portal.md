@@ -3,8 +3,6 @@ title: Create and manage MariaDB firewall rules in Azure Database for MariaDB
 description: Create and manage Azure Database for MariaDB firewall rules using the Azure portal
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
@@ -28,7 +26,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
 4. Add additional address ranges. In the firewall rules for the Azure Database for MariaDB, you can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the Start IP and End IP fields. Opening the firewall enables administrators, users, and application to access any database on the MariaDB server to which they have valid credentials.
 
-   ![Azure portal - firewall rules ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure portal - firewall rules](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules is  successful.
 

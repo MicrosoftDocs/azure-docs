@@ -4,12 +4,12 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
@@ -38,6 +38,8 @@ Patterns use a mix of prediction technologies. Setting an intent for a template 
 ## Patterns do not improve entity detection
 While patterns require entities, a pattern does not help detect the entity. A pattern is only meant to help the prediction with intents and roles.  
 
+Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For Simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
+
 ## Patterns use entity roles
 If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities. This is equivalent to hierarchical entity children, but is **only** available in patterns. 
 
@@ -45,7 +47,7 @@ If two or more entities in a pattern are contextually related, patterns use enti
 Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances.  
 
 ## Pattern matching
-A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. 
+A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. The pattern is applied at the token level, not the character level. 
 
 ## Pattern syntax
 Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and punctuation you want to ignore. It is **not** a regular expression. 

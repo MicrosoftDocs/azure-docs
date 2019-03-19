@@ -5,17 +5,18 @@ description: Learn how to troubleshoot sign-in errors using Azure Active Directo
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Troubleshoot sign-in errors using Azure Active Directory reports
@@ -33,7 +34,7 @@ In addition, the sign-ins report can also help you troubleshoot sign-in failures
 
 You need:
 
-* An Azure AD tenant with a premium (P1/P2) license. 
+* An Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
 * A user, who is in the **global administrator**, **security administrator**, **security reader** or **report reader** role for the tenant. In addition, any user can access their own sign-ins. 
 
 ## Troubleshoot sign-in errors using the sign-ins report

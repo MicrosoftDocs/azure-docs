@@ -7,7 +7,7 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: media-services
@@ -22,7 +22,8 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Configure Azure Media Clipper keyboard shortcuts
+# Configure Azure Media Clipper keyboard shortcuts 
+
 Azure Media Clipper supports customizing the default keyboard shortcuts by providing an optional `keymap` JSON parameter.
 
 The following sample JSON illustrates the default keyboard shortcuts. You can customize these settings by changing the key fields and passing in the parameter when initializing the Clipper.

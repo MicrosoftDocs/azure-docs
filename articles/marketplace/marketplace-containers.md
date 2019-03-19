@@ -1,4 +1,4 @@
----  
+---
 title: Containers Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish Containers in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 
----  
+---
 
 # Containers Offer Publishing Guide
 
@@ -41,12 +41,13 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 | Image tagging | Container images must contain at least 1 tag (maximum tags: 16).<ul> <li>For more information about tagging an image, visit the docker tag page located at [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
-## Next Steps
+## Next steps
 
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one,
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
+- See [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for more information.

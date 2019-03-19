@@ -1,19 +1,18 @@
 ---
-title: About Azure Key Vault keys, secrets and certificates
+title: About Azure Key Vault keys, secrets and certificates - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 documentationcenter:
 author: BryanLa
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 01/07/2019
 ms.author: bryanla
 ---
 
@@ -32,7 +31,7 @@ For more general information about Key Vault, see [What is Azure Key Vault?](/az
 
 The following sections offer general information applicable across the implementation of the Key Vault service.
 
-###  Supporting standards
+### Supporting standards
 
 The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
 
@@ -56,7 +55,7 @@ Refer to the JOSE specifications for relevant data types for keys, encryption, a
 -   **Identity** - an identity from Azure Active Directory (AAD).  
 -   **IntDate** - a JSON decimal value representing the number of seconds from 1970-01-01T0:0:0Z UTC until the specified UTC date/time. See RFC3339 for details regarding date/times, in general and UTC in particular.  
 
-###  Objects, identifiers, and versioning
+### Objects, identifiers, and versioning
 
 Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
 
@@ -81,7 +80,7 @@ Where:
 
 ## Key Vault keys
 
-###  Keys and key types
+### Keys and key types
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs.  
 
@@ -101,7 +100,7 @@ Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Ell
 
 ### Cryptographic protection
 
-The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2 or higher. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1 or higher. For more information, see [Keys and key types](#keys-and-key-types).
+The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don’t need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1. For more information, see [Keys and key types](#keys-and-key-types).
 
 ###  EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 Preview Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2 Preview
+title: Azure Data Lake Storage Gen2 Introduction
+description: Provides an overview of Azure Data Lake Storage Gen2 
 services: storage
 author: jamesbak
 
@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
-# Introduction to Azure Data Lake Storage Gen2 Preview
+# Introduction to Azure Data Lake Storage Gen2
 
-‎Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built on [Azure Blob
-storage](storage-blobs-introduction.md). Data Lake Storage Gen2 is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
+‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob
+storage](storage-blobs-introduction.md). Data Lake Storage Gen2 is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
 ## Designed for enterprise big data analytics
 
@@ -48,35 +48,35 @@ Azure Storage is scalable by design whether you access via Data Lake Storage Gen
 
 ### Cost effectiveness
 
-One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob storage is the low cost of storage capacity and transactions. Unlike other cloud storage services, data stored in Data Lake Storage Gen2 is not required to be moved or transformed prior to performing analysis. For more information about pricing, see [Azure Storage pricing]((https://azure.microsoft.com/pricing/details/storage)).
+One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob storage is the low cost of storage capacity and transactions. Unlike other cloud storage services, data stored in Data Lake Storage Gen2 is not required to be moved or transformed prior to performing analysis. For more information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
 Additionally, features such as the [hierarchical namespace](data-lake-storage-namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end-to-end analytics job.
 
 ### One service, multiple concepts
 
-Data Lake Storage Gen2 is an additional capability for big data analytics, built on top of Azure Blob Storage. While there are many benefits in leveraging existing platform components of Blobs to create and operate data lakes for analytics, it does lead to multiple concepts describing the same, shared things.
+Data Lake Storage Gen2 is an additional capability for big data analytics, built on top of Azure Blob storage. While there are many benefits in leveraging existing platform components of Blobs to create and operate data lakes for analytics, it does lead to multiple concepts describing the same, shared things.
 
 The following are the equivalent entities, as described by different concepts. Unless specified otherwise these entities are directly synonymous:
 
 | Concept                                | Top Level Organization | Lower Level Organization                                            | Data Container |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| Blobs – General purpose object storage | Container              | Virtual Directory (SDK only – does not provide atomic manipulation) | Blob           |
+| Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
 | ADLS Gen2 – Analytics Storage          | Filesystem             | Directory                                                           | File           |
 
-## Open source platforms that work with Data Lake Storage Gen2
+## Supported open source platforms
 
 Several open source platforms support Data Lake Storage Gen2. Those platforms appear in the following table.
 
 > [!NOTE]
 > Only the versions that appear in this table are supported.
 
-| Platform |  Supported version(s) | More information |
+| Platform |  Supported Version(s) | More Information |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1+ | [Claudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime Versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[HortenWorks](https://hortonworks.com/)| 2.6+ | [HortenWorks Documentation](https://docs.hortonworks.com/) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## Next steps
 
@@ -84,5 +84,4 @@ The following articles describe some of the main concepts of Data Lake Storage G
 
 -   [Hierarchical namespace](data-lake-storage-namespace.md)
 -   [Create a storage account](data-lake-storage-quickstart-create-account.md)
--   [Create an HDInsight cluster with Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
--   [Use an Azure Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)
+-   [Use a Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

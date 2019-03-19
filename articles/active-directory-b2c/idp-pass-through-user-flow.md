@@ -3,14 +3,14 @@ title: Pass an access token through a user flow to your application in Azure Act
 description: Learn how you can pass through an access token for OAuth2.0 identity providers as a claim in a user flow in Azure Active Directory B2C. 
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Pass an access token through a user flow to your application in Azure Active Directory B2C
@@ -20,12 +20,12 @@ ms.component: B2C
 
 A [user flow](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C provides users of your application an opportunity to sign up or sign in with an identity provider. When the journey starts, Azure AD B2C receives an [access token](active-directory-b2c-reference-tokens.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to pass the token through to the applications that you register in Azure AD B2C.
 
-Azure AD B2C currently only supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) identity providers, which include [Facebook](active-directory-b2c-setup-fb-app.md) and [Google](active-directory-b2c-setup-goog-app.md). For all other identity providers, the claim is returned blank.
+Azure AD B2C supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) and [OpenID Connect](active-directory-b2c-reference-oidc.md) identity providers. For all other identity providers, the claim is returned blank.
 
 ## Prerequisites
 
 - Your application must be using a [v2 user flow](user-flow-versions.md).
-- Your user flow is configured with an OAuth 2.0 identity provider.
+- Your user flow is configured with an OAuth 2.0 or OpenID Connect identity provider.
 
 ## Enable the claim
 

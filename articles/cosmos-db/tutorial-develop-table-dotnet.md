@@ -1,18 +1,19 @@
 ---
-title: 'Azure Cosmos DB: Develop with the Table API in .NET'
-description: Learn how to develop with Azure Cosmos DB's Table API using .NET
-services: cosmos-db
-author: SnehaGunda
-
+title: Develop with the Table API using .NET SDK
+titleSuffix: Azure Cosmos DB
+description: Learn how to develop with Table API in Azure Cosmos DB by using .NET SDK
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
-ms.author: sngun
-ms.custom: mvc
+ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
+ms.custom: seodec18
+ms.reviewer: sngun
 ---
-# Azure Cosmos DB: Develop with the Table API in .NET
+
+# Develop with Azure Cosmos DB's Table API using .NET SDK
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -72,7 +73,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 

@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2018
+ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Azure AD v2.0 endpoint using client credentials flow.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity
@@ -35,19 +36,19 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 
-> [!div renderon="portal" class="sxs-lookup"]
+> [!div renderon="docs" class="sxs-lookup"]
+>
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
 > ### Option 2: Register and manually configure your application and code sample
->
 
 > [!div renderon="docs"]
 > #### Step 1: Register your application
@@ -64,6 +65,8 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**
 
 > [!div class="sxs-lookup" renderon="portal"]
+> ### Download and configure your quickstart app
+> 
 > #### Step 1: Configure your application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -96,12 +99,13 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
     >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
+    > [!div renderon="docs"]
     > > [!TIP]
     > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
     
 #### Step 4: Admin consent
 
-Any *app-only permission* requires Admin consent - which means that it needs an global administrator of your directory to give consent to your application. Select one of the options below depending your role:
+If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that an global administrator of your directory must give consent to your application. Select one of the options below depending your role:
 
 ##### Global tenant administrator
 
@@ -143,6 +147,9 @@ dotnet run
 
 You should see a list of users in your Azure AD directory as result.
 
+> [!IMPORTANT]
+> This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
+
 ## More information
 
 ### MSAL.NET
@@ -152,7 +159,13 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client
+```
+
+Alternatively, if you are not using Visual Studio, you can run the following command to add MSAL to your project:
+
+```console
+dotnet add package Microsoft.Identity.Client
 ```
 
 ### MSAL initialization
@@ -188,7 +201,7 @@ var app = new ConfidentialClientApplication(
 > | `userTokenCache`  | Instance of a token cache for the user. In this case, because this app runs in context of the app, and not the user, this value is null|
 > | `appTokenCache`  | Instance of a token cache for the app|
 
-For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication__ctor_System_String_System_String_System_String_Microsoft_Identity_Client_ClientCredential_Microsoft_Identity_Client_TokenCache_Microsoft_Identity_Client_TokenCache)
+For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet)
 
 ### Requesting tokens
 

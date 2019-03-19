@@ -16,3 +16,5 @@ ms.author: tamram
 | Target throughput for single file share | Up to 60 MiB/second | Up to 612 MiB/sec (provisioned) |
 | Maximum open handles per file | 2,000 open handles | 2,000 open handles |
 | Maximum number of share snapshots | 200 share snapshots | 200 share snapshots |
+| Maximum object (directories and files) name length | 2048 characters | 2048 characters |
+| Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |

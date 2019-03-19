@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure storage account overview
@@ -19,27 +19,7 @@ To learn how to create an Azure storage account, see [Create a storage account](
 
 ## Types of storage accounts
 
-Azure Storage provides three types of storage accounts. Each type supports different features and has its own pricing model. Consider these differences before you create a storage account to determine the type of account that is best for your applications. The types of storage accounts are:
-
-* **[General-purpose v2 accounts](#general-purpose-v2-accounts)** (recommended for most scenarios)
-* **[General-purpose v1 accounts](#general-purpose-v1-accounts)**
-* **[Blob storage accounts](#blob-storage-accounts)** 
-
-The following table describes the types of storage accounts and their capabilities:
-
-| Storage account type | Supported services                       | Supported performance tiers | Supported access tiers               | Replication options                                                | Deployment model<sup>1</sup>  | Encryption<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| General-purpose V2   | Blob, File, Queue, Table, and Disk       | Standard, Premium           | Hot, Cool, Archive<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager | Encrypted  |
-| General-purpose V1   | Blob, File, Queue, Table, and Disk       | Standard, Premium           | N/A                                  | LRS, GRS, RA-GRS                                                   | Resource Manager, Classic  | Encrypted  |
-| Blob storage         | Blob (block blobs and append blobs only) | Standard                    | Hot, Cool, Archive<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Resource Manager  | Encrypted  |
-
-<sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest. For more information, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
-
-<sup>3</sup>The Archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md). For more information about other replication options, see [Azure Storage replication](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### General-purpose v2 accounts
 
@@ -94,7 +74,7 @@ When naming your storage account, keep these rules in mind:
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
 * A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium performance tier for storing Azure virtual machine disks only. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md) for an in-depth overview of Premium storage.
+* A premium performance tier for storing unmanaged virtual machine disks only.
 
 ## Access tiers for block blob data
 

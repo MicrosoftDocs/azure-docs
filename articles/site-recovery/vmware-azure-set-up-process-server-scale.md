@@ -5,8 +5,8 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 12/11/2018
+ms.author: mayg
 ---
 
 # Scale for failback with additional process servers
@@ -18,6 +18,9 @@ By default, when you're replicating VMware VMs or physical servers to Azure usin
 ### Capacity planning
 
 Make sure you've performed [capacity planning](site-recovery-plan-capacity-vmware.md) for VMware replication. This helps you to identify how and when you should deploy additional process servers.
+
+>[!NOTE]
+Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
 
 ### Sizing requirements 
 

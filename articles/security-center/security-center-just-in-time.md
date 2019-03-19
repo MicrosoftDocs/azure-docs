@@ -4,7 +4,7 @@ description: This document demonstrates how just-in-time VM access in Azure Secu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
 
 ---
@@ -25,6 +25,8 @@ Just-in-time  (JIT) virtual machine (VM) access can be used to lock down inbound
 > The just-in-time feature is available on the Standard tier of Security Center.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Attack scenario
 
@@ -45,7 +47,11 @@ When a user requests access to a VM, Security Center checks that the user has [R
 >
 >
 
-## Using JIT access in Azure Security Center
+You can access JIT through:
+- [Using JIT access in Azure Security Center](#jit-asc)
+- [Using JIT access in an Azure VM blade](#jit-vm)
+
+## Using JIT access in Azure Security Center <a name="jit-asc"></a>
 
 1. Open the **Security Center** dashboard.
 
@@ -117,7 +123,7 @@ To edit an existing just-in-time policy of a VM:
 3. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. For more information, see [Configuring a just-in-time access policy](#jit-config). 
   ![jit vm access](./media/security-center-just-in-time/edit-policy.png)
 
-## Using JIT access in an Azure VM blade
+## Using JIT access in an Azure VM blade <a name="jit-vm"></a>
 
 For your convenience, you can connect to a VM using JIT directly from within the VM blade in Azure.
 
@@ -201,7 +207,7 @@ The just-in-time VM access feature can be used via the Azure Security Center API
 
 ### Using JIT VM access via PowerShell 
 
-To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzureRmJitNetworkAccessPolicy`.
+To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzJitNetworkAccessPolicy`.
 
 The following example sets a just-in-time VM access policy on a specific VM, and sets the following:
 1.	Close ports 22 and 3389.
@@ -231,7 +237,7 @@ Run the following in PowerShell to accomplish this:
 
 3.	Configure the just-in-time VM access policy on the selected VM:
 	
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### Requesting access to a VM
 
@@ -251,7 +257,7 @@ Run the following in PowerShell:
         $JitPolicyArr=@($JitPolicyVm1)
 3.	Send the request access (use the resource ID you got in step 1)
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 For more information, see the PowerShell cmdlet documentation.
 
@@ -261,7 +267,7 @@ In this article, you learned how just-in-time VM access in Security Center helps
 
 To learn more about Security Center, see the following:
 
-- [Setting security policies](security-center-azure-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Setting security policies](tutorial-security-policy.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Managing security recommendations](security-center-recommendations.md) — Learn how recommendations help you protect your Azure resources.
 - [Security health monitoring](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources.
 - [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts.

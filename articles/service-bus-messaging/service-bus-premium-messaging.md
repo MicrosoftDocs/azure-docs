@@ -3,9 +3,9 @@ title: Azure Service Bus Premium and Standard Messaging pricing tiers overview |
 description: Service Bus Premium and Standard Messaging tiers
 services: service-bus-messaging
 documentationcenter: .net
-author: djrosanova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Service Bus Premium and Standard messaging tiers

@@ -3,21 +3,21 @@ title: Get started with custom policies in Azure Active Directory B2C | Microsof
 description: How to get started with Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Get started with custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. In this article, you create a custom policy that supports local account sign-up or sign-in by using an email address and password. You also prepare your environment for adding identity providers, such as Facebook or Azure Active Directory.
+[Custom policies](active-directory-b2c-overview-custom.md) are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. In this article, you create a custom policy that supports local account sign-up or sign-in by using an email address and password. You also prepare your environment for adding identity providers.
 
 ## Prerequisites
 
@@ -27,9 +27,6 @@ If you don't have one already, you need to [create an Azure AD B2C tenant](tutor
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 
@@ -68,7 +65,7 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 
 ### Register the IdentityExperienceFramework application
 
-1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure Active Directory**, and then select **App registrations**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **App registrations**.
 2. Select **New application registration**.
 3. For **Name**, enter `IdentityExperienceFramework`.
 4. For **Application type**, choose **Web app/API**.
@@ -101,8 +98,8 @@ Custom policies are a set of XML files that need to be uploaded to your Azure AD
 Each starter pack contains:
 
 - The base file. Few modifications are required to the base.
-* The extension file.  This file is where most configuration changes are made.
-* The relying party files. Task-specific files called by your application.
+- The extension file.  This file is where most configuration changes are made.
+- The relying party files. Task-specific files called by your application.
 
 >[!NOTE]
 >If your XML editor supports validation, validate the files against the TrustFrameworkPolicy_0.3.0.0.xsd XML schema that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
@@ -113,17 +110,14 @@ Each starter pack contains:
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. In the SocialAndLocalAccounts folder, edit all of the files replacing `yourtenant.onmicrosoft.com` with the name for your tenant. For example, `contosoTenant.onmicrosoft.com`. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
+2. In the SocialAndLocalAccounts folder, edit all of the files replacing `yourtenant` with the name for your tenant. For example, `contosoTenant.onmicrosoft.com`. If you need an XML editor, [try Visual Studio Code](https://code.visualstudio.com/download), a lightweight cross-platform editor.
 
 ### Add application IDs to the custom policy
 
 Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
 1. Open the *TrustFrameworkExtensions.xml* file and find the element `<TechnicalProfile Id="login-NonInteractive">`.
-2. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application that you created earlier. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application that you created earlier. The following example shows the **login-NonInteractive** technical profile after the changes:
-
-    ![Application Ids](./media/active-directory-b2c-get-started-custom/login-NonInteractive.png)
-
+2. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the Identity Experience Framework application that you created earlier. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the Proxy Identity Experience Framework application that you created earlier.
 3. Save your extensions file.
 
 ## Upload the policies
@@ -154,6 +148,6 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 3. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
 4. Test by using **Run now** or by invoking the policy directly from your registered application.
 
-## Next Steps
+## Next steps
 
 - Add Azure Active Directory as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers. For information about setting up sign-ins, see the [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](active-directory-b2c-setup-aad-custom.md) article.

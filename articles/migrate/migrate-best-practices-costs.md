@@ -5,14 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: raynew
 ---
 
 
 # Best practices for costing and sizing workloads migrated to Azure
 
-As you plan and design for migration, focusing on costs ensures the long-term success of your Azure migration. During a migration project, it's critical that all teams (finance, management, app teams etc) understand associated costs. Before migration, estimating your migration spend, with a baseline for monthly, quarterly, and yearly budget targets is critical to success. After migration, you should optimize costs, continually monitor workloads, and plan for future usage patterns. Migrated resources might start out as one type of workload, but evolve into another type over time, based on usage, costs, and shifting business requirements.
+As you plan and design for migration, focusing on costs ensures the long-term success of your Azure migration. During a migration project, it's critical that all teams (finance, management, app teams etc) understand associated costs.
+- Before migration, estimating your migration spend, with a baseline for monthly, quarterly, and yearly budget targets is critical to success.
+- After migration, you should optimize costs, continually monitor workloads, and plan for future usage patterns. Migrated resources might start out as one type of workload, but evolve into another type over time, based on usage, costs, and shifting business requirements.
 
 This article describes best practices for costing and sizing before and after migration.  
 
@@ -113,7 +115,7 @@ Azure provides different types of storage accounts and performance tiers.
 
 **Account type** | **Details** | **Usage**
 --- | --- | ---
-**General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HHD or SSD based.
+**General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HDD or SSD based.
 **General Purpose v2 Premium** | Supports Blob storage data (page blobs). Supports Hot, Cool, and Archive access tiers. ZRS is supported.<br/><br/> Stored on SSD. | Microsoft recommends using for all VMs.
 **General Purpose v1** | Access tiering isn't supported. Doesn't support ZRS | Use if apps need the Azure classic deployment model.
 **Blob** | Specialized storage account for storing unstructured objects. Provides block blobs and append blobs only (no File, Queue, Table or Disk storage services). Provides the same durability, availability, scalability and performance as General Purpose v2. | you can't store page blobs in these accounts, and therefore can't store VHD files. You can set an access tier to Hot or Cool.
@@ -125,7 +127,7 @@ Storage accounts can use different types of redundancy for resilience and high a
 **Type** | **Details** | **Usage**
 --- | --- | ---
 **Locally Redundant Storage (LRS)** | Protects against a local outage by replicating within a single storage unit to a separate fault domain and update domain. Keeps multiple copies of your data in one datacenter. Provides at least 99.999999999 % (11 9\'s) durability of objects over a given year. | Consider if your app stores data that can be easily reconstructed.
-**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple data centers or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permenently affected.
+**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple data centers or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permanently affected.
 **Geographically Redundant Storage (GRS)** | Protects against an entire region outage by replicating data to a secondary region hundreds of miles away from the primary. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year. | Replica data isn't available unless Microsoft initiates a failover to the secondary region. If failover occurs, read and write access is available.
 **Read-Access Geographically Redundant Storage (RA-GRS)** | Similar to GRS. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year | Provides and 99.99 % read availability by allowing read access from the second region used for GRS.
 
@@ -150,7 +152,7 @@ An integrated Microsoft on-premises/Azure product portfolio generates competitiv
 
 - [Take a look at](https://azure.microsoft.com/pricing/hybrid-benefit/) the Hybrid Benefit Savings Calculator.
 - [Learn more](https://azure.microsoft.com/pricing/hybrid-benefit/) about Hybrid Benefit for Windows Server.
-- [Review](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) pricing guidance for SQL Server Azure VMs.
+- [Review](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) pricing guidance for SQL Server Azure VMs.
 
 
 ## Best practice: Use reserved VM instances
@@ -170,7 +172,7 @@ Using Azure Reserved VM instances, you prepay for a one or three-year term VM in
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure Reservations.
 - [Read](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) the reserved instances FAQ.
-- [Get pricing guidance](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) for SQL Server Azure VMs.
+- [Get pricing guidance](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) for SQL Server Azure VMs.
 
 
 ## Best practice: Aggregate cloud spend across subscriptions
@@ -207,7 +209,7 @@ In Cost Management, you can:
 
 
 - **Create a budget**: Create a budget for financial accountability.
-    - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and ascope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
+    - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
     - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
     - Email notifications can be sent when budget thresholds are reached.
     - You can export costs management data to Azure storage, for analysis.
@@ -235,7 +237,7 @@ In Cost Management, you can:
 
 ## Best practice: Monitor resource utilization
 
-In Azure you pay for what you use, when when resources are consumed, and you don't pay when they aren't. For VMs, billing occurs when a VM is allocated, and you aren't charged after a VM is deallocated. With this in mind you should monitor VMs in use, and verify VM sizing.
+In Azure you pay for what you use, when resources are consumed, and you don't pay when they aren't. For VMs, billing occurs when a VM is allocated, and you aren't charged after a VM is deallocated. With this in mind you should monitor VMs in use, and verify VM sizing.
 
 - Continually evaluate your VM workloads to determine baselines.
 - For example, if your workload is used heavily Monday through Friday, 8am to 6pm, but hardly used outside those hours, you could downgrade VMs outside peak times. This might mean changing VM sizes, or using virtual machine scale sets to autoscale VMs up or down.
@@ -246,7 +248,7 @@ In Azure you pay for what you use, when when resources are consumed, and you don
 **Learn more:**
 - Get an overview of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview).
 - [Get](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) Advisor cost recommendations.
-- [Learn how to [optimize costs from recommendations](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), and [prevent unexpected charges](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+- [Learn how to [optimize costs from recommendations](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), and [prevent unexpected charges](https://docs.microsoft.com/azure/billing/billing-getting-started).
 - [Learn about](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) the Azure Resource Optimization (ARO) Toolkit
 
 ## Best practice: Implement resource group budgets

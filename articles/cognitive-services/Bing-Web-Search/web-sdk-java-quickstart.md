@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your Java application. In this quickstart, you'll learn how to send a request, receive a JSON response, and filter and parse the results.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: aahi

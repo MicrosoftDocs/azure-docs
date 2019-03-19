@@ -1,6 +1,6 @@
 ---
-title: Scaling Media Reserved Units - Azure | Microsoft Docs
-description: This topic is an overview of scaling Media Processing with Azure Media Services.
+title: Use CLI to create filters with Azure Media Services| Microsoft Docs
+description: This topic shows how to use CLI to create filters with Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
+ms.custom: seodec18
 
 ---
 # Creating filters with CLI 
@@ -24,15 +25,14 @@ This topic shows how to configure a filter for a Video on-Demand asset and use C
 
 ## Prerequisites 
 
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+
 ## Define a filter 
 
-The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
+The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
 Filters defined in REST, include the "Properties" wrapper JSON object.  
 
@@ -43,11 +43,6 @@ Filters defined in REST, include the "Properties" wrapper JSON object.
             {
                 "property": "Type",
                 "value": "Audio",
-                "operation": "Equal"
-            },
-            {
-                "property": "Language",
-                "value": "en",
                 "operation": "Equal"
             },
             {
@@ -78,8 +73,10 @@ Filters defined in REST, include the "Properties" wrapper JSON object.
 
 The following [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
 
+The command allows you to pass an optional `--tracks` parameter that contains JSON representing the track selections.  Use @{file} to load JSON from a file. If you are using the Azure CLI locally, specify the whole file path:
+
 ```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
 Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
@@ -89,7 +86,7 @@ Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/
 The following [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 ```azurecli
-az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
+az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
 Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).

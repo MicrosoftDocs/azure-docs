@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
- 
+ms.reviewer: unknown
+ms.lastreviewed: 01/05/2019
+
+
 
 ---
+
 # Azure Resource Manager template considerations
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -27,11 +30,11 @@ As you develop your application, it is important to ensure template portability 
 
 ## Resource provider availability
 
-The template that you're planning to deploy must only use Microsoft Azure services that are already available or in preview in Azure Stack.
+The template that you plan to deploy must only use Microsoft Azure services that are already available or in preview in Azure Stack.
 
 ## Public namespaces
 
-Because Azure Stack is hosted in your datacenter, it has different service endpoint namespaces than the Azure public cloud. As a result, hardcoded public endpoints in Azure Resource Manager templates fail when you try to deploy them to Azure Stack. You can dynamically build service endpoints using the *reference* and *concatenate* functions to retrieve values from the resource provider during deployment. For example, instead of hardcoding *blob.core.windows.net* in your template, retrieve the [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) to dynamically set the *osDisk.URI* endpoint:
+Because Azure Stack is hosted in your datacenter, it has different service endpoint namespaces than the Azure public cloud. As a result, hard-coded public endpoints in Azure Resource Manager templates fail when you try to deploy them to Azure Stack. You can dynamically build service endpoints using the `reference` and `concatenate` functions to retrieve values from the resource provider during deployment. For example, instead of hard-coding *blob.core.windows.net* in your template, retrieve the [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) to dynamically set the *osDisk.URI* endpoint:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -53,7 +56,7 @@ Azure service versions may differ between Azure and Azure Stack. Each resource r
 
 ## Template functions
 
-Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) provide capabilities required to build dynamic templates. As an example, you can use functions for tasks such as:
+Azure Resource Manager [functions](../../azure-resource-manager/resource-group-template-functions.md) provide the capabilities required to build dynamic templates. As an example, you can use functions for tasks such as:
 
 * Concatenating or trimming strings.
 * Referencing values from other resources.

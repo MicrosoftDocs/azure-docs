@@ -27,11 +27,12 @@ The PowerShell DSC Extension for Windows is published and supported by Microsoft
 
 The DSC Extension supports the following OS's
 
-Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### Internet connectivity
 
-The DSC extension for Windows requires that the target virtual machine is connected to the internet. 
+The DSC extension for Windows requires that the target virtual machine is able to communicate with Azure
+and the location of the configuration package (.zip file) if it is stored in a location outside of Azure. 
 
 ## Extension schema
 
@@ -41,12 +42,12 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
     	"wmfVersion": "latest",
@@ -94,10 +95,10 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
-| typeHandlerVersion | 2.73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### Settings Property values
 
@@ -124,26 +125,10 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration. A sample Resource Manager template that includes the Log Analytics agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. 
-
-When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine. When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration.  
-
-
-## Azure CLI deployment
-
-The Azure CLI can be used to deploy the Log Analytics agent VM extension to an existing virtual machine. Replace the Log Analytics key and Log Analytics ID with those from your Log Analytics workspace. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Azure VM extensions can be deployed with Azure Resource Manager templates.
+Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
+A sample Resource Manager template that includes the DSC extension for Windows can be found on the
+[Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## Troubleshoot and support
 

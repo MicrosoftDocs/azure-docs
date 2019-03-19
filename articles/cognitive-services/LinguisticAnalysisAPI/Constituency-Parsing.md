@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Learn about how constituency parsing, also known as "phrase structure parsing," identifies phrases in text.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
@@ -92,4 +92,4 @@ There are several such phrases: *I*, *a new hybrid automobile*, *Bluetooth*, and
 
 ## Specification
 
-Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Trees here use the S-expressions from the [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

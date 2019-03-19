@@ -9,16 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
+ms.collection: M365-identity-device-management
 ---
 
 # Assign Azure AD directory roles in PIM
 
 With Azure Active Directory (Azure AD), a Global Administrator can make **permanent** directory role assignments. These role assignments can be created using the [Azure portal](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
-The Azure AD Privileged Identity Management (PIM) service also allows privileged role administrators to make permanent directory role assignments. Additionally, privileged role administrators can make users **eligible** for directory roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done. For information about the roles that you can manage using PIM, see [Azure AD directory roles you can manage in PIM](pim-roles.md).
+The Azure AD Privileged Identity Management (PIM) service also allows Privileged Role Administrators to make permanent directory role assignments. Additionally, Privileged Role Administrators can make users **eligible** for directory roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
 ## Make a user eligible for a role
 

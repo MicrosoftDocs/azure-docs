@@ -1,6 +1,6 @@
 ---
 title: Upgrade an Azure Service Fabric cluster | Microsoft Docs
-description: Learn about upgrading the version or configuration of an Azure Svice Fabric cluster.  This article describes setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed
+description: Learn about upgrading the version or configuration of an Azure Service Fabric cluster.  This article describes setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -23,7 +23,7 @@ For any modern system, designing for upgradability is key to achieving long-term
 
 ## Controlling the fabric version that runs on your cluster
 
-Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
+Make sure to keep your cluster running a [supported fabric version](service-fabric-versions.md) always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
 
 14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
 

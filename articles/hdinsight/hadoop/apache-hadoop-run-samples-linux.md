@@ -21,9 +21,9 @@ Learn how to run the MapReduce examples included with Apache Hadoop on HDInsight
 
 ## Prerequisites
 
-* **An HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **An HDInsight cluster**: See [Get started using Apache Hadoop with Apache Hive in HDInsight on Linux](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **An SSH client**: For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -91,7 +91,7 @@ Learn how to run the MapReduce examples included with Apache Hadoop on HDInsight
 
     Input for this job is read from `/example/data/gutenberg/davinci.txt`. Output for this example is stored in `/example/data/davinciwordcount`. Both paths are located on default storage for the cluster, not the local file system.
 
-   > [!NOTE]
+   > [!NOTE]  
    > As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
 
 5. Once the job completes, use the following command to view the output:
@@ -205,9 +205,9 @@ Use the following steps to generate data, sort, and then validate the output:
 
 From this article, you learned how to run the samples included with the Linux-based HDInsight clusters. For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

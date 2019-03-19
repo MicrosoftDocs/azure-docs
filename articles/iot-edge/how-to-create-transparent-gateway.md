@@ -36,7 +36,7 @@ The following steps walk you through the process of creating the certificates an
 ## Prerequisites
 
 An Azure IoT Edge device to configure as a gateway. You can use your development machine or a virtual machine as an IoT Edge device with the steps for the following operating systems:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 

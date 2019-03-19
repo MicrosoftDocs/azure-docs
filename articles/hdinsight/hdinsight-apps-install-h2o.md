@@ -14,7 +14,7 @@ ms.author: ashish
 ---
 # Install published application - H2O Sparkling Water
 
-This article describes how to install and run the [H20 Sparkling Water](http://www.h2o.ai/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [H20 Sparkling Water](https://www.h2o.ai/) published [Apache Hadoop](https://hadoop.apache.org/) application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About H2O Sparkling Water
 
@@ -30,7 +30,7 @@ H2O Sparkling Water provides:
 ### Resource links
 
 * [H2O.ai Engineering Roadmap](http://jira.h2o.ai/)
-* [H2O.ai Home](http://www.h2o.ai/)
+* [H2O.ai Home](https://www.h2o.ai/)
 * [H2O.ai Documentation](http://docs.h2o.ai/)
 * [H2O.ai Support](https://support.h2o.ai/)
 * [H2O.ai Open Source Codebase](https://github.com/h2oai/)
@@ -65,7 +65,7 @@ For step-by-step instructions on installing this and other available ISV applica
 
 5. After the H2O Cluster is up and running, open H2O Flow by going to **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you are unable to open H2O Flow, try clearing your browser cache. If you still unable to reach it, you probably do not have enough resources on your cluster. Try increasing the number of Worker nodes under the **Scale cluster** option in your cluster pane.
 
     ![H2O Flow dashboard](./media/hdinsight-apps-install-h2o/h2o-flow.png)

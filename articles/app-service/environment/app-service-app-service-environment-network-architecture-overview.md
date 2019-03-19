@@ -1,5 +1,5 @@
 ---
-title: Network Architecture Overview of App Service Environments
+title: Network Architecture Overview of App Service Environments - Azure
 description: Architectural overview of network topology ofApp Service Environments.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # Network Architecture Overview of App Service Environments

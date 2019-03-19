@@ -7,7 +7,8 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 
 # Troubleshoot input connections
@@ -42,7 +43,7 @@ You can take the following steps to analyze the input events in detail to get a 
 
 2. The input details tile displays a list of warnings with details about each issue. The example warning message below includes the partition, offset, and sequence numbers where there is malformed JSON data. 
 
-   ![Warning message with offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Stream Analytics warning message with offset](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. To find the JSON data with the incorrect format, run the CheckMalformedEvents.cs code available in the [GitHub samples repository](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). This code reads the partition ID, offset, and prints the data that's located in that offset. 
 
@@ -97,7 +98,7 @@ The WITH clause specifies a temporary named result set that can be referenced by
 
 For example, instead of this query:
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -110,7 +111,7 @@ FROM inputEventHub
 
 Use this query:
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of publishing your conten
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Publish content in the Azure portal
+# Publish content in the Azure portal (legacy)
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)

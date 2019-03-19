@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.date: 05/11/2018
+ms.date: 01/15/2019
 ms.author: danlep
 ---
 

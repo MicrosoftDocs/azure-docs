@@ -1,21 +1,22 @@
 ---
-title: Where Azure AD stores identity data for European customers | Microsoft Docs
-description: Learn about where Microsoft Azure Active Directory stores identity-related data for its European customers.
+title: Identity data storage for European customers - Azure Active Directory | Microsoft Docs
+description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.author: lizross
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# Where does Microsoft Azure Active Directory (Azure AD) store identity data for European customers
-Azure AD helps you to manage user identities and to create intelligence-driven access policies that help secure your organization's resources. Identity data is stored in a location that's based on the address your organization provided when you subscribed to the service. For example, when you subscribed to Office 365 or Azure. For specific info about where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+# Identity data storage for European customers in Azure Active Directory
+Azure Active Directory (Azure AD) helps you to manage user identities and to create intelligence-driven access policies that help secure your organization's resources. Identity data is stored in a location that's based on the address your organization provided when you subscribed to the service. For example, when you subscribed to Office 365 or Azure. For specific info about where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 While most Azure AD-related European identity data stays in European datacenters, there are five user-related attributes that are typically stored in U.S. datacenters. These attributes are GivenName, Surname, userPrincipalName, Domain, and PasswordHash. The PasswordHash attribute can be an exception and not stored in the U.S. if someone uses an on-premises, federated authentication method that stops the PasswordHash value from syncing with Azure AD. Additionally, there is some operational, service-specific data that's required for normal Azure AD operation, which is stored in the U.S. and doesn't include any personal data.
 
@@ -68,7 +69,7 @@ Most Azure AD-related European identity data, for organizations with European-ba
     For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 ## Next steps
-For more information about any of the features and functionality described above, see these articles.
+For more information about any of the features and functionality described above, see these articles:
 - [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

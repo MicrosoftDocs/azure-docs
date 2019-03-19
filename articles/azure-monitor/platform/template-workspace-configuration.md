@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: json
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 02/21/2019
 ms.author: magoedte
-ms.component: 
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates
@@ -40,7 +37,7 @@ The following table lists the API version for the resources used in this example
 | Resource | Resource type | API version |
 |:---|:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2017-03-15-preview |
+| Search      | savedSearches | 2015-03-20 |
 | Data source | datasources   | 2015-11-01-preview |
 | Solution    | solutions     | 2015-11-01-preview |
 
@@ -52,9 +49,11 @@ The following parameters set a default value:
 * Location - defaults to East US
 * SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
 
->[!WARNING]
->If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**. 
->
+> [!NOTE]
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.  
+>If you might have some subscriptions in the [pre-April 2018 pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), you can specify 
+>the **Standalone** pricing tier, and this will succeed for both subscription in the pre-April 2018 pricing model and for subscriptions in the new pricing. For workspaces in subscriptions 
+>that have adopted the new proicing model, the pricing tier will be set to **PerGB2018**. 
 
 ### Create and deploy template
 
@@ -62,7 +61,7 @@ The following parameters set a default value:
 
     ```json
     {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -99,7 +98,7 @@ The following parameters set a default value:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -115,7 +114,7 @@ The following parameters set a default value:
     ```
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
-4. You are ready to deploy this template. You use either PowerShell or the command line to cretae the workspace.
+4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace.
 
    * For PowerShell use the following commands from the folder containing the template:
    
@@ -216,7 +215,7 @@ The following template sample illustrates how to:
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -228,7 +227,7 @@ The following template sample illustrates how to:
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -377,7 +376,7 @@ The following template sample illustrates how to:
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [

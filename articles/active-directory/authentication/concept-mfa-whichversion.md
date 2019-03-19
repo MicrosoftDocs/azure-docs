@@ -4,15 +4,16 @@ description: As an Azure AD Administrator, I need to understand which version of
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Which version of Azure MFA is right for my organization?
 
@@ -34,7 +35,7 @@ To determine the correct two-step verification solution, first you must answer t
 | SaaS apps in the app gallery |● |  |
 | Web applications published through Azure AD App Proxy |● |  |
 | IIS applications not published through Azure AD App Proxy | |● |
-| Remote access such as VPN, RDG | ● | ● |
+| Remote access such as VPN, RDG using the NPS Extension or an existing NPS Server | ● | ● |
 
 ## Where are the users located
 

@@ -17,11 +17,11 @@ As you manage clusters in Azure Kubernetes Service (AKS), application uptime bec
 This best practices article focuses on considerations that help you plan for business continuity and disaster recovery in AKS. You learn how to:
 
 > [!div class="checklist"]
-* [Plan for AKS clusters in multiple regions](#region-planning)
-* [Route traffic across multiple clusters with Azure Traffic Manager](#ingress-traffic)
-* [Use geo-replication for your container image registries](#container-registry)
-* [Plan for application state across multiple clusters](#managing-application-state)
-* [Replicate storage across multiple regions](#storage)
+* Plan for AKS clusters in multiple regions
+* Route traffic across multiple clusters with Azure Traffic Manager
+* Use geo-replication for your container image registries
+* Plan for application state across multiple clusters
+* Replicate storage across multiple regions
 
 ## Plan for multi-region deployment
 
@@ -34,7 +34,7 @@ An AKS cluster is deployed into a single region. To protect yourself from region
 * [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * For your geographic area, choose two regions that are paired with each other. These regions coordinate platform updates, and prioritize recovery efforts where needed.
 * Service Availability Level (Hot/Hot, Hot/Warm, Hot/Cold)
-  * Do you want to run both regions at the same time, with one region *ready* to start serving traffic, or one region that needs to time get ready to serve traffic.
+  * Do you want to run both regions at the same time, with one region *ready* to start serving traffic, or one region that needs time to get ready to serve traffic.
 
 AKS region availability and paired regions are joint consideration. Deploy your AKS clusters into paired regions that are designed to manage region disaster recovery together. For example, AKS is available in *East US* and *West US*. These regions are also paired. These two regions would be recommended when creating an AKS BC/DR strategy.
 

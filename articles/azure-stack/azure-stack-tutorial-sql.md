@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 10/23/2018
 ---
 
 # Tutorial: Offer highly available SQL databases
@@ -137,7 +138,7 @@ Be sure to use the public IP or full FQDN for the public IP of the SQL load bala
 > [!NOTE]
 > This step must be run from the Azure Stack administration portal by an Azure Stack Operator.
 
-With the SQL AlwaysOn availability group's load balancer listener Public IP and SQL authentication login information, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availablity group](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
+With the SQL AlwaysOn availability group's load balancer listener Public IP and SQL authentication login information, an Azure Stack Operator can now [create a SQL Hosting Server using the SQL AlwaysOn availability group](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups). 
 
 Also ensure that you have created plans and offers to make SQL AlwaysOn database creation available for users. The operator will need to add the **Microsoft.SqlAdapter** service to a plan and create a new quota specifically for highly available databases. For more information about creating plans, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md).
 

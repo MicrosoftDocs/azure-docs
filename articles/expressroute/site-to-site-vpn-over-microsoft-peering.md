@@ -1,5 +1,5 @@
 ---
-title: Configure a site-to-site VPN over Microsoft peering for Azure ExpressRoute | Microsoft Docs
+title: Configure a site-to-site VPN over Microsoft peering - ExpressRoute - Azure | Microsoft Docs
 description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
 author: cherylmc
@@ -8,21 +8,21 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 
 # Configure a site-to-site VPN over ExpressRoute Microsoft peering
 
-This article helps you configure secure encrypted connectivity between your on-premises network and your Azure virtual networks (VNets) over an ExpressRoute private connection. Configuring a secure tunnel over ExpressRoute allows for data exchange with confidentiality, anti-replay, authenticity, and integrity.
+This article helps you configure secure encrypted connectivity between your on-premises network and your Azure virtual networks (VNets) over an ExpressRoute private connection. You can use Microsoft peering to establish a site-to-site IPsec/IKE VPN tunnel between your selected on-premises networks and Azure VNets. Configuring a secure tunnel over ExpressRoute allows for data exchange with confidentiality, anti-replay, authenticity, and integrity.
 
-## <a name="architecture"></a>Architecture
-
-You can leverage Microsoft peering to establish a site-to-site IPsec/IKE VPN tunnel between your selected on-premises networks and Azure VNets.
-
-  >[!NOTE]
+>[!NOTE]
 >When you set up site-to-site VPN over Microsoft peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Architecture
+
 
   ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

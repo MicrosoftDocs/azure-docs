@@ -31,16 +31,20 @@
       href: logs-and-metrics.md
     - name: Rule processing logic
       href: rule-processing.md
+    - name: Service tags
+      href: service-tags.md
 - name: How-to guides
   items:
     - name: Deploy using a template
       href: deploy-template.md
+    - name: Integrate with load balancer
+      href: integrate-lb.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/network
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/module/az.network/new-azfirewall
   - name: .NET
     href: /dotnet/api
   - name: Java

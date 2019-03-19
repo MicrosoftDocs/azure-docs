@@ -1,16 +1,16 @@
 ---
-title: Team Data Science Process project planning - Azure  | Microsoft Docs
+title: Team Data Science Process project planning 
 description: Microsoft Project and Excel templates that help you plan and manage data science projects.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 services: machine-learning
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # Team Data Science Process project planning

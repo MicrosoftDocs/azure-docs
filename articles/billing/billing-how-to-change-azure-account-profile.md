@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
 # Change your Azure account profile information such as contact email, address, and phone number

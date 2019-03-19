@@ -2,14 +2,13 @@
 title: SQL queries for Azure Cosmos DB
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 author: markjbrown
-
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---
-# SQL query examples to query data from Azure Cosmos DB
+# SQL query examples for Azure Cosmos DB
 
 Azure Cosmos DB supports querying items using SQL (Structured Query Language) as a JSON query language on SQL API accounts. While designing the query language for Azure Cosmos DB, the following two goals are considered:
 
@@ -17,7 +16,7 @@ Azure Cosmos DB supports querying items using SQL (Structured Query Language) as
 
 * Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features.
 
-This article walks you through some examples SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-sql-query-reference.md) article.
+This article walks you through some example SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
 
 ## <a id="GettingStarted"></a>Get started with SQL commands
 
@@ -82,7 +81,7 @@ Here's a second item with one subtle difference – `givenName` and `familyName`
 
 Now let's try a few queries against this data to understand some of the key aspects of Azure Cosmos DB's SQL query language.
 
-**Query1**: For example, the following query returns the items where the id field matches `AndersenFamily`. Since it's a `SELECT *`, the output of the query is the complete JSON item, to learn about the syntax, see [SELECT statement](sql-api-sql-query-reference.md#select-query):
+**Query1**: For example, the following query returns the items where the id field matches `AndersenFamily`. Since it's a `SELECT *`, the output of the query is the complete JSON item, to learn about the syntax, see [SELECT statement](sql-api-query-reference.md#select-query):
 
 ```sql
     SELECT *
@@ -162,7 +161,7 @@ Following are few aspects of the Cosmos DB query language through the examples y
 
 ## <a id="SelectClause"></a>Select clause
 
-Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON items. Finally, the SELECT clause is used to project the requested JSON values in the select list. To learn about the syntax, see [SELECT syntax](sql-api-sql-query-reference.md#bk_select_query).
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON items. Finally, the SELECT clause is used to project the requested JSON values in the select list. To learn about the syntax, see [SELECT syntax](sql-api-query-reference.md#bk_select_query).
 
 The following example shows a typical SELECT query.
 
@@ -256,7 +255,7 @@ Let's look at the role of `$1` here. The `SELECT` clause needs to create a JSON 
 
 ## <a id="FromClause"></a>FROM clause
 
-The FROM <from_specification> clause is optional unless the source is filtered or projected later in the query. To learn about the syntax, see [FROM syntax](sql-api-sql-query-reference.md#bk_from_clause). A query like `SELECT * FROM Families` indicates that the entire Families container is the source over which to enumerate. A special identifier ROOT can be used to represent the container instead of using the container name.
+The FROM <from_specification> clause is optional unless the source is filtered or projected later in the query. To learn about the syntax, see [FROM syntax](sql-api-query-reference.md#bk_from_clause). A query like `SELECT * FROM Families` indicates that the entire Families container is the source over which to enumerate. A special identifier ROOT can be used to represent the container instead of using the container name.
 The following list contains the rules that are enforced per query:
 
 * The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the equivalent of `Families`. `AS` is an optional keyword to alias the identifier.  
@@ -329,7 +328,7 @@ While the above example used an array as the source, an object could also be use
 
 ## <a id="WhereClause"></a>WHERE clause
 
-The WHERE clause (**`WHERE <filter_condition>`**) is optional. It specifies the condition(s) that the JSON items provided by the source must satisfy in order to be included as part of the result. Any JSON item must evaluate the specified conditions to "true" to be considered for the result. The WHERE clause is used by the index layer in order to determine the absolute smallest subset of source items that can be part of the result. To learn about the syntax, see [WHERE syntax](sql-api-sql-query-reference.md#bk_where_clause).
+The WHERE clause (**`WHERE <filter_condition>`**) is optional. It specifies the condition(s) that the JSON items provided by the source must satisfy in order to be included as part of the result. Any JSON item must evaluate the specified conditions to "true" to be considered for the result. The WHERE clause is used by the index layer in order to determine the absolute smallest subset of source items that can be part of the result. To learn about the syntax, see [WHERE syntax](sql-api-query-reference.md#bk_where_clause).
 
 The following query requests items that contain a name property whose value is `AndersenFamily`. Any other item that does not have a name property, or where the value does not match `AndersenFamily` is excluded.
 
@@ -502,7 +501,7 @@ You can also nest the calls to the operator like in the query below.
 
 As with other query operators, if the referenced properties in the conditional expression are missing in any item, or if the types being compared are different, then those items are excluded in the query results.
 
-The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
+The Coalesce (??) operator can be used to efficiently check for the presence of a property in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -1361,29 +1360,29 @@ The mathematical functions each perform a calculation, based on input values tha
 
 | Usage | Description |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Returns the absolute (positive) value of the specified numeric expression. |
-| [CEILING (num_expr)](#bk_ceiling) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
-| [FLOOR (num_expr)](#bk_floor) | Returns the largest integer less than or equal to the specified numeric expression. |
-| [EXP (num_expr)](#bk_exp) | Returns the exponent of the specified numeric expression. |
-| [LOG (num_expr [,base])](#bk_log) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
-| [LOG10 (num_expr)](#bk_log10) | Returns the base-10 logarithmic value of the specified numeric expression. |
-| [ROUND (num_expr)](#bk_round) | Returns a numeric value, rounded to the closest integer value. |
-| [TRUNC (num_expr)](#bk_trunc) | Returns a numeric value, truncated to the closest integer value. |
-| [SQRT (num_expr)](#bk_sqrt) | Returns the square root of the specified numeric expression. |
-| [SQUARE (num_expr)](#bk_square) | Returns the square of the specified numeric expression. |
-| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
-| [SIGN (num_expr)](#bk_sign) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
-| [ACOS (num_expr)](#bk_acos) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
-| [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
-| [ATAN (num_expr)](#bk_atan) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
-| [ATN2 (num_expr)](#bk_atn2) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
-| [COS (num_expr)](#bk_cos) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
-| [COT (num_expr)](#bk_cot) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
-| [DEGREES (num_expr)](#bk_degrees) | Returns the corresponding angle in degrees for an angle specified in radians. |
-| [PI ()](#bk_pi) | Returns the constant value of PI. |
-| [RADIANS (num_expr)](#bk_radians) | Returns radians when a numeric expression, in degrees, is entered. |
-| [SIN (num_expr)](#bk_sin) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
-| [TAN (num_expr)](#bk_tan) | Returns the tangent of the input expression, in the specified expression. |
+| [ABS (num_expr) | Returns the absolute (positive) value of the specified numeric expression. |
+| CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
+| FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
+| EXP (num_expr) | Returns the exponent of the specified numeric expression. |
+| LOG (num_expr ,base) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
+| LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
+| ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
+| TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
+| SQRT (num_expr) | Returns the square root of the specified numeric expression. |
+| SQUARE (num_expr) | Returns the square of the specified numeric expression. |
+| POWER (num_expr, num_expr) | Returns the power of the specified numeric expression to the value specified. |
+| SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
+| ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
+| ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
+| ATAN (num_expr) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
+| ATN2 (num_expr) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
+| COS (num_expr) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
+| COT (num_expr) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
+| DEGREES (num_expr) | Returns the corresponding angle in degrees for an angle specified in radians. |
+| PI () | Returns the constant value of PI. |
+| RADIANS (num_expr) | Returns radians when a numeric expression, in degrees, is entered. |
+| SIN (num_expr) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
+| TAN (num_expr) | Returns the tangent of the input expression, in the specified expression. |
 
 For example, you can now run queries as shown in the following example:
 
@@ -1407,14 +1406,14 @@ The type checking functions allow you to check the type of an expression within 
 
 | **Usage** | **Description** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | Returns a Boolean indicating if the type of the value is an array. |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | Returns a Boolean indicating if the type of the value is a Boolean. |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | Returns a Boolean indicating if the type of the value is null. |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | Returns a Boolean indicating if the type of the value is a number. |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | Returns a Boolean indicating if the type of the value is a JSON object. |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | Returns a Boolean indicating if the type of the value is a string. |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Returns a Boolean indicating if the property has been assigned a value. |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Returns a Boolean indicating if the type of the value is a string, number, Boolean or null. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Returns a Boolean indicating if the type of the value is an array. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Returns a Boolean indicating if the type of the value is a Boolean. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Returns a Boolean indicating if the type of the value is null. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Returns a Boolean indicating if the type of the value is a number. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Returns a Boolean indicating if the type of the value is a JSON object. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Returns a Boolean indicating if the type of the value is a string. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Returns a Boolean indicating if the property has been assigned a value. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Returns a Boolean indicating if the type of the value is a string, number, Boolean or null. |
 
 Using these functions, you can now run queries as shown in the following example:
 
@@ -1436,22 +1435,22 @@ The following scalar functions perform an operation on a string input value and 
 
 | Usage | Description |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Returns the number of characters of the specified string expression |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | Returns a string that is the result of concatenating two or more string values. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | Returns part of a string expression. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | Returns a Boolean indicating whether the first string expression starts with the second |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | Returns a Boolean indicating whether the first string expression ends with the second |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | Returns a Boolean indicating whether the first string expression contains the second. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | Returns the left part of a string with the specified number of characters. |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | Returns the right part of a string with the specified number of characters. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | Returns a string expression after it removes leading blanks. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | Returns a string expression after truncating all trailing blanks. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | Returns a string expression after converting uppercase character data to lowercase. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | Returns a string expression after converting lowercase character data to uppercase. |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | Replaces all occurrences of a specified string value with another string value. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Returns the number of characters of the specified string expression |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returns a string that is the result of concatenating two or more string values. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returns part of a string expression. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returns a Boolean indicating whether the first string expression starts with the second |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returns a Boolean indicating whether the first string expression ends with the second |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returns a Boolean indicating whether the first string expression contains the second. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found. |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Returns the left part of a string with the specified number of characters. |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Returns the right part of a string with the specified number of characters. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Returns a string expression after it removes leading blanks. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Returns a string expression after truncating all trailing blanks. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Returns a string expression after converting uppercase character data to lowercase. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Returns a string expression after converting lowercase character data to uppercase. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Replaces all occurrences of a specified string value with another string value. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Repeats a string value a specified number of times. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | Returns the reverse order of a string value. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returns the reverse order of a string value. |
 
 Using these functions, you can now run queries like the following. For example, you can return the family name in uppercase as follows:
 
@@ -1518,10 +1517,10 @@ The following scalar functions perform an operation on an array input value and 
 
 | Usage | Description |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Returns the number of elements of the specified array expression. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Returns an array that is the result of concatenating two or more array values. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Returns part of an array expression. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Returns the number of elements of the specified array expression. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Returns an array that is the result of concatenating two or more array values. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Returns part of an array expression. |
 
 Array functions can be used to manipulate arrays within JSON. For example, here's a query that returns all items where one of the parents is "Robin Wakefield". 
 
@@ -2119,7 +2118,7 @@ To manage the data consistency policy for queries, use the `x-ms-consistency-lev
 
 If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for range queries against paths configured for hash (equality) lookups, and for paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
 
-You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-sql-query-metrics.md).
+You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 

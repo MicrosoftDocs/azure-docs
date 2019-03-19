@@ -158,7 +158,7 @@ The customized recovery plan looks like the below:
    >[!NOTE] 	
    >Steps 4, 6 and 7 containing manual or script actions are applicable to only an on-premises XenApp >environment with MCS/PVS catalogs.
 
-4. Group 3 Manual or script action: Shut down master VDA VM
+4. Group 3 Manual or script action: Shut down master VDA VM.
 The Master VDA VM when failed over to Azure will be in a running state. To create new MCS
 catalogs using Azure hosting, the master VDA VM is required to be in Stopped (de allocated)
 state. Shutdown the VM from Azure portal.

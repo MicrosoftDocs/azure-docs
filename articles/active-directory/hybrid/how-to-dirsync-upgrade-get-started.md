@@ -4,7 +4,7 @@ description: Learn how to upgrade from DirSync to Azure AD Connect. This article
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
@@ -12,10 +12,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect: Upgrade from DirSync
@@ -30,7 +31,7 @@ Before you start installing Azure AD Connect, make sure to [download Azure AD Co
 > [!NOTE]
 > Once you have enabled your new Azure AD Connect server to start synchronizing changes to Azure AD, you must not roll back to using DirSync or Azure AD Sync. Downgrading from Azure AD Connect to legacy clients including DirSync and Azure AD Sync is not supported and can lead to issues such as data loss in Azure AD.
 
-If you are not upgrading from DirSync, see [related documentation](#related-documentation) for other scenarios.
+If you are not upgrading from DirSync, see related documentation for other scenarios.
 
 ## Upgrade from DirSync
 Depending on your current DirSync deployment, there are different options for the upgrade. If the expected upgrade time is less than three hours, then the recommendation is to do an in-place upgrade. If the expected upgrade time is more than three hours, then the recommendation is to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it takes more than three hours to do the upgrade.
@@ -123,7 +124,7 @@ If you want to proceed with parallel deployment, you need to perform the followi
 
 * Click the **Export settings** button. When you install Azure AD Connect on a separate server, these settings are migrated from your current DirSync to your new Azure AD Connect installation.
 
-Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to [install Azure AD Connect on a separate server](#installation-of-azure-ad-connect-on-separate-server)
+Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to install Azure AD Connect on a separate server
 
 **Parallel deployment with less than 50,000 objects**
 
@@ -138,7 +139,7 @@ If you have less than 50,000 objects but still want to do a parallel deployment,
 
 ![Analysis complete](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
-Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to [install Azure AD Connect on a separate server](#installation-of-azure-ad-connect-on-separate-server).
+Once your settings have been successfully exported, you can exit the Azure AD Connect wizard on the DirSync server. Continue with the next step to install Azure AD Connect on a separate server.
 
 ### Install Azure AD Connect on separate server
 When you install Azure AD Connect on a new server, the assumption is that you want to perform a clean install of Azure AD Connect. Since you want to use the DirSync configuration, there are some extra steps to take:

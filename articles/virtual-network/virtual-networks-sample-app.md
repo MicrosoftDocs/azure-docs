@@ -1,13 +1,11 @@
 ---
-title: Azure sample application for use with DMZs | Microsoft Docs
+title: Azure sample application for use with DMZs
+titlesuffix: Azure Virtual Network
 description: Deploy this simple web application after creating a DMZ to test traffic flow scenarios
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -91,9 +89,9 @@ This PowerShell script should be run locally while RDP’d into IIS01.
           <br />
           The following sections show:
           <ul style="margin-top: 0px;">
-            <li> Local Server Time - Shows if this page is or isnt cached anywhere</li>
+            <li> Local Server Time - Shows if this page is or isn''t cached anywhere</li>
             <li> File Output - Shows that the web server is reaching AppVM01 on the backend subnet and successfully returning content</li>
-            <li> Image from the Internet - Doesnt really show anything, but it made me happy to see this when the app worked</li>
+            <li> Image from the Internet - Doesn''t really show anything, but it made me happy to see this when the app worked</li>
           </ul>
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Local Web Server Time</b>: <asp:Label runat="server" ID="lblTime" /></div>

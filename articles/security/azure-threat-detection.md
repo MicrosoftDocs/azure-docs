@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure advanced threat detection | Microsoft Docs
 description: Learn about Azure AD Identity Protection and its capabilities.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -26,7 +26,7 @@ Azure provides a wide array of options to configure and customize security to me
 
 ## Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is an [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition feature that provides an overview of the risk events and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), and introduces new risk event types that can detect real time anomalies.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is an [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition feature that provides an overview of the risk events and potential vulnerabilities that can affect your organization’s identities. Identity Protection uses existing Azure AD anomaly-detection capabilities that are available through [Azure AD Anomalous Activity Reports](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports), and introduces new risk event types that can detect real time anomalies.
 
 ![Azure AD Identity Protection diagram](./media/azure-threat-detection/azure-threat-detection-fig1.png)
 
@@ -53,7 +53,7 @@ Examples of some of the ways that Azure Identity Protection can help secure your
 -	Provide basic workflows to track investigations.
 -	Provide easy access to remediation actions such as password reset.
 
-[Risk-based, conditional-access policies](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Risk-based, conditional-access policies](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -	Mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
 -	Block or secure risky user accounts.
 -	Require users to register for multi-factor authentication.
@@ -105,14 +105,14 @@ At the center of [Log Analytics](https://docs.microsoft.com/azure/log-analytics/
 
 You collect data into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-![The Log Analytics dashboard ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![The Log Analytics dashboard](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 
 
 Most of your interaction with Log Analytics is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
 * [Log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data.
-* [Dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), which you can customize with graphical views of your most valuable searches.
+* [Dashboards](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), which you can customize with graphical views of your most valuable searches.
 * [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), which provide additional functionality and analysis tools.
 
 ![Analysis tools](./media/azure-threat-detection/azure-threat-detection-fig6.png)

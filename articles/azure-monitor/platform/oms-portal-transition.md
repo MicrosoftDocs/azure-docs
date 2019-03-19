@@ -10,9 +10,8 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.component: 
 ---
 
 # OMS portal moving to Azure
@@ -22,7 +21,7 @@ ms.component:
 
 The Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. All of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. You will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, you should start using the Azure portal today!
 
-**The OMS portal will be officially retired on January 15, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
+**The OMS portal will be officially retired on January 15, 2019** for Azure commercial cloud and for Azure US Government cloud, the OMS portal **will be officially retired on March 30, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
 
 ## What is changing? 
 The following changes are being announced with the deprecation of the OMS portal. Each of these changes is described in more detail in the sections below.
@@ -73,23 +72,24 @@ You are no longer be able to create new workspaces using the OMS portal. Follow 
 ### Alert extension  
 
 > [!NOTE]
-> Alerts have now been fully extended into the Azure portal for the public cloud. Existing alert rules can be viewed in the OMS portal, but they can only be managed in the Azure portal. Extension of alerts into the Azure portal will start for the Azure government cloud in October, 2018.
+> Alerts have now been fully extended into the Azure portal for the public cloud. Existing alert rules can be viewed in the OMS portal, but they can only be managed in the Azure portal. Extension of alerts into the Azure portal will start for the Azure government cloud on February, 2019.
 
-Alerts have been [extended into the Azure portal](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
+Alerts have been [extended into the Azure portal](../../azure-monitor/platform/alerts-extend.md). Once this is complete, management actions on alerts will only be available in Azure portal. Existing alerts will continue to be listed in the OMS portal. If you access alerts programmatically by using the Log Analytics Alert REST API or Log Analytics Alert Resource Template, you'll need to use action groups instead of actions in your API calls, Azure Resource Manager templates, and PowerShell commands.
 
 ### Alert management solution
-Instead of the [alert management solution](../../azure-monitor/platform/alert-management-solution.md), you can use [Azure Monitor's unified alerting interface](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to visualize and manage your alerts. This new experience aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. You can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. All these features are available in preview starting June 4, 2018. The alert management solution will not be available in the Azure portal. 
+As a change from a previous announcement, the [Alert management solution](../../azure-monitor/platform/alert-management-solution.md) will continue to be available and fully supported in the Azure portal. You can continue to install the solution from Azure Marketplace.
 
-The data collected by the Alert Management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. Starting August 2018, streaming of alerts from unified alerting into workspaces will be enabled, replacing this capability. Some schema changes are expected and will be announced at a later date.
+While the Alert management solution continues to be available, we encourage you to use [Azure Monitor's unified alerting interface](../../azure-monitor/platform/alerts-overview.md) to visualize and manage all alerts in Azure. This new experience natively aggregates alerts from multiple sources within Azure including log alerts from Log Analytics. If you are using Azure Monitor’s unified alerting interface, then the Alert management solution is only required to enable integration of alerts from System Center Operation Manager to Azure. In Azure Monitor’s unified alerting interface, you can see distributions of your alerts, take advantage of automated grouping of related alerts via smart groups, and view alerts across multiple subscriptions while applying rich filters. Future advancements in alert management will primarily be available from this new experience. 
+
+The data collected by the Alert management solution (records with a type of Alert) continues to be in Log Analytics as long as the solution is installed for the workspace. 
 
 ## OMS Mobile App
-The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../monitoring-and-diagnostics/monitoring-action-groups.md) to receive notifications in the form of SMS or a voice call
+The OMS mobile app will be sunsetted along with the OMS portal. Instead of the OMS mobile app, to access information about your IT infrastructure, dashboards and saved queries, you can access the Azure portal directly from your browser in your mobile device. To get alerts, you should configure [Azure Action Groups](../../azure-monitor/platform/action-groups.md) to receive notifications in the form of SMS or a voice call
 
 ## Application Insights Connector and solution
-[Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) provides a way to bring Application Insights data into a Log Analytics workspace. This data duplication was required to enable visibility across infrastructure and application data.
+[Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) provides a way to include Application Insights data into a Log Analytics workspace. This data duplication was required to enable visibility across infrastructure and application data. With Application Insights extended data retention support in March, 2019 and the ability to perform [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md) in addition to being able to [view multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md), there is no need to duplicate data from your Application Insights resources and send it to Log Analytics. Furthermore, the Connector sends a subset of the applications properties to Log Analytics, while the cross-resource queries gives you enhanced flexibility.  
 
-With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), there is no longer this need to duplicate data. As such, the existing Application Insights solution will be deprecated. Starting October, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until January 15, 2019.
-
+As such, Application Insights Connector will be deprecated and removed from Azure Marketplace along with OMS portal deprecation on March 30, 2019, while existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). 
 
 ## Azure Network Security Group Analytics
 The [Azure Network Security Group Analytics solution](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 

@@ -10,7 +10,7 @@ editor:
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
@@ -112,7 +112,7 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
 1. Define a column of type **binary (32)** in the destination SQL Table. There should be no constraints on this column. Let's name this column as AdfSliceIdentifier for this example.
 
 
-	Source table:
+Source table:
 
 	```sql
 	CREATE TABLE [dbo].[Student](
@@ -121,7 +121,7 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
 	)
 	```
 
-	Destination table: 
+Destination table: 
 
 	```sql
 	CREATE TABLE [dbo].[Student](

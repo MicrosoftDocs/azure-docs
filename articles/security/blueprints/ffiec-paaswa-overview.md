@@ -66,7 +66,7 @@ This solution uses the following Azure services. Details of the deployment archi
 	- (1) /16 Network
 	- (4) /24 Networks
 	- Network security groups
-- Azure Web App
+- Azure App Service
 
 ## Deployment architecture
 
@@ -98,7 +98,7 @@ Use of App Service Environment for this architecture allows for the following co
 - [Web application firewall – restrict data](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Allow [Azure SQL Database traffic](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
+**Azure App Service**: [Azure App Service](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
 ### Virtual Network
 

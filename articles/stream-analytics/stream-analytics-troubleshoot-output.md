@@ -7,7 +7,8 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 ---
 
 # Troubleshoot Azure Stream Analytics outputs

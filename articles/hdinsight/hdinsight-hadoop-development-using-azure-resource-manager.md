@@ -16,14 +16,12 @@ ms.author: hrasheed
 
 HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure Classic CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new Resource Manager-based approach. Wherever applicable, this document highlights the differences between the ASM and Resource Manager approaches for HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The support for ASM based PowerShell, CLI, and .NET SDK will discontinue on **January 1, 2017**.
-> 
-> 
 
 ## Migrating Azure Classic CLI to Azure Resource Manager
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure CLI does not provide support for working with HDInsight clusters. You can still use Azure Classic CLI with HDInsight, however Azure Classic CLI is deprecated.
 
 The following are the basic commands for working with HDInsight through Azure CLassic CLI:
@@ -47,11 +45,11 @@ New commands available with Azure Resource Manager are:
 ### Deprecated commands
 If you use the `azure hdinsight job` commands to submit jobs to your HDInsight cluster, these commands are not available through the Resource Manager commands. If you need to programmatically submit jobs to HDInsight from scripts, you should instead use the REST APIs provided by HDInsight. For more information on submitting jobs using REST APIs, see the following documents.
 
-* [Run Apache Hadoop MapReduce jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Run MapReduce jobs with Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Run Apache Hive queries with Apache Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-hive-curl.md)
 * [Run Apache Pig jobs with Apache Hadoop on HDInsight using cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-For information on other ways to run Apache Hadoop MapReduce, Apache Hive, and Apache Pig interactively, see [Use Apache Hadoop MapReduce with Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md), [Use Apache Hive with Apache Hadoop on HDInsight](hadoop/hdinsight-use-hive.md), and [Use Apache Pig with Apache Hadoop on HDInsight](hadoop/hdinsight-use-pig.md).
+For information on other ways to run Apache Hadoop MapReduce, Apache Hive, and Apache Pig interactively, see [Use MapReduce with Hadoop on HDInsight](hadoop/hdinsight-use-mapreduce.md), [Use Apache Hive with Apache Hadoop on HDInsight](hadoop/hdinsight-use-hive.md), and [Use Apache Pig with Apache Hadoop on HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### Examples
 **Creating a cluster**
@@ -69,10 +67,8 @@ For information on other ways to run Apache Hadoop MapReduce, Apache Hive, and A
 * Old command (ASM) - `azure hdinsight cluster list`
 * New command - `azure hdinsight cluster list`
 
-> [!NOTE]
+> [!NOTE]  
 > For the list command, specifying the resource group using `-g` will return only the clusters in the specified resource group.
-> 
-> 
 
 **Show cluster information**
 
@@ -141,7 +137,7 @@ For additional usage information, see [Customize Linux-based HDInsight clusters 
 
 **Cluster identity-related cmdlets:**
 
-* **Add-AzureRmHDInsightClusterIdentity**: Adds a cluster identity to a cluster configuration object so that the HDInsight cluster can access Azure Data Lake Stores. See [Create an HDInsight cluster with Data Lake Store using Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzureRmHDInsightClusterIdentity**: Adds a cluster identity to a cluster configuration object so that the HDInsight cluster can access Azure Data Lake Storage. See [Create an HDInsight cluster with Data Lake Storage using Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### Examples
 **Create cluster**

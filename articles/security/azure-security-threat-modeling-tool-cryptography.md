@@ -26,7 +26,7 @@ ms.author: jegeib
 | **IoT Device** | <ul><li>[Store Cryptographic Keys securely on IoT Device](#keys-iot)</li></ul> | 
 | **IoT Cloud Gateway** | <ul><li>[Generate a random symmetric key of sufficient length for authentication to IoT Hub](#random-hub)</li></ul> | 
 | **Dynamics CRM Mobile Client** | <ul><li>[Ensure a device management policy is in place that requires a use PIN and allows remote wiping](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook Client** | <ul><li>[Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker)](#bitlocker)</li></ul> | 
+| **Dynamics CRM Outlook Client** | <ul><li>[Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. BitLocker)](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Ensure that signing keys are rolled over when using Identity Server](#rolled-server)</li><li>[Ensure that cryptographically strong client ID, client secret are used in Identity Server](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Use only approved symmetric block ciphers and key lengths
@@ -206,7 +206,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **References**              | N/A  |
 | **Steps** | Ensure a device management policy is in place that requires a use PIN and allows remote wiping |
 
-## <a id="bitlocker"></a>Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker)
+## <a id="bitlocker"></a>Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. BitLocker)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -215,7 +215,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker) |
+| **Steps** | Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. BitLocker) |
 
 ## <a id="rolled-server"></a>Ensure that signing keys are rolled over when using Identity Server
 
@@ -225,7 +225,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Identity Server - Keys, Signatures and Cryptography ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **References**              | [Identity Server - Keys, Signatures and Cryptography](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Steps** | Ensure that signing keys are rolled over when using Identity Server. The link in the references section explains how this should be planned without causing outages to applications relying on Identity Server. |
 
 ## <a id="client-server"></a>Ensure that cryptographically strong client ID, client secret are used in Identity Server

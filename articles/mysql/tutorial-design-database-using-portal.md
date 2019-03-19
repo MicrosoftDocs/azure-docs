@@ -1,11 +1,8 @@
 ---
 title: 'Tutorial: Design an Azure Database for MySQL using Azure portal'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
@@ -25,6 +22,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Query data
 > * Update data
 > * Restore data
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 Open your favorite web browser, and visit the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.

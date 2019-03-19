@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
 
 ---
@@ -54,7 +54,7 @@ The solutions in this article will use the following tools. We recommend you hav
     ![AI App Map Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png)
     ![AI App Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    For more information on the application map, visit the [Application Map documentation](../application-insights/app-insights-app-map.md)
+    For more information on the application map, visit the [Application Map documentation](../azure-monitor/app/app-map.md)
 
 ## How do I create an alert when a node goes down
 
@@ -68,7 +68,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventId >= 25623 or EventId <= 25626
+    | where EventID >= 25622 or EventID <= 25626
     ```
 
 5. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert in your chosen method of communication.
@@ -81,7 +81,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventId == 29623 or EventId == 29624
+    | where EventID == 29623 or EventID == 29624
     ```
 
 2. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert.
@@ -109,7 +109,6 @@ In the same view with all the graphs, you will see some tiles for the performanc
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
 
     In the quickstart, VotingData and VotingWeb are the process names used, so tracking these counters would look like
 
@@ -126,7 +125,10 @@ In the same view with all the graphs, you will see some tiles for the performanc
 
 ## How do I track performance of my Reliable Services and Actors?
 
-For tracking performance of Reliable Services or Actors in your applications, you should add the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. You can add these counters in a similar fashion as the scenario above, here are examples of reliable service and actor performance counters to add in Log Analytics:
+To track the performance of Reliable Services or Actors in your applications, you should collect the Service Fabric Actor, Actor Method, Service, and Service Method counters as well. Here are examples of reliable service and actor performance counters to collect
+
+>[!NOTE]
+>Service Fabric performance counters cannot be collected by the Log Analytics agent currently, but can be collected by [other diagnostic solutions](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -137,8 +139,8 @@ Check these links for the full list of performance counters on Reliable [Service
 
 ## Next steps
 
-* [Set up Alerts in AI](../application-insights/app-insights-alerts.md) to be notified about changes in performance or usage
-* [Smart Detection in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
+* [Set up Alerts in AI](../azure-monitor/app/alerts.md) to be notified about changes in performance or usage
+* [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
 * Learn more about Log Analytics [alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
 * For on-premises clusters, Log Analytics offers a gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md)
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics

@@ -14,6 +14,8 @@
     href: tutorial-passthrough-authentication.md
   - name: Federate a single AD forest environment to the cloud
     href: tutorial-federation.md
+  - name: Set up PHS as backup for AD FS in Azure AD Connect 
+    href: tutorial-phs-backup.md
 - name: Concepts
   items:
    - name: Azure AD Connect and Connect Health
@@ -23,7 +25,7 @@
      - name: Choose the right authentication
        href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
      - name: Identity synchronization and duplicate attribute resiliency
-     href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+       href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
    - name: Password hash synchronization
      items:
      - name: What is password hash synchronization?
@@ -133,6 +135,12 @@
       href: plan-connect-userprincipalname.md
     - name: Special considerations for instances
       href: reference-connect-instances.md
+    - name: Migration
+      items:
+          - name: Migrate from federation to PHS
+            href: plan-migrate-adfs-password-hash-sync.md
+          - name: Migrate from federation to PTA
+            href: plan-migrate-adfs-pass-through-authentication.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview
@@ -183,8 +191,7 @@
       href: how-to-connect-azureadaccount.md
     - name: Change the AD DS Connector account password
       href: how-to-connect-sync-change-addsacct-pass.md
-    - name: What is the ADConnectivityTools PowerShell module?
-      href: how-to-connect-adconnectivitytools.md
+  
   - name: Manage Pass-through authentication  
     items:
     - name: Get started with pass-through authentication
@@ -251,6 +258,8 @@
       href: how-to-connect-sync-configure-filtering.md
     - name: Manage the scheduler
       href: how-to-connect-sync-feature-scheduler.md
+    - name: Create and customize a synchronization rule
+      href: how-to-connect-create-custom-sync-rule.md
     - name: Azure AD Connect Sync service manager
       items: 
        - name: Manage the service manager operations tab
@@ -263,6 +272,8 @@
          href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: Troubleshoot
     items:
+    - name: What is the ADConnectivityTools PowerShell module?
+      href: how-to-connect-adconnectivitytools.md
     - name: Connectivity
       href: tshoot-connect-connectivity.md
     - name: Errors during synchronization
@@ -273,7 +284,7 @@
       href: tshoot-connect-objectsync.md
     - name: Password hash synchronization
       href: tshoot-connect-password-hash-synchronization.md
-    - name: Pass-through autentication
+    - name: Pass-through authentication
       href: tshoot-connect-pass-through-authentication.md
     - name: Single sign-on
       href: tshoot-connect-sso.md
@@ -283,6 +294,10 @@
       href: tshoot-connect-recover-from-localdb-10gb-limit.md
     - name: SQL connectivity
       href: tshoot-connect-tshoot-sql-connectivity.md
+    - name: Attribute synchronization
+      href: tshoot-connect-attribute-not-syncing.md
+    - name: Installation issues
+      href: tshoot-connect-install-issues.md
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols

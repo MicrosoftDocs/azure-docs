@@ -1,5 +1,5 @@
 ---
-title: Encode custom transform using Azure Media Services v3 | Microsoft Docs
+title: Encode custom transform using Media Services v3 - Azure | Microsoft Docs
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform.
 services: media-services
 documentationcenter: ''
@@ -11,8 +11,10 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # How to encode with a custom Transform

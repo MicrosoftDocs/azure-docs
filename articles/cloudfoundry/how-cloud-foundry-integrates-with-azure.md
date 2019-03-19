@@ -1,6 +1,6 @@
 ---
 title: How Cloud Foundry Integrates with Azure | Microsoft Docs
-description: Describes how Cloud Foundry can utlize Azure services to enhance the Enterprice experience
+description: Describes how Cloud Foundry can utilize Azure services to enhance the Enterprice experience
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk

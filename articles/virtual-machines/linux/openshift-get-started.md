@@ -31,7 +31,7 @@ OpenShift includes Kubernetes for container orchestration and management. It add
 There are multiple versions of OpenShift available:
 
 - OpenShift Container Platform
-- OpenShift On Azure (fully managed OpenShift coming in early CY2019)
+- OpenShift On Azure (fully managed OpenShift coming around the end of Q1 CY2019)
 - OKD (Formerly OpenShift Origin)
 - OpenShift Dedicated
 - OpenShift Online
@@ -46,7 +46,7 @@ Because customers "own" the entire platform, they can install it in their on-pre
 
 ## OpenShift On Azure
 
-OpenShift On Azure is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. The cluster will deploy into the customer's Azure subscription. The service is currently in Private Preview and is scheduled to be GA in early CY 2019. More information will be provided as the offering gets closer to GA.
+OpenShift On Azure is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. The cluster will deploy into the customer's Azure subscription. The service is currently in Private Preview and is scheduled to be GA around the end of Q1 CY2019. For customers interested in participating in the Private Preview, please fill out the [Nomination Form](http://aka.ms/openshiftazureinterest).  More information will be provided as the offering gets closer to GA.
 
 ## OKD (Formerly OpenShift Origin)
 

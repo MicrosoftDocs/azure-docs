@@ -1,11 +1,8 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure portal'
 description: This tutorial shows how to Design your first Azure Database for PostgreSQL using the Azure portal.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
@@ -75,7 +72,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mydemoserver** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
 
-   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database for PostgreSQL - Search for server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.	In the server page, select **Connection security**. 
 
@@ -95,7 +92,7 @@ When you created the Azure Database for PostgreSQL server, the default **postgre
 
 1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created.
 
-   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![Azure Database for PostgreSQL - Search for server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. Click the server name **mydemoserver**.
 

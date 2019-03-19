@@ -1,16 +1,16 @@
 ---
 title: Sign up for the Text Analytics API 
 titleSuffix: Azure Cognitive Services
-description: Instructions for signing up to use text analysis and operating within limits.
+description: Instructions for signing up and using the Text Analytics service.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: heidist
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
 # How to sign up for the Text Analytics API

@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs Capture walkthrough | Microsoft Docs
+title: Read captured data from Python app - Azure Event Hubs | Microsoft Docs
 description: Sample that uses the Azure Python SDK to demonstrate using the Event Hubs Capture feature.
 services: event-hubs
 documentationcenter: ''
@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -58,7 +59,7 @@ This sample uses the [Azure Python SDK](https://azure.microsoft.com/develop/pyth
    import datetime
    import random
    import json
-   from azure.servicebus import ServiceBusService
+   from azure.servicebus.control_client import ServiceBusService
    
    sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
    devices = []

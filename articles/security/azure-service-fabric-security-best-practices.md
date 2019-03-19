@@ -5,23 +5,23 @@ description: This article provides a set of best practices for Azure Service Fab
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/16/2019
 ms.author: tomsh
 
 ---
 # Azure Service Fabric security best practices
 Deploying an application on Azure is fast, easy, and cost-effective. Before you deploy your cloud application into production, review our list of essential and recommended best practices for implementing secure clusters in your application.
 
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. 
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable.
 
 For each best practice, we explain:
 
@@ -142,7 +142,7 @@ The certificate must meet the following requirements for SSL certificates in Azu
 
     >[!NOTE]
     >You cannot obtain an SSL certificate from a CA for the __cloudapp__**.net** domain.
-    
+
 -	The certificate must use a minimum of 2,048-bit encryption.
 
 The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is transmitted over HTTP is sent as plain text from the web browser to the web server or between other endpoints. Attackers can intercept and view sensitive data that is sent via HTTP, such as credit card details and account logins. When data is sent or posted through a browser via HTTPS, SSL ensures that sensitive information is encrypted and secure from interception.
@@ -172,7 +172,7 @@ There are two basic steps to set up a key vault:
 
     The key vault must be enabled for deployment. The compute resource provider can then get the certificates from the vault and install them on the VM instances.
 
-To learn more about how to set up a key vault, see [Get started with Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
+To learn more about how to set up a key vault, see [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## Assign users to roles
 After you've created the applications to represent your cluster, assign your users to the roles that are supported by Service Fabric: read-only and admin. You can assign these roles by using the Azure portal.
@@ -183,5 +183,7 @@ After you've created the applications to represent your cluster, assign your use
 Azure Service Fabric supports two access control types for clients that are connected to a [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm): administrator and user. The cluster administrator can use access control to limit access to certain cluster operations for different groups of users. Access control makes the cluster more secure.
 
 ## Next steps
+
+- [Service Fabric security checklist](azure-service-fabric-security-checklist.md)
 - Set up your Service Fabric [development environment](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started).
 - Learn about [Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).

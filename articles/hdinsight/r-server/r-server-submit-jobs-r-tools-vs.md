@@ -29,7 +29,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 4. Install [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) on your machine. ML Server provides the [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) and `RxSpark` functions.
 
-5. Install [PuTTY](http://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
+5. Install [PuTTY](https://www.putty.org/) to provide a compute context to run `RevoScaleR` functions from your local client to your HDInsight cluster.
 
 6. You have the option to apply the Data Science Settings to your Visual Studio environment, which provides a new layout for your workspace for the R tools.
     1. To save your current Visual Studio settings, use the **Tools > Import and Export Settings** command, then select **Export selected environment settings** and specify a file name. To restore those settings, use the same command and select **Import selected environment settings**.
@@ -38,7 +38,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
         ![Data Science Settings...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Using the approach in step 1, you can also save and restore your personalized data scientist layout, rather than repeating the **Data Science Settings** command.
 
 ## Execute local R methods

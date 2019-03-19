@@ -1,16 +1,17 @@
 ---
-title: "Quickstart: Analyze text content for objectionable material in Python"
+title: "Quickstart: Analyze text content in Python - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable material using the Content Moderator SDK for Python
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 01/10/2019
 ms.author: pafarley
+
 #As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
@@ -58,7 +59,7 @@ For the sake of simplicity, you will analyze text directly from the script. Defi
 
 ## Query the Moderator service
 
-Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** reference documentation for more information on how to call it.
+Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** reference documentation for more information on how to call it.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
 

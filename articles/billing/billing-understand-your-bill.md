@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: cwatson
+ms.date: 01/23/2019
+ms.author: banders
 
 ---
 # Understand your bill for Microsoft Azure
 To understand your Azure bill, compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal.
 
 This article doesn't apply to Azure customers with an Enterprise Agreement (EA customers). If you’re an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md).  
+
+For an explanation of how billing works in the Azure Cloud Solution Provider (Azure CSP) program, including the billing cycle, pricing, and usage, see [Azure CSP Billing Overview](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Review your charges
 

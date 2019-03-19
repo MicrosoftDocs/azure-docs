@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
 ---
 
@@ -29,25 +29,29 @@ Container groups deployed into an Azure virtual network enable scenarios like:
 
 Certain limitations apply when you deploy container groups to a virtual network.
 
-* Windows containers are unsupported
 * To deploy container groups to a subnet, the subnet cannot contain any other resource types. Remove all existing resources from an existing subnet prior to deploying container groups to it, or create a new subnet.
 * Container groups deployed to a virtual network do not currently support public IP addresses or DNS name labels.
+* You cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
 * Due to the additional networking resources involved, deploying a container group to a virtual network is typically somewhat slower than deploying a standard container instance.
 
 ## Preview limitations
 
-While this feature is in preview, the following limitations apply when deploying container instances to a virtual network.
+While this feature is in preview, the following limitations apply when deploying container instances to a virtual network. 
 
-**Supported** regions:
+**Supported regions and resource limits**
 
-* North Europe (northeurope)
-* West Europe (westeurope)
-* West US (westus)
+| Location | OS | CPU | Memory (GB) |
+| -------- | :---: | :---: | :-----------: |
+| West Europe | Linux | 4 | 14 |
+| East US, West US | Linux | 2 | 3.5 |
+| Australia East, North Europe | Linux | 1 | 1.5 |
 
-**Unsupported** network resources:
+Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
-* Network Security Group
+**Unsupported network resources and features**
+
 * Azure Load Balancer
+* Virtual network peering
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 

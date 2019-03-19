@@ -5,10 +5,10 @@ description: Training a model is an important step when building a translation m
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
+ms.subservice: custom-translator
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
+ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---
 
@@ -24,19 +24,15 @@ To train a model:
 
     -  Document name: Name of the document.
 
-    -  Pairing: If this document is a parallel or monolingual document.
-
-    - Monolingual documents are currently not supported for training.
+    -  Pairing: If this document is a parallel or monolingual document. Monolingual documents are currently not supported for training.
 
     -  Document type: Can be training, tuning, testing, or dictionary.
 
     -  Language pair: This show the source and target language for the project.
 
-    -  Source sentences: Shows the number of sentences extracted from the
-    - source file.
+    -  Source sentences: Shows the number of sentences extracted from the source file.
 
-    -  Target sentences: Shows the number of sentences extracted from the
-    - target file.
+    -  Target sentences: Shows the number of sentences extracted from the target file.
 
     ![Train model](media/how-to/how-to-train-model.png)
 

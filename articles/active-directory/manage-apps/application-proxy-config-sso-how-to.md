@@ -3,20 +3,21 @@ title: How to configure single sign-on to an Application Proxy application | Mic
 description: How you can configure single sign-on to your application proxy application quickly
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure single sign-on to an Application Proxy application
@@ -26,7 +27,7 @@ Single sign-on (SSO) allows your users to access an application without authenti
 ## How to configure single-sign on
 To configure SSO, first make sure that your application is configured for Pre-Authentication through Azure Active Directory. To do this configuration, go to **Azure Active Directory** -&gt; **Enterprise Applications** -&gt; **All Applications** -&gt; Your application **-&gt; Application Proxy**. On this page, you see the “Pre Authentication” field, and make sure that is set to “Azure Active Directory. 
 
-For more information on the Pre-Authentication methods, see step 4 of the [app publishing document](application-proxy-publish-azure-portal.md).
+For more information on the Pre-Authentication methods, see step 4 of the [app publishing document](application-proxy-add-on-premises-application.md).
 
    ![Pre-authentication method in Azure portal](./media/application-proxy-config-sso-how-to/app-proxy.png)
 

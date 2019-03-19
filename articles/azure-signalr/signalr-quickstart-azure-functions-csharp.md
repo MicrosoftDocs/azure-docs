@@ -1,26 +1,16 @@
 ---
-title: Azure SignalR Service Serverless Quickstart - C# | Microsoft Docs
+title: Azure SignalR Service Serverless Quickstart - C#
 description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: 
-
-ms.assetid: 
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
 ---
-
-# Quickstart: Create a chat room with Azure Functions and SignalR Service using C#
+# Quickstart: Create a chat room with Azure Functions and SignalR Service using C\#
 
 Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Functions to build a serverless, real-time chat application.
-
 
 ## Prerequisites
 
@@ -28,16 +18,13 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
 
 ## Configure and run the Azure Function app
 
@@ -64,9 +51,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Debug the application](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

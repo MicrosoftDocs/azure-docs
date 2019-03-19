@@ -27,6 +27,8 @@ The process makes it easy to, for example, quickly deploy a "golden image" for a
 
 This article shows how to create and deploy a VM, create a custom image, and then delete the VM, all as one complete pipeline. You would ordinarily perform each task individually in your own custom build-test-deploy pipeline.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Before you begin
 Before you can integrate your CI/CD pipeline with Azure DevTest Labs, you must install the extension from Visual Studio Marketplace.
 1. Go to [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -53,20 +55,20 @@ This section describes how to create the Azure Resource Manager template that yo
    ```powershell
    Param( [string] $labVmId)
 
-   $labVmComputeId = (Get-AzureRmResource -Id $labVmId).Properties.ComputeId
+   $labVmComputeId = (Get-AzResource -Id $labVmId).Properties.ComputeId
 
    # Get lab VM resource group name
-   $labVmRgName = (Get-AzureRmResource -Id $labVmComputeId).ResourceGroupName
+   $labVmRgName = (Get-AzResource -Id $labVmComputeId).ResourceGroupName
 
    # Get the lab VM Name
-   $labVmName = (Get-AzureRmResource -Id $labVmId).Name
+   $labVmName = (Get-AzResource -Id $labVmId).Name
 
    # Get lab VM public IP address
-   $labVMIpAddress = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMIpAddress = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
                    -Name $labVmName).IpAddress
 
    # Get lab VM FQDN
-   $labVMFqdn = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMFqdn = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
               -Name $labVmName).DnsSettings.Fqdn
 
    # Set a variable labVmRgName to store the lab VM resource group name
@@ -81,7 +83,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Check the script in to your source control system. Name it something like **GetLabVMParams.ps1**.
 
-   When you run this script on the agent as part of the release pipeline, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FDQN).
+   When you run this script on the agent as part of the release pipeline, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FQDN).
 
 ## Create a release pipeline in Release Management
 To create the release pipeline, do the following:

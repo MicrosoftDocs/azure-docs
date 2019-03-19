@@ -53,12 +53,10 @@ see [What version of Apache Hadoop is in Azure HDInsight](hdinsight-component-ve
 * Use the cluster customization parameters in the HDInsight .NET SDK or Azure PowerShell during cluster creation. These configuration changes are then preserved through the lifetime of the cluster and are not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 * Some native Java components, like [Apache Mahout](https://mahout.apache.org/) and [Cascading](https://www.cascading.org/), can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Apache Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
-  > [!NOTE]
+  > [!NOTE]  
   > If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
   >
   > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
-  >
-  >
 
 Installation of custom software on the cluster by using Remote Desktop Connection is not supported. You should avoid storing any files on the drives of the head node, as they will be lost if you need to re-create the clusters. We recommend storing files on Azure Blob storage. Blob storage is persistent.
 
@@ -81,17 +79,14 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
    * **Quickstart**: Displays information that will help you get started using HDInsight.
    * **Users**: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > This *only* affects access and permissions to this cluster in the Azure portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
-     >
-     >
+
    * **Tags**: Tags allow you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
    * **Ambari Views**: Links to Ambari Web.
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > To manage the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-     >
-     >
 
      **Usage**:
 
@@ -109,10 +104,9 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
    * **Remote Desktop**: Enable and disable remote desktop (RDP) access, and configure the RDP username.  The RDP user name must be different from the HTTP user name.
    * **Partner of Record**:
 
-     > [!NOTE]
+     > [!NOTE]  
      > This is a generic list of available settings; not all of them will be present for all cluster types.
-     >
-     >
+
 6. Click **Properties**:
 
     The properties section lists the following:
@@ -143,10 +137,8 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
->
->
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
@@ -173,7 +165,7 @@ The impact of changing the number of data nodes for each type of cluster support
   * Apache Storm web UI
   * Command-line interface (CLI) tool
 
-    Please refer to the [Apache Storm documentation](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+    Please refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
 
     The Storm web UI is available on the HDInsight cluster:
 
@@ -209,7 +201,7 @@ There are many ways you can program the process:
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
 
 ## Change cluster username
-An HDInsight cluster can have two user accounts. The HDInsight cluster user account is created during the creation process. You can also create an RDP user account for accessing the cluster via RDP. See [Enable remote desktop](#connect-to-hdinsight-clusters-by-using-rdp).
+An HDInsight cluster can have two user accounts. The HDInsight cluster user account is created during the creation process. You can also create an RDP user account for accessing the cluster via RDP. See Enable remote desktop.
 
 **To change the HDInsight cluster user name and password**
 
@@ -232,10 +224,8 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access from the Azure portal.
 
-> [!NOTE]
+> [!NOTE]  
 > By granting/revoking the access, you will reset the cluster user name and password.
->
->
 
 **To grant/revoke HTTP web services access**
 
@@ -298,10 +288,8 @@ You can also use the **Browse the file system** utility from the **Hadoop UI** i
 ## Monitor cluster usage
 The **Usage** section of the HDInsight cluster blade displays information about the number of cores available to your subscription for use with HDInsight, as well as the number of cores allocated to this cluster and how they are allocated for the nodes within this cluster. See [List and show clusters](#list-and-show-clusters).
 
-> [!IMPORTANT]
-> To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
->
->
+> [!IMPORTANT]  
+> To monitor the services provided by the HDInsight cluster, you must use Ambari Web or the Ambari REST API. For more information on using Ambari, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## Open Hadoop UI
 To monitor the cluster, browse the file system, and check logs, click **Hadoop UI** in the HDInsight Query console. See [Open HDInsight Query console](#open-hdinsight-query-console).
@@ -323,10 +311,8 @@ The credentials for the cluster that you provided at its creation give access to
 
     The default values for Expires On is a week.
 
-   > [!NOTE]
+   > [!NOTE]  
    > You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable Remote Desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](https://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
-   >
-   >
 
 **To connect to a cluster by using RDP**
 
@@ -345,7 +331,7 @@ To connect to the cluster by using Remote Desktop and use the Hadoop command lin
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    For more information on Hadoop commands, see [Apache Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    For more information on Hadoop commands, see [Apache Hadoop commands reference](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can change based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
 

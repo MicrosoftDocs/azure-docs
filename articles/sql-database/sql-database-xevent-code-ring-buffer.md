@@ -9,9 +9,9 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer:
+ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/19/2018
 ---
 # Ring Buffer target code for extended events in SQL Database
 

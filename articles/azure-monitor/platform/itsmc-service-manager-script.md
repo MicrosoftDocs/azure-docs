@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.component: 
 ---
 
 # Create Service Manager Web app using the automated script
@@ -40,7 +39,7 @@ Save these values, you will need these values when you create a connection with 
 
 Use the following script:
 
-```
+```powershell
 ####################################
 # User Configuration Section Begins
 ####################################
@@ -197,14 +196,14 @@ try
 
     $adApp = New-AzureRmADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
 
-    Write-Host "AzureAD application created succesfully!!"
+    Write-Host "AzureAD application created successfully!!"
 }
 catch
 {
     # Delete the deployed web app if Azure AD application fails
     Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
-    Write-Host "Failure occured in Azure AD application....Try again!!"
+    Write-Host "Failure occurred in Azure AD application....Try again!!"
 
     exit
 
@@ -245,7 +244,7 @@ catch
 {
     Write-Host "Web App configuration failed. Please ensure all values are provided in Service Manager Authentication Settings in User Configuration Section"
 
-    # Delete the AzureRm AD Application if confiuration fails
+    # Delete the AzureRm AD Application if configuration fails
     Remove-AzureRmADApplication -ObjectId $adApp.ObjectId -Force
 
     # Delete the deployed web app if configuration fails

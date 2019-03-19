@@ -4,11 +4,11 @@ description: Troubleshooting hybrid Azure Active Directory joined down-level dev
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.reviewer: jairoc
 
 #Customer intent: As a IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshooting hybrid Azure Active Directory joined down-level devices 
 

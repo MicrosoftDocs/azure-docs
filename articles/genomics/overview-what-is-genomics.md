@@ -29,6 +29,6 @@ The Microsoft Genomics service is ISO 27001, ISO 27018, and ISO 9001 certified a
 ## Next steps
 Now that you've read an introduction to Microsoft Genomics, you're ready to:
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/genomics/)
-- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service ](quickstart-run-genomics-workflow-portal.md)
+- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service](quickstart-run-genomics-workflow-portal.md)
 - Submit your own data for processing by the Microsoft Genomics service: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
 

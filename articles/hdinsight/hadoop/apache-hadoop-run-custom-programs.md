@@ -70,8 +70,8 @@ The most common MapReduce programs are written in Java and compiled to a jar fil
 
 ## Next steps
 
-* [Use C# with MapReduce streaming on Hadoop in HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Develop Java MapReduce programs for Hadoop on HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Use C# with MapReduce streaming on Apache Hadoop in HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Develop Java MapReduce programs for Apache Hadoop on HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Develop Python streaming MapReduce programs for HDInsight](apache-hadoop-streaming-python.md)
-* [Use Azure Toolkit for Eclipse to create Spark applications for an HDInsight cluster](../spark/apache-spark-eclipse-tool-plugin.md)
-* [Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight](python-udf-hdinsight.md)
+* [Use Azure Toolkit for Eclipse to create Apache Spark applications for an HDInsight cluster](../spark/apache-spark-eclipse-tool-plugin.md)
+* [Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight](python-udf-hdinsight.md)

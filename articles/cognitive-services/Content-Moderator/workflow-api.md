@@ -1,19 +1,20 @@
 ---
 title: Moderation workflows - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Use workflows with content moderation.
+description: Use workflows with the Review API's Job operations to automate human-in-the-loop reviews based on your content policies and thresholds.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Moderation workflows
+# Automate moderation reviews with workflows
 
 Content Moderator includes tools and APIs to manage workflows. You use workflows with the [Review API's Job operations](review-api.md) to automate human-in-the-loop review creation based on your content policies and thresholds.
 

@@ -1,16 +1,16 @@
 ---
 title: Partitioning in Azure Cosmos DB
 description: Overview of partitioning in Azure Cosmos DB
-author: aliuy
-
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
+
 
 ---
 
-# Partitioning in Azure Cosmos DB
+# Partitioning in Azure Cosmos DB - overview
 
 Partitioning is the technique used by Cosmos DB to scale individual containers in a database to meet the performance needs of your application. By using partitioning, the items in a container are divided into distinct subsets, called logical partitions. The logical partitions are created based on the value of a partition key property associated with each item.
 

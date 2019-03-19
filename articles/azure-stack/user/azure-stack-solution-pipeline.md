@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 11/07/2018
 ---
 
 # Tutorial: Deploy apps to Azure and Azure Stack
@@ -68,7 +69,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 ### Azure requirements
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Create a [Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Make note of the Web App URL, you need to use it in the tutorial.
+* Create a [Web App](https://docs.microsoft.com/azure/app-service/overview) in Azure. Make note of the Web App URL, you need to use it in the tutorial.
 
 ### Azure Stack requirements
 
@@ -177,9 +178,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 3. In Visual Studio Enterprise, select **Access Control (IAM)**.
 
-    ![Access Control (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Select **Add**.
+4. Select **Add role assignment**.
 
     ![Add](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -334,7 +333,7 @@ In this part of the tutorial you'll:
 > [!Note]
  > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from Azure DevOps Services to deploy to both clouds.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web](https://azure.microsoft.com/resources/templates/) app code from Azure DevOps Services to deploy to both clouds.
 
 ### Add code to an Azure DevOps Services project
 
@@ -360,7 +359,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 1. Sign in to Azure DevOps Services with an organization that can create a build pipeline.
 
-2. Navigate to the **Build Web Applicaiton** page for the project.
+2. Navigate to the **Build Web Application** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 

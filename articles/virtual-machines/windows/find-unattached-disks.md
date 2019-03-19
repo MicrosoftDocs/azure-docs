@@ -4,7 +4,7 @@ description: How to find and delete unattached Azure managed and unmanaged (VHDs
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 02/22/2019
 ms.author: ramankum
+ms.subservice: disks
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks
-When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you will continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs. 
 
+When you delete a virtual machine (VM) in Azure, by default, any disks that are attached to the VM aren't deleted. This feature helps to prevent data loss due to the unintentional deletion of VMs. After a VM is deleted, you will continue to pay for unattached disks. This article shows you how to find and delete any unattached disks and reduce unnecessary costs.
 
-## Managed disks: Find and delete unattached disks 
+## Managed disks: Find and delete unattached disks
 
 The following script looks for unattached [managed disks](managed-disks-overview.md) by examining the value of the **ManagedBy** property. When a managed disk is attached to a VM, the **ManagedBy** property contains the resource ID of the VM. When a managed disk is unattached, the **ManagedBy** property is null. The script examines all the managed disks in an Azure subscription. When the script locates a managed disk with the **ManagedBy** property set to null, the script determines that the disk is unattached.
 
@@ -38,7 +39,7 @@ The following script looks for unattached [managed disks](managed-disks-overview
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
 
-$managedDisks = Get-AzureRmDisk
+$managedDisks = Get-AzDisk
 
 foreach ($md in $managedDisks) {
     
@@ -50,7 +51,7 @@ foreach ($md in $managedDisks) {
             
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
 
-            $md | Remove-AzureRmDisk -Force
+            $md | Remove-AzDisk -Force
 
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
 
@@ -81,19 +82,19 @@ Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storages
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
 $deleteUnattachedVHDs=0
 
-$storageAccounts = Get-AzureRmStorageAccount
+$storageAccounts = Get-AzStorageAccount
 
 foreach($storageAccount in $storageAccounts){
 
-    $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
+    $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
+    $context = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 
-    $containers = Get-AzureStorageContainer -Context $context
+    $containers = Get-AzStorageContainer -Context $context
 
     foreach($container in $containers){
 
-        $blobs = Get-AzureStorageBlob -Container $container.Name -Context $context
+        $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
 
         #Fetch all the Page blobs with extension .vhd as only Page blobs can be attached as disk to Azure VMs
         $blobs | Where-Object {$_.BlobType -eq 'PageBlob' -and $_.Name.EndsWith('.vhd')} | ForEach-Object { 
@@ -105,7 +106,7 @@ foreach($storageAccount in $storageAccounts){
 
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
 
-                        $_ | Remove-AzureStorageBlob -Force
+                        $_ | Remove-AzStorageBlob -Force
 
                         Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
                   }
@@ -127,6 +128,3 @@ foreach($storageAccount in $storageAccounts){
 ## Next steps
 
 For more information, see [Delete storage account](../../storage/common/storage-create-storage-account.md) and [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
-
-
-

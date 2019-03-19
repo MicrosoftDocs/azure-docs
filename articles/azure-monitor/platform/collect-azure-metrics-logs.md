@@ -10,11 +10,9 @@ ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Collect Azure service logs and metrics for use in Log Analytics
@@ -72,8 +70,8 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 >
 >
 
-* For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
-* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+* For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### Enable diagnostics with PowerShell
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).

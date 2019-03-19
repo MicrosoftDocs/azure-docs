@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage Explorer troubleshooting guide
@@ -23,7 +23,7 @@ Certificate errors are caused by one of the two following situations:
 1. The app is connected through a "transparent proxy", which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
 2. You are running an application that is injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that do inject certificates includes anti-virus and network traffic inspection software.
 
-When Storage Explorer sees a self signed or untrusted certificate, it can no longer know whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer trust it by doing the following steps:
+When Storage Explorer sees a self-signed or untrusted certificate, it can no longer know whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer trust it by doing the following steps:
 
 1. Obtain a Base-64 encoded X.509 (.cer) copy of the certificate
 2. Click **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer file
@@ -48,6 +48,20 @@ If you are unsure of where the certificate is coming from, you can try these ste
 If you cannot find any self-signed certificates using the preceding steps, contact us through the feedback tool for more help. Alternatively, you can choose to launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore certificate errors.
 
 ## Sign-in issues
+
+### Blank Sign In Dialog
+Blank sign in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect which is unsupported by Electron. To work around this issue you can attempt to use Device Code Flow for sign-in. To do so, perform the following steps:
+1. "Go to Experimental" -> "Use Device Code Sign-In".
+2. Open the Connect Dialog (either via the plug icon on the left-hand vertical bar, or "Add Account" on the account panel).
+3. Choose what environment you want to sign-in to.
+4. Click the "Sign" In button.
+5. Follow the instructions on the next panel.
+
+Note: this feature is currently only available in 1.7.0 Preview.
+
+If you find yourself having issues signing into the account you want to use because your default browser is already signed into a different account you can either:
+1. Manually copy the link and code into a private session of your browser.
+2. Manually copy the link and code into a different browser.
 
 ### Reauthentication loop or UPN change
 If you are in a reauthentication loop, or have changed the UPN of one of your accounts, try the following:
@@ -85,7 +99,7 @@ If none of these methods work [open an issue on GitHub](https://github.com/Micro
 If you are unable to retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
 * Verify that your account has access to the subscriptions you expect. You can verify that you have access by signing into portal for the Azure environment you are trying to use.
-* Make sure that you have signed in using the correct Azure environment (Azure, Azure China, Azure Germany, Azure US Government, or Custom Environment).
+* Make sure that you have signed in using the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
 * If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly.
 * Try removing and readding the account.
 * If there is a "More information" link, look and see what error messages are being reported for the tenants that are failing. If you are not sure what to do with the error messages you see, then feel free to [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -95,7 +109,7 @@ If you are unable to retrieve your subscriptions after you successfully sign in,
 If you are unable to remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
@@ -111,7 +125,7 @@ First, make sure that the following information you entered are all correct:
 * The proxy URL and port number
 * Username and password if required by the proxy
 
-Note that Storage Explorer does not support .pac file for configuring proxy settings.
+Note that Storage Explorer does not support proxy auto-config files for configuring proxy settings.
 
 ### Common solutions
 

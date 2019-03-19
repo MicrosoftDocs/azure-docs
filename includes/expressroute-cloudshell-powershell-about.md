@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/25/2018
+ ms.date: 01/09/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -21,4 +21,4 @@ This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Clou
 
 If you don't want to use Azure Cloud Shell, you can install PowerShell locally instead. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets. PowerShell cmdlets are updated frequently and you typically need to update your PowerShell cmdlets to get the latest feature functionality. If you don't update your PowerShell cmdlets, the values specify may fail. 
 
-To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. To update, see [Install the Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/overview).

@@ -20,7 +20,7 @@ but also to define the resources and parameters that are used for deployment.
 You can use this template for your own business scenarios or 
 customize the template to meet your requirements. Learn more about the 
 [Resource Manager template for logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 
-and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md).
+and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md). For JSON syntax and properties, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 ## Define the logic app
 
@@ -118,8 +118,10 @@ For example, the Azure portal prompts you for these details:
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```
-New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 ``` 
 
 ### Azure CLI

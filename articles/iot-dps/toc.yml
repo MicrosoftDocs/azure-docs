@@ -148,6 +148,8 @@
   items:
   - name: REST API
     href: /rest/api/iot-dps
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
   - name: Azure IoT SDK for C
     href: https://github.com/Azure/azure-iot-sdk-c
   - name: Azure IoT SDK for Python

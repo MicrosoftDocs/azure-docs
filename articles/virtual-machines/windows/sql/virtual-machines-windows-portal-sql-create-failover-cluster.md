@@ -67,13 +67,15 @@ There are a few things you need to know and a couple of things that you need in 
 ### What to know
 You should have an operational understanding of the following technologies:
 
-- [Windows cluster technologies](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server Failover Cluster Instances](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Also, you should have a general understanding of the following technologies:
+One important difference is that on a Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+
+Additionally, you should have a general understanding of the following technologies:
 
 - [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)
+- [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in the FCI. This extension supports features, such as Automated Backup and Patching and some portal features for SQL. These features will not work for SQL VMs after the agent is uninstalled.
@@ -174,7 +176,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../disks-types.md).
 
    Both virtual machines need at least two data disks.
 
@@ -182,7 +184,7 @@ With these prerequisites in place, you can proceed with building your failover c
       >[!NOTE]
       >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
 
-   Attach a minimum of two Premium Storage (SSD disks) to each VM. We recommend at least P30 (1 TB) disks.
+   Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1 TB) disks.
 
    Set host caching to **Read-only**.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Register the ASDK with Azure | Microsoft Docs
 description: Describes how to register Azure Stack with Azure to enable marketplace syndication and usage reporting.
 services: azure-stack
@@ -12,13 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 01/16/2019
+
+
 ---
 
 # Azure Stack registration
-You can register your Azure Stack Development Kit (ASDK) installation with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. Registration is required to support full Azure Stack functionality, including marketplace syndication. Registration is recommended because it enables you to test important Azure Stack functionality like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. However, ASDK users aren't charged for any usage they report.
+You can register your Azure Stack Development Kit (ASDK) installation with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. Registration is required to support full Azure Stack functionality, including marketplace syndication. Registration is required to enable you to test important Azure Stack functionality like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. However, ASDK users aren't charged for any usage they report.
 
 If you do not register your ASDK, you might see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 
@@ -33,6 +36,8 @@ $ExecutionContext.SessionState.LanguageMode
 
 Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration will need to be run on another computer or the language mode will need to be set to **FullLanguageMode** before continuing.
 
+The Azure AD account used for registration needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](..\azure-stack-registration-role.md) rather than using global administrator credentials.
+
 ## Register Azure Stack with Azure
 Follow these steps to register the ASDK with Azure.
 
@@ -41,7 +46,7 @@ Follow these steps to register the ASDK with Azure.
 
 1. Open a PowerShell console as an administrator.  
 
-2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to sign in to both your Azure subscription and the local ASDK installation. If you don’t have an Azure subscription yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.<br><br>If you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID, set a unique name for the registration when you run the **Set-AzsRegistration** cmdlet. The **RegistrationName** parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail.
+2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to sign in to both your Azure billing Subscription ID and the local ASDK installation. If you don’t have an Azure billing Subscription ID yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.<br><br>Set a unique name for the registration when you run the **Set-AzsRegistration** cmdlet. The **RegistrationName** parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail.
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 
@@ -54,6 +59,9 @@ Follow these steps to register the ASDK with Azure.
     # Import the registration module that was downloaded with the GitHub tools
     Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
+    # If you have multiple subscriptions, run the following command to select the one you want to use:
+    # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+    
     # Register Azure Stack
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
@@ -197,21 +205,21 @@ Alternatively, you can use the **Get-Content** cmdlet to point to a file that co
 When activation is complete, you should see a message similar to **Your environment has finished the registration and activation process.**
 
 ## Verify the registration was successful
-Follow these steps to verify that the ASDK registration with Azure **in connected environments** was successful.
+
+You can use the **Region management** tile to verify that the Azure Stack registration was successful. This tile is available on the default dashboard in the administrator portal.
 
 1. Sign in to the [Azure Stack administration portal](https://adminportal.local.azurestack.external).
 
-2. Click **Marketplace Management** > **Add from Azure**.
+2. From the Dashboard, select **Region management**.
 
-    ![](media/asdk-register/2.PNG)
+    [![Region management tile](media/asdk-register/admin1sm.png "Region management tile")](media/asdk-register/admin1.png#lightbox)
 
-3. If you see a list of items available from Azure, your activation was successful.
-
-    ![](media/asdk-register/3.PNG)
+3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
 
 ## Move a registration resource
 Moving a registration resource between resource groups under the same subscription **is** supported. For more information about moving resources to a new resource group, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## Next steps
-[Add an Azure Stack marketplace item](../azure-stack-marketplace.md)
+
+- [Add an Azure Stack marketplace item](../azure-stack-marketplace.md)

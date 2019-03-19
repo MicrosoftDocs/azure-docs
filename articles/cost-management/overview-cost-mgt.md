@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
@@ -14,7 +14,7 @@ ms.custom:
 
 # What is Azure Cost Management?
 
-Cost management is the process where you effectively plan and control the costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. Azure Cost Management helps organizations with Microsoft Enterprise Agreements (EA) to plan with cost in mind. It also helps to analyze costs effectively and to take action to optimize cloud spending. To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](cost-mgt-best-practices.md) article.
+Cost management is the process where you effectively plan and control the costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. Azure Cost Management helps organizations to plan with cost in mind. It also helps to analyze costs effectively and to take action to optimize cloud spending. To learn more about how to approach cost management as an organization, take a look at the [Azure Cost Management best practices](cost-mgt-best-practices.md) article.
 
 Although related, billing differs from cost management. Billing is the process of invoicing customers for goods or services and managing the commercial relationship.  Procurement and finance teams usually conduct billing tasks.
 
@@ -40,7 +40,7 @@ If you use external systems to access or review cost management data, you can ea
 
 ## Additional Azure tools
 
-Azure has other tools that aren't a part of the Azure Cost Management feature set. However, they an important role in the cost management process. To learn more about these tools, see the following links.
+Azure has other tools that aren't a part of the Azure Cost Management feature set. However, they play an important role in the cost management process. To learn more about these tools, see the following links.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) - Use this tool to estimate your up-front cloud costs.
 - [Azure Migrate](../migrate/migrate-overview.md) - Assess your current datacenter workload for insights about what's needed from an Azure replacement solution.

@@ -15,46 +15,23 @@ ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ---
 
-# Create your first function with Java and Maven (Preview)
+# Create your first function with Java and Maven
 
-> [!NOTE] 
-> Java for Azure Functions is currently in preview.
-
-This quickstart guides through creating a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with Maven, testing it locally, and deploying it to Azure. When you're done, your Java function code is running in the cloud and can be triggered from an HTTP request.
-
-![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
+This article guides you through using the Maven command line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-To develop functions app with Java, you must have the following installed:
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
--  [Apache Maven](https://maven.apache.org), version 3.0 or above.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+To develop functions using Java, you must have the following installed:
 
-> [!IMPORTANT] 
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
+- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure Functions Core Tools](functions-run-local.md#v2) (requires **.NET Core 2.x SDK**)
+
+> [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
-
-## Install the Azure Functions Core Tools
-
-The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. 
-
-To install, visit the [Installing](https://github.com/azure/azure-functions-core-tools#installing) section of the Azure Functions Core Tools  project to find the specific instructions for your operating system.
-
-You can also install it manually with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/), after installing the following requirements:
-
--  [.NET Core](https://www.microsoft.com/net/core), latest version.
--  [Node.js](https://nodejs.org/download/), version 8.6 or higher.
-
-To proceed with an npm-based installation, run:
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
 ## Generate a new Functions project
 

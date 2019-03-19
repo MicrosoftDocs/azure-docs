@@ -49,7 +49,7 @@ create, view, update, manage, or delete jobs and
 by using scripts and in the Azure portal.
 
 Other Azure scheduling capabilities also use Scheduler in the background, 
-for example, [Azure WebJobs](../app-service/web-sites-create-web-jobs.md), 
+for example, [Azure WebJobs](../app-service/webjobs-create.md), 
 which is a [Web Apps](https://azure.microsoft.com/services/app-service/web/) 
 feature in Azure App Service. You can manage communication for these actions 
 by using the [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/). 

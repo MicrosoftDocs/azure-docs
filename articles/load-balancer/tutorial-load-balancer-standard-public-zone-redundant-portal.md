@@ -1,15 +1,12 @@
 ---
-title: Tutorial:Load Balancer VMs across availability zones - Azure portal | Microsoft Docs
+title: 'Tutorial: Load Balancer VMs across availability zones - Azure portal'
+titlesuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zone-redundant frontend to load balance VMs across availability zones using Azure portal
 services: load-balancer
 documentationcenter: na
-author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-
-ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Load balance VMs across availability zones with a Standard Load Balancer using the Azure portal
 
-Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. This tutorial steps through creating a public Load Balancer Standard that load balances VMs across availability zones. This helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
+Load balancing provides a higher level of availability by spreading incoming requests across multiple virtual machines. This tutorial steps through creating a public Standard Load Balancer that load balances VMs across availability zones. This helps to protect your apps and data from an unlikely failure or loss of an entire datacenter. With zone-redundancy, one or more availability zones can fail and the data path survives as long as one zone in the region remains healthy. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Standard Load Balancer
@@ -175,7 +172,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
 4. Click **Add new backend resource** to add each virtual machine (*myVM2* and *myVM3*) to add to the backend pool of the load balancer.
 5. Click **Add**.
 
-    ![Adding to the backend address pool - ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![Adding to the backend address pool -](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. Check to make sure your load balancer backend pool setting displays all the three VMs - **myVM1**, **myVM2** and **myVM3**.
 

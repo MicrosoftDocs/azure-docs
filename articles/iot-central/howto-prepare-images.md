@@ -1,13 +1,13 @@
 ---
 title: Upload images to your Azure IoT Central application | Microsoft Docs
 description: As a builder, learn how to prepare and upload images to your Azure IoT Central application.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+manager: philmea
 ---
 
 # Prepare and upload images to your Azure IoT Central application

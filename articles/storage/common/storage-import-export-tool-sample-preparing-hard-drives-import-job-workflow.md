@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Sample workflow to prepare hard drives for an import job

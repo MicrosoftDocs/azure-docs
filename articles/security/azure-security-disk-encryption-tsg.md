@@ -1,12 +1,14 @@
 ---
-title: Azure Disk Encryption troubleshooting| Microsoft Docs
+title: Troubleshooting - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
+ms.date: 02/04/2019
+
+ms.custom: seodec18
 
 ---
 # Azure Disk Encryption troubleshooting guide
@@ -27,7 +29,23 @@ This error can occur when OS disk encryption is tried on a target VM environment
 - Data drives are recursively mounted under the /mnt/ directory, or each other (for example, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Other Azure Disk Encryption [prerequisites](azure-security-disk-encryption-prerequisites.md) for Linux aren't met.
 
-## Unable to encrypt
+## <a name="bkmk_Ubuntu14"></a> Update the default kernel for Ubuntu 14.04 LTS
+
+The Ubuntu 14.04 LTS image ships with a default kernel version of 4.4. This kernel version has a known issue in which Out of Memory Killer improperly terminates the dd command during the OS encryption process. This bug has been fixed in the most recent Azure tuned Linux kernel. To avoid this error, prior to enabling encryption on the image, update to the [Azure tuned kernel 4.15](https://packages.ubuntu.com/trusty/linux-azure) or later using the following commands:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+After the VM has restarted into the new kernel, the new kernel version can be confirmed using:
+
+```
+uname -a
+```
+
+## Unable to encrypt Linux disks
 
 In some cases, the Linux disk encryption appears to be stuck at "OS disk encryption started" and SSH is disabled. The encryption process can take between 3-16 hours to finish on a stock gallery image. If multi-terabyte-sized data disks are added, the process might take days.
 
@@ -65,7 +83,11 @@ When connectivity is restricted by a firewall, proxy requirement, or network sec
 Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) for disk encryption.
 
 ### Azure Key Vault behind a firewall
-The VM must be able to access a key vault. Refer to guidance on access to the key vault from behind a firewall that the [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team maintains. 
+
+When encryption is being enabled with [Azure AD credentials](azure-security-disk-encryption-prerequisites-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../key-vault/key-vault-access-behind-firewall.md).
+
+### Azure Instance Metadata Service 
+The VM must be able to access the [Azure Instance Metadata service](../virtual-machines/windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
 
 ### Linux package management behind a firewall
 

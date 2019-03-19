@@ -21,7 +21,7 @@ ms.author: ejarvi
 
 ## Overview
 
-Azure Disk Encryption leverages Bitlocker to provide full disk encryption on Azure virtual machines running Windows.  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets in your key vault subscription. 
+Azure Disk Encryption leverages BitLocker to provide full disk encryption on Azure virtual machines running Windows.  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets in your key vault subscription. 
 
 ## Prerequisites
 

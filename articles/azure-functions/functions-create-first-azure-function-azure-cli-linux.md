@@ -15,7 +15,7 @@ manager: jeconnoc
 
 # Create your first function hosted on Linux using Core Tools and the Azure CLI (preview)
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) Linux environment without having to first create a VM or publish a web application. Linux-hosting is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md). To learn more about preview considerations for running your function apps on Linux, see [this Functions on Linux article](https://aka.ms/funclinux).
+Azure Functions lets you execute your code in a [serverless](https://azure.com/serverless) Linux environment without having to first create a VM or publish a web application. Linux-hosting is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md). To learn more about preview considerations for running your function apps on Linux, see [this Functions on Linux article](https://aka.ms/funclinux).
 
 This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 

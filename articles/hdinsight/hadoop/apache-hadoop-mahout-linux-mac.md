@@ -24,14 +24,14 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 
 * A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
-## Mahout versioning
+## Apache Mahout versioning
 
-For more information about the version of Mahout in HDInsight, see [HDInsight versions and Hadoop components](../hdinsight-component-versioning.md).
+For more information about the version of Mahout in HDInsight, see [HDInsight versions and Apache Hadoop components](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Understanding recommendations
 
@@ -55,8 +55,8 @@ The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## Run the analysis
@@ -67,7 +67,7 @@ From an SSH connection to the cluster, use the following command to run the reco
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > The job may take several minutes to complete, and may run multiple MapReduce jobs.
 
 ## View the output
@@ -192,7 +192,7 @@ Mahout jobs do not remove temporary data that is created while processing the jo
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -202,8 +202,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](hdinsight-use-hive.md)
-* [Pig with HDInsight](hdinsight-use-pig.md)
+* [Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: https://mahout.apache.org/developers/buildingmahout.html

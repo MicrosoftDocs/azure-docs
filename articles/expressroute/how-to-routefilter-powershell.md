@@ -1,14 +1,15 @@
 ﻿---
-title: 'Configure route filters for Azure ExpressRoute Microsoft peering: PowerShell | Microsoft Docs'
+title: 'Configure route filters for Microsoft peering - ExpressRoute : PowerShell: Azure | Microsoft Docs'
 description: This article describes how to configure route filters for Microsoft Peering using PowerShell
 documentationcenter: na
 services: expressroute
 author: ganesr
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
+ms.custom: seodec18
 
 ---
 # Configure route filters for Microsoft peering: PowerShell
@@ -20,7 +21,7 @@ ms.author: ganesr
 
 Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
 
-Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoint Online, and Skype for Business, and Azure public services, such as storage and SQL DB are accessible through Microsoft peering. Azure public services are selectable on a per region basis and cannot be defined per public service. 
+Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoint Online, and Skype for Business, and Azure public services, such as storage and SQL DB are accessible through Microsoft peering. Azure public services are selectable on a per region basis and cannot be defined per public service.
 
 When Microsoft peering is configured on an ExpressRoute circuit and a route filter is attached, all prefixes that are selected for these services are advertised through the BGP sessions that are established. A BGP community value is attached to every prefix to identify the service that is offered through the prefix. For a list of the BGP community values and the services they  map to, see [BGP communities](expressroute-routing.md#bgp).
 

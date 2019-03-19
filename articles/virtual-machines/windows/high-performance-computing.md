@@ -9,10 +9,10 @@ editor:
 tags: azure-resource-manager
 
 ms.assetid:
-ms.service: virtual-machines-womdpws
+ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.date: 05/11/2018
+ms.date: 01/15/2019
 ms.author: danlep
 ---
 

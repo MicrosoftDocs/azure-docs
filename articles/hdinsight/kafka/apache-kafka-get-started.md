@@ -18,7 +18,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The Apache Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network.
 >
 > For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
@@ -35,7 +35,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
     * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). The Linux distributions available through the Microsoft Store provide the `ssh` command.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > The steps in this document assume that you are using one of the SSH clients mentioned above. If you are using a different SSH client and encounter problems, please consult the documentation for your SSH client.
     >
     > For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
@@ -44,7 +44,13 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 To create an Apache Kafka on HDInsight cluster, use the following steps:
 
-1. From the [Azure portal](https://portal.azure.com), select **+ Create a resource**, **Data + Analytics**, and then select **HDInsight**.
+1. Log in to the [Azure portal](https://portal.azure.com).
+
+1. From the left menu, select **+ Create a resource**.
+
+1. Under **Azure marketplace**, select **Analytics**.
+
+1. Under **Featured**, select **HDInsight**.
    
     ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -80,7 +86,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     | Resource Group | The resource group to create the cluster in. |
     | Location | The Azure region to create the cluster in. |
 
-    > [!TIP]
+    > [!TIP]  
     > Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
     >
     > For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
@@ -103,10 +109,10 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 8. From __Cluster size__, select __Next__ to continue with the default settings.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > To guarantee availability of Apache Kafka on HDInsight, the __number of worker nodes__ entry must be set to 3 or greater. The default value is 4.
     
-    > [!TIP]
+    > [!TIP]  
     > The **disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
 
    ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/kafka-cluster-size.png)
@@ -122,7 +128,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
 ## Connect to the cluster
 
-1. To connect to the primary head node of the Apache Kafka cluster, use the following command. Replace `sshuser` with the SSH user name. Replace `mykafka` with the name of your Apache Kafkacluster
+1. To connect to the primary head node of the Apache Kafka cluster, use the following command. Replace `sshuser` with the SSH user name. Replace `mykafka` with the name of your Apache Kafkacluster.
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -143,7 +149,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.

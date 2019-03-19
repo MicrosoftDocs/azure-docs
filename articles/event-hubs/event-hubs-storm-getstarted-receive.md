@@ -1,6 +1,6 @@
 ---
 title: Receive events using Apache Storm - Azure Event Hubs | Microsoft Docs
-description: Get started receiving from Event Hubs using Apache Storm
+description: This article provides information on how to receive events from Azure Event Hubs using Apache Storm.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy

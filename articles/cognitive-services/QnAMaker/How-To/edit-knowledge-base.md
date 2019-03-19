@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -65,7 +65,7 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 ## Add metadata
 
 
-Add metadata pairs by selecting the filter icon
+Add metadata pairs by selecting the metadata icon
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -74,11 +74,17 @@ Add metadata pairs by selecting the filter icon
 
 ## Manage large knowledge bases
 
-1. The QnAs are **grouped** by the data source from which they were extracted. You can expand or collapse the data source.
-2. You can **search** the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
-3. **Pagination** allows you to manage large knowledge bases
+* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. You can expand or collapse the data source.
 
-    ![Search, Paginate, Group](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
+
+    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Pagination**: Quickly move through data sources to manage large knowledge bases
+
+    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## Delete knowledge bases
 

@@ -112,7 +112,7 @@ Your Function App is connected to both the Internet and your VNET. The proxy is 
 
 ## Next Steps
 
-Azure Functions running on App Service plans are running on the same service as web apps, so all of the documnention for Web Apps will apply to dedicated Functions.
+Azure Functions running on App Service plans are running on the same service as web apps, so all of the documentation for Web Apps will apply to dedicated Functions.
 
 1. [Learn more about VNET integration with App Service / Functions here](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 1. [Learn more about VNETs in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)

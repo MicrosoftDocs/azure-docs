@@ -11,10 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
-ms.date: 11/19/2018
+ms.subservice: compliance
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # What are Azure AD Access Reviews?
@@ -82,23 +83,25 @@ To enable access reviews, follow these steps.
 
 1. Click **All services** and find the access reviews service.
 
-    ![All services - Access Reviews](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. Click **Access Reviews**.
 
-    ![Access Reviews onboard](./media/access-reviews-overview/onboard-button.png)
+    ![All services - Access Reviews](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. In the navigation list, click **Onboard** to open the **Onboard access reviews** page.
 
+    ![Access Reviews onboard](./media/access-reviews-overview/onboard-button.png)
+
+1. Click **Create** to enable access reviews in the current directory.
+
     ![Onboard access reviews](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. Click **Create** to enable access reviews in the current directory. The next time you start access reviews, the options will be enabled.
+    The next time you start access reviews, the access review options will be enabled.
 
     ![Access Reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Perform an access review with Azure AD Access Reviews](perform-access-review.md)
-- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
+- [Review access to groups or applications](perform-access-review.md)
+- [Complete an access review of groups or applications](complete-access-review.md)

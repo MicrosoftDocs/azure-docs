@@ -1,13 +1,13 @@
-﻿---
+---
 title: "Example: Getting started - Knowledge Exploration Service API"
 titlesuffix: Azure Cognitive Services
 description: Use Knowledge Exploration Service (KES) API to create an engine for an interactive search experience across academic publications.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
@@ -96,7 +96,7 @@ After you have a schema file and data file, you can build a compressed binary in
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally, from data files containing up to 10,000 objects. For larger data files, you can either run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or perform a remote build in Azure. For details, see [Scaling up](#scaling-up).
+For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally, from data files containing up to 10,000 objects. For larger data files, you can either run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or perform a remote build in Azure. For details, see Scaling up.
 
 ## Use an XML grammar specification
 
@@ -207,7 +207,7 @@ For rapid prototyping, you can host the grammar and index in a web service on th
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-This initiates a local instance of the web service. You can interactively test the service by visiting `http::localhost:<port>` from a browser. For more information, see [Testing service](#testing-service).
+This initiates a local instance of the web service. You can interactively test the service by visiting `http::localhost:<port>` from a browser. For more information, see Testing service.
 
 You can also directly call various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation. To stop the service, enter "quit" into the `kes.exe host_service` command prompt, or press Ctrl+C. Here are some examples:
 
@@ -216,7 +216,7 @@ You can also directly call various [web APIs](WebAPI.md) to test natural languag
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) is limited to indices of up to 10,000 objects. Other limits include an API rate of 10 requests per second, and a total of 1000 requests before the process automatically terminates. To bypass these restrictions, run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or deploy to an Azure cloud service by using the [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) command. For details, see [Deploying service](#deploying-service).
+Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) is limited to indices of up to 10,000 objects. Other limits include an API rate of 10 requests per second, and a total of 1000 requests before the process automatically terminates. To bypass these restrictions, run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or deploy to an Azure cloud service by using the [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) command. For details, see Deploying service.
 
 ## Scale up to host larger indices
 
@@ -224,7 +224,7 @@ When you are running `kes.exe` outside of Azure, the index is limited to 10,000 
 
 To allow `kes.exe` access to an Azure account, [download the Azure Publish Settings file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) from the Azure portal. If prompted, sign into the desired Azure account. Save the file as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
 
-There are two ways to build and host large indices. The first is to prepare the schema and data files in a Windows VM in Azure. Then run [`kes.exe build_index`](#building-index) to build the index locally on the VM, without any size restrictions. The resulting index can be hosted locally on the VM by using [`kes.exe host_service`](#hosting-service) for rapid prototyping, again without any restrictions. For detailed steps, see the [Azure VM tutorial](../../../articles/virtual-machines/windows/quick-create-portal.md).
+There are two ways to build and host large indices. The first is to prepare the schema and data files in a Windows VM in Azure. Then run `kes.exe build_index` to build the index locally on the VM, without any size restrictions. The resulting index can be hosted locally on the VM by using `kes.exe host_service` for rapid prototyping, again without any restrictions. For detailed steps, see the [Azure VM tutorial](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 The second method is to perform a remote Azure build, by using [`kes.exe build_index`](CommandLine.md#build_index-command) with the `--remote` parameter. This specifies an Azure VM size. When the `--remote` parameter is specified, the command creates a temporary Azure VM of that size. It then builds the index on the VM, uploads the index to the target blob storage, and deletes the VM upon completion. Your Azure subscription is charged for the cost of the VM while the index is being built.
 
@@ -258,7 +258,7 @@ After you deploy the service, you can call the various [web APIs](WebAPI.md) to 
 
 ## Test the service
 
-To debug a live service, browse to the host machine from a web browser. For a local service deployed via [host_service](#hosting-service), visit `http://localhost:<port>/`.  For an Azure cloud service deployed via [deploy_service](#deploying-service), visit `http://<serviceName>.cloudapp.net/`.
+To debug a live service, browse to the host machine from a web browser. For a local service deployed via host_service, visit `http://localhost:<port>/`.  For an Azure cloud service deployed via deploy_service, visit `http://<serviceName>.cloudapp.net/`.
 
 This page contains a link to information about basic API call statistics, as well as the grammar and index hosted at this service. This page also contains an interactive search interface that demonstrates the use of the web APIs. Enter queries into the search box to see the results of the [interpret](interpretMethod.md), [evaluate](evaluateMethod.md), and [calchistogram](calchistogramMethod.md) API calls. The underlying HTML source of this page also serves as an example of how to integrate the web APIs into an app, to create a rich, interactive search experience.
 
