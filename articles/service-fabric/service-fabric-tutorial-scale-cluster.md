@@ -102,7 +102,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## Add a node type to the cluster
 
-Every node type that is defined in a Service Fabric cluster running in Azure is set up as a [separate virtual machine scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. You can independently scale each node type up or down, have different sets of ports open, and use different capacity metrics. You can also independantly change the OS SKU running on each cluster node, but note that you can't have a mix of Windows and Linux running in the sample cluster. A single node type/scale set cannot contain more than 100 nodes.  You can scale a cluster horizontally to more than 100 nodes by adding additional node types/scale sets. You can scale the cluster at any time, even when workloads are running on the cluster.
+Every node type that is defined in a Service Fabric cluster running in Azure is set up as a [separate virtual machine scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. You can independently scale each node type up or down, have different sets of ports open, and use different capacity metrics. You can also independently change the OS SKU running on each cluster node, but note that you can't have a mix of Windows and Linux running in the sample cluster. A single node type/scale set cannot contain more than 100 nodes.  You can scale a cluster horizontally to more than 100 nodes by adding additional node types/scale sets. You can scale the cluster at any time, even when workloads are running on the cluster.
 
 ### Update the template
 
