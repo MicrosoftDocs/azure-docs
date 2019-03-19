@@ -324,6 +324,8 @@ The third part of this method is a catch block that handles an important error c
 
 Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### How the .NET SDK handles documents
 You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class:
 

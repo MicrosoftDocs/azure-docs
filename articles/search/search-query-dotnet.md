@@ -25,7 +25,7 @@ This article shows you how to query [an Azure Search index](search-what-is-an-in
 
 Obtain a query key used for read-only access to documents. Until now, you have used an admin API key so that you can create objects and content on a search service. But for query support in apps, we strongly recommend using a query key. For instructions, see [Create a query key](search-security-api-keys.md#create-query-keys).
 
-## Create an instance of the SearchIndexClient class
+## Create SearchIndexClient
 Create an instance of the `SearchIndexClient` class so that you can give it a query key for read-only access (as opposed to the write-access rights conferred upon the `SearchServiceClient` used in the previous lesson).
 
 This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
@@ -45,7 +45,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to query Azure Search indexes.
 
-## Query your index
+## Construct SearchParameters
 Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
 
 #### Types of Queries
@@ -125,7 +125,7 @@ private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
 }
 ```
 
-Here is what the results look like for the queries in the previous section, assuming the "hotels" index is populated with the sample data in [Data Import in Azure Search using the .NET SDK](search-import-data-dotnet.md):
+Here is what the results look like for the queries in the previous section, assuming the "hotels" index is populated with the sample data:
 
 ```
 Search the entire index for the term 'budget' and return only the hotelName field:
@@ -147,5 +147,8 @@ Search the entire index for the term 'motel':
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 ```
 
-The sample code above uses the console to output search results. You will likewise need to display search results in your own application. See [this sample on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) for an example of how to render search results in an ASP.NET MVC-based web application.
+The sample code above uses the console to output search results. You will likewise need to display search results in your own application. For an example of how to render search results in an ASP.NET MVC-based web application, see the [DotNetSample project](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) on GitHub.
 
+## Next steps
+
+If you haven't done so already, review the sample code on [GitHub](https://aka.ms/search-dotnet-howto), along with [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code. 

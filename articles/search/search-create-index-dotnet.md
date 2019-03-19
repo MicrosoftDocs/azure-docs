@@ -13,12 +13,6 @@ ms.date: 03/20/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
-> [!div class="op_single_selector"]
-> * [C#](search-create-index-dotnet.md)
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [Postman (REST)](search-fiddler.md)
-> * [Portal](search-create-index-portal.md)
-> 
 
 This article walks you through the process of creating, loading, and querying [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Creating an index is accomplished by performing these tasks:
 
@@ -29,7 +23,7 @@ This article walks you through the process of creating, loading, and querying [a
 
 
 > [!NOTE]
-> Source code is on [GitHub](https://aka.ms/search-dotnet-howto). For more indepth descriptions of sample code, see [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md).
+> Source code is on [GitHub](https://aka.ms/search-dotnet-howto). We recommend [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code.
 
 ## Prerequisites
 
@@ -45,7 +39,7 @@ A URL endpoint and admin api-key of your search service. A search service is cre
 
   ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
-    All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## 1 - Create a new project
 
@@ -63,9 +57,9 @@ In appsettings.json, replace the default content with the example below, and the
 
 <a name="CreateSearchServiceClient"></a>
 
-## 2 - Create a client
+## 2 - Create SearchServiceClient
 
-To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
+To start using the Azure Search .NET SDK, create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
 Copy the following code into the Program.cs file. The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (appsettings.json).
 
@@ -89,21 +83,21 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 <a name="DefineIndex"></a>
 
-## 3 - Define an index schema
-A single call to the `Indexes.Create` method will create your index. This method takes as a parameter an `Index` object that defines your Azure Search index. You need to create an `Index` object and initialize it as follows:
+## 3 - Construct Index
+A single call to the `Indexes.Create` method creates an index. This method takes as a parameter an `Index` object that defines an Azure Search index. Create an `Index` object and initialize it as follows:
 
 1. Set the `Name` property of the `Index` object to the name of your index.
 
 2. Set the `Fields` property of the `Index` object to an array of `Field` objects. The easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This allows you to bind documents from your search index to instances of your model class.
 
 > [!NOTE]
-> If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, etc.
+> If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
 >
 >
 
-It is important that you keep your search user experience and business needs in mind when designing your index as each field must be assigned the [appropriate properties](https://docs.microsoft.com/rest/api/searchservice/Create-Index). These properties control which search features (filtering, faceting, sorting full-text search, etc.) apply to which fields. For any property you do not explicitly set, the `Field` class defaults to disabling the corresponding search feature unless you specifically enable it.
+It is important that you keep your search user experience and business needs in mind when designing your index. Each field must be assigned the [attributes](https://docs.microsoft.com/rest/api/searchservice/Create-Index) that control which search features (filtering, faceting, sorting, and so forth) apply to which fields. For any property you do not explicitly set, the `Field` class defaults to disabling the corresponding search feature unless you specifically enable it.
 
-For our example, we've named our index "hotels" and defined our fields using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. The model class is defined as follows:
+In this example, the index name is "hotels" and fields are defined using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. The model class is defined as follows:
 
 ```csharp
 using System;
@@ -163,10 +157,10 @@ We have carefully chosen the attributes for each property based on how we think 
 
 Please note that exactly one field in your index of type `string` must be the designated as the *key* field by adding the `Key` attribute (see `HotelId` in the above example).
 
-The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. See [the Language support topic](https://docs.microsoft.com/rest/api/searchservice/Language-support) as well as the corresponding [blog post](https://azure.microsoft.com/blog/language-support-in-azure-search/) for more information about language analyzers.
+The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more inforamtoin, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
 
 > [!NOTE]
-> By default, the name of each property in your model class is used as the name of the corresponding field in the index. If you want to map all property names to camel-case field names, mark the class with the `SerializePropertyNamesAsCamelCase` attribute. If you want to map to a different name, you can use the `JsonProperty` attribute like the `DescriptionFr` property above. The `JsonProperty` attribute takes precedence over the `SerializePropertyNamesAsCamelCase` attribute.
+> By default, the name of each property in your model class corresponds to the field name in the index. If you want to map all property names to camel-case field names, mark the class with the `SerializePropertyNamesAsCamelCase` attribute. If you want to map to a different name, you can use the `JsonProperty` attribute like the `DescriptionFr` property above. The `JsonProperty` attribute takes precedence over the `SerializePropertyNamesAsCamelCase` attribute.
 > 
 > 
 
@@ -180,8 +174,8 @@ var definition = new Index()
 };
 ```
 
-## 4 - Create the index on the service
-Now that you have an initialized `Index` object, you can create the index simply by calling `Indexes.Create` on your `SearchServiceClient` object:
+## 4 - Call Indexes.Create
+Now that you have an initialized `Index` object, create the index by calling `Indexes.Create` on your `SearchServiceClient` object:
 
 ```csharp
 serviceClient.Indexes.Create(definition);
@@ -189,7 +183,7 @@ serviceClient.Indexes.Create(definition);
 
 For a successful request, the method will return normally. If there is a problem with the request such as an invalid parameter, the method will throw `CloudException`.
 
-When you're done with an index and want to delete it, just call the `Indexes.Delete` method on your `SearchServiceClient`. For example, this is how we would delete the "hotels" index:
+When you're done with an index and want to delete it, call the `Indexes.Delete` method on your `SearchServiceClient`. For example:
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
@@ -200,7 +194,8 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-
 ## Next steps
-After creating an Azure Search index, you will be ready to [upload your content into the index](search-what-is-data-import.md) so you can start searching your data.
+In this quickstart, you created an empty Azure Search index based on a schema that defines field data types and behaviors. The next quickstart in this series covers how to load the index with searchable content.
 
+> [!div class="nextstepaction"]
+> [Load data to an Azure Search index using C#](search-import-data-dotnet.md)
