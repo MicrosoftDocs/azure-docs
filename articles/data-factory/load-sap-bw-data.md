@@ -157,30 +157,30 @@ On the ADF UI **Let's get started** page, select **Create pipeline from template
 
       ![Blob content](media/load-sap-bw-data/blob.png)
 
-   - **LogicAppURL**: in this template, we use Web activity to call Logic Apps to set the high watermark value. Alternatively, you can also use SQL database to store it and use Stored Procedure activity to update the value. 
+   - **LogicAppURL**: in this template, we use Web activity to call Logic Apps to set the high watermark value in Blob storage. Alternatively, you can also use SQL database to store it and use Stored Procedure activity to update the value. 
 
-      Here, you need to firstly create a Logic Apps as the following, then copy the **HTTP POST URL** to this field. 
+      Here, you need to firstly create a Logic App as the following, then copy the **HTTP POST URL** to this field. 
+
+      ![Logic App config](media/load-sap-bw-data/logic-app-config.png)
 
       1. Go to Azure portal -> new a **Logic Apps** service -> click **+Blank Logic App** to go to **Logic Apps Designer**.
 
-      2. Create a trigger of **When a HTTP request is received** type. Specify the following as HTTP request body:
+      2. Create a trigger of **When a HTTP request is received**. Specify the HTTP request body as follows:
 
-      3. ```
+         ```json
          {
-             "properties": {
-         		"sapOpenHubMaxRequestId": {
-                     "type": "string"
-         		},
-         		"type": "object"
-             }
+            "properties": {
+               "sapOpenHubMaxRequestId": {
+                  "type": "string"
+               },
+               "type": "object"
+            }
          }
          ```
 
-      4. Create an action of **Create blob** type. For "Folder path" and "Blob name", use the same value configured in the above HighWatermarkBlobPath and HighWatermarkBlobName. 
+      3. Add an action of **Create blob**. For "Folder path" and "Blob name", use the same value configured in the above HighWatermarkBlobPath and HighWatermarkBlobName.
 
-      5. Click **Save**, and then copy the value of **HTTP POST URL** to use in ADF pipeline.
-
-         ![Logic App config](media/load-sap-bw-data/logic-app-config.png)
+      4. Click **Save**, and then copy the value of **HTTP POST URL** to use in ADF pipeline.
 
 4. After you provide all the values for ADF pipeline parameters, you can click **Debug** -> **Finish** to invoke a run to validate the configuration. Or, you can select **Publish All** to publish all the changes, then click **Trigger** to execute a run.
 
