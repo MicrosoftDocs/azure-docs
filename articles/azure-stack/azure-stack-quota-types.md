@@ -36,6 +36,9 @@ ms.lastreviewed: 12/07/2018
 | Maximum capacity (in GB) of standard managed disk | 2048 | The maximum capacity of standard managed disks that can be created in this location. |
 | Maximum capacity (in GB) of premium managed disk | 2048 | The maximum capacity of premium managed disks that can be created in this location. |
 
+> [!NOTE]  
+> Maxium capacity of unmanaged disk (page blobs) is seperate from managed disk quota, it should be set in Storage Quota.
+
 ## Storage quota types 
 
 | **Item** | **Default value** | **Description** |
@@ -45,6 +48,7 @@ ms.lastreviewed: 12/07/2018
 
 > [!NOTE]  
 > It can take up to two hours before a storage quota is enforced.
+> Maxium capacity of managed disk is seperate from total storage quota, it should be set in Compute Quota.
 
 
 ## Network quota types
