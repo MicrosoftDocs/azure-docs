@@ -6,7 +6,7 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
 
 
@@ -46,7 +46,6 @@ Before you start, verify the following:
 **Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Supported .NET versions** | .NET Framework 4.5.2 and above installed on the VM
-
 
 ## Feature consideration and limitations
 
@@ -102,7 +101,6 @@ Full | Primary
 Differential | Primary
 Log |  Secondary
 Copy-Only Full |  Secondary
-
 
 ## Fix SQL sysadmin permissions
 

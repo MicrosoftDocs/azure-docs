@@ -15,12 +15,12 @@ This article answers common questions about backing up SQL Server databases that
 
 ## Does the solution retry or auto-heal the backups?
 
-Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the 6 conditions mentioned below:
+Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the six conditions mentioned below:
 
-  - If log or differential backup fail due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
+  - If log or differential backup fails due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
   - If no full backup has happened before a log or differential backup, that log or differential backup is instead converted to a full backup.
   - If the latest full backup's point-in-time is older than 15 days, the next log or differential backup is instead converted to a full backup.
-  - All the backup jobs that get cancelled due to an extension upgrade are re-triggered after the upgrade is completed and the extension is started.
+  - All the backup jobs that get canceled due to an extension upgrade are re-triggered after the upgrade is completed and the extension is started.
   - If you choose to overwrite the database during Restore, the next log/differential backup fails and a full backup is triggered instead.
   - In cases where a full backup is required to reset the log chains due to change in database recovery model, a full gets triggered automatically on the next schedule.
 
@@ -57,34 +57,28 @@ The Azure Backup Recovery Services vault can detect and protect all nodes that a
 The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference. When your backup preference isn't met, backups fail and you get the failure alert.
 
 ## Do successful backup jobs create alerts?
-
 No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](backup-azure-monitoring-built-in-monitor.md). However, in case you are interested do have alerts even for successful jobs, you can use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Can I see scheduled backup jobs in the Backup Jobs menu?
-
 The **Backup Job** menu will only show ad-hoc backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
-
 Yes, you can achieve this capability with [auto-protection](backup-azure-sql-database.md#enable-auto-protection).  
 
 ## If I delete a database from an autoprotected instance, what will happen to the backups?
-
 If a database is dropped from an autoprotected instance, the database backups are still attempted. This implies that the deleted database begins to show up as unhealthy under **Backup Items** and is still protected.
 
 The correct way to stop protecting this database is to do **Stop Backup** with **delete data** on this database.  
 
-## If I do stop backup operation of an auto-protected database what will be its behavior?
-
+## If I do stop backup operation of an autoprotected database what will be its behavior?
 If you do **stop backup with retain data**, no future backups will take place and the existing recovery points will remain intact. The database will still be considered as protected and be shown under the **Backup items**.
 
-If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance in the Configure Backup. However, unlike other up-protected databases that can be selected manually or that can get auto-protected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
+If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance in the Configure Backup. However, unlike other up-protected databases that can be selected manually or that can get autoprotected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
 
 ## If I change the name of the database after it has been protected, what will be the behavior.
-
 A re-named database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.
 
-You can select the database which is now re-named and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
+You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
 ## Next steps
 
