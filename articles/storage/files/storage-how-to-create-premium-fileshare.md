@@ -69,4 +69,4 @@ If you would like to clean up the resources created in this article, you can sim
 In this article you've created a premium files storage account. To learn about the performance this account offers, continue to our premium files performance article.
 
 > [!div class="nextstepaction"]
-> [What is Azure Files?](storage-files-premium-files-performance.md)
+> [Premium files performance](storage-files-premium-files-performance.md)
