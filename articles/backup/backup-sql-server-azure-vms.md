@@ -41,14 +41,58 @@ Before you start, verify the following:
 ## Feature consideration and limitations
 
 - SQL Server backup can be configured in the Azure portal or PowerShell. We do not support CLI.
-- The VM running SQL Server requires internet connectivity to access Azure public IP addresses.
-- SQL Server Always on Failover Cluster Instances (FCIs) aren't supported.
+- VM running SQL Server requires internet connectivity to access Azure public IP addresses.
+- SQL Server Always on **Failover Cluster Instances (FCIs)** aren't supported.
 - Backup and restore operations for mirror databases and database snapshots aren't supported.
-- Databases with large number of files can't be protected. The maximum number of files that is supported is ~1000. However, even with file count less than that sometimes the restore behavior may differ.
-- You can back up to ~2000 SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
-- You can configure backup for up to 50 databases in one go; this restriction helps optimize backup loads.
+- Using more than one backup solutions to backup your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
+- Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure. Azure Backup can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always on availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.  
+- Databases with large number of files can't be protected. The maximum number of files that is supported is **~1000**.  
+- You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
+- You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
 - We support databases up to 2TB in size; for sizes greater than that, performance issues may come up.
-- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these number on you own. We will be publishing it shortly. 
+- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these number on you own. We will be publishing it shortly.
+- In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
+
+### Backup behavior in case of Always on availability groups
+
+Depending on the backup preference and backups types (full/differential/log/copy-only full), backups are taken from a particular node (primary/secondary).
+
+- Backup preference: Primary
+
+**Backup Type** | **Node**
+    --- | ---
+    Full | Primary
+    Differential | Primary
+    Log |  Primary
+    Copy-Only Full |  Primary
+
+- Backup preference: Secondary Only
+
+**Backup Type** | **Node**
+--- | ---
+Full | Primary
+Differential | Primary
+Log |  Secondary
+Copy-Only Full |  Secondary
+
+- Backup preference: Secondary
+
+**Backup Type** | **Node**
+--- | ---
+Full | Primary
+Differential | Primary
+Log |  Secondary
+Copy-Only Full |  Secondary
+
+- No Backup preference
+
+**Backup Type** | **Node**
+--- | ---
+Full | Primary
+Differential | Primary
+Log |  Secondary
+Copy-Only Full |  Secondary
+
 
 
 ## Scenario support
