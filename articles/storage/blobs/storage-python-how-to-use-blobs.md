@@ -12,7 +12,7 @@ ms.component: data-lake-storage-gen2
 
 # How to use Blob storage from Python
 
-Intro text here.
+This guide shows you how to interact with blobs by using Python. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
 
 ## Create a storage account
 
