@@ -92,7 +92,7 @@ The following items are going to be presented regardless of the selected time sc
 
 ## How to perform an investigation?
 
-You can start your investigation from a security incident, or from an alert, the option that you choose will vary according to your needs. The steps that follows are used to start a investigation from an alert:
+You can start your investigation from a security incident, or from an alert, the option that you choose will vary according to your needs. The steps that follows are used to start an investigation from an alert:
 
 1.  Open **Security Center** dashboard.
 2.  Click on **Security Alerts**, and select the incident that you want to investigate.

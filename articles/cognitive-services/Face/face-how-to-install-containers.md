@@ -13,7 +13,7 @@ ms.date: 03/19/2019
 ms.author: diberry
 ---
 
-# Install and run containers
+# Install and run Face containers
 
 Face provides a standardized Linux container for Docker, named Face, which detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.
 

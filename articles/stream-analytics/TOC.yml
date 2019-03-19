@@ -72,6 +72,8 @@
     items:
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Configure event ordering policies
+      href: event-ordering.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
     - name: Start a job
@@ -115,7 +117,7 @@
       href: stream-analytics-monitoring.md
     - name: Monitor jobs- PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitor jobs- Azure .Net SDK
+    - name: Monitor jobs- Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
     - name: Monitor jobs- Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -437,4 +439,3 @@
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-
