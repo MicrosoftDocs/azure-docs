@@ -88,13 +88,13 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Windows Virtual Desktop Agent.
-  - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-  - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
-  - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
+   - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+   - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+   - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
 3. Download and install the Windows Virtual Desktop Agent Bootloader.
-  - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-  - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
-  - Run the installer.
+   - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+   - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+   - Run the installer.
 4. Install or activate the Windows Virtual Desktop side-by-side stack. The steps will be different depending on which OS version the virtual machine uses.
    - If your virtual machine's OS is Windows Server 2016:
      - Download the [Windows Virtual Desktop side-by-side stack](https://rdmipreview.blob.core.windows.net/preview/Microsoft.RDInfra.StackSxS.Installer-x64.msi?st=2019-02-20T22%3A57%3A33Z&se=2019-03-31T20%3A58%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=zKnZjQhu4CKCmXLbkIqcK%2FXNliAbmhxt89LRUjUA9bE%3D).
