@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 03/19/2019
 ms.author: jeedes
 
 ---
@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with SmarterU, perform the following steps:
 
 ### Configure SmarterU Single Sign-On
 
-1. In a different web browser window, log in to your SmarterU company site as an administrator.
+1. In a different web browser window, sign in to your SmarterU company site as an administrator.
 
 1. In the toolbar on the top, click **Account Settings**.
 
@@ -197,11 +197,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create SmarterU test user
 
-To enable Azure AD users to log in to SmarterU, they must be provisioned into SmarterU. In the caseof SmarterU, provisioning is a manual task.
+To enable Azure AD users to sign in to SmarterU, they must be provisioned into SmarterU. In the case of SmarterU, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **SmarterU** tenant.
+1. sign in to your **SmarterU** tenant.
 
 1. Go to **Users**.
 
