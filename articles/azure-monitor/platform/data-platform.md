@@ -36,11 +36,8 @@ Azure Monitor provides both a metrics and logs platform that are optimized for c
 Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
 
 
-## Azure Monitor data types
-
-All data collected by Azure Monitor is stored as either [metrics](#metrics) or [logs](#logs).  Each is stored on a platform optimized for its particular monitoring scenarios, and each supports different features in Azure Monitor. Features such as data analysis, visualizations, or alerting require you to understand the differences so that you can implement your required scenario in the most efficient and cost effective manner. Insights in Azure Monitor such as [Application Insights](../app/app-insights-overview.md) or [Azure Monitor for VMs](../insights/vminsights-overview.md) have analysis tools that allow you to focus on the particular monitoring scenario without having to understand the differences between the two types of data. 
-
-
+## Azure Monitor data
+All data collected by Azure Monitor is stored on either the [metrics](#metrics) or [logs](#logs) platform. Each is optimized for its particular monitoring scenarios, and each supports different features in Azure Monitor. Features such as data analysis, visualizations, or alerting require you to understand the differences so that you can implement your required scenario in the most efficient and cost effective manner. Insights in Azure Monitor such as [Application Insights](../app/app-insights-overview.md) or [Azure Monitor for VMs](../insights/vminsights-overview.md) have analysis tools that allow you to focus on the particular monitoring scenario without having to understand the differences between the two types of data. 
 
 ### Azure Monitor metrics
 Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
