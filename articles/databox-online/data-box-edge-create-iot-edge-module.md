@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/19/2019
 ms.author: alkohli
 ---
 
@@ -48,8 +48,9 @@ Before you begin, make sure you have:
 
 - A Data Box Edge device that is running.
 
-    - The device also has an associated IoT Hub resource. For more information, go to [Create an IoT Hub resource](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) for your Data Box Edge.
-    - The device has Edge compute role configured. For more information, go to [Set up compute role](data-box-edge-deploy-configure-compute.md#set-up-compute-role) on your Data Box Edge.
+    - The device also has an associated IoT Hub resource.
+    - The device has Edge compute role configured.
+    For more information, go to [Configure compute](data-box-edge-deploy-configure-compute.md#configure-compute) for your Data Box Edge.
 
 - The following development resources:
 
@@ -278,4 +279,4 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 ## Next steps
 
-To deploy and run this module on Data Box Edge, see the steps in [Add a custom module](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
+To deploy and run this module on Data Box Edge, see the steps in [Add a module](data-box-edge-deploy-configure-compute.md#add-a-module).

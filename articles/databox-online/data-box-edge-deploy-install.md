@@ -77,31 +77,82 @@ If you didn't receive all of the items listed here, contact Data Box Edge suppor
 
 ## Rack the device
 
-The device must be installed on a standard 19-inch rack. Use the following procedure to rack mount your device on a standard 19-inch rack with front and rear posts.
+The device must be installed on a standard 19-inch rack. Use the following procedure to rack mount your device on a standard 19-inch rack.
 
 > [!IMPORTANT]
 > Data Box Edge devices must be rack-mounted for proper operation.
 
 
-1. Pull on the front-release to unlock the inner rail from the slide assembly. Release the detent lock and push the middle rail inwards to retract the rail.  
-    The inner and outer rails should now be separate.
+### Prerequisites
 
-    ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
+- Before you begin, read the safety instructions in your Safety, Environmental, and Regulatory Information booklet. This booklet was shipped with the device.
+- Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
+- For the tooled rail mounting configuration, you need to supply eight screws: #10-32, #12-24, #M5, or #M6. The head diameter of the screws must be less than 10 mm (0.4").
 
-2. Install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure.    
-   1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack-mounting holes.   
+### Identify the rail kit contents
 
-   2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes, and then release the trigger.
+Locate the components for installing the rail kit assembly:
+1. Two A7 Dell ReadyRails II sliding rail assemblies
+2. Two hook and loop straps
 
-   3. Align the front bracket with the mounting hole.
+![Identify rail kit contents](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-   4. The front bracket should be now fixed on the rack. Optionally, M5 X 10L screws can be used to secure the rails with posts if needed. 
+### Install and remove tool-less rails (Square hole or round hole racks)
 
-      ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+1. Position the left and right rail end pieces labeled **FRONT** facing inward and orient each end piece to seat in the holes on the front side of the vertical rack flanges .
+2. Align each end piece in the bottom and top holes of the desired U spaces.
+3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front end piece on the vertical rack flange.
+4. To remove the rails, pull the latch release button on the end piece midpoint and unseat each rail.
 
-3. To attach the inner rail on the chassis, make sure that the keyhole openings on the inner rail are aligned with the locating pins on the side of the chassis. Make sure that the heads of the chassis locating pins protrude through the keyhole openings in the inner rail. Pull the rail toward the front of the chassis until the rail locks into place with an audible click. Repeat with the other inner rail. Push the chassis with the inner rail into the slide to complete the rack installation.
+![Install and remove tool-less rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-    ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
+### Install and remove tooled rails (Threaded hole racks)
+
+1. Remove the pins from the front and rear mounting brackets using a flat-tipped screwdriver.
+2. Pull and rotate the rail latch subassemblies to remove them from the mounting brackets.
+3. Attach the left and right mounting rails to the front vertical rack flanges using two pairs of screws.
+4. Slide the left and right back brackets forward against the rear vertical rack flanges and attach them using two pairs of screws.
+
+![Install and remove tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### Install the system in a rack
+
+1. Pull the inner slide rails out of the rack until they lock into place.
+2. Locate the rear rail standoff on each side of the system and lower them into the rear J-slots on the slide assemblies. Rotate the system downward until all the rail standoffs are seated in the J-slots.
+3. Push the system inward until the lock levers click into place.
+4. Press the slide-release lock buttons on both rails and slide the system into the rack.
+
+![Install system in a rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### Remove the system from the rack
+
+1. Locate the lock levers on the sides of the inner rails.
+2. Unlock each lever by rotating it up to its release position.
+3. Grasp the sides of the system firmly and pull it forward until the rail standoffs are at the front of the J-slots. Lift the system up and away from the rack and place it on a level surface.
+
+![Remove system from the rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### Engage and release the slam latch
+
+NOTE: For systems not equipped with slam latches, secure the system using screws, as described in step 3 of this procedure.
+
+1. Facing the front, locate the slam latch on either side of the system.
+2. The latches engage automatically as the system is pushed into the rack and are released by pulling up on the latches.
+3. To secure the system for shipment in the rack or for other unstable environments, locate the hard-mount screw under each latch and tighten each screw with a #2 Phillips screwdriver.
+
+![Engage and release slam latch](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+
+### Route the cables
+
+> [!NOTE]
+>  If you did not order the optional Cable Management Arm (CMA), use the two hook and loop straps provided in the rail kit to route the cables at the back of your system.
+
+1. Locate the outer CMA brackets on the interior sides of both rack flanges.
+2. Bundle the cables gently, pulling them clear of the system connectors to the left and right sides.
+3. Thread the hook and loop straps through the tooled slots on the outer CMA brackets on each side of the system to secure the cable bundles.
+
+
+![Route the cables](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## Cable the device
 
