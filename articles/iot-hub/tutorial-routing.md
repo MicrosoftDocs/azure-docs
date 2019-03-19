@@ -35,18 +35,12 @@ subscriptionID=$(az account show --query id)
 # This retrieves a random value.
 randomValue=$RANDOM
 
-# This command installs the IOT Extension for Azure CLI.
-# You only need to install this the first time.
-# You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
-
 # Set the values for the resource names that 
 #   don't have to be globally unique.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
-iotDeviceName=Contoso-Test-Device
 
 # Create the resource group to be used
 #   for all the resources for this tutorial.
@@ -114,14 +108,6 @@ az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNamespace \
     --resource-group $resourceGroup
 
-# Create the IoT device identity to be used for testing.
-az iot hub device-identity create --device-id $iotDeviceName \
-    --hub-name $iotHubName
-
-# Retrieve the information about the device identity, then copy the primary key to
-#   Notepad. You need this to run the device simulation during the testing phase.
-az iot hub device-identity show --device-id $iotDeviceName \
-    --hub-name $iotHubName
 ```
 
 Now that the base resources are set up, add the configuration for the message routing. 
