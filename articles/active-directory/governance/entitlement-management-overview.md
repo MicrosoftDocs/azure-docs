@@ -131,16 +131,16 @@ Managing access to resources for users applies both to users already in your dir
 
 There are several ways that you can configure entitlement management for your organization. However, if you are just getting started, it's helpful to understand the basic steps to make resources available to users.
 
-| # | Task |  | Portal | Who can perform |
-| ---: | --- | --- | --- | --- |
-| 1 | Create a catalog |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) |  ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog creator |
-| 2 | Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
-| 3 | Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
-| 4 | Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 5 | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 6 | Request access |  | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
-| 7 | Approve access request |  | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | Approver |
-| 8 | Use resources in access package |  |  | User |
+| # | Step | Example | Who can perform |
+| ---: | --- | --- | --- |
+| 1 | Create a catalog<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
+| 2 | Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
+| 3 | Create an access package in catalog<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
+| 4 | Add resource roles to access package<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 5 | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 6 | Request access<br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) |  | User |
+| 7 | Approve access request<br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) |  | Approver |
+| 8 | Use resources in access package |  | User |
 
 ## Prerequisite roles
 
