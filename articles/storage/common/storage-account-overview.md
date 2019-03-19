@@ -3,17 +3,16 @@ title: Azure storage account overview | Microsoft Docs
 description: Understand options for creating and using an Azure Storage account.
 services: storage
 author: tamram
-
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/22/2019
 ms.author: tamram
 ms.subservice: common
 ---
 
 # Azure storage account overview
 
-An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. Data in your Azure storage account is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS. 
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. Data in your Azure storage account is durable and highly available, secure, massively scalable, and accessible from anywhere in the world over HTTP or HTTPS.
 
 To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
 
@@ -48,17 +47,21 @@ General-purpose v1 accounts provide access to all Azure Storage services, but ma
 - Queues
 - Tables
 
-While general-purpose v2 accounts are recommended in most cases, general-purpose v1 accounts are best suited to these scenarios: 
+While general-purpose v2 accounts are recommended in most cases, general-purpose v1 accounts are best suited to these scenarios:
 
-* Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
+- Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
-* Your applications are transaction-intensive or use significant geo-replication bandwidth, but do not require large capacity. In this case, general-purpose v1 may be the most economical choice.
+- Your applications are transaction-intensive or use significant geo-replication bandwidth, but do not require large capacity. In this case, general-purpose v1 may be the most economical choice.
 
-* You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
 ### Block blob storage accounts
 
-A block blob storage account is a specialized storage account for storing unstructured object data as block blobs or append blobs. Block blob storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
+A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. Block blob storage accounts support storing block blobs and append blobs, but not page blobs, tables or queues.
+
+Block blob storage accounts provide low and consistent latency, and higher throughput and transaction rates than general-purpose v2 and blob storage accounts. Block blob storage accounts provide the same durability, availability, and scalability features that are available with general-purpose v2 and blob storage accounts.
+
+Block blob storage accounts do not currently support tiering to hot, cool, or archive access tiers. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
 ## Naming storage accounts
 
@@ -71,8 +74,10 @@ When naming your storage account, keep these rules in mind:
 
 General-purpose storage accounts may be configured for either of the following performance tiers:
 
-* A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
-* A premium performance tier for storing unmanaged virtual machine disks only.
+- A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
+- A premium performance tier for storing unmanaged virtual machine disks only.
+
+Block blob storage accounts provide a premium performance tier for storing block blobs and append blobs.
 
 ## Access tiers for block blob data
 
@@ -80,20 +85,14 @@ Azure Storage provides different options for accessing block blob data based on 
 
 The available access tiers are:
 
-> [!NOTE]
-> The [premium access tier (preview)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), which is optimized for performance sensitive applications, provides low and consistent latency with high throughput and transaction rates. The premium access tier is available only with Block Blob storage accounts (preview). For more information, see [Azure Premium Blob Storage public preview](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
+- The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is more cost-effective than Cool and Archive, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
+- The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
+- The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers.
 
-* The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
-* The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
-* The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers. 
-
-
-If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
-
-
 
 ## Replication
 
@@ -111,15 +110,15 @@ A storage account provides a unique namespace in Azure for your data. Every obje
 
 For example, if your general-purpose storage account is named *mystorageaccount*, then the default endpoints for that account are:
 
-* Blob storage: http://*mystorageaccount*.blob.core.windows.net
-* Table storage: http://*mystorageaccount*.table.core.windows.net
-* Queue storage: http://*mystorageaccount*.queue.core.windows.net
-* Azure Files: http://*mystorageaccount*.file.core.windows.net
+- Blob storage: `http://*mystorageaccount*.blob.core.windows.net`
+- Table storage: `http://*mystorageaccount*.table.core.windows.net`
+- Queue storage: `http://*mystorageaccount*.queue.core.windows.net`
+- Azure Files: `http://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
-> A Blob storage account exposes only the Blob service endpoint.
+> Block blob and blob storage accounts expose only the blob service endpoint.
 
-The URL for accessing an object in a storage account is constructed by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+The URL for accessing an object in a storage account is constructed by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: `http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*`.
 
 You can also configure your storage account to use a custom domain for blobs. For more information, see [Configure a custom domain name for your Azure Storage account](../blobs/storage-custom-domain-name.md).  
 
@@ -136,15 +135,15 @@ You can grant access to the data in your storage account using any of the follow
 - **Shared access signature:** Use a shared access signature to delegate access to resources in your storage account, if you are not using Azure AD authentication. A shared access signature is a token that encapsulates all of the information needed to authorize a request to Azure Storage on the URL. You can specify the storage resource, the permissions granted, and the interval over which the permissions are valid as part of the shared access signature. For more information, see [Using shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. 
+> Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
 >
 > Microsoft recommends using Azure AD authentication for your Azure Storage blob and queue applications when possible.
 
 ## Copying data into a storage account
 
-Microsoft provides utilities and libraries for importing your data from on-premises storage devices or third-party cloud storage providers. Which solution you use depends on the quantity of data you are transferring. 
+Microsoft provides utilities and libraries for importing your data from on-premises storage devices or third-party cloud storage providers. Which solution you use depends on the quantity of data you are transferring.
 
-When you upgrade to a general-purpose v2 account from a general-purpose v1 or Blob storage account, your data is automatically migrated. Microsoft recommends this pathway for upgrading your account. However, if you decide to move data from a general-purpose v1 account to a Blob storage account, then you'll need to migrate your data manually, using the tools and libraries described below. 
+When you upgrade to a general-purpose v2 account from a general-purpose v1 or Blob storage account, your data is automatically migrated. Microsoft recommends this pathway for upgrading your account. However, if you decide to move data from a general-purpose v1 account to a Blob storage account, then you'll need to migrate your data manually, using the tools and libraries described below.
 
 ### AzCopy
 
@@ -158,14 +157,14 @@ The Azure Storage data movement library for .NET is based on the core data movem
 
 You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
-For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/). 
+For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Azure Import/Export service
 
-If you have a large amount of data to import to your storage account, consider the Azure Import/Export service. The Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. 
+If you have a large amount of data to import to your storage account, consider the Azure Import/Export service. The Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter.
 
 The Import/Export service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. For more information, see [What is Azure Import/Export service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
@@ -175,5 +174,5 @@ The Import/Export service can also be used to transfer data from Azure Blob stor
 
 ## Next steps
 
-* To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
-* To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).
+- To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
+- To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).
