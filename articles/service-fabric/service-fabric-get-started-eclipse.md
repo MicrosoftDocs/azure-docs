@@ -38,7 +38,7 @@ Install Eclipse Neon or later from the [Eclipse site](https://www.eclipse.org). 
 -   To check for and install updates for Eclipse, go to **Help** > **Check for Updates**.
 
 Install the Service Fabric plug-in, in Eclipse, go to **Help** > **Install New Software**.
-1. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
+1. In the **Work with** box, enter https:\//dl.microsoft.com/eclipse.
 2. Click **Add**.
 
    ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]

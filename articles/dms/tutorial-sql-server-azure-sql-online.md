@@ -3,9 +3,9 @@ title: "Tutorial: Use Azure Database Migration Service to migrate online from SQ
 description: Learn to perform an online migration from SQL Server on-premises to a single database or pooled database in Azure SQL Database by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
