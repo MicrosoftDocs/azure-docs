@@ -123,3 +123,5 @@ Get started with SQL Server on Azure virtual machines:
 Get answers to commonly asked questions about SQL VMs:
 
 * [SQL Server on Azure Virtual Machines FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
+
+This is a test..do not approve
