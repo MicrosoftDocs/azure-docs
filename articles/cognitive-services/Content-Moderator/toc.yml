@@ -73,8 +73,6 @@
       items:
       - name: Using the .NET SDK
         items:
-        - name: Jobs - .NET
-          href: moderation-jobs-quickstart-dotnet.md
         - name: Reviews - .NET
           href: moderation-reviews-quickstart-dotnet.md
         - name: Video reviews - .NET
@@ -109,6 +107,8 @@
     items:
     - name: REST API
       href: try-review-api-job.md
+    - name: .NET SDK
+      href: moderation-jobs-quickstart-dotnet.md
   - name: Configure the Review tool
     href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
