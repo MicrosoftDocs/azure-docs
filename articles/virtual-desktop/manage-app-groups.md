@@ -38,7 +38,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 3. Run the following cmdlet to get a list of start menu apps on the host pool's virtual machine image. Write down the values for **FilePath**, **IconPath**, **IconIndex**, and other important information for the application you want to publish.
 
  ```powershell
- Get-RdsHostPoolAvailableApp <tenantname> <hostpoolname>
+ Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
  ```
 
 4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.

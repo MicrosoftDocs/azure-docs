@@ -28,8 +28,8 @@
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell
     href: create-host-pools-powershell.md
-  - name: Set up user profiles for a host pool
-    href: set-up-user-profile-container.md
+  - name: Set up a user profile share for a host pool
+    href: create-host-pools-user-profile.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
   - name: Identify issues with the diagnostics role service

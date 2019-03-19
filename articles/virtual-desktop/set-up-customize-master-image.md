@@ -227,7 +227,7 @@ Windows Virtual Desktop does not officially support Skype for Business and Teams
 
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [set up user profiles for a host pool](set-up-user-profile-container.md#configure-the-fslogix-profile-container).
+To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
 
 When configuring the file share registry key, use the file share you created in [Configure permissions for the file server](set-up-customize-master-image.md#configure-permissions-for-the-file-server) where you plan to store the profile containers. You can also test the functionality of the FSLogix container using this [quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
@@ -368,5 +368,5 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a host pool with an Azure Resource Manager template (Preview)](create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace (Preview)](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell (Preview)](create-host-pools-powershell.md)
-- [Set up user profiles for a host pool](set-up-user-profile-container.md)
+- [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
