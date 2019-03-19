@@ -17,7 +17,6 @@ Azure Application Gateway is updated on an ongoing basis. To stay up-to-date wit
 - Known issues
 - Bug fixes
 - Deprecated functionality
-- Plans for changes
 
 ## December 2018
 
