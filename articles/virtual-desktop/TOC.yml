@@ -32,7 +32,7 @@
     href: create-host-pools-user-profile.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
-  - name: Identify issues with the diagnostics role service
+  - name: Identify issues with the diagnostics feature
     href: diagnostics-role-service.md
   - name: Prepare and customize a master VHD image
     href: set-up-customize-master-image.md
