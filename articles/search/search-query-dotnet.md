@@ -12,16 +12,23 @@ ms.date: 03/20/2019
 ---
 # Quickstart: 3 - Query an Azure Search index in C#
 
-This article shows you how to query an index using C# and the [Azure Search .NET SDK](https://aka.ms/search-sdk).
+This article shows you how to query [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Searching documents in your index is accomplished by performing these tasks:
+
+> [!div class="checklist"]
+> * Create a `SearchIndexClient` object to connect to a search index with read-only rights.
+> * Create a `SearchParameters` object containing the search or filter definition.
+> * Call the `Documents.Search` method on `SearchIndexClient` to send queries to an index.
 
 ## Prerequisites
 
-[Load an Azure Search index](search-import-data-dotnet.md) and a `SearchServiceClient` object, as shown in ["Create a client"](search-create-index-dotnet.md#CreateSearchServiceClient).
+[Load an Azure Search index](search-import-data-dotnet.md) with the hotels sample data.
 
 Obtain a query key used for read-only access to documents. Until now, you have used an admin API key so that you can create objects and content on a search service. But for query support in apps, we strongly recommend using a query key. For instructions, see [Create a query key](search-security-api-keys.md#create-query-keys).
 
 ## Create an instance of the SearchIndexClient class
-As with previous lessons, create an instance of the `SearchIndexClient` class. This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
+Create an instance of the `SearchIndexClient` class so that you can give it a query key for read-only access (as opposed to the write-access rights conferred upon the `SearchServiceClient` used in the previous lesson).
+
+This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
 The code below creates a new `SearchIndexClient` for the "hotels" index using values for the search service name and api-key that are stored in the application's config file (`appsettings.json` in the case of the [sample application](https://aka.ms/search-dotnet-howto)):
 

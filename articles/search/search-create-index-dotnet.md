@@ -20,10 +20,16 @@ ms.date: 03/20/2019
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using C# and the [Azure Search .NET SDK](https://aka.ms/search-sdk).
+This article walks you through the process of creating, loading, and querying [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Creating an index is accomplished by performing these tasks:
+
+> [!div class="checklist"]
+> * Create a `SearchServiceClient` object to connect to a search service.
+> * Create an `Index` object to pass as a parameter on `Indexes.Create`.
+> * Call the `Indexes.Create` method on `SearchServiceClient` to send the `Index` to aservice.
+
 
 > [!NOTE]
-> Source code is on [GitHub](https://aka.ms/search-dotnet-howto). For deeper coverage of sample code, see [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md).
+> Source code is on [GitHub](https://aka.ms/search-dotnet-howto). For more indepth descriptions of sample code, see [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md).
 
 ## Prerequisites
 

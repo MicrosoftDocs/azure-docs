@@ -13,35 +13,36 @@ ms.date: 03/20/2019
 ---
 # Quickstart: 2 - Load data to an Azure Search index using C#
 
-This article shows you how to import data into an Azure Search index using C# and the [Azure Search .NET SDK](https://aka.ms/search-sdk). Pushing documents into your index is accomplished by performing these tasks:
+This article shows you how to import data into [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Pushing documents into your index is accomplished by performing these tasks:
 
 > [!div class="checklist"]
-> * Create a `SearchIndexClient` object to connect to your search index.
-> * Create an `IndexBatch` containing the documents to be added, modified, or deleted.
-> * Call the `Documents.Index` method of your `SearchIndexClient` to send the `IndexBatch` to your search index.
+> * Create a `SearchIndexClient` object to connect to a search index.
+> * Create an `IndexBatch` object containing the documents to be added, modified, or deleted.
+> * Call the `Documents.Index` method on `SearchIndexClient` to upload documents to an index.
 
 ## Prerequisites
 
 [Create an Azure Search index](search-create-index-dotnet.md) and a `SearchServiceClient` object, as shown in ["Create a client"](search-create-index-dotnet.md#CreateSearchServiceClient).
 
 
-
 ## Create an instance of the SearchIndexClient class
-To import data into your index using the Azure Search .NET SDK, you will need to create an instance of the `SearchIndexClient` class. You can construct this instance yourself, but it's easier if you already have a `SearchServiceClient` instance to call its `Indexes.GetClient` method. For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
+To import data into your index using the Azure Search .NET SDK, create an instance of the `SearchIndexClient` class.
+
+You can construct this instance yourself, but it's easier if you already have a `SearchServiceClient` instance to call its `Indexes.GetClient` method. For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> In a typical search application, index management and population is handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing another `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and will help to make your application more secure. You can find out more about admin keys and query keys in the [Azure Search REST API reference](https://docs.microsoft.com/rest/api/searchservice/).
+> In a typical search application, index management and population is handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing another `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and will help to make your application more secure. You can find out more about admin keys and query keys in the [Create and manage api-keys for an Azure Search service](search-security-api-keys.md).
 > 
 > 
 
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to add, modify, delete, or query documents in your index.
 
 ## Decide which indexing action to use
-To import data using the .NET SDK, you will need to package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document (upload, merge, delete, etc). Depending on which of the below actions you choose, only certain fields must be included for each document:
+To import data using the .NET SDK, you will need to package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document (upload, merge, delete, and uploadOrMerge). Depending on which of the below actions you choose, only certain fields must be included for each document:
 
 | Action | Description | Necessary fields for each document | Notes |
 | --- | --- | --- | --- |
@@ -193,14 +194,14 @@ public partial class Hotel
 }
 ```
 
-The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
+Each public property of `Hotel` corresponds to a field in the index definition, with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
 
 > [!NOTE]
 > The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. You can find more details in [Custom Serialization with JSON.NET](search-howto-dotnet-sdk.md#JsonDotNet). One example of this is the use of the `[JsonProperty]` attribute on the `DescriptionFr` property in the sample code above.
 > 
 > 
 
-The second important thing about the `Hotel` class are the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `DataType.String`. There are similar type mappings between `bool?` and `DataType.Boolean`, `DateTimeOffset?` and `DataType.DateTimeOffset`, and so forth. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get).
+A second noteworthy aspect of the `Hotel` class are the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `DataType.String`. There are similar type mappings between `bool?` and `DataType.Boolean`, `DateTimeOffset?` and `DataType.DateTimeOffset`, and so forth. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get).
 
 This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as shown in the [next article](search-query-dotnet.md).
 

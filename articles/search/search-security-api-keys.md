@@ -60,6 +60,9 @@ Query keys are used for read-only access to documents within an index. Restricti
    ![Create or use a query key](media/search-security-overview/create-query-key.png) 
 
 
+> [!Note]
+> A code example showing query key usage can be found in [Query an Azure Search index in C#](search-query-dotnet.md).
+
 ## Regenerate admin keys
 
 Two admin keys are created for each service so that you can rollover a primary key, using the secondary key for continued access.
