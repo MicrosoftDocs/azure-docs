@@ -4,7 +4,7 @@ description: How Universal Windows Platform applications (UWP) can call an API t
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

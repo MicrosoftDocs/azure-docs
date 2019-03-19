@@ -4,7 +4,7 @@ description: Learn how a .NET Core process can get an access token and call an A
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06

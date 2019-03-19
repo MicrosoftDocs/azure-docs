@@ -4,7 +4,7 @@ description: Learn how JavaScript applications can call an API that require acce
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
