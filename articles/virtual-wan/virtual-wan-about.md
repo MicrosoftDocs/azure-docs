@@ -17,13 +17,25 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 Azure Virtual WAN brings together many Azure cloud connectivity services such as Site-to-Site VPN (generally available), ExpressRoute (Preview), Point-to-Site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established using Virtual Network connections.
 
-![Virtual WAN diagram](./media/virtual-wan-about/vwan.png)
+![Virtual WAN diagram](./media/virtual-wan-about/vwan1.png)
 
 This article provides a quick view into the network connectivity in Azure Virtual WAN. Virtual WAN offers the following advantages:
 
 * **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site configuration and connectivity between on-premises sites and an Azure hub.
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
+
+## <a name="partner-region"></a>Partners and locations
+
+For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+
+### <a name="partner"></a>Partners
+
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+### <a name="locations"></a>Locations
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="s2s"></a>Site-to-site connections
 
@@ -66,18 +78,6 @@ To configure an end-to-end virtual WAN, you create the following resources:
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network. At this time, you can only connect to virtual networks that are within the same hub region.
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
-
-## <a name="partner-region"></a>Partners and locations
-
-For more information, see [Virtual WAN partners and locations](virtual-wan-locations-partners.md).
-
-### <a name="partner"></a>Partners
-
-[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
-
-### <a name="locations"></a>Locations
-
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
 
 ## <a name="faq"></a>FAQ
 
