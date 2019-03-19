@@ -34,7 +34,7 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 
 There are three alternative sampling methods:
 
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app. This is the default sampling in ASP.NET Web SDK v 2.0.0-beta3 and Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1.  Adaptive sampling is currently only available for ASP.NET server-side telemetry.
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app. This is the default sampling from ASP.NET Web SDK v 2.0.0-beta3 onwards and Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 onwards.  Adaptive sampling is currently only available for ASP.NET server-side telemetry.
 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET or ASP.NET Core or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 
@@ -56,7 +56,7 @@ Metric counts such as request rate and exception rate are adjusted to compensate
 
 ## Configuring adaptive sampling for ASP.NET Applications
 
-[Learn](../../azure-monitor/app/sampling.md#aspnet-core-sampling) about configuring adaptive sampling for For ASP.NET Core Applications. 
+[Learn](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) about configuring adaptive sampling for For ASP.NET Core Applications. 
 
 In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
@@ -266,9 +266,9 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     {
     // ...
 
-    var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-    aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetry(aiOptions);
+        var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+        aiOptions.EnableAdaptiveSampling = false;
+        services.AddApplicationInsightsTelemetry(aiOptions);
     //...
     }
     ```
