@@ -3,7 +3,7 @@ title: Azure Security Center frequently asked questions (FAQ) | Microsoft Docs
 description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
-author: yoavfrancis
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
-ms.author: yoavfrancis
+ms.author: monhaber
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
