@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/17/2019
+ms.date: 03/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -107,6 +107,19 @@ To use Azure AD entitlement management (Preview), you must have one of the follo
 
 For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
 
+## Basic steps
+
+| # |  | Task | Portal | Who can perform |
+| ---: | --- | --- | --- | --- |
+| 1 | ![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | Create a catalog | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog creator |
+| 2 | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | Add resources to catalog | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
+| 3 | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | Create an access package in catalog | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
+| 4 | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | Add resource roles to access package | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 5 | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 6 |  | Request access | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
+| 7 |  | Approve access request | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | Approver |
+| 8 |  | Use resources in access package |  | User |
+
 ## Approval process
 
 A user that needs access to an access package must submit a request. Depending on the configuration of the policy, the access package might require an approval process. When a user submits an access request, their request is in the **submitted** state. This triggers the approval process, and moves the request to the **pending approval** state.
@@ -124,7 +137,7 @@ If the access request is denied, the user gets notified of the deny decision. Th
 To perform tasks in Azure AD entitlement management, you must have the appropriate permissions. The following table lists the minimum roles you must have to perform certain tasks.
 
 | Task | User admin | Catalog creator | Catalog owner | Access package manager |
-| --- | :---: | :---: | :---: | :---: | :---: |
+| --- | :---: | :---: | :---: | :---: |
 | Create a catalog | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | Edit/delete a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | Add additional catalog owners | :heavy_check_mark: |  | :heavy_check_mark: |  |
