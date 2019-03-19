@@ -59,7 +59,7 @@ First, make sure you have the appropriate licenses for your users based on the d
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
-* An [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/)
+* An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
 * A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through:
   * Azure AD Connect
   * Azure AD Domain Services
@@ -67,7 +67,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](https://docs.microsoft.com/en-us/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) or [Hybrid AD-joined](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients) or [Hybrid AD-joined](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Virtual machines can't be Azure AD-joined.
 * Running one of the following supported OS images:
   * Windows 10 Enterprise multi-session
   * Windows Server 2016
