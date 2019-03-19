@@ -93,7 +93,7 @@ The following procedure gives you the detailed steps:
     
     ![Classroom lab dashboard](../media/how-to-enable-multi-vm-environment/dashboard.png)
 
+
 ## Next steps
 
 Now, each user gets a single virtual machine that includes a multi-VM environment within it. To learn how to add users to the lab and send registration link to them, see the following article: [Add users to the lab](tutorial-setup-classroom-lab.md#add-users-to-the-lab).
-- 
