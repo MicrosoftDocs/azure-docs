@@ -38,7 +38,7 @@
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
-  - name: Mount or unmount a volume for virtual machines
+  - name: Mount or unmount a volume for Windows or Linux virtual machines
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md
