@@ -8,7 +8,7 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/18/2019
 ---
 
 # Test logic apps with mock data by setting up static results
@@ -83,11 +83,9 @@ static results, follow these steps:
 
    ![Icon showing enabled static results](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   After your logic app runs, in your logic app's run history, 
-   the **Static Results** column shows whether a specific run 
-   includes actions that have static results enabled, for example:
-
-   ![Run history - static results column](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   To find previous runs that use mock data, 
+   see [Find runs that use static results](#find-runs-mock-data) 
+   later in this topic.
 
 <a name="reuse-sample-outputs"></a>
 
@@ -100,7 +98,7 @@ paste the outputs from that run.
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic Apps Designer.
 
-1. On your logic app's main menu, select **Overview**. 
+1. On your logic app's main menu, select **Overview**.
 
 1. In the **Runs history** section, 
 select the logic app run you want.
@@ -136,6 +134,33 @@ box for your action in [Set up static results](#set-up-static-results).
 1. When you're finished, choose **Done**. Or, to return 
 to the designer, choose **Switch Editor Mode** 
 (![Choose "Switch Editor Mode"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+
+<a name="find-runs-mock-data"></a>
+
+## Find runs that use static results
+
+Your logic app's runs history identifies the runs where 
+the actions use static results. To find these runs, 
+follow these steps:
+
+1. On your logic app's main menu, select **Overview**. 
+
+1. In the right pane, under **Runs history**, 
+find the **Static Results** column. 
+
+   Any run that includes actions with results has 
+   the **Static Results** column set to **Enabled**, 
+   for example:
+
+   ![Run history - static results column](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
+1. To view actions that use static results, select the run you want 
+where the **Static Results** column is set to **Enabled**.
+
+   Actions that use static results show the test beaker 
+   (![Icon for static results](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) icon, for example:
+
+   ![Run history - actions that use static results](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
 ## Disable static results
 

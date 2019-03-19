@@ -85,7 +85,7 @@ If you use two-step verification with your work or school account and your Offic
 
 1. Sign in to your work or school account.
 
-2. Go to https://portal.office.com, select the **Settings** icon from the upper right of the **Office 365 portal** page, and then expand **Additional security verification**.
+2. Go to [https://portal.office.com](https://portal.office.com), select the **Settings** icon from the upper right of the **Office 365 portal** page, and then expand **Additional security verification**.
 
     ![Office portal showing expanded additional security verification area](media/security-info/security-info-o365password.png)
 
@@ -101,7 +101,7 @@ If you use two-step verification with your work or school account and your Offic
 
 1. Sign in to your work or school account.
 
-2. Go to https://portal.office.com, select the **Settings** icon from the upper right of the **Office 365 portal** page, and then select **Additional security verification**.
+2. Go to [https://portal.office.com](https://portal.office.com), select the **Settings** icon from the upper right of the **Office 365 portal** page, and then select **Additional security verification**.
 
 3. Select the text that says, **Create and manage app passwords** to open the **app passwords** page.
 
