@@ -51,7 +51,7 @@ In this tutorial, you'll learn how to:
 
 The resource directory has one or more resources to share. In this step, you create a group named **Test** that is the target resource for entitlement management. You create a second group for users in the directory who can request access packages. You also set up two additional users, the approver and internal requester.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator
+**Prerequisite role:** User administrator
 
 ![Create users and groups](./media/entitlement-management-get-started/elm-users-groups.png)
 
@@ -91,7 +91,7 @@ Entitlement management uses Azure AD business-to-business (B2B) to allow a user 
 
 This step is optional. If you want to only use entitlement management for users already in your directory, you can skip to the next step.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator
+**Prerequisite role:** User administrator
 
 ![Create guest user](./media/entitlement-management-get-started/elm-guest-user.png)
 
@@ -107,7 +107,7 @@ This step is optional. If you want to only use entitlement management for users 
 
 In this step, you create a catalog and add the Test group as a resource. A catalog is a container of related resources and access packages.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog creator
+**Prerequisite role:** User administrator or Catalog creator
 
 ![Create an access package](./media/entitlement-management-get-started/elm-catalog.png)
 
@@ -149,7 +149,7 @@ In this step, you create a catalog and add the Test group as a resource. A catal
 
 In this step, you create an access package and one policy for that access package. This policy allows users who are already in the resource directory to request access.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator or Catalog owner
+**Prerequisite role:** User administrator or Catalog owner
 
 ![Create an access package](./media/entitlement-management-get-started/elm-access-package.png)
 
@@ -199,7 +199,7 @@ In this step, you create an access package and one policy for that access packag
 
 In this step, you perform the steps as the internal requester user and request access to the access package.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User
+**Prerequisite role:** User
 
 1. Sign out of the Azure portal.
 
@@ -227,7 +227,7 @@ In this step, you perform the steps as the internal requester user and request a
 
 In this step, you sign in as the approver user and approve the access request for an internal requester user.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): Approver
+**Prerequisite role:** Approver
 
 1. Sign out of the My Access portal.
 
@@ -245,7 +245,7 @@ In this step, you sign in as the approver user and approve the access request fo
 
 ## Step 7: Validate that access has been assigned
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
 1. Sign out of the My Access portal.
 
@@ -263,7 +263,7 @@ In this step, you sign in as the approver user and approve the access request fo
 
 In this step, you add an additional policy for users who are not yet in the resource directory to request access.
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
 ![Create guest policy](./media/entitlement-management-get-started/elm-guest-policy.png)
 
@@ -287,7 +287,7 @@ In this step, you add an additional policy for users who are not yet in the reso
 
 ## Step 13: Clean up resources
 
-[Prerequisite role](entitlement-management-overview.md#prerequisite-roles): User administrator
+**Prerequisite role:** User administrator
 
 1. In entitlement management, open **First catalog** and delete **First access package**.
 
