@@ -59,7 +59,7 @@ Before you follow the steps in this section, note the following information:
     ![Enable replication Select virtual machines window](./media/vmware-azure-enable-replication/enable-replication5.png)
 
 1. For **Properties** > **Configure properties**, select the account that the process server used to automatically install the Site Recovery Mobility service on the virtual machine. Also, choose the type of target managed disk to replicate to based on your data churn patterns.
-10. By default, all the disks of a source virtual machine are replicated. To exclude disks from replication, clear the **Include** checkbox for any disks that you don't want to replicate. Then select **OK**. You can set additional properties later. Learn more about [excluding disks](vmware-azure-exclude-disk.md).
+10. By default, all the disks of a source virtual machine are replicated. To exclude disks from replication, clear the **Include** chec kbox for any disks that you don't want to replicate. Then select **OK**. You can set additional properties later. Learn more about [excluding disks](vmware-azure-exclude-disk.md).
 
     ![Enable replication configure properties window](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -68,7 +68,7 @@ Before you follow the steps in this section, note the following information:
 
     > [!NOTE]
     >    * Virtual machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
-    >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Do this only if the virtual machines are running the same workload, and you need consistency.
+    >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can affect workload performance. Do this only if the virtual machines are running the same workload, and you need consistency.
 
     ![Enable replication window](./media/vmware-azure-enable-replication/enable-replication7.png)
     
