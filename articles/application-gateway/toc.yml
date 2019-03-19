@@ -95,9 +95,9 @@
       href: create-ssl-portal.md
     - name: SSL termination - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: End to end SSL - Portal
+    - name: End-to-end SSL - Portal
       href: end-to-end-ssl-portal.md      
-    - name: End to end SSL - PowerShell
+    - name: End-to-end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
     - name: Renew certificates
       href: renew-certificates.md

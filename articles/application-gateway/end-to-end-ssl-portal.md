@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Configure end to end SSL encryption with Azure Application Gateway - Azure portal | Microsoft Docs
-description: Learn how to use the Azure portal to create an Azure Application Gateway with end to end SSL encryption.
+title: Quickstart - Configure end-to-end SSL encryption with Azure Application Gateway - Azure portal | Microsoft Docs
+description: Learn how to use the Azure portal to create an Azure Application Gateway with end-to-end SSL encryption.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -9,12 +9,12 @@ ms.date: 3/19/2019
 ms.author: absha
 ms.custom: mvc
 ---
-# Configure end to end SSL by using Application Gateway with Portal
+# Configure end-to-end SSL by using Application Gateway with the portal
 
-This article shows you how to use the Azure portal to configure end to end SSL encryption with an application gateway v1 SKU.  
+This article shows you how to use the Azure portal to configure end-to-end SSL encryption with an application gateway v1 SKU.  
 
 > [!NOTE]
-> Application Gateway v2 SKU requires trusted root certificates for enabling end to end configuration. Portal support for adding trusted root certificates is not available yet. Therefore, in case of V2 SKU see [configure end to end SSL using PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Application Gateway v2 SKU requires trusted root certificates for enabling end-to-end configuration. Portal support for adding trusted root certificates is not available yet. Therefore, in case of V2 SKU see [configure end-to-end SSL using PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -22,11 +22,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To configure end-to-end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the back-end servers. The gateway certificate is used to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. For end-to-end SSL encryption, the back end must be whitelisted with the application gateway. To do this, upload the public certificate of the back-end servers, also known as authentication certificates, to the application gateway. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
 
-To learn more, see [SSL termination and end to end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+To learn more, see [SSL termination and end-to-end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
-## Create a new application gateway with end to end SSL
+## Create a new application gateway with end-to-end SSL
 
-To create a new application gateway with end to end SSL encryption, you will need to first enable SSL termination while creating a new application gateway. This will enable SSL encryption for the communication between the client and application gateway. Then, you will need to whitelist certificates for backend servers in the HTTP settings to enable SSL encryption for the communication between the application gateway and backend servers, thus accomplishing end to end SSL encryption.
+To create a new application gateway with end-to-end SSL encryption, you will need to first enable SSL termination while creating a new application gateway. This will enable SSL encryption for the communication between the client and application gateway. Then, you will need to whitelist certificates for backend servers in the HTTP settings to enable SSL encryption for the communication between the application gateway and backend servers, thus accomplishing end-to-end SSL encryption.
 
 ### Enable SSL termination while creating a new application gateway
 
@@ -53,9 +53,9 @@ Refer to this article to understand how to [enable SSL termination while creatin
 
 8. Select **Save**.
 
-## Enable end to end SSL for existing application gateway
+## Enable end-to-end SSL for existing application gateway
 
-To configure an existing application gateway with end to end SSL encryption, you will need to first enable SSL termination in the listener. This will enable SSL encryption for the communication between the client and application gateway. Then, you will need to whitelist certificates for backend servers in the HTTP settings to enable SSL encryption for the communication between the application gateway and backend servers, thus accomplishing end to end SSL encryption.
+To configure an existing application gateway with end-to-end SSL encryption, you will need to first enable SSL termination in the listener. This will enable SSL encryption for the communication between the client and application gateway. Then, you will need to whitelist certificates for backend servers in the HTTP settings to enable SSL encryption for the communication between the application gateway and backend servers, thus accomplishing end-to-end SSL encryption.
 
 You will need to use a listener with HTTPS protocol and certificate for enabling SSL termination. You cannot change the protocol of an existing listener. Therefore, you can either choose to use an existing listener with HTTPS protocol and certificate, or create a new listener. In case you choose the former, you can ignore the below mentioned steps to **Enable SSL termination in existing application gateway** and directly move to **Whitelist certificates for backend servers** section. If you choose the latter, perform these steps. 
 
