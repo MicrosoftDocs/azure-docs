@@ -10,11 +10,11 @@ ms.service: healthcare-apis
 ---
 # Configure Cross-Origin Resource Sharing
 
-Azure API for FHIR supports [Cross Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) that allows you to configure settings so that application from one domain (Origin) can access resource  with a different domain (a cross-domain request).
+Azure API for FHIR supports [Cross Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) that allows you to configure settings so that application from one domain (origin) can access resource  with a different domain (a cross-domain request).
 
-CORS is mostly used in single page app that needs to call RESTful API call to another domain.
+CORS is mostly used in single page app that needs to call RESTful API call to a different domain.
 
-To configure CORS setting in Azure API for FHIR, navigate to CORS setting in Service setting. 
+To configure CORS setting in Azure API for FHIR, navigate to CORS setting. 
 
 Here you can specify following settings:
 
