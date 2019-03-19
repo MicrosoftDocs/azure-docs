@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.author: jeedes
 
 ---
@@ -97,20 +97,24 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-    ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
+	a. Click **Upload metadata file**.
 
-	a. In the **Identifier** text box, type a URL:
-    `fed.appreciatehub.com`
+    ![Upload metadata file](common/upload-metadata.png)
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<companyname>.octanner.net/sp/ACS.saml2`
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [O.C. Tanner - AppreciateHub Client support team](mailto:sso@octanner.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	![choose metadata file](common/browse-upload-metadata.png)
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** value gets auto populated in Basic SAML Configuration section.
+
+	 ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
+
+	> [!Note]
+	> If the **Identifier** and **Reply URL** value does not get auto polulated, then please fill in the value manually according to your requirement. Contact [O.C. Tanner - AppreciateHub Client support team](mailto:sso@octanner.com) to get these value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
