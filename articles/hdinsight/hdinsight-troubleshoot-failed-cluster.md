@@ -182,13 +182,13 @@ At the YARN level, there are two types of timeouts:
 
     * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN ResourceManager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
 
-    * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.
+    * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.  
 
 To diagnose these issues:
 
-    1. Determine the UTC time range to troubleshoot
-    2. Select the appropriate `webhcat.log` file(s)
-    3. Look for WARN and ERROR messages during that time
+1. Determine the UTC time range to troubleshoot
+2. Select the appropriate `webhcat.log` file(s)
+3. Look for WARN and ERROR messages during that time
 
 #### Other WebHCat failures
 
