@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/18/2019
+ms.date: 03/18/2019
 ms.author: victorh
 
 ---
@@ -39,7 +39,7 @@ With this capability, customers specify the options in the HTTP settings and cus
 
 Both SSL termination and end to end SSL encryption is supported with multi-tenant services. For SSL termination at the application gateway, SSL certificate continues to be required to be added to the application gateway listener. However, in case of end to end SSL, trusted Azure services such as Azure App service web apps do not require whitelisting the backends in the application gateway. Therefore, there is no need to add any authentication certificates. 
 
-![end  to end SSL](./media/application-gateway-web-app-overview/e2essl.png)
+![end  to end SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 
 Notice that in the above image, there is no requirement to add authentication certificates when App service is selected as backend.
 
