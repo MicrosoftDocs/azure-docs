@@ -9,7 +9,7 @@ ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 03/19/2019
 ms.author: bwren
 ---
 
@@ -27,32 +27,11 @@ Enabling observability across today's complex computing environments running dis
 
 | Pillar | Description |
 |:---|:---|
-| [Metrics](#metrics) | Numerical values that describe some aspect of a system at a particular point in time. |
-| [Logs](#logs) | Events that occurred within the system. |
-| [Distributed traces](#distributed-traces) | Series of related events that follow a user request through a distributed system. |
+| [Metrics](#metrics) | Numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. Because they're lightweight with consistent collection, metrics are particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues. |
+| [Logs](#logs) | Events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume. Logs typically provide enough information to provide complete context of the issue being identified and are valuable for identifying root case of issues. |
+| [Distributed traces](#distributed-traces) | Series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components. Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](../app/distributed-tracing.md), and trace data is stored with log data in an [Application Insights application](data-platform-logs.md#how-is-log-data-structured). |
 
 Complete observability cannot be achieved by focusing on a single observability pillar but rather by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores log and metric data from multiple sources together, the data can be correlated and analyzed using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
-
-### Metrics
-**Metrics** are numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. Because they're lightweight with consistent collection, metrics are particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
-
-In Azure Monitor, metrics are stored in a time-series database where they include multiple dimensions to associate them with a particular resource. You can analyze them interactively with [Metrics Explorer](../app/metrics-explorer.md). and them an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. They can be also be used for near-real time [alerting](alerts-metric.md).
-
- Read more about Azure Monitor metrics including the data sources that populate them in [Metrics in Azure Monitor](data-platform-metrics.md).
-
-### Logs
-**Logs** are events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume. Logs typically provide enough information to provide complete context of the issue being identified and are valuable for identifying root case of issues.
-
-Logs in Azure Monitor are based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/portals.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
-
-Read more about Azure Monitor logs including the data sources that populate them in [Logs in Azure Monitor](data-platform-logs.md).
-
-### Distributed Traces
-**Traces** are a series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.
-
-Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](../app/distributed-tracing.md), and trace data is stored with logs in an [Application Insights application](data-platform-logs.md#how-is-log-data-structured). This makes it available to the same analysis tools as other log data including log queries, dashboards, and alerts. 
-
-Read more about distributed tracing at [What is Distributed Tracing?](../app/distributed-tracing.md).
 
 
 ## Azure Monitor data types
@@ -61,7 +40,7 @@ All data collected by Azure Monitor is stored as either [metrics](#metrics) or [
 
 
 
-### Metrics
+### Azure Monitor metrics
 **Metrics** are numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and the resource that the value is associated with. Some metrics have additional dimensions to further describe the metric value. 
 
 Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
@@ -70,7 +49,7 @@ Metrics are available for interactive analysis in the Azure portal with [Metrics
 
  Read more about Azure Monitor metrics including their sources of data in [Metrics in Azure Monitor](data-platform-metrics.md).
 
-### Logs
+### Azure Monitor logs
 **Logs** contain different kinds of data organized into records with different sets of properties for each type. Logs can contain numeric values like metrics but typically contain text data with detailed descriptions. They further differ from metrics in that they vary in their structure and are often not collected at regular intervals. Logs are particularly useful for deep analysis of data and for identifying root cause of issues.
 
 Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/portals.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
