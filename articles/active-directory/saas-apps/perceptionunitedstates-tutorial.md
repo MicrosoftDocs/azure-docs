@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: jeedes
 
 ---
@@ -108,7 +108,15 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
     `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
 	> [!NOTE]
-	> The value is not real. You will update the value with the actual Reply URL, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. You will update the value with the actual Reply URL, which is explained later steps in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
+
+	d. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
+
+	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
+	
+	e. Paste the above value in the **Reply URL** textbox.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -122,15 +130,7 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
 
 	b. Azure AD Identifier
 
-	c. Logout URL
-
-	d. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value, which you have copied, to be uri encoded. To get the uri encoded value, use the following link:**http://www.url-encode-decode.com/**.
-
-	e. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
-
-	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
-	
-	f. Paste the above value in the **Reply URL** textbox in **Basic SAML Configuration** section.	
+	c. Logout URL	
 
 ### Configure Perception United States (Non-UltiPro) Single Sign-On
 
