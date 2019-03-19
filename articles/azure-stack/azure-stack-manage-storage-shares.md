@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
@@ -86,7 +86,7 @@ As a cloud operator, you can monitor the storage capacity of a share using the P
 As a cloud operator, you can use the admin portal to view the storage capacity of all shares.
 
 1. Sign in to the [admin portal](https://adminportal.local.azurestack.external).
-2. Select **All services** > **Storage** to open the file share list where you can view the usage information. 
+2. Select **All services** > **Storage** > **File shares** to open the file share list where you can view the usage information. 
 
     ![Example: Storage file shares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
