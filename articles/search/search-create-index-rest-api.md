@@ -30,11 +30,7 @@ This article walks you through the process of creating, loading, and querying an
 
 A URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-<<<<<<< Updated upstream
-  1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
-=======
-1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
->>>>>>> Stashed changes
+1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like https:\//my-service-name.search.windows.net.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
