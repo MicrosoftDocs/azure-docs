@@ -39,10 +39,10 @@ You can enable or disable LinkedIn integration for your entire tenant or for onl
 3. On the **Users** blade, select **User settings**.
 4. Under **LinkedIn account connections**:
 
-  * Select **Yes** to consent for all users in the organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
-  * Select **Selected** to consent for only selected users in the organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
-  * Select **No** to withdraw consent for users in your organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
-   ![Enabling LinkedIn integration in the organization](./media/linkedin-integration/linkedin-integration.png)
+   * Select **Yes** to consent for all users in the organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
+   * Select **Selected** to consent for only selected users in the organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
+   * Select **No** to withdraw consent for users in your organization to connect their accounts to get access to their LinkedIn contacts within some Microsoft apps.
+    ![Enabling LinkedIn integration in the organization](./media/linkedin-integration/linkedin-integration.png)
 5. Save your settings when you're done by selecting **Save**.
 
 ## Enable or disable LinkedIn integration for your users in Group Policy
