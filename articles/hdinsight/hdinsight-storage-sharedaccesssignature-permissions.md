@@ -159,7 +159,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
     Connect-AzureRmAccount
     ```
 
-    When prompted, log in with the account for your Azure subscription.
+    When prompted, sign in with the account for your Azure subscription.
 
     If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzureRmSubscription` to select the subscription you wish to use.
 
@@ -171,7 +171,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     As the script runs, it logs output to the PowerShell prompt as it creates the resource group and storage accounts. You are prompted to enter the HTTP user for the HDInsight cluster. This account is used to secure HTTP/s access to the cluster.
 
-    If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely log in to the cluster.
+    If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely sign in to the cluster.
 
    > [!IMPORTANT]  
    > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
@@ -215,13 +215,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 
 ## Test restricted access
 
-To verify that you have restricted access, use the following methods:
-
-* For **Windows-based** HDInsight clusters, use Remote Desktop to connect to the cluster. For more information, see [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Once connected, use the **Hadoop Command-Line** icon on the desktop to open a command prompt.
-
-* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+To verify that you have restricted access, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected to the cluster, use the following steps to verify that you can only read and list items on the SAS storage account:
 

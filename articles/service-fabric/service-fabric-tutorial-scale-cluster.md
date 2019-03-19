@@ -1,6 +1,6 @@
 ---
 title: Scale a Service Fabric cluster in Azure | Microsoft Docs
-description: In this tutorial, you learn how to quickly scale a Service Fabric cluster in Azure.
+description: In this tutorial, you learn how to scale a Service Fabric cluster in Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,13 +13,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/12/2019
+ms.date: 03/19/2019
 ms.author: ryanwi
 ms.custom: mvc
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
 
-This tutorial is part two of a series, and shows you how to scale your existing cluster to meet changing application workload or network traffic. When you've finished, you will know how to add/remove nodes, add/remove node types, and change the VM SKU of a node type.  For more information on scaling clusters, read [cluster scaling](service-fabric-cluster-scaling.md)
+This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
 In this tutorial, you learn how to:
 
@@ -31,6 +31,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure using a template
+> * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Scale a cluster in or out
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
