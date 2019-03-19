@@ -69,6 +69,8 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 ## <a name="partner-region"></a>Partners and locations
 
+For additional information about partners and locations, see [Virtual WAN partners and locations](virtual-wan-locations-partners.md).
+
 ### <a name="partner"></a>Partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
