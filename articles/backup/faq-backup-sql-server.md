@@ -49,9 +49,9 @@ Yes. You can throttle the rate at which the backup policy runs to minimize the i
 As per SQL limitations, you can run Copy Only Full backup on Secondary Replica; however Full backup is not allowed.
 
 ## Can I protect availability groups on-premises?
-The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.<br>
+The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.
 
-<br>However, if there’s a failover to the node in another region, and your backup preference requires to take backup from that node, it won’t happen as such.  
+However, if there’s a failover to the node in another region, and your backup preference requires to take backup from that node, it won’t happen as such.  
 
 ## Can I protect availability groups across regions?
 The Azure Backup Recovery Services vault can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always On availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference. When your backup preference isn't met, backups fail and you get the failure alert.
