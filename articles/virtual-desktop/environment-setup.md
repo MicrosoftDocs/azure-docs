@@ -59,5 +59,4 @@ To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
 - [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-- [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
 - [Connect to the Windows Virtual Desktop web client](connect-web.md)

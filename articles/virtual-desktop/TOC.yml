@@ -22,8 +22,6 @@
         href: connect-windows-7-and-10.md
       - name: Connect with the web client
         href: connect-web.md
-      - name: Connect with Microsoft Remote Desktop for macOS
-        href: connect-macOS.md
   - name: Create a host pool with an Azure Resource Manager template
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell

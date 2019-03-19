@@ -108,5 +108,4 @@ Here are the three credentials you should write down and the cmdlets you need to
 In this tutorial, you learned how to create a service principal and sign in to Windows Virtual Desktop with it. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
 - [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-- [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
 - [Connect to the Windows Virtual Desktop web client](connect-web.md)
