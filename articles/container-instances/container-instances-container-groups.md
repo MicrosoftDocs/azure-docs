@@ -11,7 +11,7 @@ ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: mvc
 
-
+---
 # Container groups in Azure Container Instances
 
 The top-level resource in Azure Container Instances is the *container group*. This article describes what container groups are and the types of scenarios they enable.
