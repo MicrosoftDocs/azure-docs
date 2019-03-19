@@ -42,7 +42,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
    ```
 
 4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
-   
+
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```

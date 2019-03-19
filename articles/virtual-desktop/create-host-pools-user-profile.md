@@ -50,7 +50,7 @@ For best practices on permissions, see the following [FSLogix documentation](htt
 To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to the following [link](https://support.fslogix.com/index.php/downloads/download/download/1fa77ff8107fda8df939321ca0bbb56190be43ddf3b0d4bdd4fb94900c1e9453) to download the FSLogix agent.
+2. Launch an internet browser and navigate to the following [link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent.
 3. Install the FSLogix agent.
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
 5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\Profiles**
