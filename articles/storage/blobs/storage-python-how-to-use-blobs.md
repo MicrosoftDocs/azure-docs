@@ -22,25 +22,29 @@ Enable a hierarchical namespace if you want to use the code snippets in this art
 
 ![Enabling a hierarchical namespace](media/storage-python-how-to-use-blobs/enable-hierarchical-namespace.png)
 
-## Install the Azure Storage Client Library for Python
+## Install Python and the Azure SDK for Python
 
-Put guidance here.
+See these resources:
 
-## Add library references to your code file
+* [Python](https://www.python.org/downloads/)
 
-Put these things in your file.
+* [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+
+## Add Python modules
+
+Add these import statements to your code file.
 
 ```python
-
+import os, uuid, sys
+from azure.storage.blob import BlockBlobService, PublicAccess
 ```
-
-## Get the connection string of your storage account
-
-Use same guidance as is presented in the related Java quickstart.
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Create a container and set permissions
 
-Some guidance goes here.
+First create an instance of the [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class by using the name of your storage account and the storage account key that you obtained the previous section.
+
+Then, create a container and set the permissions on that container.
 
 ```python
 def create_container(storage_account_name, storage_account_key):
@@ -55,6 +59,13 @@ def create_container(storage_account_name, storage_account_key):
     block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class.
+> * [BlockBlobService.set_container_acl](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#set-container-acl-container-name--signed-identifiers-none--public-access-none--lease-id-none--if-modified-since-none--if-unmodified-since-none--timeout-none-) method.
+> * [BlockBlobService.create_container](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#create-container-container-name--metadata-none--public-access-none--fail-on-exist-false--timeout-none-) method.
+
 ## Upload blobs to the container
 
 Some guidance goes here.
@@ -63,6 +74,12 @@ Some guidance goes here.
 def upload_blob(file_path, file_name):
     block_blob_service.create_blob_from_path(container_name, file_path, file_name)
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
 
 ## List blobs in the container
 
@@ -76,6 +93,12 @@ def list_blobs():
         print("\t Blob name: " + blob.name)
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
+
 ## Download blobs from the container
 
 Some guidance goes here.
@@ -84,6 +107,12 @@ Some guidance goes here.
 def download_blob(file_name, file_destination_path):
     block_blob_service.get_blob_to_path(container_name, local_file_name, file_destination_path)
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
 
 ## Delete blobs from the container
 
@@ -95,6 +124,12 @@ def delete_blob(file_name):
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
+
 ## Delete the container
 
 Some guidance goes here.
@@ -104,6 +139,12 @@ def delete_container():
     block_blob_service.delete_container(container_name)
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
+
 ## Add directories to the container
 
 This is only for accounts that have a hierarchical namespace.
@@ -111,6 +152,12 @@ This is only for accounts that have a hierarchical namespace.
 ```python
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
 
 ## Add files to directories in the container
 
@@ -120,6 +167,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
+
 ## Set Access Control Lists (ACL) permission on a directory
 
 This is only for accounts that have a hierarchical namespace.
@@ -127,6 +180,12 @@ This is only for accounts that have a hierarchical namespace.
 ```python
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
 
 ## Set Access Control Lists (ACL) permission on a file in a directory
 
@@ -136,6 +195,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
+
 ## Something here for append data and flush methods (scenario TBD)
 
 This is only for accounts that have a hierarchical namespace.
@@ -143,6 +208,12 @@ This is only for accounts that have a hierarchical namespace.
 ```python
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]().
+> * [Method]().
 
 ## Next steps
 

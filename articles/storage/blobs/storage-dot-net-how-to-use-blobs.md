@@ -20,7 +20,7 @@ To create a storage account, see [Create a storage account](../common/storage-qu
 
 Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
 
-![Enabling a hierarchical namespace](media/storage-dotnet-how-to-use-blobs/enable-hierarchical-namespace.png)
+![Enabling a hierarchical namespace](media/storage-dot-net-how-to-use-blobs/enable-hierarchical-namespace.png)
 
 ## Install the Azure Storage Client Library for .NET
 
