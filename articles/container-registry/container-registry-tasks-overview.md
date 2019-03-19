@@ -33,6 +33,8 @@ Before you commit your first line of code, ACR Tasks's [quick task](container-re
 
 Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a *context* (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
 
+For an introduction, see the quickstart to [build and run a container image](container-registry-quickstart-task-cli.md) in Azure Container Registry.  
+
 The following table shows a few examples of supported context locations for ACR Tasks:
 
 | Context location | Description | Example |
