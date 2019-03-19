@@ -14,33 +14,20 @@ ms.author: sajagtap
 
 ---
 
-# Quickstart: Create reviews using .NET
+# Quickstart: Create human reviews (.NET)
 
-This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
+Reviews store and display content for human moderators to assess. When a user completes a review, the results are sent to a specified callback endpoint. This guide provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
 - Create a set of reviews for human moderators
 - Get the status of existing reviews for human moderators
 
-Generally, content goes through some automated moderation before 
-being scheduled for human review. This article only covers how to create
-the review for human moderation. For a more complete scenario, see the 
-[Facebook content moderation](facebook-post-moderation.md) and
-[Moderate e-commerce product images](ecommerce-retail-catalog-moderation.md)
-tutorials.
+## Prerequisites
 
-This article assumes that you are already familiar with Visual Studio and C#.
-
-## Sign up for Content Moderator
-
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
-
-## Sign up for a review tool account if not completed in the previous step
-
-If you got your Content Moderator from the Azure portal, also [sign up for the review tool account](https://contentmoderator.cognitive.microsoft.com/) and create a review team. You need the team Id and the review tool to call the review API to start a Job and view the reviews in the review tool.
+- Sign in or create an account on the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com/) site.
 
 ## Ensure your API key can call the review API for review creation
 
-After completing the previous steps, you may end up with two Content Moderator keys if you started from the Azure portal. 
+After completing the previous steps, you may end up with two Content Moderator keys if you started from the Azure portal.
 
 If you plan to use the Azure-provided API key in your SDK sample, follow the steps mentioned in the [Using Azure key with the review API](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) section to allow your application to call the review API and create reviews.
 
@@ -550,3 +537,10 @@ You see a response like the following example:
 ## Next steps
 
 Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
+
+tbd
+
+For a more complete scenario, see the 
+[Facebook content moderation](facebook-post-moderation.md) and
+[Moderate e-commerce product images](ecommerce-retail-catalog-moderation.md)
+tutorials.
