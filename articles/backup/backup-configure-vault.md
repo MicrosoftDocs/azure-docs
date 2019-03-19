@@ -46,13 +46,21 @@ What you can back up depends on where the agent is installed.
 
 ### Verify internet access
 
-If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these URLs:
+If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these URLs and IP address:
+
+**URLs**
 
 - www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**IP address**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## Create a Recovery Services vault
 

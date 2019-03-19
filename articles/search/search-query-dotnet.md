@@ -1,9 +1,9 @@
 ---
 title: 'Query an index in code using the .NET SDK - Azure Search'
 description: C# code example for building a search query in Azure Search. Add search parameters to filter and sort search results.
-author: brjohnstmsft
-manager: jlembicz
-ms.author: brjohnst
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: dotnet

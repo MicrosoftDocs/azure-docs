@@ -31,16 +31,12 @@
       href: search-query-dotnet.md
 - name: Tutorials
   items:
-  - name: Learn cognitive search APIs
-    href: cognitive-search-tutorial-blob.md
-  - name: Index Azure blobs
-    href: search-semi-structured-data.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
-  - name: Add synonyms in .NET
-    href: search-synonyms-tutorial-sdk.md
-  - name: Add autocomplete in .NET
-    href: search-autocomplete-tutorial.md
+  - name: Index Azure blobs
+    href: search-semi-structured-data.md
+  - name: Index with AI (Cognitive Services)
+    href: cognitive-search-tutorial-blob.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -119,12 +115,18 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Add autosuggest
-      href: index-add-suggesters.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
-    - name: Add synonyms
-      href: search-synonyms.md
+    - name: Type-ahead
+      items:
+      - name: Add autosuggest
+        href: index-add-suggesters.md
+      - name: Autocomplete example
+        href: search-autocomplete-tutorial.md
+    - name: Synonyms
+      items:
+      - name: Add synonyms
+        href: search-synonyms.md
+      - name: Synonyms example
+        href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
@@ -211,6 +213,8 @@
       href: search-filters.md
     - name: Facet filters
       href: search-filters-facets.md
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
     - name: Filter and OrderBy expression syntax
       href: query-odata-filter-orderby-syntax.md
   - name: Relevance tuning
