@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
@@ -86,7 +86,7 @@ As a cloud operator, you can monitor the storage capacity of a share using the P
 As a cloud operator, you can use the admin portal to view the storage capacity of all shares.
 
 1. Sign in to the [admin portal](https://adminportal.local.azurestack.external).
-2. Select **All services** > **Storage** to open the file share list where you can view the usage information. 
+2. Select **All services** > **Storage** > **File shares** to open the file share list where you can view the usage information. 
 
     ![Example: Storage file shares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -173,20 +173,20 @@ Migration consolidates all a containers blob on the new share.
 
    ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job id to track the status of each.
+4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job ID to track the status of each.
 
    ```PowerShell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
-   Then examine $jobId. In the following example, replace *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* with the job id you want to examine:
+   Then examine $jobId. In the following example, replace *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* with the job ID you want to examine:
 
    ```PowerShell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
-5. Use the job id to check on the status of the migration job. When the container migration is complete, **MigrationStatus** is set to **Complete**.
+5. Use the job ID to check on the status of the migration job. When the container migration is complete, **MigrationStatus** is set to **Complete**.
 
    ```PowerShell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name

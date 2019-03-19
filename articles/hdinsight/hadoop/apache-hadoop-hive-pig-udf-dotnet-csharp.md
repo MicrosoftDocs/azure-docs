@@ -211,11 +211,7 @@ For more information on the version of the .NET framework and Mono included with
 
 ## Run an Apache Pig job
 
-1. Use one of the following methods to connect to your HDInsight cluster:
-
-    * If you are using a __Linux-based__ HDInsight cluster, use SSH. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. For more information, see [Use SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * If you are using a __Windows-based__ HDInsight cluster, [Connect to the cluster using Remote Desktop](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. Use SSH to connect to your HDInsight cluster. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. For more information, see [Use SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Use one the following command to start the Pig command line:
 

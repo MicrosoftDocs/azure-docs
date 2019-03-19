@@ -39,12 +39,26 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: How Application Gateway works
-    href: how-application-gateway-works.md
-  - name: Application Gateway components
-    href: application-gateway-components.md
-  - name: Configuration overview
-    href: configuration-overview.md    
+  - name: Basics
+    items:
+    - name: How Application Gateway works
+      href: how-application-gateway-works.md
+    - name: Application Gateway components
+      href: application-gateway-components.md
+    - name: Configuration overview
+      href: configuration-overview.md  
+  - name: Routing
+    items:
+    - name: Multiple site hosting
+      href: multiple-site-overview.md
+    - name: URL routing
+      href: url-route-overview.md
+    - name: Redirection
+      href: redirect-overview.md
+    - name: Rewrite HTTP headers
+      href: rewrite-http-headers.md
+    - name: Custom error pages
+      href: custom-error.md      
   - name: SSL
     items:
     - name: SSL policy overview
@@ -56,21 +70,17 @@
     - name: Web application firewall
       href: waf-overview.md
     - name: WAF configuration
-      href: application-gateway-waf-configuration.md 
-  - name: URL routing
-    href: url-route-overview.md
-  - name: Multiple site hosting
-    href: multiple-site-overview.md
+      href: application-gateway-waf-configuration.md
+  - name: Health monitoring
+    items: 
+    - name: Health probe
+      href: application-gateway-probe-overview.md
+    - name: Diagnostics
+      href: application-gateway-diagnostics.md 
   - name: Autoscaling and zone-redundancy
     href: application-gateway-autoscaling-zone-redundant.md
-  - name: Redirection support
-    href: redirect-overview.md
-  - name: Rewrite HTTP headers
-    href: rewrite-http-headers.md
   - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
-  - name: Health monitoring
-    href: application-gateway-probe-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
   - name: FAQ
@@ -95,7 +105,9 @@
       href: create-ssl-portal.md
     - name: SSL termination - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: End to end SSL - PowerShell
+    - name: End-to-end SSL - Portal
+      href: end-to-end-ssl-portal.md      
+    - name: End-to-end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
     - name: Renew certificates
       href: renew-certificates.md
@@ -179,10 +191,6 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md           
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
-      - name: Diagnostics
-        href: application-gateway-diagnostics.md
-  - name: Custom error pages
-    href: custom-error.md
 - name: Reference
   items:
   - name: CRS rules

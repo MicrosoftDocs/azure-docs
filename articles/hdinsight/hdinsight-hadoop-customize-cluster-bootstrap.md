@@ -127,7 +127,6 @@ You can use bootstrap in Resource Manager template:
 * [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md

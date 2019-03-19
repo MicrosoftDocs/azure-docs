@@ -290,7 +290,6 @@ If you are using Tez with Hive, see the following document: [Use the Apache Amba
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
