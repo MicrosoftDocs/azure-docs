@@ -10,7 +10,7 @@ ms.reviewer:
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/19/2019
 ms.author: jingwang
 
 ---
@@ -122,59 +122,67 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 ## Incremental copy from SAP BW Open Hub
 
 > [!TIP]
-> 
-> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF copy activity works to copy incremental data from SAP BW.
+>
+> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF SAP BW Open Hub connector works to copy incremental data from SAP BW, and read this article from the beginning to understand the basics of SAP BW Open Hub connector.
 
 Now, let's continue to configure incremental copy from SAP BW Open Hub. 
 
-The incremental copy is using high watermark mechanism based on request ID automatically generated in SAP BW Open Hub Destination by DTP. The workflow for this approach is depicted in the following diagram:
+The incremental copy is using high watermark mechanism based on **request ID** automatically generated in SAP BW Open Hub Destination by DTP. The workflow for this approach is depicted in the following diagram:
 
 ![Incremental copy workflow](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-On the ADF UI **Let's get started** page, select **Create pipeline**. 
+On the ADF UI **Let's get started** page, select **Create pipeline from template** to leverage the built-in template. 
 
-1. Drag three activities - **Lookup, Copy Data, and Web** - onto the canvas, and make them chained on-success. In this walkthrough, we will use Azure Blob to store the high watermark - max copied request ID. You can also use SQL database to store it, and use Stored Procedure activity instead of Web activity to update it.
+1. Search "SAP BW" to find and select the template named **Incremental copy from SAP BW to Azure Data Lake Storage Gen2**. This template copies data into ADLS Gen2, you can later follow the similar flow to copy to other sink types.
 
-   ![Incremental copy pipeline](media/load-sap-bw-data/incremental-copy-pipeline.png)
+2. On the template main page, select or create the following three connections, then select **Use this template** at the bottom right.
 
-2. Configure Lookup Activity:
+   - **Azure Blob**: in this walkthrough, we use Azure Blob to store the high watermark which is the max copied request ID.
+   - **SAP BW Open Hub**: your source to copy data from. Refer to the previous full copy walkthrough on detailed configurations.
+   - **ADLS Gen2**: your sink to copy data to. Refer to the previous full copy walkthrough on detailed configurations.
 
-   1. In Lookup activity **Settings** tab, check **First row only** option.
+   ![Incremental copy from SAP BW template](media\load-sap-bw-data\incremental-copy-from-sap-bw-template.png)
 
-      ![Lookup settings](media/load-sap-bw-data/lookup-settings.png)
+3. This template generates a pipeline with three activities - **Lookup, Copy Data, and Web** - and makes them chained on-success. Go to the pipeline **Parameters** tab, you see all the configurations you need to provide.
 
-   2. Configure **Source dataset** as a Blob dataset, in the **File path**, point to the blob where you want to store the max copied request ID as high watermark, and keep the format as Text format.
+   ![Incremental copy from SAP BW config](media\load-sap-bw-data\incremental-copy-from-sap-bw-pipeline-config.png)
 
-      ![Blob dataset settings](media/load-sap-bw-data/blob-dataset.png)
+   - **SAPOpenHubDestinationName**: specify the Open Hub table name to copy data from.
 
-   3. In the corresponding blob path, create a blob with content 0.
+   - **ADLSGen2SinkPath**: specify the destination ADLS Gen2 path to copy data to. If the path doesn't exist, ADF Copy activity will create one during execution.
+
+   - **HighWatermarkBlobPath**: specify the path to store the high watermark value e.g. `container/path`. 
+
+   - **HighWatermarkBlobName**: specify the blob name to store the high watermark value e.g. `requestIdCache.txt`. In your blob storage, at the corresponding path of HighWatermarkBlobPath+HighWatermarkBlobName e.g. "*container/path/requestIdCache.txt*", create a blob with content 0. 
 
       ![Blob content](media/load-sap-bw-data/blob.png)
 
-3. Configure Copy Activity: 
+   - **LogicAppURL**: in this template, we use Web activity to call Logic Apps to set the high watermark value. Alternatively, you can also use SQL database to store it and use Stored Procedure activity to update the value. 
 
-   1. In **Source** tab, configure **Source dataset** as a SAP BW Open Hub dataset. 
+      Here, you need to firstly create a Logic Apps as the following, then copy the **HTTP POST URL** to this field. 
 
-   2. Edit the **SAP BW Open Hub dataset**:
+      1. Go to Azure portal -> new a **Logic Apps** service -> click **+Blank Logic App** to go to **Logic Apps Designer**.
 
-      1. In **Parameters** tab, set a parameter named "requestId"
-      2. In **Connection** tab, specify a Open Hub table name, keep "Exclude last request ID" selected, and set Base request ID to use expression (add dynamic content) `@dataset().requestId`.
+      2. Create a trigger of **When a HTTP request is received** type. Specify the following as HTTP request body:
 
-   3. Go back to Copy activity **Source** tab, configure the “requestId” value to use expression (add dynamic content) `@{activity('<look up activity name>').output.firstRow.Prop_0}`. Change the "look up activity name" in this expression accordingly.
+      3. ```
+         {
+             "properties": {
+         		"sapOpenHubMaxRequestId": {
+                     "type": "string"
+         		},
+         		"type": "object"
+             }
+         }
+         ```
 
-      ![Copy source settings](media/load-sap-bw-data/copy-source.png)
+      4. Create an action of **Create blob** type. For "Folder path" and "Blob name", use the same value configured in the above HighWatermarkBlobPath and HighWatermarkBlobName. 
 
-4. Configure Web Activity: this Web activity will call Logic App to store max copied request ID into blob.
+      5. Click **Save**, and then copy the value of **HTTP POST URL** to use in ADF pipeline.
 
-   1. Go to Azure portal -> new a **Logic App** with one **HTTP request** and one **Create blob** as follows. Use the same blob file configured in the above Lookup activity source. And copy the **HTTP POST URL** which will be used in the web activity.
+         ![Logic App config](media/load-sap-bw-data/logic-app-config.png)
 
-      ![Logic App config](media/load-sap-bw-data/logic-app-config.png)
-
-   2. Go back to edit the ADF **Web activity** settings as below. Configure the body as expression (add dynamic content) `{"sapOpenHubMaxRequestId":"@{activity('CopyFromSap').output.sapOpenHubMaxRequestId}"}`.
-
-      ![Web activity settings](media/load-sap-bw-data/web-activity-settings.png)
-
-5. Then you can click **Debug** to validate the configuration, or select **Publish All** to publish all the changes then click **Trigger** to execute a run.
+4. After you provide all the values for ADF pipeline parameters, you can click **Debug** -> **Finish** to invoke a run to validate the configuration. Or, you can select **Publish All** to publish all the changes, then click **Trigger** to execute a run.
 
 ## SAP BW Open Hub Destination configurations
 
