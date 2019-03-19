@@ -25,16 +25,16 @@ In this example, you create a perimeter network (also know as a DMZ, demilitariz
 
 ![Bi-directional perimeter network with NVA, NSG, and UDR][1]
 
-## Environment Setup
+## Environment setup
 
 This example uses a subscription that contains the following components:
 
 * Three cloud services: SecSvc001, FrontEnd001, and BackEnd001
-* A Virtual Network CorpNetwork with three subnets: SecNet, FrontEnd, and BackEnd
+* A virtual network (CorpNetwork) with three subnets: SecNet, FrontEnd, and BackEnd
 * A network virtual appliance: a firewall connected to the SecNet subnet
-* A Windows server that represents an application web server (IIS01)
-* Two Windows servers that represent application backend servers (AppVM01, AppVM02)
-* A Windows server that represents a DNS server (DNS01)
+* A Windows server that represents an application web server: IIS01
+* Two Windows servers that represent application backend servers: AppVM01, AppVM02
+* A Windows server that represents a DNS server: DNS01
 
 The [references section](#references) contains a PowerShell script that builds most of the environment described here. This article doesn't otherwise give detailed instructions for building the virtual machines (VMs) and virtual networks.
 
@@ -52,7 +52,7 @@ Once the script runs successfully, take the following steps:
 1. Set up the firewall rules. See the [firewall rules](#firewall_rules) section.
 1. Optionally, use the two scripts in the references section to set up a web application on the web server and app server to allow testing of this DMZ configuration.
 
-## User Defined Routing (UDR)
+## User-defined routing
 
 By default, the following system routes are defined as:
 
@@ -83,9 +83,9 @@ If there are two identical prefixes in the route table, the order of preference 
 1. Default: The system routes, the local VNet, and the static entries as shown in the route table above.
 
 > [!NOTE]
-> You can now use User-Defined Routing (UDR) with ExpressRoute and VPN Gateways to force outbound and inbound cross-premises traffic to be routed to a network virtual appliance (NVA).
+> You can now use user-defined routing (UDR) with ExpressRoute and VPN Gateways to force outbound and inbound cross-premises traffic to be routed to a network virtual appliance (NVA).
 
-### Creating the local routes
+### Create local routes
 
 This example uses two routing tables, one each for the frontend and backend subnets. Each table is loaded with static routes appropriate for the given subnet. For the purpose of this example, each table has three routes:
 
@@ -102,7 +102,7 @@ Once the routing tables are created, they are bound to their subnets. The fronte
      {10.0.0.0/16}     VirtualAppliance    10.0.0.4             Active
      {0.0.0.0/0}       VirtualAppliance    10.0.0.4             Active
 
-This example uses the following commands to build the route table, add a user-defined route, and then bind the route table to a subnet. Keep in mind that items below that begin with `$`, such as `$BESubnet`, are user-defined variables from the script in the reference section.
+This example uses the following commands to build the route table, add a user-defined route, and then bind the route table to a subnet. Items that begin with `$`, such as `$BESubnet`, are user-defined variables from the script in the reference section.
 
 1. First, create the base routing table. The following code snippet creates the table for the backend subnet. The full script also creates a corresponding table for the frontend subnet.
 
@@ -121,7 +121,7 @@ This example uses the following commands to build the route table, add a user-de
        -NextHopIpAddress $VMIP[0]
    ```
 
-1. The previous route entry overrides the default "0.0.0.0/0" route, but the default 10.0.0.0/16 rule still allows traffic within the VNet to route directly to the destination and not to the Network Virtual Appliance. To correct this behavior, you need to add the following rule:
+1. The previous route entry overrides the default "0.0.0.0/0" route, but the default 10.0.0.0/16 rule still allows traffic within the VNet to route directly to the destination and not to the network virtual appliance. To correct this behavior, you need to add the following rule:
 
    ```powershell
    Get-AzureRouteTable $BERouteTableName | `
@@ -153,7 +153,7 @@ IP forwarding is a companion feature to UDR. This setting on a virtual appliance
 For example, if traffic from AppVM01 makes a request to the DNS01 server, UDR routes the traffic to the firewall. With IP Forwarding enabled, the traffic with the DNS01 destination (10.0.2.4) is accepted by the firewall appliance (10.0.0.4) and then forwarded to its ultimate destination (10.0.2.4). Without IP forwarding enabled on the firewall, traffic is not accepted by the appliance even though the route table has the firewall as the next hop.
 
 > [!IMPORTANT]
-> Remember to enable IP forwarding in conjunction with User Defined Routing.
+> Remember to enable IP forwarding in conjunction with user-defined routing.
 
 IP forwarding can be enabled with a single command at VM creation time. You call the VM instance that is your firewall virtual appliance and enable IP forwarding. Keep in mind that items in red that begin with `$`, like `$VMName[0]`, are user-defined variables from the script in the reference section of this document. The zero in brackets, `[0]`, represents the first VM in the array of VMs. For the example script to work without modification, the first VM (VM 0) must be the firewall. In full script, the relevant code snippet is grouped with the UDR commands near the end.
 
@@ -162,9 +162,9 @@ IP forwarding can be enabled with a single command at VM creation time. You call
         Set-AzureIPForwarding -Enable
     ```
 
-## Network Security Groups
+## Network security groups
 
-In this example, you build an NSG and then load it with a single rule. The example then binds the NSG only to the frontend and backend subnets (not the SecNet). The rule you load into the NSG is as follows:
+In this example, you build an network security group (NSG) and then load it with a single rule. The example then binds the NSG only to the frontend and backend subnets (not the SecNet). The rule you load into the NSG is as follows:
 
 * Any traffic (all ports) from the internet to the entire VNet (all subnets) is Denied
 
@@ -176,7 +176,7 @@ Three layers of security protect the frontend and backend subnets:
 1. NSGs deny traffic from the internet
 1. The firewall drops asymmetric traffic
 
-An interesting point about the Network Security Group in this example is that it contains only one rule, shown below. This rule denies internet traffic to the entire virtual network, including the Security subnet.
+An interesting point about the NSG in this example is that it contains only one rule, shown below. This rule denies internet traffic to the entire virtual network, including the Security subnet.
 
 ```powershell
 Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -206,29 +206,29 @@ You must create forwarding rules on the firewall. Because the firewall blocks or
 ![Logical View of the Firewall Rules][2]
 
 > [!NOTE]
-> Management ports vary depending on the Network Virtual Appliance. This example shows a Barracuda NextGen Firewall which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports to manage the device.
+> Management ports vary depending on the network virtual appliance. This example shows a Barracuda NextGen Firewall which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports to manage the device.
 
 ### Logical rule description
 
-The logical diagram above doesn't show the security subnet because the firewall is the only resource on that subnet. This diagram shows the firewall rules, how they logically allow or deny traffic flows, but not the actual routed path. Also, the external ports selected for the RDP traffic are higher ranged ports (8014 – 8026), chosen for easier readability to align with the last two octets of the local IP addresses. For example, local server address 10.0.1.4 is associated with external port 8014. You could, however, use any higher non-conflicting ports.
+The logical diagram above doesn't show the security subnet because the firewall is the only resource on that subnet. This diagram shows the firewall rules, how they logically allow or deny traffic flows, but not the actual routed path. Also, the external ports selected for the remote desktop protocol (RDP) traffic are higher ranged ports (8014 – 8026), chosen for easier readability to align with the last two octets of the local IP addresses. For example, local server address 10.0.1.4 is associated with external port 8014. You could, however, use any higher non-conflicting ports.
 
 You need the following types of rules for this example:
 
 * External rules for inbound traffic:
   1. Firewall management rule: allows traffic to pass to the management ports of the network virtual appliance.
-  2. RDP rules for each windows server: allows management of the individual servers via RDP.  Depending on the capabilities of your Network Virtual Appliance, you might be able to bundle the rules into one.
+  2. RDP rules for each windows server: allows management of the individual servers via RDP.  Depending on the capabilities of your network virtual appliance, you might be able to bundle the rules into one.
   3. Application traffic rules: one for frontend web traffic and one for backend traffic (for example, web server to data tier). The configuration of these rules depends on network architecture and traffic flows.
-     * The first rule allows actual application traffic to reach the application server. Unlike the rules for security, management, and etcetera, application rules allow external users or services to access the application(s). This example has a single web server on port 80, which allows a single firewall application rule to redirect traffic that is destined for an external IP address to instead route to the web server's internal IP address. The redirected traffic session is remapped by NAT to the internal server.
+     * The first rule allows actual application traffic to reach the application server. Unlike the rules for security, management, and so on, application rules allow external users or services to access the application(s). This example has a single web server on port 80, which allows a single firewall application rule to redirect traffic that is destined for an external IP address to instead route to the web server's internal IP address. The redirected traffic session is remapped by NAT to the internal server.
      * The second application traffic rule is the backend rule to allow the web server to use any port to route traffic to the AppVM01 server, but not to the AppVM02 server.
 * Internal rules for intra-VNet traffic:
   1. Outbound to internet rule: allows traffic from any network to pass to the selected networks. This rule is usually a default on the firewall, but in a disabled state. Enable this rule for this example.
   2. DNS rule: only allows DNS (port 53) traffic to pass to the DNS server. For this environment, most traffic from the frontend to the backend is blocked. This rule specifically allows DNS from any local subnet.
-  3. Subnet to subnet rule: allows any server on the backend subnet to connect to any server on the frontend subnet, but not the reverse.
+  3. Subnet-to-subnet rule: allows any server on the backend subnet to connect to any server on the frontend subnet, but not the reverse.
 * Fail-safe rule for traffic that doesn’t meet any of the above criteria:
-  1. Deny all traffic rule: always the final rule for priority. If traffic flow fails to match any of the preceding rules, this rule blocks it. It is a default rule. Because it is commonly activated, no modifications are needed.
+  1. Deny all traffic rule: always the final rule in terms of priority. If traffic flow fails to match any of the preceding rules, this rule blocks it. It is a default rule. Because it is commonly activated, no modifications are needed.
 
 > [!TIP]
-> In the second application traffic rule, any port is allowed for easy of this example. In a real scenario, you should use specific port and address ranges to reduce the attack surface of this rule.
+> In the second application traffic rule, any port is allowed to keep this example simple. In a real scenario, you should use specific port and address ranges to reduce the attack surface of this rule.
 
 
 > [!IMPORTANT]
@@ -245,11 +245,11 @@ Public endpoints are required for the virtual machine running the firewall. Thes
 The traffic types appear in the upper half of the firewall rules logical diagram above.
 
 > [!IMPORTANT]
-> Remember that *all* traffic comes through the firewall. To remote desktop to the IIS01 server, you need to RDP to the firewall on port 8014 and then allow the firewall to route the RDP request internally to the IIS01 RDP port. The Azure portal's **Connect** button won't work because there is no direct RDP path to IIS01 as far as the portal can see. All connections from the internet are to the security service and a port (for example, secscv001.cloudapp.net:xxxx ). Reference the above diagram for the mapping of external port and internal IP and port.
+> Remember that *all* traffic comes through the firewall. To remote desktop to the IIS01 server, you need to connect to the firewall on port 8014 and then allow the firewall to route the RDP request internally to the IIS01 RDP port. The Azure portal's **Connect** button won't work because there is no direct RDP path to IIS01 as far as the portal can see. All connections from the internet are to the security service and a port (for example, secscv001.cloudapp.net:xxxx ). Reference the above diagram for the mapping of external port and internal IP and port.
 
 You can open an endpoint at the time of VM creation or after the build. The example script and the following code snippet open an endpoint after the VM is created.
 
-Keep in mind that items below that begin with `$`, such as `$VMName[$i]`, are user-defined variables from the script in the reference section. The `[$i]`  represents the array number of a specific VM in an array of VMs):
+Keep in mind that items below that begin with `$`, such as `$VMName[$i]`, are user-defined variables from the script in the reference section. The `[$i]` represents the array number of a specific VM in an array of VMs.
 
 ```powershell
 Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
@@ -341,10 +341,10 @@ Here are the specifics of each rule required to complete this example:
 
 * **RDP rules**:  These destination NAT rules allow management of the individual servers via RDP. The critical fields for these rules are:
   
-  * Source – to allow RDP from anywhere. Use the reference **Any** in the Source field.
-  * Service – use the RDP service object you created earlier: **AppVM01 RDP**. The external ports redirect to the server's local IP address and to the default RDP port 3386. This specific rule is for RDP access to AppVM01.
-  * Destination – use the local port on the firewall: **DCHP 1 Local IP** or eth0 if using static IPs. The ordinal number (eth0, eth1, and so on) might be different if your network appliance has multiple local interfaces. The firewall uses this port for sending, and it might be the same as the receiving port. The actual routed destination is in the **Target List** field.
-  * Redirection – tells the virtual appliance where to ultimately redirect this traffic. The simplest redirection is to place the IP in the Target List field. You can also specify the port, but you don't, the destination port on the inbound request is used. If you specify a port, NAT reroutes both the port and the IP address.
+  * Source. To allow RDP from anywhere, use the reference **Any** in the Source field.
+  * Service. Use the RDP service object you created earlier: **AppVM01 RDP**. The external ports redirect to the server's local IP address and to the default RDP port 3386. This specific rule is for RDP access to AppVM01.
+  * Destination. Use the local port on the firewall: **DCHP 1 Local IP** or eth0 if using static IPs. The ordinal number (eth0, eth1, and so on) might be different if your network appliance has multiple local interfaces. The firewall uses this port for sending, and it might be the same as the receiving port. The actual routed destination is in the **Target List** field.
+  * Redirection. Configure to tell the virtual appliance where to ultimately redirect this traffic. The simplest redirection is to place the IP in the Target List field. You can also specify the port, and NAT reroutes both the port and the IP address. If you don't specify a port, the virtual appliance uses the destination port on the inbound request.
 
     ![Firewall RDP Rule][11]
 
@@ -400,7 +400,7 @@ Here are the specifics of each rule required to complete this example:
     > [!NOTE]
     > The **Connection Method** is set to `No SNAT` because this rule is for internal IP to internal IP address traffic and no rerouting via NAT is required.
 
-* **Subnet to subnet rule**: This default pass rule has been activated and modified to allow any server on the backend subnet to connect to any server on the frontend subnet. This rule only coves internal traffic so the **Connection Method** can be set to `No SNAT`.
+* **Subnet-to-subnet rule**: This default pass rule has been activated and modified to allow any server on the backend subnet to connect to any server on the frontend subnet. This rule only coves internal traffic so the **Connection Method** can be set to `No SNAT`.
 
     ![Firewall Intra-VNet Rule][16]
   
@@ -424,10 +424,10 @@ Look in the upper right corner of the management client window and select **Send
 
 When you activate the firewall rule set, this example environment is complete.
 
-## Traffic Scenarios
+## Traffic scenarios
 
 > [!IMPORTANT]
-> Remember that *all* traffic comes through the firewall. To remote desktop to the IIS01 server, you need to RDP to the firewall on port 8014 and then allow the firewall to route the RDP request internally to the IIS01 RDP port. The Azure portal's **Connect** button won't work because there is no direct RDP path to IIS01 as far as the portal can see. All connections from the internet are to the security service and a port (for example, secscv001.cloudapp.net:xxxx ). Reference the above diagram for the mapping of external port and internal IP and port.
+> Remember that *all* traffic comes through the firewall. To remote desktop to the IIS01 server, you need to connect to the firewall on port 8014 and then allow the firewall to route the RDP request internally to the IIS01 RDP port. The Azure portal's **Connect** button won't work because there is no direct RDP path to IIS01 as far as the portal can see. All connections from the internet are to the security service and a port (for example, secscv001.cloudapp.net:xxxx ). Reference the above diagram for the mapping of external port and internal IP and port.
 
 For these scenarios, the following firewall rules should be in place:
 
@@ -445,7 +445,7 @@ For these scenarios, the following firewall rules should be in place:
 
 Your actual firewall rule set will most likely require more rules than those in this example. They're likely to have different priority numbers as well. You should refer to this list and associated numbers for their relative priority to each other. For example, the "RDP to IIS01" rule might be number 5 on the actual firewall, but as long as it’s below the "Firewall Management" rule and above the "RDP to DNS01" rule, the set aligns with the intention of this list. This list also helps simplify the instructions for scenarios that follow. For example, "Firewall rule 9 (DNS)." Be aware that the four RDP rules are collectively called "the RDP rules" when the traffic scenario is unrelated to RDP.
 
-Also recall that Network Security Groups are in-place for inbound internet traffic on the frontend and backend subnets.
+Also recall that network security groups (NSGs) are in-place for inbound internet traffic on the frontend and backend subnets.
 
 ### (Allowed) Internet to web server
 
@@ -463,7 +463,7 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 1. IIS01 is listening for web traffic. It receives this request and starts processing the request.
 1. IIS01 attempts to initiate an FTP session to AppVM01 on the backend subnet.
 1. The UDR route on frontend subnet makes the firewall the next hop.
-1. No outbound rules on frontend subnet so the traffic is allowed.
+1. There are no outbound rules on frontend subnet so the traffic is allowed.
 1. Firewall begins rule processing:
    1. Firewall rule 1 (FW Mgmt) doesn’t apply. Move to next rule.
    1. Firewall rules 2 - 5 (RDP rules) don’t apply. Move to next rule.
@@ -507,7 +507,7 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 
 ### (Allowed) Web server DNS lookup on DNS server
 
-1. Web server IIS01 requests a data feed at www.data.gov, but needs to resolve the address.
+1. Web server IIS01 requests a data feed at http\:\/\/www.data.gov, but needs to resolve the address.
 1. The network configuration for the VNet lists DNS01 (10.0.2.4 on the backend subnet) as the primary DNS server. IIS01 sends the DNS request to DNS01.
 1. UDR routes outbound traffic to the firewall as the next hop.
 1. No outbound NSG rules are bound to the frontend subnet. The traffic is allowed.
@@ -520,8 +520,8 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 1. The backend subnet performs inbound rule processing:
    1. NSG rule 1 (Block internet) doesn’t apply. Move to next rule.
    1. Default NSG rules allow subnet-to-subnet traffic. The traffic is allowed. Stop NSG rule processing.
-1. DNS server receives the request.
-1. DNS server doesn’t have the address cached and asks a root DNS server on the internet.
+1. The DNS server receives the request.
+1. The DNS server doesn’t have the address cached and asks a root DNS server on the internet.
 1. UDR routes the outbound traffic to the firewall as the next hop.
 1. There are no outbound NSG rules on backend subnet to the traffic is allowed.
 1. Firewall performs rule processing:
@@ -569,38 +569,41 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 
 ### (Denied) Internet direct to web server
 
-1. Internet tries to access the IIS01 web server through the FrontEnd001.CloudApp.Net service.
+1. An internet user tries to access the IIS01 web server through the FrontEnd001.CloudApp.Net service.
 1. There are no endpoints open for HTTP traffic so this traffic doesn't pass through the Cloud Service. The traffic doesn't reach the server.
 1. If the endpoints are open for some reason, the NSG (Block internet) on the frontend subnet blocks this traffic.
 1. Finally, the frontend subnet UDR route sends any outbound traffic from IIS01 to the firewall as the next hop. The firewall sees it as asymmetric traffic and drops the outbound response.
-   > Thus, there are at least three independent layers of defense between the internet and IIS01. The cloud service prevents unauthorized or inappropriate access.
+
+> Thus, there are at least three independent layers of defense between the internet and IIS01. The cloud service prevents unauthorized or inappropriate access.
 
 ### (Denied) Internet to backend server
 
-1. Internet user tries to access a file on AppVM01 through the BackEnd001.CloudApp.Net service.
+1. An internet user tries to access a file on AppVM01 through the BackEnd001.CloudApp.Net service.
 2. There are no endpoints open for file sharing so this request doesn't pass the Cloud Service. The traffic doesn't reach the server.
 3. If the endpoints are open for some reason, the NSG (Block internet) blocks this traffic.
 4. Finally, the UDR route sends any outbound traffic from AppVM01 to the firewall as the next hop. The firewall sees it as asymmetric traffic and drops the outbound response.
-   > Thus, there are at least three independent layers of defense between the internet and AppVM01. The cloud service prevents unauthorized or inappropriate access.
+
+> Thus, there are at least three independent layers of defense between the internet and AppVM01. The cloud service prevents unauthorized or inappropriate access.
 
 ### (Denied) Frontend server to backend server
 
-1. Assume IIS01 is compromised and is running malicious code trying to scan the backend subnet servers.
+1. IIS01 is compromised and is running malicious code trying to scan the backend subnet servers.
 1. The frontend subnet UDR route sends any outbound traffic from IIS01 to the firewall as the next hop. The compromised VM can't alter this routing.
 1. The firewall processes the traffic. If the request is to AppVM01 or to the DNS server for DNS lookups, the firewall might potentially allow the traffic because of Firewall rules 7 and 9. All other traffic is blocked by Firewall rule 11 (Deny All).
 1. If you enable advanced threat detection on the firewall, traffic that contains known signatures or patterns that flag an advanced threat rule could be prevented. This measure can work even if the traffic is allowed according to the basic forwarding rules that are discussed in this article. Advanced threat detection isn't covered in this document. See the vendor documentation for your specific network appliance advanced threat capabilities.
 
 ### (Denied) Internet DNS lookup on DNS server
 
-1. Internet user tries to look up an internal DNS record on DNS01 through BackEnd001.CloudApp.Net service.
+1. An internet user tries to look up an internal DNS record on DNS01 through BackEnd001.CloudApp.Net service.
 1. Since there are no endpoints open for DNS traffic, this traffic doesn't pass through the Cloud Service. It doesn't reach the server.
 1. If the endpoints are open for some reason, the NSG rule (Block internet) on the frontend subnet blocks this traffic.
 1. Finally, the backend subnet UDR route sends any outbound traffic from DNS01 to the firewall as the next hop. The firewall sees this as asymmetric traffic and drops the outbound response.
-   > Thus, there are at least three independent layers of defense between the internet and DNS01. The cloud service prevents unauthorized or inappropriate access.
+
+> Thus, there are at least three independent layers of defense between the internet and DNS01. The cloud service prevents unauthorized or inappropriate access.
 
 #### (Denied) Internet to SQL access through firewall
 
-1. Internet user requests SQL data from the SecSvc001.CloudApp.Net internet-facing cloud service.
+1. An internet user requests SQL data from the SecSvc001.CloudApp.Net internet-facing cloud service.
 1. There are no endpoints open for SQL so this traffic doesn't pass the cloud service. It doesn't reach the firewall.
 1. If SQL endpoints are open for some reason, the firewall performs rule processing:
    1. Firewall rule 1 (FW Mgmt) doesn’t apply. Move to next rule.
@@ -1018,7 +1021,7 @@ Save this xml file with updated location. Change the `$NetworkConfigFile` variab
 You can install a sample application to help with this perimeter network example.
 
 > [!div class="nextstepaction"]
-> [Sample Application Script](./virtual-networks-sample-app.md)
+> [Sample application script](./virtual-networks-sample-app.md)
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Bi-directional DMZ with NVA, NSG, and UDR"
