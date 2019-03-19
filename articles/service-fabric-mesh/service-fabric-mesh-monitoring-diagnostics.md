@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/22/2019
+ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 
@@ -115,7 +115,7 @@ Metrics explorer is a blade in the portal in which you can visualize all the met
 
 In addition to the metrics explorer, we also have a dashboard available out of the box that shows sample metrics over time under the Insights blade in the application's page in the portal. 
 
-<!-- Insert container insights screenshot -->
+![Container Insights](./media/service-fabric-mesh-monitoring-diagnostics/containerinsights.png)
 
 ## Next steps
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
