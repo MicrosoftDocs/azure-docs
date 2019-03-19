@@ -69,8 +69,9 @@ If you already have an installation of Azure AD Connect, select the **Change use
 ![Azure AD Connect: Change the user sign-in](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continue through the wizard until you get to the **Enable single sign on** page. Provide domain administrator credentials for each Active Directory forest that:
-    * You synchronize to Azure AD through Azure AD Connect.
-    * Contains users you want to enable for Seamless SSO.
+
+* You synchronize to Azure AD through Azure AD Connect.
+* Contains users you want to enable for Seamless SSO.
 
 After completion of the wizard, Seamless SSO is enabled on your tenant.
 
@@ -121,11 +122,11 @@ There are two ways to modify users' Intranet zone settings:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
 
-    The result looks like this:
+     The result looks like this:
 
-    Value name: `https://autologon.microsoftazuread-sso.com`
+     Value name: `https://autologon.microsoftazuread-sso.com`
   
-    Value (Data): 1
+     Value (Data): 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.
@@ -157,9 +158,9 @@ There are two ways to modify users' Intranet zone settings:
    - **Value type**: ***REG_DWORD***.
    - **Value data**: ***00000001***.
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### Browser considerations
 

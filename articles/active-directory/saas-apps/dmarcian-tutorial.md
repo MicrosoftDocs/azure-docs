@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
     ![dmarcian Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
     | |
 	| -- |
 	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -109,6 +110,7 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
 	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -120,6 +122,7 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
     ![dmarcian Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+	
     | |
 	|--|
 	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |

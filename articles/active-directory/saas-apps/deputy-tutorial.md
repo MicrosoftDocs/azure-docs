@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
     ![Deputy Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
     |  |
 	| ----|
 	| `https://<subdomain>.<region>.au.deputy.com` |
@@ -121,6 +122,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 	| `https://<subdomain>.<region>.deputy.com` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
     | |
 	|----|
 	| `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |

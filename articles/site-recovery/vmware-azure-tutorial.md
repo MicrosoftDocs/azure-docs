@@ -41,8 +41,8 @@ Before you start, it's helpful to:
 And review these tips:
 - This tutorial uses an OVA template to create the configuration server VMware VM. If you can't do this, follow [these instructins](physical-manage-configuration-server.md) to set up the configuration server manually.
 - In this tutorial, Site Recovery downloads and installs MySQL to the configuration server. If you prefer, you can set it up manually instead. [Learn more](vmware-azure-deploy-configuration-server.md#configure-settings).
- >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
- The license provided with OVF template is an evaluation license valid for 180 days. Windows running on the VM must be activated with the required license. 
+  >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+  The license provided with OVF template is an evaluation license valid for 180 days. Windows running on the VM must be activated with the required license. 
 
 
 
@@ -93,8 +93,8 @@ To set up the configuration server as a highly available VMware VM, download a p
 7. On the rest of the wizard pages, accept the default settings.
 8. On **Ready to complete**, to set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 
-    > [!TIP]
-  If you want to add an additional NIC, clear **Power on after deployment** > **Finish**. By default, the template contains a single NIC. You can add additional NICs after deployment.
+   > [!TIP]
+   > If you want to add an additional NIC, clear **Power on after deployment** > **Finish**. By default, the template contains a single NIC. You can add additional NICs after deployment.
 
 ## Add an additional adapter
 
@@ -168,20 +168,20 @@ Select and verify target resources.
 Enable replication can be performed as follows:
 
 1. Select **Replicate application** > **Source**.
-2. In **Source**, select **On-premises**, and select the configuration server in **Source location**.
-3. In **Machine type**, select **Virtual Machines**.
-4. In **vCenter/vSphere Hypervisor**, select the vSphere host, or vCenter server that manages the host.
-5. Select the process server (installed by default on the configuration server VM). Then select **OK**.
-6. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. We're using the Resource Manager deployment model. 
-7. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
-8. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.
-9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then select **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
-10. In **Properties** > **Configure properties**, select the account to be used by the process server to automatically install Mobility Service on the machine.
-11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
-12. Select **Enable Replication**. Site Recovery installs the Mobility Service when replication is enabled for a VM.
-13. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
-- It can take 15 minutes or longer for changes to take effect and appear in the portal.
-- To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
+1. In **Source**, select **On-premises**, and select the configuration server in **Source location**.
+1. In **Machine type**, select **Virtual Machines**.
+1. In **vCenter/vSphere Hypervisor**, select the vSphere host, or vCenter server that manages the host.
+1. Select the process server (installed by default on the configuration server VM). Then select **OK**.
+1. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. We're using the Resource Manager deployment model. 
+1. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
+1. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.
+1. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then select **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
+1. In **Properties** > **Configure properties**, select the account to be used by the process server to automatically install Mobility Service on the machine.
+1. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
+1. Select **Enable Replication**. Site Recovery installs the Mobility Service when replication is enabled for a VM.
+1. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+1. It can take 15 minutes or longer for changes to take effect and appear in the portal.
+1. To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
 ## Next steps
 

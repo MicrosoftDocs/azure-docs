@@ -57,13 +57,13 @@ Create a tenant that your organization will use to access VaaS services. Use a d
 
     To assign roles in the **Azure Stack Validation Service** application:
 
-    1. Sign in to the [Azure portal](https://portal.azure.com).
-    2. Select **All Services** > **Azure Active Directory** under the **Identity** section.
-    3. Select **Enterprise Applications** > **Azure Stack Validation Service** application.
-    4. Select **Users and groups**. The **Azure Stack Validation Service - Users and group** blade lists the users with permission to use the application.
-    5. Select **+ Add user** to add a user from your tenant and assign a role.
+   1. Sign in to the [Azure portal](https://portal.azure.com).
+   2. Select **All Services** > **Azure Active Directory** under the **Identity** section.
+   3. Select **Enterprise Applications** > **Azure Stack Validation Service** application.
+   4. Select **Users and groups**. The **Azure Stack Validation Service - Users and group** blade lists the users with permission to use the application.
+   5. Select **+ Add user** to add a user from your tenant and assign a role.
 
-    If you would like to isolate VaaS resources and actions among different groups within an organization, you can create multiple Azure AD tenant directories.
+      If you would like to isolate VaaS resources and actions among different groups within an organization, you can create multiple Azure AD tenant directories.
 
 ### Register your tenant
 

@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with SuccessFactors, perform the following 
     ![SuccessFactors Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -110,6 +111,7 @@ To configure Azure AD single sign-on with SuccessFactors, perform the following 
     | `https://<companyname>.sapsf.eu`|
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -123,6 +125,7 @@ To configure Azure AD single sign-on with SuccessFactors, perform the following 
     | `https://www.successfactors.cn/<companyname>`|
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|

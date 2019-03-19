@@ -93,13 +93,13 @@ The body may resemble the following:
 
 Specifying parameters is not required. The default is applied.
 
-|Name  |Type  |Description  |Default  |
-|---------|---------|---------|---------|
-|Type     |  Enum       |  The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
-|CommitMode     |  Enum       |  Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
-|MaxParallelism     |   Int      |  This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) or using other methods.       | 10        |
-|RetryCount    |    Int     |   Indicates the number of times the operation will retry before failing.      |     0    |
-|Objects     |   Array      |   An array of objects to be processed. Each object includes: "table" when processing the entire table or "table" and "partition" when processing a partition. If no objects are specified, the whole model is refreshed. |   Process the entire model      |
+| Name             | Type  | Description  |Default  |
+|------------------|-------|--------------|---------|
+| `Type`           | Enum  | The type of processing to perform. The types are aligned with the TMSL [refresh command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
+| `CommitMode`     | Enum  | Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
+| `MaxParallelism` | Int   | This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) or using other methods.       | 10        |
+| `RetryCount`     | Int   | Indicates the number of times the operation will retry before failing.      |     0    |
+| `Objects`        | Array | An array of objects to be processed. Each object includes: "table" when processing the entire table or "table" and "partition" when processing a partition. If no objects are specified, the whole model is refreshed. |   Process the entire model      |
 
 CommitMode is equal to partialBatch. It's used when doing an initial load of large datasets that could take hours. If the refresh operation fails after successfully committing one or more batches, the successfully committed batches will remain committed (it will not roll back successfully committed batches).
 

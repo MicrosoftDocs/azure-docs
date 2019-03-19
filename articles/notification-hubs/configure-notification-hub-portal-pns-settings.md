@@ -30,18 +30,18 @@ To set up Apple Push Notification Service (APNS):
 1. For **Authentication Mode**, select either **Certificate** or **Token**.
 
    a. If you select **Certificate**:
-      * Select the file icon, and then select the *.p12* file you want to upload.
-      * Enter a password.
-      * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
+   * Select the file icon, and then select the *.p12* file you want to upload.
+   * Enter a password.
+   * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
-      ![Screenshot of an APNS certificate configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Screenshot of an APNS certificate configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
    b. If you select **Token**:
 
-      * Enter the values for **Key Id**, **Bundle Id**, **Team Id**, and **Token**.
-      * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
+   * Enter the values for **Key Id**, **Bundle Id**, **Team Id**, and **Token**.
+   * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
-      ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 For for more information, see [Push notifications to iOS by using Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 

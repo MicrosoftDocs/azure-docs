@@ -178,7 +178,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
    * **-output**: The directory that the output is written to.
 
-    As the MapReduce job works, the process is displayed as percentages.
+     As the MapReduce job works, the process is displayed as percentages.
 
         15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
         15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
