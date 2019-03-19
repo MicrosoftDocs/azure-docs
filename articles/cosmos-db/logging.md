@@ -97,7 +97,7 @@ To enable metrics and diagnostics logging by using Azure CLI, use the following 
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   The `resource` is the name of the Azure Cosmos DB account. The resource is in the format `/subscriptions/<subscriptionId>/resourceGroups/<resource_group_name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure_Cosmos_account_name>` The `storage-account` is the name of the storage account to which you want to send the logs. You can log other logs by updating the category parameter values to "MongoRequests" or "DataPlaneRequests". 
+   The `resource` is the name of the Azure Cosmos DB account. The resource is in the format "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/<Azure_Cosmos_account_name>" The `storage-account` is the name of the storage account to which you want to send the logs. You can log other logs by updating the category parameter values to "MongoRequests" or "DataPlaneRequests". 
 
 - To enable streaming of Diagnostic Logs to an event hub, use this command:
 
