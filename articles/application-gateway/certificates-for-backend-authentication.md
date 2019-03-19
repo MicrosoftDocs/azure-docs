@@ -8,6 +8,8 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ---
+# Create certificates for whitelisting backend with Azure Application Gateway
+
 To perform end to end SSL, application gateway requires the backend instances to be whitelisted by uploading authentication/trusted root certificates. In case of v1 SKU, authentication certificates are required whereas in case of v2 SKU, trusted root certificates are required for whitelisting the certificates
 
 In this article, you learn how to:
@@ -21,7 +23,7 @@ In this article, you learn how to:
 
 You require an existing backend certificate to generate the authentication certificates or trusted root certificates required for whitelisting backend instances with application gateway. The backend certificate can be same as SSL certificate or different for added security. Application gateway does not provide you any mechanism to create or purchase an SSL certificate. For testing purposes, you can create a self-signed certificate but you should not use it for production workloads. 
 
-## Export authentication certificate from a backend certificate (for v1 SKU)
+## Export authentication certificate (for v1 SKU)
 
 Authentication certificate is required to whitelist backend instances in application gateway v1 SKU. Authentication certificate is the public key of backend server certificates in Base-64 encoded X.509(.CER) format. In this example, we will use an SSL certificate for the backend certificate and export its public key to be used as authentication certification. Also, in this example, we will use the Windows Certificate Manager tool to export the required certificates. You can choose to use any other tool as per your convenience.
 
@@ -63,7 +65,7 @@ From your SSL certificate, export the public key .cer file (not the private key)
 
    ![Open with Notepad](./media/certificates-for-backend-authentication/format.png)
 
-## Export trusted root certificate from a backend certificate (for v2 SKU)
+## Export trusted root certificate (for v2 SKU)
 
 Trusted root certificate is required to whitelist backend instances in application gateway v2 SKU. The root certificate is a Base-64 encoded X.509(.CER) format root certificate from the backend server certificates. In this example, we will use an SSL certificate for the backend certificate, export its public key and then export the root certificate of the trusted CA from the public key in base64 encoded format to get the trusted root certificate. 
 
@@ -73,25 +75,25 @@ The following steps help you export the .cer file for your certificate:
 
 2. Once the public key has been exported, open the file.
 
-   ![Open with Notepad](./media/certificates-for-backend-authentication/openAuthcert.png)
+   ![Open authorization certificate](./media/certificates-for-backend-authentication/openAuthcert.png)
 
-   ![Open with Notepad](./media/certificates-for-backend-authentication/general.png)
+   ![about certificate](./media/certificates-for-backend-authentication/general.png)
 
 3. Move to the Certification Path view to view the certification authority.
 
-   ![Open with Notepad](./media/certificates-for-backend-authentication/certdetails.png)
+   ![cert details](./media/certificates-for-backend-authentication/certdetails.png)
 
 4. Select the root certificate and click on **View Certificate**.
 
-   ![Open with Notepad](C:/Users/absha/OneDrive%20-%20Microsoft/Application%20Gateway/Project%20Fulcrum/To%20be%20added/media/certificates-for-backend-authentication/rootcert.png)
+   ![cert path](./media/certificates-for-backend-authentication/rootcert.png)
 
    You should be able to view the root certificate details.
 
-   ![Open with Notepad](C:/Users/absha/OneDrive%20-%20Microsoft/Application%20Gateway/Project%20Fulcrum/To%20be%20added/media/certificates-for-backend-authentication/rootcertdetails.png)
+   ![cert info](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
-5. move to the **Details** view and click **Copy to File...**
+5. Move to the **Details** view and click **Copy to File...**
 
-   ![Open with Notepad](C:/Users/absha/OneDrive%20-%20Microsoft/Application%20Gateway/Project%20Fulcrum/To%20be%20added/media/certificates-for-backend-authentication/rootcertcopytofile.png)
+   ![copy root cert](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
 6. At this point, you have extracted the details of the root certificate from the backend certificate. You will see the **Certificate Export Wizard**. Now use steps 2-9 mentioned in the section **Export authentication certificate from a backend certificate (for v1 SKU)** above to export the trusted root certificate in the Base-64 encoded X.509(.CER) format.
 
