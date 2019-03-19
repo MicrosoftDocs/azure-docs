@@ -147,7 +147,7 @@ Adaptive sampling is enabled by default for all ASP.NET Core applications. You c
 
 The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
 
-``` c#
+``` C#
 public void ConfigureServices(IServiceCollection services)
 {
     // ...
@@ -168,7 +168,7 @@ Use extension methods of ```TelemetryProcessorChainBuilder``` as shown below to 
 > [!IMPORTANT]
 > If you use this method to configure sampling, please make sure to use aiOptions.EnableAdaptiveSampling = false; settings with AddApplicationInsightsTelemetry().
 
-``` c#
+``` C#
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
@@ -194,7 +194,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 **If using the above method to configure sampling, make sure to use ```aiOptions.EnableAdaptiveSampling = false;``` settings with AddApplicationInsightsTelemetry().**
 
-## Fixed-rate sampling for ASP.NET, ASP.NET Core, and Java web sites
+## Fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites
 
 Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.
 
@@ -261,7 +261,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 1. **Disable adaptive sampling**:  Changes can be made in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
 
-    ``` c#
+    ``` C#
     public void ConfigureServices(IServiceCollection services)
     {
     // ...
@@ -275,7 +275,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 2. **Enable the fixed-rate sampling module.** Changes can be made in the method ```Configure``` as shown in below snippet:
 
-    ``` c#
+    ``` C#
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
         var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
@@ -469,16 +469,16 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
   The following shows the default ApplicationInsights.Config file generated. As described, there are two separate AdaptiveSamplingTelemetryProcessor nodes added, one excluding Event types, and another including it. In ASP.NET Core, exact same default behavior is enabled in code. Use the examples in the earlier section of the document to change this default behavior.
 
 ```xml
-    <TelemetryProcessors>
-        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-            <ExcludedTypes>Event</ExcludedTypes>
-        </Add>
-        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
-            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-            <IncludedTypes>Event</IncludedTypes>
-        </Add>
-    </TelemetryProcessors>
+		<TelemetryProcessors>
+			<Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+				<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+				<ExcludedTypes>Event</ExcludedTypes>
+			</Add>
+			<Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+				<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+				<IncludedTypes>Event</IncludedTypes>
+			</Add>
+		</TelemetryProcessors>
 ```    
 
 *Can telemetry be sampled more than once?*
