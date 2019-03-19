@@ -67,8 +67,6 @@
     items:
     - name: Overview
       href: platform/data-platform.md
-    - name: Observability data
-      href: platform/observability-data.md
     - name: Metrics
       href: platform/data-platform-metrics.md
     - name: Logs
