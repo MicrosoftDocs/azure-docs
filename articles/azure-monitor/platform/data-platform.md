@@ -23,17 +23,17 @@ Enabling observability across today's complex computing environments running dis
 ![Azure Monitor overview](media/data-platform/overview.png)
 
 ## Pillars of observability
- Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. These are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Complete observability cannot be achieved by focusing on a single observability pillar but rather by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
-
-The following table describes the different types of observability data while the sections below describes how this data is managed in Azure Monitor.
+ Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. These are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. 
 
 | Pillar | Description |
 |:---|:---|
-| [Metrics](#metrics) | Numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time. Because they're lightweight with consistent collection, metrics are particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues. |
-| [Logs](#logs) | Events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume. Logs typically provide enough information to provide complete context of the issue being identified and are valuable for identifying root case of issues. |
-| [Distributed traces](#distributed-traces) | Series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components. Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](../app/distributed-tracing.md), and trace data is stored with log data in an [Application Insights application](data-platform-logs.md#how-is-log-data-structured). |
+| [Metrics](#metrics) | Numerical values that describe some aspect of a system at a particular point in time. They are collected at regular intervals and are identified with a timestamp, a name, a value, and one or more defining labels. Metrics can be aggregated using a variety of algorithms, compared to other metrics, and analyzed for trends over time.|
+| [Logs](#logs) | Events that occurred within the system. They can contain different kinds of data and may be structured or free form text with a timestamp. They may be created sporadically as events in the environment generate log entries, and a system under heavy load will typically generate more log volume.  |
+| [Distributed traces](#distributed-traces) | Series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.  |
 
+Azure Monitor provides both a metrics and logs platform that are optimized for collection and analysis of the different types of observability data. The logs platform supports data collected from distributed tracing. 
 
+Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
 
 
 ## Azure Monitor data types
@@ -50,14 +50,17 @@ Metrics are available for interactive analysis in the Azure portal with [Metrics
  Read more about Azure Monitor metrics including their sources of data in [Metrics in Azure Monitor](data-platform-metrics.md).
 
 ### Azure Monitor logs
-Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/portals.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
+Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [Azure Data Explorer](/azure/data-explorer/) which provides a powerful analysis engine and [rich query language](/azure/kusto/query/). Logs typically provide enough information to provide complete context of the issue being identified and are valuable for identifying root case of issues.
+
+
+ You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/portals.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
 
 Read more about logs including their sources of data in [Logs in Azure Monitor](data-platform-logs.md).
 
 
-## Compare data types
+## Compare Azure Monitor metrics and logs
 
-The following table compares the two types of data in Azure Monitor.
+The following table compares metrics and logs in Azure Monitor.
 
 | Attribute  | Metrics | Logs |
 |:---|:---|:---|
@@ -69,7 +72,7 @@ The following table compares the two types of data in Azure Monitor.
 | Data sources include | Platform metrics collected from Azure resources.<br>Applications monitored by Application Insights.<br>Custom defined by application or API. | Application and Diagnostics Logs.<br>Monitoring solutions.<br>Agents and VM extensions.<br>Application requests and exceptions.<br>Azure Security Center.<br>Data Collector API. |
 
 
-## Populating metrics and logs
+## Populating metrics and log data
 
 Different [sources of data for Azure Monitor](data-sources.md) will write to either a Log Analytics workspace (logs) or the Azure Monitor metrics database (metrics) or both. Some sources will write directly to these data stores, while others may write to another location such as Azure storage and require some configuration to populate logs or metrics. 
 
@@ -80,7 +83,7 @@ See [Metrics in Azure Monitor](data-platform-metrics.md) and [Logs in Azure Moni
 
 
 ## Stream data to external systems
-In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](/azure/event-hubs/). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data.
+In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](/azure/event-hubs/). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data. See [Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) for details.
 
 
 
