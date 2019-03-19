@@ -22,7 +22,7 @@
   - name: Deploy FHIR Server for Azure - CLI
     href: fhir-oss-cli-quickstart.md
   - name: Configure CORS
-    href: Configure-CORS.md
+    href: configure-cors.md
 - name: Tutorials
   expanded: false
   items:
