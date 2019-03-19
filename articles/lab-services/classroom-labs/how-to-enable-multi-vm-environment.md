@@ -26,7 +26,7 @@ Nested virtualization enables you to create virtual machines within a virtual ma
 
 For more information about nested virtualization, see the following articles:
 
-- [Nested Virtualization in Azure](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/)
+- [Nested Virtualization in Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
 - [How to enable nested virtualization in an Azure VM](../../virtual-machines/windows/nested-virtualization.md)
 
 ## Use nested virtualization in Azure Lab Services
