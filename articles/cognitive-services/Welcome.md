@@ -90,6 +90,10 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
  Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md).
 
+## Downloadable certifications
+
+Cognitive Services certifications are available for review and [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
 ## Support
 
 * For support and technical questions, post on [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
