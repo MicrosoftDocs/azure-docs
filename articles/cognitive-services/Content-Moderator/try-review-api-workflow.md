@@ -32,7 +32,7 @@ To create or update a workflow, go to the **[Workflow - Create Or Update](https:
 
 Enter values for **team**, **workflowname**, and **Ocp-Apim-Subscription-Key**:
 
-- **team**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account.
+- **team**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account (found in the **Id** field on your Review tool's Credentials screen).
 - **workflowname**: The name of a new workflow to add (or an existing name, if you want to update an existing workflow).
 - **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
 
@@ -98,8 +98,8 @@ To retrieve details about an existing workflow, go to the **[Workflow - Get](htt
 Enter the REST call parameters as in the above section. Make sure that this time, **workflowname** is the name of an existing workflow.
 
 ![Get query parameters and headers](images/workflow-get-default.PNG)
-  
-Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the the workflow in JSON format, like the following:
+
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the workflow in JSON format, like the following:
 
 ```json
 {

@@ -32,8 +32,8 @@ To create a review, go to the **[Review - Create](https://westus2.dev.cognitive.
 
 Enter values for **teamName**, and **Ocp-Apim-Subscription-Key**:
 
-- **teamName**: The team name that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account.
-- **Ocp-Apim-Subscription-Key**: Located on the **Settings** tab. For more information, see [Overview](overview.md).
+- **teamName**: The team ID that you created when you set up your [Review tool](https://contentmoderator.cognitive.microsoft.com/) account (found in the **Id** field on your Review tool's Credentials screen).
+- **Ocp-Apim-Subscription-Key**: Your Content Moderator key. You can find this  on the **Settings** tab of the [Review tool](https://contentmoderator.cognitive.microsoft.com).
 
 ### Enter a review definition
 
@@ -41,8 +41,8 @@ Edit the **Request body** box to enter the JSON request with the following field
 
 - **Metadata**: Custom key-value pairs to be returned to your callback endpoint. If the key is a short code that is defined in the [Review tool](tbd), it appears as a tag.
 - **Content**: In the case of Image and Video content, this is a URL string pointing to the content. For text content, this is the actual text string.
-- **ContentId**: Your custom identifier string. This string is passed to the API and returned through the callback. It is useful for associating internal identifiers or metadata with the results of a moderation job.
-- **CallbackEndpoint**: The URL to receive callback information when the review is completed.
+- **ContentId**: A custom identifier string. This string is passed to the API and returned through the callback. It is useful for associating internal identifiers or metadata with the results of a moderation job.
+- **CallbackEndpoint**: (Optional) The URL to receive callback information when the review is completed.
 
 The default request body shows examples of the different types of reviews you can create:
 
@@ -142,7 +142,7 @@ To retrieve details about an existing review, go to the [Review - Get](https://w
 
 ![Workflow - Get region selection](images/test-drive-region.png)
 
-Enter the REST call parameters as in the above section. Make sure that this time, **reviewId** is the unique ID string you received when you created the review.
+Enter the REST call parameters as in the above section. For this step, **reviewId** is the unique ID string you received when you created the review.
 
 ![Review - Create console Get results](images/test-drive-review-3.PNG)
   
