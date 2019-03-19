@@ -36,9 +36,9 @@ The Language Detection API detects the language of a text document, using the [D
 1. Replace the `subscriptionKey` value with an access key valid for your subscription.
 1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
-1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+1. Open a command prompt on a computer with Go installed from your root folder.
+1. Build the file, for example: `go build detect.go`.
+1. Run the file, for example: `go run detect.go`.
 
 ```golang
 package main
@@ -179,9 +179,9 @@ The Sentiment Analysis API detects the sentiment of a set of text records, using
 1. Replace the `subscriptionKey` value with an access key valid for your subscription.
 1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
-1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+1. Open a command prompt on a computer with Go installed from your root folder.
+1. Build the file, for example: `go build sentiment.go`.
+1. Run the file, for example: `go run sentiment.go`.
 
 ```golang
 package main
@@ -298,8 +298,8 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+1. Build the file, for example: `go build key-phrases.go`.
+1. Run the file, for example: `go run key-phrases.go`.
 
 ```golang
 package main
@@ -426,7 +426,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="Entities"></a>
 
-## Identify entities request
+## Identify entities
 
 The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
 
@@ -436,8 +436,8 @@ The Entities API identifies well-known entities in a text document, using the [E
 1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: 'go build quickstart.go'.
-1. Run the file, for example: 'quickstart'.
+1. Build the file, for example: `go build entities.go`.
+1. Run the file, for example: `go run entities.go`.
 
 ```golang
 package main
