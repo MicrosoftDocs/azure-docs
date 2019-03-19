@@ -280,5 +280,5 @@ When they're no longer needed, delete the resource group and all related resourc
 
 ## Next steps
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
