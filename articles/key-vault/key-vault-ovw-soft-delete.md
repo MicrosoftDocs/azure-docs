@@ -34,13 +34,13 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 With this feature, the DELETE operation on a key vault or key vault object is a soft-delete, effectively holding the resources for a given retention period (90 days), while giving the appearance that the object is deleted. The service further provides a mechanism for recovering the deleted object, essentially undoing the deletion. 
 
-Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. 
+Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. It can be turned on via [CLI](key-vault-soft-delete-cli.md) or [Powershell](key-vault-soft-delete-powershell.md).
 
 ### Purge protection 
 
 When purge protection is on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. These vaults and objects can still be recovered, assuring customers that the retention policy will be followed. 
 
-Purge protection is off by default, but may be added to a vault that has soft delete enabled. Purge protection can be turned on via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) or [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+Purge protection is an optional Key Vault behavior and is **not enabled by default**. Purge protection can be turned on via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) or [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
 ### Permitted purge
 
@@ -48,7 +48,7 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 
 An exceptions to this are
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
-- When --enable-purge-protection flag is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
+- When the --enable-purge-protection flag is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
 
 ### Key vault recovery
 
