@@ -70,8 +70,8 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 
 For a full list of neural voices and regional availability, see [regions](regions.md#neural-voices).
 
-| Locale | Language | Gender | Service name mapping| Region |
-|--------|----------|--------|---------------------|--------|
+| Locale | Language | Gender | Service name mapping|
+|--------|----------|--------|---------------------|
 | de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" |
 | en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
