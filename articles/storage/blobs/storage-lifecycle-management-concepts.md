@@ -37,7 +37,7 @@ The lifecycle management feature is available in all public Azure regions.
 
 ## Add or remove a policy 
 
-You can add, edit, or remove a policy by using the Azure portal, Azure PowerShell, the Azure CLI, REST APIs, or a client tool. This article shows how to manage policy by using the portal and PowerShell methods.  
+You can add, edit, or remove a policy by using the Azure portal, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), the Azure CLI, REST APIs, or a client tool. This article shows how to manage policy by using the portal and PowerShell methods.  
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -53,6 +53,8 @@ You can add, edit, or remove a policy by using the Azure portal, Azure PowerShel
 ### PowerShell
 
 ```powershell
+#Install the latest module
+Install-Module -Name Az -Repository PSGallery 
 
 #Create a new action object
 
