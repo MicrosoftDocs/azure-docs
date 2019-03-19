@@ -12,7 +12,7 @@ ms.date: 03/18/2019
 
 # Deploy Azure Databricks in your virtual network (Preview)
 
-The default deployment of Azure Databricks is a fully managed service on Azure: all data plane resources, including a virtual network (VNet) that all clusters will be associated with, are deployed to a locked resource group. If you require network customization, however, you can deploy Azure Databricks resources in your own virtual network (also called VNet injection), when enables you to:
+The default deployment of Azure Databricks is a fully managed service on Azure: all data plane resources, including a virtual network (VNet), are deployed to a locked resource group. If you require network customization, however, you can deploy Azure Databricks resources in your own virtual network (also called VNet injection), when enables you to:
 
 * Connect Azure Databricks to other Azure services (such as Azure Storage) in a more secure manner using service endpoints.
 * Connect to on-premises data sources for use with Azure Databricks, taking advantage of user-defined routes.
@@ -54,11 +54,11 @@ All outbound and inbound traffic between the subnets and the Azure Databricks co
 
 ## Create an Azure Databricks workspace
 
-This section describes how to create a Azure Databricks workspace in the Azure Portal and deploy it in your own existing virtual network. Azure Databricks updates the virtual network with two new subnets and network security groups using CIDR ranges provided by you, whitelists inbound and outbound subnet traffic, and deploys the workspace to the updated virtual network.
+This section describes how to create an Azure Databricks workspace in the Azure portal and deploy it in your own existing virtual network. Azure Databricks updates the virtual network with two new subnets and network security groups using CIDR ranges provided by you, whitelists inbound and outbound subnet traffic, and deploys the workspace to the updated virtual network.
 
 ## Prerequisites
 
-You must prepare a virtual network to which you will deploy the Azure Databricks workspace. You can use an existing virtual network or create a new one, but the virtual network must be in the same region as the Azure Databricks workspace that you plan to create. A CIDR range between /16 - /24 is required for the virtual network.
+You must have a virtual network to which you will deploy the Azure Databricks workspace. You can use an existing virtual network or create a new one, but the virtual network must be in the same region as the Azure Databricks workspace that you plan to create. A CIDR range between /16 - /24 is required for the virtual network.
 
   [!Warning]
   > A workspace with a smaller virtual network–that is, a lower CIDR range–can run out of IP addresses (network space) more quickly than a workspace with a larger virtual network. For example, a workspace with a /24 virtual network and /26 subnets can have a maximum of 64 nodes active at a time, whereas a workspace with a /20 virtual network and /22 subnets can house a maximum of 1024 nodes.
@@ -71,7 +71,11 @@ You must prepare a virtual network to which you will deploy the Azure Databricks
 
 2. Follow the configuration steps described in Step 2: Create an Azure Databricks workspace in the Getting Started Guide, and select the Deploy Azure Databricks workspace in your Virtual Network option.
 
+   ![Create Azure Databricks service](./media/vnet-injection/create-databricks-service.png)
+
 3. Select the virtual network you want to use.
+
+   ![Virtual network options](./media/vnet-injection/select-vnet.png)
 
 4. Provide CIDR ranges in a block between /18 - /26 for two subnets, dedicated to Azure Databricks:
 
@@ -155,7 +159,7 @@ Whitelist subnet traffic using the following IP addresses. For SQL (metastore) a
 
 ### Workspace launch errors
 
-Launching a workspace in a custom virtual network fails on the Azure Databricks sign-in screen with the following error: **"We've encountered an error creating your workspace. Please make sure the custom network configuration is correct and try again."**
+Launching a workspace in a custom virtual network fails on the Azure Databricks sign in screen with the following error: **"We've encountered an error creating your workspace. Make sure the custom network configuration is correct and try again."**
 
 This error is caused by a network configuration not meeting requirements. Confirm that you followed the instructions in this topic when you created the workspace.
 
@@ -165,15 +169,15 @@ This error is caused by a network configuration not meeting requirements. Confir
 
 Possible cause: traffic from control plane to workers is blocked. Fix by ensuring that inbound security rules meet requirements. If you are deploying to an existing virtual network connected to your on-premises network, review your setup using the information supplied in Connecting your Azure Databricks Workspace to your On-Premises Network.
 
-**Unexpected Launch Failure: An unexpected error was encountered while setting up the cluster. Please retry and contact Azure Databricks if the problem persists. Internal error message: Timeout while placing node.**
+**Unexpected Launch Failure: An unexpected error was encountered while setting up the cluster. Retry and contact Azure Databricks if the problem persists. Internal error message: Timeout while placing node.**
 
 Possible cause: traffic from workers to Azure Storage endpoints is blocked. Fix by ensuring that outbound security rules meet requirements. If you are using custom DNS servers, also check the status of the DNS servers in your virtual network.
 
 **Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. See the Azure Databricks guide for more information. Azure error code: AuthorizationFailed/InvalidResourceReference.**
 
-Possible cause: the virtual network or subnets do not exist any more. Make sure the virtual network and subnets exist.
+Possible cause: the virtual network or subnets do not exist anymore. Make sure the virtual network and subnets exist.
 
-**Cluster terminated. Reason: Spark Startup Failure: Spark was not able to start in time. This issue can be caused by a malfunctioning Hive metastore, invalid Spark configurations, or malfunctioning init scripts. Please refer to the Spark driver logs to troubleshoot this issue, and contact Databricks if the problem persists. Internal error message: Spark failed to start: Driver failed to start in time.**
+**Cluster terminated. Reason: Spark Startup Failure: Spark was not able to start in time. This issue can be caused by a malfunctioning Hive metastore, invalid Spark configurations, or malfunctioning init scripts. Refer to the Spark driver logs to troubleshoot this issue, and contact Databricks if the problem persists. Internal error message: Spark failed to start: Driver failed to start in time.**
 
 Possible cause: Container cannot talk to hosting instance or DBFS storage account. Fix by adding a custom route to the subnets for the DBFS storage account with the next hop being Internet.
 
