@@ -24,8 +24,8 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 ## In brief:
 
 * Sampling retains 1 in *n* records and discards the rest. For example, it might retain one in five events, a sampling rate of 20%. 
-* Adaptive Sampling is enabled by default in all the latest version of Asp.Net and Asp.Net Core Software Development Kits (SDKs).
-* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*,  in the ASP.NET SDK in the ApplicationInsights.config file, in the Asp.Net Core SDK via code or in the Java SDK in the ApplicationInsights.xml file.
+* Adaptive Sampling is enabled by default in all the latest version of ASP.NET and ASP.NET Core Software Development Kits (SDKs).
+* You can also set sampling manually. This can be configured in the portal on the *Usage and estimated costs page*,  in the ASP.NET SDK in the ApplicationInsights.config file, in the ASP.NET Core SDK via code or in the Java SDK in the ApplicationInsights.xml file.
 * If you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same OperationId value.
 * The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". `itemCount==1`when sampling is not in operation.
 * If you write Analytics queries, you should [take account of sampling](../../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
@@ -44,7 +44,7 @@ Works in the Azure portal. It discards some of the telemetry that arrives from y
 If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
 
-## Adaptive sampling at your Asp.Net/Asp.Net Core Web Applications
+## Adaptive sampling in your ASP.NET/ASP.NET Core Web Applications
 
 Adaptive sampling is available for the Application Insights SDK for ASP.NET v 2.0.0-beta3 and later, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 and later, and is enabled by default.
 
@@ -466,7 +466,7 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
   Event type from sampling. This configuration means that the SDK will try to limit telemetry items to five telemetry items of Event types, and five telemetry items of all other types combined, thereby ensuring that Events are sampled separately from other Telemetry types. Events are typically used for
   business telemetry, and most likely should not be affected by diagnostic telemetry volumes.
   
-  The following shows the default ApplicationInsights.Config file generated. As described, there are two separate separate AdaptiveSamplingTelemetryProcessor nodes added, one excluding Event types, and another including it. In Asp.Net Core, exact same default behavior is enabled in code. Use the examples in the earlier section of the document to change this default behavior.
+  The following shows the default ApplicationInsights.Config file generated. As described, there are two separate AdaptiveSamplingTelemetryProcessor nodes added, one excluding Event types, and another including it. In ASP.NET Core, exact same default behavior is enabled in code. Use the examples in the earlier section of the document to change this default behavior.
 
 ```xml
     <TelemetryProcessors>
