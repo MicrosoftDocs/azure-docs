@@ -131,13 +131,29 @@ Azure Stack supports *managed images*, which enable you to create a managed imag
 - You have generalized unmanaged VMs and want to use managed disks going forward.
 - You have a generalized managed VM and would like to create multiple, similar managed VMs.
 
-### Migrate unmanaged VMs to managed disks
+### Step 1: Generalize the VM
+For Windows, follow the “Generalize the Windows VM using Sysprep” section here: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep 
+For Linux, follow Step 1 on here: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
+
+Note: Do not forget to generalize your VM. Creating a VM from an image that hasn’t been generalized properly will lead to a VMProvisioningTimeout error.
+
+### Step 2: Create the Managed Image
+You may use the portal, powershell or cli to do this. Follow Azure’s document here: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+### Step 3: Choose the use case:
+#### Case 1: Migrate unmanaged VMs to managed disks
+Do not forget to generalize your VM correctly before doing this step. Post generalization , this VM cannot be used futher. Creating a VM from an image that hasn’t been generalized properly will lead to a VMProvisioningTimeout error. 
 
 Follow the instructions [here](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) to create a managed image from a generalized VHD in a storage account. This image can be used to create managed VMs going forward.
 
-### Create managed image from VM
+#### Case 2: Create Managed VM from Managed image using Powershell
 
 After creating an image from an existing managed disk VM using the script [here](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , the following example script creates a similar Linux VM from an existing image object:
+
+Azure Stack powershell module 1.7.0 or above:
+Follow the instructions [here](../../virtual-machines/windows/create-vm-generalized-managed) 
+
+Azure Stack powershell module 1.6.0 or below:
 
 ```powershell
 # Variables for common values
@@ -188,7 +204,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-For more information, see the Azure managed image articles [Create a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.md) and [Create a VM from a managed image](../../virtual-machines/windows/create-vm-generalized-managed.md).
+You may also use the portal to create a VM from a managed image. For more information, see the Azure managed image articles [Create a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.md) and [Create a VM from a managed image](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## Configuration
 
