@@ -53,8 +53,6 @@ The following diagram shows how managed service identities work with Azure virtu
 
 ![Managed service identities and Azure VMs](media/overview/msi-vm-vmextension-imds-example.png)
 
-The following table lists the different properties of system-assigned managed identity and user-assigned managed identity. 
-
 |  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
 | Creation | Easy to create | Easy to create, although it requires a few more steps to create than system-assigned managed identity |
