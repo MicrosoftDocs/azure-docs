@@ -84,7 +84,7 @@ You must have a virtual network to which you will deploy the Azure Databricks wo
 
 5. Click **Create** to deploy the Azure Databricks workspace to the virtual network.
 
-## Advanced configurations with Azure Resource Manager
+## Advanced resource manager configurations
 
 If you want more control over the configuration of the virtual network – for example, you want to use existing subnets, use existing network security groups, or create your own security rules – you can use the following Azure Resource Manager templates instead of the portal virtual network configuration and workspace deployment.
 
@@ -126,7 +126,7 @@ If you do not use the [Azure portal](https://docs.azuredatabricks.net/administra
 |Outbound|\*|\*|\*|Storage (service tag)|\*|
 |Outbound|\*|\*|\*|VirtualNetwork|\*|
 
-Whitelist subnet traffic using the following IP addresses. For SQL (metastore) and Storage (artifact and log storage), you should use the Sql and Storage [service tags](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Whitelist subnet traffic using the following IP addresses. For SQL (metastore) and Storage (artifact and log storage), you should use the Sql and Storage [service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 |Azure Databricks Region|Service|Public IP|
 |-----------------------|-------|---------|
