@@ -195,7 +195,7 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 
 	![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. **Note: This step is needed only for HBase clusters with Enhanced Writes feature, if you are not using Enhanced Writes feature, skip this step.**
+8. **If you are not using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.**
    
    Change the hbase.rootdir path to point to the container of the original cluster.
 
