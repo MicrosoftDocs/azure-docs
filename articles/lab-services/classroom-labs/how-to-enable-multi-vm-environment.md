@@ -16,7 +16,7 @@ ms.date: 03/18/2019
 ms.author: spelluru
 
 ---
-# Enable an environment with multiple virtual machines in Azure Lab Services
+# Create an environment with multiple virtual machines inside a template virtual machine in Classroom Labs
 
 Currently Azure Lab Services enables you to set up one template virtual machine in a lab and make a single copy available to each of your user. But if you are a professor teaching an IT class on how to set up firewalls or servers, you may need to provide each of your students with an environment in which multiple virtual machines can talk to each other over a network.
 
