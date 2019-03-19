@@ -62,7 +62,7 @@ Azure Diagnostic Logs are emitted by a resource and provide rich, frequent data 
 
 To enable diagnostics logging, you must have the following resources:
 
-* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account by using the Azure portal](create-sql-api-dotnet.md#create-a-database-account), [Azure CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
+* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account by using the Azure portal](create-sql-api-dotnet.md#create-account), [Azure CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
 To enable diagnostic logging in the Azure portal, do the following steps:
 
