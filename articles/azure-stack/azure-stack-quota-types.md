@@ -47,9 +47,7 @@ ms.lastreviewed: 12/07/2018
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 > [!NOTE]  
-> It can take up to two hours before a storage quota is enforced.
-
-> Maxium capacity of managed disk is seperate from total storage quota, it should be set in Compute Quota.
+> It can take up to two hours before a storage quota is enforced. Maxium capacity of managed disk is seperate from total storage quota, it should be set in Compute Quota.
 
 
 ## Network quota types
