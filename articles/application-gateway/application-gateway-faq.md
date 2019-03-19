@@ -34,19 +34,11 @@ Application Gateway supports HTTP, HTTPS, HTTP/2, and WebSocket.
 
 ### How does Application Gateway support HTTP/2?
 
-HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is over HTTP/1.1. 
-
-By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
-
-```azurepowershell
-$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
-$gw.EnableHttp2 = $true
-Set-AzApplicationGateway -ApplicationGateway $gw
-```
+See [HTTP/2 Support](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) to learn how Application gateway supports HTTP/2 protocol.
 
 ### What resources are supported today as part of backend pool?
 
-Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. Application Gateway backend pool members are not tied to an availability set. Members of backend pools can be across clusters, data centers, or outside of Azure as long as they have IP connectivity.
+See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool) to learn which resources are supported by Application gateway.
 
 ### What regions is the service available in?
 
@@ -99,9 +91,7 @@ Mixing Standard_v2 and Standard Application Gateway on the same subnet is not su
 
 ### Does Application Gateway support x-forwarded-for headers?
 
-Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the application gateway.
-
-Application Gateway also inserts X-Original-Host header that contains the original Host header with which the request arrived. This header is useful in scenarios like Azure Website integration, where the incoming host header is modified before traffic is routed to the backend.
+Yes. See [modifications to request](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request) to learn the x-forwarded-for headers supported by Application Gateway.
 
 ### How long does it take to deploy an Application Gateway? Does my Application Gateway still work when being updated?
 
@@ -113,7 +103,7 @@ V2 SKU deployments can take about five to six minutes to provision.
 
 ### Is Application Gateway always deployed in a virtual network?
 
-Yes, Application Gateway is always deployed in a virtual network subnet. This subnet can only contain Application Gateways.
+Yes, Application Gateway is always deployed in a virtual network subnet. This subnet can only contain Application Gateways. See [virtual network and subnet requirements](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet) to understand the subnet considerations for Apllication Gateway.
 
 ### Can Application Gateway communicate with instances outside its virtual network?
 
@@ -175,51 +165,13 @@ Host field specifies the name to send the probe to. Applicable only when multi-s
 
 ### Can I whitelist Application Gateway access to a few source IPs?
 
-This scenario can be done using NSGs on the application gateway subnet. The following restrictions should be put on the subnet in the listed order of priority:
-
-* Allow incoming traffic from source IP/IP range.
-
-* Allow incoming requests from all sources to ports 65503-65534 for [backend health communication](application-gateway-diagnostics.md). This port range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to initiate any changes on those endpoints.
-
-* Allow incoming Azure Load Balancer probes (AzureLoadBalancer tag) and inbound virtual network traffic (VirtualNetwork tag) on the [NSG](../virtual-network/security-overview.md).
-
-* Block all other incoming traffic with a Deny all rule.
-
-* Allow outbound traffic to the internet for all destinations.
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips) to understand how to ensure that only whitelisted source IPs can access the Application Gateway.
 
 ### Can the same port be used for both public and private facing listeners?
 
 No, this is not supported.
 
-## Performance
-
-### How does Application Gateway support high availability and scalability?
-
-The Application Gateway v1 SKU supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
-
-The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If zone redundancy is chosen, the newest instances are also spread across availability zones to offer zonal failure resiliency.
-
-### How do I achieve DR scenario across data centers with Application Gateway?
-
-Customers can use Traffic Manager to distribute traffic across multiple Application Gateways in different datacenters.
-
-### Is autoscaling supported?
-
-Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
-
-### Does manual scale up/down cause downtime?
-
-There is no downtime. Instances are distributed across upgrade domains and fault domains.
-
-### Does Application Gateway support connection draining?
-
-Yes. You can configure connection draining to change members within a backend pool without disruption. This allows existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
-
-### Can I change instance size from medium to large without disruption?
-
-Yes, Azure distributes instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
-
-## SSL Configuration
+## Configuration - SSL
 
 ### What certificates are supported on Application Gateway?
 
@@ -289,7 +241,7 @@ Up to 10 authentication certificates are supported with a default of 5.
 
 No, it is not integrated with Azure Key Vault.
 
-## Web Application Firewall (WAF) Configuration
+## Configuration - Web Application Firewall (WAF)
 
 ### Does the WAF SKU offer all the features available with the Standard SKU?
 
@@ -332,6 +284,34 @@ WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 ### Does WAF also support DDoS prevention?
 
 Yes. You can enable DDos protection on the VNet where the application gateway is deployed. This ensures that the application gateway VIP is also protected using the Azure DDos Protection service.
+
+## Performance
+
+### How does Application Gateway support high availability and scalability?
+
+The Application Gateway v1 SKU supports high availability scenarios when you have two or more instances deployed. Azure distributes these instances across update and fault domains to ensure that all instances do not fail at the same time. The v1 SKU supports scalability by adding multiple instances of the same gateway to share the load.
+
+The v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If zone redundancy is chosen, the newest instances are also spread across availability zones to offer zonal failure resiliency.
+
+### How do I achieve DR scenario across data centers with Application Gateway?
+
+Customers can use Traffic Manager to distribute traffic across multiple Application Gateways in different datacenters.
+
+### Is autoscaling supported?
+
+Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
+
+### Does manual scale up/down cause downtime?
+
+There is no downtime. Instances are distributed across upgrade domains and fault domains.
+
+### Does Application Gateway support connection draining?
+
+Yes. You can configure connection draining to change members within a backend pool without disruption. This allows existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires. Connection draining only waits for current in-flight connections to complete. Application Gateway is not aware of application session state.
+
+### Can I change instance size from medium to large without disruption?
+
+Yes, Azure distributes instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
 
 ## Diagnostics and Logging
 
