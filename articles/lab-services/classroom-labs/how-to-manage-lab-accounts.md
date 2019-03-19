@@ -34,7 +34,9 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     2. Select the **Azure subscription** in which you want to create the lab account.
     3. For **Resource group**, select **Create new**, and enter a name for the resource group.
     4. For **Location**, select a location/region in which you want the lab account to be created. 
-    5. Select **Create**. 
+    5. For **Peer virtual network**, select a peer virtual network (VNet) for the lab network. Labs created in this account are connected to the selected VNet and have access to the resources in the selected VNet. 
+    7. For the **Allow lab creator to pick lab location** field, specify whether you want lab creators to be able to select a location for the lab. By default, the option is disabled. When it's disabled, lab creators can't specify a location for the lab they are creating. The labs are created in the closest geographical location to lab account. When it's enabled, a lab creator can select a location at the time of creating a lab.      
+    8. Select **Create**. 
 
         ![Create a lab account window](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**. 
@@ -82,6 +84,18 @@ As a lab account owner, you can specify the Marketplace images that lab creators
     1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
     2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
+## Configure the lab account
+1. On the **Lab Account** page, select **Labs configuration** on the left menu.
+
+    ![Labs Configuration page](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. For **Peer virtual network**, select **Enabled** or **Disabled**. The default value is **Disabled**. To enable the peer virtual network, do the following steps: 
+    1. Select **Enabled**.
+    2. Select the **VNet** from the drop-down list. 
+    3. Select **Save** on the toolbar. 
+    
+        Labs created in this account are connected to the selected virtual network. They can access to the resources in the selected virtual network. 
+3. For the **Allow lab creator to pick lab location**, select **Enabled** if you want the lab creator to be able to select a location for the lab. If it's disabled, the labs are automatically created in the same location in which the lab account exists. 
+
 ## View lab accounts
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** from the menu. 
@@ -89,19 +103,6 @@ As a lab account owner, you can specify the Marketplace images that lab creators
     You can also filter by subscription, resource group, locations, and tags. 
 
     ![All resources -> Lab Accounts](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
-
-
-## Delete a lab account
-Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
-
-1. Select the **lab account** that you want to delete. 
-2. Select **Delete** from the toolbar. 
-
-    ![Lab Accounts -> Delete button](../media/how-to-manage-lab-accounts/delete-button.png)
-1. Type **Yes** for confirmation.
-1. Select **Delete**. 
-
-    ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## View and manage labs in the lab account
 
@@ -115,6 +116,8 @@ Follow instructions from the previous section that displays lab accounts in a li
     4. Maximum number of users allowed into the lab. 
     5. Status of the lab. 
 
+
+
 ## Delete a lab in the lab account
 Follow instructions in the previous section to see a list of the labs in the lab account.
 
@@ -124,6 +127,20 @@ Follow instructions in the previous section to see a list of the labs in the lab
 2. Select **Yes** on the warning message. 
 
     ![Confirm lab deletion](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+
+## Delete a lab account
+Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
+
+1. Select the **lab account** that you want to delete. 
+2. Select **Delete** from the toolbar. 
+
+    ![Lab Accounts -> Delete button](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Type **Yes** for confirmation.
+1. Select **Delete**. 
+
+    ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+
+
 
 ## Next steps
 See the following articles:

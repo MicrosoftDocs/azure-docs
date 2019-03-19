@@ -146,49 +146,49 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 >To understand how and when the Azure AD user provisioning service emits the operations described below, see [What happens during user provisioning?](user-provisioning.md#what-happens-during-provisioning).
 
 - [User Operations](#user-operations)
-    - [Create User](#create-user)
-                - [Request](#request)
-            - [Response](#response)
-    - [Get User](#get-user)
-                - [Request](#request-1)
-                - [Response](#response-1)
-    - [Get User by query](#get-user-by-query)
-            - [Request](#request-2)
-            - [Response](#response-2)
-    - [Get User by query - Zero results](#get-user-by-query---zero-results)
-            - [Request](#request-3)
-            - [Response](#response-3)
-    - [Update User [Multi-valued properties]](#update-user-multi-valued-properties)
-            - [Request](#request-4)
-            - [Response](#response-4)
-    - [Update User [Single-valued properties]](#update-user-single-valued-properties)
-            - [Request](#request-5)
-            - [Response](#response-5)
-    - [Delete User](#delete-user)
-            - [Request](#request-6)
-            - [Response](#response-6)
+  - [Create User](#create-user)
+    - [Request](#request)
+    - [Response](#response)
+  - [Get User](#get-user)
+    - [Request](#request-1)
+    - [Response](#response-1)
+  - [Get User by query](#get-user-by-query)
+    - [Request](#request-2)
+    - [Response](#response-2)
+  - [Get User by query - Zero results](#get-user-by-query---zero-results)
+    - [Request](#request-3)
+    - [Response](#response-3)
+  - [Update User [Multi-valued properties]](#update-user-multi-valued-properties)
+    - [Request](#request-4)
+    - [Response](#response-4)
+  - [Update User [Single-valued properties]](#update-user-single-valued-properties)
+    - [Request](#request-5)
+    - [Response](#response-5)
+  - [Delete User](#delete-user)
+    - [Request](#request-6)
+    - [Response](#response-6)
 - [Group Operations](#group-operations)
-    - [Create Group](#create-group)
-            - [Request](#request-7)
-            - [Response](#response-7)
-    - [Get Group](#get-group)
-            - [Request](#request-8)
-            - [Response](#response-8)
-    - [Get Group by displayName](#get-group-by-displayname)
-            - [Request](#request-9)
-            - [Response](#response-9)
-    - [Update Group [Non-member attributes]](#update-group-non-member-attributes)
-            - [Request](#request-10)
-            - [Response](#response-10)
-    - [Update Group [Add Members]](#update-group-add-members)
-            - [Request](#request-11)
-            - [Response](#response-11)
-    - [Update Group [Remove Members]](#update-group-remove-members)
-            - [Request](#request-12)
-            - [Response](#response-12)
-    - [Delete Group](#delete-group)
-            - [Request](#request-13)
-            - [Response](#response-13)
+  - [Create Group](#create-group)
+    - [Request](#request-7)
+    - [Response](#response-7)
+  - [Get Group](#get-group)
+    - [Request](#request-8)
+    - [Response](#response-8)
+  - [Get Group by displayName](#get-group-by-displayname)
+    - [Request](#request-9)
+    - [Response](#response-9)
+  - [Update Group [Non-member attributes]](#update-group-non-member-attributes)
+    - [Request](#request-10)
+    - [Response](#response-10)
+  - [Update Group [Add Members]](#update-group-add-members)
+    - [Request](#request-11)
+    - [Response](#response-11)
+  - [Update Group [Remove Members]](#update-group-remove-members)
+    - [Request](#request-12)
+    - [Response](#response-12)
+  - [Delete Group](#delete-group)
+    - [Request](#request-13)
+    - [Response](#response-13)
 
 ### User Operations
 
@@ -651,8 +651,8 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 4. In the resulting screen, select the **Provisioning** tab in the left column.
 5. In the **Provisioning Mode** menu, select **Automatic**.
     
-  ![][2]
-  *Figure 6: Configuring provisioning in the Azure portal*
+   ![][2]
+   *Figure 6: Configuring provisioning in the Azure portal*
     
 6. In the **Tenant URL** field, enter the internet-exposed URL and port of your SCIM endpoint. The entry is something like http://testmachine.contoso.com:9000 or http://\<ip-address>:9000/, where \<ip-address> is the internet exposed IP address.  
 7. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, then Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD -issued token.
@@ -864,12 +864,12 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
     >[!NOTE]
     > This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Furthermore, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
 
-  ````
+   ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-  ````
-  If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
-  ````
+   ````
+   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -879,9 +879,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-  ````
-  Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
-  ````
+   ````
+   Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
+   ````
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
     {
@@ -965,7 +965,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
 2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user does not return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
-  ````
+   ````
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
     Content-type: application/scim+json
@@ -994,9 +994,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
       "title":null,
       "department":null,
       "manager":null}
-  ````
-  The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
-  ````
+   ````
+   The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -1004,16 +1004,16 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(
       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
       string correlationIdentifier);
-  ````
-  In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+   ````
+   In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
 
 3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
-  ````
+   ````
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-  ````
-  In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
-  ````
+   ````
+   In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
@@ -1039,30 +1039,30 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
         string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
           { get; set; }
     }
-  ````
-  In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+   ````
+   In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
    * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether or not the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
 
-  If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
-  * parameters.AlternateFilters.Count: 2
-  * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * parameters.AlternateFilters.Count: 2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
+   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-  Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
+   Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
 
 5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-  ````
+   ````
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
     Content-type: application/scim+json
@@ -1080,9 +1080,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
               {
                 "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
                 "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
-  ````
-  The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-  ````
+   ````
+   The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
+   ````
     // System.Threading.Tasks.Tasks and 
     // System.Collections.Generic.IReadOnlyCollection<T>
     // are defined in mscorlib.dll.  
@@ -1120,19 +1120,19 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
    If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
-   * parameters.AlternateFilters.Count: 2
-   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
-   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
-   * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+* parameters.AlternateFilters.Count: 2
+* parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+* parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
+* parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+* parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+* parameters.RequestedAttributePaths.ElementAt(0): "ID"
+* parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-   Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
+  Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
 
-5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
+1. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
 
    ```
      PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1248,7 +1248,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
    * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
    * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-6. To de-provision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as: 
+1. To de-provision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as: 
 
    ```
      DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
@@ -1269,13 +1269,13 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
    The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to de-provision a user: 
 
-6. To de-provision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as: 
-  ````
+1. To de-provision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as: 
+   ````
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-  ````
-  If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Delete method of the service’s provider.   That method has this signature: 
-  ````
+   ````
+   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Delete method of the service’s provider.   That method has this signature: 
+   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
     // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
@@ -1283,11 +1283,11 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
         resourceIdentifier, 
       string correlationIdentifier);
-  ````
-  The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to de-provision a user: 
+   ````
+   The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to de-provision a user: 
   
-  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## User and group schema reference
 Azure Active Directory can provision two types of resources to SCIM web services.  Those types of resources are users and groups.  
@@ -1297,6 +1297,7 @@ User resources are identified by the schema identifier, `urn:ietf:params:scim:sc
 Group resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:core:2.0:Group`.  Table 2 below shows the default mapping of the attributes of groups in Azure Active Directory to the attributes of group resources.  
 
 ### Table 1: Default user attribute mapping
+
 | Azure Active Directory user | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |active |
@@ -1318,6 +1319,7 @@ Group resources are identified by the schema identifier, `urn:ietf:params:scim:s
 | user-PrincipalName |userName |
 
 ### Table 2: Default group attribute mapping
+
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |

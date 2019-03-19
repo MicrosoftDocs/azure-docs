@@ -84,7 +84,7 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
    - **To** - Enter at least one valid email address.
    - **Subject** - Flow gives you the option of adding Dynamic content, like **LeadSource** in the following screen capture.
 
-    ![Add an email action using dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Add an email action using dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
    - **Body** - From the Dynamic content list, add the information you want in the body of the email. For example, LastName, FirstName, Email, and Company.
 

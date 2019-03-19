@@ -8,8 +8,8 @@ ms.author: tamram
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend you configure Microsoft Update to get updates for the Azure File Sync agent as they're available.
 
 #### Major vs. minor agent versions
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: *2.\*.\**
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: *\*.3.\**
+* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: \*2.\*.\*\*
+* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: \*\*.3.\*\*
 
 #### Upgrade paths
 There are four approved and tested ways to install the Azure File Sync agent updates. 
