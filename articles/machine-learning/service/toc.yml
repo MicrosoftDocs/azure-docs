@@ -190,4 +190,5 @@
   - name: Get support
     href: support-for-aml-services.md
   - name: Compare our ML products
-    href: overview-more-machine-learning.md
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+    maintainContext: true
