@@ -99,6 +99,9 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 
 4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
+	>[!NOTE]
+	>You can download the **Service Provider metadata file** [here](https://fed.appreciatehub.com/fed/sp/metadata)
+
 	a. Click **Upload metadata file**.
 
     ![Upload metadata file](common/upload-metadata.png)
