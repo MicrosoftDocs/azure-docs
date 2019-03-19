@@ -145,7 +145,7 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSCON file of the most recent 250,000 records.  
+You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSON file of the most recent 250,000 records.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
