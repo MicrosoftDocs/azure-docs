@@ -17,6 +17,7 @@ ms.reviewer: igorstan
 Watch the latest Azure SQL Data Warehouse videos to learn about new capabilities and performance improvements. 
 
 To get started, select the overview video below to learn about the new updates to Azure SQL Data Warehouse. Also, learn how Modern Data Warehouse patterns can be used to tackle real world scenarios such as cybercrime.
+</br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
   <div style="width:image width px; font-size:80%; text-align:center;">        
