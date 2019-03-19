@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.author: jeedes
 
 ---
@@ -149,7 +149,7 @@ To configure Azure AD single sign-on with TAS, perform the following steps:
 
 	c. In the **Enter URL** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
 
-	d. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **Enter Certfication** box.
+	d. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **Enter Certification** box.
 
 	e. In the **Enter New IP** textbox, type the IP Address.
 
