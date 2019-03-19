@@ -149,12 +149,12 @@ The following services support Azure AD authentication, and have been tested wit
 
 ### Azure Resource Manager
 
-Refer to the following list to configure access to Azure resource manager:
+Refer to the following list to configure access to Azure Resource Manager:
 
 - [Assign access via Azure portal](howto-assign-access-portal.md)
 - [Assign access via Powershell](howto-assign-access-powershell.md)
 - [Assign access via Azure CLI](howto-assign-access-CLI.md)
-- [Assign acces via Azure resource manager template](../../role-based-access-control/role-assignments-template.md)
+- [Assign acces via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
