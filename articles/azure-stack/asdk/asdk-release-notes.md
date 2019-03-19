@@ -27,9 +27,11 @@ Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./medi
 
 ## Build 1.1902.0.69
 
-### Changes
+### New features
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](../azure-stack-create-plan.md).
+
+- For a list of other changes and improvements in this release, see [this section](../azure-stack-update-1902.md#improvements) in the Azure Stack release notes.
 
 <!-- ### New features
 

@@ -39,6 +39,9 @@
   - name: Compare storage options
     href: ../hdinsight-hadoop-compare-storage-options.md
     maintainContext: true
+  - name: Understand managed identities
+    href: ../hdinsight-managed-identities.md
+    maintainContext: true
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
@@ -74,11 +77,6 @@
         href: apache-hadoop-use-hive-powershell.md
       - name: Use .NET SDK
         href: apache-hadoop-use-hive-dotnet-sdk.md
-
-      - name: Use Remote Desktop
-        href: apache-hadoop-use-hive-remote-desktop.md
-      - name: Use the Query Console
-        href: apache-hadoop-use-hive-query-console.md
     - name: Use a Java UDF with Hive
       href: apache-hadoop-hive-java-udf.md
     - name: Use MapReduce with Apache Hadoop
@@ -159,15 +157,11 @@
       href: apache-hadoop-connect-excel-hive-odbc-driver.md
     - name: Connect using the Apache Hive JDBC driver
       href: apache-hadoop-connect-hive-jdbc-driver.md
-    - name: Analyze stored sensor data
-      href: apache-hive-analyze-sensor-data.md
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Generate recommendations with Apache Mahout
       href: apache-hadoop-mahout-linux-mac.md
-    - name: Analyze website logs with Apache Hive
-      href: apache-hive-analyze-website-log.md
     - name: Analyze Application Insights telemetry logs
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
@@ -207,9 +201,6 @@
       maintainContext: true
     - name: Use Hue
       href: ../hdinsight-hadoop-hue-linux.md
-      maintainContext: true
-    - name: Use Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: Use Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
@@ -321,8 +312,11 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
-    - name: Scale an HDInsight cluster
+    - name: Manually scale a cluster
       href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Autoscale clusters
+      href: ../hdinsight-autoscale-clusters.md
       maintainContext: true
     - name: Use external metadata stores
       href: ../hdinsight-use-external-metadata-stores.md
@@ -495,9 +489,6 @@
     - name: Run Apache Hadoop MapReduce samples
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Use Apache Solr on clusters
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Use Apache Giraph to process large-scale graphs
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -510,26 +501,14 @@
     - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Customize using Script Action
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Access Apache Hadoop YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Generate movie recommendations using Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Analyze Twitter data
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Manage clusters with Azure portal
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Monitor clusters using the Apache Ambari API
       href: ../hdinsight-monitor-use-ambari-api.md

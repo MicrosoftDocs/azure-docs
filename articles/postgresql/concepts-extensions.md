@@ -98,7 +98,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** |
 > |---|---|
-> | [TimescaleDB](https://docs.timescale.com/latest) | A time-series SQL database that supports automated partitioning for faster ingest and queries. Provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads. TimescaleDB is developed by and a registered trademark of [Timescale, Inc.](https://www.timescale.com/) |
+> | [TimescaleDB](https://docs.timescale.com/latest) | A time-series SQL database that supports automated partitioning for faster ingest and queries. Provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads. TimescaleDB is developed by and a registered trademark of [Timescale, Inc.](https://www.timescale.com/) (See below for a note on this extension). |
 
 
 ## pg_stat_statements
