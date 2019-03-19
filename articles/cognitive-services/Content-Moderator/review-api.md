@@ -65,9 +65,9 @@ See [TBD](tbd) to get started creating and using workflows, or see TBD to learn 
 
 ## Jobs
 
-A job is a kind of wrapper for workflows. While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a high-level report of a workflow. A job can send the applied tags (both the automatic moderation tags and those manually applied during a human review) to a given callback endpoint. A job ID can also be used to report the state of a workflow at any given time. It returns the status **Pending**, **Failed**, or **Completed** (depending on whether moderation and review were completed or cancelled) along with a step-by-step job execution report.
+A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](tbd). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
 
-See [TBD](tbd) to get started using jobs, or see TBD to learn how to do so programmatically.
+See [TBD](tbd) to get started using jobs, or see [TBD](tbd) to learn how to do so programmatically.
 
 ## Next steps
 
