@@ -158,7 +158,6 @@ This update installs the following security updates:
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
 
-
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4487006](https://support.microsoft.com/en-us/help/4487006).
 
 ## Known issues with the update process
