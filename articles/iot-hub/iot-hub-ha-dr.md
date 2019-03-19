@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
 author: rkmanda
@@ -59,6 +59,7 @@ Once the failover operation for the IoT hub completes, all operations from the d
 >
 > - After failover, the events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available.
 >
+> - When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### Microsoft-initiated failover
 
@@ -122,7 +123,7 @@ To simplify this step, you should use idempotent operations. Idempotent operatio
 Here's a summary of the HA/DR options presented in this article that can be used as a frame of reference to choose the right option that works for your solution.
 
 | HA/DR option | RTO | RPO | Requires manual intervention? | Implementation complexity | Additional cost impact|
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Microsoft-initiated failover |2 - 26 hours|Refer RPO table above|No|None|None|
 | Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None|
 | Cross region HA |< 1 min|Depends on the replication frequency of your custom HA solution|No|High|> 1x the cost of 1 IoT hub|

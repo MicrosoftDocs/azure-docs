@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/25/2019
 ---
 
 # Delete Activity in Azure Data Factory
@@ -39,6 +39,9 @@ Here are some recommendations for using the Delete activity:
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+
+### File system data stores
+
 -   [File System](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
@@ -305,7 +308,7 @@ You can create a pipeline to clean up the old or expired files by leveraging fil
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -555,6 +558,11 @@ Dataset for data destination used by copy activity.
     }
 }
 ```
+## Known limitation
+
+-   Delete activity does not support deleting list of folders described by wildcard.
+
+-   When using file attribute filter: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "fileName": "*" in dataset.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ This article summarizes supported configurations and components when you deploy 
 ## Resource support
 
 **Resource action** | **Details**
---- | --- | ---
+--- | --- 
 **Move vault across resource groups** | Not supported
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after the VM is replicating, you need to disable and then re-enable replication for the VM.
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.

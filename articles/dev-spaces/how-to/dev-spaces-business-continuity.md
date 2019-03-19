@@ -1,15 +1,14 @@
 ---
-title: "Business continuity and disaster recovery in Azure Dev Spaces | Microsoft Docs"
+title: "Business continuity and disaster recovery in Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: "lisaguthrie"
 ms.author: "lcozzens"
 ms.date: "01/28/2019"
-ms.topic: "article"
+ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 manager: "jeconnoc"
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces
@@ -87,7 +86,7 @@ Repeat these steps for any other projects configured to use the original cluster
 
 ## Access a service on a backup cluster
 
-If you have configured your service to use a public DNS name, then the service will have a different URL if you run it on a backup cluster. Public DNS names are always in the format `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`. If you switch to a different cluster, the cluster GUID and possibly the region will change.
+If you have configured your service to use a public DNS name, then the service will have a different URL if you run it on a backup cluster. Public DNS names are always in the format `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. If you switch to a different cluster, the cluster GUID and possibly the region will change.
 
 Dev Spaces always shows the correct URL for the service when running `azds up`, or in the Output window in Visual Studio under **Azure Dev Spaces**.
 
@@ -96,7 +95,7 @@ You can also find the URL by running the `azds list-uris` command:
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 Use this URL when accessing the service.

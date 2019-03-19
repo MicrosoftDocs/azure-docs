@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
@@ -54,7 +54,7 @@ The following prerequisites must be in place.
 
    > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-2. From the PowerShell prompt, run the following to set *$serviceAdminCredential* as the Service Administrator for your Azure AD Tenant.  Replace *serviceadmin@contoso.onmicrosoft.com* with your account and tenant. 
+2. From the PowerShell prompt, run the following to set *$serviceAdminCredential* as the Service Administrator for your Azure AD Tenant.  Replace *serviceadmin\@contoso.onmicrosoft.com* with your account and tenant. 
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. From the PowerShell prompt, run the following to start validation of your Azure AD. 

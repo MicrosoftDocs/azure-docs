@@ -3,7 +3,7 @@ title: Enable replication of VMware VMs for VMware disaster recovery to Azure wi
 description: This article describes how to enable replication of VMware VMs for disaster recovery to Azure, using Azure Site Recovery.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 1/29/2019
+ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
 ---
@@ -34,6 +34,12 @@ When replicating VMware virtual machines:
 
 ## Enable replication
 
+>[!NOTE]
+>* Azure Site Recovery now replicates directly to Managed Disks for all new replications. Process Server writes replication logs to a cache storage account in target region. These logs are used to create recovery points in replica managed disks. 
+>* At the time of failover, the recovery point selected by customer is used to create the target managed disk.
+>* VMs which are previously configured to replicate to target storage accounts will not be impacted. 
+>* Replication to storage accounts for a new machine is only available via REST API and Powershell. Use API version 2016-08-10 or 2018-01-10 for replicating to storage accounts.
+
 1. Click **Step 2: Replicate application** > **Source**. After you've enabled replication for the first time, click **+Replicate** in the vault to enable replication for additional machines.
 2. In the **Source** page > **Source**, select the configuration server.
 3. In **Machine type**, select **Virtual Machines** or **Physical Machines**.
@@ -44,36 +50,30 @@ When replicating VMware virtual machines:
 
 6. In **Target**, select the subscription and the resource group where you want to create the failed-over virtual machines. Choose the deployment model that you want to use in Azure for the failed-over virtual machines.
 
-7. Select the Azure Storage account you want to use for replicating data. 
+7. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to create one. To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
+   
+   ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-    > [!NOTE]
-
-    >   * You can select a premium or standard storage account. If you select a premium account, you need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
-    >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account by using Resource Manager, click **Create new**. 
-
-8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to create one. To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
-
-    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
+8. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 
     ![Enable replication select virtual machines](./media/vmware-azure-enable-replication/enable-replication5.png)
-10. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine.  
-11. By default, all disks are replicated. To exclude disks from replication, click **All Disks** and clear any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
+
+9. In **Properties** > **Configure properties**, select the account used by the process server to automatically install the Mobility Service on the machine. Also, choose the type of target managed disk that you would want to replicate to based on your data churn patterns.
+10. By default, all disks of a source machine are replicated. To exclude disks from replication, uncheck **Include** checkbox against any disks you don't want to replicate.  Then click **OK**. You can set additional properties later. [Learn more](vmware-azure-exclude-disk.md) about excluding disks.
 
     ![Enable replication configure properties](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-12. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. You can modify replication policy settings in **Settings** > **Replication policies** > (policy name) > **Edit Settings**. Changes you apply to a policy also apply to replicating and new machines.
-13. Enable **Multi-VM consistency** if you want to gather machines into a replication group. Specify a name for the group, and then click **OK**. 
+11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. You can modify replication policy settings in **Settings** > **Replication policies** > (policy name) > **Edit Settings**. Changes you apply to a policy also apply to replicating and new machines.
+12. Enable **Multi-VM consistency** if you want to gather machines into a replication group. Specify a name for the group, and then click **OK**. 
 
     > [!NOTE]
-
+    > 
     >    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
     >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
 
     ![Enable replication](./media/vmware-azure-enable-replication/enable-replication7.png)
-14. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
-
-
+    
+13. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
 ## View and manage VM properties
 
@@ -82,17 +82,17 @@ Next, you verify the properties of the source machine. Remember that the Azure V
 1. Click **Settings** > **Replicated items** >, and then select the machine. The **Essentials** page shows information about machine settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can change multiple VM propoerties:
-* Azure VM name - Modify the name to comply with Azure requirements if necessary
-* Target VM size or type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
+   * Azure VM name - Modify the name to comply with Azure requirements if necessary
+   * Target VM size or VM type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
 
-    ![Compute and Network properties](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![Compute and Network properties](./media/vmware-azure-enable-replication/vmproperties.png)
 
-*  Resource Group - You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) from which a machine becomes part of a post failover. You can change this setting any time before failover. Post failover, if you migrate the machine to a different resource group, the protection settings for that machine break.
-* Availability Set - You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine needs to be part of a post failover. While you're selecting an availability set, keep in mind that:
+   * Resource Group - You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) from which a machine becomes part of a post failover. You can change this setting any time before failover. Post failover, if you migrate the machine to a different resource group, the protection settings for that machine break.
+   * Availability Set - You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine needs to be part of a post failover. While you're selecting an availability set, keep in mind that:
 
-    * Only availability sets belonging to the specified resource group are listed.  
-    * Machines with different virtual networks cannot be a part of the same availability set.
-    * Only virtual machines of the same size can be a part of an availability set.
+       * Only availability sets belonging to the specified resource group are listed.  
+       * Machines with different virtual networks cannot be a part of the same availability set.
+       * Only virtual machines of the same size can be a part of an availability set.
 4. You can also view and add information about the target network, subnet, and IP address assigned to the Azure VM.
 5. In **Disks**, you can see the operating system and data disks on the VM to be replicated.
 

@@ -104,8 +104,8 @@ Run the following PowerShell script to install these modules on your development
     ```
 
     > [!Note]  
-    > The Azure Stack module version 1.7.0 is a breaking change. To migrate from Azure Stack 1.6.0 please refer to the [migration guide](https://aka.ms/azspshmigration170).
-
+    > The Azure Stack module version 1.7.0 is a breaking change release. To migrate from Azure Stack 1.6.0 please refer to the [migration guide](https://aka.ms/azspshmigration170).
+    > The AzureRm module version 2.4.0 comes with a breaking change for the cmdlet Remove-AzureRmStorageAccount. This cmdlet expects -Force prameter to be specified for removing the storage account without confirmation.
 - Azure Stack 1811:
 
     ```PowerShell
@@ -215,6 +215,12 @@ Installation has four steps:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
+
+    > [!NOTE]
+    > On machines without an Internet connection, we recommend executing the following cmdlet for disabling the telemetry data collection. You may experience a performance degradation of the cmldets without disabling the telemetry data collection. This is applicable only for the machines without internet connections
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### Enable additional storage features
 

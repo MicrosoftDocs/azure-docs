@@ -5,11 +5,10 @@ description: Apply Application Lifecycle Management best practices in Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
 ---
 # Application Lifecycle Management in Azure Machine Learning Studio

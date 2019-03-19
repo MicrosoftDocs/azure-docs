@@ -43,7 +43,7 @@ For details on the changes that Connected Services makes in your project to enab
 
    ![Rename the Key Vault and choose a resource group](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Select an existing Resource Group, or choose to create a new one with an automatically generated unqiue name.  If you want to create a new group with a different name, you can use the [Azure Portal](https://portal.azure.com), and then close the page and restart to reload the list of resource groups.
+1. Select an existing Resource Group, or choose to create a new one with an automatically generated unique name.  If you want to create a new group with a different name, you can use the [Azure Portal](https://portal.azure.com), and then close the page and restart to reload the list of resource groups.
 1. Choose the region in which to create the Key Vault. If your web application is hosted in Azure, choose the region that hosts the web application for optimum performance.
 1. Choose a pricing model. For details, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Choose OK to accept the configuration choices.
@@ -70,10 +70,10 @@ Now, you can access your secrets in code. The next steps are different depending
 ## Access your secrets in code
 
 1. Install these two nuget packages 
-[AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
+   [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
 
 2. Open Program.cs file and update the code with the following code: 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -101,27 +101,27 @@ Now, you can access your secrets in code. The next steps are different depending
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. Next open About.cshtml.cs file and write the following code
-    1. Include a reference to Microsoft.Extensions.Configuration by this using statement    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. Add this constructor
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. Include a reference to Microsoft.Extensions.Configuration by this using statement    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. Add this constructor
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 Run the app locally by browsing to About page. You should your secret value retrieved
 

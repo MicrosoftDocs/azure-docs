@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
@@ -46,7 +46,7 @@ Replace the following values in the script before it runs:
 - **$ArmEndpoint**: The Resource Manager endpoint for your environment.
 - **$TenantId**: Your Tenant ID.
 - **$SubscriptionId**: Your subscription ID.
-- **$OwnerUpn**: An account, for example **user@example.com**, to add as the new billing owner.
+- **$OwnerUpn**: An account, for example **user\@example.com**, to add as the new billing owner.
 
 ```powershell
 # Set up Azure Stack admin environment

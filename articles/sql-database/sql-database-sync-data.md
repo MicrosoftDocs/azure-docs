@@ -34,7 +34,7 @@ Data Sync is not the preferred solution for the following scenarios:
 |----------|----------------------------|
 | Disaster Recovery | [Azure geo-redundant backups](sql-database-automated-backups.md) |
 | Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](sql-database-read-scale-out.md) |
-| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -222,7 +222,7 @@ Do you have to update the schema of a database in a sync group? Schema changes a
 
 Is SQL Data Sync performing as expected? To monitor activity and troubleshoot issues, see the following articles:
 
-- [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
 - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### Learn more about Azure SQL Database

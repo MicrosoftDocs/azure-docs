@@ -66,7 +66,7 @@ To perform this step, set permissions to **Public Access**.
 
 3. Upload the Swagger file to the blob. 
 
-   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
+   You can perform this step from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](https://storageexplorer.com/).
 
 4. Reference an HTTPS link to the document in Azure Blob storage. 
 

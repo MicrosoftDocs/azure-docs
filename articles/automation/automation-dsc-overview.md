@@ -40,12 +40,12 @@ and target nodes.
 
 ![Screenshot of the Azure Automation page](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### Import reporting data into Log Analytics
+### Import reporting data into Azure Monitor logs
 
 Nodes that are managed with Azure Automation State Configuration send detailed reporting status
 data to the built-in pull server. You can configure Azure Automation State Configuration to send
 this data to your Log Analytics workspace. To learn how to send State Configuration status data to
-your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Log Analytics](automation-dsc-diagnostics.md).
+your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
 
 ## Prerequisites
 

@@ -76,6 +76,10 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+    - name: 5 - Copy new files by time partitioned file name
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
@@ -299,6 +303,9 @@
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
       href: connector-sap-business-warehouse-open-hub.md
+      items:
+      - name: Load SAP BW data
+        href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
@@ -348,6 +355,8 @@
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Storage Gen1
       href: load-azure-data-lake-store.md 
+    - name: Load SAP BW data
+      href: load-sap-bw-data.md
     - name: Load Office 365 data
       href: load-office-365-data.md
     - name: Read or write partitioned data
@@ -423,6 +432,8 @@
     items:
     - name: Aggregate
       href: data-flow-aggregate.md
+    - name: Alter row
+      href: data-flow-alter-row.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
@@ -539,6 +550,8 @@
       href: solution-templates-introduction.md
     - name: Copy files from multiple containers
       href: solution-template-copy-files-multiple-containers.md
+    - name: Copy new files by LastModifiedDate
+      href: solution-template-copy-new-files-lastmodifieddate.md	  
     - name: Bulk copy with control table
       href: solution-template-bulk-copy-with-control-table.md
     - name: Delta copy with control table
@@ -550,7 +563,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactoryv2/
+    href: /powershell/module/az.datafactory/
   - name: REST API
     href: /rest/api/datafactory
   - name: Resource Manager template

@@ -52,14 +52,11 @@
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
-    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database 
-  - name: Functions on Linux
-    items: 
-    - name: Custom image
-      href: functions-create-function-linux-custom-image.md
-    - name: IoT Edge device
-      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
-
+    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database  
+  - name: Create a custom Linux image
+    href: functions-create-function-linux-custom-image.md
+  - name: Functions on IoT Edge device
+    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Samples
   items:
   - name: Code samples
@@ -70,6 +67,7 @@
   items:
   - name: Compare versions 1.x and 2.x
     href: functions-versions.md
+    displayName: migrate, migration
   - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
@@ -136,10 +134,12 @@
        href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md
-       name: Manually run a non HTTP-triggered function
+     - name: Manually run a non HTTP-triggered function
        href: functions-manually-run-non-http.md
      - name: Debug Event Grid trigger locally
        href: functions-debug-event-grid-trigger-local.md
+     - name: Azure for Students Starter
+       href: functions-create-student-starter.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -152,6 +152,9 @@
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
       href: functions-runtime-install.md
+    - name: Deploy using the Jenkins plugin
+      href: /azure/jenkins/jenkins-azure-functions-deploy
+      maintainContext: true
   - name: Configure
     items:
     - name: Manage a function app 
@@ -232,6 +235,8 @@
       href: functions-bindings-event-grid.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
+    - name: IoT Hub
+      href: functions-bindings-event-iot.md
     - name: HTTP and webhooks
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph

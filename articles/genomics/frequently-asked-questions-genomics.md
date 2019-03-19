@@ -68,6 +68,7 @@ Your storage account key is used to create short-term access tokens for the Micr
 ## What genome references can I use?
 
 These references are supported:
+
  |Reference              | Value of `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -79,19 +80,19 @@ These references are supported:
 
 msgen understands configuration files in the following format:
 * All options are provided as key-value pairs with values separated from keys by a colon.
-Whitespace is ignored.
+  Whitespace is ignored.
 * Lines starting with `#` are ignored.
 * Any command-line argument in the long format can be converted to a key by stripping its leading dashes and replacing dashes between words with underscores. Here are some conversion examples:
 
- |Command-line argument            | Configuration file line |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Command-line argument            | Configuration file line |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## Next steps
 
 Use the following resources to get started with Microsoft Genomics:
-- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service ](quickstart-run-genomics-workflow-portal.md)
+- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service](quickstart-run-genomics-workflow-portal.md)
 - Submit your own data for processing by the Microsoft Genomics service: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
 

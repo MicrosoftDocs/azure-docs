@@ -5,9 +5,9 @@ description: Use data from an on-premises SQL Server database to perform advance
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
@@ -54,10 +54,10 @@ Consider the following when setting up and using a Data Factory Self-hosted Inte
 * You can install only one instance of IR on a single computer.
 * You can use a single IR for multiple on-premises data sources.
 * You can connect multiple IRs on different computers to the same on-premises data source.
-* You configure a IRs for only one workspace at a time. Currently, IRs can’t be shared across workspaces.
-* You can configure multiple IRs for a single workspace. For example, you may want to use a IR that's connected to your test data sources during development and a production IR when you're ready to operationalize.
+* You configure an IRs for only one workspace at a time. Currently, IRs can’t be shared across workspaces.
+* You can configure multiple IRs for a single workspace. For example, you may want to use an IR that's connected to your test data sources during development and a production IR when you're ready to operationalize.
 * The IR does not need to be on the same machine as the data source. But staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the IR on a machine that's different from the one that hosts the on-premises data source so that the gateway and data source don't compete for resources.
-* If you already have a IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning Studio on another computer.
+* If you already have an IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning Studio on another computer.
 
   > [!NOTE]
   > You can't run Data Factory Self-hosted Integration Runtime and Power BI Gateway on the same computer.
@@ -68,7 +68,7 @@ Consider the following when setting up and using a Data Factory Self-hosted Inte
 You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the article [Integration Runtime in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
-In this walkthrough, you will set up a Azure Data Factory Integration Runtime in an Azure
+In this walkthrough, you will set up an Azure Data Factory Integration Runtime in an Azure
 Machine Learning workspace, configure it, and then read data from an
 on-premises SQL Server database.
 

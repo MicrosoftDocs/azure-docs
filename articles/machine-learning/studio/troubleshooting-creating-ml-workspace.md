@@ -1,13 +1,13 @@
 ---
-title: 'Troubleshoot: Create, connect to a Machine Learning Studio workspace'
+title: Troubleshooting a workspace
 titleSuffix: Azure Machine Learning Studio
 description: This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio workspaces.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017

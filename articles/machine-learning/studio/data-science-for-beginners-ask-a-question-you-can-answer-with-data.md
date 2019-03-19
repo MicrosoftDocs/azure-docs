@@ -5,7 +5,7 @@ description: Learn how to formulate a sharp data science question in Data Scienc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
 author: garyericson
 ms.author: garye

@@ -23,11 +23,12 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 
 |Cmdlets|Description|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself from Get-AutomationCertificate activity.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Creates a new certificate into Azure Automation.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Removes a certificate from Azure Automation.|Creates a new certificate into Azure Automation.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Retrieves information about a certificate to use in a runbook or DSC configuration. You can only retrieve the certificate itself from Get-AutomationCertificate activity.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Creates a new certificate into Azure Automation.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Removes a certificate from Azure Automation.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Uploads a service certificate for the specified cloud service.|
+
 
 ## Activities
 The activities in the following table are used to access certificates in a runbook and DSC configurations.
@@ -57,11 +58,11 @@ When you create a new certificate, you upload a .cer or .pfx file to Azure Autom
 ### To create a new certificate with the Azure portal
 
 1. From your Automation account, click the **Assets** tile to open the **Assets** blade.
-1. Click the **Certificates** tile to open the **Certificates** blade.
-1. Click **Add a certificate** at the top of the blade.
-1. Type a name for the certificate in the **Name** box.
-1. To browse for a .cer or .pfx file, click **Select a file** under **Upload a certificate file**. If you select a .pfx file, specify a password and whether it is allowed to be exported.
-1. Click **Create** to save the new certificate asset.
+2. Click the **Certificates** tile to open the **Certificates** blade.
+3. Click **Add a certificate** at the top of the blade.
+4. Type a name for the certificate in the **Name** box.
+5. To browse for a .cer or .pfx file, click **Select a file** under **Upload a certificate file**. If you select a .pfx file, specify a password and whether it is allowed to be exported.
+6. Click **Create** to save the new certificate asset.
 
 ### To create a new certificate with Windows PowerShell
 
@@ -100,7 +101,7 @@ You add a **Get-AutomationCertificate** to a graphical runbook by right-clicking
 
 The following image shows an example of using a certificate in a graphical runbook. This is the same as the preceding example for adding a certificate to a cloud service from a textual runbook.
 
-![Example Graphical Authoring ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Example Graphical Authoring](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### Python2 sample
 The following sample shows how to access certificates in Python2 runbooks.

@@ -121,7 +121,7 @@ The RunHiveScript has several variables. You pass the values when you submit the
 |Workflow variables|Description|
 |---|---|
 |${jobTracker}|Specifies the URL of the Hadoop job tracker. Use **jobtrackerhost:9010** in HDInsight version 3.0 and 2.1.|
-|${nameNode}|Specifies the URL of the Hadoop name node. Use the default file system address, for example, *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*.|
+|${nameNode}|Specifies the URL of the Hadoop name node. Use the default file system address, for example, *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*.|
 |${queueName}|Specifies the queue name that the job is submitted to. Use the **default**.|
 
 |Hive action variable|Description|
@@ -626,7 +626,6 @@ In this tutorial, you learned how to define an Apache Oozie workflow and how to 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md

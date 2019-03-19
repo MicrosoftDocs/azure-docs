@@ -49,10 +49,10 @@ Both services provide complementary but different functionality.
 Use the table points to help figure out your BCDR needs. 
 
 **Objective** | **Details** | **Comparison**
---- | --- | --- | --- |
+--- | --- | --- 
 **Data backup/retention** | Backup data can be retained and stored for days, months, or even years if required from a compliance perspective. | Backup solutions like Azure Backup allow you to finely pick data you want to back up, and finely tune backup and retention policies.<br/><br/> Site Recovery doesn't allow the same fine tuning.
 **Recovery point objective (RPO)** | The amount of acceptable data loss if a recovery needs to be done. | Backups have more variable RPO.<br/><br/> VM backups usually have an RPO of a day, while database backups have RPOs as low as 15 minutes.<br/><br/> Site Recovery provides a low RPO since replication is continuous or frequent, so that the delta between the source and replica copy is small.
-**Recovery time objective (RTO)** |The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. | Disaster recovery solutions such as Site Recovery have a low RPO since continuous/frequent replication generally means that the target is more highly synchronized with the source. |
+**Recovery time objective (RTO)** |The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. 
 
 ## What backup scenarios are supported?
 
@@ -72,7 +72,7 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 The advantages of backing up machines and apps to MABS/DPM storage , and then backing up DPM/MABS storage to a vault are as follows:
 
 - Backing up to MABS/DPM provides app-aware backups optimized for common apps such as SQL Server, Exchange, and SharePoint, in additional to file/folder/volume backups, and machine state backups (bare-metal, system state).
-- For on-premises mahines, you don't need to install the MARS agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
+- For on-premises machines, you don't need to install the MARS agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
 - You have more flexibility and granular scheduling options for running backups.
 - You can manage backups for multiple machines that you gather into protection groups in a single console. This is particularly useful when apps are tiered over multiple machines and you want to back them up together.
 

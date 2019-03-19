@@ -48,7 +48,7 @@ Azure Data Explorer currently supports:
 
 ### Ingestion using integration services
 
-* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer. For more information, see [Copy data to or from Azure Data Explorer using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), a fully managed data integration service for analytic workloads in Azure, to copy data to and from Azure Data Explorer using [supported data stores and formats](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). For more information, see [Copy data to or from Azure Data Explorer using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### Programmatic ingestion
 
@@ -76,7 +76,7 @@ Kusto offers client SDK that can be used to ingest and query data with:
 
 * Ingesting data directly into the Azure Data Explorer engine (most appropriate for exploration and prototyping):
 
-  * **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad-hoc testing purposes.
+  * **Inline ingestion**: control command (.ingest inline) containing in-band data is intended for ad hoc testing purposes.
 
   * **Ingest from query**: control command (.set, .set-or-append, .set-or-replace) that points to query results is used for generating reports or small temporary tables.
 

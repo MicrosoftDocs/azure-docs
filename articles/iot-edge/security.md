@@ -4,7 +4,7 @@ description: Learn about the security, authentication, and authorization standar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 # Security standards for Azure IoT Edge
 
-Moving your data and analytics to the intelligent edge creates risk scenarios that Azure IoT Edge is designed to address. The IoT Edge security standards are meant to provide flexibility for different risk profiles and deployment scenarios while still offering the same protection that you expect from all Azure services. 
+Azure IoT Edge is designed to address the risk scenarios that are inherent when moving your data and analytics to the intelligent edge. The IoT Edge security standards provide flexibility for different risk profiles and deployment scenarios while still offering the protection that you expect from all Azure services. 
 
-Azure IoT Edge runs on various hardware makes and models, supports several operating systems, and applies to diverse deployment scenarios. Assessing the risk of a deployment scenario depends on many considerations including solution ownership, deployment geography, data sensitivity, privacy, application vertical, and regulatory requirements. Rather than offering concrete solutions for specific scenarios, IoT Edge is an extensible security framework based on well-grounded principles designed for scale. 
+Azure IoT Edge runs on various hardware makes and models, supports several operating systems, and applies to diverse deployment scenarios. Assessing the risk of a deployment scenario depends on many considerations including solution ownership, deployment geography, data sensitivity, privacy, application vertical, and regulatory requirements. Rather than offering concrete solutions for specific scenarios, IoT Edge is an extensible security framework based on well-grounded principles that are designed for scale. 
  
 This article provides an overview of the IoT Edge security framework. For more information, see [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
@@ -25,15 +25,15 @@ Standards promote ease of scrutiny and ease of implementation, both of which are
 
 ## Authentication
 
-When you deploy an IoT solution, you need to know that only trusted actors, devices, and components have access to your solution. Such knowledge offers secure accountability of participants to enabling basis for admission.  Azure IoT Edge attains this knowledge through authentication.  The primary mechanism for authentication for the Azure IoT Edge platform is certificate-based authentication.  This mechanism derives from a set of standards governing Public Key Infrastructure (PKiX) by the Internet Engineering Task Force (IETF).     
+When you deploy an IoT solution, you need to know that only trusted actors, devices, and modules have access to your solution. Such knowledge offers secure accountability of participants. Azure IoT Edge attains this knowledge through authentication. Certificate-based authentication is the primary mechanism for authentication for the Azure IoT Edge platform. This mechanism derives from a set of standards governing Public Key Infrastructure (PKiX) by the Internet Engineering Task Force (IETF).     
 
-All devices, modules, and actors interacting with the Azure IoT Edge device, whether physically or through a network connection, should have unique certificate identities. Not every scenario or component may lend itself to certificate-based authentication. In those scenarios, the extensibility of the security framework offers secure alternatives. 
+All devices, modules, and actors interacting with the Azure IoT Edge device, whether physically or through a network connection, should have unique certificate identities. However, not every scenario or component may lend itself to certificate-based authentication. In those scenarios, the extensibility of the security framework offers secure alternatives. 
 
 ## Authorization
 
-The principle of least privilege says that users and components of a system should have access only to the minimum set of resources and data needed to perform their roles. Devices, modules, and actors should access only the resources and data within their permission scope, and only when it is architecturally allowable. Some permissions are configurable with sufficient privileges and others architecturally enforced.  For example, a module may be authorized through privileged configuration to initiate a connection to Azure IoT Hub. However, there is no reason why a module in one Azure IoT Edge device should access the twin of a module in another Azure IoT Edge device.
+The principle of least privilege says that users and components of a system should have access only to the minimum set of resources and data needed to perform their roles. Devices, modules, and actors should access only the resources and data within their permission scope, and only when it is architecturally allowable. Some permissions are configurable with sufficient privileges and others are architecturally enforced.  For example, a module may be authorized through privileged configuration to initiate a connection to Azure IoT Hub. However, there is no reason why a module in one Azure IoT Edge device should access the twin of a module in another Azure IoT Edge device.
 
-Other authorization schemes include certificate signing rights, role-based access control (RBAC), and other mature authorization schemes. 
+Other authorization schemes include certificate signing rights and role-based access control (RBAC). 
 
 ## Attestation
 
@@ -49,11 +49,11 @@ Static attestation verifies the integrity of all software on a device, including
 
 ### Runtime attestation
 
-Once a system has completed a secure boot process and is up and running, well-designed systems would detect attempts to inject malware and take proper countermeasures. Malware attacks may target the system's ports and interfaces to access to the system. Or, if malicious actors have physical access to a device they may tamper with the device itself or use side-channel attacks to gain access. Such malcontent, which can be in the form of malware or unauthorized configuration changes, is injected after the boot process so static attestation wouldn't detect it. Countermeasures offered or enforced by the device’s hardware help to ward off such threats.  The security framework for Azure IoT Edge explicitly calls for extensions that combat runtime threats.  
+Once a system has completed a secure boot process and is up and running, well-designed systems would detect attempts to inject malware and take proper countermeasures. Malware attacks may target the system's ports and interfaces to access the system. Or, if malicious actors have physical access to a device they may tamper with the device itself or use side-channel attacks to gain access. Such malcontent, which can be in the form of malware or unauthorized configuration changes, can't be detected by static attestation because it is injected after the boot process. Countermeasures offered or enforced by the device’s hardware help to ward off such threats.  The security framework for Azure IoT Edge explicitly calls for extensions that combat runtime threats.  
 
 ### Software attestation
 
-All healthy systems including intelligent edge systems must accept patches and upgrades.  Security is important for update processes otherwise they can be potential threat vectors.  The security framework for Azure IoT Edge calls for updates through measured and signed packages to assure the integrity and authenticate the source of the packages.  This standard applies to all operating systems and application software bits. 
+All healthy systems, including intelligent edge systems, must accept patches and upgrades.  Security is important for update processes otherwise they can be potential threat vectors.  The security framework for Azure IoT Edge calls for updates through measured and signed packages to assure the integrity of and authenticate the source of the packages.  This standard applies to all operating systems and application software bits. 
 
 ## Hardware root of trust
 
@@ -65,7 +65,7 @@ To help customers make informed decisions when procuring Azure IoT Edge devices 
 
 ## Extensibility
 
-Extensibility is a first-class citizen in the Azure IoT Edge security framework.  With IoT technology driving different types of business transformations, it stands to reason that security should evolve in parallel to address emerging scenarios.  The Azure IoT Edge security framework starts with a solid foundation on which it builds in extensibility into different dimensions to include: 
+With IoT technology driving different types of business transformations, it stands to reason that security should evolve in parallel to address emerging scenarios.  The Azure IoT Edge security framework starts with a solid foundation on which it builds in extensibility into different dimensions to include: 
 
 * First party security services like the Device Provisioning Service for Azure IoT Hub.
 * Third-party services like managed security services for different application verticals (like industrial or healthcare) or technology focus (like security monitoring in mesh networks or silicon hardware attestation services) through a rich network of partners.

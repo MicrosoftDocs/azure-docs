@@ -103,7 +103,7 @@ Before proceeding with updates, refer to [Site Recovery support statement](#supp
 A reboot is recommended after every upgrade of Mobility agent to ensure that all latest changes are loaded on the source machine. It is however **not mandatory**. If difference between agent version during last reboot and current version is greater than 4, then a reboot is mandatory. Refer to the following table for detailed explanation.
 
 |**Agent version during last reboot** | **Upgrading to** | **Is reboot mandatory?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Not mandatory|
 |9.16 | 9.19 | Not mandatory|
 | 9.16 | 9.20 | Not mandatory
@@ -119,7 +119,7 @@ A reboot is recommended after every upgrade of Mobility agent to ensure that all
 |[Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Update Rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Update Rollup 28 ](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
+|[Update Rollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
 | [Update Rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
 
 

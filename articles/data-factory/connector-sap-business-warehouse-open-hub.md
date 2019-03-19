@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 03/08/2019
 ms.author: jingwang
 
 ---
@@ -20,24 +20,49 @@ ms.author: jingwang
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW) via Open Hub. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-## SAP BW Open Hub Integration 
-
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
-
-SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, MultiProvider, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
-
 ## Supported capabilities
 
 You can copy data from SAP Business Warehouse via Open Hub to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this SAP Business Warehouse Open Hub connector supports:
 
-- SAP Business Warehouse **version 7.30 or higher (in a recent SAP Support Package Stack released after the year 2015)**.
+- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**.
 - Copying data via Open Hub Destination local table which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
 - Connecting to Application Server.
+
+## SAP BW Open Hub Integration 
+
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
+
+SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## Delta extraction flow
+
+ADF SAP BW Open Hub Connector offers two optional properties: `excludeLastRequest` and `baseRequestId` which can be used to handle delta load from Open Hub. 
+
+- **excludeLastRequestId**: Whether to exclude the records of the last request. Default value is true. 
+- **baseRequestId**: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. 
+
+Overall, the extraction from SAP InfoProviders to Azure Data Factory (ADF) consists of 2 steps: 
+
+1. **SAP BW Data Transfer Process (DTP)** 
+   This step copies the data from an SAP BW InfoProvider to an SAP BW Open Hub table 
+
+1. **ADF data copy**
+   In this step, the Open Hub table is read by the ADF Connector 
+
+![Delta extraction flow](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+
+In the first step, a DTP is executed. Each execution creates a new SAP request ID. The request ID is stored in the Open Hub table and is then used by the ADF connector to identify the delta. The two steps run asynchronously: the DTP is triggered by SAP, and the ADF data copy is triggered through ADF. 
+
+By default, ADF is not reading the latest delta from the Open Hub table (option "exclude last request" is true). Hereby, the data in ADF is not 100% up-to-date with the data in the Open Hub table (the last delta is missing). In return, this procedure ensures that no rows get lost caused by the asynchronous extraction. It works fine even when ADF is reading the Open Hub table while the DTP is still writing into the same table. 
+
+You typically store the max copied request ID in the last run by ADF in a staging data store (such as Azure Blob in above diagram). Therefore, the same request is not read a second time by ADF in the subsequent run. Meanwhile, note the data is not automatically deleted from the Open Hub table.
+
+For proper delta handling it is not allowed to have request IDs from different DTPs in the same Open Hub table. Therefore, you must not create more than one DTP for each Open Hub Destination (OHD). When needing Full and Delta extraction from the same InfoProvider, you should create two OHDs for the same InfoProvider. 
 
 ## Prerequisites
 
@@ -57,6 +82,10 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
 - Create SAP Open Hub Destination type as **Database Table** with "Technical Key" option checked.  It is also recommended to leave the Deleting Data from Table as unchecked although it is not required. Leverage the DTP (directly execute or integrate into existing process chain) to land data from source object (such as cube) you have chosen to the open hub destination table.
 
 ## Getting started
+
+> [!TIP]
+>
+> For a walkthrough of using SAP BW Open Hub connector, see [Load data from SAP Business Warehouse (BW) by using Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

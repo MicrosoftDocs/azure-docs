@@ -23,7 +23,7 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 To complete the steps in this article, you will need the following:
 
 
-* Complete [Use Apache Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) to configure an environment with a HDInsight cluster and a Azure SQL database.
+* Complete [Use Apache Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) to configure an environment with a HDInsight cluster and an Azure SQL database.
 * [Curl](https://curl.haxx.se/). Curl is a tool to transfer data from or to a HDInsight cluster.
 * [jq](https://stedolan.github.io/jq/). The jq utility is used to process the JSON data returned from REST requests.
 
@@ -64,19 +64,19 @@ To complete the steps in this article, you will need the following:
 
     The parameters used in this command are as follows:
 
-    * **-d** - Since `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+   * **-d** - Since `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
 
-        * **user.name** - The user that is running the command.
+       * **user.name** - The user that is running the command.
 
-        * **command** - The Sqoop command to execute.
+       * **command** - The Sqoop command to execute.
 
-        * **statusdir** - The directory that the status for this job will be written to.
+       * **statusdir** - The directory that the status for this job will be written to.
 
-    This command shall return a job ID that can be used to check the status of the job.
+     This command shall return a job ID that can be used to check the status of the job.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 

@@ -1,5 +1,3 @@
-- name: Azure IoT Fundamentals 
-  href: /azure/iot-fundamentals
 - name: Azure IoT Central Documentation
   href: index.yml
 - name: Overview
@@ -105,12 +103,14 @@
         href: howto-manage-iot-central-from-powershell.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
-      - name: Configure homepage
-        href: howto-configure-homepage.md     
+      - name: Configure application dashboard
+        href: howto-configure-homepage.md
   - name : Personalization
     items:
+      - name: Create personal dashboards
+        href: howto-personalize-dashboard.md
       - name: Manage your preferences
-        href: howto-manage-preferences.md      
+        href: howto-manage-preferences.md
 - name: Related
   items:
   - name: Solutions

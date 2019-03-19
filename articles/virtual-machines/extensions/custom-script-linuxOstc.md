@@ -301,7 +301,7 @@ Next step is to go an check the log file, this is the format:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-You should look for the induvidual execution, it will look something like:
+You should look for the individual execution, it will look something like:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

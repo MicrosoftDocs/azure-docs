@@ -5,9 +5,9 @@ description: To use Azure Machine Learning Studio, you need to have a Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
@@ -32,10 +32,10 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning Studio
 
 4. Enter your workspace information:
 
-    - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
-    - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
+   - The *workspace name* may be up to 260 characters, not ending in a space. The name can't include these characters: `< > * % & : \ ? + /`
+   - The *web service plan* you choose (or create), along with the associated *pricing tier* you select, is used if you deploy web services from this workspace.
 
-    ![Create a new Studio workspace](./media/create-workspace/create-new-workspace.png)
+     ![Create a new Studio workspace](./media/create-workspace/create-new-workspace.png)
 
 5. Click **Create**.
 

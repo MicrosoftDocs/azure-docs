@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 03/07/2019
 ms.author: danlep
 ---
 
@@ -30,6 +30,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | **Networking** ||
 | [UDP-exposed container][net-udp] | Deploys a Windows or Linux container that exposes a UDP port. |
 | [Linux container with public IP][net-publicip] | Deploys a single Linux container accessible via a public IP. |
+| [Deploy a container group with a virtual network (preview)][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
 | **Azure resources** ||
 | [Create Azure Storage account and Files share][az-files] | Uses the Azure CLI in a container instance to create a storage account and an Azure Files share.
 
@@ -51,6 +52,7 @@ You have several options for deploying resources with Resource Manager templates
 [az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
 [net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
 [net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
 [vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
 [vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo

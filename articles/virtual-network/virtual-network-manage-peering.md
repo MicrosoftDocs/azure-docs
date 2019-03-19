@@ -67,7 +67,7 @@ For step-by-step instructions for implementing peering between virtual networks 
 
 ### Commands
 
-- **Azure CLI**: [az network vnet peering create](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**: [az network vnet peering create](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## View or change peering settings
@@ -84,7 +84,7 @@ Before changing a peering, familiarize yourself with the requirements and constr
 
 **Commands**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering) to change peering settings.|
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to retrieve view peering settings and [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) to change settings.
 
 ## Delete a peering
@@ -93,7 +93,7 @@ Before deleting a peering, ensure your account has the [necessary permissions](#
 
 When a peering is deleted, traffic from a virtual network no longer flows to the peered virtual network. When virtual networks deployed through Resource Manager are peered, each virtual network has a peering to the other virtual network. Though deleting the peering from one virtual network disables the communication between the virtual networks, it does not delete the peering from the other virtual network. The peering status for the peering that exists in the other virtual network is **Disconnected**. You cannot recreate the peering until you re-create the peering in the first virtual network and the peering status for both virtual networks changes to *Connected*.
 
-If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the [Create a peering](#create-a-peering) section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
+If you want virtual networks to communicate sometimes, but not always, rather than deleting a peering, you can set the **Allow virtual network access** setting to **Disabled** instead. To learn how, read step 6 of the Create a peering section of this article. You may find disabling and enabling network access easier than deleting and recreating peerings.
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to delete a peering for.
@@ -109,10 +109,10 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 ## Requirements and constraints
 
-- <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as *global peering*.
-- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region, China cloud regions, or Government cloud regions. You can not peer across clouds.
-- Resources in one virtual network cannot communicate with the front-end IP address of an Azure internal load balancer in a globally peered virtual network. The load balancer and the resources that communicate with it must be in a virtual network in the same region. If the peered virtual networks are in the same region however, resources in either virtual network can communicate with the front-end IP address of an Azure internal load balancer in either virtual network in the peering.
-- You cannot use remote gateways or allow gateway transit in globally peered virtual networks. To use remote gateways or allow gateway transit, the peered virtual networks must be in the same region.
+- <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as *Global VNet Peering*. 
+- When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You cannot peer across clouds. For example, a VNet in Azure public cloud cannot be peered to a VNet in Azure China cloud.
+- Resources in one virtual network cannot communicate with the front-end IP address of a Basic internal load balancer in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, VNet Peering and Global VNet Peering.
+- You can use remote gateways or allow gateway transit in globally peered virtual networks in preview. The preview is available in all Azure regions, China cloud regions, and Government cloud regions. No whitelisting is required. You can test in preview through CLI, PowerShell, Templates, or API. Portal is not supported in the preview.
 - The virtual networks can be in the same, or different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. If you don't already have an AD tenant, you can [create one](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Support for peering across virtual networks from subscriptions associated to different Azure Active Directory tenants is not available in Portal. You can use CLI, PowerShell, or Templates.
 - The virtual networks you peer must have non-overlapping IP address spaces.
 - You can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see [Manage virtual networks](manage-virtual-network.md).

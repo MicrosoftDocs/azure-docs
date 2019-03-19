@@ -42,10 +42,10 @@ After you register to the labs, you can view all the classroom labs by taking th
 
 1. Start the VM if it's not already started, select **Start** on the tile. 
 2. Select **Connect** on the tile that represents the virtual machine of the lab that you want to access. 
-3. Save the RDP file (for Windows VM) to the hard disk and open it. 
-4. Use the **user name** and **password** you get from your educator/professor for logging in to the machine. 
-
-## Stop the virtual machine in a classroom lab
+3. Do one of the following steps: 
+   1. For **Windows** virtual machines, save the **RDP** file to the hard disk. Open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator/professor to log in to the machine. 
+   3. For **Linux** virtual machines, copy and save the SSH connection string on the **Connect to your virtual machine** dialog box. Use this connection string from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine.
+      ## Stop the virtual machine in a classroom lab
 
 To stop your VM, select **Stop** on the tile. When the VM is stopped, the **Start** button on the tile is enabled. 
 

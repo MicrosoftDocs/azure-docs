@@ -61,8 +61,8 @@ First, create a new project in the Google Developers Console to obtain a client 
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(where `<directory id>` is your directory ID)
    
-    > [!NOTE]
-    > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
+     > [!NOTE]
+     > To find your directory ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Directory ID**.
 
    ![Create OAuth client ID](media/google-federation/google-create-oauth-client-id.png)
 
@@ -99,8 +99,8 @@ You can delete your Google federation setup. If you do so, Google guest users wh
 ### To delete Google federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
 2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then click the **Google** button.
-4. Select **Google**, and then select **Delete**. 
+3. Select **Identity providers**.
+4. On the **Google** line, select the context menu (**...**) and then select **Delete**. 
    
    ![Deleted the social identity provider](media/google-federation/google-social-identity-providers.png)
 

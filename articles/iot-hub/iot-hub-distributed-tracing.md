@@ -209,7 +209,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
     ![Update sampling mode](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Update sampling rate ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Update sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### Bulk update for multiple devices
 
@@ -264,7 +264,7 @@ To understand the different types of logs, see [Azure IoT Hub diagnostic logs](i
 To visualize the flow of IoT messages, set up the Application Map sample app. The sample app sends the distributed tracing logs to [Application Map](../application-insights/app-insights-app-map.md) using an Azure Function and an Event Hub.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on Github</a>
 
 This image below shows distributed tracing in App Map with three routing endpoints:
 

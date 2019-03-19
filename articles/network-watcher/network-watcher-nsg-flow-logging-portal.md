@@ -98,7 +98,9 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 6. From the list of NSGs, select the NSG named **myVm-nsg**.
 7. Under **Flow logs settings**, select **On**.
 8. Select the flow logging version. Version 2 contains flow-session statistics (Bytes and Packets)
-    a. ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
+   ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Select the storage account that you created in step 3.
 10. Set **Retention (days)** to 5, and then select **Save**.
 
@@ -107,18 +109,14 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 1. From Network Watcher, in the portal, select **NSG flow logs** under **LOGS**.
 2. Select **You can download flow logs from configured storage accounts**, as shown in the following picture:
 
-  ![Download flow logs](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Download flow logs](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Select the storage account that you configured in step 2 of [Enable NSG flow log](#enable-nsg-flow-log).
-4. Select **Containers**, under **BLOB SERVICE**, and then select the **insights-logs-networksecuritygroupflowevent** container, as shown in the following picture:
+4. Under **Blob service**, select **Blobs**, and then select the **insights-logs-networksecuritygroupflowevent** container.
+5. In the container, navigate the folder hierarchy until you get to a PT1H.json file, as shown in the picture that follows. Log files are written to a folder hierarchy that follows the following naming convention:
+   https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-    ![Select container](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Navigate the folder hierarchy and then until you get to a PT1H.json file as shown in the following picture:
-
-    ![Log file](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Log files are written to a folder hierarchy that follows the following name convention:
-    https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![Flow log](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Select **...** to the right of the PT1H.json file and select **Download**.
 
@@ -195,7 +193,6 @@ The following json is an example of what you'll see in the PT1H.json file for ea
 }
 ```
 
-
 The value for **mac** in the previous output is the MAC address of the network interface that was created when the VM was created. The comma-separated information for **flowTuples**, is as follows:
 
 | Example data | What data represents   | Explanation                                                                              |
@@ -212,7 +209,7 @@ The value for **mac** in the previous output is the MAC address of the network i
 | 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
 | 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. | 
 | 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
-| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.| |
+| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.|
 
 ## Next steps
 
