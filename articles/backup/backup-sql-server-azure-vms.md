@@ -48,6 +48,7 @@ Before you start, verify the following:
 - You can back up to ~2000 SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 - You can configure backup for up to 50 databases in one go; this restriction helps optimize backup loads.
 - We support databases up to 2TB in size; for sizes greater than that, performance issues may come up.
+- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these number on you own. We will be publishing it shortly. 
 
 
 ## Scenario support
