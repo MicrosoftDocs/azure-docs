@@ -126,7 +126,7 @@ metadata:
      - name: Visual Studio development
        href: functions-develop-vs.md
      - name: Core Tools development
-       href: functions-run-local.md
+       href: functions-run-local.experimental.md
      - name: IntelliJ IDEA development
        href: functions-create-maven-intellij.md
      - name: Eclipse development
