@@ -19,7 +19,7 @@ Azure Kubernetes Service (AKS) uses the [CoreDNS][coredns] project for cluster D
 > [!NOTE]
 > kube-dns offered different [customization options][kubednsblog] via a Kubernetes config map, CoreDNS is **not** backwards compatible with kube-dns, so any customizations you had previously will need to be altered to be compatible with CoreDNS.
 
-For additional information about CoreDNS, customizations and Kubernetes, please see the [official docs][corednsk8s].
+For additional information about CoreDNS, customizations and Kubernetes, see the [official docs][corednsk8s].
 
 ## Before you begin
 
@@ -29,7 +29,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 In some cases, you may want to lower, or raise the Time to Live (TTL) setting for DNS name caching. CoreDNS offers a wide range DNS cache customization options which you can be [seen here][dnscache] but for this example, we will only alter the TTL value, which by default is 30 seconds.
 
-Since AKS is a managed service, you can not modify the main configuration for CoreDNS (called a CoreFile), instead, you can use a Kubernetes config map to override the default settings:
+Since AKS is a managed service, you cannot modify the main configuration for CoreDNS (called a CoreFile), instead, you can use a Kubernetes config map to override the default settings:
 
 >[!NOTE]
 > If you want to see the AKS provided CoreDNS configmap, you can run: `kubectl get configmaps coredns -o yaml`
@@ -47,11 +47,11 @@ data:
     }
 ```
 
-You can see that this configmap is quite small - but you need to note the **name** value. By default, CoreDNS does not support this type of customization. As mentioned, you normally directly change the CoreFile itself. AKS has added the `coredns-custom` configmap which is loaded *after* the main CoreFile allowing for this flexibility.
+You can see that this configmap is small - but you need to note the **name** value. By default, CoreDNS does not support this type of customization. As mentioned, you normally directly change the CoreFile itself. AKS has added the `coredns-custom` configmap, which is loaded *after* the main CoreFile allowing for this flexibility.
 
 In the above, we tell CoreDNS that for all domains (shown by the `.` in `.:53`), on port 53 (the default DNS port), we want to set the cache ttl to 15 (`cache 15`).
 
-Once we have this and we save it as `coredns-custom.json` on disk, we can then load it via:
+Once we have it ready and we save it as `coredns-custom.json` on disk, we then load it via:
 
 ```
 kubectl create configmap coredns-custom.json
@@ -69,9 +69,9 @@ The final step to load the configmap is to **force** CoreDNS to reload, to do th
 kubectl -n kube-system delete po -l k8s-app=kube-dns
 ```
 
-This command is not destructive and will not cause down time - all it is doing is deleting the `kube-dns` pods, and allowing the system to recreate them. After this, you configuration will take effect.
+This command is not destructive and will not cause down time - this only temporarily deletes the `kube-dns` pods, allowing the system to recreate them. After this, your configuration will take effect.
 
-## Re-writing DNS
+## Rewriting DNS
 
 Here's an example configmap to perform on-the-fly DNS name rewriting:
 
@@ -110,7 +110,7 @@ data:
 
 ## Custom DNS server for custom domains
 
-In this case, I'd like to resolve my custom domain 'pug.life', but that's not a valid TLD, and so my AKS cluster would be unable to resolve it normally. So we load this:
+In this case, I'd like to resolve my custom domain 'pug.life', but that's not a valid TLD, and so my AKS cluster would be unable to resolve it normally. So we load this configmap:
 
 ```yaml
 apiVersion: v1
