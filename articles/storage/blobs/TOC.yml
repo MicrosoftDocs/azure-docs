@@ -593,6 +593,14 @@
           href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Migrate an on-premises HDFS store
           href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Develop 
+      items:
+      - name: .NET
+        href: ../blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Java
+        href: ../blobs/storage-java-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Python
+        href: ../blobs/storage-pyton-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: REST
