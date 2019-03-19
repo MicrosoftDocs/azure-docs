@@ -12,7 +12,7 @@ ms.component: data-lake-storage-gen2
 
 # How to use Blob storage from .NET
 
-Intro text here.
+This guide shows you how to interact with blobs by using .NET. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
 
 ## Create a storage account
 
@@ -22,33 +22,52 @@ Enable a hierarchical namespace if you want to use the code snippets in this art
 
 ![Enabling a hierarchical namespace](media/storage-dot-net-how-to-use-blobs/enable-hierarchical-namespace.png)
 
-## Install the Azure Storage Client Library for .NET
+## Set up your development environment
 
-Put guidance here.
+What you install depends on the operating system that you are running on your development computer.
+
+### Windows
+
+* Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+
+* Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional. 
+
+* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+
+### Linux
+
+* Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
+
+* Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+
+* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+
+### macOS
+
+* Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
+
+* Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+
+* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## Add library references to your code file
 
-Put these things in your file.
+Add these using statements to your code file.
 
 ```cs
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-## Get the connection string of your storage account
-
-Use same guidance as is presented in the related .NET quickstart.
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## Connect to the storage account
 
-Some guidance goes here.
+First, parse the connection string, and then create an object that represents Blob storage in your storage account.
 
 ```cs
-public bool GetBlob(ref CloudBlobClient cloudBlobClient)
+public bool GetBlob(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
 {
-    string storageConnectionString =
-        Environment.GetEnvironmentVariable("storageconnectionstring");
-
     if (CloudStorageAccount.TryParse
         (storageConnectionString, out CloudStorageAccount storageAccount))
     {
@@ -63,9 +82,16 @@ public bool GetBlob(ref CloudBlobClient cloudBlobClient)
 }
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) class
+> * [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method
+> * [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method
+
 ## Create a container and set permissions
 
-Some guidance goes here.
+Create a container instance and then and then set the permissions on that container.
 
 ```cs
 public async Task CreateContainerAsync
@@ -87,6 +113,16 @@ public async Task CreateContainerAsync
 }
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) class
+> * [CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) class
+> * [BlobContainerPermissions](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobcontainerpermissions?view=azure-dotnet) class
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_CreateAsync) method.
+> * [CloudBlobContainer.SetPermissionsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.setpermissionsasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_SetPermissionsAsync_Microsoft_WindowsAzure_Storage_Blob_BlobContainerPermissions_) method.
+
 ## Upload blobs to the container
 
 Some guidance goes here.
@@ -104,6 +140,12 @@ public async Task UploadBlob(CloudBlobClient cloudBlobClient,
     await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 }
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## List blobs in the container
 
@@ -132,6 +174,12 @@ public async Task ListBlobs(CloudBlobClient cloudBlobClient, string containerNam
 }
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Download blobs from the container
 
 Some guidance goes here.
@@ -149,6 +197,12 @@ public async Task DownloadBlobs(CloudBlobClient cloudBlobClient,
     await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 }
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Delete blobs from the container
 
@@ -168,6 +222,12 @@ public async Task DeleteBlob(CloudBlobClient cloudBlobClient,
 }
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Add directories to the container
 
 This is only for accounts that have a hierarchical namespace.
@@ -175,6 +235,12 @@ This is only for accounts that have a hierarchical namespace.
 ```cs
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Add files to directories in the container
 
@@ -184,6 +250,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Set Access Control Lists (ACL) permission on a directory
 
 This is only for accounts that have a hierarchical namespace.
@@ -191,6 +263,12 @@ This is only for accounts that have a hierarchical namespace.
 ```cs
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Set Access Control Lists (ACL) permission on a file in a directory
 
@@ -200,6 +278,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Something here for append data and flush methods (scenario TBD)
 
 This is only for accounts that have a hierarchical namespace.
@@ -207,6 +291,12 @@ This is only for accounts that have a hierarchical namespace.
 ```cs
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Next steps
 

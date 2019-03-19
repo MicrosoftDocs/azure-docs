@@ -12,7 +12,7 @@ ms.component: data-lake-storage-gen2
 
 # How to use Blob storage from Java
 
-Intro text here.
+This guide shows you how to interact with blobs by using Java. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
 
 ## Install what you need
 
@@ -20,7 +20,7 @@ Put guidance here.
 
 ## Add library references to your code file
 
-Put these things in your file.
+Add these import statements to your code file.
 
 ```java
 import java.io.BufferedReader;
@@ -58,9 +58,7 @@ Enable a hierarchical namespace if you want to use the code snippets in this art
 
 ![Enabling a hierarchical namespace](media/storage-java-how-to-use-blobs/enable-hierarchical-namespace.png)
 
-## Get the connection string of your storage account
-
-Use same guidance as is presented in the related Java quickstart.
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Create a container and setup objects
 
@@ -97,6 +95,12 @@ try {
 final BlockBlobURL blobURL = containerURL.createBlockBlobURL("SampleBlob.txt");
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Upload blobs to the container
 
 Some guidance goes here.
@@ -117,6 +121,12 @@ sourceFile.toPath());
     });
 }
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## List blobs in the container
 
@@ -140,6 +150,12 @@ static void listBlobs(ContainerURL containerURL) {
                 System.out.println(response.statusCode());
     });
 }
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 private static Single <ContainerListBlobFlatSegmentResponse> listAllBlobs(
     ContainerURL url, ContainerListBlobFlatSegmentResponse response) {
@@ -184,6 +200,12 @@ private static Single <ContainerListBlobFlatSegmentResponse> listAllBlobs(
 }
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Download blobs from the container
 
 Some guidance goes here.
@@ -201,6 +223,12 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) throws IOException {
      });
 }
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Delete blobs from the container
 
@@ -225,6 +253,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Add files to directories in the container
 
 This is only for accounts that have a hierarchical namespace.
@@ -232,6 +266,12 @@ This is only for accounts that have a hierarchical namespace.
 ```java
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Set Access Control Lists (ACL) permission on a directory
 
@@ -241,6 +281,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Set Access Control Lists (ACL) permission on a file in a directory
 
 This is only for accounts that have a hierarchical namespace.
@@ -249,6 +295,12 @@ This is only for accounts that have a hierarchical namespace.
 
 ```
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
 ## Something here for append data and flush methods (scenario TBD)
 
 This is only for accounts that have a hierarchical namespace.
@@ -256,6 +308,12 @@ This is only for accounts that have a hierarchical namespace.
 ```java
 
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Next steps
 
