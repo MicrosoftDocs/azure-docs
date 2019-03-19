@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
