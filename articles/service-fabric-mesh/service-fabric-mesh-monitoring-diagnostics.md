@@ -57,6 +57,9 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 | ActualCpu | CPU usage | Cores |
 | ActualMemory | Memory usage | MB |
 | ContainerStatus | 0 - Invalid: The container status is unknown <br> 1 - Pending: The container has scheduled to start <br> 2 - Starting: The container is in the process of starting <br> 3 - Started: The container has started successfully <br> 4 - Stopping: The container is being stopped <br> 5 - Stopped: The container has stopped successfully | N/A |
+| ApplicationStatus | 0 - Unknown <br> 1 - Ready <br> 2 - Upgrading <br> 3 - Creating <br> 4 - Deleting <br> 5 - Failed | N/A |
+| ServiceStatus | 0 - Invalid <br> 1 - Ok <br> 2 - Warning <br> 3 - Error <br> 4 - Unknown | N/A |
+| ServiceReplicaStatus | 0 - Invalid <br> 1 - Ok <br> 2 - Warning <br> 3 - Error <br> 4 - Unknown | N/A | 
 | RestartCount | Number of container restarts | N/A |
 
 
@@ -104,7 +107,7 @@ Metrics explorer is a blade in the portal in which you can visualize all the met
 
 ![Metrics Explorer](./media/service-fabric-mesh-monitoring-diagnostics/metricsexplorer.png)
 
-<!-- Insert metrics explorer screenshot -->
+
 
 ### Container Insights
 
