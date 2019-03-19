@@ -38,7 +38,7 @@ You must add a connection to at least one cluster before you can start running q
 
 1. In the **Add cluster** dialog box, enter `https://help.kusto.windows.net`, then select **Add**.
 
-    Ex: URI is https://mydataexplorercluster.westus.kusto.windows.net as in below image
+    Ex: URI is https://mydataexplorercluster.westus.kusto.windows.net as in the following image:
 
     ![Cluster in Portal](https://docs.microsoft.com/en-us/azure/data-explorer/media/create-cluster-database-portal/database-creation.png)
 
