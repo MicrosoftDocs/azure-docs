@@ -17,7 +17,7 @@ sections:
 - title: Concepts
   items:
   - type: paragraph
-    text: Learn about stuff
+    text: Learn about key aspects of Azure Service Provider Management Toolkit.
   - type: list
     style: unordered
     items:
@@ -25,7 +25,7 @@ sections:
 - title: How-to guides
   items:
   - type: paragraph
-    text: Learn how to do stuff
+    text: Learn how to onboard customers for Azure Delegated Resource Management and how to manage their resources.
   - type: list
     style: unordered
     items:

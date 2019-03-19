@@ -34,7 +34,7 @@ In the **Offer settings** section, provide the following:
 |---------|---------|
 |**Offer ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can’t change this value.        |
 |**Publisher ID**     | A unique identifier for your offer (within your publisher profile). This ID can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. Keep in mind that the Offer ID may be visible to customers in places like in product URLs and billing reports. Once you publish the offer, you can’t change this value.        |
-|**Name**     | The name (up to 50 characters) that customers will see for your offer in Azure Marketplace and in the Azure Portal. Use a recognizable brand name that customers will understand—if you’re promoting this offer through your own website, be sure to use the exact same name here.        |
+|**Name**     | The name (up to 50 characters) that customers will see for your offer in Azure Marketplace and in the Azure portal. Use a recognizable brand name that customers will understand—if you’re promoting this offer through your own website, be sure to use the exact same name here.        |
 
 When you've finished, select **Save**. Now you're ready to move on to the **Plans** section.
 
@@ -76,7 +76,7 @@ When you're done adding plans, select **Save**, then continue to the **Marketpla
 
 ## Marketplace
 
-The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure Portal. For examples of how some of these fields appear, see [Marketplace form](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app#azure-marketplace). 
+The **Marketplace** section is where you provide the text and images which customers will see in Azure Marketplace and the Azure portal. For examples of how some of these fields appear, see [Marketplace form](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app#azure-marketplace). 
 
 Provide info for the following fields in the **Overview** section:
 
@@ -90,7 +90,7 @@ Provide info for the following fields in the **Overview** section:
 |**Marketing Identifier**     | A unique URL-friendly identifier. it will be used in Marketplace URLs for this offer. For example, if your publisher ID is *contoso* and your marketing identifier is *sampleApp*, the URL for your offer in Azure Marketplace will be *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp*.        |
 |**Preview Subscription IDs**     | Add one to 100 subscription identifiers. The customers associated with these subscriptions will be able to view the offer in Azure Marketplace before it goes live. We suggest including your own subscriptions here so you can preview how your offer appears in the Azure Marketplace before making it available to customers.  (Microsoft support and engineering teams will also be able to view your offer during this preview period.)   |
 |**Useful Links**     | URLs related to your offer, such as documentation, release notes, FAQs, etc.        |
-|**Suggested Categories (Max 5)**     | One or more categories (up to five) which apply to your offer. These categories help customers discover your offer in Azure Marketplace and the Azure Portal.        |
+|**Suggested Categories (Max 5)**     | One or more categories (up to five) which apply to your offer. These categories help customers discover your offer in Azure Marketplace and the Azure portal.        |
 
 In the **Marketing Artifacts**, you can upload logos and other assets to be shown with your offer. You can optionally upload screenshots or links to videos that can help customers understand your offer.
 
