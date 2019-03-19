@@ -85,6 +85,8 @@
 - name: References
   expanded: true
   items:
+  - name: Azure SDK for .NET
+    href: /dotnet/api/overview/azure/blueprints/management
   - name: REST
     href: /rest/api/blueprints/
   - name: PSGallery (Az.Blueprint module)
