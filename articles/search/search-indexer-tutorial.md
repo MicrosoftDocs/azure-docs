@@ -58,7 +58,7 @@ The indexer solution used in this tutorial is from a collection of Azure Search 
 
 6. In **Solution Explorer**, right-click the top node parent Solution > **Restore Nuget Packages**.
 
-## Set up connections
+### Set up connections
 Connection information to required services is specified in the **appsettings.json** file in the solution. 
 
 In Solution Explorer, open **appsettings.json** so that you can populate each setting, using the instructions in this tutorial.  
@@ -100,7 +100,7 @@ You can find the search service endpoint and key in the portal. A key provides a
    }
    ```
 
-## Prepare an external data source
+## Prepare sample data
 
 In this step, create an external data source that an indexer can crawl. The data file for this tutorial is *hotels.sql*, provided in the \DotNetHowToIndexers solution folder. 
 

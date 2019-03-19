@@ -20,7 +20,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using PowerShell and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and searcable content is provided in the request body as well-formed JSON content.
+This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using PowerShell and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and searchable content is provided in the request body as well-formed JSON content.
 
 ## Prerequisites
 

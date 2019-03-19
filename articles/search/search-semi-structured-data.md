@@ -67,7 +67,7 @@ The query string must contain a preview API (such as **api-version=2017-11-11-Pr
 
 Execute the following three API calls from your REST client.
 
-### Create a data source
+## Create a data source
 
 A data source is an Azure Search object that specifies what data to index.
 
@@ -108,7 +108,7 @@ The response should look like:
 }
 ```
 
-### Create an index
+## Create an index
     
 The second API call creates an Azure Search index. An index specifies all the parameters and their attributes.
 
@@ -198,7 +198,7 @@ The response should look like:
 }
 ```
 
-### Create an indexer
+## Create and run an indexer
 
 An indexer connects the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh.
 

@@ -75,7 +75,7 @@ For either language choice, the search box is exactly the same.  Open the Index.
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-This is a simple input text box with a class for styling, an id to be referenced by JavaScript, and placeholder text.  The magic is in the javascript.
+This is a simple input text box with a class for styling, an ID to be referenced by JavaScript, and placeholder text.  The magic is in the javascript.
 
 ### JavaScript code (C#)
 
@@ -205,7 +205,7 @@ $(function () {
 });
 ```
 
-If you compare this to the example above that calls the Home controller, you'll notice several similarities.  The autocomplete configuration for `minLength` and `position` are exactly the same.  The significant change here is the source.  Instead of calling the Suggest method in the home controller, a REST request is created in a JavaScript function and executed using ajax.  The response is then processed in "success" and used as the source.
+If you compare this to the example above that calls the Home controller, you'll notice several similarities.  The autocomplete configuration for `minLength` and `position` are exactly the same.  The significant change here is the source.  Instead of calling the Suggest method in the home controller, a REST request is created in a JavaScript function and executed using Ajax.  The response is then processed in "success" and used as the source.
 
 ## Takeaways
 
