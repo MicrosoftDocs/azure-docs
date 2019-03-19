@@ -114,7 +114,7 @@ We have no plan to support Application Insights Profiler for on-premises servers
 - See [Profiler traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
 - For help with troubleshooting Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
-[azureresourceexplorer]: ./media/profiler-vm/azureresourceexplorer.png
-[resourceexplorerput]: ./media/profiler-vm/resourceexplorerput.png
-[resourceexplorersinksconfig]: ./media/profiler-vm/resourceexplorersinksconfig.png
-[wadextension]: ./media/profiler-vm/wadextension.png
+[azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
+[resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
+[resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
+[wadextension]: ./media/profiler-vm/wad-extension.png
