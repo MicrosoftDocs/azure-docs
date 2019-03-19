@@ -36,7 +36,7 @@ This article shows you a walkthrough on how to use the Data Factory _load data f
 
   1. Install and register the Self-hosted IR with version >= 3.13 (covered in the following walkthrough). 
 
-  2. Download the [64-bit SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the Self-hosted IR machine.  When installing, in the "Optional setup steps" window, please make sure you select the "**Install Assemblies to GAC**" option as shown in the following image.
+  2. Download the [64-bit SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the Self-hosted IR machine.  When installing, in the "Optional setup steps" window, make sure you select the "**Install Assemblies to GAC**" option as shown in the following image.
 
      ![Set up SAP .NET Connector](media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
@@ -80,7 +80,7 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
    ![Create ADLS Gen2 linked service](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. Select your Data Lake Storage Gen2 capable account from the "Storage account name" drop down list.
+   1. Select your Data Lake Storage Gen2 capable account from the "Storage account name" drop-down list.
    2. Select **Finish** to create the connection. Then select **Next**.
 
 9. In the **Choose the output file or folder** page, enter "copyfromopenhub" as the output folder name, and select **Next**.
@@ -137,7 +137,7 @@ On the ADF UI **Let's get started** page, select **Create pipeline from template
 
 2. On the template main page, select or create the following three connections, then select **Use this template** at the bottom right.
 
-   - **Azure Blob**: in this walkthrough, we use Azure Blob to store the high watermark which is the max copied request ID.
+   - **Azure Blob**: in this walkthrough, we use Azure Blob to store the high watermark, which is the max copied request ID.
    - **SAP BW Open Hub**: your source to copy data from. Refer to the previous full copy walkthrough on detailed configurations.
    - **ADLS Gen2**: your sink to copy data to. Refer to the previous full copy walkthrough on detailed configurations.
 
@@ -194,7 +194,7 @@ If you need both historical copy and incremental copy, or only incremental copy,
 
 1. Create the Open Hub Destination (OHD)
 
-   You can create the OHD in SAP Transaction RSA1. This automatically creates the required transformation and Data Transfer Process (DTP). Use the following settings:
+   You can create the OHD in SAP Transaction RSA1, which automatically creates the required transformation and Data Transfer Process (DTP). Use the following settings:
 
    - Object type can be any. Here we use InfoCube as an example.
    - **Destination Type:** *Database Table*
@@ -217,9 +217,9 @@ If you need both historical copy and incremental copy, or only incremental copy,
 
 ### Configure full extraction in SAP BW
 
-In addition to the delta extraction, you might want to have a full extraction of the same InfoProvider. This usually applies if you want to do full copy without incremental need or you want to [re-sync delta extraction](#re-sync-delta-extraction).
+In addition to the delta extraction, you might want to have a full extraction of the same InfoProvider. It usually applies if you want to do full copy without incremental need or you want to [re-sync delta extraction](#re-sync-delta-extraction).
 
-You must not have more than one DTP for the same OHD. Therefore, you need to create an additional OHD than delta extraction.
+You must not have more than one DTP for the same OHD. Therefore, you need to create an additional OHD then delta extraction.
 
 ![create-sap-bw-ohd-full](media/load-sap-bw-data/create-sap-bw-ohd-full.png)
 
@@ -233,11 +233,11 @@ For a full load OHD, choose different options than delta extraction:
 
 - In ADF SAP BW Open Hub connector: turn off the option "*Exclude last request*". Otherwise nothing would be extracted. 
 
-You typically run the Full DTP manually. Or you might also create a process chain for the Full DTP - this would usually be a separate process chain independent from your existing process chains. In either case, you must **make sure the DTP has finished before starting the extraction using ADF copy**, otherwise, partial data will be copied.
+You typically run the Full DTP manually. Or you might also create a process chain for the Full DTP - it would usually be a separate process chain independent from your existing process chains. In either case, you must **make sure the DTP has finished before starting the extraction using ADF copy**, otherwise, partial data will be copied.
 
 ### Run delta extraction the first time
 
-The first Delta Extraction is technically a **Full Extraction**. Note by default ADF SAP BW Open Hub connector excludes the last request when copying the data. In the case of delta extraction for the first time, in ADF copy activtiy, no data will be extracted until there is subsequent DTP generates delta data in the table with separate request ID. While, there are two possible ways to avoid this scenario:
+The first Delta Extraction is technically a **Full Extraction**. Note by default ADF SAP BW Open Hub connector excludes the last request when copying the data. In the case of delta extraction for the first time, in ADF copy activity, no data will be extracted until there is subsequent DTP generates delta data in the table with separate request ID. While there are two possible ways to avoid this scenario:
 
 1. Turn off the option "Exclude last request" for the first Delta Extraction
    In this case you need to make sure that the first Delta DTP has finished before starting the Delta Extraction the first time
