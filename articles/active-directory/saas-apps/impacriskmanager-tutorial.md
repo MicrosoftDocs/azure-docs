@@ -104,8 +104,8 @@ To configure Azure AD single sign-on with IMPAC Risk Manager, perform the follow
     a. In the **Identifier** text box, type a value provided by IMPAC
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    | | |
-    | Environment | URL Pattern |
+
+	| Environment | URL Pattern |
 	| ---------------|--------------- |
 	| For Production |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
 	| For Staging and Training  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
