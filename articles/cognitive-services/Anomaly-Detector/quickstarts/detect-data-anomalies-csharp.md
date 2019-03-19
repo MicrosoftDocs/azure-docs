@@ -1,5 +1,5 @@
 ---
-title: Find anomalies in your time series data using the Anomaly Finder REST API and C# | Microsoft Docs
+title: detect anomalies in your time series data using the Anomaly Detector REST API and C# | Microsoft Docs
 description: Use the Anomaly Detector API to detect abnormalities in your data series as a batch.
 services: cognitive-services
 author: aahill
@@ -11,13 +11,13 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-# Find anomalies in your time series data using the Anomaly Detector REST API and C# 
+# Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to find anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the response. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the response. 
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the locations of any detected anomalies. |
+| Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
  While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
@@ -32,7 +32,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
         3. Search for `Json.NET` and install the package
 - If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
-- A batch of time series data points. The data for this quickstart can be found TBD
+- A batch of time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -56,19 +56,21 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
     |Detection method  |URL  |
     |---------|---------|
-    |Batch detection    | `/anomalyfinder/v2.0/timeseries/entire/detect`        |
-    |Detection on the latest data point     | `/anomalyfinder/v2.0/timeseries/last/detect`        |
+    |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
     
     ```csharp
-        const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-        //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal.
-        const string endpoint = "https://westus2.api.cognitive.microsoft.com/";
-        const string latestPointDetectionUrl = "/anomalyfinder/v2.0/timeseries/last/detect";
-        const string batchDetectionUrl = "/anomalyfinder/v2.0/timeseries/entire/detect";
-        const string dataPath = "[PATH_TO_TIME_SERIES_DATA]";
+    // Replace the subscriptionKey string value with your valid subscription key.
+    const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
+    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
+    const string endpoint = "[YOUR_ENDPOINT_URL]";
+    // Replace the dataPath string with a path to the JSON formatted time series data.
+    const string dataPath = "[PATH_TO_TIME_SERIES_DATA]";
+    const string latestPointDetectionUrl = "/anomalydetector/v1.0/timeseries/last/detect";
+    const string batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
     ```
 
-## Create a client to send requests
+## Create a function to send requests
 
 1. Create a new async function called `Request` that takes the variables created above.
 
@@ -101,7 +103,7 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 
 2. Deserialize the JSON object, and write it to the console. 
 
-### Find the locations of detected data anomalies
+### Find the positions of detected data anomalies
 
 3. The response's `IsAnomaly` field contains an array of boolean values relating to whether a given data point is an anomaly. Convert this to a string array with the response object's `ToObject<string[]>()` function.
 
@@ -120,10 +122,10 @@ static void detectAnomaliesBatch(string requestData){
     dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
     System.Console.WriteLine(jsonObj);
 
-    string[] anomalies = jsonObj["IsAnomaly"].ToObject<string[]>();
-    System.Console.WriteLine("\n Anomalies found in the following data positions:");
-    for (var i = 0; i < anomalies.Length; i++){
-        if (anomalies[i] == "True"){
+    bool[] anomalies = jsonObj["isAnomaly"].ToObject<bool[]>();
+    System.Console.WriteLine("\n Anomalies detected in the following data positions:");
+    for (var i = 0; i < anomalies.Length; i++) {
+        if (anomalies[i]) {
             System.Console.Write(i + ", ");
         }
     }
@@ -150,7 +152,7 @@ static void detectAnomaliesLatest(string requestData){
 }
 ```
 
-## load your time series data and send the request
+## Load your time series data and send the request
 
 1. In the main method of your application, load your JSON time series data with `File.ReadAllText()`. 
 
@@ -172,9 +174,9 @@ static void Main(string[] args){
 
 ## Example response
 
-A successful response is returned in JSON. Click TBD to see the response from this quickstart.
+A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
+* [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## Next steps
-
-* [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)
-* [Find time series anomalies in a batch of data points](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)
+> [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

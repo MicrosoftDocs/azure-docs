@@ -11,13 +11,13 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-# Find anomalies in your time series data using the Anomaly Detector REST API and Python
+# Detect anomalies in your time series data using the Anomaly Detector REST API and Python
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to find anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the response. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the response. 
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the locations of any detected anomalies. |
+| Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
  While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
@@ -45,12 +45,12 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
     |Detection method  |URL  |
     |---------|---------|
-    |Batch detection    | `/anomalyfinder/v2.0/timeseries/entire/detect`        |
-    |Detection on the latest data point     | `/anomalyfinder/v2.0/timeseries/last/detect`        |
+    |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
     ```python
-    batch_detection_url = "anomalyfinder/v2.0/timeseries/entire/detect"
-    latest_point_detection_url = "/anomalyfinder/v2.0/timeseries/last/detect"
+    batch_detection_url = "/anomalydetector/v1.0/timeseries/entire/detect"
+    latest_point_detection_url = "/anomalydetector/v1.0/timeseries/last/detect"
 
     endpoint = "[YOUR_ENDPOINT_URL]"
     subscription_key = "[YOUR_SUBSCRIPTION_KEY]"
@@ -64,9 +64,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     json_data = json.load(file_handler)
     ```
 
-## Create a client to send requests
+## Create a function to send requests
 
-1. Create a new async function called `send_request()` that takes the variables created above. Then perform the following steps.
+1. Create a new function called `send_request()` that takes the variables created above. Then perform the following steps.
 
 2. create a dictionary for the request headers. Set the `Content-Type` to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -91,7 +91,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 2. Call `json.dumps()` on the result to format it, and print it to the console.
 
-3. Find the positions of anomalies in the data set. The response's `IsAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+3. Find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
 ```python
 def detect_batch(request_data):
@@ -100,7 +100,7 @@ def detect_batch(request_data):
     print(json.dumps(result, indent=4))
 
     # Find and display the positions of anomalies in the data set
-    anomalies = result["IsAnomaly"]
+    anomalies = result["isAnomaly"]
 
     for x in range(len(anomalies)):
         if anomalies[x] == True:
@@ -121,7 +121,7 @@ def detect_latest(request_data):
     print(json.dumps(result, indent=4))
 ```
 
-## load your time series data and send the request
+## Load your time series data and send the request
 
 1. load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
 
@@ -137,7 +137,9 @@ def detect_latest(request_data):
 
 ### Example response
 
-A successful response is returned in JSON. Click TBD to see the response from the example.
+A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
+* [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## Next steps
 

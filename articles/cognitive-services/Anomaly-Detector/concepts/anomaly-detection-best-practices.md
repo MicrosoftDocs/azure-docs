@@ -5,7 +5,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-finder
+ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: aahi
@@ -16,7 +16,7 @@ ms.author: aahi
 The accuracy and performance of the API's anomaly detection results can be impacted by:
 
 * How your time series data is prepared.
-* The Anomaly Detection API parameters that were used.
+* The Anomaly Detector API parameters that were used.
 * The number of data points in your API request. 
 
 To help get the best results for your data, use this article to learn about best practices for using the API in your services and applications. 
@@ -28,7 +28,7 @@ In Microsoft, we have built a comprehensive monitoring/alerting/diagnostic syste
 
 ## Length of historical data
 
-To use Anomaly Detector API, you must post a windows of time series data to the API endpoint and get a response. The minimum number of data points is 13. Use the following guidelines to optimize your anomaly detection results:
+To use Anomaly Detector API, you must post a windows of time series data to the API endpoint and get a response. The minimum number of data points is 12. Use the following guidelines to optimize your anomaly detection results:
 
 ### data with a repetitive pattern
 
@@ -42,7 +42,7 @@ To use Anomaly Detector API, you must post a windows of time series data to the 
 
 ### Prevent data loss
 
-There is always data loss in an evenly distributed time series dataset, especially when the granularity is small, such as 5 minutes or below. If the loss is less than 5%, based on our observation, there is no obvious regression on the detection results. 
+There is always data loss in an evenly distributed time series dataset, especially when the granularity is small, such as 5 minutes or below. If the loss is less than 10%, based on our observation, there is no obvious regression on the detection results. 
 For best practice users can choose some gap-filling methods based on the characteristic of time series. 
 For example seasonal time series, like metrics relating to human behavior, if users already know the general period, they can use the value of the last period to fill in the gap. If a period cannot be estimated, using linear interpolation is an alternative. 
 For non-seasonal time series, using a moving average to fill the gap is a good choice. 

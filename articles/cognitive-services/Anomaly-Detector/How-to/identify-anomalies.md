@@ -5,7 +5,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-finder
+ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: aahi
@@ -21,7 +21,7 @@ The Anomaly Detector API provides detection modes: batch and streaming.
 
 > [!NOTE]
 > The following request URLs must be combined with the appropriate endpoint for your subscription. For example:
-> `https://westus.api.cognitive.microsoft.com/timeseries/entire/detect`
+> `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 ### Batch detection
 
