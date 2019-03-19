@@ -26,13 +26,11 @@ To help get the best results for your data, use this article to learn about best
 The Anomaly Detector API is a stateless anomaly detection service. It requires users to implement the stateful part to integrate it into a montoring system. 
 In Microsoft, we have built a comprehensive monitoring/alerting/diagnostic system based on this service. The following is a summary of some best practices when we use this service. 
 
-## Length of historical data
+You must send windows of time series data to the Anomaly Detector API endpoint. The minimum number of data points you can send is 12.
 
-To use Anomaly Detector API, you must post a windows of time series data to the API endpoint and get a response. The minimum number of data points is 12. Use the following guidelines to optimize your anomaly detection results:
+### Optimize anomaly detection on data with repetitive patterns
 
-### data with a repetitive pattern
-
-- If you already know your time series data has a repetitive pattern, and roughly repeats itself, for example at every n data point. Specify the "period" when you construct the request body, "period" is an integer n, that after every n data point, the time series roughly repeats itself. For example, a time series tracking daily active usage of an app, normally has a weekly pattern, so set "period" as 7. But if you want to track hourly active usage, it still has a weekly pattern, but set "period" as 7*24. Specifying the "period" value can reduce the latency by up to 50%.
+If you know that your time series data repeats a pattern regularly, specify the `period` when you construct your JSON request. The `period` is an integer that specifies roughly how many data points the time series takes to repeat itself. For example, a time series tracking daily active usage of an app, normally has a weekly pattern, so set "period" as 7. But if you want to track hourly active usage, it still has a weekly pattern, but set "period" as 7*24. Specifying the "period" value can reduce the latency by up to 50%.
 
 - If you do not know the data pattern in advance, leave it empty and Anomaly Detector detects it automatically but with compute cost.
 

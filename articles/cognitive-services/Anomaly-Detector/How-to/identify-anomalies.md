@@ -23,6 +23,7 @@ The Anomaly Detector API provides detection modes: batch and streaming.
 > The following request URLs must be combined with the appropriate endpoint for your subscription. For example:
 > `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
+
 ### Batch detection
 
 To detect anomalies throughout a batch of data points over a given time range, use the following request URL with your time series data: `/timeseries/entire/detect`. By sending your time series data at once, the API will generate a model using the entire series, and analyze each data point with it.  
