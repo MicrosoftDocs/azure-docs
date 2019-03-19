@@ -64,7 +64,6 @@ HDInsight provides several scripts to install the following components on HDInsi
 | --- | --- |
 | **Install Apache Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. See [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]. |
 | **Install R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. See [Install and use R on HDInsight clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Install Apache Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. See [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). |
 | **Install Apache Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. See [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
 | **Pre-load Apache Hive libraries** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. See [Add Apache Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
@@ -326,7 +325,6 @@ See [Develop Script Action scripts for HDInsight][hdinsight-write-script].
 * [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md

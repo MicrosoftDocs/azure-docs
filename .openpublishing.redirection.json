@@ -36335,6 +36335,16 @@
       "source_path": "articles/hdinsight/hdinsight-administer-use-management-portal.md",
       "redirect_url": "/azure/hdinsight/hdinsight-administer-use-portal-linux",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-solr-install.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-solr-install-linux.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
     }
   ]
 }

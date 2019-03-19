@@ -199,9 +199,6 @@
     - name: Use Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: Use Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Use Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
@@ -485,9 +482,6 @@
       maintainContext: true
     - name: Run Apache Hadoop MapReduce samples
       href: ../hdinsight-run-samples.md
-      maintainContext: true
-    - name: Use Apache Solr on clusters
-      href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: Use Apache Giraph to process large-scale graphs
       href: ../hdinsight-hadoop-giraph-install.md
