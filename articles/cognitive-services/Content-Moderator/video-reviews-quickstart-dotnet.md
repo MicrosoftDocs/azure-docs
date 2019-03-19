@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/19/2019
 ms.author: sajagtap
 
 ---
@@ -20,27 +20,18 @@ This article provides information and code samples to help you quickly get start
 
 - Create a video review for human moderators
 - Add frames to a review
-- Get the frames for the review 
+- Get the frames for the review
 - Get the status and details of the review
 - Publish the review
 
 ## Prerequisites
 
-This article assumes that you have [moderated the video (see quickstart)](video-moderation-api.md) and have the response data. You need it for creating frame-based reviews for human moderators.
-
-This article also assumes that you are already familiar with Visual Studio and C#.
-
-## Sign up for Content Moderator
-
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
-
-## Sign up for a review tool account if not completed in the previous step
-
-If you got your Content Moderator from the Azure portal, also [sign up for the review tool account](https://contentmoderator.cognitive.microsoft.com/) and create a review team. You need the team Id and the review tool to call the review API to start a Job and view the reviews in the review tool.
+- Sign in or create an account on the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com/) site.
+- This article assumes that you have [moderated the video (see quickstart)](video-moderation-api.md) and have the response data. You need it for creating frame-based reviews for human moderators.
 
 ## Ensure your API key can call the review API for review creation
 
-After completing the previous steps, you may end up with two Content Moderator keys if you started from the Azure portal. 
+After completing the previous steps, you may end up with two Content Moderator keys if you started from the Azure portal.
 
 If you plan to use the Azure-provided API key in your SDK sample, follow the steps mentioned in the [Using Azure key with the review API](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) section to allow your application to call the review API and create reviews.
 
