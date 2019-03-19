@@ -49,7 +49,7 @@
     items:
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
-    - name: End to end SSL
+    - name: SSL termination and end to end SSL
       href: ssl-overview.md
   - name: WAF
     items:
@@ -67,7 +67,7 @@
     href: redirect-overview.md
   - name: Rewrite HTTP headers
     href: rewrite-http-headers.md
-  - name: Multi-tenant support
+  - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
   - name: Health monitoring
     href: application-gateway-probe-overview.md
@@ -95,9 +95,11 @@
       href: create-ssl-portal.md
     - name: SSL termination - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: End to end SSL - PowerShell
+    - name: End-to-end SSL - Portal
+      href: end-to-end-ssl-portal.md      
+    - name: End-to-end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Export certificates for whitelisting backend
+    - name: Create certificates for whitelisting backend
       href: certificates-for-backend-authentication.md      
     - name: Renew certificates
       href: renew-certificates.md
@@ -157,9 +159,11 @@
     items:
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
-  - name: Multi-tenant support
+  - name: Configure App service webapp and multi-tenant service
     items:
-    - name: Configure multi-tenant support
+    - name: Portal
+      href: configure-web-app-portal.md    
+    - name: Azure PowerShell
       href: create-web-app.md
   - name: Custom probes
     items:
