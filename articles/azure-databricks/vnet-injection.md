@@ -23,7 +23,7 @@ The default deployment of Azure Databricks is a fully managed service on Azure: 
 
 Deploying Azure Databricks resources to your own virtual network also lets you take advantage of flexible CIDR ranges (anywhere between /16-/24 for the virtual network and between /18-/26 for the subnets).
 
-  [!NOTE]
+  > [!NOTE]
   > You cannot replace the virtual network for an existing workspace. If your current workspace cannot accommodate the required number of active cluster nodes, create another workspace in a larger virtual network. Follow [these detailed migration steps](howto-regional-disaster-recovery.md#detailed-migration-steps) to copy resources (notebooks, cluster configurations, jobs) from the old to new workspace.
 
 ## Virtual network requirements
@@ -60,7 +60,7 @@ This section describes how to create an Azure Databricks workspace in the Azure 
 
 You must have a virtual network to which you will deploy the Azure Databricks workspace. You can use an existing virtual network or create a new one, but the virtual network must be in the same region as the Azure Databricks workspace that you plan to create. A CIDR range between /16 - /24 is required for the virtual network.
 
-  [!Warning]
+  > [!Warning]
   > A workspace with a smaller virtual network–that is, a lower CIDR range–can run out of IP addresses (network space) more quickly than a workspace with a larger virtual network. For example, a workspace with a /24 virtual network and /26 subnets can have a maximum of 64 nodes active at a time, whereas a workspace with a /20 virtual network and /22 subnets can house a maximum of 1024 nodes.
 
   Your subnets will be created automatically when you configure your workspace, and you will have the opportunity to provide the CIDR range for the subnets during configuration.
@@ -192,3 +192,6 @@ Possible cause: worker-to-worker communication is blocked. Fix by making sure th
 Possible cause: traffic from workers to Azure Databricks Webapp is blocked. Fix by making sure the outbound security rules meet requirements.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
