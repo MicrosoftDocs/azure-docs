@@ -83,11 +83,15 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. Create a new function called `sendRequest()` that takes the variables created above. Then perform the following steps.
 
-2. create a dictionary for the request headers. Set the `Content-Type` to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+2. Create a `CloseableHttpClient` object that can send requests to the API. send the request to an `HttpPost` request object by combining your endpoint, and an Anomaly Detector URL.
 
-3. send the request using `requests.post()`. Combine your endpoint and anomaly detection URL for the full request URL, and include your headers, and json request data. 
+3. Use the request's `setHeader()` function to set the `Content-Type` header to to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-4. If the request is successful, return the response.  
+4. Use the request's `setEntity()` function to the data to be sent.   
+
+5. Use the client's `execute()` function to send the request, and save it to a `CloseableHttpResponse` object. 
+
+6. Create an `HttpEntity` object to store the response content. Get the content with `getEntity()`. If the response isn't empty, return it.
 
 ```java
 static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -115,25 +119,32 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 ## Detect anomalies as a batch
 
-```java
-static void detectAnomaliesBatch(String requestData) {
-    System.out.println("Detecting anomalies as a batch");
-    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-    if (result != null) {
-        System.out.println(result);
-        JSONObject jsonObj = new JSONObject(result);
-        JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
-        System.out.println("Anomalies found in the following data positions:");
-        for (int i = 0; i < jsonArray.length(); ++i) {
-            if (jsonArray.getBoolean(i))
-                System.out.print(i + ", ");
+1. Create a method called `detectAnomaliesBatch()` to detect anomalies throughout the data as a batch. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
+
+2. Find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Get the JSON array, and iterate through it, printing the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+
+    
+    ```java
+    static void detectAnomaliesBatch(String requestData) {
+        System.out.println("Detecting anomalies as a batch");
+        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+        if (result != null) {
+            System.out.println(result);
+            JSONObject jsonObj = new JSONObject(result);
+            JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
+            System.out.println("Anomalies found in the following data positions:");
+            for (int i = 0; i < jsonArray.length(); ++i) {
+                if (jsonArray.getBoolean(i))
+                    System.out.print(i + ", ");
+            }
+            System.out.println();
         }
-        System.out.println();
     }
-}
-```
+    ```
 
 ## Get the anomaly status of the latest data point
+
+Create a method called `detectAnomaliesLatest()` to detect anomalies throughout the data as a batch. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
 ```java
 static void detectAnomaliesLatest(String requestData) {
@@ -145,17 +156,21 @@ static void detectAnomaliesLatest(String requestData) {
 
 ## Load your time series data and send the request
 
-```java
-public static void main(String[] args) throws Exception {
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-    detectAnomaliesBatch(requestData);
-    detectAnomaliesLatest(requestData);
-}
-```
+1. In the main method of your application, read in the JSON file containing the data that will be added to the requests.
+
+2. Call the two anomaly detection functions created above.
+    
+    ```java
+    public static void main(String[] args) throws Exception {
+        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+        detectAnomaliesBatch(requestData);
+        detectAnomaliesLatest(requestData);
+    }
+    ```
 
 ### Example of time series data
 
- Click [here](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json) to see sample time series data.
+Click [here](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json) to see sample time series data.
 
 ### Example response
 
