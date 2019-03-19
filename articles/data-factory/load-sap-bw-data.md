@@ -123,7 +123,7 @@ On Azure portal, go to your data factory -> select **Author & Monitor** to launc
 
 > [!TIP]
 >
-> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF SAP BW Open Hub connector works to copy incremental data from SAP BW, and read this article from the beginning to understand the basics of SAP BW Open Hub connector.
+> Refer to [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn more on how ADF SAP BW Open Hub connector works to copy incremental data from SAP BW, and read this article from the beginning to understand the basics of connector related configurations.
 
 Now, let's continue to configure incremental copy from SAP BW Open Hub. 
 
@@ -141,11 +141,11 @@ On the ADF UI **Let's get started** page, select **Create pipeline from template
    - **SAP BW Open Hub**: your source to copy data from. Refer to the previous full copy walkthrough on detailed configurations.
    - **ADLS Gen2**: your sink to copy data to. Refer to the previous full copy walkthrough on detailed configurations.
 
-   ![Incremental copy from SAP BW template](media\load-sap-bw-data\incremental-copy-from-sap-bw-template.png)
+   ![Incremental copy from SAP BW template](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
 3. This template generates a pipeline with three activities - **Lookup, Copy Data, and Web** - and makes them chained on-success. Go to the pipeline **Parameters** tab, you see all the configurations you need to provide.
 
-   ![Incremental copy from SAP BW config](media\load-sap-bw-data\incremental-copy-from-sap-bw-pipeline-config.png)
+   ![Incremental copy from SAP BW config](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
 
    - **SAPOpenHubDestinationName**: specify the Open Hub table name to copy data from.
 
