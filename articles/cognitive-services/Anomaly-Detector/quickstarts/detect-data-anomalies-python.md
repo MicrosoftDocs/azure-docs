@@ -32,6 +32,8 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
+- A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+
 ## Create a new application
 
 1. In your favorite text editor or IDE, create a new python file. Add the following imports.

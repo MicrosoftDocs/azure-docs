@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Best practices for using the Anomaly Detector API
 
-The accuracy and performance of the API's anomaly detection results can be impacted by:
+The Anomaly Detector API is a stateless anomaly detection service. The accuracy and performance of it's results can be impacted by:
 
 * How your time series data is prepared.
 * The Anomaly Detector API parameters that were used.
@@ -23,33 +23,45 @@ To help get the best results for your data, use this article to learn about best
 
 ## Data preparation
 
-The Anomaly Detector API is a stateless anomaly detection service. It requires users to implement the stateful part to integrate it into a montoring system. 
-In Microsoft, we have built a comprehensive monitoring/alerting/diagnostic system based on this service. The following is a summary of some best practices when we use this service. 
+The Anomaly Detector API accepts time series data, formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order.  You must send windows of your time series data to the Anomaly Detector API endpoint. The minimum number of data points you can send is 12, and the maximum is 8640. 
 
-You must send windows of time series data to the Anomaly Detector API endpoint. The minimum number of data points you can send is 12.
+### Format your time series data
 
-### Optimize anomaly detection on data with repetitive patterns
+[text about API request requirements, and formatting data into JSON]
 
-If you know that your time series data repeats a pattern regularly, specify the `period` when you construct your JSON request. The `period` is an integer that specifies roughly how many data points the time series takes to repeat itself. For example, a time series tracking daily active usage of an app, normally has a weekly pattern, so set "period" as 7. But if you want to track hourly active usage, it still has a weekly pattern, but set "period" as 7*24. Specifying the "period" value can reduce the latency by up to 50%.
+```json
+{
+    "granularity": "daily",
+    "series": [
+      {
+        "timestamp": "2018-03-01T00:00:00Z",
+        "value": 32858923
+      },
+      {
+        "timestamp": "2018-03-02T00:00:00Z",
+        "value": 29615278
+      },
+    ]
+}
+```
 
-- If you do not know the data pattern in advance, leave it empty and Anomaly Detector detects it automatically but with compute cost.
+### Missing data points
 
-- If you already know your time series data has a repetitive pattern, and roughly repeats itself at every n data point, provide 4 cycle + 1 worth of data points to achieve best results. For example, hourly data with a weekly pattern, provide 673 data points in the request body (24X7X4+1).
+Missing data points are common in evenly distributed time series data sets, especially those with a fine granularity (A small sampling interval, for example data sampled every 5 minutes or less). If your data set is missing less than 10% of its expected values, there should be no negative impact on your detection results. Consider filling gaps in your data based on its characteristics. For example, these can include substituting data points from an earlier period, linear interpolation, or a moving average.
 
-- If you have time series with second level granularity and you know it has hourly / daily / weekly pattern. In this case 4 cycles of data points exceed 8640 data points which is the maximum allowed payload size you can sample the time series by hour to gain higher accuracy and lower latency.
+### Aggregate distributed data
 
-### Prevent data loss
+The Anomaly Detector API works best on an evenly distributed time series. If your data is randomly distributed, you should aggregate it by a unit of time. per-minute, hourly, or daily for example.
 
-There is always data loss in an evenly distributed time series dataset, especially when the granularity is small, such as 5 minutes or below. If the loss is less than 10%, based on our observation, there is no obvious regression on the detection results. 
-For best practice users can choose some gap-filling methods based on the characteristic of time series. 
-For example seasonal time series, like metrics relating to human behavior, if users already know the general period, they can use the value of the last period to fill in the gap. If a period cannot be estimated, using linear interpolation is an alternative. 
-For non-seasonal time series, using a moving average to fill the gap is a good choice. 
+## Anomaly detection on data with repetitive patterns
 
-### Perform necessary aggregating
-This service is best for an even distributed time series. If users have a time series which is composed of raw event and randomly distributed timestamps, before using this service, performing an aggregation is always the best option. In a real-world monitoring scenario, a minute, hourly, or daily aggregation is good for stable monitoring and latter diagnostics.
+If you know that your time series data repeats a pattern at regular intervals, you can improve the accuracy and time it takes to detect anomalies. 
+
+Specifying a `period` when you construct your JSON request can reduce anomaly detection latency by up to 50%. The `period` is an integer that specifies roughly how many data points the time series takes to repeat itself. For example, a time series with one point per day would have a `period` as `7`, and a time series with one point per hour (with the same weekly pattern) would have a `period` of  `7*24`. If you're unsure of your data's patterns, you don't have to specify this parameter.
+
+For best results, provide 4 `period`'s worth of data point, plus an additional one. For example, hourly data with a weekly pattern as described above should provide 673 data points in the request body (`7 * 24 * 4 + 1`). If this amount of data points exceeds the maximum allowed, consider sending a sample of your time series data at a larger time interval.  
 
 ### Sample the data 
-For seasonal time series of small granularity, if the period is N hours, N days or 1 week, performing a sampling by hour or day before sending them to anomaly detection usually has a big gain in efficiency and little regression on the results.
+
+For seasonal time series with small granularity, if the period is N hours, N days or 1 week, performing a sampling by hour or day before sending them to anomaly detection usually has a big gain in efficiency and little regression on the results.
 So it is suggested to always try using sampled seasonal time series first unless it returns a really bad result. One reason for this is a monitorable seasonal time series must have stable characteristics in each part.
-
-
