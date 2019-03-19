@@ -81,7 +81,7 @@ You can choose between [basic or multi-site listener](https://docs.microsoft.com
 
 - If you are hosting a single site behind an Application gateway, choose basic listener. Learn [how to create an application gateway with basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- If you are configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, then choose multi-site listener. For multi-site listener, you will additionally need to enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
+- If you are configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, then choose multi-site listener. For multi-site listener, you will additionally need to enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
 
 
 > [!NOTE]
