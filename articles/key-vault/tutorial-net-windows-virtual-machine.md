@@ -144,7 +144,7 @@ Open a command prompt.
 
 You can print "Hello World" to the console by running the following commands:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -154,7 +154,7 @@ dotnet run
 
 Open the *Program.cs* file and add these packages:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -168,7 +168,7 @@ Edit the class file to contain the code in the following two-step process:
 1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
 1. Pass the token to your key vault, and then fetch your secret. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)
