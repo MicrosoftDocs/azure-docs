@@ -177,18 +177,18 @@ Refer to the following list to configure access to Azure resource manager:
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
 | Azure Global | `https://datalake.azure.net/` | Available |
-| Azure Government |  | Available |
-| Azure Germany |   | Available |
-| Azure China 21Vianet |  | Available |
+| Azure Government |  | Not Available |
+| Azure Germany |   | Not Available |
+| Azure China 21Vianet |  | Not Available |
 
 ## Azure SQL 
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
 | Azure Global | `https://database.windows.net/` | Available |
-| Azure Government | `https://vault.usgovcloudapi.net` | Available |
-| Azure Germany |  `https://vault.microsoftazure.de` | Available |
-| Azure China 21Vianet | `https://vault.azure.cn` | Available |
+| Azure Government | | Not Available |
+| Azure Germany | | Not Available |
+| Azure China 21Vianet | | Not Available |
 
 ## Azure Event Hubs
 
