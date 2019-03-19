@@ -30,7 +30,7 @@ To subscribe to a feed:
 
 1. Start the client from the All Apps List, look for Remote Desktop.
 2. Select either a work or school account on the main page. This will subscribe with the default feed URL.
-  - You can also provide a different URL if needed with the **Use a URL instead** option.
+   - You can also provide a different URL if needed with the **Use a URL instead** option.
 3. Sign in with your user account.
 
 > [!NOTE]
