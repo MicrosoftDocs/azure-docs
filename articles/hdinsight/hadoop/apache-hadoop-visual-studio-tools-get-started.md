@@ -87,7 +87,7 @@ To connect to the Azure portal from Visual Studio:
 
 1. From Server Explorer, navigate to **Azure** > **HDInsight** and select your cluster.
 
-2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure Portal**.
+2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure portal**.
 
 To ask questions and/or provide feedback from Visual Studio:
 

@@ -154,7 +154,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 ## See also
 * [Install Apache Giraph on HDInsight Hadoop clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 * [Create Apache Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters.
-* [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action.
+* [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster-linux.md): general information on customizing HDInsight clusters using Script Action.
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 * [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]: Script Action sample about installing Spark.
 

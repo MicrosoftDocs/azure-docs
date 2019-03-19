@@ -159,7 +159,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
     Connect-AzureRmAccount
     ```
 
-    When prompted, log in with the account for your Azure subscription.
+    When prompted, sign in with the account for your Azure subscription.
 
     If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzureRmSubscription` to select the subscription you wish to use.
 
@@ -171,7 +171,7 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     As the script runs, it logs output to the PowerShell prompt as it creates the resource group and storage accounts. You are prompted to enter the HTTP user for the HDInsight cluster. This account is used to secure HTTP/s access to the cluster.
 
-    If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely log in to the cluster.
+    If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely sign in to the cluster.
 
    > [!IMPORTANT]  
    > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:

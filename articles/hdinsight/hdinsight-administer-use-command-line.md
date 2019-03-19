@@ -87,7 +87,7 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ## Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
-* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
+* [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [How to use the Azure Classic CLI][azure-command-line-tools]

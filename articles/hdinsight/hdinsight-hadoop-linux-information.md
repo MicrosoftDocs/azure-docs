@@ -51,7 +51,7 @@ This command returns a JSON document describing the service, and then jq pulls o
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-    Authenticate by using the cluster administrator user and password, and then log in to Ambari.
+    Authenticate by using the cluster administrator user and password, and then sign in to Ambari.
 
     Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
