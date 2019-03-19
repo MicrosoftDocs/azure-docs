@@ -79,9 +79,6 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     ![Create new cde Event Hub](media/howto-export-data/export_create.PNG)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
-    - Storage account, go to the Storage account in the Azure Portal.
-        - Under **Settings**, select **Access keys**
-        - Copy either the key1 Connection string or the key2 Connection string
     - Event Hubs or Service Bus, go to the namespace in the Azure Portal.
         - Under **Settings**, select **Shared Access Policies**
         - Choose the default **RootManageSharedAccessKey** or create a new one

@@ -75,10 +75,6 @@ Now that you have a Storage destination to export data to, follow these steps to
     - Storage account, go to the Storage account in the Azure Portal.
         - Under **Settings**, select **Access keys**
         - Copy either the key1 Connection string or the key2 Connection string
-    - Event Hubs or Service Bus, go to the namespace in the Azure Portal.
-        - Under **Settings**, select **Shared Access Policies**
-        - Choose the default **RootManageSharedAccessKey** or create a new one
-        - Copy either the primary or secondary connection string
  
 6. Choose a Container/Event hub/Queue or Topic from the drop-down list box.
 
