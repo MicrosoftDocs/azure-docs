@@ -48,7 +48,7 @@ Download the sample Node.js project from [https://github.com/Azure-Samples/nodej
 Open _index.js_ and find the following line:
 
 ```javascript
-var port = process.env.PORT || 1337;
+const port = process.env.PORT || 1337;
 ```
 
 App Service injects process.env.PORT into your application, so the code uses the variable to know which port to listen. 

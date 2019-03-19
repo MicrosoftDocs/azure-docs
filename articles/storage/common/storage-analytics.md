@@ -18,7 +18,7 @@ To use Storage Analytics, you must enable it individually for each service you w
 
 The aggregated data is stored in a well-known blob (for logging) and in well-known tables (for metrics), which may be accessed using the Blob service and Table service APIs.
 
-Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about billing and data retention policies, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx). For more information about storage account limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
+Storage Analytics has a 20 TB limit on the amount of stored data that is independent of the total limit for your storage account. For more information about storage account limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
 For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -119,7 +119,7 @@ Transaction data is recorded at two levels – the service level and the API ope
 
 For example, if you perform a **GetBlob** operation on your Blob service, Storage Analytics Metrics will log the request and include it in the aggregated data for both the Blob service as well as the **GetBlob** operation. However, if no **GetBlob** operation is requested during the hour, an entity will not be written to the `$MetricsTransactionsBlob` for that operation.
 
-Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded. For more information about how these requests are billed, see [Storage Analytics and Billing](https://msdn.microsoft.com/library/hh360997.aspx).
+Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded.
 
 ### Capacity metrics
 > [!NOTE]
@@ -169,5 +169,5 @@ When looking at Storage Analytics data, you can use the tables in the [Storage A
 
 ## Next steps
 * [Monitor a storage account in the Azure Portal](storage-monitor-storage-account.md)
-* [Storage Analytics Logging](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx)
+* [Storage Analytics Metrics](storage-analytics-metrics.md)
+* [Storage Analytics Logging](storage-analytics-logging.md)

@@ -23,7 +23,7 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-To do the tasks in this quickstart, sign in to the [Azure portal](http://portal.azure.com).
+To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Basic Load Balancer
 
@@ -254,6 +254,7 @@ Open a browser and paste your load balancer's public IP address into the browser
 
 ![IIS web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 ## Clean up resources
 
 To delete the load balancer and all related resources when you no longer need them, open the **MyResourceGroupLB** resource group and select **Delete resource group**.
