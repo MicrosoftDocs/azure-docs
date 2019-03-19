@@ -19,44 +19,38 @@ ms.author: lahugh
 
 # Creating and using resource files
 
-The resource file feature in Batch allows you to provision files on your VM at the per-task granularity ([ed]: there are no resource files on the pool, but there are app packages).   All task types support resource files:  tasks, start tasks, job prep, job release, job manager, etc.  Resource files are created based on input locations you specify and are placed on the VM in locations you determine (// do we mention the destinations are constrained by the task type and base design/layout?  Tmi?)
+(// do we mention the destinations are constrained by the task type and base design/layout?  Tmi?)
+(// somewhere discuss the “shared directory hierarchy”)
 
-Resource files are a source of input for tasks and pools in Azure Batch. Resource files are created based on a given input file, and are then placed onto a task or pool for further processing.
+An Azure Batch task often requires some form of data to process. Resource files are the means to provide this data to your Batch virtual machine (VM) via a task. All types of tasks support resource files: tasks, start tasks, job preparation tasks, job release tasks, etc. This article covers a few common methods on how to create resource files and place them on a VM.  
 
-Common use cases: 
-    1. Provision common files on each VM using resource files on a start task. (// somewhere discuss the “shared directory hierarchy”)
+Resource files are a mechanism to put data onto a VM in Batch, but what type of data and how it is used is flexible. There are, however, some common use cases:
 
-See how this is indirect?  There are no RFs on pools.
+1. Provision common files on each VM using resource files on a start task
+1. Provision input data to be processed by tasks
 
-    1.  Provision input data to be processed by tasks
+Common files could be, for example, files on a start task used to install applications that your tasks run. Input data could be raw image or video data, or any information to be processed by Batch.
 
-I think  “background tasks” (breakaway) is a very advanced topic and I am not sure I feel comfortable surfacing this in the context of resource files.
+## Types of resource files
 
+There are a few different options available to generate resource files. The creation process for resource files varies depending on where the original data is stored.
 
-Configuring a pool could mean, for example, setting up a start task to install the applications that your tasks run, or starting background processes. See [Start task](batch-api-basics.md#start-task) for more information about configuring a start task. An example of input data could be a video or image file to be processed by the task.
+Options for creating a resource file:
 
-Typically, your Batch task will specify resource files from a linked Azure Storage account, but there are several ways to provide and specify resource files. This article covers three different ways to retrieve and generate resource files for your Batch tasks.
+- [Storage container URL](#storage-container-url)
+   Generates a resource file from any storage container in Azure
+- [Storage container name](#storage-container-name)
+   Generates a resource file from the name of a container in an Azure storage account linked to Batch
+- [Web endpoint](#web-endpoint)
+   Generates a resource file from any valid HTTP URL
 
-## Examples (C#)
+### Storage container URL
 
+Using a storage container URL means you can access files in any storage container in Azure. With the correct permissions
 
-FIX
-This article covers three examples to consume an input file and generate a resource file to be used by Azure Batch.
+In this C# example, the files have already been uploaded to an Azure storage container as blob storage. To access the data needed to create a resource file, we first need to get access to the storage container.
 
-
-The three options:
-
-1. [FromAutoStorageContainer](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromautostoragecontainer?view=azure-dotnet) – Uses name of the container in a storage account linked to the Batch account (the “auto storage” account) to generate a resource file.
-
-1. [FromStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet) – Uses any Azure storage container URL to generate a resource file.
-
-1. [FromUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromurl?view=azure-dotnet) – Uses any HTTP URL to generate a resource file.
-
-### Storage container url
-
-Using a storage container URL means you can access files in any Azure Storage container, not just the container that's linked to your Batch account. This example assumes the files are already uploaded to an Azure Storage account as blob storage.
-
-First, create a SAS URI with the correct permissions to access the storage container. Let's take a closer look.
+Create a shared access signature (SAS) URI with the correct permissions to access the storage container. Set the expiration time and permissions for the SAS. In this case, no start time is specified, so the SAS becomes valid immediately and expires two hours after it's generated.
 
 ```csharp
 SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
@@ -66,57 +60,68 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 };
 ```
 
-Set the expiry time and permissions for the shared access signature. In this case, no start time is specified, so the shared access signature becomes valid immediately and expires after two hours. Accessing a container is different than accessing a blob. For container access, you will need both `Read` and `List` permissions, whereas with blob access, you only need `Read` permission.
+> [!NOTE]
+> For container access, you must have both `Read` and `List` permissions, whereas with blob access, you only need `Read` permission.
 
-Once permissions are set, create the SAS token and SAS URI for the container. With the URI for the storage container, generate a resource file with `FromStorageContainerUrl`.
+Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
 string sasToken = container.GetSharedAccessSignature(sasConstraints);
-string containerSasUri = String.Format("{0}{1}", container.Uri, sasToken);
+string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 
-var inputFile = ResourceFile.FromStorageContainerUrl(containerSasUri);
+ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Alternatively, you can set the access control list (ACL) for the container to allow public access. If you allow public access, you don't need to create a SAS URI for additional permissions.
-
-The URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the file. There are two ways to get such a URL for a container in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the container, or set the ACL for the container to allow public access.
+An alternative to generating a SAS URL is to enable anonymous, public read access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read access is typically used for scenarios where you want certain blobs to always be available for anonymous read access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/storage-manage-access-to-resources.md) article to learn more about managing access to your blob data.
 
 ### Storage container name
 
-In this example, we assume that the files that will be used as resource files are already in the Azure Storage account linked to your Batch account. If you don't have a linked storage account, see the steps in [Create a Batch account](/create-a-batch-account.md) for details on how to create and link an account.
+Instead of configuring and creating a SAS URL, you can use the name of your Azure storage container to access your blob data. The storage container used needs to in the Azure storage account that's linked to your Batch account, known as the auto-storage account. Using the storage container name of an auto-storage account allows you to bypass configuring and creating a SAS URL to access a storage container.
+
+In this example, we assume that the data to be used for resource file creation is already in an Azure Storage account linked to your Batch account. If you don't have an auto-storage account, see the steps in [Create a Batch account](/create-a-batch-account.md) for details on how to create and link an account.
 
 By using a linked storage account, you don't need to create and configure a SAS URL to a storage container. Instead, provide the name of the storage container in your linked storage account.
 
 ```csharp
-var inputFile = ResourceFile.FromAutoStorageContainer(containerName);
+ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 ```
-
-Because your Storage account is already linked to your Batch account, you only need to provide the name of the storage container with the input files and the API handles the details for you.
 
 ### Web endpoint
 
-Files don't need to be in Azure Storage to be used by Batch. You can specify any arbitrary web endpoint to your resource file. In the following example, the file is hosted on fictitious GitHub endpoint. The API retrieves the file from the valid web end point and generates a resource file to be consumed by your task.
+Data that isn't uploaded to Azure Storage can still be used to create resource files. You can specify any valid HTTP URL containing your input data. The URL is provided to the Batch API, and then the data is used to create a resource file.
+
+In the following C# example, the input data is hosted on fictitious GitHub endpoint. The API retrieves the file from the valid web endpoint and generates a resource file to be consumed by your task. No credentials are needed when using this option.
 
 ```csharp
-var inputFile = ResourceFile.FromUrl("https://github.com/foo/file.txt", filePath);
+ResourceFile inputFile = ResourceFile.FromUrl("https://github.com/foo/file.txt", filePath);
 ```
 
 ## Tips and best practices
 
+Depends on your scenario. Depends on how your tasks are organized and what the data for your tasks looks like.
+
 ### Many resource files
 
-If your task has several resource files, it's more efficient to use [application package](batch-application-packages.md) rather than specify a long list of individual resource files. With application packages, you don't have to manually manage several resource files and you don't need to worry about generating SAS URLs with the correct permissions to access the files in Azure Storage. Batch works in the background with Azure Storage to store and deploy application packages to compute nodes.
 
-Another option is to create a zipped archive containing your resource files. Upload the archive as a blob to Azure Storage, and then unzip it from the command line of your start task. This will still allow you to have several resource files, while keeping the size of your task relatively small.
 
 1. If each task has many files unique to that task, it is likely you’ll want resource files, as it is difficult to change an application packages content.
+
 1. If the thing you are deploying is logically a “versioned application” then using applications makes a lot of sense, as it has optimizations in terms of download. This is doubly true if the content in the application changes very rarely, as it’s cached between tasks too.
 1. If files are shared between tasks but not all files are shared between tasks, then you might want an application for the shared files and resource files for the non-common files.
+
 1. The notion that they have to “specify a long list” of resource files is no longer true after Xings changes because they could specify one ResourceFile pointing at a container (which contains many blobs which will all be downloaded), so I am not sure that aspect of the tip above is correct.
+
 1. The zipping idea is nice, but I’d refer to it as a download speed optimization now, and not a “keeping the size of your task small” optimization, as you can now keep the size of your task small by just putting the files into a container and putting a single ResourceFile pointing at the whole container (or a subset of it).
+
 1. “.zip/app-packages that need to be unpacked increase the local storage impact… since the package needs to take up space to be unpacked.
+
+If your task has several resource files, it's more efficient to use [application package](batch-application-packages.md) rather than specify a long list of individual resource files.
+
+With application packages, you don't have to manually manage several resource files and you don't need to worry about generating SAS URLs with the correct permissions to access the files in Azure Storage. Batch works in the background with Azure Storage to store and deploy application packages to compute nodes.
+
+Another option is to create a zipped archive containing your resource files. Upload the archive as a blob to Azure Storage, and then unzip it from the command line of your start task. This will still allow you to have several resource files, while keeping the size of your task relatively small.
 
 ### Number of resource files per task
 
@@ -126,7 +131,7 @@ Also, if there are hundreds of resource files specified on a task, Batch may rej
 
 ## Next steps
 
-* Learn about [application packages](batch-application-packages.md) as an alternative to resource files.
-* For more information about using containers for resource files, see [Container workloads](batch-docker-container-workloads.md).
-* To learn how to gather and save the output data from your tasks, see [Persist job and task output](batch-task-output.md).
-* Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
+- Learn about [application packages](batch-application-packages.md) as an alternative to resource files.
+- For more information about using containers for resource files, see [Container workloads](batch-docker-container-workloads.md).
+- To learn how to gather and save the output data from your tasks, see [Persist job and task output](batch-task-output.md).
+- Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
