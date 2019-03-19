@@ -27,7 +27,7 @@ Under some circumstances, the Azure Backup service triggers remedial backups. Au
 Auto-heal as a capability is enabled for all user by default; However in case you choose to opt-out of it, then perform the below:
 
   * On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
-  * In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*  
+  * In the **ExtensionSettingsOverrides.json**, set *{"EnableAutoHealer": false}*.
   * Save your changes and close the file.
   * On the SQL Server instance, open **Task Manage** and then restart the **AzureWLBackupCoordinatorSvc** service.
    
@@ -60,14 +60,13 @@ The Azure Backup Recovery Services vault can detect and protect all nodes that a
 
 No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](backup-azure-monitoring-built-in-monitor.md). However, in case you are interested do have alerts even for successful jobs, you can use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
-## Can I see scheduled backup jobs in the jobs menu?
+## Can I see scheduled backup jobs in the Backup Jobs menu?
 
 The **Backup Job** menu will only show ad-hoc backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
 
 Yes, you can achieve this capability with [auto-protection](backup-azure-sql-database.md#enable-auto-protection).  
-
 
 ## If I delete a database from an autoprotected instance, what will happen to the backups?
 
@@ -77,15 +76,15 @@ The correct way to stop protecting this database is to do **Stop Backup** with
 
 ## If I do stop backup operation of an auto-protected database what will be its behavior?
 
-If you do **stop backup with retain data**, no future backups will take place and the existing recovery points will remain intact. The database will still be considered as protected and be shown under the **Backup items**.<br>
+If you do **stop backup with retain data**, no future backups will take place and the existing recovery points will remain intact. The database will still be considered as protected and be shown under the **Backup items**.
 
-<br>If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance in the Configure Backup. However, unlike other up-protected databases that can be selected manually or that can get auto-protected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
+If you do **stop backup with delete data**, no future backups will take place and the existing recovery points will also be deleted. The database will be considered un-protected and be shown under the instance in the Configure Backup. However, unlike other up-protected databases that can be selected manually or that can get auto-protected, this database appears greyed out and can’t be selected. The only way to re-protect this database is to disable auto-protection on the instance. You can now select this database and configure protection on it or re-enable auto-protection on the instance again.
 
 ## If I change the name of the database after it has been protected, what will be the behavior.
 
-A re-named database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.<br>
+A re-named database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.
 
-<br>You can select the database which is now re-named and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
+You can select the database which is now re-named and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 
 ## Next steps
 
