@@ -55,8 +55,8 @@ The Azure portal can provide this information:
 You can also use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 ```azurecli
-    az hdinsight list --resource-group <ResourceGroup>
-    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
 Another option is using  PowerShell. For more information, see  [Manage Apache Hadoop clusters in HDInsight with Azure PowerShell](hdinsight-administer-use-powershell.md).
@@ -182,7 +182,7 @@ At the YARN level, there are two types of timeouts:
 
     * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN ResourceManager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
 
-    * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.  
+    * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.
 
 To diagnose these issues:
 
@@ -211,8 +211,6 @@ The Ambari UI **Stack and Version** page provides information about cluster serv
 ## Step 5: Examine the log files
 
 There are many types of logs that are generated from the many services and components that comprise an HDInsight cluster. [WebHCat log files](#check-your-webhcat-service) are described previously. There are several other useful log files you can investigate to narrow down issues with your cluster, as described in the following sections.
-
-![HDInsight log file example](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * HDInsight clusters consist of several nodes, most of which are tasked to run submitted jobs. Jobs run concurrently, but log files can only display results linearly. HDInsight executes new tasks, terminating others that fail to complete first. All this activity is logged to the `stderr` and `syslog` files.
 
