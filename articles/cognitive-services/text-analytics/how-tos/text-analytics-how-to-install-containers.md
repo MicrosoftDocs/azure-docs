@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
 ---
 
@@ -41,13 +41,16 @@ You must meet the following prerequisites before using Text Analytics containers
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
+| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |15,30|
+|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |15,30|
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |15,30|
 
-Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 

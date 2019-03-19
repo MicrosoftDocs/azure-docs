@@ -47,7 +47,6 @@ The following table describes the minimum and recommended CPU cores and memory t
 |-----------|---------|-------------|--|
 |Face | 1 core, 2 GB memory | 1 core, 4 GB memory |10, 20|
 
-
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
 

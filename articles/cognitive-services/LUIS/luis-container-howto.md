@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
 ---
 
@@ -41,15 +41,14 @@ In order to run the LUIS container, you must have the following:
 
 This container supports minimum and recommended values for the settings:
 
-|Setting| Minimum | Recommended |
-|-----------|---------|-------------|
-|Cores<BR>`--cpus`|1 core|1 core|
-|Memory<BR>`--memory`|2 GB|4 GB|
-|Transactions per second<BR>(TPS)|20 TPS|40 TPS|
+|Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|LUIS|1 core, 2 GB memory|1 core, 4 GB memory|20,40|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
-The `--cpus` and `--memory` settings are used as part of the `docker run` command.
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
