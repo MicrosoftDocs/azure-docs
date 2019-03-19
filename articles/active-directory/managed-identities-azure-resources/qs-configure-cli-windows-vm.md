@@ -127,7 +127,7 @@ To assign a user-assigned identity to a VM during its creation, your account nee
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   The response contains details for the user-assigned managed identity created, similar to the following. The resource id value assigned to the user-assigned managed identity is used in the following step.
+   The response contains details for the user-assigned managed identity created, similar to the following. The resource ID value assigned to the user-assigned managed identity is used in the following step.
 
    ```json
    {
