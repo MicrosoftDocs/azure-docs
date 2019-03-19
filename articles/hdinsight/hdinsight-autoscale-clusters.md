@@ -18,7 +18,7 @@ ms.author: hrasheed
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down based on load within a predefined range. During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
 
-## Getting Started
+## Getting started
 
 ### Create a cluster with the Azure portal
 
