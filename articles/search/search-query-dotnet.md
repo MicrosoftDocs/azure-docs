@@ -15,8 +15,8 @@ ms.date: 03/20/2019
 This article shows you how to query [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Searching documents in your index is accomplished by performing these tasks:
 
 > [!div class="checklist"]
-> * Create a `SearchIndexClient` object to connect to a search index with read-only rights.
-> * Create a `SearchParameters` object containing the search or filter definition.
+> * Create a [`SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object to connect to a search index with read-only rights.
+> * Create a [`SearchParameters`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet) object containing the search or filter definition.
 > * Call the `Documents.Search` method on `SearchIndexClient` to send queries to an index.
 
 ## Prerequisites

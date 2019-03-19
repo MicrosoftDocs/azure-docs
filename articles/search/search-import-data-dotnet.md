@@ -16,8 +16,8 @@ ms.date: 03/20/2019
 This article shows you how to import data into [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Pushing documents into your index is accomplished by performing these tasks:
 
 > [!div class="checklist"]
-> * Create a `SearchIndexClient` object to connect to a search index.
-> * Create an `IndexBatch` object containing the documents to be added, modified, or deleted.
+> * Create a [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object to connect to a search index.
+> * Create an [`IndexBatch`]https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet() object containing the documents to be added, modified, or deleted.
 > * Call the `Documents.Index` method on `SearchIndexClient` to upload documents to an index.
 
 ## Prerequisites
