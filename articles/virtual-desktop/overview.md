@@ -51,7 +51,7 @@ There are a few things you need to set up Windows Virtual Desktop and successful
 
 First, make sure you have the appropriate licenses for your users based on the desktop and apps you plan to deploy:
 
-|OS|Required License|
+|OS|Required license|
 |---|---|
 |Windows 10 Enterprise multi-session or Windows 10 single-session|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
 |Windows 7|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
@@ -73,7 +73,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
   * Windows Server 2016
 
 >[!NOTE]
->If you need an Azure subscription, you can [sign up for a free one-month trial of Azure](https://azure.microsoft.com/free/). If you set up a free trial of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
+>If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. During public preview, desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 and US Central regions). This may result in data transfer to the United States while you test the service during public preview. We'll start to scale out the management solution and data localization to all Azure regions starting at general availability.
 
@@ -87,7 +87,7 @@ For optimal performance, make sure your network meets the following requirements
 
 Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
 
-## Get started
+## Next steps
 
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
 
