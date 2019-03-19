@@ -251,7 +251,6 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 

@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
 
-This tutorial is part two of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
+This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
 In this tutorial, you learn how to:
 
@@ -31,6 +31,7 @@ In this tutorial, you learn how to:
 In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure using a template
+> * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Scale a cluster in or out
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)

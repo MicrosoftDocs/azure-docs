@@ -6,7 +6,7 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
 
 
@@ -135,7 +135,7 @@ Configure backup as follows:
 
 4. Click **OK** to open the **Backup policy** blade.
 
-    ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+    ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 5. In **Choose backup policy**, select a policy, then click **OK**.
 
@@ -229,12 +229,13 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
 ## Enable auto-protection  
 
-Enable auto-protection to automatically back up all existing databases, and databases that are added in the future to a standalone SQL Server instance or a SQL Server Always On Availability group.
+Enable auto-protection to automatically back up all existing databases, and databases that will be added in the future to a standalone SQL Server instance or a SQL Server Always on Availability group.
 
-  - When you turn on auto-protection and select a policy, the existing protected databases will continue to use previous policy.
-  - There is no limit on the number of databases you can select for auto-protection in one go.
+- There is no limit on the number of databases you can select for auto-protection in one go.
+- You cannot selectively protect or exclude databases from protection in an instance at the time of enabling auto-protection.
+- If your instance already includes some protected databases, they would continue to be protected under their respective policies even after you turn on auto-protection. However, all the un-protected databases and the databases that will get added in the future, will have only a single policy that you define at the time of enabling auto-protection, under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
 
-Enable auto-protection as follows:
+Steps to enable auto-protection are as follows:
 
   1. In **Items to backup**, select the instance for which you want to enable auto-protection.
   2. Select the dropdown under **Autoprotect**, and set to **On**. Then click **OK**.
@@ -243,37 +244,9 @@ Enable auto-protection as follows:
 
   3. Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
 
-If you need to disable auto-protection, click the instance name under **Configure Backup**, and select **Disable Auto-protect** for the instance. All databases will continue to back up. But future databases won't be automatically protected.
+If you need to disable auto-protection, click the instance name under **Configure Backup**, and select **Disable Auto-protect** for the instance. All databases will continue to back up, but future databases won't be automatically protected.
 
-
-## Fix SQL sysadmin permissions
-
-  If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership** error, do the following:
-
-  1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
-  2. On the SQL Server, open the **Security/Logins** folder.
-
-      ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
-
-  3. Right-click the **Logins** folder and select **New Login**. In **Login - New**, select **Search**.
-
-      ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
-
-  4. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Click **OK**.
-
-      ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
-
-  5. In **Server Roles**, make sure the **sysadmin** role is selected. Click **OK**. The required permissions should now exist.
-
-      ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-  6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
-
-      ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-  7. Check progress in the **Notifications** area. When the selected databases are found, a success message appears.
-
-      ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## Next steps
