@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
 
-This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
+This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.  For more information on scaling a cluster running in Azure, read [Scaling Service Fabric clusters](service-fabric-cluster-scaling.md).
 
 In this tutorial, you learn how to:
 
@@ -44,7 +44,16 @@ Before you begin this tutorial:
 * Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 
-## Important guidelines and considerations
+## Important considerations and guidelines
+
+Application workloads change over time, do your existing services need more (or less) resources?  [Add or remove nodes](#add-nodes-to-or-remove-nodes-from-a-node-type) from a node type to increase or decrease cluster resources.
+
+Do you need to add more than 100 nodes to your cluster?  A single Service Fabric node type/scale set can not contain more than 100 nodes/VMs.  To scale a cluster beyond 100 nodes, [add additional node types](#add-nodes-to-or-remove-nodes-from-a-node-type).
+
+Does your application have multiple services, and do any of them need to be public or internet facing?  Typical applications contain a front-end gateway service that receives input from a client and one or more back-end services that communicate with the front-end services. In this case, we recommend you [add at least two node types](#add-nodes-to-or-remove-nodes-from-a-node-type) to the cluster.  
+
+Do your services have different infrastructure needs such as greater RAM or higher CPU cycles? For example, your application contains a front-end service and a back-end service. The front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet. The back-end service, however, is computation intensive and needs to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet facing. In this case, we recommended that you [add two or more node types](#add-nodes-to-or-remove-nodes-from-a-node-type) to your cluster. This allows each node type to have distinct properties such as internet connectivity or VM size. The number of VMs can be scaled independently, as well.
+
 When scaling an Azure cluster, keep the following guidelines in mind:
 
 * A single Service Fabric node type/scale set can not contain more than 100 nodes/VMs.  To scale a cluster beyond 100 nodes, add additional node types.
@@ -70,7 +79,7 @@ After creating a secure [Windows cluster](service-fabric-tutorial-create-vnet-an
 
 ## Add nodes to or remove nodes from a node type
 
-Scaling in and out, or horizontal scaling, changes the number of nodes in the cluster. When you scale in or out, you add more virtual machine instances to the scale set. These instances become the nodes that Service Fabric uses. Service Fabric knows when the scale set has more instances added (by scaling out) and reacts automatically. 
+Scaling in and out, or horizontal scaling, changes the number of nodes in the cluster. When you scale in or out, you add more virtual machine instances to the scale set. These instances become the nodes that Service Fabric uses. Service Fabric knows when the scale set has more instances added (by scaling out) and reacts automatically. You can scale the cluster at any time, even when workloads are running on the cluster.
 
 ### Update the template
 
@@ -93,7 +102,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## Add a node type to the cluster
 
-Every node type that is defined in a Service Fabric cluster running in Azure is set up as a [separate virtual machine scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. You can independently scale each node type up or down, have different sets of ports open, and use different capacity metrics. You can also independantly change the OS SKU running on each cluster node, but note that you can't have a mix of Windows and Linux running in the sample cluster. A single node type/scale set cannot contain more than 100 nodes.  You can scale a cluster horizontally to more than 100 nodes by adding additional node types/scale sets. 
+Every node type that is defined in a Service Fabric cluster running in Azure is set up as a [separate virtual machine scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. You can independently scale each node type up or down, have different sets of ports open, and use different capacity metrics. You can also independantly change the OS SKU running on each cluster node, but note that you can't have a mix of Windows and Linux running in the sample cluster. A single node type/scale set cannot contain more than 100 nodes.  You can scale a cluster horizontally to more than 100 nodes by adding additional node types/scale sets. You can scale the cluster at any time, even when workloads are running on the cluster.
 
 ### Update the template
 
