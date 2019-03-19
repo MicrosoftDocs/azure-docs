@@ -42,7 +42,7 @@ Here are some configurations within each service that can help improve overall t
 ## Avoiding Performance Pitfalls
 Bulk inserting data is much faster than loading data with single inserts because the repeated overhead of transferring the data, parsing the insert statement, running the statement, and issuing a transaction record is avoided. Instead, a more efficient path is used into the storage engine to stream the data. The setup cost of this path is however much higher than a single insert statement in a disk-based table. The break-even point is typically around 100 rows, beyond which bulk loading is almost always more efficient. 
 
-If incoming events rate is low, it can easily create batch sizes lower than 100 rows, making bulk insert inefficient and take too much disk space. To work around this limitation, you can do one of these actions: 
+If the incoming events rate is low, it can easily create batch sizes lower than 100 rows, which makes bulk insert inefficient and uses too much disk space. To work around this limitation, you can do one of these actions:
 * Create an INSTEAD OF [trigger](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) to use simple insert for every row.
 * Use an In-Memory temp table as described in the previous section.
 
