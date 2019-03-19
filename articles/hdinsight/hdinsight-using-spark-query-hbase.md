@@ -71,7 +71,7 @@ Copy the hbase-site.xml from local storage to the root of your Spark cluster's d
 
 | Syntax value | New value|
 |---|---|
-|[URI scheme](/hdinsight-hadoop-linux-information#URI-and-scheme.md) | Modify to reflect your storage.  The syntax below is for blob storage with secure transfer enabled.|
+|[URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modify to reflect your storage.  The syntax below is for blob storage with secure transfer enabled.|
 |`SPARK_STORAGE_CONTAINER`|Replace with the default storage container name used for the Spark cluster.|
 |`SPARK_STORAGE_ACCOUNT`|Replace with the default storage account name used for the Spark cluster.|
 

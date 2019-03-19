@@ -169,7 +169,7 @@ The basic principle behind ADAL is that whenever your app needs an access token,
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 
