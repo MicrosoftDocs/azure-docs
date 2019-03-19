@@ -182,7 +182,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you were introduced to features of ACR Tasks to quickly build, push, and run a Docker container image natively within Azure. Container to the Azure Container Registry tutorials to see examples of automating image builds and updates.
+In this quickstart, you were introduced to features of ACR Tasks to quickly build, push, and run a Docker container image natively within Azure. Continue to the Azure Container Registry tutorials to learn about using ACR Tasks to automate image builds and updates.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
