@@ -155,15 +155,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. On the SSO Setup page, perform the following steps:
    
-     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-     ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-     a. In the **SSO Target URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+      a. In the **SSO Target URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-     b. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox. 
+      b. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **Certificate** textbox. 
 
-     c. Click **SAVE CONFIGURATION**.
+      c. Click **SAVE CONFIGURATION**.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
