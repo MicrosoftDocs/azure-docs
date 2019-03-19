@@ -1,0 +1,17 @@
+- name: Azure Service Provider Management Toolkit documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Microsoft Azure Service Provider Management Toolkit?
+    displayName: management
+    href: overview.md
+- name: Concepts
+  items:
+  - name: Managed services offers in Azure Marketplace
+    displayName: managed services offer, azure marketplace
+    href: ./concepts/managed-services-offers.md
+- name: How-to guides
+  items:
+  - name: Publish Managed Services offers to Azure Marketplace 
+    displayName: managed services offer, azure marketplace, publish
+    href: ./how-to/programmatically-create.md

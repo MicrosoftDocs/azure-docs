@@ -1,0 +1,33 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Service Provider Management Toolkit Documentation
+metadata:
+  title: Azure Service Provider Management Toolkit Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to manage customer resources at scale
+  author: JnHs
+  manager: carmonm
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/03/2019
+  ms.author: jenhayes
+abstract:
+  description: Azure Service Provider Management Toolkit helps you to manage customer resources at scale.
+sections:
+- title: Concepts
+  items:
+  - type: paragraph
+    text: Learn about stuff
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
+- title: How-to guides
+  items:
+  - type: paragraph
+    text: Learn how to do stuff
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="how-to/publish-managed-services-offers">Publish Managed Services offers to Azure Marketplace</a>
+
