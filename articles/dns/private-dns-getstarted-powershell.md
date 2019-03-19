@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/15/2019
+ms.date: 3/19/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
@@ -49,9 +49,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 A DNS zone is created by using the `New-AzPrivateDnsZone` cmdlet.
 
-The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and links the DNS zone to the virtual network called **MyAzureVnet**.
-
-The zone is then linked to **MyAzureVnet** and allows automatic registration.
+The following example creates a virtual network named **myAzureVNet**. Then it creates a DNS zone named **private.contoso.com** in the **MyAzureResourceGroup** resource group, links the DNS zone to the **MyAzureVnet** virtual network, and enables automatic registration.
 
 ```azurepowershell
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -66,7 +64,7 @@ $zone = New-AzPrivateDnsZone -Name private.contoso.com -ResourceGroupName MyAzur
 
 $link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
   -ResourceGroupName MyAzureResourceGroup -Name "mylink" `
-  -VirtualNetwork $vnet -EnableRegistration
+  -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
 If you want to create a zone just for name resolution (no automatic hostname registration), you can omit the `-EnableRegistration` parameter.
@@ -77,12 +75,14 @@ By omitting the zone name from `Get-AzPrivateDnsZone`, you can enumerate all zon
 
 ```azurepowershell
 $zones = Get-AzPrivateDnsZone -ResourceGroupName MyAzureResourceGroup
+$zones
 ```
 
 By omitting both the zone name and the resource group name from `Get-AzPrivateDnsZone`, you can enumerate all zones in the Azure subscription.
 
 ```azurepowershell
 $zones = Get-AzPrivateDnsZone
+$zones
 ```
 
 ## Create the test virtual machines

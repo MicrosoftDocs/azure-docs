@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
@@ -43,9 +43,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## Create a DNS private zone
 
-A DNS zone is created by using the `az network dns zone create` command with a value of *Private* for the **ZoneType** parameter. The following example creates a DNS zone called **private.contoso.com** in the resource group called **MyAzureResourceGroup** and makes the DNS zone available to the virtual network called **MyAzureVnet**.
-
-If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone.
+The following example creates a virtual network named **myAzureVNet**. Then it creates a DNS zone named **private.contoso.com** in the **MyAzureResourceGroup** resource group, links the DNS zone to the **MyAzureVnet** virtual network, and enables automatic registration.
 
 ```azurecli
 az network vnet create \
@@ -56,32 +54,30 @@ az network vnet create \
   --subnet-name backendSubnet \
   --subnet-prefixes 10.2.0.0/24
 
-az network dns zone create -g MyAzureResourceGroup \
-   -n private.contoso.com \
-  --zone-type Private \
-  --registration-vnets myAzureVNet
+az network private-dns zone create -g MyAzureResourceGroup \
+   -n private.contoso.com
+
+az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink \
+   -z private.contoso.com -v myAzureVNet -e true
 ```
 
-If you wanted to create a zone just for name resolution (no automatic hostname creation), you could use the *resolution-vnets* parameter instead of the *registration-vnets* parameter.
-
-> [!NOTE]
-> You won't be able to see the automatically created hostname records. But later, you will test to ensure they exist.
+If you want to create a zone just for name resolution (no automatic hostname registration), you could use the `-e false` parameter.
 
 ### List DNS private zones
 
-To enumerate DNS zones, use `az network dns zone list`. For help, see `az network dns zone list --help`.
+To enumerate DNS zones, use `az network private-dns zone list`. For help, see `az network dns zone list --help`.
 
 Specifying the resource group lists only those zones within the resource group:
 
 ```azurecli
-az network dns zone list \
-  --resource-group MyAzureResourceGroup
+az network private-dns zone list \
+  -g MyAzureResourceGroup
 ```
 
 Omitting the resource group lists all zones in the subscription:
 
 ```azurecli
-az network dns zone list 
+az network private-dns zone list 
 ```
 
 ## Create the test virtual machines
@@ -91,20 +87,24 @@ Now, create two virtual machines so you can test your private DNS zone:
 ```azurecli
 az vm create \
  -n myVM01 \
- --admin-username test-user \
+ --admin-username AzureAdmin \
  -g MyAzureResourceGroup \
  -l eastus \
  --subnet backendSubnet \
  --vnet-name myAzureVnet \
+ --nsg NSG01 \
+ --nsg-rule RDP \
  --image win2016datacenter
 
 az vm create \
  -n myVM02 \
- --admin-username test-user \
+ --admin-username AzureAdmin \
  -g MyAzureResourceGroup \
  -l eastus \
  --subnet backendSubnet \
  --vnet-name myAzureVnet \
+ --nsg NSG01 \
+ --nsg-rule RDP \
  --image win2016datacenter
 ```
 
@@ -112,12 +112,12 @@ This will take a few minutes to complete.
 
 ## Create an additional DNS record
 
-To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help with adding A records for example, see `azure network dns record-set A add-record --help`.
+To create a DNS record, use the `az network private-dns record-set [record type] add-record` command. For help with adding A records for example, see `az network private-dns record-set A add-record --help`.
 
  The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4".
 
 ```azurecli
-az network dns record-set a add-record \
+az network private-dns record-set a add-record \
   -g MyAzureResourceGroup \
   -z private.contoso.com \
   -n db \
@@ -129,7 +129,7 @@ az network dns record-set a add-record \
 To list the DNS records in your zone, run:
 
 ```azurecli
-az network dns record-set list \
+az network private-dns record-set list \
   -g MyAzureResourceGroup \
   -z private.contoso.com
 ```
