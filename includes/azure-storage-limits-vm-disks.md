@@ -10,9 +10,9 @@ You can attach a number of data disks to an Azure virtual machine. Based on the 
 > [!IMPORTANT]
 > For optimal performance, limit the number of highly utilized disks attached to the virtual machine to avoid possible throttling. If all attached disks aren't highly utilized at the same time, the virtual machine can support a larger number of disks.
 
-* **For Azure managed disks:**
+**For Azure managed disks:**
 
-The following table illustrates the default and maximum limits of the number of resources per region in each subscription
+The following table illustrates the default and maximum limits of the number of resources per region per subscription
 
 > | Resource | Default limit  | Maximum limit |
 > | --- | --- | --- |
