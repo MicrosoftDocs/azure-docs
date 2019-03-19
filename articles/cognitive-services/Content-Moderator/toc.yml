@@ -69,14 +69,6 @@
           href: try-terms-list-api.md
   - name: Use the Review tool
     items:
-    - name: Review APIs
-      items:
-      - name: Using the .NET SDK
-        items:
-        - name: Video reviews - .NET
-          href: video-reviews-quickstart-dotnet.md
-        - name: Video transcript reviews - .NET
-          href: video-transcript-reviews-quickstart-dotnet.md
     - name: Manage team
       href: Review-Tool-User-Guide/SubTeams.md
     - name: Use tags
@@ -97,6 +89,10 @@
       href: try-review-api-review.md
     - name: .NET SDK
       href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews (.NET)
+      href: video-reviews-quickstart-dotnet.md
+    - name: Video transcript reviews (.NET)
+      href: video-transcript-reviews-quickstart-dotnet.md
   - name: Define and use workflows
     items:
     - name: Review tool (browser)
