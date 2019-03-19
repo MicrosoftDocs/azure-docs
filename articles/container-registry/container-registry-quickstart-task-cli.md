@@ -10,7 +10,7 @@ ms.date: 03/19/2019
 ms.author: danlep
 ms.custom: 
 ---
-# Quickstart: Build and run a container image using Azure Container Registry
+# Quickstart: Build and run a container image using Azure Container Registry Tasks
 
 [**ACR Tasks**][container-registry-tasks-overview] is a suite of features within Azure Container Registry to help you manage and modify container images across the container development lifecycle. ACR Tasks can help automate workflows in the cloud to build, run, test, push, and patch images in your registries. 
 
@@ -50,7 +50,7 @@ Now use Azure Container Registry to build an image. First, create a Dockerfile n
 FROM hello-world
 ```
 
-Run the [az acr build][az-acr-build] command to build the image. When successfully built, the image is pushed to your registry. The following example pushes the `sample/hello-world:latest` image. The `.` at the end of the command sets the location of the Dockerfile, in this case the current directory.
+Run the [az acr build][az-acr-build] command to build the image. When successfully built, the image is pushed to your registry. The following example pushes the `sample/hello-world:v1` image. The `.` at the end of the command sets the location of the Dockerfile, in this case the current directory.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world --registry myContainerRegistry008 --file Dockerfile . 
@@ -75,18 +75,18 @@ Waiting for agent...
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
 Step 1/1 : FROM hello-world
-latest: Pulling from library/hello-world
+v1: Pulling from library/hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
-Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:latest
+Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1
 2019/03/18 21:57:01 Successfully executed container: build
 2019/03/18 21:57:01 Executing step ID: push. Working directory: '', Network: ''
-2019/03/18 21:57:01 Pushing image: mycontainerregistry008.azurecr.io/sample/hello-world:latest, attempt 1
+2019/03/18 21:57:01 Pushing image: mycontainerregistry008.azurecr.io/sample/hello-world:v1, attempt 1
 The push refers to repository [mycontainerregistry008.azurecr.io/sample/hello-world]
 af0b15c8625b: Preparing
 af0b15c8625b: Layer already exists
-latest: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
-2019/03/18 21:57:03 Successfully pushed image: mycontainerregistry008.azurecr.io/sample/hello-world:latest
+v1: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
+2019/03/18 21:57:03 Successfully pushed image: mycontainerregistry008.azurecr.io/sample/hello-world:v1
 2019/03/18 21:57:03 Step ID: build marked as successful (elapsed time in seconds: 2.543040)
 2019/03/18 21:57:03 Populating digests for step ID: build...
 2019/03/18 21:57:05 Successfully populated digests for step ID: build
@@ -96,12 +96,12 @@ latest: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d
 - image:
     registry: mycontainerregistry008.azurecr.io
     repository: sample/hello-world
-    tag: latest
+    tag: v1
     digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/hello-world
-    tag: latest
+    tag: v1
     digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
   git: {}
 
@@ -112,14 +112,14 @@ Run ID: ca8 was successful after 10s
 
 Now quickly run the image you built and pushed to your registry. In your container development workflow, this might be a validation step before you deploy the image.
 
-Create a file *quickrun.yaml* in a local working directory with the following content. Substitute the login server name of your registry for *\<acrLoginServer\>*. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry008.azurecr.io*. This example assumes that you built and pushed the `sample/hello-world:latest` image in the previous section:
+Create a file *quickrun.yaml* in a local working directory with the following content for a single step. Substitute the login server name of your registry for *\<acrLoginServer\>*. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry008.azurecr.io*. This example assumes that you built and pushed the `sample/hello-world:v1` image in the previous section:
 
 ```yaml
 steps:
-  - cmd: <acrLoginServer>/sample/hello-world:latest
+  - cmd: <acrLoginServer>/sample/hello-world:v1
 ```
 
-The `cmd` step in this example runs the container in its default configuration, but `cmd`  supports additional `docker run` parameters or even other `docker` commands.
+The `cmd` step in this example runs the container in its default configuration, but `cmd` supports additional `docker run` parameters or even other `docker` commands.
 
 Run the container with the following command:
 
@@ -182,7 +182,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you were introduced to features of ACR Tasks to quickly build, push, and run a Docker container image natively within Azure. Continue to the Azure Container Registry tutorials to learn about using ACR Tasks to automate image builds and updates.
+In this quickstart, you used features of ACR Tasks to quickly build, push, and run a Docker container image natively within Azure. Continue to the Azure Container Registry tutorials to learn about using ACR Tasks to automate image builds and updates.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
