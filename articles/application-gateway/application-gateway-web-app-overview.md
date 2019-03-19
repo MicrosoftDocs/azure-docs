@@ -16,7 +16,7 @@ In multi-tenant architectural designs in web servers, multiple websites are runn
 
 Application gateway provides a capability which allows users to override the HTTP host header in the request based on the host name of the back-end. This capability enables support for multi-tenant back ends such as Azure App service web apps and API management. This capability is available for both the v1 and v2 standard and WAF SKUs. 
 
-![host override](.\media\application-gateway-web-app-overview\host-override.png)
+![host override](./media/application-gateway-web-app-overview/host-override.png)
 
 > [!NOTE]
 > This is not applicable to Azure App service environment (ASE) since ASE is a dedicated resource unlike Azure App service which is a multi-tenant resource.
@@ -29,7 +29,7 @@ The ability to specify a host override is defined in the [HTTP settings](https:/
 
 - The ability to derive the host name from the IP or FQDN of the back-end pool members. HTTP settings also provide an option to dynamically pick the host name from a back-end pool member's FQDN if configured with the option to derive host name from an individual back-end pool member. When using end to end SSL, this host name is derived from the FQDN and is used in the SNI extension. This capability enables scenarios where a back-end pool can have two or more multi-tenant PaaS services like Azure web apps and the request's host header to each member contains the host name derived from its FQDN. For implementing this scenario, we use a switch in the HTTP Settings called [Pick hostname from backend address](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-backend-address) which will dynamically override the host header in the original request to the one mentioned in the backend pool.  For example, if your backend pool FQDN contains “contoso11.azurewebsites.net” and “contoso22.azurewebsites.net”, the original request’s host header which is contoso.com will be overridden to contoso11.azurewebsites.net or contoso22.azurewebsites.net when the request is sent to the appropriate backend server. 
 
-  ![web app scenario](.\media\application-gateway-web-app-overview\scenario.png)
+  ![web app scenario](./media/application-gateway-web-app-overview/scenario.png)
 
 With this capability, customers specify the options in the HTTP settings and custom probes to the appropriate configuration. This setting is then tied to a listener and a back-end pool by using a rule.
 
@@ -39,17 +39,17 @@ With this capability, customers specify the options in the HTTP settings and cus
 
 Both SSL termination and end to end SSL encryption is supported with multi-tenant services. For SSL termination at the application gateway, SSL certificate continues to be required to be added to the application gateway listener. However, in case of end to end SSL, trusted Azure services such as Azure App service web apps do not require whitelisting the backends in the application gateway. Therefore, there is no need to add any authentication certificates. 
 
-![end  to end SSL](.\media\application-gateway-web-app-overview\e2essl.png)
+![end  to end SSL](./media/application-gateway-web-app-overview/e2essl.png)
 
 Notice that in the above image, there is no requirement to add authentication certificates when App service is selected as backend.
 
 ### Health probe
 
-Overriding the host header in the **HTTP settings** only affects the request and its routing. it does not impact the health probe behavior. For end to end functionality to work, both the probe and the HTTP settings must be modified to reflect the correct configuration.,Custom probes, in addition to providing the ability to specify a host header in the probe configuration, also support the ability to derive the host header from the currently configured HTTP settings. This configuration can be specified by using the `PickHostNameFromBackendHttpSettings` parameter in the probe configuration.
+Overriding the host header in the **HTTP settings** only affects the request and its routing. it does not impact the health probe behavior. For end to end functionality to work, both the probe and the HTTP settings must be modified to reflect the correct configuration. In addition to providing the ability to specify a host header in the probe configuration, custom probes also support the ability to derive the host header from the currently configured HTTP settings. This configuration can be specified by using the `PickHostNameFromBackendHttpSettings` parameter in the probe configuration.
 
 ### Redirection to App Service’s URL scenario
 
-There can be scenarios where the hostname in the response from the App service may may direct the end user browser to the *.azurewebsites.net hostname instead of the domain associated with the Application Gateway. This issue may happen when:
+There can be scenarios where the hostname in the response from the App service may direct the end-user browser to the *.azurewebsites.net hostname instead of the domain associated with the Application Gateway. This issue may happen when:
 
 - You have redirection configured on your App Service. Redirection can be as simple as adding a trailing slash to the request.
 - You have Azure AD authentication which causes the redirection.
