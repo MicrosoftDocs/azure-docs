@@ -5,7 +5,7 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
 ---
 # How to use Key Vault soft-delete with PowerShell
@@ -227,6 +227,25 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 >[!IMPORTANT]
 >A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable!
+
+## Enabling Purge Protection
+
+When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
+
+You can enable purge protection only if soft-delete is also enabled. 
+
+To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) command:
+
+```
+az keyvault update --name "VaultName" --resource-group "ResourceGroupName" --enable-purge-protection true
+```
+
 
 ## Other resources
 

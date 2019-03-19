@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
-ms.date: 09/25/2017
+ms.date: 03/19/2019
 ---
 
 # Azure Key Vault soft-delete overview
@@ -36,23 +36,18 @@ With this feature, the DELETE operation on a key vault or key vault object is a 
 
 Soft-delete is an optional Key Vault behavior and is **not enabled by default** in this release. 
 
-### Purge protection  flag
-Purge protection(**--enable-purge-protection** in Azure CLI) flag is off by default. When this flag is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This flag gives added assurance to customers that a vault or an object can never be permanently deleted until the retention period has passed. You can turn on the purge protection flag only if the soft-delete flag is on, or at vault creation you turn on both soft-delete and purge protection.
+### Purge protection 
 
-> [!NOTE]
->    The prerequisite to turning on purge protection is you must have soft delete turned on.
->    The command to do so in Azure CLI 2 is
+When purge protection is on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. These vaults and objects can still be recovered, assuring customers that the retention policy will be followed. 
 
-```
-az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
-```
+Purge protection is off by default, but may be added to a vault that has soft delete enabled. Purge protection can be turned on via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) or [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
 ### Permitted purge
 
 Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. Generally, only the subscription owner will be able to purge a key vault. The POST operation triggers the immediate and irrecoverable deletion of that vault. 
 
 An exceptions to this are
-- the case when the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
+- When the Azure subscription has been marked as *undeletable*. In this case, only the service may then perform the actual deletion, and does so as a scheduled process. 
 - When --enable-purge-protection flag is enabled on the vault itself. In this case, Key Vault will wait for 90 days from when the original secret object was marked for deletion to permanently delete the object.
 
 ### Key vault recovery
