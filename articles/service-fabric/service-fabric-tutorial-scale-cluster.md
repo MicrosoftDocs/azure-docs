@@ -59,7 +59,7 @@ When scaling an Azure cluster, keep the following guidelines in mind:
 * A single Service Fabric node type/scale set can not contain more than 100 nodes/VMs.  To scale a cluster beyond 100 nodes, add additional node types.
 * Primary node types running production workloads should have a [durability level][durability] of Gold or Silver and always have five or more nodes.
 * Non-primary node types running stateful production workloads should always have five or more nodes.
-* Non-non-primary node types running stateless production workloads should always have two or more nodes.
+* Non-primary node types running stateless production workloads should always have two or more nodes.
 * Any node type of [durability level][durability] of Gold or Silver should always have five or more nodes.
 * If scaling in (removing nodes from) a primary node type, you should never decrease the number of instances to less than what the [reliability level][reliability] requires.
 
@@ -85,7 +85,7 @@ Scaling in and out, or horizontal scaling, changes the number of nodes in the cl
 
 [Export a template and parameters file](#export-the-template-for-the-resource-group) from the resource group for the most recent deployment.  Open the *parameters.json* file.  If you deployed the cluster using the [sample template][template] in this tutorial, there are three node types in the cluster and three parameters that set the number of nodes for each node type: *nt0InstanceCount*, *nt1InstanceCount*, and *nt2InstanceCount*.  The *nt1InstanceCount* parameter, for example, sets the instance count for the second node type and sets the number of VMs in the associated virtual machine scale set.
 
-So, by updating the value of the *nt1InstanceCount* you change the number of nodes in the second node type.  Remember, you cannot scale a node type out to more than 100 nodes.  Non-primary node types running stateful production workloads should always have five or more nodes. Non-non-primary node types running stateless production workloads should always have two or more nodes.
+So, by updating the value of the *nt1InstanceCount* you change the number of nodes in the second node type.  Remember, you cannot scale a node type out to more than 100 nodes.  Non-primary node types running stateful production workloads should always have five or more nodes. Non-primary node types running stateless production workloads should always have two or more nodes.
 
 If you are scaling in, removing nodes from, a node type of Bronze [durability level][durability] you must [manually remove the state of those nodes](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  For Silver and Gold durability tier, these steps are done automatically by the platform.
 
