@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/19/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
@@ -58,7 +58,7 @@ When you configure the sign-in risk policy, you need to set:
 
 - The type of access you want to be enforced:  
 
-    ![Users and groups](./media/howto-mfa-policy/12.png)
+    ![Access](./media/howto-mfa-policy/12.png)
 
 - The state of your policy:
 
