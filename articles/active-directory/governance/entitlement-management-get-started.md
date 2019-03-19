@@ -49,7 +49,7 @@ In this tutorial, you'll learn how to:
 
 ## Step 1: Prepare resource directory
 
-The resource directory has one or more resource to share. In this step, you create a group named **Test** that is the target resource for entitlement management. You create a second group for users in the directory who can request access packages. You also set up two additional users, the approver and internal requester.
+The resource directory has one or more resources to share. In this step, you create a group named **Test** that is the target resource for entitlement management. You create a second group for users in the directory who can request access packages. You also set up two additional users, the approver and internal requester.
 
 ![Create users and groups](./media/entitlement-management-get-started/elm-users-groups.png)
 

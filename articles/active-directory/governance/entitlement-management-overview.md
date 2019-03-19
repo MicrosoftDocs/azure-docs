@@ -71,12 +71,41 @@ Azure AD entitlement management can help address these challenges.
 - Delegate managers to manage resources and approve requests
 - Create reports to track history
 
+## Prerequisites
+
+To use Azure AD entitlement management (Preview), you must have one of the following licenses:
+
+- Azure AD Premium P2
+- Enterprise Mobility + Security (EMS) E5 license
+
+For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
+
 ## Who are the users for entitlement management?
 
 - Administrators
 - Access package managers
 - Approvers
 - Users
+
+## Terminology
+
+To better understand entitlement management and its documentation, you should review the following terms.
+
+| Term or concept | Description |
+| --- | --- |
+| entitlement management | A service that assigns, revokes, and administers access packages. |
+| catalog | A container of related resources and access packages. A catalog can be configured to be visible outside the current directory. |
+| Default catalog | A built-in catalog that is always available. To add resources to the Default catalog requires certain permissions. |
+| access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
+| access package manager | Users that can manage all access packages within a catalog. |
+| access request | A request to access an access package. A request typically goes through a workflow. |
+| policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include guest access and employee access. |
+| resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
+| resource type | The type of resource. A resource type includes: Azure AD security group, Office 365 group, Azure AD enterprise application, SaaS applications, custom integrated applications, SharePoint Online site collection, and SharePoint Online site. |
+| resource role | A collection of permissions associated with a resource. |
+| resource directory | A directory that has one or more resources to share. |
+| assigned users | An assignment of an access package to a user or group. |
+| enable | The process of making an access package visible for users to request. |
 
 ## What are access packages and policies?
 
@@ -98,43 +127,24 @@ Managing access to resources for users applies both to users already in your dir
 
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
 
-## Prerequisites
-
-To use Azure AD entitlement management (Preview), you must have one of the following licenses:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
-
 ## Basic steps
 
-| # |  | Task | Portal | Who can perform |
+There are several ways that you can configure entitlement management for your organization. However, if you are just getting started, it's helpful to understand the basic steps to make resources available to users.
+
+| # | Task |  | Portal | Who can perform |
 | ---: | --- | --- | --- | --- |
-| 1 | ![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | Create a catalog | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog creator |
-| 2 | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | Add resources to catalog | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
-| 3 | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | Create an access package in catalog | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
-| 4 | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | Add resource roles to access package | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 5 | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 6 |  | Request access | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
-| 7 |  | Approve access request | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | Approver |
-| 8 |  | Use resources in access package |  | User |
-
-## Approval process
-
-A user that needs access to an access package must submit a request. Depending on the configuration of the policy, the access package might require an approval process. When a user submits an access request, their request is in the **submitted** state. This triggers the approval process, and moves the request to the **pending approval** state.
-
-The access package approvers are notified of the user's access request. There may be a single approver, multiple approvers, or a group of approvers defined in the policy. Only one approver needs to review the access request, and submit the approve or deny decision.
-
-If the access request is approved, the request is in the **approved** state. Entitlement management starts the process of provisioning the user's access to each resource in the access package. This moves the request to the **provisioning** state. When the user is provisioned access to all the resources in the access packages, they are notified of their access to the access package.
-
-If the access request is denied, the user gets notified of the deny decision. This changes the request to a **denied** state.
-
-![Approval process diagram](./media/entitlement-management-overview/approval-process.png)
+| 1 | Create a catalog |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) |  ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog creator |
+| 2 | Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
+| 3 | Create an access package in catalog | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner |
+| 4 | Add resource roles to access package | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 5 | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | ![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 6 | Request access |  | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | User |
+| 7 | Approve access request |  | ![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | Approver |
+| 8 | Use resources in access package |  |  | User |
 
 ## Roles to perform tasks
 
-To perform tasks in Azure AD entitlement management, you must have the appropriate permissions. The following table lists the minimum roles you must have to perform certain tasks.
+To perform tasks in entitlement management, you must have the appropriate permissions. The following table lists the minimum roles you must have to perform certain tasks.
 
 | Task | User admin | Catalog creator | Catalog owner | Access package manager |
 | --- | :---: | :---: | :---: | :---: |
@@ -157,25 +167,17 @@ To perform tasks in Azure AD entitlement management, you must have the appropria
 
 The person that creates a catalog automatically becomes the catalog's first Catalog Owner.
 
-## Terminology
+## Approval process
 
-To better understand entitlement management and its documentation, you should review the following terms.
+A user that needs access to an access package must submit a request. Depending on the configuration of the policy, the access package might require an approval process. When a user submits an access request, their request is in the **submitted** state. This triggers the approval process, and moves the request to the **pending approval** state.
 
-| Term or concept | Description |
-| --- | --- |
-| entitlement management | A service that assigns, revokes, and administers access packages. |
-| catalog | A container of related resources and access packages. A catalog can be configured to be visible outside the current directory. |
-| Default catalog | A built-in catalog that is always available. To add resources to the Default catalog requires certain permissions. |
-| access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
-| access package manager | Users that can manage all access packages within a catalog. |
-| access request | A request to access an access package. A request typically goes through a workflow. |
-| policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include guest access and employee access. |
-| resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
-| resource type | The type of resource. A resource type includes: Azure AD security group, Office 365 group, Azure AD enterprise application, SaaS applications, custom integrated applications, SharePoint Online site collection, and SharePoint Online site. |
-| resource role | A collection of permissions associated with a resource. |
-| resource directory | A directory that has one or more resources to share. |
-| assigned users | An assignment of an access package to a user or group. |
-| enable | The process of making an access package visible for users to request. |
+The access package approvers are notified of the user's access request. There may be a single approver, multiple approvers, or a group of approvers defined in the policy. Only one approver needs to review the access request, and submit the approve or deny decision.
+
+If the access request is approved, the request is in the **approved** state. Entitlement management starts the process of provisioning the user's access to each resource in the access package. This moves the request to the **provisioning** state. When the user is provisioned access to all the resources in the access packages, they are notified of their access to the access package.
+
+If the access request is denied, the user gets notified of the deny decision. This changes the request to a **denied** state.
+
+![Approval process diagram](./media/entitlement-management-overview/approval-process.png)
 
 ## Next steps
 
