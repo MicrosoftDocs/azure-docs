@@ -63,7 +63,7 @@ rules:
 A RoleBinding is then created that binds the Azure AD user *developer1\@contoso.com* to the RoleBinding, as shown in the following YAML manifest:
 
 ```yaml
-ind: RoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: finance-app-full-access-role-binding
