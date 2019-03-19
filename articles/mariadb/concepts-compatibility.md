@@ -1,5 +1,5 @@
 ---
-title: MariaDB drivers and management tools compatibility
+title: Azure Database for MariaDB drivers and management tools compatibility
 description: This article describes the MariaDB drivers and management tools that are compatible with Azure Database for MariaDB. 
 author: ajlam
 ms.author: andrela
@@ -38,6 +38,10 @@ SSL Connection | X | X | X
 SQL Query Auto Completion | X | X |
 Import and Export Data | X | X | X
 Export to Multiple Formats | X | X | X
-Backup and Restore |  | X | 
+Backup and Restore |  | X |
 Display Server Parameters | X | X | X
 Display Client Connections | X | X | X
+
+## Next steps
+
+- [Troubleshoot connection issues to Azure Database for MariaDB](howto-troubleshoot-common-connection-issues.md)
