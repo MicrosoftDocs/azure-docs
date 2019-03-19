@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Stack?
     href: azure-stack-poc.md
+  - name: Key features and concepts
+    href: azure-stack-key-features.md
   - name: Release notes
     items:
     - name: Recent updates
@@ -112,10 +114,6 @@
         href: azure-stack-integrate-security.md
       - name: Device auditing
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Servicing policy
-    href: azure-stack-servicing-policy.md
-  - name: Key features and concepts
-    href: azure-stack-key-features.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
 - name: How-to guides
