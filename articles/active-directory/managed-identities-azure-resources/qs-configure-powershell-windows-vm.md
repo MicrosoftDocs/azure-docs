@@ -42,7 +42,7 @@ In this section, you will learn how to enable and disable the system-assigned ma
 
 To create an Azure VM with the system-assigned managed identity enabled,your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
-1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM").
+1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM").
     
     When you get to the "Create the VM" section, make a slight modification to the [New-AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet syntax. Be sure to add a `-AssignIdentity:$SystemAssigned` parameter to provision the VM with the system-assigned identity enabled, for example:
       
@@ -141,7 +141,7 @@ In this section, you learn how to add and remove a user-assigned managed identit
 
 To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) and [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
 
-1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Log in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
+1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM"). 
   
     When you get to the "Create the VM" section, make a slight modification to the [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet syntax. Add the `-IdentityType UserAssigned` and `-IdentityID ` parameters to provision the VM with a user-assigned identity.  Replace `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.  For example:
     
