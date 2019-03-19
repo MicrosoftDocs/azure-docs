@@ -224,7 +224,7 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
 
 **To provision a user account, perform the following steps:**
 
-1. sign in to your **SumoLogic** tenant.
+1. Sign in to your **SumoLogic** tenant.
 
 1. Go to **Manage \> Users**.
 
