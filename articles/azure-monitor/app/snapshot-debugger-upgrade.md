@@ -20,7 +20,7 @@ There are two primary upgrade paths depending on if you enabled the Snapshot Deb
 
 If you enabled the Snapshot debugger using the site extension you can easily upgrade using the following procedure:
 
-1. Login to the Azure Portal.
+1. Sign in to the Azure portal.
 2. Navigate to your resource that has Application Insights and Snapshot debugger enabled. For example, for a Web App, navigate to the App Service resource:
 
    ![Screenshot of individual App Service resource named DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
@@ -38,7 +38,7 @@ If you enabled the Snapshot debugger using the site extension you can easily upg
     > [!NOTE]
     > The site will be restarted as part of the upgrade process.
 
-   ![Screenshot of App Service apply monitoring prompt. Text box displays message: We will now apply changes to you app settings and install our tools to link your Application Insights resource to the web app. This will restart the site. Do you want to continue?](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![Screenshot of App Service's apply monitoring prompt. Text box displays message: We will now apply changes to your app settings and install our tools to link your Application Insights resource to the web app. This will restart the site. Do you want to continue?](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
 6. Click **Yes** to apply the changes. During the process a notification will appear showing that changes are being applied:
 
@@ -46,7 +46,7 @@ If you enabled the Snapshot debugger using the site extension you can easily upg
 
 Once completed, a **Changes are applied** notification will appear.
 
-   ![Screenshot of changes are applied message with a green checkbox next to a title of the words Apply Changes](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+   ![Screenshot of message stating changes are applied](./media/snapshot-debugger-upgrade/changes-are-applied.png)
 
 The site has now been upgraded and is ready to use.
 
