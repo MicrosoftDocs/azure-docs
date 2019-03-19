@@ -4,7 +4,7 @@ description: This article discusses the performance benefits of premium files an
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: rogarana
 ms.subservice: files

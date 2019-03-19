@@ -1,19 +1,19 @@
 ---
-title: Quickstart for managing Azure file shares using the Azure CLI
-description: Use this quickstart to learn how to use Azure CLI to manage Azure Files.
+title: Create an Azure premium file storage account
+description: In this article, you learn how to create an Azure premium file storage account as well as a premium file share. A premium file share is geared towards enterprise and other performance sensitive scenarios.
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# H1
+# How to create an Azure premium file storage account
 
-Premium files is a new storage account type which contains only files objects and allows you to create premium file shares.
+Premium files is a new storage account type which contains only files objects and allows you to create premium file shares. It is meant to support enterprise applications, such as databases, CRM, and web content, as well as performance sensitive services, such as media/analytics, shared cache, highly variable or batch workloads, and content repositories.
 
 This article shows you how to create this new account type using the [Azure portal](https://portal.azure.com/).
 
@@ -31,7 +31,10 @@ Now that you're in the Azure portal, you are ready to create your storage accoun
 
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
-1. In the Azure portal, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
+1. In the Azure portal, select **Storage Accounts** on the left menu.
+
+![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+
 1. On the **Storage Accounts** window that appears, choose **Add**.
 1. Select the subscription in which to create the storage account.
 1. Under the **Resource group** field, select **Create new**. Enter a name for your new resource group, as shown in the following image.
