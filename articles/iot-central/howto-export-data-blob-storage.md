@@ -20,12 +20,29 @@ This article dives deeper into how to use the continuous data export feature in 
 > Once again, when you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
 
 
-[!INCLUDE [iot-central-storage-data-export](../../includes/iot-central-storage-data-export.md)]
-
-
 ## Prerequisites
 
 - You must be an administrator in your IoT Central application
+
+
+## Set up export destination
+
+If you don't have an existing Storage/Event Hubs/Service Bus to export to, follow these steps:
+
+## Create Storage account
+
+1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more in [Azure Storage docs](https://aka.ms/blobdocscreatestorageaccount).
+2. For the account type, choose **General purpose** or **Blob storage**.
+3. Choose a subscription. 
+
+    > [!Note] 
+    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+
+4. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container
+
+
+[!INCLUDE [iot-central-storage-data-export](../../includes/iot-central-storage-data-export.md)]
+
 
 ## Export to Azure Blob Storage
 

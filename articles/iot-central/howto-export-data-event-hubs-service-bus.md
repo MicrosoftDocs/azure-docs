@@ -20,13 +20,35 @@ This article dives deeper into how to use the continuous data export feature in 
 > Once again, when you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
 
 
-
-[!INCLUDE [iot-central-storage-data-export](../../includes/iot-central-storage-data-export.md)]
-
-
 ## Prerequisites
 
 - You must be an administrator in your IoT Central application
+
+## Set up export destination
+
+If you don't have an existing Storage/Event Hubs/Service Bus to export to, follow these steps:
+
+## Create Event Hubs namespace
+
+1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Choose a subscription. 
+
+    > [!Note] 
+    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+3. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
+
+## Create Service Bus namespace
+
+1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . You can learn more in [Azure Service Bus docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Choose a subscription. 
+
+    > [!Note] 
+    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+
+3. Go to your Service Bus namespace, and select **+ Queue** or **+ Topic** at the top to create a queue or topic to export to.
+
+
+[!INCLUDE [iot-central-storage-data-export](../../includes/iot-central-storage-data-export.md)]
 
 ## Export to Azure Event Hubs and Azure Service Bus
 
