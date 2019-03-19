@@ -232,7 +232,7 @@ Select the resource **ServiceFabric(mysfomsworkspace)**, then **Log Analytics Wo
 
 Click **Data**, then click **Windows Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Click **Save**, then click **OK**.
 
-Close the Advanced Settings blade and select **Workspace summary** under the **General** heading. For each of the solutions enbabled there is a graphical tile, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
+Close the Advanced Settings blade and select **Workspace summary** under the **General** heading. For each of the solutions enabled there is a graphical tile, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
 There are graphical tiles for operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected will appear under **Node Metrics**. 
 
