@@ -21,17 +21,17 @@ ms.author: priyamo
 
 ## Virtual machine extension for managed identities
 
-The virtual machine (VM) extension for managed identities is used to request tokens for a managed identity within the VM. The workflow consists of the following steps:
+The virtual machine extension for managed identities is used to request tokens for a managed identity within the virtual machine. The workflow consists of the following steps:
 
 1. First, the workload within the resource calls the local endpoint `http://localhost/oauth2/token` to request an access token.
-2. The VM extension then uses the credentials for the managed identity, to request an access token from Azure AD.. 
+2. The virtual machine extension then uses the credentials for the managed identity, to request an access token from Azure AD.. 
 3. The access token is returned to the caller, and can be used to authenticate to services that support Azure AD authentication, like Azure Key Vault or Azure Storage.
 
 Due to several limitations outlined in the next section, the managed identity VM extension has been deprecated in favor of using the equivalent endpoint in the Azure Instance Metadata Service (IMDS)
 
 ### Provision the extension 
 
-When you configure a Virtual Machine (VM) or Virtual Machine Scale Set (VMSS) to have a managed identity, you may optional choose to, you may optionally choose to provision the managed identities for Azure resources VM extension using the `-Type` parameter on the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of VM, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+When you configure a virtual machine or virtual machine scale set to have a managed identity, you may optional choose to, you may optionally choose to provision the managed identities for Azure resources VM extension using the `-Type` parameter on the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of virtual machine, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -62,14 +62,14 @@ You can also use the Azure Resource Manager deployment template to provision the
     ```
     
     
-If you're working with virtual machine scale sets (VMSS), you can also provision the managed identities for Azure resources VMSS extension using the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of virtual machine scale set, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
+If you're working with virtual machine scale sets, you can also provision the managed identities for Azure resources virtual machine scale set extension using the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. You can pass either `ManagedIdentityExtensionForWindows` or `ManagedIdentityExtensionForLinux`, depending on the type of virtual machine scale set, and name it using the `-Name` parameter. The `-Settings` parameter specifies the port used by the OAuth token endpoint for token acquisition:
 
    ```powershell
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
-To provision the VMSS extension with the Azure Resource Manager deployment template, add the following JSON to the `extensionpProfile` section to the template (use `ManagedIdentityExtensionForLinux` for the name and type elements for the Linux version).
+To provision the virtual machine scale set extension with the Azure Resource Manager deployment template, add the following JSON to the `extensionpProfile` section to the template (use `ManagedIdentityExtensionForLinux` for the name and type elements for the Linux version).
 
     ```json
     "extensionProfile": {
@@ -89,10 +89,10 @@ To provision the VMSS extension with the Azure Resource Manager deployment templ
             }
     ```
 
-Provisioning of the VM extension might fail due to DNS lookup failures. If this happens, restart the VM, and try again. 
+Provisioning of the virtual machine extension might fail due to DNS lookup failures. If this happens, restart the virtual machine, and try again. 
 
 ### Remove the extension 
-To remove the extension, use `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of VM) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/), or [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) for virtual machine scale sets using Azure CLI, or `Remove-AzVMExtension` for Powershell:
+To remove the extension, use `-n ManagedIdentityExtensionForWindows` or `-n ManagedIdentityExtensionForLinux` switch (depending on the type of virtual machine) with [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/), or [az vmss extension delete](https://docs.microsoft.com/cli/azure/vmss) for virtual machine scale sets using Azure CLI, or `Remove-AzVMExtension` for Powershell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -106,7 +106,7 @@ az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGrou
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
-### Acquire a token using the VM extension
+### Acquire a token using the virtual machine extension
 
 The following is a sample request using the managed identities for Azure resources VM Extension Endpoint:
 
@@ -152,9 +152,9 @@ Content-Type: application/json
 | `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
 
-### Troubleshoot the VM extension 
+### Troubleshoot the virtual machine extension 
 
-#### Restart the VM extension after a failure
+#### Restart the virtual machine extension after a failure
 
 On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:
 
@@ -168,44 +168,44 @@ Where:
 
 #### "Automation script" fails when attempting schema export for managed identities for Azure resources extension
 
-When managed identities for Azure resources is enabled on a VM, the following error is shown when attempting to use the “Automation script” feature for the VM, or its resource group:
+When managed identities for Azure resources is enabled on a virtual machine, the following error is shown when attempting to use the “Automation script” feature for the virtual machine, or its resource group:
 
 ![Managed identities for Azure resources automation script export error](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 
-The managed identities for Azure resources VM extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
+The managed identities for Azure resources virtual machine extension does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure virtual machine using a templates](qs-configure-template-windows-vm.md).
 
-When the schema export functionality becomes available for the managed identities for Azure resources VM extension (planned for deprecation in January 2019), it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+When the schema export functionality becomes available for the managed identities for Azure resources virtual machine extension (planned for deprecation in January 2019), it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
-## Limitations of the VM extension 
+## Limitations of the virtual machine extension 
 
-There are several major limitations to using the VM extension. 
+There are several major limitations to using the virtual machine extension. 
 
- * The most serious limitation is the fact that the credentials used to request tokens are stored on the VM. An attacker who successfully breaches the VM can exfiltrate the credentials. 
- * Furthermore, the VM extension is still unsupported by several Linux distributions, with a huge development cost to modify, build and test the extension on each of those distributions. Currently, only the following Linux distributions are supported: 
+ * The most serious limitation is the fact that the credentials used to request tokens are stored on the virtual machine. An attacker who successfully breaches the virtual machine can exfiltrate the credentials. 
+ * Furthermore, the virtual machine extension is still unsupported by several Linux distributions, with a huge development cost to modify, build and test the extension on each of those distributions. Currently, only the following Linux distributions are supported: 
     * CoreOS Stable
     * CentOS 7.1 
     * Red Hat 7.2 
     * Ubuntu 15.04 
     * Ubuntu 16.04
- * There is a performance impact to deploying VMs with managed identities, as the VM extension also has to be provisioned. 
- * Finally, the VM extension can only support having 32 user-assigned managed identities per VM. 
+ * There is a performance impact to deploying virtual machines with managed identities, as the virtual machine extension also has to be provisioned. 
+ * Finally, the virtual machine extension can only support having 32 user-assigned managed identities per virtual machine. 
 
 ## Azure Instance Metadata Service
 
-The [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/en-us/azure/virtual-machines/instance-metadata-service) is a REST endpoint that provides information about running virtual machine instances that can be used to manage and configure your virtual machines. The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.
+The [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) is a REST endpoint that provides information about running virtual machine instances that can be used to manage and configure your virtual machines. The endpoint is available at a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the virtual machine.
 
 There are several advantages to using Azure IMDS to request tokens. 
 
-1. The service is external to the VM, therefore the credentials used by managed identities are no longer present on the VM. Instead, they are hosted and secured on the host machine of the Azure VM.   
+1. The service is external to the virtual machine, therefore the credentials used by managed identities are no longer present on the virtual machine. Instead, they are hosted and secured on the host machine of the Azure virtual machine.   
 2. All Windows and Linux operating systems supported on Azure IaaS can use managed identities.
 3. Deployment is faster and easier, since the VM extension no longer needs to be provisioned.
-4. With the IMDS endpoint, up to 1000 user-assigned managed identities can be assigned to a single VM.
-5. There is no significant change to the requests using IMDS as opposed to those using the VM extension, therefore it is fairly simple to port over existing deployments that currently use the VM extension.
+4. With the IMDS endpoint, up to 1000 user-assigned managed identities can be assigned to a single virtual machine.
+5. There is no significant change to the requests using IMDS as opposed to those using the virtual machine extension, therefore it is fairly simple to port over existing deployments that currently use the virtual machine extension.
 
-For these reasons, the Azure IMDS service will be the defacto way to request tokens, once the VM extension is deprecated. 
+For these reasons, the Azure IMDS service will be the defacto way to request tokens, once the virtual machine extension is deprecated. 
 
 
 ## Next Steps
 
-* [How to use managed identities for Azure resources on an Azure VM to acquire an access token](how-to-use-vm-token.md)
+* [How to use managed identities for Azure resources on an Azure virtual machine to acquire an access token](how-to-use-vm-token.md)
 * [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
