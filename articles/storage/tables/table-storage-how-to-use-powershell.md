@@ -31,11 +31,8 @@ This how-to article shows you how to create a new Azure Storage account in a new
 The examples require Az PowerShell modules `Az.Storage (1.0.3 or greater)` and `Az.Resources (1.2.0 or greater)`. In a PowerShell window, run `Get-Module -ListAvailable Az*` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
->
-> Using this Azure feature from PowerShell requires that you have the `Az` module installed. Current version of **AzureRmStorageTable**
-> is not compatible with the older `AzureRM` module.
-> 
-> Follow the [latest install instructions for installing Az module](/powershell/azure/install-az-ps).
+> Using this Azure feature from PowerShell requires that you have the `Az` module installed. The current version of AzureRmStorageTable is not compatible with the older AzureRM module.
+> Follow the [latest install instructions for installing Az module](/powershell/azure/install-az-ps) if needed.
 
 After Azure PowerShell is installed or updated, you must install module **AzureRmStorageTable**, which has the commands for managing the entities. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
 
@@ -73,7 +70,7 @@ New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## Create storage account
 
-Create a standard general-purpose storage account with locally-redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Get the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. Make sure you use an unique storage account name before executing this cmdlet.
+Create a standard general-purpose storage account with locally-redundant storage (LRS) using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Be sure to specify a unique storage account name. Next, get the context that represents the storage account. When acting on a storage account, you can reference the context instead of repeatedly providing your credentials.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
@@ -114,10 +111,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## Reference CloudTable property of a specific table
 
 > [!IMPORTANT]
-> 
-> Usage of CloudTable is mandatory when working with **AzureRmStorageTable** PowerShell module.
-> Alternatively, *AzureRmStorageTable* module has **Get-AzTableTable** that gives you the direct reference and creates a new table if it does not exist.
->  
+> Usage of CloudTable is mandatory when working with **AzureRmStorageTable** PowerShell module. Call the **Get-AzTableTable** command to get the reference to this object. This command also creates the table if it does not already exist.
 
 To perform operations on a table using **AzureRmStorageTable** , you need a reference to CloudTable property of a specific table.
 

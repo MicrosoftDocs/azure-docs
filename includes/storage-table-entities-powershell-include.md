@@ -21,7 +21,7 @@ You may define up to 252 custom properties for an entity.
 
 ### Add table entities
 
-Add entities to a table using **Add-AzTableRow**. These examples use partition keys with values "partition1" and "partition2", and row keys equal to state abbreviations. The properties in each entity are username and userid. 
+Add entities to a table using **Add-AzTableRow**. These examples use partition keys with values `partition1` and `partition2`, and row keys equal to state abbreviations. The properties in each entity are `username` and `userid`. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -51,13 +51,10 @@ Add-AzTableRow `
 
 ### Query the table entities
 
-There are several different ways to query the entities in a table which can be achieved by using **Get-AzTableRow** command.
+You can query the entities in a table by using the **Get-AzTableRow** command.
 
-> [!IMPORTANT]
->
-> Starting with **AzureRmStorageTable** version 2.0, use **Get-AzTableRow** with different parameter sets for queries.
-> The following cmdlets, **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, **Get-AzureStorageTableRowByCustomFilter**
-> are all deprecated and will be removed in a future version update.
+> [!NOTE]
+> The cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, and **Get-AzureStorageTableRowByCustomFilter** are deprecated and will be removed in a future version update.
 
 #### Retrieve all entities
 
