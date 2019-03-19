@@ -14,10 +14,10 @@ ms.author: geg
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
-To restore a VM make sure you have the required [RBAC permission](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
+To restore a VM make sure you have the required [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission.
 
 > [!NOTE]
-> If you do not have [RABAC permission](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) you can perform [restore disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) and create VM using [Deploy Template](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) feature. This template should work with Virtual Machine Contributor role permissions.
+> If you do not have [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permission you can perform [restore disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) and create VM using [Deploy Template](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) feature.
 
 ### Restore options
 
