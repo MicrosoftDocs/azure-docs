@@ -118,12 +118,12 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
     
 	| Name | Namespace  |  Source Attribute|
 	| ---------------| --------------- | --------- |
-	| Email address  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-	| First name  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-	| Last name  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-	| Phone number  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-	| Department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
-	| role | 	user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+	| Email address  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+	| First name  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+	| Last name  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+	| Phone number  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+	| Department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+	| role | 	user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 03/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ---

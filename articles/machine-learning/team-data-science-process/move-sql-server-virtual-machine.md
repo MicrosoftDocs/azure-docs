@@ -69,10 +69,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Generate the format file that describes the schema for the table by issuing the following command from the command-line of the machine where bcp is installed.
+1. Generate the format file that describes the schema for the table by issuing the following command from the command-line of the machine where bcp is installed.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Insert the data into the database using the bcp command as follows. This should work from the command-line assuming that the SQL Server is installed on same machine:
+1. Insert the data into the database using the bcp command as follows. This should work from the command-line assuming that the SQL Server is installed on same machine:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -137,7 +137,7 @@ Here are some sample commands for Bulk Insert are as below:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Import data using bulk import statements:
+1. Import data using bulk import statements:
 
 ```sql
 BULK INSERT <tablename>

@@ -337,7 +337,7 @@ Next, in the VotingWebPkg **ServiceManifestImport** section, configure a **RunAs
 
 ## Run the application locally
 
-In Solution Explorer, select the **Voting** application and set the **Application URL** property to "https://localhost:443".
+In Solution Explorer, select the **Voting** application and set the **Application URL** property to "<https://localhost:443>".
 
 Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to [https://localhost:443](https://localhost:443). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 

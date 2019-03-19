@@ -102,12 +102,14 @@ To configure Azure AD single sign-on with SAP Business Object Cloud, perform the
     ![SAP Business Object Cloud Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
+
     | |
 	|-|-|
 	| `https://<sub-domain>.sapanalytics.cloud/` |
 	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
     | |
 	|-|-|
 	| `<sub-domain>.sapbusinessobjects.cloud` |

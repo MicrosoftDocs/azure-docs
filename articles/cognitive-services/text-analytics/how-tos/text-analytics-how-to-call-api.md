@@ -54,7 +54,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + Paste in the endpoint you copied from the portal page.
    + Append a resource.
 
-  Resource endpoints are as follows (your region may vary):
+   Resource endpoints are as follows (your region may vary):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -67,7 +67,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  Your request should look similar to the following screenshot, assuming a **/keyPhrases** resource.
+   Your request should look similar to the following screenshot, assuming a **/keyPhrases** resource.
 
    ![Request screenshot with endpoint and headers](../media/postman-request-keyphrase-1.png)
 
@@ -77,15 +77,15 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
 5. Paste in some JSON documents in a format that is valid for the intended analysis. For more information about a particular analysis, see the topics below:
 
-  + [Language detection](text-analytics-how-to-language-detection.md)  
-  + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
-  + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
-  + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
+   + [Language detection](text-analytics-how-to-language-detection.md)  
+   + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
+   + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
+   + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
 
-  In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
+   In Postman, the response is displayed in the next window down, as a single JSON document, with an item for each document ID provided in the request.
 
 ## See also 
 

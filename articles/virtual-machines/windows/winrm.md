@@ -81,8 +81,6 @@ The Microsoft.Compute resource provider needs a URL to the secret inside the Key
 > [!NOTE]
 > The URL of the secret needs to include the version as well. An example URL looks like below
 > https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
-> 
-> 
 
 #### Templates
 You can get the link to the URL in the template using the below code
