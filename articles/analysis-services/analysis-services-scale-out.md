@@ -48,7 +48,17 @@ For maximum performance for both processing and query operations, you can choose
 
 ## Monitor QPU usage
 
- To determine if scale-out for your server is necessary, monitor your server in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. To learn more, see [Monitor server metrics](analysis-services-monitor.md).
+To determine if scale-out for your server is necessary, monitor your server in Azure portal by using Metrics. If your QPU regularly maxes out, it means the number of queries against your models is exceeding the QPU limit for your plan. The Query pool job queue length metric also increases when the number of queries in the query thread pool queue exceeds available QPU. 
+
+Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with that of the query pool. 
+
+### To configure QPU by ServerResourceType
+1. In a Metrics line chart, click **Add metric**. 
+2. In **RESOURCE**, select your server, then in **METRIC NAMESPACE**, select **Analysis Services standard metrics**, then in **METRIC**, select **QPU**, and then in **AGGREGATION**, select **Avg**. 
+3. Click **Apply Splitting**. 
+4. In **VALUES**, select **ServerResourceType**.  
+
+To learn more, see [Monitor server metrics](analysis-services-monitor.md).
 
 ## Configure scale-out
 
