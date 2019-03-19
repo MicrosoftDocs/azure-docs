@@ -7,7 +7,7 @@ ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
 ---
-# What is Microsoft Azure Service Provider Management Toolkit?
+# Publish a managed services offer to Azure Marketplace
 
 In this article, you’ll learn how to publish a Managed Services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management.
 
@@ -52,28 +52,25 @@ Next, complete the following sections in the **Plan Details** section:
 |**Title**     | Friendly name for the plan for display. Maximum length of 50 characters.        |
 |**Summary**     | Succinct description of the plan for display under the title. Maximum length of 100 characters.        |
 |**Description**     | Description text that provides a more detailed explanation of the plan.         |
-|**Billing model**     | There are 2 billing models supported for managed services offers:
-- Choose **Bring your own license** if you don’t want to use the Microsoft commerce platform and will bill your customers directly.
-- Choose % of Azure consumption if you want to charge your customers a percentage of their monthly Azure consumption.   |
+|**Billing model**     | There are 2 billing models supported for managed services offers. Choose **Bring your own license** if you don’t want to use the Microsoft commerce platform and will bill your customers directly. Choose **% of Azure consumption** if you want to charge your customers a percentage of their monthly Azure consumption.   |
 |**Is this a private Plan?**     | Indicates whether the SKU is private or public. The default is No (public). If you leave this selection, your plan will not be restricted to specific customers; after you publish a public plan, you can’t later change it to private. If you want this plan to be available only to specific customers, select Yes. When you do so, you’ll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for up to 20,000 subscriptions). Be sure to include your own subscriptions here so you can test and validate the offer. For more information, see [Private SKUs and Plans](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus).  |
 
 Finally, complete the **Manifest Details** section. This creates a manifest with authorization information for managing customer resources. The info you provide here is necessary to onboard your customers for Azure Delegated Resource Management.
 
+First, provide a **Version** for the manifest. Use the format *n.n.n* (for example, 1.2.5).
 
-|Field  |Description  |
-|---------|---------|
-|**Version**     | Provide a version for the manifest. Use the format *n.n.n* (for example, 1.2.5).        |
-|**Tenant ID**     | The Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers’ resources). This is a GUID that you can find by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**.        |
-|**Authorization**     | Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan. You must set this here in order to access resources on behalf of the customer using Azure Delegated Resource Management.
+Next, enter your **Tenant ID**. This is a GUID associated with the Azure Active Directory tenant ID of your organization (i.e., the tenant which you will be working in to manage your customers’ resources). If you don't have this handy, you can find it by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. 
+
+Finally, add one or more **Authorization** to your plan. Authorizations define the entities who can access resources and subscriptions for customers who purchase the plan. You must provide this info in order to access resources on behalf of the customer using Azure Delegated Resource Management.
 
 For each authorization, provide the following: 
 - **AAD Object Id**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as described by the Role Definition) to your customers’ resources.
 - **Role Definition**: Select one of the Azure AD built-in roles from the list. This role will determine the permissions that the user in the **AAD Object ID** field will have on your customers’ resources. For info about these roles, see [Built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-- 
+
 You can select New authorization to add as many users/roles as you’d like.
 
 > [!TIP]
-> In most cases, you’ll want to assign permissions to an Azure AD user group rather than a series of individual user or application accounts. This lets you add or remove individual users to that group without having to update and republish the plan when your access requirements change. |
+> In most cases, you’ll want to assign permissions to an Azure AD user group rather than a series of individual user or application accounts. This lets you add or remove individual users to that group without having to update and republish the plan when your access requirements change.
 
 When you're done adding plans, select **Save**, then continue to the **Marketplace** section.
 
