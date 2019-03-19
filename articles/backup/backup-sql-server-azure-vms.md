@@ -40,17 +40,14 @@ Before you start, verify the following:
 
 ## Feature consideration and limitations
 
+- SQL Server backup can be configured in the Azure portal or PowerShell. We do not support CLI.
 - The VM running SQL Server requires internet connectivity to access Azure public IP addresses.
-- Backups of [distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) groups don't fully work.
-- SQL Server Always On Failover Cluster Instances (FCIs) aren't supported for backup.
-- SQL Server backup should be configured in the portal or via PowerShell.
-- Backup and restore operations for FCI mirror databases, database snapshots, and databases aren't supported.
-- Databases with large number of files can't be protected. The maximum number of files is 1000.
-- You can back up to ~2000 SQL Server databases in a vault. If you have more, create another vault.
+- SQL Server Always on Failover Cluster Instances (FCIs) aren't supported.
+- Backup and restore operations for mirror databases and database snapshots aren't supported.
+- Databases with large number of files can't be protected. The maximum number of files that is supported is ~1000. However, even with file count less than that sometimes the restore behavior may differ.
+- You can back up to ~2000 SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 - You can configure backup for up to 50 databases in one go; this restriction helps optimize backup loads.
-- You cannot protect databases with more than 1000 files.
-- Recommended database size to ensure better performance is 2TB.
-- Protects up to 300 databases per server, if you have log backups configured for every 15 minutes. The number of databases can increase if the backup frequency is less frequent. We will be sharing a detailed way to calculate this shortly.
+- We support databases up to 2TB in size; for sizes greater than that, performance issues may come up.
 
 
 ## Scenario support
@@ -58,11 +55,39 @@ Before you start, verify the following:
 **Support** | **Details**
 --- | ---
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
-**Supported geos** | Australia South East (ASE), East Australia (AE) <br> Brazil South (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> East US (EUS), East US 2 (EUS2), West Central US (WCUS), West US (WUS); West US 2 (WUS 2) North Central US (NCUS) Central US (CUS) South Central US (SCUS) <br> India Central (INC), India South (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> North Europe (NE), West Europe <br> South Africa North (SAN), South Africa West (SAW) <br> UAE Central (UAC), UAE North (UAN) <br> UK South (UKS), UK West (UKW)
+**Supported geos** | Australia South East (ASE), East Australia (AE) <br> Brazil South (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> East US (EUS), East US 2 (EUS2), West Central US (WCUS), West US (WUS); West US 2 (WUS 2) North Central US (NCUS) Central US (CUS) South Central US (SCUS) <br> India Central (INC), India South (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> North Europe (NE), West Europe <br> UK South (UKS), UK West (UKW)
 **Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Supported .NET versions** | .NET Framework 4.5.2 and above installed on the VM
 
+## Fix SQL sysadmin permissions
+
+  If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership** error, do the following:
+
+  1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
+  2. On the SQL Server, open the **Security/Logins** folder.
+
+      ![Open the Security/Logins folder to see accounts](./media/backup-azure-sql-database/security-login-list.png)
+
+  3. Right-click the **Logins** folder and select **New Login**. In **Login - New**, select **Search**.
+
+      ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
+
+  4. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in **Enter the object name to select**. Select **Check Names** to resolve the name. Click **OK**.
+
+      ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
+
+  5. In **Server Roles**, make sure the **sysadmin** role is selected. Click **OK**. The required permissions should now exist.
+
+      ![Make sure the sysadmin server role is selected](./media/backup-azure-sql-database/sysadmin-server-role.png)
+
+  6. Now associate the database with the Recovery Services vault. In the Azure portal, in the **Protected Servers** list, right-click the server that's in an error state > **Rediscover DBs**.
+
+      ![Verify the server has appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
+
+  7. Check progress in the **Notifications** area. When the selected databases are found, a success message appears.
+
+      ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 
 ## Next steps
