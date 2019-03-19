@@ -81,4 +81,5 @@ Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concep
 
 ## Next steps
 
+* Use a [hands-on tutorial](tutorial-entity-roles.md) using entity roles
 * Learn how to add [roles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

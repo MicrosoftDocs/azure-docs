@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/19/2019
 ms.author: diberry
 ---
 
@@ -102,6 +102,12 @@ In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin 
 
     >[!CAUTION]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
+
+## Add entity's role to utterance
+
+A role is an named subtype of an entity, determined by the context of the utterance. You can mark an entity within an utterance as the entity, or select a role within that entity. Any entity can have roles including custom entities that are machine-learned (simple entities and composite entities), are not machine-learned (prebuilt entities, regular expression entities, list entities). 
+
+Learn [how to mark an utterance with entity roles](tutorial-entity-roles.md) from a hands-on tutorial. 
 
 ## Entity status predictions
 
