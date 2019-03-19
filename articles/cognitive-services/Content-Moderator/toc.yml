@@ -81,10 +81,6 @@
           href: video-reviews-quickstart-dotnet.md
         - name: Video transcript reviews - .NET
           href: video-transcript-reviews-quickstart-dotnet.md
-      - name: Using REST APIs
-        items:
-        - name: Jobs - API console
-          href: try-review-api-job.md
     - name: Manage team
       href: Review-Tool-User-Guide/SubTeams.md
     - name: Use tags
@@ -109,6 +105,10 @@
       href: Review-Tool-User-Guide/Workflows.md
     - name: REST API
       href: try-review-api-workflow.md
+  - name: Define and use jobs
+    items:
+    - name: REST API
+      href: try-review-api-job.md
   - name: Configure the Review tool
     href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
