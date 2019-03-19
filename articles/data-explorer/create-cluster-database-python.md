@@ -17,7 +17,7 @@ ms.date: 03/17/2019
 > * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
-> * [C#](create-cluster-database-C#)
+> * [C#](create-cluster-database-csharp)
 > * [Python](create-cluster-database-python.md)
 >  
 
