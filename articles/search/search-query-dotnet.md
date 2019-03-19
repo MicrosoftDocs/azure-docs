@@ -1,5 +1,5 @@
 ---
-title: 'Query an index in code using the .NET SDK - Azure Search'
+title: 'Query data to an Azure Search index in C# (.NET SDK) - Azure Search'
 description: C# code example for building a search query in Azure Search. Add search parameters to filter and sort search results.
 author: heidisteen
 manager: cgronlun
@@ -8,43 +8,22 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/19/2017
-ms.custom: seodec2018
+ms.date: 03/20/2019
 ---
-# Query your Azure Search index using the .NET SDK
-> [!div class="op_single_selector"]
-> * [Overview](search-query-overview.md)
-> * [Portal](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# Quickstart: 3 - Query an Azure Search index in C#
 
-This article will show you how to query an index using the [Azure Search .NET SDK](https://aka.ms/search-sdk).
+This article shows you how to query an index using C# and the [Azure Search .NET SDK](https://aka.ms/search-sdk).
 
-Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
+## Prerequisites
 
-> [!NOTE]
-> All sample code in this article is written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
+[Load an Azure Search index](search-import-data-dotnet.md) and a `SearchServiceClient` object, as shown in ["Create a client"](search-create-index-dotnet.md#CreateSearchServiceClient).
 
-## Identify your Azure Search service's query api-key
-Now that you have created an Azure Search index, you are almost ready to issue queries using the .NET SDK. First, you will need to obtain one of the query api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
-
-1. To find your service's api-keys you can sign in to the [Azure portal](https://portal.azure.com/)
-2. Go to your Azure Search service's blade
-3. Click on the "Keys" icon
-
-Your service will have *admin keys* and *query keys*.
-
-* Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
-* Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
-
-For the purposes of querying an index, you can use one of your query keys. Your admin keys can also be used for queries, but you should use a query key in your application code as this better follows the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+Obtain a query key used for read-only access to documents. Until now, you have used an admin API key so that you can create objects and content on a search service. But for query support in apps, we strongly recommend using a query key. For instructions, see [Create a query key](search-security-api-keys.md#create-query-keys).
 
 ## Create an instance of the SearchIndexClient class
-To issue queries with the Azure Search .NET SDK, you will need to create an instance of the `SearchIndexClient` class. This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
+As with previous lessons, create an instance of the `SearchIndexClient` class. This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
-The code below creates a new `SearchIndexClient` for the "hotels" index (created in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md)) using values for the search service name and api-key that are stored in the application's config file (`appsettings.json` in the case of the [sample application](https://aka.ms/search-dotnet-howto)):
+The code below creates a new `SearchIndexClient` for the "hotels" index using values for the search service name and api-key that are stored in the application's config file (`appsettings.json` in the case of the [sample application](https://aka.ms/search-dotnet-howto)):
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)

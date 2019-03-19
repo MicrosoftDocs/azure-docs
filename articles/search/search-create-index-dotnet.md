@@ -1,19 +1,18 @@
 ---
 title: 'Create an index in code using the .NET API - Azure Search'
 description: Learn how to create a full text searchable index using the Azure Search .NET SDK and C# sample code.
-author: brjohnstmsft
-manager: jlembicz
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/14/2019
-ms.author: brjohnst
-ms.custom: seodec2018
+ms.date: 03/20/2019
 
 ---
-# Quickstart: Create, load, and query an Azure Search index using the .NET SDK
+# Quickstart: 1 - Create an Azure Search index in C#
 > [!div class="op_single_selector"]
 > * [C#](search-create-index-dotnet.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -21,26 +20,24 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article will walk you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using the [Azure Search .NET SDK](https://aka.ms/search-sdk).
+This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using C# and the [Azure Search .NET SDK](https://aka.ms/search-sdk).
 
 > [!NOTE]
-> All sample code in this article is written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). You can also read about the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) for a more detailed walk through of the sample code.
+> Source code is on [GitHub](https://aka.ms/search-dotnet-howto). For deeper coverage of sample code, see [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md).
 
 ## Prerequisites
 
-+ [Create an Azure Search service](search-create-service-portal.md). You can use a free service for this quickstart.
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ URL endpoint and admin api-key of your Search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+A URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-    1. In the Azure portal, [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+  1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-    2. In **Overview**, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
+  2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-    3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on your request.
-
-    ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+  ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
     All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -60,7 +57,8 @@ In appsettings.json, replace the default content with the example below, and the
 
 <a name="CreateSearchServiceClient"></a>
 
-## 2 - Create an instance of the SearchServiceClient class
+## 2 - Create a client
+
 To start using the Azure Search .NET SDK, you will need to create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
 Copy the following code into the Program.cs file. The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (appsettings.json).
