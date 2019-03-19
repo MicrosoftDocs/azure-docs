@@ -30,7 +30,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](private-dns-getstarted-powershell.md).
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create the resource group
@@ -133,7 +132,6 @@ az network private-dns record-set list \
   -g MyAzureResourceGroup \
   -z private.contoso.com
 ```
-Remember, you won't see the automatically created A records for your two test virtual machines.
 
 ## Test the private zone
 
@@ -155,10 +153,13 @@ Repeat for myVM02.
 ### Ping the VMs by name
 
 1. From the myVM02 Windows PowerShell command prompt, ping myVM01 using the automatically registered host name:
+
    ```
    ping myVM01.private.contoso.com
    ```
+
    You should see output that looks similar to this:
+
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -174,11 +175,15 @@ Repeat for myVM02.
        Minimum = 0ms, Maximum = 1ms, Average = 0ms
    PS C:\>
    ```
+
 2. Now ping the **db** name you created previously:
+
    ```
    ping db.private.contoso.com
    ```
+
    You should see output that looks similar to this:
+
    ```
    PS C:\> ping db.private.contoso.com
 
