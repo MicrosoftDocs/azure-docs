@@ -76,10 +76,10 @@ However, the older metric alerts do not use action groups. Instead, you can conf
 - Call a webhook, which enables you to launch additional automation actions.
 
 Webhooks enables automation and remediation, for example, using:
-    - Azure Automation Runbook
-    - Azure Function
-    - Azure Logic App
-    - a third-party service
+- Azure Automation Runbook
+- Azure Function
+- Azure Logic App
+- a third-party service
 
 ## Next steps
 Get information about alert rules and configuring them by using:

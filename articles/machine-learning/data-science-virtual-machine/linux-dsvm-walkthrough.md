@@ -32,7 +32,7 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 
 * An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 * A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/en-US/questions/981140)
 * An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
@@ -48,7 +48,7 @@ If you need more storage space, you can create additional disks and attach them 
 
 To download the data, open a terminal window and run this command:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 The downloaded file does not have a header row, so let's create another file that does have a header. Run this command to create a file with the appropriate headers:
 
@@ -259,7 +259,7 @@ XGBoost can also call from python or a command line.
 For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM.
 
 > [!NOTE]
-> The Anaconda distribution includes [Conda](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
+> The Anaconda distribution includes [Conda](https://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
 >
 >
 
@@ -314,21 +314,19 @@ The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-pla
 
 > [!NOTE]
 > To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Several sample notebooks are already installed on the VM:
 
@@ -511,7 +509,7 @@ Or what are the characteristics of email that frequently contain *3d*?
 
 Most emails that have a high occurrence of *3d* are apparently spam, so it could be a useful feature for building a predictive model to classify the emails.
 
-If you wanted to perform machine learning with data stored in a PostgreSQL database, consider using [MADlib](http://madlib.incubator.apache.org/).
+If you wanted to perform machine learning with data stored in a PostgreSQL database, consider using [MADlib](https://madlib.incubator.apache.org/).
 
 ## SQL Server Data Warehouse
 Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

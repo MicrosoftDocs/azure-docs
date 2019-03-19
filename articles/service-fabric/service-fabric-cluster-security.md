@@ -108,7 +108,7 @@ The certificate must meet the following requirements:
 
 Some other things to consider:
 
-* The **Subject** field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is **CN** (for *common name*); for example, **CN = www.contoso.com**. 
+* The **Subject** field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is **CN** (for *common name*); for example, **CN = www\.contoso.com**. 
 * The **Subject** field can be blank. 
 * If the optional **Subject Alternative Name** field is populated, it must have both the common name of the certificate and one entry per SAN. These are entered as **DNS Name** values. To learn how to generate certificates that have SANs, see [How to add a Subject Alternative Name to a secure LDAP certificate](https://support.microsoft.com/kb/931351).
 * The value of the **Intended Purposes** field of the certificate should include an appropriate value, such as **Server Authentication** or **Client Authentication**.

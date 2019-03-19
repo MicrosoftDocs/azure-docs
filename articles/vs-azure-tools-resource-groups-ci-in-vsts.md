@@ -132,7 +132,7 @@ The following procedures walk you through the steps necessary to configure conti
 
 1. Edit your Azure DevOps Services build pipeline to add two new build steps. Choose the build pipeline under the **Build definitions** category and then choose the **Edit** link.
    
-   ![Edit build defintion][12]
+   ![Edit build definition][12]
 2. Add the new build steps to the build pipeline using the **Add build step…** button.
    
    ![Add build step][13]

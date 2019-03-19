@@ -38,8 +38,8 @@ For examples of syntax, supported properties, operators, and values for a member
    ![Add dynamic membership rule](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. To see the custom extension properties available for your membership query
-  1. Select **Get custom extension properties**
-  2. Enter the application ID, and then select **Refresh properties**. 
+   1. Select **Get custom extension properties**
+   2. Enter the application ID, and then select **Refresh properties**. 
 6. After creating the rule, select **Add query** at the bottom of the blade.
 7. Select **Create** on the **Group** blade to create the group.
 

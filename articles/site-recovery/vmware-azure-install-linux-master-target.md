@@ -6,7 +6,7 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
 ---
 
@@ -59,7 +59,7 @@ The following supported Ubuntu kernels are supported.
 Take the following the steps to install the Ubuntu 16.04.2 64-bit
 operating system.
 
-1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror anddownload an Ubuntu 16.04.2 minimal 64-bit ISO.
+1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror and download an Ubuntu 16.04.2 minimal 64-bit ISO.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
@@ -165,15 +165,15 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 5. See whether a row with **disk.EnableUUID** already exists.
 
-	- If the value exists and is set to **False**, change the value to **True**. (The values are not case-sensitive.)
+   - If the value exists and is set to **False**, change the value to **True**. (The values are not case-sensitive.)
 
-	- If the value exists and is set to **True**, select **Cancel**.
+   - If the value exists and is set to **True**, select **Cancel**.
 
-	- If the value does not exist, select **Add Row**.
+   - If the value does not exist, select **Add Row**.
 
-	- In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
+   - In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
 
-	![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### Disable kernel upgrades
 
@@ -283,16 +283,15 @@ Use the following steps to create a retention disk:
 
 2. Note down the configuration server's IP address. Run the following command to install the master target server and register the server with the configuration server.
 
- 	```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-	```
+    ```
 
 	Example: 
 	
-	```
+    ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	```
+    ```
 
 Wait until the script finishes. If the master target registers successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
@@ -301,9 +300,9 @@ Wait until the script finishes. If the master target registers successfully, the
 
 1. Run the following command to install the master target. For the agent role, choose **master target**.
 
-	```
+    ```
 	./install
-	```
+    ```
 
 2. Choose the default location for installation, and then select **Enter** to continue.
 
@@ -315,15 +314,15 @@ After the installation has finished, register the configuration server by using 
 
 2. Run the following command to install the master target server and register the server with the configuration server.
 
-	```
+    ```
 	./install -q -d /usr/local/ASR -r MT -v VmWare
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-	```
+    ```
 	Example: 
 
-	```
+    ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	```
+    ```
 
      Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 

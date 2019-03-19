@@ -23,7 +23,7 @@ Create additional subscriptions for your billing account to set up separate envi
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you want to create subscriptions for other billing accounts, see [Create an additional subscription in the Azure portal](billing-create-subscription.md).
 
-To create a subscription, you must be an **invoice section owner**, **invoice section contributor**, or **Azure subscription creator**. For more information, see [Subscription roles and tasks](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). To provide others permission to create Azure subscriptions for your billing account, see [Give others permission to create Azure subscriptions](#give-others-permission-to-create-azure-subscriptions).
+To create a subscription, you must be an **invoice section owner**, **invoice section contributor**, or **Azure subscription creator**. For more information, see [Subscription billing roles and tasks](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). To provide others permission to create Azure subscriptions for your billing account, see [Give others permission to create Azure subscriptions](#give-others-permission-to-create-azure-subscriptions).
 
 ## Create a subscription in the Azure portal
 
@@ -39,9 +39,9 @@ To create a subscription, you must be an **invoice section owner**, **invoice se
 
    ![Screenshot that shows create subscription page](./media/billing-mca-create-subscription/billing-mca-create-azure-subscription.png)
 
-5. Select a billing profile. The charges for your subscription will show on the billing profile's invoice and will be paid using its payment methods. If you have access to only one billing profile, the selection will be greyed out.
+5. Select a billing profile. The charges for your subscription will reflect on the billing profile's invoice and will be paid using its payment methods. If you have access to only one billing profile, the selection will be greyed out.
 
-6. Select an invoice section. The charges for your subscription will show on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out.
+6. Select an invoice section. The charges for your subscription will reflect on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out.
 
 7. Select a plan for the subscription. Select **Microsoft Azure Plan for DevTest**, if you plan to use this subscription for development or testing workloads else use **Microsoft Azure Plan**. If you have access to only one plan, the selection will be greyed out.
 
@@ -53,7 +53,7 @@ To create a subscription, you must be an **invoice section owner**, **invoice se
 
 Add users as Azure subscription creators on an invoice section to give them permission to create Azure subscriptions.
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -78,7 +78,7 @@ Add users as Azure subscription creators on an invoice section to give them perm
 
 ## Need help? Contact support
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

@@ -6,11 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
 ---
 
 # Frequently asked questions for Application Gateway
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## General
 
@@ -36,10 +38,10 @@ HTTP/2 protocol support is available to clients connecting to application gatewa
 
 By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### What resources are supported today as part of backend pool?
@@ -68,7 +70,7 @@ When using a public IP address as an endpoint, this information can be found on 
 
 ### What is Keep-Alive timeout and TCP idle timeout setting on Application Gateway?
 
-Keep-Alive timeout on v1 SKU is 120 sec. Keep-Alive timeout on v2 SKU is 75 sec. TCP idle timeout is 4 min default on the frontend VIP of Application Gateway.
+Keep-Alive timeout on v1 SKU is 120 sec. Keep-Alive timeout on v2 SKU is 75 sec. TCP idle timeout is 4-min default on the frontend VIP of Application Gateway.
 
 ### Does the IP or DNS name change over the lifetime of the Application Gateway?
 
@@ -86,6 +88,8 @@ Only one public IP address is supported on an application gateway.
 
 Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
 For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
+
+As a best practice, use at least a /28 subnet size. This gives you 11 usable addresses. If your application load requires more than 10 instances, you should consider a /27 or /26 subnet size.
 
 ### Q. Can I deploy more than one Application Gateway resource to a single subnet?
 
@@ -341,7 +345,7 @@ There are three logs available for Application Gateway. For more information on 
 
 ### How do I know if my backend pool members are healthy?
 
-You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+You can use the PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 ### What is the retention policy on the diagnostics logs?
 
@@ -349,7 +353,7 @@ Diagnostic logs flow to the customers storage account and customers can set the 
 
 ### How do I get audit logs for Application Gateway?
 
-Audit logs are available for Application Gateway. In the portal, click **Activity Log** in the menu blade of an application gateway to access the audit log. 
+Audit logs are available for Application Gateway. In the portal, click **Activity Log** on the menu blade of an application gateway to access the audit log. 
 
 ### Can I set alerts with Application Gateway?
 

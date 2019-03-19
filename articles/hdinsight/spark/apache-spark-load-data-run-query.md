@@ -81,7 +81,7 @@ Once the table is created, you can run an interactive query on the data.
 
 10. From the **File** menu on the notebook, select **Save and Checkpoint**. 
 
-11. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the **File** menu on the notebook, selectx **Close and Halt**.
+11. If you're starting the [next tutorial](apache-spark-use-bi-tools.md) now, leave the notebook open. If not, shut down the notebook to release the cluster resources: from the **File** menu on the notebook, select **Close and Halt**.
 
 ## Clean up resources
 

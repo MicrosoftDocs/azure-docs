@@ -3,7 +3,7 @@ title: Customized controller access role - Avere vFXT for Azure
 description: How to create a custom access role for the Avere vFXT cluster controller
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ---

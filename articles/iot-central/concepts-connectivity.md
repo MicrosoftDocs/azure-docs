@@ -28,9 +28,9 @@ Using DPS enables:
 This how-to article describes the following four use cases:
 
 1. [Quickly connect a single device using SAS](#connect-a-single-device)
-1. [Connect devices at scale using SAS](#connect-devices-at-scale-using-shared-access-signatures)
+1. Connect devices at scale using SAS
 1. [Connect devices at scale using X.509 certificates](#connect-devices-using-x509-certificates) this is the recommended approach for production environments.
-1. [Connect without first registering devices](#connect-without-first-registering-devices) 
+1. Connect without first registering devices 
 
 ## Connect a single device
 
@@ -38,7 +38,7 @@ This approach is useful when you're experimenting with IoT Central or testing de
 
 To connect a single device to IoT Central using SAS, follow these steps:
 
-1. To add real device, navigate to the **Devices Explorer**, choose a device template, and select **+New > Real**:
+1. To add real device, navigate to the **Device Explorer**, choose a device template, and select **+New > Real**:
     - Enter your own (lowercase) **Device ID** or use the suggested ID.
     - Enter a **Device Name** or use the suggested name.
 
@@ -64,7 +64,7 @@ To register a large number of devices with your IoT Central application, use a C
 To retrieve the connection information for the imported devices, [export a CSV file from your IoT Central application](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> To learn how you can connect devices without first registering them in IoT Central, see [Connect without first registering devices](#connect-without-first-registering-devices).
+> To learn how you can connect devices without first registering them in IoT Central, see Connect without first registering devices.
 
 ### Set up your devices
 
@@ -85,9 +85,9 @@ The following steps describe how to connect devices to IoT Central using X.509 c
       If you have a security breach or your primary certificate is set to expire, use the secondary certificate to reduce downtime. You can continue to provision devices using the secondary certificate while you update the primary certificate.
 
     - Verifying certificate ownership ensures that the uploader of the certificate has the certificate's private key. To verify the certificate:
-        - Click the button next to **Verification Code** to generate a code.
+        - Select the button next to **Verification Code** to generate a code.
         - Create an X.509 verification certificate with the verification code you generated in the previous step. Save the certificate as a .cer file.
-        - Upload the signed verification certificate and click verify.
+        - Upload the signed verification certificate and select **Verify**.
 
           ![Connection settings](media/concepts-connectivity/verify-cert.png)
 
@@ -168,7 +168,7 @@ When a real device connects to your IoT Central application, its provisioning st
 
 The following steps describe how you can get a connection string for a device:
 
-1. Click **Connect** on the **Device Explorer** page to get the connection details: **Scope ID**, **Device ID**, and **Device Primary key**:
+1. Select **Connect** on the **Device Explorer** page to get the connection details: **Scope ID**, **Device ID**, and **Device Primary key**:
 
     ![Connection details](media/concepts-connectivity/device-connect.png)
 

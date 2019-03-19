@@ -47,7 +47,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
 	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 
 2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-3. Use the following script to assign a user and role to an application:
+3. Use the following script to remove a user and role from an application:
 
     ```powershell
     # Store the proper parameters
@@ -63,7 +63,7 @@ It's easy to remove a user or a group from being assigned access to one of your 
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## Next steps
+   ## Next steps
 
 - [See all of my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Assign a user or group to an enterprise app](assign-user-or-group-access-portal.md)

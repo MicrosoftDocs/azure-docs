@@ -75,7 +75,7 @@ To define parameters, use the following structure:
 | Element name | Required? | Description |
 | --- | --- | --- |
 | type |Yes |Type of parameter value. See the following list for the allowed types. |
-| displayName |Yes |Name of the parameter that is displayed to a user in the lab. | |
+| displayName |Yes |Name of the parameter that is displayed to a user in the lab. |
 | description |Yes |Description of the parameter that is displayed in the lab. |
 
 Allowed types are:
@@ -122,7 +122,7 @@ The following example shows how to use expressions and functions to construct a 
 
 ## Related articles
 * [How to diagnose artifact failures in DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## Next steps
 * Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).

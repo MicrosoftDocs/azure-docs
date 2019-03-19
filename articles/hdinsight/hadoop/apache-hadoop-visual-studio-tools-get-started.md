@@ -107,7 +107,7 @@ After opening a container, you can use the following buttons to upload, delete, 
 ## Run interactive Apache Hive queries
 [Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [Use Apache Hive with HDInsight](hdinsight-use-hive.md).
 
-[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster compared to traditional Hive batch jobs. For more information, see [Run Apache Hive batch jobs](#run-hive-batch-jobs).
+[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster compared to traditional Hive batch jobs. For more information, see Run Apache Hive batch jobs.
 
 > [!NOTE]  
 > You can run interactive Hive queries only when you connect to an [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
@@ -149,10 +149,10 @@ To create a Hive table, you can use the GUI or you can use Hive queries. For inf
 ### <a name="run.queries"></a>Create and run Hive queries
 You have two options for creating and running Hive queries:
 
-* Create ad-hoc queries
+* Create ad hoc queries
 * Create a Hive application
 
-To create, and run ad-hoc queries:
+To create, and run ad hoc queries:
 
 1. Right-click the cluster where you want to run the query, and select **Write a Hive Query**.  
 
@@ -241,12 +241,12 @@ To view Hive jobs:
 1. Right-click an HDInsight cluster, and select **View Jobs**. A list of the Hive jobs that ran on the cluster appears.  
 
 2. Select a job. In the **Hive Job Summary** window, select one of the following:
-    - **Job Query**
-    - **Job Output**
-    - **Job Log**  
-    - **Yarn log**
+   - **Job Query**
+   - **Job Output**
+   - **Job Log**  
+   - **Yarn log**
 
-    ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
+     ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
 
 
 ## Run Apache Pig scripts

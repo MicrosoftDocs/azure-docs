@@ -22,10 +22,10 @@ If you're prompted to set this up immediately after you sign in to your work or 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
->[!Note]
->Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
-
->If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+> [!Note]
+> Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
+> 
+> If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
 
 ## Set up phone calls from the Security info page
 Depending on your organization’s settings, you might be able to use phone calls as one of your security info methods.
@@ -37,11 +37,11 @@ Depending on your organization’s settings, you might be able to use phone call
 
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
-    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile.png)
+    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
 2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. On the **Add a method** page, select **Phone** from the drop-down list, and then select **Add**.
 

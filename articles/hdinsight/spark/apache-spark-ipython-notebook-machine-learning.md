@@ -192,5 +192,5 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to use IntelliJ IDEA for Spark jobs. 
 
 > [!div class="nextstepaction"]
-> [Create a Scala Maven appliction using IntelliJ](./apache-spark-create-standalone-application.md)
+> [Create a Scala Maven application using IntelliJ](./apache-spark-create-standalone-application.md)
 

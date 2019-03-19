@@ -1,12 +1,11 @@
 ---
 title: Troubleshooting - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 02/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 
 ms.custom: seodec18
 
@@ -56,14 +55,14 @@ The Linux OS disk encryption sequence unmounts the OS drive temporarily. It then
 To check the encryption status, poll the **ProgressMessage** field returned from the [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) command. While the OS drive is being encrypted, the VM enters a servicing state, and disables SSH to prevent any disruption to the ongoing process. The **EncryptionInProgress** message reports for the majority of the time while the encryption is in progress. Several hours later, a **VMRestartPending** message prompts you to restart the VM. For example:
 
 
-```
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
 
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : VMRestartPending
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
@@ -109,15 +108,15 @@ To work around this issue, copy the following four files from a Windows Server 2
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. Enter the following command:
+1. Enter the following command:
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. This command creates a 550-MB system partition. Reboot the system.
+1. This command creates a 550-MB system partition. Reboot the system.
 
-   4. Use DiskPart to check the volumes, and then proceed.  
+1. Use DiskPart to check the volumes, and then proceed.  
 
 For example:
 
@@ -134,6 +133,12 @@ DISKPART> list vol
 
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
+
+## Troubleshooting Encryption Status 
+
+The portal may display a disk as encrypted even after it has been unencrypted within the VM.  This can occur when low-level commands are used to directly unencrypt the disk from within the VM, instead of using the higher level Azure Disk Encryption management commands.  The higher level commands not only unencrypt the disk from within the VM, but outside of the VM they also update important platform level encryption settings and extension settings associated with the VM.  If these are not kept in alignment, the platform will not be able to report encryption status or provision the VM properly.   
+
+To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) and [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell commands, or the [az vm encryption disable](/cli/azure/vm/encryption) CLI command. 
 
 ## Next steps
 

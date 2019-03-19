@@ -43,7 +43,7 @@ After you deploy the app, explore the following tutorials that build on the init
 |[Monitor with Azure Monitor logs](saas-dbpertenant-log-analytics.md) | Learn how to use [Azure Monitor logs](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources across multiple pools. |
 |[Restore a single tenant](saas-dbpertenant-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Also learn how to restore to a parallel database, which leaves the existing tenant database online. |
 |[Manage tenant database schema](saas-tenancy-schema-management.md)| Learn how to update schema and update reference data across all tenant databases. |
-|[Run cross-tenant distributed queries](saas-tenancy-cross-tenant-reporting.md) | Create an ad-hoc analytics database, and run real-time distributed queries across all tenants.  |
+|[Run cross-tenant distributed queries](saas-tenancy-cross-tenant-reporting.md) | Create an ad hoc analytics database, and run real-time distributed queries across all tenants.  |
 |[Run analytics on extracted tenant data](saas-tenancy-tenant-analytics.md) | Extract tenant data into an analytics database or data warehouse for offline analytics queries. |
 
 

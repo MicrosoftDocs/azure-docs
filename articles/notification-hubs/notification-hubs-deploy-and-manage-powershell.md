@@ -152,9 +152,9 @@ Some ready-made scripts are also available for download:
 
 - [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
-[Member Offers]: http://azure.microsoft.com/pricing/member-offers/
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
+[Purchase Options]: https://azure.microsoft.com/pricing/purchase-options/
+[Member Offers]: https://azure.microsoft.com/pricing/member-offers/
+[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET API for Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

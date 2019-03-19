@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 
-mss.service: azure-stack
+ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

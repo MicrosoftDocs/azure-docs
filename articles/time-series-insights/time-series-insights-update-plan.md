@@ -85,7 +85,7 @@ Time Series Insights is a high-availability service that uses redundancies at th
 For information on built-in features in Azure for business continuity and disaster recovery (BCDR), see [Azure business continuity technical guidance](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). For architecture guidance on strategies for Azure applications to achieve high availability and disaster recovery, see the paper on [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-
+> 
 >  Time Series Insights doesn't have built-in BCDR.
 > By default, Azure Storage, Azure IoT Hub, and Azure Event Hubs have recovery built in.
 

@@ -148,9 +148,6 @@
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
     maintainContext: true
-  - name: High performance computing
-    href: ../virtual-machines/windows/high-performance-computing.md
-    maintainContext: true
   - name: Deployment considerations
     items:
     - name: vCPU quotas
@@ -282,4 +279,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set

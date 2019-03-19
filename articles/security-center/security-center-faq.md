@@ -38,7 +38,7 @@ Security Center is offered in two tiers:
 
 The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tierfree trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. You can start a Standard tier free trial. To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -180,18 +180,18 @@ You can manually remove the Microsoft Monitoring Agent. This is not recommended 
 
 To manually remove the agent:
 
-1.	In the portal, open **Log Analytics**.
-2.	On the Log Analytics blade, select a workspace:
-3.	Select each VM that you don’t want to monitor and select **Disconnect**.
+1. In the portal, open **Log Analytics**.
+2. On the Log Analytics blade, select a workspace:
+3. Select each VM that you don’t want to monitor and select **Disconnect**.
 
    ![Remove the agent][3]
 
 > [!NOTE]
 > If a Linux VM already has a non-extension OMS agent, removing the extension removes the agent as well and the customer has to reinstall it.
->
->
-### How do I disable data collection?
-Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities and endpoint protection.
+> 
+> 
+> ### How do I disable data collection?
+> Automatic provisioning is off by default. You can disable automatic provisioning from resources at any time by turning off this setting in the security policy. Automatic provisioning is highly recommended in order to get security alerts and recommendations about system updates, OS vulnerabilities and endpoint protection.
 
 To disable data collection, [Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Select policy**. Select the subscription that you wish to disable automatic provisioning. When you select a subscription **Security policy - Data collection** opens. Under **Auto provisioning**, select **Off**.
 

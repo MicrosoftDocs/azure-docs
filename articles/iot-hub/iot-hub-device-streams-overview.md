@@ -120,7 +120,7 @@ Follow the steps below to configure Azure Monitor logs for your IoT Hub's device
 
 1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
 
-  ![Alt text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Enabling disgnostics logs")
+   ![Alt text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Enabling disgnostics logs")
 
 
 2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics workspace resource or create a new one. Additionally, check the *DeviceStreams* from the list.
@@ -150,7 +150,7 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 ## IoT Hub Device Stream Samples
 
 We have published two [quickstart samples](/azure/iot-hub) to demonstrate the use of device streams by applications.
-* The *echo* sample demonstrates programatic use of device streams (by calling the SDK API's directly).
+* The *echo* sample demonstrates programmatic use of device streams (by calling the SDK API's directly).
 * The *local proxy* sample demonstrates the tunneling of off-the-shelf client/server application traffic (such as SSH, RDP, or web) through device streams.
 
 These samples are covered in greater detail below.

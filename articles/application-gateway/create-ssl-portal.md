@@ -26,6 +26,8 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
@@ -72,12 +74,12 @@ A virtual network is needed for communication between the resources that you cre
 4. Accept the default values for the other settings and then click **OK**.
 5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-    - *myVNet* - for the name of the virtual network.
-    - *10.0.0.0/16* - for the virtual network address space.
-    - *myAGSubnet* - for the subnet name.
-    - *10.0.0.0/24* - for the subnet address space.
+   - *myVNet* - for the name of the virtual network.
+   - *10.0.0.0/16* - for the virtual network address space.
+   - *myAGSubnet* - for the subnet name.
+   - *10.0.0.0/24* - for the subnet address space.
 
-    ![Create virtual network](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Click **OK** to create the virtual network and subnet.
 7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
@@ -128,7 +130,7 @@ In this example, you create two virtual machines to be used as backend servers f
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -139,17 +141,17 @@ In this example, you create two virtual machines to be used as backend servers f
       -Location EastUS
     ```
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers
 
-3. Click **All resources**, and then click **myAppGateway**.
-4. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
-5. Click **Add target** to add each virtual machine that you created to the backend pool.
+1. Click **All resources**, and then click **myAppGateway**.
+1. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
+1. Click **Add target** to add each virtual machine that you created to the backend pool.
 
     ![Add backend servers](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Click **Save**.
+1. Click **Save**.
 
 ## Test the application gateway
 

@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -80,22 +80,22 @@ The Collector must pass a few prerequisite checks to ensure it can connect to th
 - The IP address/FQDN of the Proxy server should specified as *http://IPaddress* or *http://FQDN*.
 - Only HTTP proxy is supported. HTTPS-based proxy servers aren't supported by the Collector.
 - If the proxy server is an intercepting proxy, you must import the proxy certificate to the Collector VM.
-    1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
-    2. In the Certificates tool, under **Certificates - Local Computer**, find **Trusted Publishers** > **Certificates**.
+  1. In the collector VM, go to **Start Menu** > **Manage computer certificates**.
+  2. In the Certificates tool, under **Certificates - Local Computer**, find **Trusted Publishers** > **Certificates**.
 
-        ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Certificates tool](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Copy the proxy certificate to the collector VM. You might need to obtain it from your network admin.
-    4. Double-click to open the certificate, and click **Install Certificate**.
-    5. In the Certificate Import Wizard > Store Location, choose **Local Machine**.
+  3. Copy the proxy certificate to the collector VM. You might need to obtain it from your network admin.
+  4. Double-click to open the certificate, and click **Install Certificate**.
+  5. In the Certificate Import Wizard > Store Location, choose **Local Machine**.
 
-    ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Certificate store location](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
+  6. Select **Place all certificates in the following store** > **Browse** > **Trusted Publishers**. Click **Finish** to import the certificate.
 
-    ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Certificates store](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
+  7. Check that the certificate is imported as expected, and check that the internet connectivity prerequisite check works as expected.
 
 
 ### URLs for connectivity
@@ -106,7 +106,7 @@ The connectivity check is validated by connecting to a list of URLs.
 --- | --- | ---
 *.portal.azure.com | Applicable to Azure Global. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
 *.portal.azure.us | Applicable only to Azure Government. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs optional.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs is required.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually in a machine that has internet connectivity and then copy the modules to the appliance. [Learn more by going to Step#4 in this troubleshooting guide](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### Install VMware PowerCLI module manually

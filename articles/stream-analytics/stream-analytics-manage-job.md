@@ -178,7 +178,7 @@ The last step is to define an output sink for the job where it can write the tra
 3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
 
    |**Setting**  |**Suggested value**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Output alias  |  MyPBIoutput  |
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |
@@ -234,7 +234,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 4. Select **Test** to test the query. You should see the following results:
 
-   ![Out put from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Output from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## Start the job and visualize output
 

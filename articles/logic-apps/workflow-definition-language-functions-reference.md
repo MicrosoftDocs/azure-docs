@@ -3047,7 +3047,7 @@ range(<startIndex>, <count>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Yes | Integer | The integer value that starts the array as the first item |
+| <*startIndex*> | Yes | Integer | An integer value that starts the array as the first item |
 | <*count*> | Yes | Integer | The number of integers in the array |
 |||||
 
@@ -3205,7 +3205,7 @@ And returns this array with the remaining items: `[1,2,3]`
 ### split
 
 Return an array that contains substrings, separated by commas,
-based on the specified delimiter charcter in the original string.
+based on the specified delimiter character in the original string.
 
 ```
 split('<text>', '<delimiter>')
@@ -3459,7 +3459,7 @@ substring('<text>', <startIndex>, <length>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string whose characters you want |
-| <*startIndex*> | Yes | Integer | A positive number for the starting position, or index value |
+| <*startIndex*> | Yes | Integer | A positive number equal to or greater than 0 that you want to use as the starting position or index value |
 | <*length*> | Yes | Integer | A positive number of characters that you want in the substring |
 |||||
 
