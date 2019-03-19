@@ -44,6 +44,7 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 |Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
 |Scripts that require elevation|Hybrid Runbook Worker|Sandboxes do not allow elevation. To solve this, use a Hybrid Runbook Worker and you can turn off UAC and use `Invoke-Command` when running the command that requires elevation|
+|Scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes the cloud [do not have access the WMI](#device-and-application-characteristics)|
 
 ## Runbook behavior
 
@@ -184,6 +185,10 @@ function Get-ContosoFiles
 ### Using executables or calling processes
 
 Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is because Azure sandboxes are shared processes ran in containers, which may not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+
+### Device and application characteristics
+
+Automation jobs running in the cloud do not have access to performance metrics for memory or CPU. In fact, jobs do not have supported access to any device or application characteristics. The most common API customers use to query performance metrics on Windows is WMI. However, it does not matter what API is used. Jobs running in the cloud do not have access the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
 
 ## Job statuses
 
