@@ -1,5 +1,5 @@
 ---
-title: Enable LinkedIn integration in Microsoft apps - Azure Active Directory | Microsoft Docs
+title: Consent to LinkedIn services for your organization - Azure Active Directory | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -16,19 +16,19 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# LinkedIn integration
+# Consent to LinkedIn services for your Azure Active Directory organization
 
-In this article, you can learn how to enable or disable LinkedIn integration for your tenant in the Azure Active Directory (Azure AD) admin center.
+In this article, you can learn how to enable or disable LinkedIn integration for your organization in the Azure Active Directory (Azure AD) admin center.
 
 > [!IMPORTANT]
-> The LinkedIn integration setting is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default.
+> The LinkedIn integration setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
 > 
 > Exceptions:
 > * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Office 365 operated by 21Vianet in China.
 > * The setting is off by default for tenants provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
 > * The setting is off by default for tenants provisioned in France.
-> 
-> The integration works only if you have it enabled *and* if you allow users to consent to apps accessing company data on their behalf. For information about the consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+>
+> The integration works only if you have it enabled *and* after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
 ## Enable or disable LinkedIn integration for your users in the Azure portal
 

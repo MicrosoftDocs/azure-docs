@@ -47,7 +47,7 @@ You must be a Global administrator or User administrator in the organization to 
 
 ## Set group expiration
 
-1. Iin to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
+1. Sign in to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
   
    ![Expiration settings page for group](./media/groups-quickstart-expiration/expiration-settings.png)
 

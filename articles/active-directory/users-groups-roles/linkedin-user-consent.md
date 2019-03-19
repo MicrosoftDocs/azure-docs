@@ -1,5 +1,5 @@
 ---
-title: LinkedIn integration data sharing and consent - Azure Active Directory | Microsoft Docs
+title: LinkedIn account connections data sharing and consent - Azure Active Directory | Microsoft Docs
 description: Explains how LinkedIn integration shares data via Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -16,9 +16,9 @@ ms.custom: "it-pro;seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
-# LinkedIn integration data sharing and consent
+# LinkedIn account connections data sharing and consent
 
-As an Azure Active Directory (Azure AD) administrator, you can enable users in your organization to consent to connect their Microsoft work or school account with their LinkedIn account. When users connect their accounts, information and highlights from LinkedIn are available in some Microsoft apps and services. Users can also expect their networking experience on LinkedIn to be improved and enriched with information from Microsoft.
+You can enable users in your Active Directory (Azure AD) organization to consent to connect their Microsoft work or school account with their LinkedIn account. After a user connects their accounts, information and highlights from LinkedIn are available in some Microsoft apps and services. Users can also expect their networking experience on LinkedIn to be improved and enriched with information from Microsoft.
 
 To see LinkedIn information in Microsoft apps and services, users must consent to connect their own Microsoft and LinkedIn accounts. Users are prompted to connect their accounts the first time they click to see someone's LinkedIn information on a profile card in Outlook, OneDrive or SharePoint Online. LinkedIn account connections are not fully enabled for your users until they consent to the experience and to connect their accounts.
 
@@ -34,7 +34,7 @@ Access to LinkedIn information within Microsoft apps and services makes it easie
 
 You must be an Azure Active Directory Admin to manage the setting for your organization. You can enable it for all users, or for a specific set of users.
 
-1. To enable or disable the integration, follow the steps in [LinkedIn integration](linkedin-integration.md).
+1. To enable or disable the integration, follow the steps in [Consent to LinkedIn integration for your Azure AD organization](linkedin-integration.md).
 2. When you announce the LinkedIn integration in your organization, point your users to the FAQ about [LinkedIn information in Microsoft apps and services](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). The article provides information about where LinkedIn information shows up, how to connect accounts, and more.
 
 ## User consent for data access in Microsoft and LinkedIn
