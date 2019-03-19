@@ -115,7 +115,7 @@ When the following conditions are detected, Autoscale will issue a scale-down re
 * Total pending CPU is less than total free CPU for more than 10 minutes.
 * Total pending memory is less than total free memory for more than 10 minutes.
 
-Based on the number of AM containers per node as well as the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
+Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
 
 ## Next steps
 
