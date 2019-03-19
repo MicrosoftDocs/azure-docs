@@ -1,0 +1,52 @@
+- name: Azure Blockchain Service (public preview)
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Blockchain Service
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create member - Portal
+    href: create-member-portal.md
+  - name: Create member - CLI
+  - name: Connect to member
+    items:
+    - name: Using MetaMask
+      href: connect-metamask.md
+    - name: Using geth
+      href: connect-geth.md
+    - name: Using Truffle
+      href: connect-truffle.md
+- name: Tutorials
+  items:
+  - name: Send transaction
+    href: send-transaction.md
+- name: Concepts
+  items:
+  - name: Members, nodes, consortium
+  - name: Quorum
+  - name: Data access, security
+  - name: Develop
+  - name: Limits
+    href: limits.md
+  - name: Patch, update, version
+  - name: Ethereum accounts
+- name: How-to guides
+  items: 
+  - name: Configure transaction nodes
+  - name: Manage consortium
+- name: Resources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Code samples
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Community
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Forum
+    href: https://aka.ms/workbenchforum
+  - name: Product feedback
+    href: https://aka.ms/blockchainuservoice
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/

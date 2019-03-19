@@ -1,0 +1,25 @@
+- name: Azure Blockchain Documentation (public preview)
+  href: index.yml
+- name: Azure Blockchain Service
+  href: ./service/index.yml
+- name: Azure Blockchain Workbench
+  href: ./workbench/index.yml
+- name: Solution templates
+  expanded: true
+  items:
+  - name: Ethereum Proof-of-Authority consortium
+    href: ./templates/ethereum-poa-deployment.md
+  - name: Hyperledger Fabric consortium
+    href: ./templates/hyperledger-fabric-consortium-blockchain.md
+- name: Resources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Code samples
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Community
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Forum
+    href: https://aka.ms/workbenchforum
+  - name: Product feedback
+    href: https://aka.ms/blockchainuservoice
