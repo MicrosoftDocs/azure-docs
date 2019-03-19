@@ -18,7 +18,7 @@ To configure CORS setting in Azure API for FHIR, navigate to CORS setting.
 
 Here you can specify following settings:
 
-**Origins (Access-Control-Allow-Origin):** List of domains that can call the Azure API for FHIR. Each domain (Origin) must be entered in separate line. You can enter '*' to allow calls from any domain (not recommended as it represents security risk).
+**Origins (Access-Control-Allow-Origin):** List of domains that are allowed to make cross-origin requests to the Azure API for FHIR. Each domain (Origin) must be entered in separate line. You can enter '*' to allow calls from any domain (not recommended as it represents security risk).
 
 **Headers (Access-Control-Allow-Headers):** You can specify a list of headers that origin request will contain. You can set it to '*' to allow all headers. 
 
