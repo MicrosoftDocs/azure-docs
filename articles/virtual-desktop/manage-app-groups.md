@@ -25,15 +25,15 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 1. Run the following PowerShell cmdlet to create a new empty RemoteApp group.
 
- ```powershell
- New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
- ```
+   ```powershell
+   New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
+   ```
 
 2. (Optional) To verify the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.
 
- ```powershell
- Get-RdsAppGroup <tenantname> <hostpoolname>
- ```
+   ```powershell
+   Get-RdsAppGroup <tenantname> <hostpoolname>
+   ```
 
 3. Run the following cmdlet to get a list of start menu apps on the host pool's virtual machine image. Write down the values for **FilePath**, **IconPath**, **IconIndex**, and other important information for the application you want to publish.
 
@@ -43,28 +43,28 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
    
- ```powershell
- New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
- ```
+   ```powershell
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   ```
 
 5. (Optional) Run the following cmdlet to install the application based on appalias. appalias becomes visible when you run the output from step 3.
 
- ```powershell
- New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
- ```
+   ```powershell
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   ```
 
 6. To verify that the app was published, run the following cmdlet.
 
- ```powershell
- Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
- ```
+   ```powershell
+   Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
+   ```
 
 7. Repeat steps 1–5 for each application you wish to publish for this app group.
 8. Run the following cmdlet to grant users access to the RemoteApps in the app group.
 
- ```powershell
- Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalNames <userupn>
- ```
+   ```powershell
+   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalNames <userupn>
+   ```
 
 ## Next steps
 

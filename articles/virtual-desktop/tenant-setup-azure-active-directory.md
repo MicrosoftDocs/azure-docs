@@ -58,7 +58,7 @@ To assign the TenantCreator application role to your global administrator accoun
 3. Select **Users and groups**, then select **Add user**.
 4. Select Users and groups in the **Add Assignment** blade
 5. Search for a user account that will create your Windows Virtual Desktop tenant. 
-  - For simplicity, this can be the global administrator account.
+   - For simplicity, this can be the global administrator account.
 6. Select the user account, click the **Select** button, and then select **Assign**.
 
 ## Create a Windows Virtual Desktop tenant
