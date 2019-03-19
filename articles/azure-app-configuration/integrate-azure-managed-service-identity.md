@@ -62,7 +62,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 3. On the **Check access** tab, select **Add** in the **Add role assignment** card UI.
 
-4. Under **Role**, select *Contributor*, and under **Assign access to** select *App Service* under *System assigned managed identity*.
+4. Under **Role**, select **Contributor**. Under **Assign access to**, select **App Service** under **System assigned managed identity**.
 
 5. Under **Subscription**, select your Azure subscription. Select the App Service resource for your app.
 
@@ -99,7 +99,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Deploy from local Git
 
-The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Azure Cloud Shell.
+The easiest way to enable local Git deployment for your app with the Kudu build server is to use Azure Cloud Shell.
 
 ### Configure a deployment user
 
@@ -107,13 +107,13 @@ The easiest way to enable local Git deployment for your app with the Kudu build 
 
 ### Enable local Git with Kudu
 
-To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell.
+To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter.
+To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in Cloud Shell with the `--deployment-local-git` parameter.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
@@ -167,7 +167,7 @@ http://<app_name>.azurewebsites.net
 
 App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, use your app configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
 
-    ```xml
+```xml
     <configSections>
         <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
     </configSections>
@@ -183,7 +183,7 @@ App Configuration providers for .NET Framework and Java Spring also have built-i
         <add key="AppName" value="Console App Demo" />
         <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
     </appSettings>
-    ```
+```
 
 ## Clean up resources
 
