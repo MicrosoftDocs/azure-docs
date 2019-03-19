@@ -67,7 +67,7 @@ The following example shows the schema of a device connected event:
 
 ### Device Telemetry schema
 
-The following example shows the schema of a device connected event: 
+The following example shows the schema of a device telemetry event: 
 
 ```json
 [{  
