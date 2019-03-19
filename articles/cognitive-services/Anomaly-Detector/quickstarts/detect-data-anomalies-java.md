@@ -81,6 +81,13 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Create a function to send requests
 
+1. Create a new function called `sendRequest()` that takes the variables created above. Then perform the following steps.
+
+2. create a dictionary for the request headers. Set the `Content-Type` to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+3. send the request using `requests.post()`. Combine your endpoint and anomaly detection URL for the full request URL, and include your headers, and json request data. 
+
+4. If the request is successful, return the response.  
 
 ```java
 static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -159,5 +166,4 @@ A successful response is returned in JSON format. Click the links below to view 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visualize anomalies using Python](../tutorials/visualize-anomalies-using-python.md)
 > [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

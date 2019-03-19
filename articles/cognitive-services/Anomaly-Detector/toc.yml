@@ -11,11 +11,11 @@
     - name: Detect Anomalies in your data
       items:
         - name: Using C#
-          href: quickstarts/find-data-anomalies-csharp.md
+          href: quickstarts/detect-data-anomalies-csharp.md
         - name: Using Java
-          href: quickstarts/find-data-anomalies-java.md
+          href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
-          href: quickstarts/find-data-anomalies-python.md
+          href: quickstarts/detect-data-anomalies-python.md
 - name: How-to
   items:
     - name: Identify anomalies in your data
