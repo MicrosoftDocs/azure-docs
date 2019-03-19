@@ -54,7 +54,7 @@
   items:
   - name: Routing messages 
     items:
-    - name: Configure message routing
+    - name: Part 1 - Configure message routing
       items:
       - name: Portal
         href: tutorial-routing.md
@@ -64,7 +64,7 @@
         href: tutorial-routing-config-message-routing-CLI.md
       - name: PowerShell
         href: tutorial-routing-config-message-routing-PowerShell.md
-    - name: View message routing results
+    - name: Part 2 - View message routing results
       href: tutorial-routing-view-message-routing-results.md 
   - name: Use metrics and diagnostic logs
     href: tutorial-use-metrics-and-diags.md

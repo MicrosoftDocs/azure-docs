@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
 ---
 
-# Tutorial: View the routed messages
+# Tutorial: Part 2 - View the routed messages
 
 In [part 1 of this tutorial](tutorial-routing.md), you set up the resources in Azure to allow an IoT Hub to route messages automatically depending on the properties found in each message. You could do this using the portal, Azure CLI, Azure PowerShell, or an Azure Resource Manager template.
 
