@@ -144,8 +144,12 @@ public async Task UploadBlob(CloudBlobClient cloudBlobClient,
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) class
+> * [CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) class
+> * [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) class
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method.
+> * [CloudBlockBlob.UploadFromFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync?view=azure-dotnet) method.
 
 ## List blobs in the container
 
@@ -177,8 +181,12 @@ public async Task ListBlobs(CloudBlobClient cloudBlobClient, string containerNam
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) class
+> * [CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) class
+> * [BlobContinuationToken](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobcontinuationtoken?view=azure-dotnet) class
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) method.
+> * [BlobResultSegment.ContinuationToken](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) property.
 
 ## Download blobs from the container
 
