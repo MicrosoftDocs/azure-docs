@@ -22,7 +22,7 @@ You learn how to:
 > - Set up replication, including a replication policy. Add your vCenter server and discover VMs. 
 > - Add a vCenter server and discover 
 > - Create storage accounts to hold replication data, and replicate the VMs.
-> - Perform a failover. Configure failover settings, perform a e settings for replicating virtual machines.
+> - Perform a failover. Configure failover settings, perform a settings for replicating virtual machines.
 
 ## Prerequisites
 

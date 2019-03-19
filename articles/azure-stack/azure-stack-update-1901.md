@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
+ms.lastreviewed: 03/20/2019
 ---
 
 # Azure Stack 1901 update
@@ -54,7 +54,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: No current hotfix available.
+- **1901**: [KB 4481548 – Azure Stack hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## Prerequisites
 

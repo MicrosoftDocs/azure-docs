@@ -23,9 +23,9 @@ This step-by-step guide describes how to plan the deployment of Azure AD Privile
 
 > [!TIP]
 > Throughout this document, you will see items marked as:
->
+> 
 > :heavy_check_mark: **Microsoft recommends**
->
+> 
 > These are general recommendations, and you should only implement if they apply to your specific enterprise needs.
 
 ## Step 1. Learn about PIM
