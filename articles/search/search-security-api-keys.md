@@ -55,7 +55,7 @@ Query keys are used for read-only access to documents within an index. Restricti
 2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
 3. Select the service and on the Overview page, click **Settings** >**Keys**.
 4. Click **Manage query keys**.
-5. Use the query already generated for your service, or create up to 50 new query keys. The default query key is not named, but additional 1uery keys can be named for manageability.
+5. Use the query already generated for your service, or create up to 50 new query keys. The default query key is not named, but additional query keys can be named for manageability.
 
    ![Create or use a query key](media/search-security-overview/create-query-key.png) 
 
@@ -65,7 +65,7 @@ Query keys are used for read-only access to documents within an index. Restricti
 
 ## Regenerate admin keys
 
-Two admin keys are created for each service so that you can rollover a primary key, using the secondary key for continued access.
+Two admin keys are created for each service so that you can rotate a primary key, using the secondary key for continued access.
 
 If you regenerate both primary and secondary keys at the same time, any applications using either key for accessing service operations will no longer have access to the service.
 

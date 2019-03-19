@@ -43,7 +43,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## 1 - Create a new project
 
-In Visual Studio, create a new Visual C# project. A good template for this quickstart is Visual C# > Get started > Web App. This template gives you an appsettings.json file.  
+In Visual Studio, create a new Visual C# project. The sample code is a console application but a good template for this quickstart is Visual C# > Get started > Web App because it gives you an appsettings.json file.  
 
 In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
@@ -57,7 +57,7 @@ In appsettings.json, replace the default content with the example below, and the
 
 <a name="CreateSearchServiceClient"></a>
 
-## 2 - Create SearchServiceClient
+## 2 - Create a client
 
 To start using the Azure Search .NET SDK, create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
@@ -157,7 +157,7 @@ We have carefully chosen the attributes for each property based on how we think 
 
 Please note that exactly one field in your index of type `string` must be the designated as the *key* field by adding the `Key` attribute (see `HotelId` in the above example).
 
-The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more inforamtoin, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
+The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more information, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
 
 > [!NOTE]
 > By default, the name of each property in your model class corresponds to the field name in the index. If you want to map all property names to camel-case field names, mark the class with the `SerializePropertyNamesAsCamelCase` attribute. If you want to map to a different name, you can use the `JsonProperty` attribute like the `DescriptionFr` property above. The `JsonProperty` attribute takes precedence over the `SerializePropertyNamesAsCamelCase` attribute.

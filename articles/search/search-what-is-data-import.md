@@ -40,7 +40,7 @@ You can control the type of indexing action on a per-document basis, specifying 
 
 In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-create-index-rest-api.md#load-documents).
 
-In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see [Construct IndexBatch](search-import-data-dotnet.md#Construct-IndexBatch).
+In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see [Construct IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
 
 
 | @search.action | Description | Necessary fields for each document | Notes |
