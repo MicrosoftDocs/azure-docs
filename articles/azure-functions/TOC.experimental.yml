@@ -1,5 +1,5 @@
 metadata:
-  experimental: true
+  experimental: false
   experiment_id: c80d19c3-428d-4b
 - name: Functions Documentation
   href: index.yml
