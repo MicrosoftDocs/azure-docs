@@ -17,7 +17,7 @@ This article shows you how to import data into [an Azure Search index](search-wh
 
 > [!div class="checklist"]
 > * Create a [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object to connect to a search index.
-> * Create an [`IndexBatch`]https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet() object containing the documents to be added, modified, or deleted.
+> * Create an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet object containing the documents to be added, modified, or deleted.
 > * Call the `Documents.Index` method on `SearchIndexClient` to upload documents to an index.
 
 ## Prerequisites
@@ -26,20 +26,20 @@ This article shows you how to import data into [an Azure Search index](search-wh
 
 
 ## Create a client
-To import data, create an instance of the `SearchIndexClient` class.
+To import data, create an instance of the `SearchIndexClient` class using the `SearchServiceClient` instance you already created. While you could construct `SearchIndexClient`yourself, it's easier to have a `SearchServiceClient` instance and call its `Indexes.GetClient` method. 
 
-You can construct this instance yourself, but it's easier if you already have a `SearchServiceClient` instance to call its `Indexes.GetClient` method. For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
+For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
-> [!NOTE]
-> In a typical search application, querying and indexing are handled separately. While `Indexes.GetClient` is convenient because you can reuse objects like `SearchCredentials`, a more robust approach involves creating the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This practice is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and helps to make your application more secure. For more information about keys, see [Create and manage api-keys for an Azure Search service](search-security-api-keys.md).
-> 
-> 
-
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to add, modify, delete, or query documents in your index.
+
+> [!NOTE]
+> In a typical search application, querying and indexing are handled separately. While `Indexes.GetClient` is convenient because you can reuse objects like `SearchCredentials`, a more robust approach involves creating the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This practice is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and helps to make your application more secure. You'll construct a `SearchIndexClient` in the next exercise. For more information about keys, see [Create and manage api-keys for an Azure Search service](search-security-api-keys.md).
+> 
+> 
 
 <a name="construct-indexbatch"></a>
 

@@ -14,16 +14,12 @@ ms.date: 03/20/2019
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
 
-This article walks you through the process of creating, loading, and querying [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Creating an index is accomplished by performing these tasks:
+This article walks you through the process of creating [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). This is the first lesson in a 3-part exercise for creating, loading, and query an index. Index creation is accomplished by performing these tasks:
 
 > [!div class="checklist"]
 > * Create a [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) object to connect to a search service.
 > * Create an [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) object to pass as a parameter on `Indexes.Create`.
 > * Call the `Indexes.Create` method on `SearchServiceClient` to send the `Index` to a service.
-
-
-> [!NOTE]
-> Source code is on [GitHub](https://aka.ms/search-dotnet-howto). We recommend [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code.
 
 ## Prerequisites
 
@@ -41,9 +37,9 @@ A URL endpoint and admin api-key of your search service. A search service is cre
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 1 - Create a new project
+## 1 - Open the project
 
-In Visual Studio, create a new Visual C# project. The sample code is a console application but a good template for this quickstart is Visual C# > Get started > Web App because it gives you an appsettings.json file.  
+Download the sample code [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) from GitHub. 
 
 In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
@@ -55,13 +51,17 @@ In appsettings.json, replace the default content with the example below, and the
 }
 ```
 
+Once those values are set, you can F5 build the solution to run the console app. The remaining steps in this exercise and those that follow are an exploration of how this code works. 
+
+Alternatively, you can refer to [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
+
 <a name="CreateSearchServiceClient"></a>
 
 ## 2 - Create a client
 
 To start using the Azure Search .NET SDK, create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
-Copy the following code into the Program.cs file. The code below creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (appsettings.json).
+The following code can be found in the Program.cs file. It creates a new `SearchServiceClient` using values for the search service name and api-key that are stored in the application's config file (appsettings.json).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)

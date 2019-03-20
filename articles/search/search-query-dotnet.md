@@ -15,7 +15,7 @@ ms.date: 03/20/2019
 This article shows you how to query [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). Searching documents in your index is accomplished by performing these tasks:
 
 > [!div class="checklist"]
-> * Create a [`SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object to connect to a search index with read-only rights.
+> * Create a [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object to connect to a search index with read-only rights.
 > * Create a [`SearchParameters`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet) object containing the search or filter definition.
 > * Call the `Documents.Search` method on `SearchIndexClient` to send queries to an index.
 
@@ -28,7 +28,7 @@ Obtain a query key used for read-only access to documents. Until now, you have u
 ## Create a client
 Create an instance of the `SearchIndexClient` class so that you can give it a query key for read-only access (as opposed to the write-access rights conferred upon the `SearchServiceClient` used in the previous lesson).
 
-This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
+This class has several constructors. The one you want takes your search service name, index name, and a [`SearchCredentials`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) object as parameters. `SearchCredentials` wraps your api-key.
 
 The code below creates a new `SearchIndexClient` for the "hotels" index using values for the search service name and api-key that are stored in the application's config file (`appsettings.json` in the case of the [sample application](https://aka.ms/search-dotnet-howto)):
 
@@ -43,7 +43,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-`SearchIndexClient` has a `Documents` property. This property provides all the methods you need to query Azure Search indexes.
+`SearchIndexClient` has a [`Documents`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet) property. This property provides all the methods you need to query Azure Search indexes.
 
 ## Construct SearchParameters
 Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
@@ -151,4 +151,4 @@ The sample code above uses the console to output search results. You will likewi
 
 ## Next steps
 
-If you haven't done so already, review the sample code on [GitHub](https://aka.ms/search-dotnet-howto), along with [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code. 
+If you haven't done so already, review the sample code in [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) on GitHub, along with [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code. 
