@@ -237,7 +237,7 @@ Configure authentication methods | Global Administrator |
 Configure customization | Global Administrator | 
 Configure notification | Global Administrator | 
 Configure on-premises integration | Global Administrator | 
-Configure password reset properties | Global Administrator | 
+Configure password reset properties | User Administrator | Global Administrator
 Configure registration | Global Administrator | 
 Read all configuration | Security Administrator	User Administrator | 
 
