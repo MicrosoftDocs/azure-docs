@@ -3,14 +3,14 @@ title: "Example: Use prediction endpoint to programmatically test images with cl
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 services: cognitive-services
-author: anrothMSFT
+author: diftimieMSFT
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: sample
-ms.date: 05/03/2018
-ms.author: anroth
+ms.date: 03/26/2019
+ms.author: diftimieMSFT
 ---
 
 # Use the prediction endpoint to test images programmatically with a Custom Vision Service classifier
@@ -20,17 +20,35 @@ After you train your model, you can test images programmatically by submitting t
 > [!NOTE]
 > This document demonstrates using C# to submit an image to the Prediction API. For more information and examples of using the API, see the [Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865445).
 
+## Publish your trained iteration
+
+From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab.
+
+To submit images to the Prediction API, you will first need to publish your iteration for prediction, which can be done by selecting __Publish__ and specifying a name for the published iteration. This will enable your model to be accessible to the Prediction API of your Custom Vision Azure resource. 
+
+![The performance tab is shown, with a red rectangle surrounding the Publish button.](./media/use-prediction-api/UnpublishedIteration.png)
+
+Once your model has been successfully published, you'll see a "Published" label appear next to your iteration in the left-hand sidebar, as well as the name of the published iteration in the description of the iteration.
+
+![The performance tab is shown, with a red rectangle surrounding the "Published label and the name of the published iteration.](./media/use-prediction-api/PublishedIteration.png)
+
 ## Get the URL and prediction key
 
-From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. To display information about using the Prediction API, including the __Prediction-key__, select __Prediction URL__. For projects attached to an Azure Resource, your __Prediction-key__ can also be found in the [Azure Portal](https://portal.azure.com) page for associated Azure Resource under __Keys__. Copy the following information for use in the application:
+From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. 
 
-* __URL__ for using an __image file__.
-* __Prediction-key__ value.
+Once your model has been published, you can retrieve information about using the Prediction API by selecting __Prediction URL__. This will open up a dialog like the one shown below with information for using the Prediction API, including the __Prediction-Key__ and __Prediction URL__.
+
+![The performance tab is shown with a red rectangle surrounding the Prediction URL button.](./media/use-prediction-api/PublishedIteration-PredictionUrl.png)
+
+![The performance tab is shown with a red rectangle surrounding the Prediction URL value for using an image file and the Prediction-Key value.](./media/use-prediction-api/UsePredictionApi.png)
 
 > [!TIP]
-> If you have multiple iterations, you can control which one is used by setting it as default. Select the iteration from the __Iterations__ section, then select __Make default__ at the top of the page.
+> Your __Prediction-Key__ can also be found in the [Azure Portal](https://portal.azure.com) page for the Custom Vision Azure Resource associated to your project, under __Keys__. 
 
-![The performance tab is shown with a red rectangle surrounding the Prediction URL.](./media/use-prediction-api/prediction-url.png)
+From the dialog, copy the following information for use in the application:
+
+* __Prediction URL__ for using an __image file__.
+* __Prediction-Key__ value.
 
 ## Create the application
 
@@ -43,7 +61,7 @@ From the [Custom Vision web page](https://customvision.ai), select your project 
     >
     > * Set the __namespace__ to the name of your project.
     > * Set the __Prediction-Key__ value you received earlier in the line that begins with `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Set the __URL__ value you received earlier in the line that begins with `string url =`.
+    > * Set the __Prediction URL__ value you received earlier in the line that begins with `string url =`.
 
     ```csharp
     using System;
@@ -52,37 +70,30 @@ From the [Custom Vision web page](https://customvision.ai), select your project 
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
 
-    namespace CSPredictionSample
+    namespace CVSPredictionSample
     {
-        static class Program
+        public static class Program
         {
-            static void Main()
+            public static void Main()
             {
                 Console.Write("Enter image file path: ");
                 string imageFilePath = Console.ReadLine();
 
                 MakePredictionRequest(imageFilePath).Wait();
 
-                Console.WriteLine("\n\n\nHit ENTER to exit...");
+                Console.WriteLine("\n\nHit ENTER to exit...");
                 Console.ReadLine();
             }
 
-            static byte[] GetImageAsByteArray(string imageFilePath)
-            {
-                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-
-            static async Task MakePredictionRequest(string imageFilePath)
+            public static async Task MakePredictionRequest(string imageFilePath)
             {
                 var client = new HttpClient();
 
-                // Request headers - replace this example key with your valid subscription key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
+                // Request headers - replace this example key with your valid Prediction-Key.
+                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d958300f2");
 
-                // Prediction URL - replace this example URL with your valid prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
+                // Prediction URL - replace this example URL with your valid Prediction URL.
+                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-63a11deffd7a/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
 
                 HttpResponseMessage response;
 
@@ -96,23 +107,30 @@ From the [Custom Vision web page](https://customvision.ai), select your project 
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                 }
             }
+
+            private static byte[] GetImageAsByteArray(string imageFilePath)
+            {
+                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
         }
     }
     ```
 
 ## Use the application
 
-When running the application, you enter the path to an image file. The image is submitted to the API and the results are returned as a JSON document. The following JSON is an example of the response
+When running the application, you will enter the path to an image file in the console. The image is submitted to the Prediction API and the prediction results are returned as a JSON document. The following JSON is an example of the response.
 
 ```json
 {
-    "Id":"3f76364c-b8ae-4818-a2b2-2794cfbe377a",
-    "Project":"2277aca4-7aff-4742-8afb-3682e251c913",
-    "Iteration":"84105bfe-73b5-4fcc-addb-756c0de17df2",
-    "Created":"2018-05-03T14:15:22.5659829Z",
+    "Id":"7796fe8e-acbc-45fc-90b4-1b0c81b73739",
+    "Project":"8622c779-471c-4b6e-842c-63a11deffd7a",
+    "Iteration":"59ec199d-f3fb-443a-b708-4bca79e1b7f7",
+    "Created":"2019-03-20T16:47:31.322Z",
     "Predictions":[
-        {"TagId":"35ac2ad0-e3ef-4e60-b81f-052a1057a1ca","Tag":"dog","Probability":0.102716163},
-        {"TagId":"28e1a872-3776-434c-8cf0-b612dd1a953c","Tag":"cat","Probability":0.02037274}
+        {"TagId":"d9ba3fa5-1ff3-4e98-8d47-2ee42d7fb373","TagName":"cat", "Probability":1.0},
+        {"TagId":"9a8d73fb-b6ed-4462-bcff-77fe72084d99","TagName":"dog", "Probability":0.1087869}
     ]
 }
 ```
@@ -120,3 +138,5 @@ When running the application, you enter the path to an image file. The image is 
 ## Next steps
 
 [Export the model for mobile use](export-your-model.md)
+
+[Get started with .NET SDKs](csharp-tutorial.md)
