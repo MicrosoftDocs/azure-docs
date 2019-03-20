@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/15/2019
+ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -78,13 +78,6 @@ WITH
   )  
 AS SELECT * FROM [dbo].[DimSalesTerritory]
 OPTION  (LABEL  = 'CTAS : DimSalesTerritory_REPLICATE') 
-
---Create statistics on new table
-CREATE STATISTICS [SalesTerritoryKey] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryKey]);
-CREATE STATISTICS [SalesTerritoryAlternateKey] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryAlternateKey]);
-CREATE STATISTICS [SalesTerritoryRegion] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryRegion]);
-CREATE STATISTICS [SalesTerritoryCountry] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryCountry]);
-CREATE STATISTICS [SalesTerritoryGroup] ON [DimSalesTerritory_REPLICATE] ([SalesTerritoryGroup]);
 
 -- Switch table names
 RENAME OBJECT [dbo].[DimSalesTerritory] to [DimSalesTerritory_old];
