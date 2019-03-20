@@ -102,7 +102,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md#upgrading-to-instant-restore). After you upgrade, it will take up to two hours for the subscription to avail this functionality. Provide sufficient buffer before you retry the operation.  
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md). After you upgrade, it will take up to two hours for the subscription to avail this functionality. Provide sufficient buffer before you retry the operation.  
 
 ## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
 

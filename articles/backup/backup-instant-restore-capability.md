@@ -15,8 +15,6 @@ ms.author: sogup
 > [!NOTE]
 > Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
@@ -43,10 +41,9 @@ By default, snapshots are retained for two days. This feature allows restores op
 
 * Snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you'll see storage costs that correspond to snapshots taken during this period.
 * Incremental snapshots are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you will see costs corresponding to blob snapshot pricing and they are incremental.
-* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space.
+* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10 TB limit of allocated space.
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention if you don’t perform restores frequently.
 * This is a one directional upgrade, once upgraded to Instant restore, you cannot go back.
-
 
 >[!NOTE]
 >With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration as per your requirement to any value between 1 to 5 days.
@@ -61,19 +58,20 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 
 **All the Azure backup users have now been upgraded to Instant restore**.
 
-In the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
+In the Azure portal, you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
+![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
 
 ## Frequently asked questions
 
 ### What are the cost implications of Instant restore?
 Snapshots are stored along with the disks to speed up recovery point creation and restore operations. As a result, you'll see storage costs that correspond to the snapshot retention selected as a part of VM backup policy.
 
-### In Premium Storage accounts, do the snapshots taken for instant recovery point occupy the 10-TB snapshot limit?
-Yes, for premium storage accounts the snapshots taken for instant recovery point occupy 10-TB of allocated snapshot space.
+### In Premium Storage accounts, do the snapshots taken for instant recovery point occupy the 10 TB snapshot limit?
+Yes, for premium storage accounts the snapshots taken for instant recovery point occupy 10 TB of allocated snapshot space.
 
 ### How does the snapshot retention work during the five-day period?
-Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which is in most cases around 2%-7%.
+Each day a new snapshot is taken, then there are five individual incremental snapshots. The size of the snapshot depends on the data churn, which are in most cases around 2%-7%.
 
 ### Is an instant restore snapshot an incremental snapshot or full snapshot?
 Snapshots taken as a part of instant restore capability are incremental snapshots.
