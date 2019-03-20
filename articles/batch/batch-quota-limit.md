@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -61,6 +61,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
 | [Applications](batch-application-packages.md) per Batch account | 20 |
 | Application packages per application | 40 |
+| Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
