@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: jeedes
 
 ---
@@ -63,7 +63,7 @@ To configure the integration of InsideView into Azure AD, you need to add Inside
 
 4. In the search box, type **InsideView**, select **InsideView** from result panel then click **Add** button to add the application.
 
-	 ![InsideView in the results list](common/search-new-app.png)
+	![InsideView in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with InsideView, perform the following step
 
 ### Configure InsideView Single Sign-On
 
-1. In a different web browser window, log in to your InsideView company site as an administrator.
+1. In a different web browser window, sign in to your InsideView company site as an administrator.
 
 1. In the toolbar on the top, click **Admin**, **SingleSignOn Settings**, and then click **Add SAML**.
    
@@ -202,7 +202,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create InsideView test user
 
-To enable Azure AD users to log in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
+To enable Azure AD users to sign in to InsideView, they must be provisioned in to InsideView. In the case of InsideView, provisioning is a manual task.
 
 To get users or contacts created in InsideView, Contact [InsideView support team](mailto:support@insideview.com).
 
@@ -215,7 +215,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the InsideView tile in the Access Panel, you should be automatically signed in to the InsideView for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
