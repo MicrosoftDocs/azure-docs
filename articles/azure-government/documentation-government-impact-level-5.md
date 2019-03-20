@@ -1,5 +1,5 @@
 ---
-title: Azure Government Overview | Microsoft Docs
+title: Azure Isolation Guidelines for Impact Level 5 | Microsoft Docs
 description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD'
 services: azure-government
 cloud: gov
@@ -48,30 +48,84 @@ When applying this to services the following evaluation:
 
 This ensures all key material for decrypting data is stored separately of the data itself and done so with a hardware key management solution.
 
-## Services
+## Analytics Services
 
-### Azure Storage
+### Azure Event Hubs
 
-Azure Storage consists of multiple data features: Blob storage, File storage, Table storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Storage also includes configurations which modify these storage types, such as hot and cool to provide appropriate speed-of-availability for data scenarios. The below outlines which features of storage currently support IL5 workloads.
+Azure Event Hubs can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
-When using an Azure Storage account, you must follow the steps for using **Storage Encryption with Key Vault Managed Keys** to ensure the data is protected with customer managed keys.
+- Leverage Azure Event Hubs in the dedicated Azure DoD regions
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Blobs** | X | X | X | X | X | X |
-| **Files** | X | X | X | X | X | X |
-| **Tables** | X | X | X | X | X | X |
-| **Queues** | X | X | X | X | X | X |
+| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
-Tables and Queues when used outside the **USDoD regions** must encrypt the data before inserting into the Table and Queue (instructions [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-client-side-encryption-java)).
+<sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
 
-#### Storage Encryption with Key Vault Managed Keys
+### Azure HDInsight
 
-To implement Impact Level 5 compliant controls on an Azure Storage account running in Azure Government outside of the dedicated DoD regions, Encryption at Rest must be implemented with the customer-managed key option enabled (also known as bring-your-own-key).
+Azure HDInsight can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
-For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation [found here](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Azure HDInsight can be deployed to existing storage accounts which have enabled appropriate Storage Service Encryption as discussed in the Azure Storage for guidance.
+- Azure HDInsight enables a database option for certain configurations, ensure the appropriate database configuration for TDE is enabled on the chosen option as discussed in the SQL Database for guidance.
 
-**Important note:** When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure HDInsight** | X | X | X | X | X | X |
+
+### Azure SQL Data Warehouse
+
+Azure SQL Warehouse can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found [here](https://docs.microsoft.com/en-us/azure/sql-database/transparent-data-encryption-byok-azure-sql)).
+
+**Note:** The instructions to enable this are the same as for Azure SQL database.
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure SQL Data Warehouse** | X | X | X | X | X | X |
+
+### Power BI Embedded
+
+Power BI Embedded can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+- Leverage Power BI Embedded in the dedicated Azure DoD regions
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Power BI Embedded** |   |   |   |   | X | X |
+
+## Compute Services
+
+### Azure Batch
+
+Azure Batch can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Batch** | X | X | X | X | X | X |
+
+ Enable User Subscription Mode which will require a Key Vault instance for proper encryption and key storage (see documentation [here](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal)).
+
+### Azure Functions
+
+Azure Web Apps can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+- To accommodate proper network and workload isolation, deploy your Azure Functions on App Service Plans configured to leverage the **Isolated SKU**. More information can be found [here](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans).
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Web Apps** | X | X | X | X | X | X |
+
+### Azure Service Fabric
+
+Azure Service Fabric can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+- Leverage Azure Service Fabric in the dedicated Azure DoD regions
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Service Fabric** |   |   |   |   | X | X |
 
 ### Azure Virtual Machines &amp; Virtual Machine Scale Sets
 
@@ -81,12 +135,12 @@ All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Virtual Machines** | X | X | X | X | X | X |
-| **Virtual Machine Scale Sets (VMSS)** | X | X | X | X | X | X |
+| **Virtual Machines** | X<sup>1</sup>  | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+| **Virtual Machine Scale Sets (VMSS)** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 
-When deploying VMs in these regions you must use **Dedicated Virtual Machines** as described below.
+<sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
 
-#### Dedicated Virtual Machines
+#### Isolated Virtual Machines
 
 Specific VM types when deployed consume the entire physical host for that VM. These VMs provide the necessary level of isolation required to support IL5 workloads when deployed outside of the dedicated DoD regions.  In addition to deploying on these hosts, the underlying storage and disks for these virtual machines must be configured with encryption at rest.
 
@@ -120,35 +174,45 @@ The disks that support Virtual Machine Scale Sets can be encrypted using Azure D
 
 - [Encrypt Disks with Virtual Machine Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps)
 
-### Azure Import/Export
-
-Azure Import/Export can be used in Azure Government to import/export impact level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of impact level 5 data add storage at rest encryption via Azure Key Vault (additional documentation and guidance found here).
-
-The target storage account for Import and source storage account for Export can reside in the any of the following regions:
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Import/Export** | X | X | X | X | X | X |
-
-### Azure Service Fabric
-
-Azure Service Fabric can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Leverage Azure Service Fabric in the dedicated Azure DoD regions
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Service Fabric** |   |   |   |   | X | X |
-
 ### Azure Web Apps
 
 Azure Web Apps can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
-- To accommodate proper network and internet isolation, leverage the Web Apps Isolated SKU. More information can be found [here](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans).
+- To accommodate proper network and workload isolation, deploy your web apps on the **Isolated SKU**. More information can be found [here](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Web Apps** | X | X | X | X | X | X |
+
+## Integration Services
+
+### Azure Service Bus
+
+Azure Service Bus can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+
+ <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus?
+
+### Azure API Management
+
+Azure API Management can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **API Management** | X | X | X | X | X | X |
+
+## Management and Governance
+
+### Azure Backup
+
+Azure Backup can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Backup** | X | X | X | X | X | X |
 
 ### Azure Monitor
 
@@ -158,21 +222,27 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
 
-### Azure Active Directory
+### Azure Scheduler
 
-Azure Active Directory can be used in all Azure Government regions, supporting all impact levels with no additional configuration required between regions.
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Active Directory** | X | X | X | X | X | X |
-
-### Microsoft Graph
-
-Microsoft Graph can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
+Azure Scheduler can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Microsoft Graph** | X | X | X | X | X | X |
+| **Azure Scheduler** | X | X | X | X | X | X |
+
+## Media Services
+
+### Azure Media Services
+
+Azure Media Services can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+- Leverage Azure Media Services in the dedicated Azure DoD regions
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Media Services** |   |   |   |   | X | X |
+
+## Networking Services
 
 ### Azure ExpressRoute
 
@@ -214,55 +284,23 @@ Azure VPN Gateway can be used in Azure Government supporting all impact levels w
 | --- | --- | --- | --- | --- | --- | --- |
 | **VPN Gateway** | X | X | X | X | X | X |
 
-### Azure Batch
+## Security & Identity Services
 
-Azure Batch can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+### Azure Active Directory
 
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure Batch** | X | X | X | X | X | X |
-
- Enable User Subscription Mode which will require a Key Vault instance for proper encryption and key storage (see documentation [here](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal)).
-
-### Azure Service Bus
-
-Azure Service Bus can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+Azure Active Directory can be used in all Azure Government regions, supporting all impact levels with no additional configuration required between regions.
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+| **Azure Active Directory** | X | X | X | X | X | X |
 
- <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus?
+### Microsoft Graph
 
-### Azure Event Hubs
-
-Azure Event Hubs can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Leverage Azure Event Hubs in the dedicated Azure DoD regions
+Microsoft Graph can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-
-<sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
-
-### Azure API Management
-
-Azure API Management can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **API Management** | X | X | X | X | X | X |
-
-### Azure Media Services
-
-Azure Media Services can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Leverage Azure Media Services in the dedicated Azure DoD regions
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Media Services** |   |   |   |   | X | X |
+| **Microsoft Graph** | X | X | X | X | X | X |
 
 ### Azure Key Vault
 
@@ -271,6 +309,59 @@ Azure Key Vault can be used in Azure Government supporting all impact levels wit
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Key Vault** | X | X | X | X | X | X |
+
+## Storage & Database Services
+
+### Azure Cache for Redis
+
+Azure Cache for Redis can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Cache for Redis** | X | X | X | X | X | X |
+
+### Azure Import/Export
+
+Azure Import/Export can be used in Azure Government to import/export impact level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of impact level 5 data add storage at rest encryption via Azure Key Vault (additional documentation and guidance found here).
+
+The target storage account for Import and source storage account for Export can reside in the any of the following regions:
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure Import/Export** | X | X | X | X | X | X |
+
+### Azure CosmosDB
+
+Azure CosmosDB can be used in Azure Government supporting impact level 5 workloads in the following configurations:
+
+- Leverage Azure CosmosDB in the dedicated Azure DoD regions
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Azure CosmosDB** |  |  |  |  | X | X |
+
+### Azure Storage
+
+Azure Storage consists of multiple data features: Blob storage, File storage, Table storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Storage also includes configurations which modify these storage types, such as hot and cool to provide appropriate speed-of-availability for data scenarios. The below outlines which features of storage currently support IL5 workloads.
+
+When using an Azure Storage account, you must follow the steps for using **Storage Encryption with Key Vault Managed Keys** to ensure the data is protected with customer managed keys.
+
+| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Blobs** | X | X | X | X | X | X |
+| **Files** | X | X | X | X | X | X |
+| **Tables** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+| **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
+
+<sup>1</sup>Tables and Queues when used outside the **USDoD Regions** must encrypt the data before inserting into the Table and Queue (instructions [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-client-side-encryption-java)).
+
+#### Storage Encryption with Key Vault Managed Keys
+
+To implement Impact Level 5 compliant controls on an Azure Storage account running in Azure Government outside of the dedicated DoD regions, Encryption at Rest must be implemented with the customer-managed key option enabled (also known as bring-your-own-key).
+
+For more information on how to enable this Azure Storage Encryption feature, please review the supporting documentation [found here](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+
+**Important note:** When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.
 
 ### Azure SQL Database
 
@@ -291,46 +382,3 @@ Azure SQL Stretch Database can be used in Azure Government supporting impact lev
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure SQL Stretch DB** | X | X | X | X | X | X |
-
-### Azure CosmosDB
-
-Azure CosmosDB can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Leverage Azure CosmosDB in the dedicated Azure DoD regions
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure CosmosDB** |  |  |  |  | X | X |
-
-### Azure HDInsight
-
-Azure HDInsight can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Azure HDInsight can be deployed to existing storage accounts which have enabled appropriate Storage Service Encryption as discussed in the Azure Storage for guidance.
-- Azure HDInsight enables a database option for certain configurations, ensure the appropriate database configuration for TDE is enabled on the chosen option as discussed in the SQL Database for guidance.
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure HDInsight** | X | X | X | X | X | X |
-
-### Azure SQL Data Warehouse
-
-Azure SQL Warehouse can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found [here](https://docs.microsoft.com/en-us/azure/sql-database/transparent-data-encryption-byok-azure-sql)).
-
-**Note:** The instructions to enable this are the same as for Azure SQL database.
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Azure SQL Data Warehouse** | X | X | X | X | X | X |
-
-### Power BI Embedded
-
-Power BI Embedded can be used in Azure Government supporting impact level 5 workloads in the following configurations:
-
-- Leverage Power BI Embedded in the dedicated Azure DoD regions
-
-| **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Power BI Embedded** |   |   |   |   | X | X |

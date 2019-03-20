@@ -60,6 +60,23 @@
     href: documentation-government-ase-disa-cap.md
   - name: Configure Impact Level 5 Workloads
     href: documentation-government-impact-level-5.md
+    items:
+      - name: Analytics Services
+        href: documentation-government-impact-level-5.md#analytics-services 
+      - name: Compute Services
+        href: documentation-government-impact-level-5.md#compute-services
+      - name: Integration Services
+        href: documentation-government-impact-level-5.md#integration-services
+      - name: Management and Governance
+        href: documentation-government-impact-level-5.md#management-and-government
+      - name: Media Services
+        href: documentation-government-impact-level-5.md#media-services
+      - name: Networking Services
+        href: documentation-government-impact-level-5.md#networking-services
+      - name: Security & Identity Services
+        href: documentation-government-impact-level-5.md#Security-&-Identity Services
+      - name: Storage & Database Services
+        href: documentation-government-impact-level-5.md#Storage-&-Database Services
 - name: Reference
   items:
   - name: Marketplace
