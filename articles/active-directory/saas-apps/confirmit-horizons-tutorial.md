@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
     ![Confirmit Horizons Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	| |
+	|||
 	|--|--|
 	| `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>` |
 	| `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>` |
@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
 	| `https://sso.us.confirmit.com/<UNIQUEID>` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-	| |
+	|||
 	|--|--|
 	| `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs` |
 	| `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs` |
@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
     ![Confirmit Horizons Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-	| |
+	|||
 	|--|--|
 	| `https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>` |
 	| `https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>` |
