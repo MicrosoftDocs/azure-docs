@@ -290,12 +290,12 @@
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access blobs securely
+    - name: Authorize access to blob data
       items:
-      - name: Portal
-        href:      
-    - name: Authorize requests to Storage
-      items:
+      - name: Authorization options for users
+        items:
+        - name: Portal
+          href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authenticate with Azure AD
         items:
           - name: Manage access rights in Azure portal with RBAC
