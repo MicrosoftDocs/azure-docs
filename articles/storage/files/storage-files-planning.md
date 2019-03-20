@@ -11,9 +11,11 @@ ms.subservice: files
 ---
 
 # Planning for an Azure Files deployment
+
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. Because Azure Files is fully managed, deploying it in production scenarios is much easier than deploying and managing a file server or NAS device. This article addresses the topics to consider when deploying an Azure file share for production use within your organization.
 
 ## Management concepts
+
  The following diagram illustrates the Azure Files management constructs:
 
 ![File Structure](./media/storage-files-introduction/files-concepts.png)
@@ -47,6 +49,7 @@ The following table illustrates how your users and applications can access your 
 | What level of ACLs do you need? | Share and file level. | Share, file, and user level. |
 
 ## Data security
+
 Azure Files has several built-in options for ensuring data security:
 
 * Support for encryption in both over-the-wire protocols: SMB 3.0 encryption and File REST over HTTPS. By default: 
@@ -54,7 +57,7 @@ Azure Files has several built-in options for ensuring data security:
     * Clients which do not support SMB 3.0 with encryption can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. SMB clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
     * Clients can communicate over File REST with either HTTP or HTTPS.
 * Encryption at-rest ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is enabled for all storage accounts. Data at-rest is encrypted with fully-managed keys. Encryption at-rest does not increase storage costs or reduce performance. 
-* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed. 
+* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed.
 
     > [!Important]  
     > Requiring secure transfer of data will cause older SMB clients not capable of communicating with SMB 3.0 with encryption to fail. For more information, see [Mount on Windows](storage-how-to-use-files-windows.md), [Mount on Linux](storage-how-to-use-files-linux.md), and [Mount on macOS](storage-how-to-use-files-mac.md).
@@ -64,43 +67,76 @@ For maximum security, we strongly recommend always enabling both encryption at-r
 If you are using Azure File Sync to access your Azure file share, we will always use HTTPS and SMB 3.0 with encryption to sync your data to your Windows Servers, regardless of whether you require encryption of data at-rest.
 
 ## File share performance tiers
+
 Azure Files supports two performance tiers: standard and premium.
 
 * **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 * **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model.
 
 ### Provisioned shares
+
 Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased any time but can be decreased once every 24 hours since the last increase.
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
-| Provisioned capacity | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
-|----------------------|---------|---------|-------|-------|
-| Baseline IOPS | 100 | 500 | 1,024 | 5,120 | 
-| Burst limit | 300 | 1,500 | 3,072 | 15,360 | 
-| Throughput | 110 MiB/sec | 150 MiB/sec | 202 MiB/sec | 612 MiB/sec |
+All shares can burst up to at least 100 IOPS and target throughput of 100 MBPS. Shares must be provisioned in 1 GiB increments. Min size is 100 GiB, next size is 101 GIB and so on.
+
+Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change
+
+|Capacity (GiB) | Baseline IOPS | Burst limit | Throughput (MB/s) |
+|---------|---------|---------|---------|
+|100         | 100     | 300     | 110   |
+|500         | 500     | 1,500   | 150   |
+|1,000       | 1,024   | 3,072   | 202   |
+|5,000       | 5,120   | 15,360  | 612   |
+|10,000      | 10,240  | 30,720  | 1,124 |
+|33,333      | 33,792  | 100,000 | 3,479 |
+|50,000      | 51,200  | 100,000 | 5,000 |
+|100,000     | 100,000 | 100,000 | 5,000 |
+
+### Bursting
+
+Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
+
+Credits accumulate in a burst bucket whenever traffic for your fileshares is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs, the formula is: (Baseline_IOPS * 2 * 3600).
+
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though they will only stay at the burst limit for up to an hour. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
+
+Share credits have three states:
+
+- Accruing, when the file share is using less than the baseline IOPS
+- Declining, when the file share is bursting
+- Remaining at zero, when there are either no credits or baseline IOPS are in use.
+
+New file shares start with the full number of credits in its burst bucket. You can track how many credits you have as a metric in Azure monitor and setup alerts on them.
 
 ## File share redundancy
+
 Azure Files supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS). The following sections describe the differences between the different redundancy options:
 
 ### Locally redundant storage
+
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ### Zone redundant storage
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### Geo-redundant storage
+
 > [!Warning]  
 > If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
 
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## Data growth pattern
-Today, the maximum size for an Azure file share is 5 TiB. Because of this current limitation, you must consider the expected data growth when deploying an Azure file share. 
+
+Today, the maximum size for an Azure file share is 5 TiB. Because of this current limitation, you must consider the expected data growth when deploying an Azure file share.
 
 It is possible to sync multiple Azure file shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, large file shares that you may have on-premises can be brought into Azure File Sync. For more information, see [Planning for an Azure File Sync Deployment](storage-files-planning.md).
 
 ## Data transfer method
+
 There are many easy options to bulk transfer data from an existing file share, such as an on-premises file share, into Azure Files. A few popular ones include (non-exhaustive list):
 
 * **Azure File Sync**: As part of a first sync between an Azure file share (a "Cloud Endpoint") and a Windows directory namespace (a "Server Endpoint"), Azure File Sync will replicate all data from the existing file share to Azure Files.

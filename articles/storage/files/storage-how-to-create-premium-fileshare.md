@@ -13,7 +13,7 @@ ms.subservice: files
 
 # How to create an Azure premium file storage account
 
-Premium files is a new storage account type which contains only files objects and allows you to create premium file shares. It is meant to support enterprise applications, such as databases, CRM, and web content, as well as performance sensitive services, such as media/analytics, shared cache, highly variable or batch workloads, and content repositories.
+Premium files is a new tier for Azure Files, it is designed for high performance and enterprise scale applications. It provides consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using the [Azure portal](https://portal.azure.com/).
 
@@ -21,9 +21,9 @@ This article shows you how to create this new account type using the [Azure port
 
 To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
@@ -66,7 +66,7 @@ If you would like to clean up the resources created in this article, you can sim
 
 ## Next steps
 
-In this article you've created a premium files storage account. To learn about the performance this account offers, continue to our premium files performance article.
+In this article, you've created a premium files storage account. To learn about the performance this account offers, continue to our premium files performance article.
 
 > [!div class="nextstepaction"]
 > [Premium files performance](storage-files-premium-files-performance.md)
