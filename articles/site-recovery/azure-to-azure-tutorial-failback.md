@@ -42,7 +42,7 @@ After VMs are re-protected, you can fail back to the primary region as needed.
 
 3. Click **Test Failover** to perform a test failover back to the primary region.
 4. Select the recovery point and virtual network for the test failover, and click **OK**. You can review the test VM created in the primary region.
-5. After test failover finishes successully, click **Cleanup test failover** to clean up resources created in the source region for the test failover.
+5. After test failover finishes successfully, click **Cleanup test failover** to clean up resources created in the source region for the test failover.
 6. In **Replicated items**, select the VM, and click **Failover**.
 7. In **Failover**, select a recovery point to failover to.
     - **Latest (default)**: Processes all the data in the Site Recovery service and provides the lowest Recovery Point Objective (RPO).
