@@ -92,7 +92,7 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
 | API Management | \*.azure-api.us | \*.azure-api.net |
 | Container Registry Suffix | \*.azurecr.us | \*.azurecr.io |
-| Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
+| Gallery Url | https:\//gallery.azure.us/ | https:\//gallery.azure.com/ |
 | Classic Deployment Model Url | https:\//management.core.usgovcloudapi.net/ | https:\//management.core.windows.net/ |
 | Publish Settings File Url | https:\//portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https:\//portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
 | LUIS Portal | https:\//luis.azure.us | https:\//www.luis.ai/home

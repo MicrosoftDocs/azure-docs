@@ -153,10 +153,10 @@ For applications and users, the architecture of Azure Stack is described by four
 
 To authenticate with the identity provider and receive a JSON Web Token, you must have the following information:
 
-1. **URL for the identity system (Authority)**: The URL at which your identity provider can be reached. For example, *https://login.windows.net*.
+1. **URL for the identity system (Authority)**: The URL at which your identity provider can be reached. For example, *https:\//login.windows.net*.
 2. **App ID URI for Azure Resource Manager**: The unique identifier for Azure Resource Manager that is registered with your identity provider. It is also unique to each Azure Stack installation.
 3. **Credentials**: The credential you use to authenticate with the identity provider.
-4. **URL for Azure Resource Manager**: The URL is the location of the Azure Resource Manager service. For example, *https://management.azure.com* or *https://management.local.azurestack.external*.
+4. **URL for Azure Resource Manager**: The URL is the location of the Azure Resource Manager service. For example, *https:\//management.azure.com* or *https:\//management.local.azurestack.external*.
 
 When a principal (a client, application, or user) makes an authentication request to access a resource, the request must include:
 
