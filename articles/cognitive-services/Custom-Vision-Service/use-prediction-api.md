@@ -88,10 +88,10 @@ From the dialog, copy the following information for use in the application:
                 var client = new HttpClient();
 
                 // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d958300f2");
+                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
 
                 // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-63a11deffd7a/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
+                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
 
                 HttpResponseMessage response;
 
@@ -122,13 +122,13 @@ When running the application, you will enter the path to an image file in the co
 
 ```json
 {
-    "Id":"7796fe8e-acbc-45fc-90b4-1b0c81b73739",
-    "Project":"8622c779-471c-4b6e-842c-63a11deffd7a",
+    "Id":"7796df8e-acbc-45fc-90b4-1b0c81b73639",
+    "Project":"8622c779-471c-4b6e-842c-67a11deffd7b",
     "Iteration":"59ec199d-f3fb-443a-b708-4bca79e1b7f7",
     "Created":"2019-03-20T16:47:31.322Z",
     "Predictions":[
-        {"TagId":"d9ba3fa5-1ff3-4e98-8d47-2ee42d7fb373","TagName":"cat", "Probability":1.0},
-        {"TagId":"9a8d73fb-b6ed-4462-bcff-77fe72084d99","TagName":"dog", "Probability":0.1087869}
+        {"TagId":"d9cb3fa5-1ff3-4e98-8d47-2ef42d7fb373","TagName":"cat", "Probability":1.0},
+        {"TagId":"9a8d63fb-b6ed-4462-bcff-77ff72084d99","TagName":"dog", "Probability":0.1087869}
     ]
 }
 ```
