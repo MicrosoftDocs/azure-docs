@@ -711,7 +711,6 @@ For example, for the job in this document, you would use the following steps:
 
 In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
 
-* [Use the time-based Apache Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
 * [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
 * [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]
 * [Use Apache Hive with Apache Hadoop on HDInsight][hdinsight-use-hive]
@@ -720,7 +719,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md

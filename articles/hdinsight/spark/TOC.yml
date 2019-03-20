@@ -306,9 +306,6 @@
       - name: Use Apache Oozie for workflows
         href: ../hdinsight-use-oozie-linux-mac.md
         maintainContext: true
-      - name: Use time-based Apache Oozie coordinators
-        href: ../hdinsight-use-oozie-coordinator-time.md
-        maintainContext: true
       - name: Cluster and service ports and URIs
         href: ../hdinsight-hadoop-port-settings-for-services.md
         maintainContext: true
@@ -364,9 +361,6 @@
           maintainContext: true
         - name: Apache Hive settings fix Out of Memory error
           href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-          maintainContext: true
-        - name: Use Apache Ambari Views to debug Apache Tez Jobs
-          href: ../hdinsight-debug-ambari-tez-view.md
           maintainContext: true
         - name: Optimize Apache Hive queries
           href: ../hdinsight-hadoop-optimize-hive-query.md

@@ -178,9 +178,6 @@
     - name: Use Apache Oozie for workflows
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Use time-based Apache Oozie coordinators
-      href: ../hdinsight-use-oozie-coordinator-time.md
-      maintainContext: true
     - name: Cluster and service ports and URIs
       href: ../hdinsight-hadoop-port-settings-for-services.md
       maintainContext: true
@@ -281,20 +278,6 @@
       maintainContext: true
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-      maintainContext: true
-    - name: Deploy and manage Apache Storm topologies
-      href: apache-storm-deploy-monitor-topology.md
-    - name: Use Apache Maven to build Java applications
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Access Apache Hadoop YARN application logs
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Develop script actions
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Monitor clusters using the Apache Ambari API
-      href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Resources
   items:

@@ -36360,6 +36360,86 @@
       "source_path": "articles/hdinsight/hdinsight-hadoop-customize-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-access-yarn-app-logs.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-access-yarn-app-logs-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-script-actions.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-script-actions-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hbase-build-java-maven.md",
+      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-build-java-maven-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-giraph-install-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-mahout.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-mahout-linux-mac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-monitor-use-ambari-api.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-manage-ambari",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-run-samples.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-use-oozie.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/storm/apache-storm-deploy-monitor-topology.md",
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-debug-ambari-tez-view.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-use-oozie-coordinator-time.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
+      "redirect_document_id": false
+    },----
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-windows-tools.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/storm/apache-storm-scp-programming-guide.md",
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-java-topology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/storm/apache-storm-develop-csharp-visual-studio-topology.md",
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-java-topology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/resources/samples/hdinsight-java-storm-eventhub/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
+      "redirect_url": "https://azure.microsoft.com/en-us/resources/samples/hdinsight-java-storm-eventhub/",
+      "redirect_document_id": false
     }
   ]
 }
