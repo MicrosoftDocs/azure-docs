@@ -1,6 +1,6 @@
 ---
-title: Consent to LinkedIn services for your organization - Azure Active Directory | Microsoft Docs
-description: Explains how to enable or disable LinkedIn integration for Microsoft apps in Azure Active Directory
+title: Admin consent for LinkedIn integration account connections - Azure Active Directory | Microsoft Docs
+description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
@@ -62,7 +62,7 @@ You can consent to LinkedIn integration for your entire organization or for only
 
 This group policy affects only Office 2016 apps for a local computer. Users can see LinkedIn features in profile cards throughout Office 365 even if they disable LinkedIn in their Office 2016 apps.
 
-## Learn more
+## Next steps
 
 * [Integrate LinkedIn in your organization](linkedin-user-consent.md)
 
