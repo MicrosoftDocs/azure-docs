@@ -39,12 +39,12 @@ To complete these steps, you need:
 - An Azure subscription. If you don't have one, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Log in to your Microsoft Azure subscription
-Use the directions in the article [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps) to sign in to your Azure subscription by using PowerShell.
+Use the directions in the article [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) to sign in to your Azure subscription by using PowerShell.
 
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group before you can create a virtual machine.
 
-Create a resource group by using the [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) command. 
+Create a resource group by using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command. 
 
 The following example creates a resource group named *myResourceGroup* in the *EastUS* region.
 
@@ -54,11 +54,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ## Create an instance of the Azure Database Migration Service 
 You can create new instance of Azure Database Migration Service by using the `New-AzDataMigrationService` cmdlet. 
 This cmdlet expects the following required parameters:
-- *Azure Resource Group name*. You can use [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) command to create Azure Resource group as previously shown and provide its name as a parameter.
+- *Azure Resource Group name*. You can use [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command to create Azure Resource group as previously shown and provide its name as a parameter.
 - *Service name*. String that corresponds to the desired unique service name for Azure Database Migration Service 
 - *Location*. Specifies the location of the service. Specify an Azure data center location, such as West US or Southeast Asia
 - *Sku*. This parameter corresponds to DMS Sku name. The currently supported Sku name is *GeneralPurpose_4vCores*.
-- *Virtual Subnet Identifier*. You can use cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet. 
+- *Virtual Subnet Identifier*. You can use cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a subnet. 
 
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup* located in the *East US* region using a virtual network named *MyVNET* and  subnet called *MySubnet*.
 
