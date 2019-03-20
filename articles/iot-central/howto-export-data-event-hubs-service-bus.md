@@ -84,7 +84,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
         - Choose the default **RootManageSharedAccessKey** or create a new one
         - Copy either the primary or secondary connection string
  
-6. Choose a Container/Event hub/Queue or Topic from the drop-down list box.
+6. Choose a Event hub/Queue or Topic from the drop-down list box.
 
 7. Under **Data to export**, specify each type of data to export by setting the type to **On**.
 
