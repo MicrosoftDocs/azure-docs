@@ -21,7 +21,7 @@ To get started, select the overview video below to learn about the new updates t
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
   <div style="width:image width px; font-size:80%; text-align:center;">        
-      <img src="./media/sql-data-warehouse-videos/modern-data-warehouse-overview.PNG" alt="Modern Data Warehouse" height="200px" style="padding-bottom:0.5em;">
+      <img src="./media/sql-data-warehouse-videos/modern-data-warehouse-overview.png" alt="Modern Data Warehouse" height="200px" style="padding-bottom:0.5em;">
   </div>
 </a>
 
