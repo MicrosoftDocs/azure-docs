@@ -1,5 +1,5 @@
 ---
-title: Deploy a Smart Contract and Send Transaction using Azure Blockchain Service
+title: Send Transaction using Azure Blockchain Service
 description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and send a transaction 
 services: azure-blockchain
 keywords: 
@@ -13,7 +13,7 @@ manager: femila
 #Customer intent: As a developer, I want to deploy a smart contract using Azure Blockchain Service so that I can try sending a blockchain transaction.
 ---
 
-# Tutorial: Create an Azure Blockchain Service member and send a transaction
+# Tutorial: Send a transaction using Azure Blockchain Service
 
 In this tutorial, you'll learn how to:
 

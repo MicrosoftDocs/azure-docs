@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -21,7 +21,7 @@ Azure Blockchain Service is a blockchain platform that you can execute your busi
 
 ## Create a managed ledger
 
-Azure Blockchain Service is created with a defined set of compute and storage resources. (Link to be added)
+Azure Blockchain Service is created with a defined set of compute and storage resources.
 
 1. Log in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource** in the upper left-hand corner of the Azure portal.
