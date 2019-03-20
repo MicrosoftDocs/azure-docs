@@ -1,21 +1,21 @@
 ---
-title: Synonyms C# tutorial - Azure Search
-description: In this C# tutorial, learn how to add the synonyms feature to an index in Azure Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
+title: Synonyms C# example - Azure Search
+description: In this C# example, learn how to add the synonyms feature to an index in Azure Search. A synonyms map is a list of equivalent terms. Fields with synonym support expand queries to include the user-provided term and all related synonyms.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: tutorial
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
-# Tutorial: Add synonyms for Azure Search in C#
+# Example: Add synonyms for Azure Search in C#
 
 Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle". 
 
-In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This tutorial covers essential steps for adding and using synonyms with an existing index. You learn how to:
+In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. This example covers essential steps for adding and using synonyms with an existing index. You learn how to:
 
 > [!div class="checklist"]
 > * Enable synonyms by creating and posting mapping rules 
@@ -37,7 +37,7 @@ Tutorial requirements include the following:
 
 ## Overview
 
-Before-and-after queries demonstrate the value of synonyms. In this tutorial, use a sample application that executes queries and returns results on a sample index. The sample application creates a small index named "hotels" populated with two documents. The application executes search queries using terms and phrases that do not appear in the index, enables the synonyms feature, then issues the same searches again. The code below demonstrates the overall flow.
+Before-and-after queries demonstrate the value of synonyms. In this example, use a sample application that executes queries and returns results on a sample index. The sample application creates a small index named "hotels" populated with two documents. The application executes search queries using terms and phrases that do not appear in the index, enables the synonyms feature, then issues the same searches again. The code below demonstrates the overall flow.
 
 ```csharp
   static void Main(string[] args)
@@ -156,18 +156,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 The first query finds the document from the rule `five star=>luxury`. The second query expands the search using `internet,wifi` and the third using both `hotel, motel` and `economy,inexpensive=>budget` in finding the documents they matched.
 
-Adding synonyms completely changes the search experience. In this tutorial, the original queries failed to return meaningful results even though the documents in our index were relevant. By enabling synonyms, we can expand an index to include terms in common use, with no changes to underlying data in the index.
+Adding synonyms completely changes the search experience. In this example, the original queries failed to return meaningful results even though the documents in our index were relevant. By enabling synonyms, we can expand an index to include terms in common use, with no changes to underlying data in the index.
 
 ## Sample application source code
 You can find the full source code of the sample application used in this walk through on [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+The fastest way to clean up after a example is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
 
 ## Next steps
 
-This tutorial demonstrated the [Synonyms REST API](https://aka.ms/rgm6rq) in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/) reference documentation.
+This example demonstrated the [Synonyms REST API](https://aka.ms/rgm6rq) in C# code to create and post mapping rules and then call the synonym map on a query. Additional information can be found in the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/) reference documentation.
 
 > [!div class="nextstepaction"]
 > [How to use synonyms in Azure Search](search-synonyms.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server or Service, On-premises or in the cloud?
+title: Azure MFA Server or Service, On-premises or in the cloud? - Azure Active Directory
 description: As an Azure AD Administrator, I need to understand which version of MFA I should deploy? 
 
 services: multi-factor-authentication
