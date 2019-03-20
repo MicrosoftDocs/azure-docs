@@ -399,7 +399,7 @@ This API is for Microsoft Customer Agreements and it provides additional attribu
 
 This API is the existing API. It was updated to provide the price sheet for a billing profile in a billing account.
 
-## Price Sheet for a scope by billing account at the enrollment scope
+## Price Sheet for a scope by billing account
 
 Azure Resource Manager authentication is used when you get the Price Sheet at the enrollment scope in a billing account.
 
@@ -464,7 +464,7 @@ The following fields are either not available in Microsoft Customer Agreement Pr
 | totalIncludedQuantity | Not applicable. |
 | pretaxStandardRate  | Not applicable. |
 
-## Reservation Instance Charge API replaced by Transactions API
+## Reservation Instance Charge API replaced
 
 You can get billing transactions for reservation purchases with the [Reserved Instance Charge API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). The new API includes all purchases, including third-party Marketplace offerings. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The Reserved Instance Charge API is replaced by the Transactions API.
 
@@ -474,7 +474,7 @@ To get reservation purchase transactions with the Transactions API:
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
 
-## Reservation Recommendations APIs replaced
+## Recommendations APIs replaced
 
 Reserved Instance Purchase Recommendations APIs provide virtual machine usage over the last 7, 30, or 60 days. APIs also provide reservation purchase recommendations. They include:
 
@@ -489,7 +489,7 @@ To get reservation recommendations with the Reservation Recommendations API:
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
 
-## Reservation Usage APIs replaced by Reservation Summaries API
+## Reservation Usage APIs replaced
 
 You can get reservation usage in an enrollment with the Reserved Instance Usage API. If there's more than one reserved instance in an enrollment, you can also get the usage of all the reserved instance purchases using this API.
 
