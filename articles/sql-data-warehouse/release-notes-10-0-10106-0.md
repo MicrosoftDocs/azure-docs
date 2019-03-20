@@ -15,6 +15,32 @@ manager: craigg
 # Azure SQL Data Warehouse release notes
 This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
+## SQL Data Warehouse Version 
+
+| Service improvements | Details |
+| --- | --- |
+|**Workload importance now available for preview**|Workload importance gives data engineers the ability to use importance to classify requests. Requests with higher importance are guaranteed quicker access to resources which helps meet SLAs.  Workload importance allows high business value work to meet SLAs in a shared environment with fewer resources.</br></br>For more information on workload importance refer to the [Classification](sql-data-warehouse-workload-classification.md) and [Importance](sql-data-warehouse-workload-importance.md) overview topics in the documentation. Check out the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc as well.</br></br>See workload importance in action in the below videos:</br>Workload Importance concepts</br>Workload Importance scenarios|
+|**Auto Update Statistics**|Automatic statistics updates are now available in Azure SQL Data Warehouse for public preview. Customers can use AUTO_UPDATE_STATISTICS and AUTO_UPDATE_STATISTICS_ASYNC options to turn ON/OFF this feature and configure whether the updates should be done synchronously or asynchronously. For more details on managing statistics in Azure SQL Data Warehouse, please out the check [statistics](/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) documentation.|
+|**GROUP BY ROLLUP**|ROLLUP is now a supported GROUP BY option in Azure Data Warehouse.   GROUP BY ROLLUP creates a group for each combination of column expressions. In addition, it "rolls up" the results into subtotals and grand totals. To do this, it moves from right to left decreasing the number of column expressions over which it creates groups and aggregation(s).  The column order affects the ROLLUP output and can affect the number of rows in the result set.</br></br>The syntax is as simple as follows:</br>
+```sql
+GROUP BY {
+      column-name [ WITH (DISTRIBUTED_AGG) ]  
+    | column-expression
+| ROLLUP ( <group_by_expression> [ ,...n ] ) 
+} [ ,...n ]
+```
+
+For more information on GROUP BY ROLLUP, see the article, [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
+|**DWU used and CPU portal metrics underreport in the Azure portal**|SQL Data Warehouse significantly enhances metric accuracy in the Azure portal.  This release includes a fix to the CPU and DWU Used metric definition to properly reflect your workload across all compute nodes.|
+|**Additional T-SQL Support**|The T-SQL language surface area for SQL Data Warehouse has been extended to include the support for the following:</br>- [STRING_SPLIT](/sql/t-sql/functions/string-split-transact-sql?view=azure-sqldw-latest)</br>- [FORMAT](/sql/t-sql/functions/format-transact-sql?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest)</br>-	STRING_ESCAPE</br>-	TRANSLATE<</br>- TRIM
+
+
+
+
+
+
+
+
 ## SQL Data Warehouse Version 10.0.10106.0 (January)
 
 ### Service improvements
