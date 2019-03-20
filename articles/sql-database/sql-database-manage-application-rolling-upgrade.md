@@ -98,7 +98,20 @@ To make it possible to roll back the upgrade, you must create a staging environm
 When the preparation steps are complete, the staging environment is ready for the upgrade. The next diagram illustrates these upgrade steps:
 
 1. Set the primary database in the production environment to read-only mode (10). This mode guarantees that the production database (V1) won't change during the upgrade, thus preventing the data divergence between the V1 and V2 database instances.
-2. Disconnect the secondary database in the same region by using the planned termination mode (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE V1
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Terminate geo-replication by disconnecting the secondary (11) with [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. An example snippet of the PowerShell code is provided below. 
+
+```powershell
+Remove-AzSqlDatabaseSecondary
+      -DatabaseName V1
+```
+
 3. Run the upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, and the staging primary database (12). The database changes will be replicated automatically to the staging secondary.
 
 ![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
