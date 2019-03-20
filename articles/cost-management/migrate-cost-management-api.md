@@ -540,6 +540,6 @@ The connector is recommended for organizations wanting the most flexibility. How
 
 The older Consumption Insights content pack and connector worked at an enrollment level. It required at least read access. The new Consumption Insights Power BI app and the new Azure Consumption Insights connector are available for billing profile users. Teams that need additional options for reviewing costs or to view costs across billing profiles should use in [Cost analysis](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis) the Azure portal.
 
-# Next steps
+## Next steps
 
 - Read the [Cost Management documentation](index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.
