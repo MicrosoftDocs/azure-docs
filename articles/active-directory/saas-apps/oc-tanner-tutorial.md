@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 
 	![choose metadata file](common/browse-upload-metadata.png)
 
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** value gets auto populated in Basic SAML Configuration section.
+	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values gets auto populated in Basic SAML Configuration section.
 
 	 ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
 
