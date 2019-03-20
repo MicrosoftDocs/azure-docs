@@ -16,7 +16,7 @@ This article provides troubleshooting information for protecting SQL Server VMs 
 
 ## Feature consideration and limitations
 
-To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+To view the feature consideration, see the article, [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
