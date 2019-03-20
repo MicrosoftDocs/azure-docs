@@ -224,7 +224,7 @@ For more information about troubleshooting logic apps, see
 
 For technical details, such as triggers, actions, and limits, 
 as described by the connector's Swagger file, 
-see the [connector's reference page](/connectors/crm/). 
+see the [connector's reference page](/connectors/dynamicscrmonline/). 
 
 ## Get support
 
