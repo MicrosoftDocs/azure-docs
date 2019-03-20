@@ -44,7 +44,7 @@ To run the demo, complete the following steps:
 
 ## Workflow
 
-The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. Use [best practices](concepts/best-practices.md) when using the API for the best results for your data.
+The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. Use [best practices](concepts/anomaly-detection-best-practices.md) when using the API for the best results for your data.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 

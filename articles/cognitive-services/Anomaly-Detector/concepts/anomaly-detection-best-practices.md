@@ -57,7 +57,7 @@ If you know that your time series data has a seasonal pattern (one that occurs a
 
 Specifying a `period` when you construct your JSON request can reduce anomaly detection latency by up to 50%. The `period` is an integer that specifies roughly how many data points the time series takes to repeat itself. For example, a time series with one point per day would have a `period` as `7`, and a time series with one point per hour (with the same weekly pattern) would have a `period` of  `7*24`. If you're unsure of your data's patterns, you don't have to specify this parameter.
 
-For best results, provide 4 `period`'s worth of data point, plus an additional one. For example, hourly data with a weekly pattern as described above should provide 673 data points in the request body (`7 * 24 * 4 + 1`). If this amount of data points exceeds the maximum number allowed (8640 data points) and your data has a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval. Sampling your data can also decrease the time it takes to detect anomalies. 
+For best results, provide 4 `period`'s worth of data point, plus an additional one. For example, hourly data with a weekly pattern as described above should provide 673 data points in the request body (`7 * 24 * 4 + 1`). If this amount of data points exceeds the maximum number allowed (8640 data points) and your data has a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval. Sampling your data in this way can also decrease the time it takes to detect anomalies. 
 
 ## Next Steps
 

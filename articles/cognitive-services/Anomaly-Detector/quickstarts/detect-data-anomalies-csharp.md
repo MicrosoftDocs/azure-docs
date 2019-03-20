@@ -62,7 +62,8 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     ```csharp
     // Replace the subscriptionKey string value with your valid subscription key.
     const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
+    // Replace the endpoint URL with the correct one for your subscription. 
+    // Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
     const string endpoint = "[YOUR_ENDPOINT_URL]";
     // Replace the dataPath string with a path to the JSON formatted time series data.
     const string dataPath = "[PATH_TO_TIME_SERIES_DATA]";
