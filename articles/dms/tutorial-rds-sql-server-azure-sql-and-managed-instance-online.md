@@ -2,15 +2,15 @@
 title: "Tutorial: Use the Azure Database Migration Service to perform an online migration of RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance | Microsoft Docs"
 description: Learn to perform an online migration from RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance by using the Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/12/2019
 ---
 
 # Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS
@@ -47,6 +47,15 @@ To complete this tutorial, you need to:
  
 - Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 or later.
 - Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model. If you're migrating to an Azure SQL Database managed instance, make sure to create the DMS instance in the same VNET used for the Azure SQL Database managed instance, but in a different subnet.  Alternately, if you use a different VNET for DMS, you need to create a VNET peering between the two VNETs.
+ 
+    > [!NOTE]
+    > During VNET setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Storage endpoint
+    > - Service bus endpoint
+    >
+    > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity. 
+ 
 - Ensure that your VNET Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
@@ -262,4 +271,4 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 - For information about known issues and limitations when performing online migrations to Azure SQL DatabaseL, see the article [Known issues and workarounds with Azure SQL Database online migrations](known-issues-azure-sql-online.md).
 - For information about the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 - For information about Azure SQL Database, see the article [What is the Azure SQL Database service?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-- For information about Azure SQL Database Managed Instance, see the page [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).
+- For information about Azure SQL Database managed instances, see the page [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).

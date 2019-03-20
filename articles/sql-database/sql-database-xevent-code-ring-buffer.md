@@ -51,7 +51,7 @@ This topic presents a Transact-SQL code sample that:
 
 With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
 
-* sys.dm_xe**_database**_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

@@ -22,7 +22,7 @@
    * **Resource group**: Select or create a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) for the Digital Twins instance.
    * **Location**: Select the closest location to your devices.
 
-    ![Digital Twins pane with entered information](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![Digital Twins pane with entered information](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Review your Digital Twins information, and then select **Create**. Your Digital Twins instance might take a few minutes to be created. You can monitor the progress in the **Notifications** pane.
 

@@ -26,8 +26,8 @@ Before you get started, you need to do the following steps:
 - Ensure that the Site Recovery vault is created in your Azure subscription
 - Ensure that the Configuration Server and Process Server are installed in the source environment and the vault is able to discover the environment
 - Ensure that a Replication Policy is created and associated with the Configuration Server
-- Ensure that you have added the VM admin account to the config server (that will be used to replicate the on-prem VMs)
-- Ensure that the target artefacts in Azure are created
+- Ensure that you have added the VM admin account to the config server (that will be used to replicate the on premises VMs)
+- Ensure that the target artifacts in Azure are created
     - Target Resource Group
     - Target Storage Account (and its Resource Group)
     - Target Virtual Network for failover (and its Resource Group)
@@ -55,7 +55,7 @@ Once the CSV is ready, you can execute the following steps to perform migration 
 4 | asr_propertiescheck.ps1 | Verify if the properties are appropriately updated
 5 | asr_testmigration.ps1 |  Start the test failover of the VMs listed in the csv, the script creates a CSV output with the job details for each VM
 6 | asr_cleanuptestmigration.ps1 | Once you manually validate the VMs that were test failed-over, you can use this script to clean up the test failover VMs
-7 | asr_migration.ps1 | Perform an unplanned failover for the VMs listed in the csv, the script creates a CSV output with the job details for each VM. The script does not shutdown the on-prem VMs before triggering the failover, for application consistency, it is recommended that you manually shut down the VMs before executing the script.
+7 | asr_migration.ps1 | Perform an unplanned failover for the VMs listed in the csv, the script creates a CSV output with the job details for each VM. The script does not shutdown the on premises VMs before triggering the failover, for application consistency, it is recommended that you manually shut down the VMs before executing the script.
 8 | asr_completemigration.ps1 | Perform the commit operation on the VMs and delete the ASR entities
 9 | asr_postmigration.ps1 | If you plan to assign network security groups to the NICs post-failover, you can use this script to do that. It assigns a NSG to any one NIC in the target VM.
 

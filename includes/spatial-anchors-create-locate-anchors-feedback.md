@@ -1,4 +1,4 @@
-## Providing feedback to the user
+## Provide feedback to the user
 
 You can write code to handle the session updated event. Doing so, allows you to:
 

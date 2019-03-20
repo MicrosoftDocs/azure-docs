@@ -28,6 +28,8 @@
           href: data-box-deploy-copy-data-via-rest.md
         - name: Via data copy service
           href: data-box-deploy-copy-data-via-copy-service.md
+        - name: To managed disks
+          href: data-box-deploy-copy-data-from-vhds.md
       - name: 4 - Return, upload, verify
         href: data-box-deploy-picked-up.md  
     - name: Concepts
@@ -57,7 +59,15 @@
       - name: Cable the device
         href: data-box-cable-options.md
       - name: Contact Support
-        href: data-box-disk-contact-microsoft-support.md  
+        href: data-box-disk-contact-microsoft-support.md
+      - name: Migrate
+        items:
+        - name: To SharePoint Online
+          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox
+        - name: To Azure File Sync
+          href: https://docs.microsoft.com/azure/storage/files/storage-sync-offline-data-transfer
+        - name: From HDFS store
+          href: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster 
     
   - name: Data Box Disk 
     items:

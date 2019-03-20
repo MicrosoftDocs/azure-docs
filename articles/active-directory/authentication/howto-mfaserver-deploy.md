@@ -1,5 +1,5 @@
 ---
-title: Getting started Azure Multi-Factor Authentication Server | Microsoft Docs
+title: Getting started Azure Multi-Factor Authentication Server - Azure Active Directory
 description: Step-by-step get started with Azure MFA Server on-premises
 
 services: multi-factor-authentication
@@ -17,7 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Getting started with the Azure Multi-Factor Authentication Server
 
-<center>![MFA on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
+<center>
+
+![MFA on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
 Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
 

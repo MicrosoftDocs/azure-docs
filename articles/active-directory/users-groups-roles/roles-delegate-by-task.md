@@ -142,18 +142,18 @@ Update single sign-on properties | Enterprise application owner ([see documentat
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign license | User account administrator | 
-Create group | User account administrator | 
-Create, update, or delete access review of a group or of an app | User account administrator | 
-Manage group expiration | User account administrator | 
+Assign license | User administrator | 
+Create group | User administrator | 
+Create, update, or delete access review of a group or of an app | User administrator | 
+Manage group expiration | User administrator | 
 Manage group settings | Global Administrator | 
 Read all configuration (except hidden membership) | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User account administrator
-Read membership of groups with hidden membership | Helpdesk Administrator | User account administrator, Teams administrator
-Revoke license | License administrator | User account administrator
-Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
-Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
-Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User account administrator
+Read hidden membership | Group member | Group owner, Password administrator, Exchange administrator, SharePoint administrator, Teams administrator, User administrator
+Read membership of groups with hidden membership | Helpdesk Administrator | User administrator, Teams administrator
+Revoke license | License administrator | User administrator
+Update group membership | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
+Update group owners | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
+Update group properties | Group owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | User administrator
 
 ## Identity Protection
 
@@ -174,9 +174,9 @@ Read vulnerabilities | Security Reader |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Assign license | License administrator | User account administrator
+Assign license | License administrator | User administrator
 Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Revoke license | License administrator | User account administrator
+Revoke license | License administrator | User administrator
 Try or buy subscription | Billing administrator | 
 
 
@@ -313,21 +313,21 @@ Read users flagged for risk | Security Reader |
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Add user to directory role | Privileged role administrator | 
-Add user to group | User account administrator | 
-Assign license | License administrator | User account administrator
-Create guest user | Guest inviter | User account administrator
-Create user | User account administrator | 
-Delete users | User account administrator | 
-Invalidate refresh tokens of limited admins (see documentation) | User account administrator | 
-Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User account administrator
+Add user to group | User administrator | 
+Assign license | License administrator | User administrator
+Create guest user | Guest inviter | User administrator
+Create user | User administrator | 
+Delete users | User administrator | 
+Invalidate refresh tokens of limited admins (see documentation) | User administrator | 
+Invalidate refresh tokens of non-admins (see documentation) | Password administrator | User administrator
 Invalidate refresh tokens of privileged admins (see documentation) | Global Administrator | 
 Read basic configuration | Default User role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Reset password for limited admins (see documentation) | User account administrator | 
-Reset password of non-admins (see documentation) | Password administrator | User account administrator
+Reset password for limited admins (see documentation) | User administrator | 
+Reset password of non-admins (see documentation) | Password administrator | User administrator
 Reset password of privileged admins | Global Administrator | 
-Revoke license | License administrator | User account administrator
-Update all properties except User Principal Name | User account administrator | 
-Update User Principal Name for limited admins (see documentation) | User account administrator | 
+Revoke license | License administrator | User administrator
+Update all properties except User Principal Name | User administrator | 
+Update User Principal Name for limited admins (see documentation) | User administrator | 
 Update User Principal Name property on privileged admins (see documentation) | Global Administrator | 
 Update user settings | Global Administrator | 
 

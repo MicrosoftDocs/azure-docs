@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/13/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -34,7 +34,7 @@ Once you upload your high-quality digital media files into Assets, you can encod
 
 To encode with Media Services v3, you need to create **Transforms** and **Jobs**.
 
-![Transforms](./media/concepts/transforms-jobs.png)
+![Transforms](./media/encoding/transforms-jobs.png)
 
 - [Transforms and Jobs](transforms-jobs-concept.md)
 - [Encoding with Media Services](encoding-concept.md)
@@ -53,7 +53,7 @@ When creating the **Streaming Locator**, in addition to asset's name, you need t
 
 Dynamic Packaging is used whether you stream your content live or on-demand. The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or/and any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.
 
@@ -61,11 +61,13 @@ If specifying encryption options on your stream, create the **Content Key Policy
 
 The following image illustrates the Media Services content protection workflow: 
 
-![Protect content](./media/concepts/content-protection.png)
+![Protect content](./media/content-protection/content-protection.svg)
+
+&#42; dynamic encryption supports AES-128 "clear key", CBCS, and CENC. 
 
 You can use Media Services **Dynamic Manifests** to stream only a specific rendition or subclips of your video. In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, MPEG DASH, and Smooth.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1 Mbps, which resulted in the bottom two quality levels being stripped off in the response. In the bottom right, the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
 
-![Rendition filtering](./media/concepts/media-services-rendition-filter.png)
+![Rendition filtering](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Dynamic packaging](dynamic-packaging-overview.md)
 - [Streaming Endpoints](streaming-endpoint-concept.md)
@@ -78,11 +80,11 @@ You can use Media Services **Dynamic Manifests** to stream only a specific rendi
 
 ## Live streaming
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoid**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoint**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.
 
 The following image illustrates the Pass-through type workflow:
 
-![pass-through](./media/concepts/pass-through.png)
+![pass-through](./media/live-streaming/pass-through.svg)
 
 - [Live streaming overview](live-streaming-overview.md)
 - [Live Events and Live Outputs](live-events-outputs-concept.md)

@@ -17,10 +17,10 @@ ms.subservice: queues
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
+This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 > 
 
@@ -36,7 +36,7 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
+* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
 
 ```powershell
 Install-Package wastorage
@@ -260,5 +260,5 @@ Now that you've learned the basics of Queue storage, follow these links to learn
 * [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
+* [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

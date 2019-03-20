@@ -6,6 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: amsriva
+ms.topic: conceptual
 ---
 
 # Web application firewall (WAF)

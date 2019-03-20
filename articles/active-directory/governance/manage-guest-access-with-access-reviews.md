@@ -39,7 +39,7 @@ You can also ask guest users to review their own access. For each paid Azure AD 
 
 ## Create and perform an access review for guests
 
-First, as a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization. 
+First, as a global administrator or user administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
 Azure AD enables several scenarios for reviewing guest users.
 

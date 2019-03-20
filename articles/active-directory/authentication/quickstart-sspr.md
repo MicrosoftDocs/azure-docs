@@ -40,11 +40,11 @@ In this quickstart, you walk through configuring self-service password reset (SS
 3. From the **Authentication methods** page, make the following choices:
    * Number of methods required to reset: **1**
    * Methods available to users:
-      * **Mobile phone**
-      * **Office phone**
+      * **Email**
+      * **Mobile app code (preview)**
    * Click **Save**.
 
-    ![Authentication][Authentication]
+     ![Authentication][Authentication]
 
 4. From the **Registration** page, make the following choices:
    * Require users to register when they sign in: **Yes**

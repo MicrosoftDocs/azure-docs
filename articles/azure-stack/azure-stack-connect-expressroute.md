@@ -10,7 +10,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: unknown

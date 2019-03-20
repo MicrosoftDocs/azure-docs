@@ -53,10 +53,9 @@ We've created this content to help you set up and use security info, two-step ve
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Overview</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Manage your security info</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">View recent sign-in activity</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Manage your organizations</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Manage your connected devices</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">View your privacy-related info</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">View your privacy-related info</a>
                         </p>
                     </div>
                 </div>

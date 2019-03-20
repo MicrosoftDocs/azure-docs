@@ -121,6 +121,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> For identifier value it should be in the format of `Dossier/<CLIENTNAME>` or any user personalized value.
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| | |
 	|-|-|
 	|  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|

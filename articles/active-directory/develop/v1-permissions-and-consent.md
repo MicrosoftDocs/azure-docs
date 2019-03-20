@@ -98,11 +98,11 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 - Resources should explicitly define `Read` and `ReadWrite` permissions separately.
 - Resources should mark any permissions that allow access to data across user boundaries as `Admin` permissions.
 - Resources should follow the naming pattern `Subject.Permission[.Modifier]`, where:
-    - `Subject` corresponds with the type of data that is available
-    - `Permission` corresponds to the action that a user may take upon that data
-    - `Modifier` is used optionally to describe specializations of another permission
+  - `Subject` corresponds with the type of data that is available
+  - `Permission` corresponds to the action that a user may take upon that data
+  - `Modifier` is used optionally to describe specializations of another permission
     
     For example:
-    * Mail.Read - Allows users to read mail.
-    * Mail.ReadWrite - Allows users to read or write mail.
-    * Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.
+  - Mail.Read - Allows users to read mail.
+  - Mail.ReadWrite - Allows users to read or write mail.
+  - Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.

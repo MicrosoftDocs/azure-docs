@@ -74,6 +74,8 @@
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Create and manage schedules
       href: classroom-labs/how-to-create-schedules.md
+    - name: Create an environment with multiple VMs inside a template VM
+      href: classroom-labs/how-to-enable-multi-vm-environment.md
   - name: DevTest labs
     items:
     - name: Specify resource group for lab virtual machines
@@ -133,6 +135,8 @@
         href: devtest-lab-create-environment-from-arm.md
       - name: Configure and use public environments
         href: devtest-lab-configure-use-public-environments.md        
+      - name: Create an environment with Service Fabric cluster
+        href: create-environment-service-fabric-cluster.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users

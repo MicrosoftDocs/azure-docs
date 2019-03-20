@@ -33,6 +33,8 @@ You can copy data from HDFS to any supported sink data store. For a list of data
 > [!NOTE]
 > Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises HDFS using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to HDFS even if it is hosted in an Azure IaaS VM.
 
@@ -69,7 +71,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) output of the access credential. |No |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
 
 ### Using Anonymous authentication
 
@@ -395,49 +397,49 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On KDC server:**
 
-1.	Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+1. Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
 
-            [logging]
-             default = FILE:/var/log/krb5libs.log
-             kdc = FILE:/var/log/krb5kdc.log
-             admin_server = FILE:/var/log/kadmind.log
+           [logging]
+            default = FILE:/var/log/krb5libs.log
+            kdc = FILE:/var/log/krb5kdc.log
+            admin_server = FILE:/var/log/kadmind.log
 
-            [libdefaults]
-             default_realm = REALM.COM
-             dns_lookup_realm = false
-             dns_lookup_kdc = false
-             ticket_lifetime = 24h
-             renew_lifetime = 7d
-             forwardable = true
+           [libdefaults]
+            default_realm = REALM.COM
+            dns_lookup_realm = false
+            dns_lookup_kdc = false
+            ticket_lifetime = 24h
+            renew_lifetime = 7d
+            forwardable = true
 
-            [realms]
-             REALM.COM = {
-              kdc = node.REALM.COM
-              admin_server = node.REALM.COM
-             }
+           [realms]
+            REALM.COM = {
+             kdc = node.REALM.COM
+             admin_server = node.REALM.COM
+            }
+           AD.COM = {
+            kdc = windc.ad.com
+            admin_server = windc.ad.com
+           }
+
+           [domain_realm]
+            .REALM.COM = REALM.COM
+            REALM.COM = REALM.COM
+            .ad.com = AD.COM
+            ad.com = AD.COM
+
+           [capaths]
             AD.COM = {
-             kdc = windc.ad.com
-             admin_server = windc.ad.com
+             REALM.COM = .
             }
 
-            [domain_realm]
-             .REALM.COM = REALM.COM
-             REALM.COM = REALM.COM
-             .ad.com = AD.COM
-             ad.com = AD.COM
+   **Restart** the KDC service after configuration.
 
-            [capaths]
-             AD.COM = {
-              REALM.COM = .
-             }
+2. Prepare a principal named **krbtgt/REALM.COM\@AD.COM** in KDC server with the following command:
 
-  **Restart** the KDC service after configuration.
+           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-2.	Prepare a principal named **krbtgt/REALM.COM@AD.COM** in KDC server with the following command:
-
-            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
-
-3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3. In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **On domain controller:**
 
@@ -446,7 +448,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM@AD.COM**.
+2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM\@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

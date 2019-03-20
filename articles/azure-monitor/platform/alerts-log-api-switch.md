@@ -5,14 +5,14 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
 ---
 # Switch API preference for Log Alerts
 
 > [!NOTE]
-> Content stated **not** applicable to users of Azure GovCloud and only to Azure public cloud users.  
+> Content stated applicable to users Azure public cloud only and **not** for Azure Government or Azure China cloud.  
 
 Until recently, you managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience was integrated with various services in Microsoft Azure including Log Analytics and we asked to [extend your alert rules from OMS portal to Azure](alerts-extend.md). But to ensure minimal disruption for customers, the process did not alter the programmatic interface for its consumption - [Log Analytics Alert API](api-alerts.md) based on SavedSearch.
 
@@ -37,6 +37,7 @@ The impacts of the switch of preference to scheduledQueryRules API are compiled 
 
 - All interactions done for managing log alerts via programmatic interfaces must now be done using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) instead. For more information, see, [sample use via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [sample use via Azure CLI and PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
 - Any new log alert rule created in Azure portal, will be created using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) only and allow users to use the [additional functionality of new API](#Benefits-of-switching-to-new-Azure-API) via Azure portal as well
+- Severity for log alert rules will shift from: *Critical, Warning & Informational*, to *Severity values of 0, 1 & 2*. Along with the option to create/update alert rules with severity 4 as well.
 
 Any customer who wishes to switch voluntarily to the new [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) and block usage from the [legacy Log Analytics Alert API](api-alerts.md); can do so by performing a PUT call on the below API to switch all alert rules associated with the specific Log Analytics workspace.
 

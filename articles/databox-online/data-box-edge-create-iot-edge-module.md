@@ -67,14 +67,14 @@ An Azure container registry is a private Docker registry in Azure where you can 
 2. Select **Create a resource > Containers > Container Registry**. Click **Create**.
 3. Provide:
 
-    1. A unique **Registry name** within Azure that contains 5 to 50 alphanumeric characters.
-    2. Choose a **Subscription**.
-    3. Create new or choose an existing **Resource group**.
-    4. Select a **Location**. We recommend that this location be the same as that is associated with the Data Box Edge resource.
-    5. Toggle **Admin user** to **Enable**.
-    6. Set the SKU to **Basic**.
+   1. A unique **Registry name** within Azure that contains 5 to 50 alphanumeric characters.
+   2. Choose a **Subscription**.
+   3. Create new or choose an existing **Resource group**.
+   4. Select a **Location**. We recommend that this location be the same as that is associated with the Data Box Edge resource.
+   5. Toggle **Admin user** to **Enable**.
+   6. Set the SKU to **Basic**.
 
-    ![Create container registry](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Create container registry](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Select **Create**.
 5. After your container registry is created, browse to it, and select **Access keys**.

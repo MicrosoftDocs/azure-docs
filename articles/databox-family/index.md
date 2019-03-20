@@ -12,9 +12,9 @@ ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
-
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -73,7 +73,6 @@ ms.author: alkohli
         </a>
     </li>
 </ul>
-
 <h2>Online data transfer</h2>
 <p>Over the network transfer</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -114,3 +113,4 @@ ms.author: alkohli
         </a>
     </li>
 </ul>
+</div>

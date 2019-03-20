@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
 
 ---
@@ -65,9 +65,9 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    2. Connect to the template VM by selecting **Connect**. 
-    3. Install and configure software on your template VM.     
-    5. Enter a **description** for the template
+    1. Connect to the template VM by selecting **Connect**. 
+    2. Install and configure software on your template VM.     
+    3. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
     1. To publish the template immediately, and select **Publish**.  
@@ -104,15 +104,15 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## Send registration link to students
-
+## Send an email with the registration link
 1. Switch to the **Users** view if you are not on the page already. 
-2. Select **Get registration link** on the toolbar.
-1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard.
+2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
+3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
 
-    ![Registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. On the **User registration** dialog box, select **Close**. 
-2. Share the registration link with a student so that the student can register for the class.
+    ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. On the **Send registration link by email** page, follow these steps: 
+    1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
+    2. On the **Send registration link by email** page, select **Send**. 
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

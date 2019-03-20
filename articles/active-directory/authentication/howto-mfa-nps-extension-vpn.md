@@ -1,5 +1,5 @@
 ---
-title: Integrate VPN with Azure MFA by using the Network Policy Server extension | Microsoft Docs
+title: Integrate VPN with Azure MFA by using the Network Policy Server extension - Azure Active Directory
 description: Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Microsoft Azure.
 
 services: multi-factor-authentication
@@ -28,20 +28,20 @@ Network Policy and Access Services gives organizations the ability to:
 
 * Assign a central location for the management and control of network requests to specify:
 
-    * Who can connect 
+  * Who can connect 
     
-    * What times of day connections are allowed 
+  * What times of day connections are allowed 
     
-    * The duration of connections
+  * The duration of connections
     
-    * The level of security that clients must use to connect
+  * The level of security that clients must use to connect
 
     Rather than specify policies on each VPN or Remote Desktop Gateway server, do so after they're in a central location. The RADIUS protocol is used to provide centralized Authentication, Authorization, and Accounting (AAA). 
 
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 
 * Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.   
-For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 

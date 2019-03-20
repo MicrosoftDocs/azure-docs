@@ -36,19 +36,13 @@ Certain limitations apply when you deploy container groups to a virtual network.
 
 ## Preview limitations
 
-While this feature is in preview, the following limitations apply when deploying container instances to a virtual network. 
+While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
 
-**Supported regions and resource limits**
-
-| Location | OS | CPU | Memory (GB) |
-| -------- | :---: | :---: | :-----------: |
-| West Europe | Linux | 4 | 14 |
-| East US, West US | Linux | 2 | 3.5 |
-| Australia East, North Europe | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
-**Unsupported network resources and features**
+### Unsupported network resources and features
 
 * Azure Load Balancer
 * Virtual network peering

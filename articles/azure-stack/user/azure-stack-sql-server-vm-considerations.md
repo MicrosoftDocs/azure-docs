@@ -100,20 +100,20 @@ We recommend storing TempDB on a data disk as each data disk provides a maximum 
 
 - **Disk striping:** For more throughput, you can add additional data disks and use disk striping. To determine the number of data disks you need, analyze the number of IOPS and bandwidth required for your log files and for your data and TempDB files. Notice that IOPS limits are per data disk based on the virtual machine series family, and not based on the virtual machine size. Network bandwidth limits, however, are based on the virtual machine size. See the tables on [Virtual machine sizes in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) for more detail. Use the following guidelines:
 
-    - For Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
+  - For Windows Server 2012 or later, use [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) with the following guidelines:
 
-        1.  Set the interleave (stripe size) to 64 KB (65,536 bytes) for online transaction processing (OLTP) workloads and 256 KB (262,144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
+    1. Set the interleave (stripe size) to 64 KB (65,536 bytes) for online transaction processing (OLTP) workloads and 256 KB (262,144 bytes) for data warehousing workloads to avoid performance impact due to partition misalignment. This must be set with PowerShell.
 
-        2.  Set column count = number of physical disks. Use PowerShell when configuring more than eight disks (not Server Manager UI).
+    2. Set column count = number of physical disks. Use PowerShell when configuring more than eight disks (not Server Manager UI).
 
-            For example, the following PowerShell creates a new storage pool with the interleave size set to 64 KB and the number of columns to 2:
+       For example, the following PowerShell creates a new storage pool with the interleave size set to 64 KB and the number of columns to 2:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Determine the number of disks associated with your storage pool based on your load expectations. Keep in mind that different virtual machine sizes allow different numbers of attached data disks. For more information, see [Virtual machine sizes supported in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - In order to get the maximum possible IOPS for data disks, the recommendation is to add the maximum number of data disks supported by your [virtual machine size](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) and use disk striping.

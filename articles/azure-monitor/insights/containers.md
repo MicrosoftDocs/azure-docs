@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.author: magoedte
 ---
 
@@ -95,19 +95,19 @@ Use the following information to install and configure the solution.
 1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
 
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
-  - For standalone hosts:
-    - On supported Linux operating systems, install and run Docker and then install and configure the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review Linux container hosts including CoreOS or Azure Government Linux container hosts including CoreOS if you are working with containers in Azure Government Cloud.
-    - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Azure Monitor. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
-  - For Docker multi-host orchestration:
-    - If you have a Red Hat OpenShift environment, review Configure a Log Analytics agent for Red Hat OpenShift.
-    - If you have a Kubernetes cluster using the Azure Container Service:
+   - For standalone hosts:
+     - On supported Linux operating systems, install and run Docker and then install and configure the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - On CoreOS, you cannot run the Log Analytics agent for Linux. Instead, you run a containerized version of the Log Analytics agent for Linux. Review Linux container hosts including CoreOS or Azure Government Linux container hosts including CoreOS if you are working with containers in Azure Government Cloud.
+     - On Windows Server 2016 and Windows 10, install the Docker Engine and client then connect an agent to gather information and send it to Azure Monitor. Review [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) if you have a Windows environment.
+   - For Docker multi-host orchestration:
+     - If you have a Red Hat OpenShift environment, review Configure a Log Analytics agent for Red Hat OpenShift.
+     - If you have a Kubernetes cluster using the Azure Container Service:
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Review Use Helm to deploy Log Analytics agent on Linux Kubernetes.
-    - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - If you have a Docker Swarm mode environment, learn more at Configure an Log Analytics agent for Docker Swarm.
-    - If you have a Service Fabric cluster, learn more at [Monitor containers with Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - If you have a Docker Swarm mode environment, learn more at Configure an Log Analytics agent for Docker Swarm.
+     - If you have a Service Fabric cluster, learn more at [Monitor containers with Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
@@ -471,17 +471,17 @@ To use helm to deploy Log Analytics agent on your Linux Kubernetes environment, 
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
     NAME            TYPE    DATA  AGE
     omsagent-msoms  Opaque  3     17m
- 
+ 
     ==> v1beta1/DaemonSet
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-For further information, please visit [Container Solution Helm Chart](https://aka.ms/omscontainerhelm).
+   For further information, please visit [Container Solution Helm Chart](https://aka.ms/omscontainerhelm).
 
 ### Install and configure Windows container hosts
 
@@ -491,28 +491,16 @@ Use the information in section to install and configure Windows container hosts.
 
 Before you install agents on computers running Windows, you need to configure the Docker service. The configuration allows the Windows agent or the Azure Monitor virtual machine extension to use the Docker TCP socket so that the agents can access the Docker daemon remotely and to capture data for monitoring.
 
-##### To start Docker and verify its configuration
+##### To configure the Docker service  
 
-There are steps needed to set up TCP named pipe for Windows Server:
+Perform the following PowerShell commands to enable TCP pipe and named pipe for Windows Server:
 
-1. In Windows PowerShell, enable TCP pipe and named pipe.
-
-    ```
-    Stop-Service docker
-    dockerd --unregister-service
-    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
-    Start-Service docker
-    ```
-
-2. Configure Docker with the configuration file for TCP pipe and named pipe. The configuration file is located at C:\ProgramData\docker\config\daemon.json.
-
-    In the daemon.json file, you will need the following:
-
-    ```
-    {
-    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
-    }
-    ```
+```
+Stop-Service docker
+dockerd --unregister-service
+dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
+Start-Service docker
+```
 
 For more information about the Docker daemon configuration used with Windows Containers, see [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 

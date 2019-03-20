@@ -28,7 +28,7 @@ This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azu
 
 The following steps walk you through uploading a VHD file to DevTest Labs using [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. [Download and install the latest version of the Microsoft Azure Storage Explorer](http://www.storageexplorer.com).
+1. [Download and install the latest version of the Microsoft Azure Storage Explorer](https://www.storageexplorer.com).
 
 1. Get the name of the lab's storage account using the Azure portal:
 

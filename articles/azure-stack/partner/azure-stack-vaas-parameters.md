@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/19/2018
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -40,8 +40,9 @@ Environment parameters describe the Azure Stack environment under test. These va
 
 ### Generate the stamp information file
 
-1. Log in to the DVM or any machine that has access to the Azure Stack environment.
+1. Sign in to the DVM or any machine that has access to the Azure Stack environment.
 2. Run the following commands in an elevated PowerShell window:
+
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
@@ -62,7 +63,7 @@ Parameter    | Description
 -------------|-----------------
 Tenant Administrator User                            | Azure Active Directory Tenant Administrator that was provisioned by the service administrator in the AAD directory. This user performs tenant-level actions like deploying templates to set up resources (VMs, storage accounts, etc.) and executing workloads. For details on provisioning the tenant account, see [Add a new Azure Stack tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
 Service Administrator User             | Azure Active Directory Administrator of the AAD Directory Tenant specified during Azure Stack deployment. Search for `AADTenant` in the ECE configuration file and select the value in the `UniqueName` element.
-Cloud Administrator User               | Azure Stack domain administrator account (e.g., `contoso\cloudadmin`). Search for `User Role="CloudAdmin"` in the ECE configuration file and select the value in the `UserName` element.
+Cloud Administrator User               | Azure Stack domain administrator account (for example, `contoso\cloudadmin`). Search for `User Role="CloudAdmin"` in the ECE configuration file and select the value in the `UserName` element.
 Diagnostics Connection String          | A SAS URL to an Azure Storage Account to which diagnostics logs will be copied during test execution. For instructions on generating the SAS URL, see [Generate the diagnostics connection string](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]

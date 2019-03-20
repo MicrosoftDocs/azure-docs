@@ -166,7 +166,7 @@ For example, a response with Issuer element could look like the following sample
 
 The `Status` element conveys the success or failure of sign-on. It includes the `StatusCode` element, which contains a code or a set of nested codes that represents the status of the request. It also includes the `StatusMessage` element, which contains custom error messages that are generated during the sign-on process.
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 The following sample is a SAML response to an unsuccessful sign-on attempt.
 

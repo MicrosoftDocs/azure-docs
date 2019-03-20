@@ -3,7 +3,6 @@ title: Azure Data Factory Mapping Data Flow Sink Transformation
 description: Azure Data Factory Mapping Data Flow Sink Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
@@ -30,27 +29,17 @@ For Azure Storage Blob or Data Lake sink types, you will output the transformed 
 
 ![Sink options](media/data-flow/opt001.png "sink options")
 
-### Output settings
-
-Overwrite will truncate the table if it exists, then recreate it and load the data. Append will insert the new rows. If the table from the Dataset table name does not exist at all in the target ADW, Data Flow will create the table, then load the data.
-
-If you deselect "Auto Map", you can map the fields to your destination table manually.
-
-![Sink ADW options](media/data-flow/adw2.png "adw sink")
-
-#### Field Mapping
+## Field mapping
 
 On the Mapping tab of your Sink transformation, you can map the incoming (left side) columns to the destination (right side). When you sink data flows to files, ADF will always write new files to a folder. When you map to a database dataset, you can choose to either generate a new table with this schema (set Save Policy to "overwrite") or insert new rows to an existing table and map the fields to the existing schema.
 
-You can use multi-select in the mapping table to Link multiple columns with one click, Delink multiple columns or map multiple rows to the same column name.
+You can use multi-select in the mapping table to Link multiple columns with one click, delink multiple columns or map multiple rows to the same column name.
+
+When you wish to always take the incoming set of fields and map them to a target as-is, set the "Allow Schema Drift" setting.
 
 ![Field Mapping](media/data-flow/multi1.png "multiple options")
 
 If you'd like to reset your columns mappings, press the "Remap" button to reset the mappings.
-
-![Connections](media/data-flow/maxcon.png "Connections")
-
-### Updates to Sink Transformation for ADF V2 GA Version
 
 ![Sink options](media/data-flow/sink1.png "Sink One")
 
@@ -60,7 +49,7 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 
 * Clear the Folder. ADF will truncate the sink folder contents before writing the destination files in that target folder.
 
-* File name options
+## File name options
 
    * Default: Allow Spark to name files based on PART defaults
    * Pattern: Enter a name for your output files
@@ -70,14 +59,19 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 > [!NOTE]
 > File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
 
-With the SQL sink types, you can set:
+## Database options
 
-* Truncate table
-* Recreate table (performs drop/create)
-* Batch size for large data loads. Enter a number to bucket writes into chunks.
+* Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
+* Truncate table (removes all rows from your target table before completing the data flow)
+* Recreate table (performs drop/create of your target table before completing the data flow)
+* Batch size for large data loads. Enter a number to bucket writes into chunks
+* Enable staging: This will instruct ADF to use Polybase when loading Azure Data Warehouse as your sink dataset
 
-![Field Mapping](media/data-flow/sql001.png "SQL Options")
+![SQL Sink Options](media/data-flow/alter-row2.png "SQL Options")
+
+> [!NOTE]
+> When updating or deleting rows in your database sink, you must set the key column. This way, Alter Row is able to determine the unique row in the DML.
 
 ## Next steps
 
-Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline](concepts-data-flow-overview.md).

@@ -81,7 +81,7 @@ The **Sessions** panel is similar to the **Users** panel.  Where **Users** helps
 	![Sessions Timeline](media/tutorial-users/SessionsTimeline.png)
 
 ## Group together similar users
-A **Cohort** is a set of users groupd on similar characteristics.  You can use cohorts to filter data in other panels allowing you to analyze particular groups of users.  For example, you might want to analyze only users who completed a purchase.
+A **Cohort** is a set of users grouped on similar characteristics.  You can use cohorts to filter data in other panels allowing you to analyze particular groups of users.  For example, you might want to analyze only users who completed a purchase.
 
 1.  Select **Cohorts** in the menu.
 2.  Click **New** to create a new cohort.

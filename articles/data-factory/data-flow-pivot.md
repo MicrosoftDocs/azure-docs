@@ -37,7 +37,7 @@ Lastly, you will choose the aggregation that you wish to use for the pivoted val
 
 (Optional) You can set a naming pattern with a prefix, middle, and suffix to be added to each new column name from the row values.
 
-For instance, pivoting "Sales" by "Region" would result in new column values from each sales value, i.e. "25", "50", "1000", etc. However, if you set a prefix value of "Sales " 
+For instance, pivoting "Sales" by "Region" would result in new column values from each sales value, i.e. "25", "50", "1000", etc. However, if you set a prefix value of "Sales-", each column value would add "Sales-" to the beginning of the value.
 
 ![Pivot options](media/data-flow/pivot5.png "pivot 5")
 
@@ -51,4 +51,8 @@ Use the ADF Data Flow Expression Language to describe the pivoted column transfo
 
 ### How to rejoin original fields
 > [!NOTE]
-> The Pivot transformation will only project the columns used in the aggregation, grouping, and pivot action. If you wish to include the other columns from the previous step in your flow, use a New Branch from the previous step and use the self-join pattern to connect the flow with the original metadata
+> The Pivot transformation will only project the columns used in the aggregation, grouping, and pivot action. If you wish to include the other columns from the previous step in your flow, use a New Branch from the previous step and use the self-join pattern to connect the flow with the original metadata.
+
+## Next steps
+
+Try the [unpivot transformation](data-flow-unpivot.md) to turn column values into row values. 
