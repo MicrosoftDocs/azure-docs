@@ -34,7 +34,10 @@ Before you configure and set up your Data Box Edge device, make sure that:
 
 1. Configure the Ethernet adapter on your computer to connect to the Data Box Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
-2. Connect the computer to PORT 1 on your device. 
+2. Connect the computer to PORT 1 on your device. Use the following illustration to identify PORT 1 on your device.
+
+  ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
 
 3. Open a browser window and access the local web UI of the device at https://192.168.100.10.  
     This action may take a few minutes after you've turned on the device. 
@@ -67,7 +70,7 @@ Your dashboard displays the various settings that are required to configure and 
     ![Local web UI "Device name" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Optional) In the left pane, select **Network settings** and then configure the settings.  
-    On your physical device are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. The **Network settings** page is as shown below.
+    On your physical device are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. The **Network settings** page is as shown below.
     
     ![Local web UI "Network settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -96,9 +99,7 @@ Your dashboard displays the various settings that are required to configure and 
 
 4. (Optional) In the left pane, select **Time settings**, and then configure the time zone and the primary and secondary NTP servers for your device.  
     NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
-    
-    ![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
-    
+       
     On the **Time settings** page, do the following:
     
     1. In the **Time zone** drop-down list, select the time zone that corresponds to the geographic location in which the device is being deployed.
@@ -109,7 +110,7 @@ Your dashboard displays the various settings that are required to configure and 
 
     3. Optionally, in the **Secondary NTP server** box, enter a secondary server for your device.
 
-    4. To validate and apply the configured time settings, select **Apply**.
+    4. To validate and apply the configured time settings, select **Apply settings**.
 
         ![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
