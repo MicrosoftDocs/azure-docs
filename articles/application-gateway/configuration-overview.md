@@ -5,7 +5,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
 
 ---
@@ -29,7 +29,9 @@ Application gateway is a dedicated deployment in your virtual network. Within yo
 
 #### Size of the subnet
 
-In case of v1 SKU, application Gateway consumes one private IP address per instance, plus another private IP address if a  private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage. For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
+Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage. For example, if an application gateway is set to three instances and no private frontend IP, then at least eight IP addresses will be required in the subnet - five IP addresses for internal usage and three IP addresses for the three instances of the application gateway. Therefore, in this case a /29 subnet size or greater is needed. If you have three instances and an IP address for the private frontend IP configuration, then nine IP addresses will be required - three IP addresses for the three instances of the application gateway, one IP address for private frontend IP and five IP addresses for internal usage. Therefore, in this case a /28 subnet size or greater is needed.
+
+As a best practice, use at least a /28 subnet size. This gives you 11 usable addresses. If your application load requires more than 10 instances, you should consider a /27 or /26 subnet size.
 
 #### Network Security Groups supported on the Application Gateway subnet
 
@@ -37,7 +39,7 @@ Network Security Groups (NSGs) are supported on the Application Gateway subnet w
 
 - Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, are not able to initiate any changes on those endpoints.
 
-- Outbound internet connectivity can't be blocked.
+- Outbound internet connectivity can't be blocked. Default outbound rules in the NSG already allow internet connectivity. We recommend that you don't remove the default outbound rules and that you don't create other outbound rules that deny outbound internet connectivity.
 
 - Traffic from the AzureLoadBalancer tag must be allowed.
 
@@ -53,11 +55,12 @@ This scenario can be done using NSGs on the application gateway subnet. The foll
 
 #### User-defined routes supported on the Application Gateway subnet
 
-In case of v1 SKU, User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
-
-For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
+In case of v1 SKU, User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication. For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
 
 In case of v2 SKU, UDRs on the application gateway subnet are not supported. For more information, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Using UDRs on the application gateway subnet will cause the health status in the [backend health view](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) to be shown as **Unknown** and will also result in failue of generation of application gateway logs and metrics. It is recommended you do not use UDRs on application gateway subnet to be able to view the backend health, logs and metrics.
 
 ## Frontend IP
 
@@ -83,10 +86,11 @@ You can choose between [basic or multi-site listener](https://docs.microsoft.com
 
 - If you are configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, then choose multi-site listener. For multi-site listener, you will additionally need to enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
 
-> [!NOTE]
-> In case of v1 SKUs, listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it processes it first. Therefore, multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
->
-> In case of v2 SKUs, multi-site listeners are processed before basic listeners.
+#### Order of processing listeners
+
+In case of v1 SKUs, listeners are processed in the order they are shown. For that reason if a basic listener matches an incoming request it processes it first. Therefore, multi-site listeners should be configured before a basic listener to ensure traffic is routed to the correct back-end.
+
+In case of v2 SKUs, multi-site listeners are processed before basic listeners.
 
 ### Frontend IP
 
@@ -106,9 +110,9 @@ You need to choose between HTTP and HTTPS protocol.
 
   To configure Secure Sockets Layer (SSL) termination and end to end SSL encryption, a certificate is required to be added to the listener so as to enable the Application Gateway to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic. 
 
-#### Supported certs
+#### Supported certificates
 
-Self-Signed certs, CA certs, wild-card certs and EV certs are supported.
+See [certificates supported for SSL termination](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### Additional protocol support
 
@@ -156,11 +160,11 @@ You can choose between [basic or path-based rule](https://docs.microsoft.com/azu
 - Choose path-based listener if you want to route requests with specific URL path to specific backend pools. The path pattern is applied only to the path of the URL, not to its query parameters.
 
 
-> [!NOTE]
->
-> In case of v1 SKUs, matching of pattern of the incoming request is processed in the order in which the paths are listed in the URL path map of the path-based rule. For that reason, if a request matches the pattern in two or more paths in the URL path map, then the path which is listed first will be matched and the request will be forwarded to the backend associated with that path.
->
-> In case of v2 SKUs, an exact match holds higher priority over the order in which the paths are listed in the URL path map. For that reason, if a request matches the pattern in two or more paths, then the request will be forwarded to the backend associated with that path that matches exactly with the request. If the path in the incoming request does not exactly match any path in the URL path map, then matching of pattern of the incoming request is processed in the order in which the paths are listed in the URL path map of the path-based rule.
+#### Order of processing rules
+
+In case of v1 SKUs, matching of pattern of the incoming request is processed in the order in which the paths are listed in the URL path map of the path-based rule. For that reason, if a request matches the pattern in two or more paths in the URL path map, then the path which is listed first will be matched and the request will be forwarded to the backend associated with that path.
+
+In case of v2 SKUs, an exact match holds higher priority over the order in which the paths are listed in the URL path map. For that reason, if a request matches the pattern in two or more paths, then the request will be forwarded to the backend associated with that path that matches exactly with the request. If the path in the incoming request does not exactly match any path in the URL path map, then matching of pattern of the incoming request is processed in the order in which the paths are listed in the URL path map of the path-based rule.
 
 ### Associated listener
 
@@ -172,7 +176,7 @@ Associate the backend pool containing the backend targets which will serve the r
 
 ### Associated backend HTTP setting
 
-Add a backend HTTP setting for each rule. The requests will be routed from the Application Gateway to the backend targets using the port number, protocol and other settings specified in this setting. In case of a basic rule, only one backend HTTP setting is allowed since all the requests on the associated listener will be forwarded to the corresponding backend targets using this HTTP setting. In case of a path-based rule, add multiple backend HTTP settings corresponding to each URL path. The requests which match the URL path entered here, will be forwarded to the corresponding backend targets using the HTTP settings corresponding to each URL path. Also, add a default HTTP settings since the requests which do not match any URL path entered in this rule will be forwarded to the default backend pool using the default HTTP settings.
+Add a backend HTTP setting for each rule. The requests will be routed from the Application Gateway to the backend targets using the port number, protocol and other settings specified in this setting. In case of a basic rule, only one backend HTTP setting is allowed since all the requests on the associated listener will be forwarded to the corresponding backend targets using this HTTP setting. In case of a path-based rule, add multiple backend HTTP settings corresponding to each URL path. The requests which match the URL path entered here, will be forwarded to the corresponding backend targets using the HTTP settings corresponding to each URL path. Also, add a default HTTP setting since the requests which do not match any URL path entered in this rule will be forwarded to the default backend pool using the default HTTP setting.
 
 ### Redirection setting
 
@@ -182,7 +186,7 @@ For information about the redirection capability, see [Redirection overview](htt
 
 - #### Redirection type
 
-  Choose type of redirection required from: Permanent, Temporary, Found or See other.
+  Choose type of redirection required from: Permanent(301), Temporary(307), Found(302) or See other(303).
 
 - #### Redirection target
 
@@ -232,14 +236,14 @@ The number of seconds the application gateway waits to receive response from the
 
 This setting allows you to configure an optional custom forwarding path to use when the request is forwarded to the backend. This will copy any part of the incoming path that matches to the custom path specified in the **override backend path** field to the forwarded path. See the table below to understand how the capability works.
 
-- When the HTTP settings is attached to a basic request routing rule:
+- When the HTTP setting is attached to a basic request routing rule:
 
   | Original request  | Override backend path | Request forwarded to backend |
   | ----------------- | --------------------- | ---------------------------- |
   | /home/            | /override/            | /override/home/              |
   | /home/secondhome/ | /override/            | /override/home/secondhome/   |
 
-- When the HTTP settings is attached to a path-based request routing rule:
+- When the HTTP setting is attached to a path-based request routing rule:
 
   | Original request           | Path rule       | Override backend path | Request forwarded to backend |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
