@@ -164,7 +164,7 @@ In addition to Azure AD, the Azure portal provides you with additional entry poi
 
 ### Users sign-ins data in Identity security protection
 
-The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
+The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins for all users in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
 
@@ -211,7 +211,7 @@ Your entry point to this data is the top 3 applications in your organization wit
 
 ![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
 
-The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+The app usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
 
