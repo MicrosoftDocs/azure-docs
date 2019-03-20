@@ -1,5 +1,5 @@
 ---
-title: Review tagged images - Content Moderator
+title: Use content reviews through the Review tool - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Learn how the Review tool allows human moderators to review images in a web portal.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 # Create human reviews
 
-In this guide, you'll learn how to set up reviews on the Review tool website. Reviews store and display content for human moderators to assess. Moderators can alter the applied tags and apply their own custom tags as appropriate. When a user completes a review, the results are sent to a specified callback endpoint, and the content is removed from the site. [TBD link to reviews conceptual](tbd)
+In this guide, you'll learn how to set up [reviews](./review-api.md#reviews) on the Review tool website. Reviews store and display content for human moderators to assess. Moderators can alter the applied tags and apply their own custom tags as appropriate. When a user completes a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In this guide, you'll learn how to set up reviews on the Review tool website. Re
 
     ![Chrome browser showing the Review tool with tagged images for review](images/review-images-2.png)
 
-1. To see more information on an image, click on the ellipsis in the thumbnail and select **View details**. You can assign an image to a subteam with the **Move to** option (see [TBD subteams doc](tbd) to learn more about subteams).
+1. To see more information on an image, click on the ellipsis in the thumbnail and select **View details**. You can assign an image to a subteam with the **Move to** option (see the [teams](./configure.md#manage-team-and-subteams) section to learn more about subteams).
 
     ![An image with the View details option highlighted](images/review-images-3.png)
 
@@ -52,4 +52,5 @@ Text reviews function similarly to image reviews. Instead of uploading content, 
 ![Screenshot of the review tool showing flagged text in a Chrome browser window](../images/reviewresults_text.png)
 
 ## Next steps
-TBD
+
+In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](./try-review-api-review.md) or the [.NET SDK guide](./moderation-reviews-quickstart-dotnet.md) to learn how to create reviews programmatically.

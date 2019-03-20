@@ -1,5 +1,5 @@
 ---
-title: Define and use content moderation workflows from the Review tool - Content Moderator
+title: Define and use content workflows through the Review tool - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: You can use the Azure Content Moderator workflow designer to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 # Define and use moderation workflows
 
-In this guide, you'll learn how to set up and use workflows on the [Review tool](tbd) website. Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario. [TBD link to workflows conceptual](tbd)
+In this guide, you'll learn how to set up and use [workflows](./review-api.md#workflows) on the [Review tool](https://contentmoderator.cognitive.microsoft.com) website. Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario. 
 
 ## Create a new workflow
 
@@ -38,7 +38,7 @@ Name your workflow, enter a description, and choose whether the workflow will ha
 
 On the next screen, go to the **If** section. In the top dropdown menu, choose **Condition**. This will allow you to configure the condition on which the workflow will take action. If you want to use multiple conditions, choose **Combination** instead. 
 
-Next, select a connector. This example uses **Content Moderator**. Depending on the connector you choose, you will get different options for data output. See the [Connectors](tbd-link-to-connectors-section) section of the Review tool settings guide to learn how to set up other connectors.
+Next, select a connector. This example uses **Content Moderator**. Depending on the connector you choose, you will get different options for data output. See the [Connectors](./configure.md#connectors) section of the Review tool settings guide to learn how to set up other connectors.
 
 ![Select workflow connector](images/image-workflow-connect-to.PNG)
 
@@ -80,7 +80,4 @@ Go to the **Image** tab under **Review** and verify that there is a newly create
 
 ## Next steps
 
-In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, learn how to use workflows programmatically.
-
-- [`Job` API console quickstart](../try-review-api-job.md)
-- [.NET SDK quickstart](../moderation-jobs-quickstart-dotnet.md)
+In this guide, you learned how to set up and use moderation workflows from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](./try-review-api-workflows.md) or the [.NET SDK guide](./moderation-workflows-quickstart-dotnet.md) to learn how to create workflows programmatically.

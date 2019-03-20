@@ -1,5 +1,5 @@
 ---
-title: Define and use content moderation workflows with the REST API - Content Moderator
+title: Define moderation workflows with the REST API console - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: You can use the Azure Content Moderator Review APIs to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
@@ -136,6 +136,5 @@ Select **Send**. If the operation succeeds, the **Response status** is `200 OK`,
 
 ## Next steps
 
-TBD
-* For more complex workflow examples, see the [Workflows overview](workflow-api.md).
-* Learn how to use workflows with [content moderation jobs](try-review-api-job.md).
+- For more complex workflow examples, see the [workflows section](workflow-api.md).
+- Learn how to use workflows with [content moderation jobs](try-review-api-job.md).

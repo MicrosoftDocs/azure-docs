@@ -1,5 +1,5 @@
 ---
-title: Run content moderation jobs with the API console - Content Moderator
+title: Use moderation jobs with the REST API console - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Use the Review API's job operations to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator. 
 services: cognitive-services
@@ -112,9 +112,8 @@ Enter the REST call parameters as in the above section. For this step, **JobId**
 
 ### Examine the new review(s)
 
-If your content job resulted in the creation of a review, you can view it in the [Review tool](tbd). Select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content should appear, ready for human review. After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the jobs API submits all of this information to the designated callback endpoint endpoint.
+If your content job resulted in the creation of a review, you can view it in the [Review tool](https://contentmoderator.cognitive.microsoft.com). Select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content should appear, ready for human review. After a human moderator reviews the auto-assigned tags and prediction data and submits a final moderation decision, the jobs API submits all of this information to the designated callback endpoint endpoint.
 
 ## Next steps
 
-TBD
-Use the REST API in your code or start with the [Jobs .NET quickstart](moderation-jobs-quickstart-dotnet.md) to integrate with your application.
+In this guide, you learned how to create and query content moderation jobs using the REST API. Next, integrate jobs into an end-to-end moderation scenario, such as the [E-commerce moderation](./ecommerce-retail-catalog-moderation.md) tutorial.

@@ -24,7 +24,7 @@ In a review, content is uploaded to the Review tool and appears under the **Revi
 
 ![Review tool website open in a browser, on the Review tab](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-See [TBD](tbd) to get started created reviews, or see TBD to learn how to do so programmatically.
+See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [REST API guide](./try-review-api-review.md) to learn how to do so programmatically.
 
 ## Workflows
 
@@ -61,13 +61,13 @@ Workflows can be completely described as JSON strings, which makes them accessib
 }
 ```
 
-See [TBD](tbd) to get started creating and using workflows, or see TBD to learn how to do so programmatically.
+See the [Review tool guide](./review-tool-user-guide/workflows.md) to get started creating and using workflows, or see the [REST API guide](./try-review-api-workflow.md) to learn how to do so programmatically.
 
 ## Jobs
 
-A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](tbd). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
+A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](./review-tool-user-guide/human-in-the-loop.md). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
 
-See [TBD](tbd) to get started using jobs, or see [TBD](tbd) to learn how to do so programmatically.
+See the [REST API guide](./try-review-api-job.md) to get started using jobs.
 
 ## Next steps
 

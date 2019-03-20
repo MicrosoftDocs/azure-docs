@@ -11,7 +11,7 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-
+# The reviews how-to for .NET SDK
 ---
 
 # Create human reviews (.NET)
@@ -536,11 +536,4 @@ You see a response like the following example:
 
 ## Next steps
 
-Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.
-
-tbd
-
-For a more complete scenario, see the 
-[Facebook content moderation](facebook-post-moderation.md) and
-[Moderate e-commerce product images](ecommerce-retail-catalog-moderation.md)
-tutorials.
+Get the [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) and download the [Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET, and get started on your integration.

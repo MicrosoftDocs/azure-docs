@@ -1,5 +1,5 @@
 ---
-title: Moderate content using human reviews with the API console - Content Moderator
+title: Create moderation reviews with REST API console - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Use the Azure Content Moderator Review APIs to create image or text reviews for human moderation.
 services: cognitive-services
@@ -16,7 +16,7 @@ ms.author: sajagtap
 
 # Create human reviews (REST)
 
-Reviews store and display content for human moderators to assess. When a user completes a review, the results are sent to a specified callback endpoint. In this guide, you'll learn how to set up reviews using the review REST APIs through the API console. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.[TBD link to reviews conceptual](tbd)
+[Reviews](./review-api.md#reviews) store and display content for human moderators to assess. When a user completes a review, the results are sent to a specified callback endpoint. In this guide, you'll learn how to set up reviews using the review REST APIs through the API console. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Enter values for **teamName**, and **Ocp-Apim-Subscription-Key**:
 
 Edit the **Request body** box to enter the JSON request with the following fields:
 
-- **Metadata**: Custom key-value pairs to be returned to your callback endpoint. If the key is a short code that is defined in the [Review tool](tbd), it appears as a tag.
+- **Metadata**: Custom key-value pairs to be returned to your callback endpoint. If the key is a short code that is defined in the [Review tool](https://contentmoderator.cognitive.microsoft.com), it appears as a tag.
 - **Content**: In the case of Image and Video content, this is a URL string pointing to the content. For text content, this is the actual text string.
 - **ContentId**: A custom identifier string. This string is passed to the API and returned through the callback. It is useful for associating internal identifiers or metadata with the results of a moderation job.
 - **CallbackEndpoint**: (Optional) The URL to receive callback information when the review is completed.
@@ -132,7 +132,7 @@ Select **Send**. If the operation succeeds, the **Response status** is `200 OK`,
 
 ### Examine the new review
 
-In the [Review tool](tbd), select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content that you uploaded should appear, ready for human review.
+In the [Review tool](https://contentmoderator.cognitive.microsoft.com), select **Review** > **Image**/**Text**/**Video** (depending on what content you used). The content that you uploaded should appear, ready for human review.
 
 ![Review tool image of a soccer ball](images/test-drive-review-5.PNG)
 
@@ -189,5 +189,4 @@ Take note of the following fields in the response:
 
 ## Next steps
 
-TBD
-Use the REST API in your code or start with the [Reviews .NET quickstart](moderation-reviews-quickstart-dotnet.md) to integrate with your application.
+In this guide, you learned how to create content moderation reviews using the REST API. Next, integrate reviews into an end-to-end moderation scenario, such as the [E-commerce moderation](./ecommerce-retail-catalog-moderation.md) tutorial.

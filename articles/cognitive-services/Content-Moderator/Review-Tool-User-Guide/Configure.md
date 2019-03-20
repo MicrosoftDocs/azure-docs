@@ -22,7 +22,7 @@ The [Review tool](https://contentmoderator.cognitive.microsoft.com) has several 
 
 ## Manage team and subteams
 
-The **Team** tab lets you manage your team and subteams&mdash;groups of users who can be notified when certain [human reviews](TBD to reviews) are started. You can only have one team (which you create when you sign up with the Review tool), but you can create multiple subteams. The team administrator can invite members, set their permissions, and assign them to different subteams.
+The **Team** tab lets you manage your team and subteams&mdash;groups of users who can be notified when certain [human reviews](../review-api.md#reviews) are started. You can only have one team (which you create when you sign up with the Review tool), but you can create multiple subteams. The team administrator can invite members, set their permissions, and assign them to different subteams.
 
 ![Review tool team settings](images/settings-2-team.png)
 
@@ -50,7 +50,7 @@ Click the **Add Member** button to assign members from your default team to one 
 
 ### Assign reviews to subteams
 
-Once you have created your subteams and assigned members, you can start assigning content [reviews](tbd review concept) to those subteams. This is done from the **Review** tab of the site.
+Once you have created your subteams and assigned members, you can start assigning content [reviews](../review-api.md#reviews) to those subteams. This is done from the **Review** tab of the site.
 To assign content to a subteam, click the ellipsis in the upper-right corner, select **Move to**, and select a subteam.
 
 ![Assign image review to subteam](images/3-review-image-subteam-1.png)
@@ -85,11 +85,11 @@ You can delete custom tags by selecting the trash icon next to their entries on 
 
 ## Connectors
 
-The **Connectors** tab lets you manage your connectors, which are service-specific plugins that can process content in different ways as part of content [workflows](tbd workflow concept).
+The **Connectors** tab lets you manage your connectors, which are service-specific plugins that can process content in different ways as part of content [workflows](../review-api.md#workflows).
 
 The default connector when you create a workflow is the Content Moderator connector, which can mark content as **adult** or **racy**, find profanity, and so on. However, you can use other connectors, listed here, as long as you have credentials for their respective services (to use the Face API connector, for example, you will need to get a [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview) subscription key).
 
-The [Review tool](tbd) includes the following connectors:
+The [Review tool](./human-in-the-loop.md) includes the following connectors:
 
 - Emotion API
 - Face API
@@ -98,13 +98,13 @@ The [Review tool](tbd) includes the following connectors:
 
 ### Add a connector
 
-To add a connector (and make it available for use in content [workflows](TBD workflow)), select the appropriate **Connect** button. In the next dialog, enter your subscription key for that service. When you are done, your new connector should appear at the top of the page.
+To add a connector (and make it available for use in content [workflows](../review-api.md#workflow)), select the appropriate **Connect** button. In the next dialog, enter your subscription key for that service. When you are done, your new connector should appear at the top of the page.
 
 ![Content Moderator Connectors Settings](images/settings-4-connectors.png)
 
 ## Workflows
 
-The **workflows** tab lets you manage your [workflows](TBD workflow review-api.md). Workflows are cloud-based filters for content, and they work with connectors to sort content in different ways and take appropriate actions. Here, you can define, edit, and test your workflows. See [Define and use workflows](Workflows.md) for guidance on how to do this.
+The **workflows** tab lets you manage your [workflows](../review-api.md#workflow). Workflows are cloud-based filters for content, and they work with connectors to sort content in different ways and take appropriate actions. Here, you can define, edit, and test your workflows. See [Define and use workflows](Workflows.md) for guidance on how to do this.
 
 ![Content Moderator Workflow Settings](images/settings-5-workflows.png)
 
@@ -125,7 +125,7 @@ If you have created a [Content Moderator resource](https://ms.portal.azure.com/#
 In the [Review tool](https://contentmoderator.cognitive.microsoft.com)'s **Credentials** tab, go to the **Workflow Settings** pane, select **Edit**, and paste your key into the **Ocp-Apim-Subscription-Key** field. Now, workflows that call the moderation APIs will use your Azure credential.
 
 > [!NOTE]
-> The other two fields in the **Workflow Settings** pane are for custom term and image lists. See the [Custom terms](tbd) or [Custom images](tbd) guides to learn about these.
+> The other two fields in the **Workflow Settings** pane are for custom term and image lists. See the [Custom terms](../try-terms-list-api.md) or [Custom images](../try-image-list-api.md) guides to learn about these.
 
 ### Use your Azure account with the review APIs
 
@@ -136,4 +136,5 @@ To use your Azure key with the review APIs, you need to retrieve your Resource I
 If you've entered your subscription key in both places, the trial key that comes with your Review tool account will not be used but will remain available.
 
 ## Next steps
-tbd
+
+Follow the [Review tool quickstart](../quick-start.md) to start using the Review tool in content moderation scenarios.

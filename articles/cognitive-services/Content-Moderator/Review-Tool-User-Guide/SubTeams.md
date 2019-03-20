@@ -1,5 +1,5 @@
 ---
-title: Manage teams and subteams in the Content Moderator API - Content Moderator
+title: Manage review teams and subteams - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Learn how to use teams and subteams in the Content Moderator API for Cognitive Services.
 services: cognitive-services

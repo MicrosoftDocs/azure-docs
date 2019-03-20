@@ -1,5 +1,5 @@
 ---
-title: Review tool for human-in-the-loop moderation - Content Moderator
+title: Learn Review tool concepts - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Learn about the Content Moderator Review tool, a website that coordinates a combined AI and human review moderation effort.
 services: cognitive-services
@@ -25,10 +25,10 @@ Azure Content Moderator provides services to combine machine learning content mo
 The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used in conjunction with the machine-assisted moderation APIs, allows you to accomplish the following tasks in the content moderation process:
 
 - Use one set of tools to moderate content in multiple formats (text, image, and video).
-- Automate the creation of human [reviews](TBD conceptual link) when moderation API results come in.
+- Automate the creation of human [reviews](../review-api.md#reviews) when moderation API results come in.
 - Assign or escalate content reviews to multiple review teams, organized by content category or experience level.
-- Use default or custom logic filters ([workflows](tbd conceptual link)) to sort and track content, without writing any code.
-- Use [connectors](tbd probably link here) to process content with Microsoft PhotoDNA, Text Analytics, and Face APIs in addition to the Content Moderator APIs.
+- Use default or custom logic filters ([workflows](../review-api.md#workflows)) to sort and track content, without writing any code.
+- Use [connectors](./configure.md#connectors) to process content with Microsoft PhotoDNA, Text Analytics, and Face APIs in addition to the Content Moderator APIs.
 - Build your own connector to create workflows for any API or business process.
 - Get key performance metrics on your content moderation processes.
 
@@ -45,4 +45,5 @@ When you sign up with the [Review tool](https://contentmoderator.cognitive.micro
 ![Content Moderator Credentials](images/settings-6-credentials.png)
 
 ## Next steps
-TBD (probably the configure how-to)
+
+See [Configure the Review tool](./configure.md) to learn how to access Review tool resources and change settings.
