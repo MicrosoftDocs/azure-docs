@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/19/2019
+ms.date: 03/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -31,10 +31,6 @@ ms.collection: M365-identity-device-management
 Managing access to all the resources a user needs to be productive is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of all the resources needed, the scope of the project, the individuals involved in the project, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with individuals or companies outside your organization.
 
 Azure Active Directory (Azure AD) entitlement management enables organizations to efficiently manage user's access to groups, enterprise applications, and SharePoint Online sites.
-
-For an overview of identity governance and entitlement management, watch the following video from the Ignite 2018 conference:
-
->[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
 
 ## Why use entitlement management?
 
@@ -60,6 +56,10 @@ Here are some of capabilities of entitlement management:
 - Delegate managers to manage resources and approve requests
 - Govern the lifecycle of access for both internal and guest users
 - Create reports to track history
+
+For an overview of identity governance and entitlement management, watch the following video from the Ignite 2018 conference:
+
+>[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
 
 ## Prerequisites
 
@@ -92,13 +92,13 @@ There are several ways that you can configure entitlement management for your or
 
 | # | Step | Example | Who can perform |
 | ---: | --- | --- | --- |
-| 1 | Create a catalog<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
-| 2 | Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
-| 3 | Create an access package in catalog<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
-| 4 | Add resource roles to access package<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 5 | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings<br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
-| 6 | Request access<br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | ![Request access](./media/entitlement-management-overview/icon-request-access.png) | User |
-| 7 | Approve access request<br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | ![Approve access](./media/entitlement-management-overview/icon-approve-access.png) | Approver |
+| 1 | Create a catalog<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) |![Create catalog](./media/entitlement-management-overview/icon-catalog.png) | User admin<br/>Catalog creator |
+| 2 | Add resources to catalog<br/>- Groups<br/>- Applications<br/>- SharePoint sites<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resources to catalog](./media/entitlement-management-overview/icon-resources.png) | User admin<br/>Catalog owner |
+| 3 | Create an access package in catalog<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Create an access package](./media/entitlement-management-overview/icon-access-package.png) | User admin<br/>Catalog owner |
+| 4 | Add resource roles to access package<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add resource roles](./media/entitlement-management-overview/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 5 | Add policy<br/>- Who can request access<br/>- Who can approve<br/>- Expiration settings<br/><br/>![Azure portal icon](./media/entitlement-management-overview/icon-azure-portal.png) | ![Add policy](./media/entitlement-management-overview/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+| 6 | Request access<br/><br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | ![Request access](./media/entitlement-management-overview/icon-request-access.png) | User |
+| 7 | Approve access request<br/><br/>![My Access portal icon](./media/entitlement-management-overview/icon-myaccess-portal.png) | ![Approve access](./media/entitlement-management-overview/icon-approve-access.png) | Approver |
 | 8 | Use resources in access package |  | User |
 
 ## Terminology
