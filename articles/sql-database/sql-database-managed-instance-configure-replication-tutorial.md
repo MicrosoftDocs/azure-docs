@@ -5,8 +5,8 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
