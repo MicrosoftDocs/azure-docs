@@ -1,9 +1,9 @@
 ---
 title: Traffic coverage in Azure Maps | Microsoft Docs
 description: Learn about traffic coverage in Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -17,62 +17,81 @@ Azure Maps provides rich traffic information in the form of traffic **flow** and
 
 However, Maps does not have the same level of information and accuracy for all regions. The following table provides information about what kind of traffic information you can request from each region: 
 
-|Region  |Incidents  |Flow  |
+## Americas
+
+|Country/Region  |Incidents  |Flow  |
 |---------|:---------:|:---------:|
-|Argentina      |         |✓         |
-|Australia     |✓         |✓        |
-|Austria     |✓         |✓         |
-|Bahrain     |         |✓         |
-|Belgium     |✓         |✓         |
+|Argentina      |✓         |✓         |
 |Brazil     |✓         |✓         |
-|Bulgaria     |✓         |✓         |
 |Canada     |✓         |✓         |
 |Chile     |✓         |✓         |
-|Colombia      |         |✓         |
-|Croatia     |         |✓         |
+|Colombia      |✓         |✓         |
+|Mexico     |✓         |✓         |
+|Peru       |✓         |✓         | 
+|United States     |✓         |✓        |
+|+Puerto Rico     |✓         |✓         |
+|Uraguay |✓         |✓         |
+
+
+## Asia Pacific
+
+|Country/Region   |Incidents  |Flow  |
+|---------|:---------:|:---------:|
+|Australia     |✓         |✓        |
+|Brunei   |✓         |✓        |
+|Hong Kong SAR     |✓         |✓         |
+|India   |✓         |✓         |
+|Indonesia     |✓         |✓         |
+|Macao SAR     |✓         |✓         |
+|Malaysia     |✓         |✓         |
+|New Zealand     |✓         |✓         |
+|Philippines  |✓         |✓         |
+|Singapore     |✓         |✓         |
+|Taiwan     |✓         |✓        |
+|Thailand     |✓         |✓        |
+|Vietnam   |✓         |✓         |
+
+
+## Europe
+
+|Country/Region   |Incidents  |Flow  |
+|---------|:---------:|:---------:|
+|Andorra   |✓         |✓         |
+|Austria     |✓         |✓         |
+|Belgium     |✓         |✓         |
+|Bulgaria     |✓         |✓         |
+|Croatia     |✓         |✓         |
 |Czech Republic     |✓         |✓         |
 |Denmark     |✓         |✓         |
-|Egypt     |         |✓         |
 |Estonia     |         | ✓        |
 |Finland     |✓         |✓         |
 |+Åland Islands      |✓         |✓         |
 |France     |✓         |✓         |
-|+Monaco     |✓         |✓         |
+|Monaco     |✓         |✓         |
 |Germany     |✓         |✓         |
+|Gibralter   |✓         |✓         |
 |Greece     |✓         |✓         |
-|Hong Kong SAR     |✓         |✓         |
 |Hungary     |✓         |✓         |
-|Iceland     |         |✓         |
-|Indonesia     |✓         |✓         |
+|Iceland     |✓         |✓         |
 |Ireland (Republic of)     |✓         |✓         |
-|Israel     |         |✓         |
 |Italy     |✓         |✓        |
 |+San Marino     |✓         |✓         |
-|Kuwait     |✓         |✓         |
-|Latvia     |         |✓         |
+|Latvia     |✓         |✓         |
 |Lesotho     |✓         |✓         |
-|Lithuania     |         |✓         |
+|Lithuania     |✓         |✓         |
 |Luxembourg     |✓         |✓         |
-|Macao SAR     |         |✓         |
-|Malaysia     |✓         |✓         |
 |Malta     |✓         |✓         |
-|Mexico     |✓         |✓         |
-|Morocco     |         |✓         |
+|Monaco   |✓         |✓         |
 |Netherlands     |✓         |✓         |
-|New Zealand     |✓         |✓         |
 |Norway     |✓         |✓         |
-|Oman     |         |✓         |
 |Poland     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+Azores and Madeira     |         |✓         |
-|Qatar     |         |✓         |
-|Romania     |         |✓         |
+|+Azores and Madeira     |✓         |✓         |
+|Romania     |✓         |✓         |
 |Russian Federation     |✓         |✓         |
-|Saudi Arabia     |✓         |✓         |
-|Singapore     |✓         |✓         |
+|San Marino    |✓         |✓         |
 |Slovakia     |✓         |✓         |
 |Slovenia     |✓         |✓         |
-|South Africa     |✓         |✓         |
 |Spain     |✓         |✓         |
 |+Andorra     |✓         |✓         |
 |+Balearic Islands     |✓         |✓         |
@@ -81,15 +100,32 @@ However, Maps does not have the same level of information and accuracy for all r
 |Sweden     |✓         |✓         |
 |Switzerland     |✓         |✓        |
 |+Liechtenstein      |✓         |✓         |
-|Taiwan     |✓         |✓        |
-|Thailand     |✓         |✓        |
 |Turkey     |✓         |✓         |
 |Ukraine     |✓         |✓         |
-|United Arab Emirates     |✓         |✓         |
 |United Kingdom     |✓         |✓         |
 |(Guernsey & Jersey)     |✓         |✓         |
-|Isle of Man     |✓         |✓         |
-|United States     |✓         |✓        |
-|+Puerto Rico     |✓         |✓         |
+|+Isle of Man     |✓         |✓         |
+|Vatican    |✓         |✓         |
+
+
+## Middle East and Africa
+
+|Country/Region |Incidents  |Flow  |
+|---------|:---------:|:---------:|
+|Bahrain     |✓         |✓         |
+|Egypt     |✓         |✓         |
+|Israel     |✓         |✓         |
+|Kenya     |✓         |✓         |
+|Kuwait     |✓         |✓         |
+|Morocco     |✓         |✓         |
+|Mozambique  |✓         |✓         |
+|Nigeria   |✓        |✓        |
+|Oman     |✓         |✓         |
+|Qatar     |✓         |✓         |
+|Saudi Arabia     |✓         |✓         |
+|South Africa     |✓         |✓         |
+|United Arab Emirates  |✓         |✓         |
+
+## Next steps
 
 For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/maps/traffic) reference pages.
