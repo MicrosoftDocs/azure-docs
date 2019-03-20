@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 03/20/2019
 ms.author: jeedes
 
 ---
@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
 	>[!NOTE]
-	>You can download the **Service Provider metadata file** [here](https://fed.appreciatehub.com/fed/sp/metadata)
+	>You can download the **Service Provider metadata file** from [here](https://fed.appreciatehub.com/fed/sp/metadata)
 
 	a. Click **Upload metadata file**.
 
@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with O.C. Tanner - AppreciateHub, perform t
 	 ![O.C. Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
 
 	> [!Note]
-	> If the **Identifier** and **Reply URL** value does not get auto polulated, then please fill in the value manually according to your requirement. Contact [O.C. Tanner - AppreciateHub Client support team](mailto:sso@octanner.com) to get these value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If the **Identifier** and **Reply URL** values do not get auto polulated, then please fill in the values manually according to your requirement. Contact [O.C. Tanner - AppreciateHub Client support team](mailto:sso@octanner.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
