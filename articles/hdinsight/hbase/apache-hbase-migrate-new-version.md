@@ -195,15 +195,21 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 
 	![In Ambari, change the container name](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Save your changes.
-9. Restart all required services as indicated by Ambari.
-10. Point your application to the new cluster.
+8. **If you are not using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.**
+   
+   Change the hbase.rootdir path to point to the container of the original cluster.
+
+	![In Ambari, change the container name for hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+	
+9. Save your changes.
+10. Restart all required services as indicated by Ambari.
+11. Point your application to the new cluster.
 
     > [!NOTE]  
     > The static DNS for your application changes when upgrading. Rather than hard-coding this DNS, you can configure a CNAME in your domain name's DNS settings that points to the cluster's name. Another option is to use a configuration file for your application that you can update without redeploying.
 
-11. Start the ingestion to see if everything is functioning as expected.
-12. If the new cluster is satisfactory, delete the original cluster.
+12. Start the ingestion to see if everything is functioning as expected.
+13. If the new cluster is satisfactory, delete the original cluster.
 
 ## Next steps
 

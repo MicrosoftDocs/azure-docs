@@ -65,6 +65,8 @@
       href: concepts-server-logs.md
   - name: Development
     items:
+    - name: Drivers and tools compatibility
+      href: concepts-compatibility.md
     - name: Connection resiliency
       href: concepts-connectivity.md
   - name: Replication
