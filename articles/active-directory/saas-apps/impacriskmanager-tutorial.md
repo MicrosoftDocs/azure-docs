@@ -63,7 +63,7 @@ To configure the integration of IMPAC Risk Manager into Azure AD, you need to ad
 
 4. In the search box, type **IMPAC Risk Manager**, select **IMPAC Risk Manager** from result panel then click **Add** button to add the application.
 
-	 ![IMPAC Risk Manager in the results list](common/search-new-app.png)
+	![IMPAC Risk Manager in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -119,7 +119,8 @@ To configure Azure AD single sign-on with IMPAC Risk Manager, perform the follow
     ![IMPAC Risk Manager Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    | | |
+
+	| Environment | URL Pattern |
     | ---------------|--------------- |
 	| For Production |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 	| For Staging and Training  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
