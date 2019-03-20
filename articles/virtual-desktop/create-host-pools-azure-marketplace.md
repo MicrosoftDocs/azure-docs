@@ -37,7 +37,7 @@ Here's what you do for the Basics blade:
 
 1. Enter a name for the host pool that’s unique within the Windows Virtual Desktop tenant.
 2. Select the appropriate option for personal desktop. If you select **Yes**, each user that connects to this host pool will be permanently assigned to a virtual machine.
-3. Enter a comma-separated list of users who can sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering completes. For example, if you'd like to assign user1@contoso.com and user2@contoso.com access, enter "**user1@contoso.com,user2@contoso.com**."
+3. Enter a comma-separated list of users who can sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering completes. For example, if you'd like to assign user1@contoso.com and user2@contoso.com access, enter "user1@contoso.com,user2@contoso.com."
 4. Select **Create new** and provide a name for the new resource group.
 5. For **Location**, select the same location as the virtual network that has connectivity to the Active Directory server.
 6. Select **OK**.
