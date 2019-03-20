@@ -167,12 +167,12 @@ while (iteration.status != "Completed"):
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, "detectModel", "<insert publish resource id corresponding to prediction key here>")
 print ("Done!")
 ```
 
-### Get and use the default prediction endpoint
+### Get and use the published iteration on the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
@@ -185,7 +185,7 @@ predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
 with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.predict_image(project.id, test_data, iteration.id)
+    results = predictor.detect_image(project.id, test_data, "detectModel")
 
 # Display the results.
 for prediction in results.predictions:

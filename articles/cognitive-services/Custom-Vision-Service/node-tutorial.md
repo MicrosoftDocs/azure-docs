@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/20/2019
 ms.author: areddish
 ---
 
@@ -115,12 +115,11 @@ This code creates the first iteration in the project and marks it as the default
     }
     console.log("Training status: " + trainingIteration.status);
     
-    // Update iteration to be default
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, "classifyModel", "<insert publish resource id corresponding to prediction key here>");
 ```
 
-### Get and use the default prediction endpoint
+### Get and use the published iteration on the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
@@ -128,7 +127,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id });
+    const results = await predictor.classifyImage(sampleProject.id, testFile, "classifyModel");
 
     // Step 6. Show results
     console.log("Results:");

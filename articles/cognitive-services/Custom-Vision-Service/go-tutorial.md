@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/25/2018
+ms.date: 03/20/2019
 ms.author: areddish
 ---
 
@@ -140,11 +140,10 @@ This code creates the first iteration in the project and marks it as the default
     }
     fmt.Println("Training status: " + *iteration.Status)
 
-    *iteration.IsDefault = true
-    trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, iteration)
+	trainer.UpdateIteration(ctx, *project.ID, *iteration.ID, "classifyModel", "<insert publish resource id corresponding to prediction key here>"))
 ```
 
-### Get and use the default prediction endpoint
+### Get and use the published iteration on the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
@@ -153,7 +152,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     predictor := prediction.New(prediction_key, endpoint)
 
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_image.jpg"))
-    results, _ := predictor.PredictImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), iteration.ID, "")
+    results, _ := predictor.ClassifyImage(ctx, *project.ID, ioutil.NopCloser(bytes.NewReader(testImageData)), classifyModel, "")
 
     for _, prediction := range *results.Predictions	{
         fmt.Printf("\t%s: %.2f%%", *prediction.TagName, *prediction.Probability * 100)
