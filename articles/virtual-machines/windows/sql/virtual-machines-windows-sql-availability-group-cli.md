@@ -152,9 +152,9 @@ The following code snippet deletes the SQL availability group listener from both
 
 ```cli
 # Remove the AG listener
-# example: az sql vm ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
+# example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
 
-az sqlvm ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
+az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
 ```
 
 ## Next steps
