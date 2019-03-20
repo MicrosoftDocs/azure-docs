@@ -91,7 +91,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         // Create the topic if it does not exist already
 
         var namespaceManager =
-        NamespaceManager.CreateFromConnectionString(connectionString);
+            NamespaceManager.CreateFromConnectionString(connectionString);
 
         if (!namespaceManager.TopicExists(sampleTopic))
         {
