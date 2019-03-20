@@ -6,13 +6,13 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/24/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Source control integration in Azure Automation
 
-Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account.
+Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
 
 Azure Automation supports 3 types of source control:
 
@@ -44,7 +44,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository type the name in the field and click **Search on GitHub**.|
 |Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
-|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks         |
+|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks *Only runbooks in the folder specified are synced. Recursion is not supported.*        |
 |Auto Sync     | Turns on or off automatic sync when a commit is made in the source control repository         |
 |Publish Runbook     | If set to **On**, after runbooks are synced from source control they will be automatically published.         |
 |Description     | A text field to provide additional details        |
@@ -151,6 +151,8 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+Additional logging is available by selecting **All Logs** on the **Source Control Sync Job Summary** page. These additional log entries can help you troubleshoot issues that may arise when using source control.
 
 ## Disconnecting source control
 
