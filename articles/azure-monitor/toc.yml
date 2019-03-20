@@ -826,6 +826,10 @@
         items:
         - name: Use the migration tool
           href: platform/alerts-using-migration-tool.md
+        - name: Prepare for the migration
+          href: platform/alerts-prepare-migration.md
+        - name: Understand the migration tool
+          href: platform/alerts-understand-migration.md
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale

@@ -8,22 +8,20 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ---
-# Why use the voluntary migration tool
+# Use the voluntary migration tool to migrate your classic alert rules
 
-As announced last year, classic alerts in Azure Monitor are being retired in July 2019. Any existing classic alert rules will get automatically migrated starting July 2019.
-
-The migration tool to trigger migration voluntarily is available in Azure portal and is rolling out to customers who use classic alert rules. This article will walk you through on how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in July 2019.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. The migration tool to trigger migration voluntarily is available in Azure portal and is rolling out to customers who use classic alert rules. This article will walk you through on how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in July 2019.
 
 ## Benefits of moving to new alerts
 
 Classic alerts are being replaced by new unified alerting in Azure Monitor. The new alerts platform has the following benefits:
 
-- Alert on a variety of multi-dimensional metrics for many more Azure services
-- New metric alerts support multi-resource alert rules which greatly reduce the overhead of managing many rules.
-- Take advantage of action groups
-    - the modular notification mechanism that allows for same actions to be reused with many alerts.
-    - use new notification mechanisms like SMS, voice and ITSM Connector
-- The unified alert consumption experience brings all the alerts on different signals (metric, activity log and log) into one place
+- Alert on a variety of multi-dimensional metrics for [many more Azure services](alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+- New metric alerts support [multi-resource alert rules](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) which greatly reduce the overhead of managing many rules.
+- Unified notification mechanism
+  - [Action Groups](action-groups.md) is a modular notification mechanism that works with all new alert types (metric, log and activity log)
+  - You will also be able to take advantage of new notification mechanisms like SMS, Voice and ITSM Connector
+- The [unified alert experience](alerts-overview.md) brings all the alerts on different signals (metric, activity log and log) into one place
 
 ## Why migrate using the voluntary migration tool
 
@@ -32,125 +30,75 @@ While you can wait for automatic migration in July 2019, using the voluntary mig
 - If you are already using new alerts, get to unification faster
 - You are in control of when to trigger the migration
 
-
 ## Things you should know before you start the migration
 
-As part of the migration, classic alert rules are converted to equivalent new alert rules and action groups are created. 
+As part of the migration, classic alert rules are converted to equivalent new alert rules and action groups are created.
 
 The payload format of new alert rules is different from that of the classic alert rules as they support more features.
 
-The APIs to create and manage alert rules are different between classic alert rules and new alert rules.
+The APIs to create and manage new alert rules are different from the APIs used to create and manage classic alert rules.
+
+Learn more on [how to prepare for the migration](alerts-prepare-migration.md).
 
 ## How to migrate your classic alert rules using the migration tool
 
 The following procedure describes how to trigger the migration of your classic alert rules in Azure portal:
 
-1. In [Azure portal](https://portal.azure.com), click on **Monitor**. 
+1. In [Azure portal](https://portal.azure.com), click on **Monitor**.
 
-2. Click **Alerts** then click **+ New alert rule**.
+2. Click **Alerts** then click on **Manage alert rules** or **View classic alerts**.
 
-    > [!TIP]
-    > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alerts from there as well.
+3. Click **Migrate to new rules** to go to the migration landing page. This page shows a list of all your subscriptions and the status of migration for them.
 
-3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
+    ![migration-landing](media/alerts-migration/migration-landing.png "Migrate rules")
 
-4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-
-5. Once you have selected a target resource, click on **Add condition**.
-
-6. You will see a list of signals supported for the resource, select the metric you want to create an alert on.
-
-7. Optionally, refine the metric by adjusting **Period** and **Aggregation**. If the metric has dimensions, you will see **Dimensions** table presented. Select one or more values per dimension. The metric alert will run evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md). You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
-
-8. You will see a chart for the metric for the last 6 hours. Define the alert parameters; **Condition Type**, **Frequency**, **Operator** and **Threshold** or **Sensitivity**, this will determine the logic which the metric alert rule will evaluate. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
-
-9. If you are using a static threshold, the metric chart can help determine what might be a reasonable threshold. If you are using a Dynamic Thresholds, the metric chart will display the calculated thresholds based on recent data.
-
-10. Click **Done**
-
-11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
-
-12. Fill in **Alert details** like **Alert Rule Name**, **Description** and **Severity**
-
-13. Add an action group to the alert either by selecting an existing action group or creating a new action group.
-
-14. Click **Done** to save the metric alert rule.
-
-> [!NOTE]
-> Metric alert rules created through portal are created in the same resource group as the target resource.
-
-## View and manage with Azure portal
-
-You can view and manage metric alert rules using the Manage Rules blade under Alerts. The procedure below shows you how to view your metric alert rules and edit one of them.
-
-1. In Azure portal, navigate to **Monitor**
-
-2. Click on **Alerts** and **Manage rules**
-
-3. In the **Manage rules** blade, you can view all your alert rules across subscriptions. You can further filter the rules using  **Resource group**,  **Resource type** and **Resource**. If you want to see only metric alerts, select **Signal type** as Metrics.
-
-    > [!TIP]
-    > In the **Manage rules** blade, you can select multiple alert rules and enable/disable them. This might be useful when certain target resources need to be put under maintenance
-
-4. Click on the name of the metric alert rule you want to edit
-
-5. In the Edit Rule, click on the **Alert criteria** you want to edit. You can change the metric, threshold condition and other fields as required
+4. All the subscriptions that can be migrated using the tool will be marked as **Ready to migrate**.
 
     > [!NOTE]
-    > You can't edit the **Target resource** and **Alert Rule Name** after the metric alert is created.
+    > The migration tool is rolling out in phases to all the subscriptions that use classic alert rules. In the early phases of roll-out, you might see some subscriptions as not ready for migration. However, by mid-April, all the subscriptions should be ready for migration.
 
-6. Click **Done** to save your edits.
+5. Select one or more subscriptions and click on **Preview migration**
 
-## With Azure CLI
+6. On this page, you can see the details of classic alert rules that will be migrated for one subscription at a time. You can also **Download the migration details for this subscription** in a .csv format.
 
-The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud shell.
+    ![migration-preview](media/alerts-migration/migration-preview.png "Preview migration")
 
-1. Go to Azure portal, click on **Cloud shell**.
+7. You can optionally opt-in to use the new **Common Alert Schema**. Common Alert Schema unifies the notification formats (email, webhooks, logic apps and runbooks) across different alert types (metric, log and activity log) to simplify the integration process. Learn more about the [**Common Alert Schema**](https://aka.ms/commonAlertSchemaDocs)
 
-2. At the prompt, you can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing and managing metric alerts
+    >[!IMPORTANT]
+    > As the Common Alert Schema is relatively new, our partners might not yet support this. If you have alerts integrated with third-party partner services, we would recommend not opting in before testing your integrations work. If you don't rely on such integrations today, we recommend opting in to simplify your integration process in the future.
 
-    ```azurecli
-    az monitor metrics alert --help
-    ```
+8. Provide one or more **email addresses** to be notified of migration status. We will send an email when the migration completes or an action is needed from you.
 
-3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 90
+9. Click on **Start Migration**. Read the information shown in the confirmation dialog and confirm if you are ready to start the migration process.
 
-    ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
-    ```
+    >[!IMPORTANT]
+    > Once you initiate the migration process for a subscription, you will not be able to edit/create classic alert rules for the subscription. However, your classic alert rules will continue running and providing you alerts till they are migrated over. This is to ensure the fidelity between classic alert rules and the new rules created during migration. Once the migration is complete for your subscription, you can not use classic alert rules anymore.
 
-4. You can view all the metric alerts in a resource group using the following command
+    ![migration-confirm](media/alerts-migration/migration-confirm.png "Confirm start migration")
 
-    ```azurecli
-    az monitor metrics alert list  -g {ResourceGroup}
-    ```
+10. As we complete migration or need an action from you, you will receive an email on the email addresses provided in the step 8. You can also periodically check the status from the migration landing page in the portal.
 
-5. You can see the details of a particular metric alert rule using the name or the resource ID of the rule.
+## Frequently asked questions
 
-    ```azurecli
-    az monitor metrics alert show -g {ResourceGroup} -n {AlertRuleName}
-    ```
+**Why is my subscription(s) listed as Not ready for migration?**
 
-    ```azurecli
-    az monitor metrics alert show --ids {RuleResourceId}
-    ```
+The migration tool is rolling out in phases to all customers. In the early phases, most or all your subscriptions might be marked as **Not ready for migration**. However, by mid-April, all subscriptions should be ready to migrate.
 
-6. You can disable a metric alert rule using the following command.
+When a subscription becomes ready for migration, Subscription Owners will receive an email notifying the availability of the tool. Keep an eye out for this notification.
 
-    ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
-    ```
+**Who can trigger the migration?**
+Users who have the Monitoring Contributor role assigned to them at the subscription level will be able to trigger the migration. Learn more about RBAC for migration process.
 
-7. You can delete a metric alert rule using the following command.
+**How long is the migration going to take?**
 
-    ```azurecli
-    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
-    ```
+For most subscriptions, migration should complete under 2 hours. However if you have a subscription with large number of classic alert rules(>500), the migration could take up to a few hours.  During this time, please be ensured that your alerts are still running either in the classic alerts system or the new one.
+
+**What can I do if I run into an issue during migration?**
+Please follow the troubleshooting guide to see remediation steps for any issues you might face during migration. If any action is needed from you to complete the migration, you will be notified on the email address(es) provided during migration.
 
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-enable-template.md).
-- [Understand how metric alerts work](alerts-metric-overview.md).
-- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md).
-- [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
-
+- [Prepare for migration](alerts-prepare-migration.md)
+- [Understand how the migration tool works](alerts-metric-overview.md)
+- [Common Alert Schema](https://aka.ms/commonAlertSchemaDocs)
