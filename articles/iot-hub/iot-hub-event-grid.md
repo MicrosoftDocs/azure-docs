@@ -157,7 +157,7 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 IoT Hub event subscriptions can filter events based on event type, data content and subject, which is the device name.
 
-Event Grid enables [filtering](..azure/event-grid/event-filtering.md) on event types, subjects and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
+Event Grid enables [filtering](../event-grid/event-filtering.md) on event types, subjects and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
 
 The subject of IoT Events uses the format:
 
