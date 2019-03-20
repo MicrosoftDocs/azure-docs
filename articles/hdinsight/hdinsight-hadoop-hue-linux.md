@@ -39,7 +39,7 @@ Hue is a set of Web applications used to interact with an Apache Hadoop cluster.
 
 ## Install Hue using Script Actions
 
-The script to install Hue on a Linux-based HDInsight cluster is available at https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Storage as default storage.
+The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Storage as default storage.
 
 This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
 
@@ -59,7 +59,7 @@ This section provides instructions about how to use the script when provisioning
     ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Provide script action parameters for Hue")
 
    * **NAME**: Enter a friendly name for the script action.
-   * **SCRIPT URI**: https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Check this option.
    * **WORKER**: Leave this blank.
    * **ZOOKEEPER**: Leave this blank.

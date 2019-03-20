@@ -20,7 +20,7 @@ Learn how to customize Windows based HDInsight cluster with Apache Giraph using 
 > The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). For information on how to install Giraph on a Linux-based HDInsight cluster, see [Install Apache Giraph on HDInsight Hadoop clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 
-You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+You can install Giraph on any type of cluster (Hadoop, Storm, HBase, Spark) on Azure HDInsight by using *Script Action*. A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). The sample script works only with HDInsight cluster version 3.1. For more information on HDInsight cluster versions, see [HDInsight cluster versions](hdinsight-component-versioning.md).
 
 **Related articles**
 
@@ -146,10 +146,10 @@ We use the SimpleShortestPathsComputation example to demonstrate the basic <a hr
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## Install Giraph using Azure PowerShell
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).  The sample demonstrates how to install Apache Spark using Azure PowerShell. You need to customize the script to use [https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).  The sample demonstrates how to install Apache Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## Install Giraph using .NET SDK
-See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). The sample demonstrates how to install Spark using the .NET SDK. You need to customize the script to use [https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). The sample demonstrates how to install Spark using the .NET SDK. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## See also
 * [Install Apache Giraph on HDInsight Hadoop clusters (Linux)](hdinsight-hadoop-giraph-install-linux.md)

@@ -132,7 +132,7 @@ For more information on the Flux framework, see [https://storm.apache.org/releas
 
 By default, Storm on HDInsight does not include the components that HdfsBolt uses to communicate with Azure Storage or Data Lake Storage in Storm's classpath. Use the following script action to add these components to the `extlib` directory for Storm on your cluster:
 
-* Script URI: `https://https:\//managementactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
+* Script URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nodes to apply to: Nimbus, Supervisor
 * Parameters: None
 

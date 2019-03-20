@@ -47,7 +47,7 @@ This script performs the following actions:
 
 A sample script to install Giraph on an HDInsight cluster is available at the following location:
 
-    https://https:\//managementactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+    https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
 This section provides instructions on how to use the sample script while creating the cluster by using the Azure portal.
 
@@ -66,7 +66,7 @@ This section provides instructions on how to use the sample script while creatin
 
    * **NAME**: Enter a friendly name for the script action.
 
-   * **SCRIPT URI**: https://https:\//managementactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **HEAD**: Check this entry.
 

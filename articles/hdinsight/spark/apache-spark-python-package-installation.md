@@ -54,7 +54,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
-2. From the Spark cluster blade, click **Script Actions** from the left pane. Use the script type "Custom" and enter a friendly name for the script action. Run the script on the **head and worker nodes** and leave the parameters field blank. The bash script can be referenced from: https://https:\//managementactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh
+2. From the Spark cluster blade, click **Script Actions** from the left pane. Use the script type "Custom" and enter a friendly name for the script action. Run the script on the **head and worker nodes** and leave the parameters field blank. The bash script can be referenced from: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh
 Visit the documentation on [how to use custom script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]  

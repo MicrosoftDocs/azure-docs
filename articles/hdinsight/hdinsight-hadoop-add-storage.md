@@ -44,7 +44,7 @@ During processing, the script performs the following actions:
 
 ## The script
 
-__Script location__: [https://https:\//managementactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://https:\//managementactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Script location__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
 __Requirements__:
 
@@ -57,7 +57,7 @@ This script can be used from the Azure portal, Azure PowerShell, or the Azure Cl
 > [!IMPORTANT]  
 > When using the steps provided in the customization document, use the following information to apply this script:
 >
-> * Replace any example script action URI with the URI for this script (https://https:\//managementactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 > * Replace any example parameters with the Azure storage account name and key of the storage account to be added to the cluster. If using the Azure portal, these parameters must be separated by a space.
 > * You do not need to mark this script as __Persisted__, as it directly updates the Ambari configuration for the cluster.
 
