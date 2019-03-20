@@ -13,7 +13,7 @@ ms.topic: hub-page
 
 <div id="main" class="v2">
 <h1>Azure Blockchain Documentation</h1>
-        <p style="font-size: 1.12rem;margin-bottom: 1rem;">Learn how to create or join a private blockchain consortium and build blockchain applications. Tutorials, quickstarts, API references, and examples show you how</p>
+        <p style="font-size: 1.12rem;margin-bottom: 1rem;">Learn how to create or join a private blockchain consortium and build blockchain applications. Tutorials, quickstarts, API references, and examples show you how.</p>
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/blockchain/service/overview/">
@@ -22,7 +22,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_overview.svg" alt="" />
+                                    <img src="media/common/i_overview.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -41,7 +41,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_overview.svg" alt="" />
+                                    <img src="media/common/i_overview.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -60,7 +60,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_overview.svg" alt="" />
+                                    <img src="media/common/i_overview.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -81,7 +81,7 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_quick-start.svg" alt="">
+                            <img src="media/common/i_quick-start.svg" alt="">
                         </div>
                     </div>
                     <div class="cardText">
@@ -98,7 +98,7 @@ ms.topic: hub-page
 <h2>Step-by-Step Tutorials</h2>
 <ul class="cardsM panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
-        <a class="card" href="/azure/blockchain/service/send-transaction" data-linktype="external"><img class="cardImage" alt="" src="/media/common/i_tasks.svg" data-linktype="external">
+        <a class="card" href="/azure/blockchain/service/send-transaction" data-linktype="external"><img class="cardImage" alt="" src="media/common/i_tasks.svg" data-linktype="external">
             <div class="cardText">
                 <h3>Send a transaction using Azure Blockchain Service</h3>
             </div>
