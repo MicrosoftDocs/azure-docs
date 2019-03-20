@@ -26,6 +26,8 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 
 > [!NOTE]
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
+>
+> This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.  
 
 ## AADSTS error codes
 
