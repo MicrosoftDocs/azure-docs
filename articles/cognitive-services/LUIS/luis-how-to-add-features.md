@@ -39,7 +39,7 @@ LUIS allows up to 10 phrase lists per app.
 
 5. Click **These values are interchangeable** if the added phrase list values are alternatives that can be used interchangeably.
 
-    ![Phrase List Proposed Values - select interchangeable box ](./media/luis-add-features/interchangeable.png)
+    ![Phrase List Proposed Values - select interchangeable box](./media/luis-add-features/interchangeable.png)
 
 6. Click **Save**. The "Cities" phrase list is added to the **Phrase lists** page.
 

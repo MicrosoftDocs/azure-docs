@@ -27,6 +27,8 @@
     href: location-condition.md
   - name: Controls
     href: controls.md
+  - name: Service dependencies
+    href: service-dependencies.md
   - name: What if tool
     href: what-if-tool.md
 - name: How-to guides

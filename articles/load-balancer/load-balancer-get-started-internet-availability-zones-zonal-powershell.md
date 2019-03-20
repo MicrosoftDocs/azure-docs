@@ -12,7 +12,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 02/21/2019
 ms.author: kumud
 ---
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -39,14 +39,14 @@ Connect-AzAccount
 
 Create a Resource Group using the following command:
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupZLB -Location westeurope
 ```
 
 ## Create a public IP Standard 
 Create a Public IP Standard using the following command:
 
-```powershell
+```azurepowershell-interactive
 $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
   -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
 ```
@@ -55,7 +55,7 @@ $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'm
 
 Create a frontend IP configuration using the following command:
 
-```powershell
+```azurepowershell-interactive
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
 ```
 
@@ -63,7 +63,7 @@ $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $
 
 Create a backend address pool using the following command:
 
-```powershell
+```azurepowershell-interactive
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
@@ -71,7 +71,7 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 
 Create a health probe on port 80 for the load balancer using the following command:
 
-```powershell
+```azurepowershell-interactive
 $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
@@ -79,14 +79,14 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ## Create a load balancer rule
  Create a load balancer rule using the following command:
 
-```powershell
+```azurepowershell-interactive
    $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ## Create a load balancer
 Create a Standard Load Balancer using the following command:
 
-```powershell
+```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
   -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
   -Probe $probe -LoadBalancingRule $rule -Sku Standard

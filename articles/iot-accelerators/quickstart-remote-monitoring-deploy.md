@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 03/08/2019
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor my IoT devices.
@@ -133,7 +133,7 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 ![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
 
-![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution-provision.png)
+![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## Next steps
 

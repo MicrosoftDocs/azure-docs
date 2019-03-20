@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
@@ -40,7 +40,7 @@ ms.lastreviewed: 12/07/2018
 
 | **Item** | **Default value** | **Description** |
 | --- | --- | --- |
-| Maximum capacity (GB) |2048 |Total storage capacity that can be consumed by a subscription in this location. |
+| Maximum capacity (GB) |2048 |Total storage capacity (including blobs and all assiociated snapshots, tables, queues) that can be consumed by a subscription in this location. |
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 > [!NOTE]  
@@ -70,7 +70,7 @@ There are two different ways to view an existing quota:
 3.	In the blade that opens, select **Services and quotas**.
 4.	Select the quota you would like to see by clicking it in the **Name** column.
 
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### Resource providers
 
@@ -88,7 +88,7 @@ There are two different ways to edit a quota:
 2.	Select the plan for which you would like to edit a quota, by clicking on its name.
 3.	In the blade that opens, select **Services and quotas**.
 4.	Select the quota you would like to edit by clicking it in the **Name** column.
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "View quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.	In the blade that opens, select **Edit in Compute**, **Edit in Network**, or **Edit in Storage**.
     ![Quotas](media/azure-stack-quota-types/quotas3.png "View quotas")    

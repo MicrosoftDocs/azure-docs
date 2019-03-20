@@ -5,7 +5,7 @@
  author: jaredr80
  ms.service: expressroute
  ms.topic: include
- ms.date: 02/19/2018
+ ms.date: 02/25/2019
  ms.author: jaredro
  ms.custom: include file
 ---
@@ -17,9 +17,9 @@ ExpressRoute Direct provides customers with the ability to connect directly into
 
 Customers will need to work with their local carriers and co-location providers to get connectivity to ExpressRoute routers to take advantage of ExpressRoute Direct.
 
-### What locations will the 100 Gbps ExpressRoute Direct be available for Public Preview? 
+### What locations currently support ExpressRoute Direct? 
 
-A select number of ExpressRoute peering locations will support this at public preview. The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
+The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
 
 * Amsterdam
 * Canberra

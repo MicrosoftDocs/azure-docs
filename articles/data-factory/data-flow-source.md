@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
---- 
+---
 
 # Mapping Data Flow Source Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-The Source transformation configures a data source that you wish to use to bring data into your data flow. You may have more than one Source transform in a single Data Flow. Always begin designing your Data Flows with a Source.
+The Source transformation configures a data source that you wish to use to bring data into your data flow. You may have more than one Source transform in a single Data Flow. Always begin designing your Data Flows with a Source transformation.
 
 > [!NOTE]
-> Every Data Flow requires at least one Source Transformation. Add as many additional Sources as you require to complete your data transformations. You can join those sources together with a Join or Union transformation.
+> Every Data Flow requires at least one Source Transformation. Add as many additional Sources as you require to complete your data transformations. You can join those sources together with a Join or Union transformation. When you debug your data flow in debug sessions, data will be read from the source using the Sampling setting or Debug source limits. However, no data will be written to a Sink until you execute your data flow from a pipeline data flow activity. 
 
 ![Source Transformation options](media/data-flow/source.png "source")
 
-Each Data Flow source transformation must be associated with exactly one Data Factory Dataset, which defines the shape and location of your data to write to or read from. You may use wildcards and file lists in your source to work with more than one file at a time.
+Each Data Flow source transformation must be associated with exactly one Data Factory dataset. The dataset defines the shape and location of your data to write to or read from. You may use wildcards and file lists in your source to work with more than one file at a time when using file sources.
 
 ## Data Flow Staging Areas
 
@@ -38,7 +38,7 @@ Select Allow Schema Drift if the source columns will change often. This setting 
 If the incoming version of the source data does not match the defined schema, then execution of the data flow will fail.
 
 ### Sampling
-Use Sampling to limit the number of rows from your Source.  This is useful when you need just a sample of your source data for testing and debugging purposes.
+Use Sampling to limit the number of rows from your Source.  This is useful when testing or sampling data from your source for debugging purposes.
 
 ## Define Schema
 
@@ -48,7 +48,7 @@ For source file types that are not strongly typed (i.e. flat files as opposed to
 
 ![Source Transformation](media/data-flow/source003.png "data types")
 
-For strongly-typed sources, you can modify the 
+For strongly-typed sources, you can modify the data types in a subsequent Select transformation. 
 
 ### Optimize
 
@@ -69,7 +69,7 @@ You can optionally choose to partition the connections based on a query. For thi
 ## Source file management
 ![New Source Settings](media/data-flow/source2.png "New settings")
 
-* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset defintion.
+* Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset definition.
 * List of Files. Same as a file set. Point to a text file that you create with a list of relative path files to process.
 * Column to store file name will store the name of the file from the source in a column in your data. Enter a new name here to store the file name string.
 * After Completion (You can choose to do nothing with the source file after the data flow executes, delete the source file(s) or move the source files. The paths for move are relative paths.
@@ -93,6 +93,6 @@ Similar to schemas in datasets, the Projection in Source defines the data column
 
 ![Default formats](media/data-flow/source2.png "Default formats")
 
-## Next Steps
+## Next steps
 
 Begin building your data transformation with [Derived Column](data-flow-derived-column.md) and [Select](data-flow-select.md).

@@ -24,6 +24,8 @@
       href: cost-mgt-best-practices.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
+    - name: Understand and work with scopes
+      href: understand-work-scopes.md
   - name: How-to guides
     items:
     - name: Assign access to data

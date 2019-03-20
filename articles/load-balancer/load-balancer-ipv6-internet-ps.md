@@ -62,7 +62,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
 1. Sign into Azure
 
-    ```powershell
+    ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
@@ -70,19 +70,19 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
 2. Check the subscriptions for the account
 
-    ```powershell
+   ```azurepowershell-interactive
     Get-AzSubscription
     ```
 
 3. Choose which of your Azure subscriptions to use.
 
-    ```powershell
+    ```azurepowershell-interactive
     Select-AzSubscription -SubscriptionId 'GUID of subscription'
     ```
 
 4. Create a resource group (skip this step if using an existing resource group)
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzResourceGroup -Name NRP-RG -location "West US"
     ```
 
@@ -90,14 +90,14 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
 1. Create a virtual network with a subnet.
 
-    ```powershell
+    ```azurepowershell-interactive
     $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
 2. Create Azure Public IP address (PIP) resources for the front-end IP address pool. Be sure to change the value for `-DomainNameLabel` before running the following commands. The value must be unique within the Azure region.
 
-    ```powershell
+    ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4
     $publicIPv6 = New-AzPublicIpAddress -Name 'pub-ipv6' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Dynamic -IpAddressVersion IPv6 -DomainNameLabel lbnrpipv6
     ```
@@ -109,14 +109,14 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
 1. Create front-end address configuration that uses the Public IP addresses you created.
 
-    ```powershell
+    ```azurepowershell-interactive
     $FEIPConfigv4 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
     $FEIPConfigv6 = New-AzLoadBalancerFrontendIpConfig -Name "LB-Frontendv6" -PublicIpAddress $publicIPv6
     ```
 
 2. Create back-end address pools.
 
-    ```powershell
+    ```azurepowershell-interactive
     $backendpoolipv4 = New-AzLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv4"
     $backendpoolipv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
     ```
@@ -133,7 +133,7 @@ This example creates the following items:
 
 1. Create the NAT rules.
 
-    ```powershell
+    ```azurepowershell-interactive
     $inboundNATRule1v4 = New-AzLoadBalancerInboundNatRuleConfig -Name "NicNatRulev4" -FrontendIpConfiguration $FEIPConfigv4 -Protocol TCP -FrontendPort 443 -BackendPort 4443
     $inboundNATRule1v6 = New-AzLoadBalancerInboundNatRuleConfig -Name "NicNatRulev6" -FrontendIpConfiguration $FEIPConfigv6 -Protocol TCP -FrontendPort 443 -BackendPort 4443
     ```
@@ -142,13 +142,13 @@ This example creates the following items:
 
     HTTP probe
 
-    ```powershell
+    ```azurepowershell-interactive
     $healthProbe = New-AzLoadBalancerProbeConfig -Name 'HealthProbe-v4v6' -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
     or TCP probe
 
-    ```powershell
+    ```azurepowershell-interactive
     $healthProbe = New-AzLoadBalancerProbeConfig -Name 'HealthProbe-v4v6' -Protocol Tcp -Port 8080 -IntervalInSeconds 15 -ProbeCount 2
     $RDPprobe = New-AzLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
@@ -157,7 +157,7 @@ This example creates the following items:
 
 3. Create a load balancer rule.
 
-    ```powershell
+    ```azurepowershell-interactive
     $lbrule1v4 = New-AzLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
     $lbrule1v6 = New-AzLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool $backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
     $RDPrule = New-AzLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
@@ -165,7 +165,7 @@ This example creates the following items:
 
 4. Create the load balancer using the previously created objects.
 
-    ```powershell
+    ```azurepowershell-interactive
     $NRPLB = New-AzLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
@@ -173,14 +173,14 @@ This example creates the following items:
 
 1. Get the Virtual Network and Virtual Network Subnet, where the NICs need to be created.
 
-    ```powershell
+    ```azurepowershell-interactive
     $vnet = Get-AzVirtualNetwork -Name VNet -ResourceGroupName NRP-RG
     $backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
     ```
 
 2. Create IP configurations and NICs for the VMs.
 
-    ```powershell
+    ```azurepowershell-interactive
     $nic1IPv4 = New-AzNetworkInterfaceIpConfig -Name "IPv4IPConfig" -PrivateIpAddressVersion "IPv4" -Subnet $backendSubnet -LoadBalancerBackendAddressPool $backendpoolipv4 -LoadBalancerInboundNatRule $inboundNATRule1v4
     $nic1IPv6 = New-AzNetworkInterfaceIpConfig -Name "IPv6IPConfig" -PrivateIpAddressVersion "IPv6" -LoadBalancerBackendAddressPool $backendpoolipv6 -LoadBalancerInboundNatRule $inboundNATRule1v6
     $nic1 = New-AzNetworkInterface -Name 'myNrpIPv6Nic0' -IpConfiguration $nic1IPv4,$nic1IPv6 -ResourceGroupName NRP-RG -Location 'West US'
@@ -196,7 +196,7 @@ For more information about creating a VM, see [Create and preconfigure a Windows
 
 1. Create an Availability Set and Storage account
 
-    ```powershell
+    ```azurepowershell-interactive
     New-AzAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
     $availabilitySet = Get-AzAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG
     New-AzStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName "Standard_LRS"
@@ -205,7 +205,7 @@ For more information about creating a VM, see [Create and preconfigure a Windows
 
 2. Create each VM and assign the previous created NICs
 
-    ```powershell
+    ```azurepowershell-interactive
     $mySecureCredentials= Get-Credential -Message "Type the username and password of the local administrator account."
 
     $vm1 = New-AzVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id

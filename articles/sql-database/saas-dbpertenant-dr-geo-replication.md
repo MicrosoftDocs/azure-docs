@@ -19,14 +19,14 @@ In this tutorial, you explore a full disaster recovery scenario for a multi-tena
 
 This tutorial explores both the failover and failback workflows. You'll learn how to:
 > [!div class="checklist"]
-
->* Sync database and elastic pool configuration info into the tenant catalog
->* Set up a recovery environment in an alternate region, comprising application, servers, and pools
->* Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
->* Fail over the application and catalog and tenant databases to the recovery region 
->* Later, fail over the application, catalog and tenant databases back to the original region after the outage is resolved
->* Update the catalog as each tenant database is failed over to track the primary location of each tenant's database
->* Ensure the application and primary tenant database are always colocated in the same Azure region to reduce latency  
+> 
+> * Sync database and elastic pool configuration info into the tenant catalog
+> * Set up a recovery environment in an alternate region, comprising application, servers, and pools
+> * Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
+> * Fail over the application and catalog and tenant databases to the recovery region 
+> * Later, fail over the application, catalog and tenant databases back to the original region after the outage is resolved
+> * Update the catalog as each tenant database is failed over to track the primary location of each tenant's database
+> * Ensure the application and primary tenant database are always colocated in the same Azure region to reduce latency  
  
 
 Before starting this tutorial, make sure the following prerequisites are completed:
@@ -100,7 +100,7 @@ Before you start the recovery process, review the normal healthy state of the ap
 In this task, you start a process that syncs the configuration of the servers, elastic pools, and databases into the tenant catalog. The process keeps this information up-to-date in the catalog.  The process works with the active catalog, whether in the original region  or in the recovery region. The configuration information is used as part of the recovery process to ensure the recovery environment is consistent with the original environment, and then later during repatriation to ensure the original region is made consistent with any changes made in the recovery environment. The catalog is also used to keep track of the recovery state of tenant resources
 
 > [!IMPORTANT]
-> For simplicity, the sync process and other long running recovery and repatriation processes are implemented in these tutorials as local Powershell jobs or sessions that run under your client user login. The authentication tokens issued when you login will expire after several hours and the jobs will then fail. In a production scenario, long-running processes should be implemented as reliable Azure services of some kind, running under a service principal. See [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> For simplicity, the sync process and other long running recovery and repatriation processes are implemented in these tutorials as local PowerShell jobs or sessions that run under your client user login. The authentication tokens issued when you login will expire after several hours and the jobs will then fail. In a production scenario, long-running processes should be implemented as reliable Azure services of some kind, running under a service principal. See [Use Azure PowerShell to create a service principal with a certificate](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In the _PowerShell ISE_, open the ...\Learning Modules\UserConfig.psm1 file. Replace `<resourcegroup>` and `<user>` on lines 10 and 11  with the value used when you deployed the app.  Save the file!
 
@@ -193,16 +193,16 @@ Now imagine there is an outage in the region in which the application is deploye
 While the application endpoint is disabled in Traffic Manager, the application is unavailable. After the catalog is failed over to the recovery region and all the tenants marked offline, the application is brought back online. Although the application is available, each tenant appears offline in the events hub until its database is failed over. It's important to design your application to handle offline tenant databases.
 
 1. Promptly after the catalog database has been recovered, refresh the Wingtip Tickets Events Hub in your web browser.
-	* In the footer, notice that the catalog server name now has a _-recovery_ suffix and is located in the recovery region.
-	* Notice that tenants that are not yet restored, are marked as offline, and are not selectable.  
+   * In the footer, notice that the catalog server name now has a _-recovery_ suffix and is located in the recovery region.
+   * Notice that tenants that are not yet restored, are marked as offline, and are not selectable.  
 
-	> [!Note]
-	> With only a few databases to recover, you may not be able to refresh the browser before recovery has completed, so you may not see the tenants while they are offline. 
+     > [!Note]
+     > With only a few databases to recover, you may not be able to refresh the browser before recovery has completed, so you may not see the tenants while they are offline. 
  
-	![Events hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png)	
+     ![Events hub offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-	* If you open an offline tenant's Events page directly, it displays a 'tenant offline' notification. For example, if Contoso Concert Hall is offline, try to open http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall 
-	![Contoso Offline page](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * If you open an offline tenant's Events page directly, it displays a 'tenant offline' notification. For example, if Contoso Concert Hall is offline, try to open http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall 
+     ![Contoso Offline page](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### Provision a new tenant in the recovery region
 Even before all the existing tenant databases have failed over, you can provision new tenants in the recovery region.  
@@ -231,12 +231,12 @@ When the recovery process completes, the application and all tenants are fully f
 	* Notice the resource group that you deployed, plus the recovery resource group, with the _-recovery_ suffix.  The recovery resource group contains all the resources created during the recovery process, plus new resources created during the outage.  
 
 3. Open the recovery resource group and notice the following items:
-	* The recovery versions of the catalog and tenants1 servers, with _-recovery_ suffix.  The restored catalog and tenant databases on these servers all have the names used in the original region.
+   * The recovery versions of the catalog and tenants1 servers, with _-recovery_ suffix.  The restored catalog and tenant databases on these servers all have the names used in the original region.
 
-	* The _tenants2-dpt-&lt;user&gt;-recovery_ SQL server.  This server is used for provisioning new tenants during the outage.
-	* 	The App Service named, _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt_;, which is the recovery instance of the Events app. 
+   * The _tenants2-dpt-&lt;user&gt;-recovery_ SQL server.  This server is used for provisioning new tenants during the outage.
+   * The App Service named, _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt_;, which is the recovery instance of the Events app. 
 
-	![Azure recovery resources ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)	
+     ![Azure recovery resources](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
 	
 4. Open the _tenants2-dpt-&lt;user&gt;-recovery_ SQL server.  Notice it contains the database _hawthornhall_ and the elastic pool, _Pool1_.  The _hawthornhall_ database is configured as an elastic database in _Pool1_ elastic pool.
 
@@ -300,12 +300,12 @@ Tenant databases may be spread across recovery and original regions for some tim
 
 In this tutorial you learned how to:
 > [!div class="checklist"]
-
->* Sync database and elastic pool configuration info into the tenant catalog
->* Set up a recovery environment in an alternate region, comprising application, servers, and pools
->* Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
->* Fail over the application and catalog and tenant databases to the recovery region 
->* Fail back the application, catalog and tenant databases to the original region after the outage is resolved
+> 
+> * Sync database and elastic pool configuration info into the tenant catalog
+> * Set up a recovery environment in an alternate region, comprising application, servers, and pools
+> * Use _geo-replication_ to replicate the catalog and tenant databases to the recovery region
+> * Fail over the application and catalog and tenant databases to the recovery region 
+> * Fail back the application, catalog and tenant databases to the original region after the outage is resolved
 
 You can learn more about the technologies Azure SQL database provides to enable business continuity in the [Business Continuity Overview](sql-database-business-continuity.md) documentation.
 

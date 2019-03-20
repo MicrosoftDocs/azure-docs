@@ -150,6 +150,6 @@ Setting|Description
 3. Evaluate the results by querying the graph database. If the `ShouldCleanupOnFinish` option is set to true, then the database will automatically be deleted.
 
 ## Next steps
-* To learn about Nuget package details and release notes of bulk executor .Net library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
 * Check out the [Performance Tips](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) to further optimize the usage of BulkExecutor.
 * Review the [BulkExecutor.Graph Reference article](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) for more details about the classes and methods defined in this namespace.

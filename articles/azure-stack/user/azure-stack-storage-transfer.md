@@ -10,8 +10,8 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
@@ -42,7 +42,7 @@ Your requirements determine which of the following tools works best for you:
 
     An easy-to-use stand-alone app with a user interface.
 
-* [Blobfuse ](#blobfuse)
+* [Blobfuse](#blobfuse)
 
     A virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. 
 

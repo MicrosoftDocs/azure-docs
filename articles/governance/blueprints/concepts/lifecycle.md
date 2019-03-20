@@ -35,8 +35,8 @@ provided a unique name and a unique version. The blueprint is now in a **Draft**
 be assigned. While in the **Draft** mode, it can continue to be updated and changed.
 
 A never published blueprint in **Draft** mode displays a different icon on the **Blueprint
-Definitions** page than ones that have been **Published**. The **Latest Version** is also displayed
-as **Draft** for these never published blueprints.
+Definitions** page than ones that have been **Published**. The **Latest Version** is displayed as
+**Draft** for these never published blueprints.
 
 Create and edit a blueprint with the [Azure portal](../create-blueprint-portal.md#create-a-blueprint)
 or [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
@@ -83,13 +83,13 @@ impact on other versions of that blueprint.
 > It's not possible to delete a blueprint that has active assignments. Delete the
 > assignments first and then delete the version you wish to remove.
 
-1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Blueprint Definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Click on it to open the edit page.
+1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Click on it to open the edit page.
 
 1. Click the **Published versions** tab and locate the version you wish to delete.
 
-1. Right-click on the version to delete and select **Delete This Version**.
+1. Right-click on the version to delete and select **Delete this version**.
 
 ## Deleting the blueprint
 
@@ -129,8 +129,8 @@ To learn how, see [update existing assignments](../how-to/update-existing-assign
 
 ## Next steps
 
-- Understand how to use [static and dynamic parameters](parameters.md)
-- Learn to customize the [blueprint sequencing order](sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](resource-locking.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Understand how to use [static and dynamic parameters](parameters.md).
+- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

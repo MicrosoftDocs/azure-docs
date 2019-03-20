@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
 ---
 
 # Dynamics 365 for Customer Engagement prerequisites
 
-This article describes the technical and business prerequisites for publishing a Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.
+This article describes the technical and business prerequisites for publishing a Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.  If you have not already done so, review the [Office 365, Dynamics 365, PowerApps, and Power BI Offer Publishing Guide](../../appsource-offer-publishing-guide.md).
 
 
 ## Technical requirements

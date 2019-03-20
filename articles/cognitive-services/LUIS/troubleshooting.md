@@ -96,10 +96,12 @@ If you don't see updated endpoint hits in the Dashboard, sign in to the Azure po
 
 ### Is there a PowerShell command get to the endpoint quota?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use a PowerShell command to see the endpoint quota:
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
@@ -139,7 +141,7 @@ See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
 
 ### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen?
 
-See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
+See [Prediction differences between copies of same app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### Some utterances go to the wrong intent after I made changes to my app. The issue seems to disappear at random. How do I fix it? 
 

@@ -22,7 +22,7 @@ You learn how to:
 > - Set up replication, including a replication policy. Add your vCenter server and discover VMs. 
 > - Add a vCenter server and discover 
 > - Create storage accounts to hold replication data, and replicate the VMs.
-> - Perform a failover. Configure failover settings, perform a e settings for replicating virtual machines.
+> - Perform a failover. Configure failover settings, perform a settings for replicating virtual machines.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Create a Recovery services vault. In the example below, the Recovery services vault is named VMwareDRToAzurePs, and is created in the East Asia region and in the resource group created in the previous step.
 
@@ -483,4 +483,4 @@ In this step, we fail over the virtual machine Win2K12VM1 to a specific recovery
 2. Once failed over successfully, you can commit the failover operation, and set up reverse replication from Azure back to the on-premises VMware site.
 
 ## Next steps
-Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

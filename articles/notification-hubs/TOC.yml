@@ -95,6 +95,8 @@
     href: notification-hubs-deploy-and-manage-powershell.md            
   - name: Securely push notifications to users
     href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+  - name: Export and import registrations in bulk
+    href: export-modify-registrations-bulk.md
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET
@@ -136,7 +138,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-notificationhub
+    href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature
     href: https://feedback.azure.com/forums/218849-notification-hubs
   - name: Region availability

@@ -11,13 +11,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 02/18/2019
+ms.date: 03/13/2019
 ---
 # Quickstart: Create an Azure SQL Database managed instance
 
 This quickstart walks through how to create an Azure SQL Database [managed instance](sql-database-managed-instance.md) in the Azure portal.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+> [!IMPORTANT]
+> For limitations, see [supported regions](sql-database-managed-instance-resource-limits.md#supported-regions) and [supported subscription types](sql-database-managed-instance-resource-limits.md#supported-subscription-types).
 
 ## Sign in to the Azure portal
 
@@ -43,7 +44,7 @@ The following steps show you how to create a managed instance.
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Collation**|The collation that you want to use for your managed instance|If you are migrating databases from SQL Server, check the source collation using `SELECT SERVERPROPERTY(N'Collation')` and use that value. For information about collations, see [server-level collations](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Location**|The location in which you want to create the managed instance|For information about regions, see [Azure regions](https://azure.microsoft.com/regions/).|
-   |**Virtual network**|Select either **Create new virtual network** or a valid virtual network and subnet.| If a network/subnet is greyed-out it is must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information regarding the requirements for configuring the network environment for a managed instance, see [configure a VNet for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Virtual network**|Select either **Create new virtual network** or a valid virtual network and subnet.| If a network/subnet is unavailable it is must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information regarding the requirements for configuring the network environment for a managed instance, see [configure a VNet for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
    |**Resource group**|A new or existing resource group|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

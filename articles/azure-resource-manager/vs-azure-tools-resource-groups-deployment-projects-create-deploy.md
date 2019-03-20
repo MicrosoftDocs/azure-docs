@@ -218,7 +218,7 @@ You aren't limited to only the resources that are available through the Visual S
 
 1. Open the WebsiteSqlDeploy.json file and add the following JSON after the storage account resource but before the closing `]` of the resources section.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -293,7 +293,7 @@ You aren't limited to only the resources that are available through the Visual S
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Redeploy your resource group. Look at your dashboard on the Azure portal, and notice the shared dashboard has been added to your list of choices.
 

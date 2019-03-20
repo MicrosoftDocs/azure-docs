@@ -41,7 +41,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create a review team
 
-Refer to the [Get familiar with Content Moderator](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
 
 ## Create custom moderation tags
 

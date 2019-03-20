@@ -17,7 +17,7 @@ This article has information that can help you migrate Azure analytics resources
   
 ## Event Hubs
 
-You can't directly migrate Azure Event Hubs resources from Azure Germany to global Azure. The Event Hubs service doesn't have data export or import capabilities. However, you can export Event Hubs resources [as a template](../azure-resource-manager/resource-manager-export-template-powershell.md). Then, adapt the exported template for global Azure and re-create the resources.
+You can't directly migrate Azure Event Hubs resources from Azure Germany to global Azure. The Event Hubs service doesn't have data export or import capabilities. However, you can export Event Hubs resources [as a template](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates). Then, adapt the exported template for global Azure and re-create the resources.
 
 > [!NOTE]
 > Exporting an Event Hubs template doesn't copy data (for example, messages). Exporting a template only re-creates Event Hubs metadata.
@@ -39,7 +39,7 @@ For more information:
 - Review the [Event Hubs overview](../event-hubs/event-hubs-about.md).
 - Refresh your knowledge by completing the [Event Hubs tutorials](https://docs.microsoft.com/azure/event-hubs/#step-by-step-tutorials).
 - Check the migration steps for [Azure Service Bus](./germany-migration-integration.md#service-bus).
-- Become familiar with how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Become familiar with how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## HDInsight
 

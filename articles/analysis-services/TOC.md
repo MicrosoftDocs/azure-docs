@@ -43,8 +43,6 @@
 ### [Add a service principal to server administrator role](analysis-services-addservprinc-admins.md)
 
 ## Model
-### [Import a Power BI Desktop file](analysis-services-import-pbix.md)
-### [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)
 ### [Deploy from Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Refresh with REST API](analysis-services-async-refresh.md)
 ### [Data modeling in Visual Studio - Adventure Works (1400) tutorial](tutorials/aas-adventure-works-tutorial.md)
@@ -97,13 +95,3 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-

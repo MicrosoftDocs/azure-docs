@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -122,8 +122,8 @@ The steps described in this topic are:
    		"EndPointType":2
 	}
 
->[!NOTE]
->Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
+> [!NOTE]
+> Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
 ### Response
 

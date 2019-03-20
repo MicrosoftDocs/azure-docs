@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory self-service password deep dive 
+title: Self-service password reset deep dive - Azure Active Directory
 description: How does self-service password reset work
 
 services: active-directory
@@ -56,7 +56,7 @@ Read through the following steps to learn about the logic behind the password re
 
 ## Authentication methods
 
-If SSPR is enabled, you must select at least one of the following options for the authentication methods. Sometimes you hear these options referred to as "gates." We highly recommend that you **choose two or more authentication methods** so that your users have more flexibility in case they are unable to access one when they need it.
+If SSPR is enabled, you must select at least one of the following options for the authentication methods. Sometimes you hear these options referred to as "gates." We highly recommend that you **choose two or more authentication methods** so that your users have more flexibility in case they are unable to access one when they need it. Additional details about the methods listed below can be found in the article [What are authentication methods?](concept-authentication-methods.md).
 
 * Mobile app notification (preview)
 * Mobile app code (preview)
@@ -66,6 +66,9 @@ If SSPR is enabled, you must select at least one of the following options for th
 * Security questions
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled.
+
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
 > [!WARNING]
 > Accounts assigned Azure Administrator roles will be required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).

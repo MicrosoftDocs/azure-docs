@@ -1,12 +1,12 @@
 ---
 title: Azure Key Vault - How to use soft delete with CLI
 description: Use case examples of soft-delete with CLI code snips
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: bryanla
+ms.author: mbaldwin
 ---
 # How to use Key Vault soft-delete with CLI
 
@@ -161,19 +161,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Like keys, secrets are managed with their own commands:
 
 - Delete a secret named SQLPassword: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Recover a secret in the deleted state: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Purge a secret in deleted state: 
 
@@ -189,7 +189,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 > [!IMPORTANT]
 > Purging a key vault or one of its contained objects, will permanently delete it, meaning it will not be recoverable!
 
-The purge fuction is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
+The purge function is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
 
 - **Active**: before deletion.
 - **Soft-Deleted**: after deletion, able to be listed and recovered back to active state.

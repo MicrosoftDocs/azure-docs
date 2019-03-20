@@ -91,7 +91,7 @@ Follow these steps to start the Stream Analytics job:
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:8080](http://localhost:8080) in your browser. You can now use the Web UI and the local microservices.
+To access the Remote Monitoring solution dashboard, navigate to `http://localhost:8080` in your browser. You can now use the Web UI and the local microservices.
 
 ## Clean up
 

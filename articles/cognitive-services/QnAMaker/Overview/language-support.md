@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/04/2018
+ms.date: 02/04/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -41,7 +41,7 @@ QnA Maker auto-detects the language of the knowledge base during creation and se
 |Languages supported|
 |-----|
 |Arabic|
-|Armenian|,
+|Armenian|
 Bengali|
 |Basque|
 |Bulgarian|

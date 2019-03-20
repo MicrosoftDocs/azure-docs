@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Select the **Activar(Activate)** option from **No** to **SI(Yes)**. In the **Identity Provider Metadata** textbox, paste the metadata XML which you have donwloaded from Azure portal.
+1. Select the **Activar(Activate)** option from **No** to **SI(Yes)**. In the **Identity Provider Metadata** textbox, paste the metadata XML which you have downloaded from Azure portal.
 
 	![Configure Single Sign-On](./media/tyeexpress-tutorial/tyeAdmin.png)
 

@@ -35,7 +35,7 @@ To correct this problem, use the following guidance on training with more varied
 
 ## Data quantity
 
-The number of training images is the most important factor. We recomment using at least 50 images per label as a starting point. With fewer images, there's a higher risk of overfitting, and while your performance numbers may suggest good quality, your model may struggle with real-world data. 
+The number of training images is the most important factor. We recommend using at least 50 images per label as a starting point. With fewer images, there's a higher risk of overfitting, and while your performance numbers may suggest good quality, your model may struggle with real-world data. 
 
 ## Data balance
 
@@ -98,4 +98,4 @@ Sometimes a visual inspection can identify patterns that you can then correct by
 In this guide, you learned several techniques to make your custom image classification model more accurate. Next, learn how to test images programmatically by submitting them to the Prediction API.
 
 > [!div class="nextstepaction"]
-[Use the prediction API](use-prediction-api.md)
+> [Use the prediction API](use-prediction-api.md)

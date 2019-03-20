@@ -90,7 +90,7 @@ After you've updated the Reply URL value in Azure AD, and it matches the value s
 
 ## User not assigned a role
 
-*Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application*.
+*Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application*.
 
 **Possible cause**
 
@@ -147,9 +147,9 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1.  Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
 
-1.  Contact the application vendor and share the following info:
+1. Contact the application vendor and share the following info:
 
    -   SAML request
 
@@ -157,7 +157,7 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 The application vendor should validate that they support the Azure AD SAML implementation for single sign-on.
 
-## No resource in requiredResourceAccess list
+## Misconfigured application
 
 *Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions for 'AAD Graph' in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
 
@@ -234,6 +234,33 @@ Azure AD wasn’t able to identify the SAML request within the URL parameters in
 
 The application needs to send the SAML request encoded into the location header using HTTP redirect binding. For more information about how to implement it, read the section HTTP Redirect Binding in the [SAML protocol specification document](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
+## Azure AD is sending the token to an incorrect endpoint
+
+**Possible cause**
+
+During single sign-on, if the sign-in request does not contain an explicit reply URL (Assertion Consumer Service URL) then Azure AD will select any of the configured rely URLs for that application. Even if the application has an explicit reply URL configured, the user may be to redirected https://127.0.0.1:444. 
+
+When the application was added as a non-gallery app, Azure Active Directory created this reply URL as a default value. This behavior has changed and Azure Active Directory no longer adds this URL by default. 
+
+**Resolution**
+
+Delete the unused reply URLs configured for the application.
+
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
+
+2.  Open the **Azure Active Directory Extension** by selecting **All services** at the top of the main left-hand navigation menu.
+
+3.  Type **“Azure Active Directory"** in the filter search box and select the **Azure Active Directory** item.
+
+4.  Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+
+5.  Select **All Applications** to view a list of all your applications.
+
+	If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications**.
+
+6.  Select the application you want to configure for single sign-on.
+
+7.  Once the application loads, open **Basic SAML configuration**. In the **Reply URL (Assertion Consumer Service URL)**, delete unused or default Reply URLs created by the system. For example, `https://127.0.0.1:444/applications/default.aspx`.
 
 ## Problem when customizing the SAML claims sent to an application
 

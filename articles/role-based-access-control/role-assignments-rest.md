@@ -1,5 +1,5 @@
 ---
-title: Manage access to Azure resoruces using RBAC and the REST API - Azure | Microsoft Docs
+title: Manage access to Azure resources using RBAC and the REST API - Azure | Microsoft Docs
 description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and the REST API. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: na

@@ -37,7 +37,7 @@ The window will appear as shown:
 | Late Input Events      | Events that arrived later than the configured late arrival tolerance window. Learn more about [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md) . |
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Output Events          | Amount of data sent by the Stream Analytics job to the output target, in number of events. |
-| Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputing results) |
+| Runtime Errors         | Total number of errors related to query processing (excluding errors found while ingesting events or outputting results) |
 | SU % Utilization       | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 

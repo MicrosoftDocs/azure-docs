@@ -1,6 +1,6 @@
 ---
 title: Deploy multi-container groups in Azure Container Instances
-description: Learn how to deploy a container group with multiple containers in Azure Container Instances.
+description: Learn how to deploy a container group with multiple containers in Azure Container Instances using an Azure Resource Manager template.
 services: container-instances
 author: dlepow
 
@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Deploy a container group
+# Deploy a multi-container group with a Resource Manager template
 
 Azure Container Instances supports the deployment of multiple containers onto a single host using a [container group](container-instances-container-groups.md). This is useful when building an application sidecar for logging, monitoring, or any other configuration where a service needs a second attached process.
 
@@ -24,6 +24,8 @@ Deployment with a Resource Manager template is recommended when you need to depl
 
 > [!NOTE]
 > Multi-container groups are currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+
+For additional template samples, see [Azure Resource Manager templates for Azure Container Instances](container-instances-samples-rm.md). 
 
 ## Configure the template
 

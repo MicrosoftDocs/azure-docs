@@ -70,7 +70,7 @@ At a high level, an import job involves the following steps:
 > [!NOTE]
 > For local (within data center country) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share a international carrier account
+> For abroad (outside data center country) shipments, please share an international carrier account
 
  ![Figure 1:Import job flow](./media/storage-import-export-service/importjob.png)
 
@@ -100,7 +100,7 @@ At a high level, an export job involves the following steps:
 > [!NOTE]
 > For local (within data center country) shipments, please share a domestic carrier account 
 >
-> For abroad (outside data center country) shipments, please share a international carrier account
+> For abroad (outside data center country) shipments, please share an international carrier account
   
  ![Figure 2:Export job flow](./media/storage-import-export-service/exportjob.png)
 

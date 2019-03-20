@@ -11,11 +11,11 @@ Some Bing responses include URLs to thumbnail images served by Bing. You may res
 > Ensure the size and cropping of the thumbnail provide a search scenario and respect third party rights, as required by Bing Search API use and display requirements.
 
 
-To resize an image, include the w (width) and h (height) query parameters in the thumbnail’s URL. Specify the width and height in pixels. For example:  
+To resize an image, include the w (width) query parameter, h (height) query parameter, or both in the thumbnail’s URL. Specify the width and height in pixels. For example:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-If you resize the image, its aspect ratio is maintained. To maintain the aspect ratio, white padding may be added to the border of the image. For example, if you resize a 480x359 image to 200x200 without cropping, the full width contains the image but the height contains 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right borders would contain white padding. If you crop the image, white padding is not added.  
+If you specify only the width or only the height query parameter, Bing maintains the image's aspect ratio. If you specify both width and height and you don't maintain the image's original aspect ratio, Bing adds white padding to the border of the image. For example, if you resize a 480x359 image to 200x200 without cropping, the full width contains the image but the height contains 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right borders would contain white padding. If you crop the image, white padding is not added.  
 
  
 The following picture shows the original size of a thumbnail image (480x300).  

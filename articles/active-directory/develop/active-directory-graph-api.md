@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/01/2019
 ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
@@ -24,11 +24,9 @@ ms.collection: M365-identity-device-management
 
 > [!IMPORTANT]
 >
-> As of February 2019, the Azure Active Directory Graph API is being deprecated in favor of the Microsoft Graph API.  
+> As of February 2019, we started the process to deprecate some earlier versions of Azure Active Directory Graph API in favor of the Microsoft Graph API. 
 >
-> To ease transition, earlier versions of the Azure AD Graph API will be decommissioned before more recent ones.  
->
-> For details, updates, and time frames, [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post in the Office Dev Center.
+> For details, updates, and time frames, see [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) in the Office Dev Center.
 >
 > Moving forward, applications should use the Microsoft Graph API. 
 

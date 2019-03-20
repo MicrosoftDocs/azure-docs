@@ -15,10 +15,8 @@ This article answers common questions about the [Azure Backup](backup-introducti
 
 ## General questions
 
-
 ### What Azure VMs can you back up using Azure Backup?
 [Review](backup-azure-arm-vms-prepare.md#before-you-start) supported operating systems and limitations.
-
 
 
 ## Backup
@@ -35,17 +33,16 @@ Yes, backups work seamlessly. There's no need to reconfigure anything.
 ### Why can't I see my VM in the Configure Backup wizard?
 The wizard only lists VMs in the same region as the vault, and that aren't already being backed up.
 
-
 ### My VM is shut down. Will an on-demand or a scheduled backup work?
 Yes. Backups run when a machine is shut down. The recovery point is marked as crash consistent.
 
 ### Can I cancel an in-progress backup job?
 Yes. You can cancel backup job in a **Taking snapshot** state. You can't cancel a job if data transfer from the snapshot is in progress.
 
-### I enabled resource group lock on my backed-up managed disk VMs. Will my backups continue to work?
-If you lock the resource group, Azure Backup service can't delete the older restore points.
-- New backups will start to fail as there's a maximum limit of 18 restore points.
-- If backups fail with an internal error after the lock,  [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
+### I enabled lock on resource group created by Azure Backup Service (i.e ` AzureBackupRG_<geo>_<number>`), will my backups continue to work?
+If you lock the resource group created by Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
+
+User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
 ### Does the backup policy consider Daylight Saving Time (DST)?
 No. The date and time on your local computer is local with current daylight savings applied. The time set for scheduled backups might differ from the local time due to DST.

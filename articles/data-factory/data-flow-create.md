@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
---- 
+---
 
 # Create Azure Data Factory Data Flow
 
@@ -29,7 +29,12 @@ You will be prompted to enter your Azure Blob Storage account information.
 
 [The data used for these samples can be found here](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Download the sample data and store the files in your Azure Blob storage accounts so that you can execute the samples.
 
+## Create new data flow
+
 Use the Create Resource "plus sign" button in the ADF UI to create Data Flows
 
 ![Data Flow options](media/data-flow/newresource.png "New Resource")
 
+## Next steps
+
+Begin building your data transformation with a [source transformation](data-flow-source.md).

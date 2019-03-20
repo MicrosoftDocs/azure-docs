@@ -58,7 +58,7 @@ HDInsight cluster comes with some sample data. You use the following two samples
 In this tutorial, you use these two datasets to test Sqoop import and export.
 
 ## Create cluster and SQL database
-This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+This section shows you how to create a cluster, a SQL Database, and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
    
 ```json
 "storageKeyType": "Primary",
@@ -84,9 +84,9 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
     - **Cluster login name and password**: The default login name is admin.
     - **SSH user name and password**.
     - **SQL database server login name and password**.
-    - **_artifacts Location**: Use the default value unless you want to use your own backpac file in a different location.
+    - **_artifacts Location**: Use the default value unless you want to use your own bacpac file in a different location.
     - **_artifacts Location Sas Token**: Leave it blank.
-    - **Bacpac File Name**: Use the default value unless you want to use your own backpac file.
+    - **Bacpac File Name**: Use the default value unless you want to use your own bacpac file.
      
         The following values are hardcoded in the variables section:
         
@@ -165,7 +165,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 The PowerShell sample performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. 
    
     If you use SQL Server instead, use the following statements to create the tables:
@@ -629,7 +629,6 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md

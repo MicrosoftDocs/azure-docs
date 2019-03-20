@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
---- 
+---
 
 # Tutorial: Extract names with simple entity and a phrase list
 
@@ -123,7 +123,7 @@ Simple entities need many examples in order to have a high confidence of predict
     |Apply for tile work.|tile|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|git 
+    |I would like to apply for the position in photography.|photography|
 
 ## Mark job entity in other intents
 
