@@ -312,8 +312,11 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
-    - name: Scale an HDInsight cluster
+    - name: Manually scale a cluster
       href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Autoscale clusters
+      href: ../hdinsight-autoscale-clusters.md
       maintainContext: true
     - name: Use external metadata stores
       href: ../hdinsight-use-external-metadata-stores.md

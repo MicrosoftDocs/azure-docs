@@ -88,7 +88,7 @@
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity
       href: stream-analytics-managed-identities-adls.md
-    - name: Use SQL reference
+    - name: Use SQL reference data
       href: sql-reference-data.md
   - name: Build solutions
     items:
