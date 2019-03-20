@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -85,7 +85,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks, and existi
 
 ## Python Runbooks
 
-Python Runbooks are available in the [Script Center gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). You can contribute Python runbooks to the Script Center gallery. When you do, ensure that you add the tag **Python** when uploading your contribution.
+Python Runbooks are available in the [Script Center gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). You can contribute Python runbooks to the Script Center gallery by clicking **Upload a contribution**. When you do, ensure that you add the tag **Python** when uploading your contribution.
 
 ## Requesting a runbook or module
 
