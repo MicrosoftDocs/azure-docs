@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Using Python to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -23,7 +23,6 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 ### Command line
-Or create a folder for your `.py` files (one file for each quickstart) and run from the command line. The last quickstart on this page, Identify Entities, is not included in the Jupyter notebook. Copy all code below into your `.py` file, except for the successful JSON responses.
 
 You may need to update IPython for the command line:
 ```bash
@@ -57,7 +56,7 @@ subscription_key = '<ADD KEY HERE>'
 assert subscription_key
 ```
 
-Next, verify that the region in `text_analytics_base_url` corresponds to the one you used when setting up the service. If you are using a free trial key, you do not need to change anything.
+Next, verify that the region in `text_analytics_base_url` corresponds to the one you used when setting up the service. If you're using a free trial key, you don't need to change anything.
 
 ```python
 text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
