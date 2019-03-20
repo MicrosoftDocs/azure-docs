@@ -122,7 +122,7 @@ If the Azure Stack portal does not provide enough information for you to trouble
 
 ### Prerequisites
 
-You will need a Bash prompt on the machine you use to manage Azure Stack. On a Windows system, you can get a Bash prompt by installing [Git for Windows](https://git-scm.com/downloads). Once installed, look for _Git Bash_ in your start menu.
+You will need a Bash prompt on the machine you use to manage Azure Stack. On a Windows machine, you can get a Bash prompt by installing [Git for Windows](https://git-scm.com/downloads). Once installed, look for _Git Bash_ in your start menu.
 
 ### Retrieving the logs
 
