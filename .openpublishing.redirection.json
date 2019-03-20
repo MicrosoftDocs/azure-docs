@@ -21346,6 +21346,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/reports-monitoring/tutorial-signin-logs-download-script.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/active-directory/active-directory-reporting-activity-audit-reference.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-audit-activities",
       "redirect_document_id": false
