@@ -17,7 +17,7 @@ manager: femila
 
 Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service node.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

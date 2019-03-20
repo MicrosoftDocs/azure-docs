@@ -17,7 +17,7 @@ manager: femila
 
 `geth` is a command-line interface you can use to connect to an Azure Blockchain Service node.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

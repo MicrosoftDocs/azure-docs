@@ -1,5 +1,5 @@
 - name: Azure Blockchain Documentation (public preview)
-  href: index.yml
+  href: index.md
 - name: Azure Blockchain Service
   href: ./service/index.yml
 - name: Azure Blockchain Workbench
