@@ -18,7 +18,7 @@ ms.author: diftimieMSFT
 After you train your model, you can test images programmatically by submitting them to the Prediction API. 
 
 > [!NOTE]
-> This document demonstrates using C# to submit an image to the Prediction API. For more information and examples of using the API, see the [Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865445).
+> This document demonstrates using C# to submit an image to the Prediction API. For more information and examples of using the API, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## Publish your trained iteration
 
