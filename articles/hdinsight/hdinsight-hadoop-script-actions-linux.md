@@ -328,7 +328,6 @@ For more information on using each method, see [How to use script action](hdinsi
 Microsoft provides sample scripts to install components on an HDInsight cluster. See the following links for more example script actions.
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
-* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
 * [Install or upgrade Mono on HDInsight clusters](hdinsight-hadoop-install-mono.md)
 
