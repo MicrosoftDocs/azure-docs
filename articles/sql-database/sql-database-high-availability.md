@@ -64,7 +64,7 @@ Because the zone redundant quorum-set has replicas in different datacenters with
 
 The zone redundant version of the high availability architecture is illustrated by the following diagram:
 
-![high availability architecture zone redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
+![high availability architecture zone redundant](./media/sql-database-high-availability/zone-redundant-business-critical-service-tier.png)
 
 ## Accelerated Database Recovery (ADR)
 
