@@ -84,7 +84,7 @@ Services include:
 - Invited Users
 - PIM
 - Self-service Group Management
-- Self-service Passord Management
+- Self-service Password Management
 - Terms of Use
 
 ## Sign-ins report 
