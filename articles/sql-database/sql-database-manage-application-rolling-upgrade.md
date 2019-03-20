@@ -105,7 +105,7 @@ ALTER DATABASE V1
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminate geo-replication by disconnecting the secondary (11) with [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. An example snippet of the PowerShell code is provided below. 
+2. Terminate geo-replication by disconnecting the secondary (11) with [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. The following is a truncated PowerShell code snippet example: 
 
 ```powershell
 Remove-AzSqlDatabaseSecondary
