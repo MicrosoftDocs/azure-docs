@@ -17,7 +17,7 @@ This article shows you how to import data into [an Azure Search index](search-wh
 
 > [!div class="checklist"]
 > * Create a [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object to connect to a search index.
-> * Create an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet object containing the documents to be added, modified, or deleted.
+> * Create an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object containing the documents to be added, modified, or deleted.
 > * Call the `Documents.Index` method on `SearchIndexClient` to upload documents to an index.
 
 ## Prerequisites
@@ -26,9 +26,9 @@ This article shows you how to import data into [an Azure Search index](search-wh
 
 
 ## Create a client
-To import data, create an instance of the `SearchIndexClient` class using the `SearchServiceClient` instance you already created. While you could construct `SearchIndexClient`yourself, it's easier to have a `SearchServiceClient` instance and call its `Indexes.GetClient` method. 
+To import data, you need an instance of the `SearchIndexClient` class. There are several approaches for creating this class, including using the `SearchServiceClient` instance that is already created. 
 
-For example, here is how you would obtain a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`:
+As the following example illustrates, you can use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`.
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
