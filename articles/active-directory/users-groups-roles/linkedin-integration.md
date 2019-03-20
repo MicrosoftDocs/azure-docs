@@ -32,9 +32,9 @@ In this article, you can learn how to enable or disable LinkedIn integration for
 
 ## Enable or disable LinkedIn integration for your users in the Azure portal
 
-You can enable or disable LinkedIn integration for your entire tenant or for only selected users in your tenant.
+You can consent to LinkedIn integration for your entire organization or for only selected users in your organization.
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD tenant.
+1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
 2. Select **Users**.
 3. On the **Users** blade, select **User settings**.
 4. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
