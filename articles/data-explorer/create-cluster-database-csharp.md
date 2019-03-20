@@ -32,8 +32,8 @@ This quickstart describes how to create an Azure Data Explorer cluster and datab
 
 ## Install C# nuget
 
--. You will need nuget package for Azure Data Explorer (Kusto), you can find the Nuget here: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
--. You will also need the nuget Microsoft.IdentityModel.Clients.ActiveDirectory for authentication https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+- You will need nuget package for Azure Data Explorer (Kusto), you can find the Nuget here: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
+- You will also need the nuget Microsoft.IdentityModel.Clients.ActiveDirectory for authentication https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
 
 
 ## Create the Azure Data Explorer cluster
