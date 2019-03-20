@@ -59,9 +59,7 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. This storage account type supports block blobs and append blobs, but not page blobs, tables or queues.
 
-Compared with general-purpose v2 and blob storage accounts:
-- Block blob storage accounts provide low and consistent latency, and higher throughput and transaction rates.
-- Block blob storage accounts provide the same durability, availability, and scalability features.
+Compared with general-purpose v2 and blob storage accounts, block blob storage accounts provide low and consistent latency, and higher transaction rates.
 
 Block blob storage accounts do not currently support tiering to hot, cool, or archive access tiers.
 
@@ -177,4 +175,5 @@ The Import/Export service can also be used to transfer data from Azure Blob stor
 ## Next steps
 
 - To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
+- To learn how to create a block blob storage account, see [Create a block blob storage account](../blobs/storage-create-account-block-blob.md).
 - To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).
