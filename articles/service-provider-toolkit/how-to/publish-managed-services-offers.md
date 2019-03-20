@@ -3,6 +3,7 @@ title: Publish a managed services offer to Azure Marketplace
 description: Azure Service Provider Management Toolkit lets service providers manage customer resources at scale.
 author: JnHs
 ms.author: jenhayes
+ms.service: service-provider-toolkit
 ms.date: 04/03/2019
 ms.topic: overview
 manager: carmonm
