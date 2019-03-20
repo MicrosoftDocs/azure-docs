@@ -127,8 +127,8 @@ Entitlement management has different roles based on job function.
 | Role | Description |
 | --- | --- |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Manage all aspects of entitlement management.<br/>Create users and groups. |
-| Catalog creator | Create catalogs. The person that creates a catalog automatically becomes the catalog's first Catalog owner. |
-| Catalog owner | Edit and manage existing catalogs. |
+| Catalog creator | Create and manage catalogs. Typically an IT administrator or resource owner. The person that creates a catalog automatically becomes the catalog's first Catalog owner. |
+| Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owner. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 | Approver | Approve requests to access packages. |
 | User | Request access packages. |
