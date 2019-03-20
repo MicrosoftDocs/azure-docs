@@ -92,8 +92,7 @@ public bool GetBlob(ref CloudBlobClient cloudBlobClient, string storageConnectio
 
 ## Create a container and set permissions
 
-Create a blob container instance by calling the [CloudBlobContainer.CreateAsync](https://docs.microsoft.com/dotnet/api/
-microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_CreateAsync) method. 
+Create a blob container instance by calling the [CloudBlobContainer.CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_CreateAsync) method.
 
 Then, set the permissions on that container by calling the [CloudBlobContainer.SetPermissionsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.setpermissionsasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_SetPermissionsAsync_Microsoft_WindowsAzure_Storage_Blob_BlobContainerPermissions_) method.
 
