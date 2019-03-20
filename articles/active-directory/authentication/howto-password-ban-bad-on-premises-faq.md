@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
 description: On-premises Azure AD Password Protection FAQ
 
 services: active-directory

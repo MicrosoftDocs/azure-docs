@@ -1,5 +1,5 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection
+title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
 description: Understand Azure AD Password Protection monitoring and logging
 
 services: active-directory

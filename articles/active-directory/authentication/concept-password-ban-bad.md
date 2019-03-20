@@ -1,5 +1,5 @@
 ---
-title: Dynamically banned passwords in Azure AD
+title: Dynamically banned passwords - Azure Active Directory
 description: Ban weak passwords from your environment with Azure AD dynamically banned passwords
 
 services: active-directory
