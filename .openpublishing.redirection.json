@@ -21354,7 +21354,7 @@
       "source_path": "articles/active-directory/reports-monitoring/tutorial-signin-logs-download-script.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
       "redirect_document_id": false
-    },        
+    },
     {
       "source_path": "articles/active-directory/active-directory-reporting-activity-audit-reference.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-audit-activities",
@@ -36278,11 +36278,6 @@
     {
       "source_path": "articles/azure-monitor/platform/collect-azurepass-posh.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cost-management/migrate-cost-management-api.md",
-      "redirect_url": "/azure/cost-management/overview-cost-mgt",
       "redirect_document_id": false
     },
     {
