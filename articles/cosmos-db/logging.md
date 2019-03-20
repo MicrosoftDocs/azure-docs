@@ -19,7 +19,7 @@ After you start to use one or more Azure Cosmos DB databases, you may want to mo
 
 Before we talk about how to monitor your Azure Cosmos DB account, let's clarify a few things about logging and monitoring. There are different types of logs on the Azure platform. There are [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), events, heartbeat monitoring, operations logs, and so on. There is a plethora of logs. You can see the complete list of logs in [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/) in the Azure portal. 
 
-The following image shows the different kinds of Azure logs that are available:
+The following image shows the different kind of Azure logs that are available:
 
 ![Different kinds of Azure logs](./media/logging/azurelogging.png)
 
@@ -105,7 +105,7 @@ To enable metrics and diagnostics logging by using Azure CLI, use the following 
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   The `resource` is the name of the Azure Cosmos DB account. The `event-hub-rule` is the event hub rule id. 
+   The `resource` is the name of the Azure Cosmos DB account. The `event-hub-rule` is the event hub rule ID. 
 
 - To enable sending Diagnostic Logs to a Log Analytics workspace, use this command:
 

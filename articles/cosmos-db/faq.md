@@ -209,7 +209,7 @@ The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer tha
 
 ### How do I connect to my database?
 
-The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. QuickStart is the best way to get code snippets to connect to your database.
+The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quickstart is the best way to get code snippets to connect to your database.
 
 Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
 
@@ -251,7 +251,7 @@ There are some behavior differences that users coming from Azure Table storage w
 * CORS isn't currently supported
 * Table names in Azure Table storage aren't case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full one Meg of a table entity to store binary data because the encoding increases the data's size.
-* Entity property name 'Id' currently not supported
+* Entity property name 'ID' currently not supported
 * TableQuery TakeCount isn't limited to 1000
 
 In terms of the REST API there are a number of endpoints/query options that aren't supported by Azure Cosmos DB Table API:

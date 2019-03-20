@@ -53,7 +53,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
     Setting|Suggested value|Description
     ---|---|---
     Database id|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.
-    Collection id|Items|Enter *Items* as the name for your new collection. Collection ids have the same character requirements as database names.
+    Collection id|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.
     Partition key| `<your_partition_key>`| Enter a partition key. The sample described in this article uses */category* as the partition key.
     Throughput|400 RU|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later. 
     
@@ -217,7 +217,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
+In this Quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
