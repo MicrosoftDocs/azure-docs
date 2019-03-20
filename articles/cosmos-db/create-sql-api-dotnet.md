@@ -23,7 +23,7 @@ ms.date: 03/15/2019
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, collection, and add sample data to the collection by using the Azure portal. You'll then build and deploy a todo list web app built using the [SQL .NET SDK](sql-api-sdk-dotnet.md), to add more manage data within the collection. 
+This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, collection, and add sample data to the collection by using the Azure portal. You'll then build and deploy a todo list web app built using the [SQL .NET SDK](sql-api-sdk-dotnet.md), to add more manage data within the collection. 
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ Now let's switch to working with code. Let's clone a [SQL API app from GitHub](h
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). In this Quickstart, you create a database and a collection by using Azure portal and add sample data by using the .Net sample. However, you can also create the database and the collection by using the .Net sample. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). In this quickstart, you create a database and a collection by using Azure portal and add sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. 
 
 The following snippets are all taken from the DocumentDBRepository.cs file.
 
@@ -217,7 +217,7 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Next steps
 
-In this Quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
