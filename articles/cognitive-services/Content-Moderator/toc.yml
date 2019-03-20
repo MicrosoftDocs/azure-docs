@@ -67,20 +67,6 @@
           href: try-text-api.md
         - name: Custom terms - API console
           href: try-terms-list-api.md
-  - name: Use the Review tool
-    items:
-    - name: Manage team
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Use tags
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Review text
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Manage credentials
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: Use connectors
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: View dashboard
-      href: Review-Tool-User-Guide/View-Dashboard.md
   - name: Define and use reviews
     items:
     - name: Review tool (browser)

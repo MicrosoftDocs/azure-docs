@@ -36405,6 +36405,31 @@
       "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
       "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Tags.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/configure#tags",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Text-Reviews.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-moderated-images#text-reviews",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Credentials.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/configure#credentials",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Connectors.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/configure#connectors",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/human-in-the-loop#review-tool-dashboard",
+      "redirect_document_id": true
     }
   ]
 }
