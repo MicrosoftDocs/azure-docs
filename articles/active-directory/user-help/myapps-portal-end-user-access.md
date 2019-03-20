@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Access and use apps on the My Apps portal
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform access reviews for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-myapps-portal.md)]
 
@@ -35,7 +35,7 @@ You can get to the **My Apps** portal from any of the following web browsers:
 - Internet Explorer, version 11 (limited support)
 
 ## Download and install the My Apps Secure Sign-in Extension
-Install this extension to start your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+Download and install the the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
 This extension helps you: 
 
