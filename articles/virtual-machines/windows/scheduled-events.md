@@ -42,9 +42,9 @@ Using Scheduled Events your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 - Platform initiated maintenance (e.g. Host OS Update)
-- Predicted host hardware failure
+- Degraded hardware
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
-- Low-Pri VM eviction in scale sets
+- Low-Priority VM eviction in scale sets
 
 ## The Basics  
 
@@ -63,7 +63,7 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - |
-| 2017-11-01 | General Availability | All | <li> Added support for Low-priority VM eviction <br> | 
+| 2017-11-01 | General Availability | All | <li> Added support for Low-priority VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata Header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All |<li>Initial release
 
