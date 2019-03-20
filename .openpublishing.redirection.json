@@ -36152,11 +36152,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/hdinsight-autoscale-clusters.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-scaling-best-practices",
-      "redirect_document_id": false
-    },
-	    {
       "source_path": "articles/application-insights/opencensus-go.md",
       "redirect_url": "/azure/azure-monitor/app/opencensus-go",
       "redirect_document_id": true

@@ -148,7 +148,7 @@ Once you make your datastore available on the remote compute, you can access it 
 
 The following table lists the common [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) method(s) that make datastores available on the remote compute.
 
-##
+# #
 
 Way|Method|Description
 ----|-----|--------
