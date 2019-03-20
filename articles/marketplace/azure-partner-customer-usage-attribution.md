@@ -123,6 +123,8 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/go/azure/).
+
 ## Use Terraform
 
 The support for Terraform is available through Azure Provider’s 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  This support applies to all partners who deploy their solution via Terraform, and all resources deployed and metered by the Azure Provider (version 1.21.0 or later).
