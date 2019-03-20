@@ -13,10 +13,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/20/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.lastreviewed: 03/19/2019
+ms.lastreviewed: 03/20/2019
 ---
 
 # Azure Stack VM update and management
@@ -77,9 +77,9 @@ After enabling the Azure Automation solutions in the Azure portal, you next need
 
    ![Azure Monitor, update and configuration management extension marketplace item](media/vm-update-management/2.PNG) 
 
-To enable the Azure Monitor for VMs Map solution and gain insights into the networking dependecies, you will need to also download the **Azure Monitor Dependency Agent**:
+To enable the Azure Monitor for VMs Map solution and gain insights into the networking dependencies, you will need to also download the **Azure Monitor Dependency Agent**:
 
-   ![Azure Monitor Dependecy Agent](media/vm-update-management/2-dependency.PNG) 
+   ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
 
 ## Enable Update Management for Azure Stack virtual machines
 Follow these steps to enable update management for Azure Stack VMs.
