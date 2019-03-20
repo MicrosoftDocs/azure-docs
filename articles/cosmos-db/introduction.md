@@ -11,7 +11,7 @@ ms.author: sngun
 
 # Welcome to Azure Cosmos DB
 
-Today’s applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in data centers that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
+Today’s applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
 Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. With a click of a button, Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can elastically scale throughput and storage, and take advantage of fast, single-digit-millisecond data access using your favorite API including SQL, MongoDB, Cassandra, Tables, or Gremlin. Cosmos DB provides comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs) for throughput, latency, availability, and consistency guarantees, something no other database service offers.
 
@@ -72,7 +72,7 @@ Cosmos DB is the first and only service to offer [industry-leading comprehensive
 
 ### Globally distributed operational analytics with Spark
 
-You can run [Spark](spark-connector.md) directly on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB. For more information, see see [Globally distributed operational analytics](lambda-architecture.md).
+You can run [Spark](spark-connector.md) directly on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB. For more information, see [Globally distributed operational analytics](lambda-architecture.md).
 
 ### Develop applications on Cosmos DB using popular NoSQL APIs
 

@@ -27,7 +27,7 @@ With Azure Cosmos DB, you can add or remove the regions associated with your acc
 - 99.999% read and write availability all around the world.
 - Guaranteed reads and writes served in less than 10 milliseconds at the 99th percentile.
 
-By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to adn from your Azure Cosmos account, your application does not need to be redeployed or paused, it continues to be highly available at all times.
+By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region and can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions to and from your Azure Cosmos account, your application does not need to be redeployed or paused, it continues to be highly available at all times.
 
 **Build highly responsive apps.** Your application can perform near real-time reads and writes against all the regions you chose for your database. Azure Cosmos DB internally handles the data replication between regions with consistency level guarantees of the level you've selected.
 
