@@ -15,7 +15,7 @@ ms.author: aahi
 # Quickstart: Using PHP to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked /text/analytics/v2.1/ies](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
+This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -352,9 +352,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="Entities"></a>
 
-## Identify /text/analytics/v2.1/ies
+## Identify entities 
 
-The Entities API identifies well-known /text/analytics/v2.1/ies in a text document, using the [Entities method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). The following example identifies /text/analytics/v2.1/ies for English documents.
+The Entities API identifies well-known entities in a text document, using the [Entities method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
