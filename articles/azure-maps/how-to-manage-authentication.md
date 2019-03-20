@@ -27,7 +27,7 @@ You can view your authentication details on the Azure portal. Go to your account
 
 After you create an Azure Maps account, you need to establish a link between your Azure AD tenant and the Azure Maps resource.
 
-1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https://localhost/). If you already have a registered app, go to step 2.
+1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https:\//localhost/). If you already have a registered app, go to step 2.
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
