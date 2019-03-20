@@ -26,11 +26,11 @@ From the [Custom Vision web page](https://customvision.ai), select your project 
 
 To submit images to the Prediction API, you will first need to publish your iteration for prediction, which can be done by selecting __Publish__ and specifying a name for the published iteration. This will enable your model to be accessible to the Prediction API of your Custom Vision Azure resource. 
 
-![The performance tab is shown, with a red rectangle surrounding the Publish button.](./media/use-prediction-api/UnpublishedIteration.png)
+![The performance tab is shown, with a red rectangle surrounding the Publish button.](./media/use-prediction-api/unpublished-iteration.png)
 
 Once your model has been successfully published, you'll see a "Published" label appear next to your iteration in the left-hand sidebar, as well as the name of the published iteration in the description of the iteration.
 
-![The performance tab is shown, with a red rectangle surrounding the "Published label and the name of the published iteration.](./media/use-prediction-api/PublishedIteration.png)
+![The performance tab is shown, with a red rectangle surrounding the "Published label and the name of the published iteration.](./media/use-prediction-api/published-iteration.png)
 
 ## Get the URL and prediction key
 
@@ -38,9 +38,9 @@ From the [Custom Vision web page](https://customvision.ai), select your project 
 
 Once your model has been published, you can retrieve information about using the Prediction API by selecting __Prediction URL__. This will open up a dialog like the one shown below with information for using the Prediction API, including the __Prediction-Key__ and __Prediction URL__.
 
-![The performance tab is shown with a red rectangle surrounding the Prediction URL button.](./media/use-prediction-api/PublishedIteration-PredictionUrl.png)
+![The performance tab is shown with a red rectangle surrounding the Prediction URL button.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![The performance tab is shown with a red rectangle surrounding the Prediction URL value for using an image file and the Prediction-Key value.](./media/use-prediction-api/UsePredictionApi.png)
+![The performance tab is shown with a red rectangle surrounding the Prediction URL value for using an image file and the Prediction-Key value.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
 > Your __Prediction-Key__ can also be found in the [Azure Portal](https://portal.azure.com) page for the Custom Vision Azure Resource associated to your project, under __Keys__. 
