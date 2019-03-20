@@ -171,7 +171,7 @@ Here is an example cluster configuration where the cluster, server, and client c
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
