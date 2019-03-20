@@ -55,7 +55,7 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 >[!NOTE]
 > Snapshot retention is fixed to 5 days for weekly policies.
 
-## Configure snapshot retention using Azure portal
+## Configure snapshot retention using the Azure portal
 
 **All the Azure backup users have now been upgraded to Instant restore**.
 
