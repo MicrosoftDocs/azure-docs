@@ -33,7 +33,7 @@ After creating the virtual machine, join it to the domain by doing the following
 
 ## Prepare the virtual machine to act as a file share for user profiles
 
-The following are generalized steps on how to prepare a virtual machine to act as a file share for user profiles:
+The following are general instructions about how to prepare a virtual machine to act as a file share for user profiles:
 
 1. Join the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the session hosts virtual machines to the file share virtual machine you just created.
 2. [Connect to the file share virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
@@ -50,7 +50,7 @@ For best practices on permissions, see the following [FSLogix documentation](htt
 To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to the following [link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent.
+2. Launch an internet browser and navigate to the following [link](https://go.microsoft.com/fwlink/?linkid=2084562) to download the FSLogix agent. As part of the Windows Virtual Desktop public preview, you'll get a license key to activate the FSLogix software. The key is the LicenseKey.txt file included in the FSLogix agent .zip file.
 3. Install the FSLogix agent.
 4. Navigate to **Program Files** > **FSLogix** > **Apps** to confirm the agent installed.
 5. From the start menu, run **RegEdit** as an administrator. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\Profiles**
