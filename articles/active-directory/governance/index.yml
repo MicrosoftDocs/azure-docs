@@ -37,17 +37,17 @@ sections:
     - type: list
       style: unordered
       items:
+      - html: <a href="/azure/active-directory/governance/access-reviews-overview">What are Azure AD access reviews?</a>
       - html: <a href="/azure/active-directory/governance/create-access-review">Create an access review of groups or apps</a>
       - html: <a href="/azure/active-directory/governance/perform-access-review">Review access to group or apps</a>
-      - html: <a href="/azure/active-directory/governance/review-your-access">Review access for yourself to groups or apps</a>
   - title: Entitlement management (Preview)
     items:
     - type: list
       style: unordered
       items:
-      - html: <a href="/azure/active-directory/governance/entitlement-management-overview">What is entitlement management?</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-get-started">Tutorial - Get started</a>
-      - html: <a href="/azure/active-directory/governance/entitlement-management-create-access-package">Create an access package</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-overview">What is Azure AD entitlement management?</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-get-started">Tutorial - Get started with entitlement management</a>
+      - html: <a href="/azure/active-directory/governance/entitlement-management-create-access-package">Create and manage an access package</a>
   - title: Terms of use
     items:
     - type: list

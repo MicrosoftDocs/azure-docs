@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/05/2019
+ms.date: 03/20/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -72,18 +72,9 @@ While there is no perfect solution or recommendation for every customer, the fol
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../users-groups-roles/directory-admin-roles-secure.md)
 
+## Next steps
 
-### Access reviews
-
-- [What is an access review?](access-reviews-overview.md)
-- [Manage user access with access reviews](manage-user-access-with-access-reviews.md)
-- [Manage guest access with access reviews](manage-guest-access-with-access-reviews.md)
-- [Start an access review of a directory role](../privileged-identity-management/pim-how-to-start-security-review.md)
-
-### Terms of use
-
+- [What are Azure AD access reviews?](access-reviews-overview.md)
+- [What is Azure AD entitlement management? (Preview)](entitlement-management-overview.md)
 - [What can I do with Terms of use?](active-directory-tou.md)
-
-### Privileged identity management
-
-- [What is Azure AD PIM?](../privileged-identity-management/pim-configure.md)
+- [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
