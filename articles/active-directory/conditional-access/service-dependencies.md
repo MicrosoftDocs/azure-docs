@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: markvi
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand what service dependencies are in conditional access so that I can assess how policies are applied
+#Customer intent: As an IT admin, I need to understand what service dependencies are in conditional access so that I can assess how policies are applied
 
 ms.collection: M365-identity-device-management
 ---
@@ -59,7 +59,7 @@ The below table lists additional service dependencies, where the client apps mus
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Microsoft Azure Management (portal and API) | Early-bound |
 | Microsoft Classroom | Exchange                                    | Early-bound |
-|                     | SharePoint                                  | Late-bound  |
+|                     | SharePoint                                  | Early-bound  |
 | Microsoft Teams     | Exchange                                    | Early-bound |
 |                     | MS Planner                                  | Late-bound  |
 |                     | SharePoint                                  | Early-bound |

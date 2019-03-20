@@ -92,7 +92,7 @@ Data management gateway can be installed in the following ways:
 
 ### Install the gateway from download center
 1. Navigate to [Microsoft Data Management Gateway download page](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Click **Download**, select the appropriate version (**32-bit** vs. **64-bit**), and click **Next**.
+2. Click **Download**, select the **64-bit** version (32-bit is no more supported), and click **Next**.
 3. Run the **MSI** directly or save it to your hard disk and run.
 4. On the **Welcome** page, select a **language** click **Next**.
 5. **Accept** the End-User License Agreement and click **Next**.
