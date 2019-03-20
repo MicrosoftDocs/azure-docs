@@ -44,7 +44,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository, type the name in the field and click **Search on GitHub**.|
 |Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
-|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks *Only runbooks in the folder specified are synced. Recursion is not supported.*        |
+|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks </br>*Only runbooks in the folder specified are synced. Recursion is not supported.*        |
 |Auto Sync     | Turns on or off automatic sync when a commit is made in the source control repository         |
 |Publish Runbook     | If set to **On**, after runbooks are synced from source control they will be automatically published.         |
 |Description     | A text field to provide additional details        |
