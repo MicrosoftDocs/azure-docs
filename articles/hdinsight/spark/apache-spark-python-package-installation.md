@@ -58,7 +58,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 3. Select **+ Submit new**.
 
-4. Enter the following values for the **Submit script action** window:
+4. Enter the following values for the **Submit script action** window:  
 
     |Parameter | Value |
     |---|---|
