@@ -14,7 +14,7 @@ ms.custom: seodec2018
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
+In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
 Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
@@ -39,9 +39,14 @@ The following table lists the available tiers. Other sources of tier information
 |Basic | Dedicated computing resources for production workloads at a smaller scale. One 2 GB partition and up to three replicas. |
 |Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
 |Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
-|Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service). |
+|Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service) |
 |Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for fast file reads on a large number of smaller indexes.|
+|Storage Optimized 1 (L1) | 1 TB/partition (max 12 TB documents per service) |
+|Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB documents per service) |
 
+> [!NOTE] 
+> The Storage Optimize tiers offer larger storage capacity at a cheaper price per TB than the Standard tiers.  The primary tradeoff is in query throughput and higher latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+>
 
 ## How billing works
 
@@ -51,7 +56,7 @@ In Azure Search, there are three ways to incur costs in Aure Search, and there a
 
 For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service because the service cannot run on anything less than this configuration. 
 
-In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tiers.
+In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2, S3, L1, and L2 are not shown). If you created a **Basic**, **Standard**, or **Storage Optimized** service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tiers.
 
 ![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
 
@@ -143,6 +148,15 @@ Portal and pricing pages put the focus on partition size and storage, but for ea
 > Previously, document limits were a consideration but are no longer applicable for new services. For more information about conditions under which document limits still apply, see [Service limits: document limits](search-limits-quotas-capacity.md#document-limits).
 >
 
+Storage Optimized tiers, **L1-L2**, are ideal for applications with large data requirements, but a relatively low number of end users where minimizing query latency is not the top priority.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| partition size|  1 TB | 2 TB |  |  |  |  |  |
+| index and indexer limits| 10 | 10 |  |  |  |  |  |
+
+*L2* offers twice the overall storage capacity to an *L1*.  Choose your tier based on the maximum amount of data you think your index needs.  The *L1* tier partitions scale up in 1 TB increments to a maximum of 12 TB, while the *L2* increase by 2 TBs per partition up to a maximum of 24 TB.
+
 ## Evaluate capacity
 
 Capacity and costs of running the service go hand-in-hand. Tiers impose limits on two levels (storage and resources), so you should think about both because whichever one you reach first is the effective limit. 
@@ -169,12 +183,13 @@ Assuming the sample was both representative and ten percent of the entire data s
 
 Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
-1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
+1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**-**S2** tiers, index limits are 15-50-200, respectively.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 
     + Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
     + Start high, at **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
+    + Storage optimized, at **L1** or **L2**, if you are indexing a large amount of data and query load is relatively low.
 
 1. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
 
@@ -194,6 +209,7 @@ The standard tiers can deliver a balance of replicas to partitions, supporting f
 
 Customer who expect strong sustained query volumes from the outset should consider higher tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
 
+The storage optimized tiers lean toward large data workloads, supporting more overall index storage available, where query latency requirements are relaxed and lower number of users overall.  Additional replicas should still be leveraged for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
 
 **Service level agreements**
 
@@ -211,7 +227,7 @@ The **Free** tier and preview features do not come with [service level agreement
 
 Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index, where size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. As such, it is content characteristics rather than the size of the data set that determines index storage requirements.
 
-Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic** or a **Standard** tier. Relax any artificial constraints on data subsets and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
+Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic**, **Standard**, or **Storage Optimized** tier. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
 
 [Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
 
