@@ -57,7 +57,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 ## Create virtual machines for the host pool
 
-Now you can create an Azure virtual machine that can be joined to your Windows Virtual Desktop host pool. If you already have virtual machines, you can skip ahead to [Register the session host to the Windows Virtual Desktop host pool]().
+Now you can create an Azure virtual machine that can be joined to your Windows Virtual Desktop host pool.
 
 You can create a virtual machine in multiple ways:
 
@@ -97,11 +97,11 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
    - Run the installer.
 4. Install or activate the Windows Virtual Desktop side-by-side stack. The steps will be different depending on which OS version the virtual machine uses.
    - If your virtual machine's OS is Windows Server 2016:
-     - Download the [Windows Virtual Desktop side-by-side stack](https://rdmipreview.blob.core.windows.net/preview/Microsoft.RDInfra.StackSxS.Installer-x64.msi?st=2019-02-20T22%3A57%3A33Z&se=2019-03-31T20%3A58%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=zKnZjQhu4CKCmXLbkIqcK%2FXNliAbmhxt89LRUjUA9bE%3D).
+     - Download the [Windows Virtual Desktop side-by-side stack](https://go.microsoft.com/fwlink/?linkid=2084270).
      - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
      - Run the installer.
    - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
-     - Download the [script](https://rdmipreview.blob.core.windows.net/preview/enablesxsstackrc.ps1?st=2019-02-20T22%3A13%3A33Z&se=2019-04-01T06%3A13%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=b1io9a32CsqWXY6LlZBPnZ9VEqzJcPI4ZZx%2Ftq9TcY8%3D) to activate the side-by-side stack.
+     - Download the [script](https://go.microsoft.com/fwlink/?linkid=2084268) to activate the side-by-side stack.
      - Right-click the downloaded script, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the script.
      - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
      - Select **File**, then **Open…**, and then find the PowerShell script from the downloaded files and open it.

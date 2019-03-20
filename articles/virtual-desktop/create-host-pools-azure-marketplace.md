@@ -23,13 +23,11 @@ Sign in to the Azure portal at <https://portal.azure.com>.
 
 ## Run the Azure Marketplace offering to provision a new host pool
 
-The Windows Virtual Desktop Marketplace offerings are hidden by default. You must send your subscription ID to Microsoft to whitelist your subscription before you can complete this section’s instructions.
-
 To run the Azure Marketplace offering to provision a new host pool:
 
 1. Select **+** or **+ Create a resource**.
 2. Enter **Windows Virtual Desktop** in the Marketplace search window.
-3. Select **Windows Virtual Desktop: Provision a host pool (Staged)**, then select **Create**.
+3. Select **Windows Virtual Desktop - Provision a host pool**, then select **Create**.
 
 Follow the guidance to enter the information for the appropriate blades.
 
@@ -39,9 +37,10 @@ Here's what you do for the Basics blade:
 
 1. Enter a name for the host pool that’s unique within the Windows Virtual Desktop tenant.
 2. Select the appropriate option for personal desktop. If you select **Yes**, each user that connects to this host pool will be permanently assigned to a virtual machine.
-3. Select **Create new** and provide a name for the new resource group.
-4. For **Location**, select the same location as the virtual network that has connectivity to the Active Directory server.
-5. Select **OK**.
+3. Enter a comma-separated list of users who can sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering completes. For example, if you'd like to assign user1@contoso.com and user2@contoso.com access, enter "user1@contoso.com,user2@contoso.com."
+4. Select **Create new** and provide a name for the new resource group.
+5. For **Location**, select the same location as the virtual network that has connectivity to the Active Directory server.
+6. Select **OK**.
 
 ### Configure virtual machines
 
@@ -55,7 +54,7 @@ For the Configure virtual machines blade:
 
 For the Virtual machine setting blade:
 
-1. Select the **Image** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the .vhd file.
+1. Select the **Image source** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the .vhd file.
 2. Enter the user principal name and password for the domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 3. Select the virtual network that has connectivity to the Active Directory server, then choose a subnet to host the virtual machines.
 4. Select **OK**.
@@ -64,9 +63,9 @@ For the Virtual machine setting blade:
 
 For the Windows Virtual Desktop tenant information blade:
 
-1. Enter the name of the Windows Virtual Desktop tenant group that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
-2. Enter the name of the Windows Virtual Desktop tenant under which this host pool will be created.
-3. Specify the type of credentials you want to use to authenticate as a tenant admin. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
+1. Enter the **Windows Virtual Desktop tenant group name** for the tenant group that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
+2. Enter the **Windows Virtual Desktop tenant name** for the tenant you'll be creating this host pool in.
+3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
 4. Enter either the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
@@ -78,11 +77,11 @@ For the last two blades:
 2. In the **Buy** blade, review the additional information about your purchase from Azure Marketplace.
 3. Select **Create** to deploy your host pool.
 
-Depending on how many VMs you’re creating, this process can take an hour or more to complete.
+Depending on how many VMs you’re creating, this process can take 30 minutes or more to complete.
 
-## Assign users to the desktop application group
+## (Optional) Assign additional users to the desktop application group
 
-After the Azure Marketplace offering completes, assign user access before you start testing the full session desktops on your virtual machines.
+After the Azure Marketplace offering completes, you can assign additional users to the desktop application group before you start testing the full session desktops on your virtual machines. If you've already added default users in the Azure Marketplace offering and don't want to add more, you can skip this section.
 
 To assign users to the desktop application group, you must first open a PowerShell window. After that, you'll need to enter the following two cmdlets.
 
@@ -92,10 +91,10 @@ Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Next, set the context to the tenant group specified in the Azure Resource Manager template with this cmdlet:
+Set the context to the Windows Virtual Desktop tenant group you specified in the Azure Marketplace offering with the following cmdlet. If you left the Windows Virtual Desktop tenant group value as the default value in the Azure Marketplace offering, you can skip this step.
 
 ```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
+Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Once you've done those two things, you can add users to the desktop application group with this cmdlet:
@@ -108,9 +107,14 @@ The user’s UPN should match the user’s identity in Azure Active Directory (f
 
 After you've completed these steps, users added to the desktop application group can sign in to Windows Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 
+Here are the current supported clients:
+
+- [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
+- [Windows Virtual Desktop web client](connect-web.md)
+
 ## Next steps
 
-Now that you've made a host pool, it's time to populate it with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
+Now that you've made a host pool and assigned users to access its desktop, you can also populate your host pool with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
 
 > [!div class="nextstepaction"]
 > [Manage app groups tutorial](./manage-app-groups.md)
