@@ -24,7 +24,6 @@ Azure Media Services enables you to deliver live events to your customers on the
 - A live video encoder that converts signals from a camera (or another device, like a laptop) into a contribution feed that is sent to Media Services. The contribution feed can include signals related to advertising, such as SCTE-35 markers.<br/>For a list of recommended live streaming encoders, see [live streaming encoders](recommended-on-premises-live-encoders.md). Also, check out this blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
-
 This article gives an overview and guidance of live streaming with Media Services and links to other relavent articles.
 
 ## Dynamic Packaging
@@ -33,11 +32,11 @@ With Media Services, you can take advantage of Dynamic Packaging](dynamic-packag
 
 ## Dynamic Encryption
 
-Media Services enables you to deliver your content encrypted dynamically ([Dynamic Encryption](content-protection-overview.md)) with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information on how to encrypt your content with Media Services, see [Protecting content overview](content-protection-overview.md)
+**Dynamic packaging** can be used with [Dynamic encryption](content-protection-overview.md). Dynamic encryption enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.
 
 ## Dynamic manifest
 
-You can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+**Dynamic packaging** can be used with [filters and dynamic manifests](filters-dynamic-manifest-overview.md). Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. 
 
 ## Live Event types
 
