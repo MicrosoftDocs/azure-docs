@@ -50,7 +50,7 @@ This ensures all key material for decrypting data is stored separately of the da
 
 ## Analytics Services
 
-### Azure Event Hubs
+### [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/)
 
 Azure Event Hubs can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -62,7 +62,7 @@ Azure Event Hubs can be used in Azure Government supporting impact level 5 workl
 
 <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Event Hubs
 
-### Azure HDInsight
+### [Azure HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/)
 
 Azure HDInsight can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -73,7 +73,7 @@ Azure HDInsight can be used in Azure Government supporting impact level 5 worklo
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure HDInsight** | X | X | X | X | X | X |
 
-### Azure SQL Data Warehouse
+### [Azure SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)
 
 Azure SQL Warehouse can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -85,7 +85,7 @@ Azure SQL Warehouse can be used in Azure Government supporting impact level 5 wo
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure SQL Data Warehouse** | X | X | X | X | X | X |
 
-### Power BI Embedded
+### [Power BI Embedded](https://azure.microsoft.com/en-us/services/power-bi-embedded/)
 
 Power BI Embedded can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -97,7 +97,7 @@ Power BI Embedded can be used in Azure Government supporting impact level 5 work
 
 ## Compute Services
 
-### Azure Batch
+### [Azure Batch](https://azure.microsoft.com/en-us/services/batch/)
 
 Azure Batch can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -107,7 +107,7 @@ Azure Batch can be used in Azure Government supporting impact level 5 workloads 
 
  Enable User Subscription Mode which will require a Key Vault instance for proper encryption and key storage (see documentation [here](https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal)).
 
-### Azure Functions
+### [Azure Functions](https://azure.microsoft.com/en-us/services/functions/)
 
 Azure Web Apps can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -117,7 +117,7 @@ Azure Web Apps can be used in Azure Government supporting impact level 5 workloa
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Web Apps** | X | X | X | X | X | X |
 
-### Azure Service Fabric
+### [Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
 
 Azure Service Fabric can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -127,7 +127,7 @@ Azure Service Fabric can be used in Azure Government supporting impact level 5 w
 | --- | --- | --- | --- | --- | --- | --- |
 | **Service Fabric** |   |   |   |   | X | X |
 
-### Azure Virtual Machines &amp; Virtual Machine Scale Sets
+### [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) &amp; [Virtual Machine Scale Sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/)
 
 Microsoft Azure Virtual Machines can be used through multiple deployment mediums. This includes single Virtual Machines as well as Virtual Machines deployed using Azure&#39;s VM Scale Sets feature.
 
@@ -174,7 +174,7 @@ The disks that support Virtual Machine Scale Sets can be encrypted using Azure D
 
 - [Encrypt Disks with Virtual Machine Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps)
 
-### Azure Web Apps
+### [Azure Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/)
 
 Azure Web Apps can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -186,7 +186,7 @@ Azure Web Apps can be used in Azure Government supporting impact level 5 workloa
 
 ## Integration Services
 
-### Azure Service Bus
+### [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/)
 
 Azure Service Bus can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -196,7 +196,7 @@ Azure Service Bus can be used in Azure Government supporting impact level 5 work
 
  <sup>1</sup>Use client-side encryption to encrypt data prior to leveraging Azure Service Bus?
 
-### Azure API Management
+### [Azure API Management](https://azure.microsoft.com/en-us/services/api-management/)
 
 Azure API Management can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -206,7 +206,7 @@ Azure API Management can be used in Azure Government supporting all impact level
 
 ## Management and Governance
 
-### Azure Backup
+### [Azure Backup](https://azure.microsoft.com/en-us/services/backup/)
 
 Azure Backup can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -214,7 +214,7 @@ Azure Backup can be used in Azure Government supporting all impact levels with n
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Backup** | X | X | X | X | X | X |
 
-### Azure Monitor
+### [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/)
 
 Azure Monitor can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -222,7 +222,7 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
 
-### Azure Scheduler
+### [Azure Scheduler](https://azure.microsoft.com/en-us/services/scheduler/)
 
 Azure Scheduler can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -232,7 +232,7 @@ Azure Scheduler can be used in Azure Government supporting all impact levels wit
 
 ## Media Services
 
-### Azure Media Services
+### [Azure Media Services](https://azure.microsoft.com/en-us/services/media-services/)
 
 Azure Media Services can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -244,7 +244,7 @@ Azure Media Services can be used in Azure Government supporting impact level 5 w
 
 ## Networking Services
 
-### Azure ExpressRoute
+### [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/)
 
 ExpressRoute can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -252,7 +252,7 @@ ExpressRoute can be used in Azure Government supporting all impact levels with n
 | --- | --- | --- | --- | --- | --- | --- |
 | **ExpressRoute** | X | X | X | X | X | X |
 
-### Azure Load Balancer
+### [Azure Load Balancer](https://azure.microsoft.com/en-us/services/load-balancer/)
 
 Load Balancer can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -260,7 +260,7 @@ Load Balancer can be used in Azure Government supporting all impact levels with 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Load Balancer** | X | X | X | X | X | X |
 
-### Azure Traffic Manager
+### [Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/)
 
 Azure Traffic Manager can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -268,7 +268,7 @@ Azure Traffic Manager can be used in Azure Government supporting all impact leve
 | --- | --- | --- | --- | --- | --- | --- |
 | **Traffic Manager** | X | X | X | X | X | X |
 
-### Azure Virtual Network
+### [Azure Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network/)
 
 Azure Virtual Network can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -276,7 +276,7 @@ Azure Virtual Network can be used in Azure Government supporting all impact leve
 | --- | --- | --- | --- | --- | --- | --- |
 | **Virtual Network** | X | X | X | X | X | X |
 
-### Azure VPN Gateway
+### [Azure VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/)
 
 Azure VPN Gateway can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -286,7 +286,7 @@ Azure VPN Gateway can be used in Azure Government supporting all impact levels w
 
 ## Security & Identity Services
 
-### Azure Active Directory
+### [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
 
 Azure Active Directory can be used in all Azure Government regions, supporting all impact levels with no additional configuration required between regions.
 
@@ -294,7 +294,7 @@ Azure Active Directory can be used in all Azure Government regions, supporting a
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Active Directory** | X | X | X | X | X | X |
 
-### Microsoft Graph
+### [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview)
 
 Microsoft Graph can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -302,7 +302,7 @@ Microsoft Graph can be used in Azure Government supporting all impact levels wit
 | --- | --- | --- | --- | --- | --- | --- |
 | **Microsoft Graph** | X | X | X | X | X | X |
 
-### Azure Key Vault
+### [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
 
 Azure Key Vault can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -312,7 +312,7 @@ Azure Key Vault can be used in Azure Government supporting all impact levels wit
 
 ## Storage & Database Services
 
-### Azure Cache for Redis
+### [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/)
 
 Azure Cache for Redis can be used in Azure Government supporting all impact levels with no additional configuration required between regions.
 
@@ -320,7 +320,7 @@ Azure Cache for Redis can be used in Azure Government supporting all impact leve
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Cache for Redis** | X | X | X | X | X | X |
 
-### Azure Import/Export
+### [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
 
 Azure Import/Export can be used in Azure Government to import/export impact level 5 data.  By default, Import/Export will encrypt the data that is written to the disk drive for transport. When creating a target storage account for Import/Export of impact level 5 data add storage at rest encryption via Azure Key Vault (additional documentation and guidance found here).
 
@@ -330,7 +330,7 @@ The target storage account for Import and source storage account for Export can 
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Import/Export** | X | X | X | X | X | X |
 
-### Azure CosmosDB
+### [Azure CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/)
 
 Azure CosmosDB can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -340,7 +340,7 @@ Azure CosmosDB can be used in Azure Government supporting impact level 5 workloa
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure CosmosDB** |  |  |  |  | X | X |
 
-### Azure Storage
+### [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)
 
 Azure Storage consists of multiple data features: Blob storage, File storage, Table storage, and Queue storage. Blob storage supports both standard and premium storage, with premium storage using only SSDs for the fastest performance possible. Storage also includes configurations which modify these storage types, such as hot and cool to provide appropriate speed-of-availability for data scenarios. The below outlines which features of storage currently support IL5 workloads.
 
@@ -363,7 +363,7 @@ For more information on how to enable this Azure Storage Encryption feature, ple
 
 **Important note:** When using this encryption method, it is important that it is enabled BEFORE content is added to the storage account. Any content added prior will not be encrypted with the selected key, and only encrypted using standard encryption at rest provided by Azure Storage.
 
-### Azure SQL Database
+### [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 
 Azure SQL Database can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
@@ -373,7 +373,7 @@ Azure SQL Database can be used in Azure Government supporting impact level 5 wor
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure SQL DB** | X | X | X | X | X | X |
 
-### Azure SQL Stretch Database
+### [Azure SQL Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)
 
 Azure SQL Stretch Database can be used in Azure Government supporting impact level 5 workloads in the following configurations:
 
