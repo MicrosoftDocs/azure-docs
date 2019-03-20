@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/19/2019
 ---
 # High-availability and Azure SQL Database
 
