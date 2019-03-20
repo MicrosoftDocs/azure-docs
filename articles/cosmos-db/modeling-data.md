@@ -78,7 +78,7 @@ By denormalizing data, your application may need to issue fewer queries and upda
 
 In general, use embedded data models when:
 
-* There are contained** relationships between entities.
+* There are **contained** relationships between entities.
 * There are **one-to-few** relationships between entities.
 * There is embedded data that **changes infrequently**.
 * There is embedded data won't grow **without bound**.
@@ -317,7 +317,7 @@ Consider the following.
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the ids of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make.
+Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the IDs of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make.
 
 ## Hybrid data models
 
@@ -372,7 +372,7 @@ Consider the following JSON.
 
 Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced.
 
-If you look at the book document, we can see a few interesting fields when we look at the array of authors. There is an *id* field that is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have *name* and *thumbnailUrl*. We could have stuck with *id* and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
+If you look at the book document, we can see a few interesting fields when we look at the array of authors. There is an `id` field that is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have `name` and `thumbnailUrl`. We could have stuck with `id` and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing **some** data from the author.
 
 Sure, if the author's name changed or they wanted to update their photo we'd have to go and update every book they ever published but for our application, based on the assumption that authors don't change their names often, this is an acceptable design decision.  
 
