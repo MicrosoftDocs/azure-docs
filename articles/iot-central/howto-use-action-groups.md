@@ -21,13 +21,13 @@ In Azure IoT Central, you create rules to run actions when a condition is met. R
 - A Pay-As-You-Go application
 - An Azure account and subscription to create and manage action groups
 
-## Action groups
+## Create action groups
 
 You can [create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md) or with an [Azure Resource Manager template](../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 An action group can:
 
-- Send notifications such as an email, an SMS, or a voice call.
+- Send notifications such as an email, an SMS, or make a voice call.
 - Run an action such as an Azure Function, an Azure Logic App, or a webhook.
 
 The following screenshot shows an action group that sends email and SMS notifications and calls an Azure Logic App:
@@ -63,6 +63,47 @@ The following table summarizes the information sent to the different types of ac
 The following text is an example SMS message from an action group:
 
 `iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
+
+The following JSON shows an example webhook action payload:
+
+```json
+{
+  "schemaId":"AzureIoTCentralRuleWebhook",
+  "data":{
+    "id":"97ae27c4-17c5-4e13-9248-65c7a2c57a1b",
+    "timestamp":"2019-03-20T10:53:17.059Z",
+    "rule":{
+      "id":"031b660e-528d-47bb-b33d-f1158d7e31bf",
+      "name":"Low pressure alert",
+      "enabled":true,
+      "deviceTemplate":{
+        "id":"c318d580-39fc-4aca-b995-843719821049",
+        "version":"1.0.0"
+      }
+    },
+    "device":{
+      "id":"2383d8ba-c98c-403a-b4d5-8963859643bb",
+      "name":"Refrigerator 2",
+      "simulated":true,
+      "deviceId":"2383d8ba-c98c-403a-b4d5-8963859643bb",
+      "deviceTemplate":{
+        "id":"c318d580-39fc-4aca-b995-843719821049",
+        "version":"1.0.0"
+      },
+      "measurements":{
+        "telemetry":{
+           "pressure":343.269190673549
+        }
+      }
+    },
+    "application":{
+      "id":"8e70742b-0d5c-4a1d-84f1-4dfd42e61c7b",
+      "name":"Sample Contoso",
+      "subdomain":"sample-contoso"
+    }
+  }
+}
+```
 
 ## Next steps
 
