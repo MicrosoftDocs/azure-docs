@@ -622,7 +622,7 @@ and choose **Create**.
 1. When you're done, save and run your logic app.
 
    After your logic app finishes running, the steps from the run appear. 
-   Successful steps show checkmarks, while unsuccessful steps show the letter "X".
+   Successful steps show check marks, while unsuccessful steps show the letter "X".
 
 1. To review the inputs and outputs for each step, expand that step.
 
@@ -630,9 +630,9 @@ and choose **Create**.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limit, which are described
-by the connector's OpenAPI (formerly Swagger) description, review the
-connector's reference page: [https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name>](/connectors/).
+For technical details about triggers, actions, and limit, which are described 
+by the connector's OpenAPI (formerly Swagger) description, review the 
+[connector's reference page](/connectors/si3270/).
 
 ## Get support
 
