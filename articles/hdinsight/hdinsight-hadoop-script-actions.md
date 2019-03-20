@@ -140,7 +140,7 @@ Here are the helper methods that are provided by this script:
 | **Test-IsHDIHeadNode** |Check if the computer where the script executes is a head node. |
 | **Test-IsActiveHDIHeadNode** |Check if the computer where the script executes is an active head node. |
 | **Test-IsHDIDataNode** |Check if the computer where the script executes is a data node. |
-| **Edit-hdiConfigFile** |Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml. |
+| **Edit-HDIConfigFile** |Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml. |
 
 ## Best practices for script development
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
