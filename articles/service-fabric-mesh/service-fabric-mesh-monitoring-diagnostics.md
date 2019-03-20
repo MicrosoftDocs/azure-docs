@@ -36,7 +36,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> You can use the "az mesh service-replica" command to get the replica name. Replica names are incrementing numbers from 0.*
+> You can use the "az mesh service-replica" command to get the replica name. Replica names are incrementing integers from 0.
 
 Here is what this looks like for seeing the logs from the VotingWeb.Code container from the voting application:
 
@@ -47,6 +47,9 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 ## Container metrics 
 
 The Mesh environment exposes a handful of metrics indicating how your containers are performing. The following metrics are available via the Azure portal and Azure monitor CLI:
+
+> [!NOTE]
+> The following metrics are currently only available for Windows container based applications.
 
 | Metric | Description | Units|
 |----|----|----|
@@ -63,7 +66,7 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 | RestartCount | Number of container restarts | N/A |
 
 > [!NOTE]
-> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric
+> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric.
 
 Each metric is available on different dimensions so you can see aggregates at different levels. The current list of dimensions are as follows:
 
