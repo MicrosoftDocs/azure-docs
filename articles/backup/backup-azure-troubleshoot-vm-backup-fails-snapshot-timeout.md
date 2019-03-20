@@ -97,19 +97,12 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB
+## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 4095GB
 
 **Error code**: UserErrorUnsupportedDiskSize <br>
-**Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
+**Error message**: Currently Azure Backup does not support disk sizes greater than 4095GB <br>
 
 Your backup operation could fail when backing up VM with disk size greater than 4095GB. Support for large disks is coming soon.  
-
-## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
-
-**Error code**: UserErrorStandardSSDNotSupported <br>
-**Error message**: Currently Azure Backup does not support Standard SSD disks <br>
-
-Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to [Instant Restore](backup-instant-restore-capability.md).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
