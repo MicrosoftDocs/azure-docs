@@ -1,5 +1,5 @@
 ---
-title: Remote Desktop Gateway integration with Azure MFA NPS extension | Microsoft Docs
+title: Remote Desktop Gateway integration with Azure MFA NPS extension - Azure Active Directory
 description: Integrate your Remote Desktop Gateway infrastructure with Azure MFA using the Network Policy Server extension for Microsoft Azure
 
 services: multi-factor-authentication

@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication user data collection
+title: Azure Multi-Factor Authentication user data collection - Azure Active Directory
 description: What information is used to help authenticate users by Azure Multi-Factor Authentication?
 
 services: multi-factor-authentication
