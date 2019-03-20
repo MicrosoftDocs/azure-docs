@@ -60,7 +60,7 @@ The following section examines the preceding image in more detail:
 
 The first part lists your **review API endpoint**, **team ID**, and the **Ocp-Apim-Subscription-Key (Content Moderator trial key)** generated as part of your review team creation. Use them to call all Content Moderator APIs, including the review API.
 
-Also note your region identifier for your API endpoint. For example, **westus** is the region in "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
+Also note your region identifier for your API endpoint. For example, **westus** is the region in "https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![Content Moderator key in the review tool](images/credentials-trialkey.PNG)
 

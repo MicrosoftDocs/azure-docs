@@ -106,7 +106,7 @@ If you don't have a system account proxy, set one up as follows:
 4. Define the proxy settings.
    - On Linux machines:
      - Add this line to the **/etc/environment** file:
-       - **http_proxy=<http://proxy> IP address:proxy port**
+       - **http_proxy=<http:\//proxy> IP address:proxy port**
      - Add these lines to the **/etc/waagent.conf** file:
          - **HttpProxy.Host=proxy IP address**
          - **HttpProxy.Port=proxy port**
