@@ -262,7 +262,8 @@
       href: media-services-azure-media-clipper-localization.md
     - name: Submit clipping jobs
       href: media-services-azure-media-clipper-submit-job.md
-    - name: [Azure portal](media-services-azure-media-clipper-portal.md) -->
+    - name: Azure portal 
+      href: media-services-azure-media-clipper-portal.md
   - name: Protect content
     href: media-services-content-protection-overview.md
     items:

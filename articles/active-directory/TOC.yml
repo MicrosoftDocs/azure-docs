@@ -409,7 +409,7 @@
           href: manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md
         - name: Configure with PingAccess
           href: manage-apps/application-proxy-back-end-ping-access-how-to.md
-        - name: "Can't Access this Corporate Application" error
+        - name: Can't Access this Corporate Application error
           href: manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
           href: manage-apps/application-proxy-connector-installation-problem.md
