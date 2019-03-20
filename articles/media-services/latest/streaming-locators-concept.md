@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
@@ -24,6 +24,10 @@ The process of creating a **Streaming Locator** is called publishing. By default
 When creating a **Streaming Locator**, you need to specify the [Asset](https://docs.microsoft.com/rest/api/media/assets) name and the [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies) name. You can either use one of the predefined Streaming Policies or created a custom policy. The predefined policies currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'. When using a custom streaming policy, you should design a limited set of such policies for your Media Service account, and reuse them for your Streaming Locators whenever the same options and protocols are needed. 
 
 If you want to specify encryption options on your stream, create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) that configures how the content key is delivered to end clients via the Key Delivery component of Media Services. Associate your Streaming Locator with the **Content Key Policy** and the content key. You can let Media Services to autogenerate the key. The following .NET example shows how to configure AES encryption with a token restriction in Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Content Key Policies** are updatable, you might want to update the policy if you need to do a key rotation. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. It is recommended to not create a new Content Key Policy for each Streaming Locator. You should try to reuse the existing policies whenever the same options are needed.
+
+You can also specify a list of [Asset or Account Filters](filters-concept.md) which would apply to this [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). This feature enables you to provide a filter that is "hidden" on creation of the Streaming Locator. You might want to use this feature if you do not want to expose the filter on the URL where customers could manipulate it.  
+
+Belongs someplace in our dynamic packaging and delivery docs, and int the filters documentation.  
 
 > [!IMPORTANT]
 > * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
