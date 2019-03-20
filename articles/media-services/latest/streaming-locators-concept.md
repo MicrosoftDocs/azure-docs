@@ -25,8 +25,6 @@ When creating a **Streaming Locator**, you need to specify the [Asset](https://d
 
 If you want to specify encryption options on your stream, create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) that configures how the content key is delivered to end clients via the Key Delivery component of Media Services. Associate your Streaming Locator with the **Content Key Policy** and the content key. You can let Media Services to autogenerate the key. The following .NET example shows how to configure AES encryption with a token restriction in Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Content Key Policies** are updatable, you might want to update the policy if you need to do a key rotation. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. It is recommended to not create a new Content Key Policy for each Streaming Locator. You should try to reuse the existing policies whenever the same options are needed.
 
-You can specify a list of [Asset or Account Filters](filters-concept.md) which would apply to this [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). This feature enables you to provide a filter that is "hidden" on creation of the Streaming Locator. You might want to use this feature if you do not want to expose the filter on the URL where customers could manipulate it.  
-
 > [!IMPORTANT]
 > * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
@@ -35,7 +33,7 @@ You can specify a list of [Asset or Account Filters](filters-concept.md) which w
 
 You can specify a list of [asset or account filters](filters-concept.md), which would apply to your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [dynamic packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [dyanamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
 
-## Filter, order, page the Streaming Locator entity
+## Filter, order, page Streaming Locator entities
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
