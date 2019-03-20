@@ -186,9 +186,9 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
 | Azure Global | `https://database.windows.net/` | Available |
-| Azure Government | | Not Available |
-| Azure Germany | | Not Available |
-| Azure China 21Vianet | | Not Available |
+| Azure Government | `https://database.usgovcloudapi.net/` | Available |
+| Azure Germany | `https://database.cloudapi.de/` | Available |
+| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Available |
 
 ## Azure Event Hubs
 
