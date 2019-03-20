@@ -28,12 +28,12 @@ Your jobs have access to your Azure resources by making a connection to your Azu
 
 ## Where to run your runbooks
 
-Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs. Jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be ran in the Azure sandboxes. There are specific scenarios where choosing a Hybrid Runbook over an Azure sandbox to execute your runbook may be recommended. See the following table for a list of some example scenarios:
+Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs. Jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be run in the Azure sandboxes. There are specific scenarios where choosing a Hybrid Runbook over an Azure sandbox to execute your runbook may be recommended. See the following table for a list of some example scenarios:
 
 |Task|Best Choice|Notes|
 |---|---|---|
 |Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Optimal performance to manage azure resources|Azure Sandbox|Script is ran in the same environment, which in turn has less latency|
+|Optimal performance to manage azure resources|Azure Sandbox|Script is run in the same environment, which in turn has less latency|
 |Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
 |Long running script|Hybrid Runbook Worker|Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Interact with Local services|Hybrid Runbook Worker|Can have access directly to host machine|
@@ -73,7 +73,7 @@ else
 
 ### Time dependant scripts
 
-Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are ran only during specific times.
+Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are run only during specific times.
 
 ### Tracking progress
 
@@ -184,11 +184,11 @@ function Get-ContosoFiles
 
 ### Using executables or calling processes
 
-Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is because Azure sandboxes are shared processes ran in containers, which may not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Runbooks run in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is because Azure sandboxes are shared processes run in containers, which may not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
 ### Device and application characteristics
 
-Runbook jobs ran in Azure sandboxes do not have access to any device or application characteristics. The most common API used to query performance metrics on Windows is WMI. Some of these common metrics are memory and CPU usage. However, it does not matter what API is used. Jobs running in the cloud do not have access the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
+Runbook jobs run in Azure sandboxes do not have access to any device or application characteristics. The most common API used to query performance metrics on Windows is WMI. Some of these common metrics are memory and CPU usage. However, it does not matter what API is used. Jobs running in the cloud do not have access the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
 
 ## Job statuses
 
@@ -293,9 +293,9 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## Fair share
 
-To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has ran for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
+To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
 
-For long running tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on them should be developed to support restart behaviors from unexpected local infrastructure issues.
+For long running tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks run on them should be developed to support restart behaviors from unexpected local infrastructure issues.
 
 Another option is to optimize the runbook by using child runbooks. If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a [child runbook](automation-child-runbooks.md) and call it with the [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete. You can use the [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in your runbook to check the job status for each child if there are operations that perform after the child runbook completes.
 
