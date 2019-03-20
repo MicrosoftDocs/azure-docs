@@ -251,35 +251,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).
-
-PS C:\Users\mbaldwin> $Resource = Get-AzResource -ResourceType Microsoft.KeyVault/vaults -ResourceGroupName msb-rg -ResourceName msb-vault5
-PS C:\Users\mbaldwin> echo $Resource
-
-
-Name              : msb-vault5
-ResourceGroupName : msb-rg
-ResourceType      : Microsoft.KeyVault/vaults
-Location          : westus
-ResourceId        : /subscriptions/ae3c75c0-877b-4716-8d24-0bfa6a52cb0d/resourceGroups/msb-rg/providers/Microsoft.KeyVa
-                    ult/vaults/msb-vault5
-
-
-
-PS C:\Users\mbaldwin> $Resource.Properties.enablePurgeProtection = "True"
-PS C:\Users\mbaldwin> $Resource | Set-AzResource -Force
-
-
-Name              : msb-vault5
-ResourceId        : /subscriptions/ae3c75c0-877b-4716-8d24-0bfa6a52cb0d/resourceGroups/msb-rg/providers/Microsoft.KeyVa
-                    ult/vaults/msb-vault5
-ResourceName      : msb-vault5
-ResourceType      : Microsoft.KeyVault/vaults
-ResourceGroupName : msb-rg
-Location          : westus
-SubscriptionId    : ae3c75c0-877b-4716-8d24-0bfa6a52cb0d
-Tags              : {}
-Properties        : @{sku=; tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47; accessPolicies=System.Object[];
-                    enabledForDeployment=False; enabledForDiskEncryption=False; enabledForTemplateDeployment=False;
-                    enableSoftDelete=True; enablePurgeProtection=True; vaultUri=https://msb-vault5.vault.azure.net/;
-                    provisioningState=Succeeded}
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).ate=Succeeded}
