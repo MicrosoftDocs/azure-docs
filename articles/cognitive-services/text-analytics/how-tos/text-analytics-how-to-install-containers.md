@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to run any of the Text Analytics containers, you must have the following:
+In order to run any of the Text Analytics containers, you must have the host computer and container environments.
 
 ## Preparation
 
@@ -43,9 +43,9 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 
 | Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|
-|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |15,30|
-|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |15,30|
-|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |15,30|
+|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 * TPS - transactions per second
@@ -62,7 +62,7 @@ Container images for Text Analytics are available from Microsoft Container Regis
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
 For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
 
@@ -123,7 +123,7 @@ ApiKey={BILLING_KEY}
 This command:
 
 * Runs a key phrase container from the container image
-* Allocates one CPU cores and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
