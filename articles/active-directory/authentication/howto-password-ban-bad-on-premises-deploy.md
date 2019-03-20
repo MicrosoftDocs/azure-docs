@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure AD password protection preview
-description: Deploy Azure AD password protection preview to ban bad passwords on-premises
+title: Deploy Azure AD password protection
+description: Deploy Azure AD password protection to ban bad passwords on-premises
 
 services: active-directory
 ms.service: active-directory
@@ -15,12 +15,7 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Deploy Azure AD password protection
-
-|     |
-| --- |
-| Azure Active Directory (Azure AD) password protection is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Deploy Azure AD password protection
 
 Now that you understand [how to enforce Azure AD password protection for Windows Server Active Directory](concept-password-ban-bad-on-premises.md), the next step is to plan and execute your deployment.
 
