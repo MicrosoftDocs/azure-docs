@@ -1,5 +1,5 @@
 ---
-title: 'Example for adding autocomplete to your search box - Azure Search'
+title: 'Example for adding autocomplete typeahead to your search box - Azure Search'
 description: Examples of how to improve the end user experience of your data-centric applications using Azure Search autocomplete and suggestions APIs. 
 manager: pablocas
 author: mrcarter8
