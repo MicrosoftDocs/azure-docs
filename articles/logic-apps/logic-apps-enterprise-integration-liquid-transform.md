@@ -44,8 +44,10 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 in this step. In your Liquid template, you can use 
 [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), 
 which use [DotLiquid](https://dotliquidmarkup.org/) and C# naming conventions. 
-However, make sure you *start filter names with uppercase characters*, 
-not lowercase characters. 
+
+   > [!NOTE]
+   > Make sure the filter names use *sentence casing* in your template. 
+   > Otherwise, the filters won't work.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
