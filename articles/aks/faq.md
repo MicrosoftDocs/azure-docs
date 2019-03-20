@@ -56,11 +56,10 @@ If you create resources for use with your AKS cluster, such as storage accounts 
 
 ## Can I provide my own name for the AKS infrastructure resource group?
 
-Yes. By default, the AKS resource provider automatically creates a secondary resource group during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_**) resource group.
+Yes. By default, the AKS resource provider automatically creates a secondary resource group during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_*) resource group.
 
 * This resource group is automatically created by the Azure resource provider in your own subscription.
 * You can only specify a custom resource group name when the cluster is created.
-* You can also set custom tags at the resource group level that persist through regular cluster operations such as upgrade or scale.
 
 The following scenarios are not supported:
 
