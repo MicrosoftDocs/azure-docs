@@ -7,16 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Data Box Gateway issues 
 
 This article describes how to troubleshoot issues on your Azure Data Box Gateway. 
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]

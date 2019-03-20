@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
 ---
 
-# Manage access, power, and connectivity mode for your Azure Data Box Gateway (preview)
+# Manage access, power, and connectivity mode for your Azure Data Box Gateway
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Data Box Gateway. These operations are performed via the local web UI or the Azure portal.
 
@@ -21,9 +21,6 @@ In this article, you learn how to:
 > * Manage device access
 > * Manage connectivity mode
 > * Manage power
-
-> [!IMPORTANT]
-> Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 ## Manage device access
 

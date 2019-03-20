@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/20/2019
 ms.author: alkohli
 ---
 
@@ -22,8 +22,6 @@ Use Data Box Gateway for the following scenarios:
 
 Each of these scenarios is described in detail in the subsequent sections.
 
-> [!IMPORTANT]
-> Data Box Gateway is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## Continuous data ingestion
 
