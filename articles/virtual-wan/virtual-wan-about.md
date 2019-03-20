@@ -27,7 +27,7 @@ This article provides a quick view into the network connectivity in Azure Virtua
 
 ## <a name="partner-region"></a>Partners and locations
 
-For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+This section lists the available locations (regions) and partners for Virtual WAN. For more information, including automation and connectivity info, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
 ### <a name="partner"></a>Partners
 
