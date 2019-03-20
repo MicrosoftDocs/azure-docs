@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -30,25 +30,6 @@ In Media Services, Dynamic Packaging is used whether you are streaming live or o
 
 ![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## Common video on-demand workflow
-
-The following is a common Media Services streaming workflow where Dynamic Packaging is used.
-
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
-2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
-3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
-4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
-
-## Encode to adaptive bitrate MP4s
-
-For information about [how to encode a video with Media Services](encoding-concept.md), see the following examples:
-
-* [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md)
-* [Encode a local file using built-in presets](job-input-from-local-file-how-to.md)
-* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
-
-For a list of Media Encoder Standard formats and codecs, see [formats and codecs](media-encoder-standard-formats.md)
-
 ## Delivery protocols
 
 |Protocol|Example|
@@ -59,6 +40,53 @@ For a list of Media Encoder Standard formats and codecs, see [formats and codecs
 |MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+
+## Common on-demand workflow
+
+The following is a common Media Services streaming workflow where Dynamic Packaging is used.
+
+1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
+2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
+3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
+4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
+
+### Encode to adaptive bitrate MP4s
+
+For information about [how to encode a video with Media Services](encoding-concept.md), see the following examples:
+
+* [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md)
+* [Encode a local file using built-in presets](job-input-from-local-file-how-to.md)
+* [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
+
+For a list of Media Encoder Standard formats and codecs, see [formats and codecs](media-encoder-standard-formats.md)
+
+## Common live streaming workflow
+
+Here are the steps for a live streaming workflow:
+
+1. Create a [Live Event](live-events-outputs-concept.md).
+1. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.
+1. Get the preview URL and use it to verify that the input from the encoder is actually being received.
+1. Create a new **Asset**.
+1. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
+1. Create a **Streaming Locator** with the built-in **Streaming Policy** types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+1. List the paths on the **Streaming Locator** to get back the URLs to use.
+1. Get the hostname for the **Streaming Endpoint** you wish to stream from.
+1. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
+
+A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
+
+The following diagram demonstrates the "pass-through" flow.
+
+![pass-through](./media/live-streaming/pass-through.svg)
+
+## Dynamic Encryption
+
+**Dynamic packaging** can be used with [Dynamic encryption](content-protection-overview.md). Dynamic encryption enables you to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.
+
+## Dynamic manifest
+
+**Dynamic packaging** can be used with [filters and dynamic manifests](filters-dynamic-manifest-overview.md). Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. 
 
 ## Video codecs supported by dynamic packaging
 
