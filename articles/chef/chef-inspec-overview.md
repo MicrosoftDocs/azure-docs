@@ -14,13 +14,13 @@ ms.topic: article
 
 [InSpec](https://www.chef.io/inspec/) is Chef’s open-source language for describing security & compliance rules that can be shared between software engineers, operations, and security engineers. InSpec works by comparing the actual state of your infrastructure with the desired state that you express in easy-to-read and easy-to-write InSpec code. InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation.
 
-You can use InSpec to validate the state of resources and resource groups inside of a subscription, including virtual machines, network configurations, Azure Active Directory settings, and more.
+You can use InSpec to validate the state of resources and resource groups in a subscription, including virtual machines, network configurations, Azure Active Directory settings, and more.
 
 This article describes the benefits of using InSpec to make security and compliance easier on Azure.
 
 ## Make compliance easy to understand and assess
 
-Compliance documentation written in spreadsheets or Word documents leave requirements open to interpretation. With InSpec, you transform your requirements into versioned, executable, human-readable code. Code replaces conversations about what should be assessed in favor of tangible tests with clear intent.
+Compliance documentation written in spreadsheets or Word documents leaves requirements open to interpretation. With InSpec, you transform your requirements into versioned, executable, human-readable code. Code replaces conversations about what should be assessed in favor of tangible tests with clear intent.
 
 ## Detect fleet-wide issues and prioritize their remediation
 
