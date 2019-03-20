@@ -63,7 +63,7 @@ Sysprep removes all your personal account information, among other things, and p
 
 To create an image, the VM needs to be deallocated and marked as generalized in Azure.
 
-Deallocated the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Deallocate the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
