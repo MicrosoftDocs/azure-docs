@@ -30,10 +30,10 @@ manager: yuvalm
     Uri                                                                        Status
     -------------------------------------------------------------------------  ---------
     http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://dev.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
     ```
 
-1. Instead of "dev.s." as the URL prefix, substitute with "scott.s." in your web browser. Notice this updated URL still resolves. This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
+1. Use the URL with the *scott.s* prefix to navigate to your application. Notice this updated URL still resolves. This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
 
 <!--
 TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
@@ -51,7 +51,7 @@ webfrontend               dev       Service  26m ago  Running
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
-http://scott.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 -->
 
@@ -76,7 +76,7 @@ You've completed the getting started guide! You learned how to:
 > * Productively develop and test your code in a team environment.
 > * Establish a baseline of functionality using Dev Spaces to easily test isolated changes within the context of a larger microservice application
 
-Now that you've explored Azure Dev Spaces, [share your dev space with a team member](../articles/dev-spaces/how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
+Now that you've explored Azure Dev Spaces, [share your dev space with a team member](../articles/dev-spaces/how-to/share-dev-spaces.md) and begin collaborating.
 
 ## Clean up
 To completely delete an Azure Dev Spaces instance on a cluster, including all the dev spaces and running services within it, use the `az aks remove-dev-spaces` command. Bear in mind that this action is irreversible. You can add support for Azure Dev Spaces again on the cluster, but it will be as if you are starting again. Your old services and spaces won't be restored.

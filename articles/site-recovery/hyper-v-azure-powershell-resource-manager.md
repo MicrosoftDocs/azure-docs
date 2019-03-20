@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager | Microsoft Docs
 description: Automate disaster recovery of Hyper-V VMs to Azure with the Azure Site Recovery service using PowerShell and Azure Resource Manager.
 author: sujayt
@@ -50,17 +50,14 @@ In addition, the specific example described in this article has the following pr
 3. Verify that your subscription is registered to use the Azure providers for Recovery Services and Site Recovery, using these commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
 4. Verify that in the command output, the **RegistrationState** is set to **Registered**, you can proceed to Step 2. If not, you should register the missing provider in your subscription, by running these commands:
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery`
     `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Verify that the Providers registered successfully, using the following commands:
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
 ## Step 2: Set up the vault
 

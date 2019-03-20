@@ -52,7 +52,7 @@ For developer workstation setup, you can launch Service Fabric Explorer on your 
 >
 
 ## Connect to a Service Fabric cluster
-To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
+To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https\://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
 
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).

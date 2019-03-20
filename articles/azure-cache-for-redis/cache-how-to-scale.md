@@ -1,16 +1,16 @@
 ---
 title: How to Scale Azure Cache for Redis | Microsoft Docs
 description: Learn how to scale your Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
@@ -111,7 +111,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
-* [With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?](#scaling-limitations-with-geo-relication)
+* With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?
 * [Operations that are not supported](#operations-that-are-not-supported)
 * [How long does scaling take?](#how-long-does-scaling-take)
 * [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)

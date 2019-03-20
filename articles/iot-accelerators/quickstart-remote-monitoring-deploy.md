@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 03/08/2019
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor my IoT devices.
@@ -42,7 +42,7 @@ Enter a unique **Solution name** for your Remote Monitoring solution accelerator
 Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. For this quickstart, we're using **East US**.
 You can choose **Visual Studio Enterprise**, but you must be a [global administrator or user](iot-accelerators-permissions.md) to do so.
 
-To begin your deployment, click **Create Solution**. This process takes at least five minutes to run:
+To begin your deployment, click **Create**. This process takes at least five minutes to run:
 
 ![Remote Monitoring solution details](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -54,7 +54,7 @@ On the **Provisioned solutions** page, click your new Remote Monitoring solution
 
 ![Choose new solution](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-You can view information about your Remote Monitoring solution accelerator in the panel that appears. Choose **Solution dashboard** to view your Remote Monitoring solution accelerator:
+You can view information about your Remote Monitoring solution accelerator in the panel that appears. Choose **Go to your solution accelerator** to view your Remote Monitoring solution accelerator:
 
 ![Solution panel](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -131,6 +131,9 @@ If you plan to move on to the tutorials, leave the Remote Monitoring solution ac
 If you no longer need the solution accelerator, delete it from the [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) page, by selecting it, and then clicking **Delete Solution**:
 
 ![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![Delete solution](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## Next steps
 

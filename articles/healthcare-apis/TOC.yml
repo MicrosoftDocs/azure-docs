@@ -37,6 +37,8 @@
     href: register-public-azure-ad-client-app.md
   - name: Register a service client application
     href: register-service-azure-ad-client-app.md
+  - name: Get a token for Azure API for FHIR - CLI
+    href: get-healthcare-apis-access-token-cli.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
 - name: Resources

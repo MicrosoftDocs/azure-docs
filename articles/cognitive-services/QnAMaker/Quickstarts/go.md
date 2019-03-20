@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -30,8 +30,8 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Delete a knowledge base.](#Delete)
 - [Get the current endpoint keys.](#GetKeys)
 - [Re-generate the current endpoint keys.](#PutKeys)
-- [Get the current set of word alterations.](#GetAlterations)
-- [Replace the current set of word alterations.](#PutAlterations)
+- [Get the current set of case-insensitive word alterations.](#GetAlterations)
+- [Replace the current set of case-insensitive word alterations.](#PutAlterations)
 
 ## Prerequisites
 

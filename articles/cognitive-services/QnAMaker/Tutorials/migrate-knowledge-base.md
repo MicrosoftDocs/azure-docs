@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -50,7 +50,7 @@ Migrating a knowledge base requires exporting from one knowledge base, then impo
     At this point, all the knowledge base content - questions, answers and metadata, along with the names of the source files and the URLs, are imported to the new knowledge base. 
 
 ## Chat logs and alterations
-Alterations (synonyms) are not imported automatically. Use the [V2 APIs](https://aka.ms/qnamaker-v2-apis) to export the alterations from the old knowledge and the [V4 APIs](https://aka.ms/qnamaker-v4-apis) to move the alterations in the new knowledge base.
+Case-insensitive alterations (synonyms) are not imported automatically. Use the [V2 APIs](https://aka.ms/qnamaker-v2-apis) to export the alterations from the old knowledge and the [V4 APIs](https://aka.ms/qnamaker-v4-apis) to move the alterations in the new knowledge base.
 
 There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs. 
 

@@ -111,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Identifier** textbox, type a value provided by IMPAC
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+
 	| Environment | URL Pattern |
 	| ---------------|--------------- |    
 	| For Production |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -124,6 +125,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![IMPAC Risk Manager Domain and URLs single sign-on information](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	| Environment | URL Pattern |
 	| ---------------|--------------- |    
 	| For Production |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

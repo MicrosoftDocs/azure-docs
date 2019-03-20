@@ -51,18 +51,13 @@ Azure Storage Explorer is supported on the following versions of macOS:
 
 Azure Storage Explorer is supported on the following distributions of Linux:
 
-* Ubuntu 16.04 x64 (recommended)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Azure Storage Explorer may work on other distributions, but only ones listed above are officially supported.
 
-You must also have the following dependencies/libraries installed to run Azure Storage Explorer on Linux:
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret (Note: libsecret-1.so.0 must be available on your machine. If you have a different version of libsecret installed, you can try soft linking its .so file to libsecret-1.so.0)
-* libgconf-2-4
-* Up-to-date GCC
+For more help installing Storage Explorer on Linux, see the [Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 The Azure Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
 
@@ -217,7 +212,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 3. UserB uses Storage Explorer to attach to the account that belongs to UserA by using the supplied SAS.
 
-### Generate a SAS connection string for the account you want to share
+### Generate a SAS query string for the account you want to share
 
 1. In Storage Explorer, right-click the storage account you want share, and then select **Get Shared Access Signature...**.
 
@@ -227,7 +222,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
     ![Get SAS dialog box][15]
 
-3. Next to the **Connection String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
+3. Next to the **Query String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
 
 ### Attach to a storage account by using a SAS Connection String
 

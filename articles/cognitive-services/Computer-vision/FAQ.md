@@ -52,7 +52,7 @@ Supported languages include:
 
 -----
 
-**Question:** *Which languages are supported for handwriting recognition?*
+**Question**: *Which languages are supported for handwriting recognition?*
 
 **Answer**: Currently, only English is supported.
 

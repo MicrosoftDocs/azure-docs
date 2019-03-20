@@ -180,12 +180,12 @@ Filters log traces (logged using [TrackTrace()](../../azure-monitor/app/api-cust
 ```
 
 * `FromSeverityLevel` valid values are:
- *  OFF             - Filter out ALL traces
- *  TRACE           - No filtering. equals to Trace level
- *  INFO            - Filter out TRACE level
- *  WARN            - Filter out TRACE and INFO
- *  ERROR           - Filter out WARN, INFO, TRACE
- *  CRITICAL        - filter out all but CRITICAL
+  *  OFF             - Filter out ALL traces
+  *  TRACE           - No filtering. equals to Trace level
+  *  INFO            - Filter out TRACE level
+  *  WARN            - Filter out TRACE and INFO
+  *  ERROR           - Filter out WARN, INFO, TRACE
+  *  CRITICAL        - filter out all but CRITICAL
 
 
 ## Custom filters

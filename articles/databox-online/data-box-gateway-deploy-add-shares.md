@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
@@ -129,6 +129,7 @@ Perform these steps on your Linux client connected to your Data Box Edge.
 > The following caveats are applicable to the preview release:
 > - After a file is created in the shares, renaming of the file isn’t supported. 
 > - Deletion of a file from a share does not delete the entry in the storage account.
+> - If using `rsync` to copy data, then `rsync -a` option is not supported.
 
 ## Next steps
 

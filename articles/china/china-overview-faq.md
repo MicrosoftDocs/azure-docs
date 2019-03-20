@@ -46,7 +46,7 @@ When a new enrollment is provisioned, the status is shown as pending. When you l
 
 ## Operations
 ### What’s the criteria for purchasing a subscription to Azure China 21Vianet?
-To comply with the [Anti-Terrorism Law](http://www.gov.cn/zhengce/2015-12/28/content_5029899.htm), online service providers have an obligation to verify users through real-name authentication before rendering services. When you sign up for an Azure China 21Vianet subscription online or through a Microsoft sales representative, you must provide the following:
+To comply with the [Anti-Terrorism Law](https://www.gov.cn/zhengce/2015-12/28/content_5029899.htm), online service providers have an obligation to verify users through real-name authentication before rendering services. When you sign up for an Azure China 21Vianet subscription online or through a Microsoft sales representative, you must provide the following:
 - Local Chinese mobile phone number
 - Chinese citizenship ID or a China-registered business license 
 

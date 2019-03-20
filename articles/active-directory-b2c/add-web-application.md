@@ -10,7 +10,7 @@ ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Add a web API application to your Azure Active Directory B2C tenant
@@ -34,20 +34,20 @@ Scopes provide a way to govern access to protected resources. Scopes are used by
 
 1. Select **Applications**, and then select *webapi1*.
 2. Select **Published scopes**.
-3. For **scope**, enter `Hello.Read`, and for description, enter `Read access to hello`.
-4. For **scope**, enter `Hello.Write`, and for description, enter `Write access to hello`.
+3. For **scope**, enter `Read`, and for description, enter `Read access to the application`.
+4. For **scope**, enter `Write`, and for description, enter `Write access to the application`.
 5. Click **Save**.
 
 The published scopes can be used to grant a client application permission to the web API.
 
 ## Grant permissions
 
-To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you created a web application in Azure AD B2C named *webapp1*. You use this application to call the web API.
+To call a protected web API from an application, you need to grant your application permissions to the API. For example, in [Tutorial: Register an application in Azure Active Directory B2C](tutorial-register-applications.md), a web application is created in Azure AD B2C named *webapp1*. You can use this application to call the web API.
 
 1. Select **Applications**, and then select your web application.
 2. Select **API access**, and then select **Add**.
 3. In the **Select API** dropdown, select *webapi1*.
-4. In the **Select Scopes** dropdown, select the **Hello.Read** and **Hello.Write** scopes that you previously defined.
+4. In the **Select Scopes** dropdown, select the **Read** and **Write** scopes that you previously defined.
 5. Click **OK**.
 
 Your application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the application. The application obtains an authorization grant from Azure AD B2C to access the protected web API.

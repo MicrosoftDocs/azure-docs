@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/21/2019
 ms.author: diberry
 ---
 
@@ -244,6 +244,8 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
@@ -354,5 +356,5 @@ In this article, you learned concepts and workflow for downloading, installing, 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
-* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

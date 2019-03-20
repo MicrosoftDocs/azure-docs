@@ -1,42 +1,57 @@
 ---
 title: 'Azure Virtual WAN Overview | Microsoft Docs'
-description: Learn about Virtual WAN automated scalable branch-to-branch connectivity.
+description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/19/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
 # What is Azure Virtual WAN?
 
-Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or by using preferred partner devices through a Virtual WAN partner. See the [Preferred partners](https://go.microsoft.com/fwlink/p/?linkid=2019615) article for details. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. The Azure WAN built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale connectivity.
+Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. Once the branches are connected, you can leverage the Azure backbone to establish branch-to-VNet and branch-to-branch connectivity.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
+Azure Virtual WAN brings together many Azure cloud connectivity services such as Site-to-Site VPN (generally available), ExpressRoute (Preview), Point-to-Site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established using Virtual Network connections.
 
-This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
+![Virtual WAN diagram](./media/virtual-wan-about/vwangraphic.png)
+
+This article provides a quick view into the network connectivity in Azure Virtual WAN. Virtual WAN offers the following advantages:
 
 * **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site configuration and connectivity between on-premises sites and an Azure hub.
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
 
+## <a name="partner-region"></a>Partners and locations
+
+For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+
+### <a name="partner"></a>Partners
+
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+### <a name="locations"></a>Locations
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+
 ## <a name="s2s"></a>Site-to-site connections
+
+![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
 To create a Site-to-Site connection using Virtual WAN, you can either go through a [Virtual WAN partner](virtual-wan-locations-partners.md), or create the connection manually.
 
-### <a name="s2spartner"></a>Working with a Virtual WAN partner
+### <a name="s2spartner"></a>Partner workflow
 
-When you work with a Virtual WAN partner, the process is:
+When you work with a Virtual WAN partner, the workflow is:
 
 1. The branch device (VPN/SDWAN) controller is authenticated to export site-centric information into Azure by using an [Azure Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
 3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure supports both IKEv1 and IKEv2. BGP is optional.
 
-
-If you don't want to use a preferred partner, you can configure the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
+If you don't want to use a partner, you can configure the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 ## <a name="p2s"></a>Point-to-site connections (Preview)
 
@@ -47,7 +62,6 @@ To create the connection manually, see [Create a point-to-site connection using 
 ## <a name="er"></a>ExpressRoute connections (Preview)
 
 To create the connection manually, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md).
-
 
 ## <a name="resources"></a>Virtual WAN resources
 
@@ -69,7 +83,6 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-
 ## Next steps
 
-View the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) page.
+View the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) page for additional information about our Virtual WAN partners and locations.

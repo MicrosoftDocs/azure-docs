@@ -66,7 +66,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### Create tags in the project
 
-To create classification tags to your project, add the following code to the end of *sample.py*:
+To create object tags in your project, add the following code to the end of *sample.py*:
 
 ```Python
 # Make two tags in the new project

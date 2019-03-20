@@ -23,7 +23,7 @@ ms.author: jegeib
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Secure communication to Event Hub using SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Ensure that all traffic to Identity Server is over HTTPS connection](#identity-https)</li></ul> |
 | **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Ensure SQL server connection encryption and certificate validation](#sqlserver-validation)</li><li>[Force Encrypted communication to SQL server](#encrypted-sqlserver)</li></ul> |
@@ -57,15 +57,15 @@ ms.author: jegeib
 | **References**              | N/A  |
 | **Steps** | Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security |
 
-## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On Prem SQL Server to Azure Data Factory
+## <a id="sqlserver-factory"></a>Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Azure Data Factory | 
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
-| **Attributes**              | Linked Service Types - Azure and On Prem |
-| **References**              |[ Moving data between On Prem and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Attributes**              | Linked Service Types - Azure and On-premises |
+| **References**              |[Moving data between On-premises and Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Steps** | <p>The Data Management Gateway (DMG) tool is required to connect to data sources which are protected behind corpnet or a firewall.</p><ol><li>Locking down the machine isolates the DMG tool and prevents malfunctioning programs from damaging or snooping on the data source machine. (E.g. latest updates must be installed, enable minimum required ports, controlled accounts provisioning, auditing enabled, disk encryption enabled etc.)</li><li>Data Gateway key must be rotated at frequent intervals or whenever the DMG service account password renews</li><li>Data transits through Link Service must be encrypted</li></ol> |
 
 ## <a id="identity-https"></a>Ensure that all traffic to Identity Server is over HTTPS connection
@@ -143,7 +143,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [OWASP HTTP Strict Transport Security Cheat Sheet](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Steps** | <p>HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.</p><p>To implement HSTS, the following response header has to be configured for a website globally, either in code or in config. Strict-Transport-Security: max-age=300; includeSubDomains HSTS addresses the following threats:</p><ul><li>User bookmarks or manually types http://example.com and is subject to a man-in-the-middle attacker: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate: HSTS does not allow a user to override the invalid certificate message</li></ul>|
+| **Steps** | <p>HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.</p><p>To implement HSTS, the following response header has to be configured for a website globally, either in code or in config. Strict-Transport-Security: max-age=300; includeSubDomains HSTS addresses the following threats:</p><ul><li>User bookmarks or manually types https://example.com and is subject to a man-in-the-middle attacker: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate: HSTS does not allow a user to override the invalid certificate message</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Ensure SQL server connection encryption and certificate validation
 
@@ -336,7 +336,7 @@ string GetData(int value);
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC5, MVC6 |
 | **Attributes**              | N/A  |
-| **References**              | [Enforcing SSL in a Web API Controller](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **References**              | [Enforcing SSL in a Web API Controller](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Steps** | If an application has both an HTTPS and an HTTP binding, clients can still use HTTP to access the site. To prevent this, use an action filter to ensure that requests to protected APIs are always over HTTPS.|
 
 ### Example 

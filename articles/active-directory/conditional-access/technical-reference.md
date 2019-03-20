@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 
-#Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
+#Customer intent: As an IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
 
 ms.collection: M365-identity-device-management
 ---
@@ -49,25 +49,43 @@ With conditional access policies, you control how your users access your [cloud 
 
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
-- Azure Information Protection - [Learn more](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
-
-- Azure SQL Database - [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-
-- Microsoft Dynamics 365
-
-- Microsoft Office 365 Yammer
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business and Project Online)
-
-- Microsoft Power BI 
-
+- Azure Analysis Services
 - Azure DevOps
+- Azure SQL Database and Data Warehouse - [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection - [Learn more](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure Management - [Learn more](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Microsoft Azure RemoteApp
+- Microsoft Azure Subscription Management
+- Microsoft Cloud App Security
+- Microsoft Commerce Tools Access Control Portal
+- Microsoft Commerce Tools Authentication Service
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Microsoft Intune Enrollment
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Microsoft Search in Bing
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Office 365 Yammer
+- Office Delve
+- Office Sway 
+- Outlook Groups
+- Project Online
+- Skype for Business Online
+- Virtual Private Network (VPN)
+- Visual Studio App Center
+- Windows Defender ATP
 
-- Microsoft Teams
+
 
 
 ### Other applications 

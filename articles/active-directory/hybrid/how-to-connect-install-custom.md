@@ -361,7 +361,7 @@ It is possible to setup a new sync server in parallel with staging mode. It is o
 
 While in staging mode, it is possible to make required changes to the sync engine and review what is about to be exported. When the configuration looks good, run the installation wizard again and disable staging mode. Data is now exported to Azure AD from this server. Make sure to disable the other server at the same time so only one server is actively exporting.
 
-For more information, see [Staging mode](how-to-connect-sync-operations.md#staging-mode).
+For more information, see [Staging mode](how-to-connect-sync-staging-server.md).
 
 ### Verify your federation configuration
 Azure AD Connect verifies the DNS settings for you when you click the Verify button.

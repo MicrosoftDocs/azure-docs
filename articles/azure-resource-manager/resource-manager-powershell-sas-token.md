@@ -19,8 +19,6 @@ ms.author: tomfitz
 ---
 # Deploy private Resource Manager template with SAS token and Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment. This topic explains how to use Azure PowerShell with Resource Manager templates to provide a SAS token during deployment. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

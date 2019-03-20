@@ -127,9 +127,9 @@ The client-side log includes detailed information about how the client prepares 
 The Storage Client Library stores client-side log data in the location specified in the application's configuration file (web.config or app.config).
 
 ### Collect a network trace
-You can use Message Analyzer to collect an HTTP/HTTPS network trace while your client application is running. Message Analyzer uses [Fiddler](http://www.telerik.com/fiddler) on the back end. Before you collect the network trace, we recommend that you configure Fiddler to record unencrypted HTTPS traffic:
+You can use Message Analyzer to collect an HTTP/HTTPS network trace while your client application is running. Message Analyzer uses [Fiddler](https://www.telerik.com/fiddler) on the back end. Before you collect the network trace, we recommend that you configure Fiddler to record unencrypted HTTPS traffic:
 
-1. Install [Fiddler](http://www.telerik.com/download/fiddler).
+1. Install [Fiddler](https://www.telerik.com/download/fiddler).
 2. Launch Fiddler.
 3. Select **Tools | Fiddler Options**.
 4. In the Options dialog, ensure that **Capture HTTPS CONNECTs** and **Decrypt HTTPS Traffic** are both selected, as shown below.

@@ -19,14 +19,14 @@ that deploys an Azure resource by using an
 [Azure Resource Management template](../azure-resource-manager/resource-manager-create-first-template.md).
 
 By doing this, you can automate deployment of Azure resources. You can maintain your Resource Manager
-templates in a central,secure location such as Azure Storage.
+templates in a central, secure location such as Azure Storage.
 
-In this topic, we create a PowerShell runbook that uses an Resource Manager template stored in
+In this article, we create a PowerShell runbook that uses a Resource Manager template stored in
 [Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need the following items:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
@@ -35,7 +35,7 @@ To complete this tutorial, you need the following:
 
 ## Create the Resource Manager template
 
-For this example, we use an Resource Manager template that deploys a new Azure Storage account.
+For this example, we use a Resource Manager template that deploys a new Azure Storage account.
 
 In a text editor, copy the following text:
 
@@ -180,7 +180,7 @@ Save the file locally as `DeployTemplate.ps1`.
 Now we use PowerShell to import the runbook into your Azure Automation account,
 and then publish the runbook.
 For information about how to import and publish a runbook in the Azure portal, see 
-[Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md).
+[Manage runbooks in Azure Automation](manage-runbooks.md).
 
 To import `DeployTemplate.ps1` into your Automation account as a PowerShell runbook,
 run the following PowerShell commands:

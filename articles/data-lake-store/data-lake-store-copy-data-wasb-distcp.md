@@ -30,9 +30,6 @@ If you have an HDInsight cluster with access to Azure Data Lake Storage Gen1, yo
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 
-## Do you learn fast with videos?
-[Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Storage Gen1 using DistCp.
-
 ## Use Distcp from an HDInsight Linux cluster
 
 An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Data Lake Storage Gen1 as additional storage, the Distcp utility can be used out-of-the-box to copy data to and from a Data Lake Storage Gen1 account as well. In this section, we look at how to use the Distcp utility.

@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and Azure CLI | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and Azure CLI. This includes how to list access, grant access, and remove access.
+title: Manage access to Azure resources using RBAC and Azure CLI | Microsoft Docs
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure CLI. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Manage access using RBAC and Azure CLI
+# Manage access to Azure resources using RBAC and Azure CLI
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure CLI.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access for users, groups, and applications using RBAC and Azure CLI.
 
 ## Prerequisites
 
@@ -84,9 +84,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### List actions of a role
+## List a role definition
 
-To list the actions of a role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+To list a role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -99,6 +99,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -129,7 +130,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-The following example lists the *actions* and *notActions* of the *Contributor* role:
+### List actions of a role
+
+The following example lists just the *actions* and *notActions* of the *Contributor* role:
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -148,7 +151,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-The following example lists the actions of the *Virtual Machine Contributor* role:
+The following example lists just the actions of the *Virtual Machine Contributor* role:
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -186,7 +189,7 @@ az role assignment list --assignee <assignee>
 
 By default, only assignments scoped to subscription will be displayed. To view assignments scoped by resource or group, use `--all`.
 
-The following example lists the role assignments that are assigned directly to the *patlong@contoso.com* user:
+The following example lists the role assignments that are assigned directly to the *patlong\@contoso.com* user:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -244,7 +247,7 @@ To create a role assignment for a user at the resource group scope, use [az role
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-The following example assigns the *Virtual Machine Contributor* role to *patlong@contoso.com* user at the *pharma-sales-projectforecast* resource group scope:
+The following example assigns the *Virtual Machine Contributor* role to *patlong\@contoso.com* user at the *pharma-sales-projectforecast* resource group scope:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -292,7 +295,7 @@ In RBAC, to remove access, you remove a role assignment by using [az role assign
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-The following example removes the *Virtual Machine Contributor* role assignment from the *patlong@contoso.com* user on the *pharma-sales-projectforecast* resource group:
+The following example removes the *Virtual Machine Contributor* role assignment from the *patlong\@contoso.com* user on the *pharma-sales-projectforecast* resource group:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
@@ -306,5 +309,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## Next steps
 
-- [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md)
-- [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md)
+- [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/cli-azure-resource-manager.md)

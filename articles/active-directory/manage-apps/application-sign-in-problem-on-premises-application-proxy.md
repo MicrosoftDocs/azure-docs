@@ -53,7 +53,7 @@ The following documents can help you to resolve some of the most common issues i
 
 ## I'm having a problem with the Application Proxy Agent Connector
   The following documents can help you to resolve some of the most common issues in this category.
-  * [I am having issues installing the Application Proxy Agent Connector ](application-proxy-connector-installation-problem.md)
+  * [I am having issues installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 
 ## Next steps
 [How to provide secure remote access to on-premises applications](application-proxy.md)

@@ -25,7 +25,7 @@ ms.author: juliako
 > 
 > 
 
-Microsoft Azure Media Services is a REST-based service built on OData v3. You can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](http://www.odata.org/documentation/).
+Microsoft Azure Media Services is a REST-based service built on OData v3. You can add, query, update, and delete entities in much the same way as you can on any other OData service. Exceptions will be called out when applicable. For more information on OData, see [Open Data Protocol documentation](https://www.odata.org/documentation/).
 
 This topic shows you how to manage Azure Media Services entities with REST.
 

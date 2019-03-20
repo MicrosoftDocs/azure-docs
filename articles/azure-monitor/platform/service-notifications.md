@@ -54,24 +54,24 @@ Properties.communicationId | The communication with which this event is associat
 ### Details on service health level information
 
 **Action Required** (properties.incidentType == ActionRequired)
-    - Informational - Administrator action required to prevent impact to existing services
+- Informational - Administrator action required to prevent impact to existing services
     
 **Maintenance** (properties.incidentType == Maintenance)
-    - Warning - emergency maintenance
-    - Informational - standard planned maintenance
+- Warning - emergency maintenance
+- Informational - standard planned maintenance
 
 **Information** (properties.incidentType == Information)
-    - Informational - Administrator may be required to prevent impact to existing services
+- Informational - Administrator may be required to prevent impact to existing services
 
 **Security** (properties.incidentType == Security)
-    - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
-    - Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
-    - Informational - Issues impacting management operations and/or latency, not impacting service availability.
+- Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
+- Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
+- Informational - Issues impacting management operations and/or latency, not impacting service availability.
 
 **Service Issues** (properties.incidentType == Incident)
-    - Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
-    - Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
-    - Informational - Issues impacting management operations and/or latency, not impacting service availability.
+- Error - Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.
+- Warning - Issues accessing specific services and/or specific regions are impacting a subset of customers.
+- Informational - Issues impacting management operations and/or latency, not impacting service availability.
 
 
 ## View your service health notifications in the Azure portal
