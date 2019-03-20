@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Best practices for using the Anomaly Detector API
 
-The Anomaly Detector API is a stateless anomaly detection service. The accuracy and performance of it's results can be impacted by:
+The Anomaly Detector API is a stateless anomaly detection service. The accuracy and performance of its results can be impacted by:
 
 * How your time series data is prepared.
 * The Anomaly Detector API parameters that were used.
@@ -55,13 +55,31 @@ The Anomaly Detector API works best on an evenly distributed time series. If you
 
 ## Anomaly detection on data with repetitive patterns
 
-If you know that your time series data repeats a pattern at regular intervals, you can improve the accuracy and time it takes to detect anomalies. 
+If you know that your time series data has a seasonal pattern (one that repeats at regular intervals), you can improve the accuracy and time it takes to detect anomalies. 
 
 Specifying a `period` when you construct your JSON request can reduce anomaly detection latency by up to 50%. The `period` is an integer that specifies roughly how many data points the time series takes to repeat itself. For example, a time series with one point per day would have a `period` as `7`, and a time series with one point per hour (with the same weekly pattern) would have a `period` of  `7*24`. If you're unsure of your data's patterns, you don't have to specify this parameter.
 
 For best results, provide 4 `period`'s worth of data point, plus an additional one. For example, hourly data with a weekly pattern as described above should provide 673 data points in the request body (`7 * 24 * 4 + 1`). If this amount of data points exceeds the maximum allowed, consider sending a sample of your time series data at a larger time interval.  
 
+### Sampling data
+
+If your time series has a clear seasonal pattern and a small granularity (seconds or minutes), 
+
+When monitoring your streaming data in real time, if your time series 
+
 ### Sample the data 
+
+For seasonal time series with small granularity, if the period is N hours, N days or 1 week, performing sampling by hour or day before sending them to anomaly detector usually has a big gain in efficiency and little regression on the results.
+
 
 For seasonal time series with small granularity, if the period is N hours, N days or 1 week, performing a sampling by hour or day before sending them to anomaly detection usually has a big gain in efficiency and little regression on the results.
 So it is suggested to always try using sampled seasonal time series first unless it returns a really bad result. One reason for this is a monitorable seasonal time series must have stable characteristics in each part.
+
+For the real time monitoring scenario, if the time series is of small granularity (second, minute) and with clear seasonal pattern, if the period is N days or a week, performing a sampling by hour (same moment each hour) or day (same moment each day) to construct an hourly time series or daily time series as a input to the "latest" api. 
+
+By calling the api repeatedly with each new data point generated, you can monitor your data as it is created. This has big gain in efficiency and little regression on the results, compared with sending the whole data of 4 periods, especially in the case that the complete data exceeds 8640 data points allowed by api. So it is suggested to try using rolling sampling technique for real time monitoring scenario when the granularity of time series is small, unless it returns a bad result. This is recommendation is only applicable when the time series have stable seasonal pattern.
+
+## Next Steps
+
+* [What is the Anomaly Detector API?](../overview.md)
+* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](../quickstarts/detect-data-anomalies-csharp.md)

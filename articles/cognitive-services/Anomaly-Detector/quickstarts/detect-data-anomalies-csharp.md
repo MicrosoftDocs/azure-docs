@@ -1,6 +1,6 @@
 ---
-title: detect anomalies in your time series data using the Anomaly Detector REST API and C# | Microsoft Docs
-description: Use the Anomaly Detector API to detect abnormalities in your data series as a batch.
+title: Detect anomalies in your time series data using the Anomaly Detector REST API and C# | Microsoft Docs
+description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,24 +13,24 @@ ms.author: aahi
 
 # Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the response. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses. 
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
- While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+ While this application is written in C#, the API is a RESTful web service compatible with most programming languages.
 
 ## Prerequisites
 
 - Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Json.NET](https://www.newtonsoft.com/json)
     - To install Json.NET as a NuGet package in Visual studio:
-        1. Right click in the **Solution Manager**
+        1. Right click on the **Solution Manager**
         2. Click **Manage NuGet Packages...**
         3. Search for `Json.NET` and install the package
-- If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+- If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
@@ -40,7 +40,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Create a new application
 
-1. In Visual studio, create a new Console solution, and add the following packages. 
+1. In Visual Studio, create a new console solution and add the following packages. 
 
     ```csharp
     using System;
@@ -52,9 +52,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     using System.Threading.Tasks;
     ```
 
-2. Create variables for your subscription key, and your endpoint. Below are the URLs you can use for anomaly detection. These will later be appended to your endpoint to create the API request URLs.
+2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
-    |Detection method  |URL  |
+    |Detection method  |URI  |
     |---------|---------|
     |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
@@ -74,9 +74,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. Create a new async function called `Request` that takes the variables created above.
 
-2. Using a `HttpClient` object, set the client's security protocol, and header information. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. Then create a `StringContent` object for the request.
+2. Set the client's security protocol and header information using an `HttpClient` object. Be sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. Then create a `StringContent` object for the request.
  
-3. Send the request with `PostAsync()`. If the request was successful, return the response.  
+3. Send the request with `PostAsync()`. If the request is successful, return the response.  
 
 ```csharp
 static async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData){
@@ -99,13 +99,13 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 
 ## Detect anomalies as a batch
 
-1. Create a new function called `detectAnomaliesBatch()`. Construct the request and send it by calling the `Request()` function with: your endpoint, subscription key, the URL for batch anomaly detection, and the time series data.
+1. Create a new function called `detectAnomaliesBatch()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for batch anomaly detection, and the time series data.
 
 2. Deserialize the JSON object, and write it to the console. 
 
 ### Find the positions of detected data anomalies
 
-3. The response's `IsAnomaly` field contains an array of boolean values relating to whether a given data point is an anomaly. Convert this to a string array with the response object's `ToObject<string[]>()` function.
+3. The response's `isAnomaly` field contains an array of boolean values, each of which indicates whether a data point is an anomaly. Convert this to a string array with the response object's `ToObject<bool[]>()` function.
 
 4. Iterate through the array, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
@@ -132,9 +132,9 @@ static void detectAnomaliesBatch(string requestData){
 }
 ```
 
-## Get the anomaly status of the latest data point
+## Detect the anomaly status of the latest data point
 
-1. Create a new function called `detectAnomaliesLatest()`. Construct the request and send it by calling the `Request()` function with: your endpoint, subscription key, the URL for latest point anomaly detection, and the time series data.
+1. Create a new function called `detectAnomaliesLatest()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for latest point anomaly detection, and the time series data.
 
 2. Deserialize the JSON object, and write it to the console. 
 

@@ -13,7 +13,7 @@ ms.author: aahi
  
 # What is the Anomaly Detector API?
 
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the correct statistical models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines whether a data point is an anomaly, its expected value, and the anomaly upper and lower bounds for visualization.
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best fitting statistical models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines whether a data point is an anomaly, its expected value, and the anomaly upper and lower bounds for visualization.
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
@@ -44,7 +44,7 @@ To run the demo, complete the following steps:
 
 ## Workflow
 
-The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
+The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. Use [best practices](concepts/best-practices.md) when using the API for the best results for your data.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Find anomalies as a batch using the Anomaly Finder REST API and Python | Microsoft Docs
-description: Use the Anomaly Detector API to detect abnormalities in your data series as a batch.
+title: Detect anomalies as a batch using the Anomaly Finder REST API and Python | Microsoft Docs
+description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,14 +13,14 @@ ms.author: aahi
 
 # Detect anomalies in your time series data using the Anomaly Detector REST API and Python
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the response. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the responses. 
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
- While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+ While this application is written in Python, the API is a RESTful web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -43,9 +43,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     import json
     ```
 
-2. Create variables for your subscription key, and your endpoint. Below are the URLs you can use for anomaly detection. These will later be appended to your endpoint to create the API request URLs.
+2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
-    |Detection method  |URL  |
+    |Detection method  |URI  |
     |---------|---------|
     |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
@@ -70,9 +70,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. Create a new function called `send_request()` that takes the variables created above. Then perform the following steps.
 
-2. create a dictionary for the request headers. Set the `Content-Type` to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+2. Create a dictionary for the request headers. Set the `Content-Type` to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-3. send the request using `requests.post()`. Combine your endpoint and anomaly detection URL for the full request URL, and include your headers, and json request data. 
+3. Send the request using `requests.post()`. Combine your endpoint and anomaly detection URL for the full request URL, and include your headers, and json request data. 
 
 4. If the request is successful, return the response.  
     
@@ -109,7 +109,7 @@ def detect_batch(request_data):
             print (x)
 ```
 
-## Get the anomaly status of the latest data point
+## Detect the anomaly status of the latest data point
 
 1. Create a method called `detect_latest()` to determine if the latest data point in your time series is an anomaly. Call the `send_request()` method above with your endpoint, url, subscription key, and json data. 
 

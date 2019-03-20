@@ -1,5 +1,13 @@
+---
+author: aahill
+ms.author: aahi
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 03/20/2019
+---
+
 > [!NOTE]
-> To use the Anomaly Detector API, your time series data must:
-> * have data points separated by the same interval, with no than 10% missing points 
-> * have at least 12 data points if your data doesn't have clear perodicity.
-> * have at least 4 cycle data points if your data has clear perodicity.
+> For best results when using the Anomaly Detector API, your JSON-formatted time series data should include:
+> * data points separated by the same interval, with no more than 10% of the data missing.
+> * at least 12 data points if your data doesn't have a clear seasonal pattern.
+> * at least 4 pattern occurrences if your data does have a clear seasonal pattern. 

@@ -1,6 +1,6 @@
 ---
 title: Detect anomalies in your time series data using the Anomaly Detector REST API and Java | Microsoft Docs
-description: Use the Anomaly Detector API to detect abnormalities in your data series as a batch.
+description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -20,7 +20,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
- While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+ While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -55,9 +55,9 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     import java.nio.file.Paths;
     ```
 
-2. Create variables for your subscription key, and your endpoint. Below are the URLs you can use for anomaly detection. These will later be appended to your endpoint to create the API request URLs.
+2. Create variables for your subscription key and your endpoint. Below are the URIs you can use for anomaly detection. These will be appended to your service endpoint later to create the API request URLs.
 
-    |Detection method  |URL  |
+    |Detection method  |URI  |
     |---------|---------|
     |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
@@ -142,9 +142,9 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
     }
     ```
 
-## Get the anomaly status of the latest data point
+## Detect the anomaly status of the latest data point
 
-Create a method called `detectAnomaliesLatest()` to detect anomalies throughout the data as a batch. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
+Create a method called `detectAnomaliesLatest()` to detect the anomaly status of the last data point in the data set. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
 ```java
 static void detectAnomaliesLatest(String requestData) {
@@ -167,10 +167,6 @@ static void detectAnomaliesLatest(String requestData) {
         detectAnomaliesLatest(requestData);
     }
     ```
-
-### Example of time series data
-
-Click [here](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json) to see sample time series data.
 
 ### Example response
 
