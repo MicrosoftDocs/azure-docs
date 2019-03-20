@@ -27,7 +27,7 @@ This article describes how to use the continuous data export feature in Azure Io
 
 ## Set up export destination
 
-If you don't have an existing Storage/Event Hubs/Service Bus to export to, follow these steps:
+If you don't have an existing Storage to export to, follow these steps:
 
 ## Create Storage account
 
