@@ -23,7 +23,7 @@ Azure Automation supports 3 types of source control:
 ## Pre-requisites
 
 * A source control repository (GitHub or Azure Repos)
-* A [Run-As Account and connection](manage-runas-account.md)
+* A [Run-As Account](manage-runas-account.md)
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
@@ -42,7 +42,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |---------|---------|
 |Source control name     | A friendly name for the source control        |
 |Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
-|Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository type the name in the field and click **Search on GitHub**.|
+|Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository, type the name in the field and click **Search on GitHub**.|
 |Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
 |Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks *Only runbooks in the folder specified are synced. Recursion is not supported.*        |
 |Auto Sync     | Turns on or off automatic sync when a commit is made in the source control repository         |
@@ -62,7 +62,7 @@ You can also use PowerShell to configure source control in Azure Automation. To 
 
 ```powershell-interactive
 New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<account>.visualstudio.com/DefaultCollection/<project>/_git/<repository> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
-````
+```
 
 ### Azure Repos (TFVC)
 
