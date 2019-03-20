@@ -23,11 +23,9 @@ To help get the best results for your data, use this article to learn about best
 
 ## Data preparation
 
-The Anomaly Detector API accepts time series data, formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order.  You must send windows of your time series data to the Anomaly Detector API endpoint. The minimum number of data points you can send is 12, and the maximum is 8640. 
+The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order.  You must send windows of your time series data to the Anomaly Detector API endpoint. The minimum number of data points you can send is 12, and the maximum is 8640. 
 
-### Format your time series data
-
-[text about API request requirements, and formatting data into JSON]
+Data points sent to the Anomaly Detector API must have a valid Coordinated Universal Time (UTC) timestamp, and numerical value. 
 
 ```json
 {
