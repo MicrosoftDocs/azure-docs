@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/13/2019
+ms.lastreviewed: 03/20/2019
 ---
 
 # Azure Stack 1902 update
@@ -47,8 +47,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: No current hotfix available.
-- **1902**: No current hotfix available.
+- **1901**: [KB 4481548 – Azure Stack hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1902**: [KB 4481548 – Azure Stack hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## Prerequisites
 
@@ -157,7 +157,6 @@ This update installs the following security updates:
 - [CVE-2019-0660](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0660)
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
-
 
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4487006](https://support.microsoft.com/en-us/help/4487006).
 
