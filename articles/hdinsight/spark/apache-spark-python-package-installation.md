@@ -60,6 +60,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 4. Enter the following values for the **Submit script action** window:  
 
+
     |Parameter | Value |
     |---|---|
     |Script type | Select **- Custom** from the drop-down list.|
