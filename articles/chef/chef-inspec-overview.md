@@ -36,5 +36,5 @@ With InSpec, you can respond to audit questions at any time - not just at predet
 
 ## Next steps
 
-* Try InSpec in the Azure Cloud Shell
-[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
+> [!div class="nextstepaction"] 
+> [Try InSpec in the Azure Cloud Shell](https://shell.azure.com)
