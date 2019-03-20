@@ -44,7 +44,7 @@ To create a block blob storage account in the Azure portal, follow these steps:
    |**Account kind**    | Select **BlockBlobStorage**.      |
    |**Replication**    |  Leave the default setting of **Locally-redundant storage (LRS)**.      |
 
-   ![Shows portal UI to create a block blob storage account](media/storage-create-account-block-blob.md/create-block-blob-storage-account-portal.png)
+   ![Shows portal UI to create a block blob storage account](media/storage-create-account-block-blob/create-block-blob-storage-account-portal.png)
 
 1. Select **Review + create** to review the storage account settings.
 

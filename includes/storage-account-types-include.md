@@ -19,7 +19,7 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 
 The following table describes the types of storage accounts and their capabilities:
 
-| Storage account type | Supported services                       | Supported performance       | Supported access tiers         | Replication options               | Deployment model<sup>1</sup> | Encryption<sup>2</sup> |
+| Storage account type | Supported services                       | Supported performance tiers      | Supported access tiers         | Replication options               | Deployment model<sup>1</sup> | Encryption<sup>2</sup> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
 | General-purpose V2   | Blob, File, Queue, Table, and Disk       | Standard, Premium<sup>5</sup> | Hot, Cool, Archive<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Encrypted              |
 | General-purpose V1   | Blob, File, Queue, Table, and Disk       | Standard, Premium<sup>5</sup> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, Classic    | Encrypted              |
@@ -34,4 +34,4 @@ The following table describes the types of storage accounts and their capabiliti
 
 <sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](../articles/storage/common/storage-redundancy-zrs.md). For more information about other replication options, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md).
 
-<sup>5</sup> Premium performance is available for disk and page blob only.
+<sup>5</sup> Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only.

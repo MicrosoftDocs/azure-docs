@@ -57,11 +57,13 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 ### Block blob storage accounts
 
-A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. Block blob storage accounts support storing block blobs and append blobs, but not page blobs, tables or queues.
+A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. This storage account type supports block blobs and append blobs, but not page blobs, tables or queues.
 
-Block blob storage accounts provide low and consistent latency, and higher throughput and transaction rates than general-purpose v2 and blob storage accounts. Block blob storage accounts provide the same durability, availability, and scalability features that are available with general-purpose v2 and blob storage accounts.
+Compared with general-purpose v2 and blob storage accounts:
+- Block blob storage accounts provide low and consistent latency, and higher throughput and transaction rates.
+- Block blob storage accounts provide the same durability, availability, and scalability features.
 
-Block blob storage accounts do not currently support tiering to hot, cool, or archive access tiers. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
+Block blob storage accounts do not currently support tiering to hot, cool, or archive access tiers.
 
 ## Naming storage accounts
 
@@ -85,11 +87,11 @@ Azure Storage provides different options for accessing block blob data based on 
 
 The available access tiers are:
 
-- The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is more cost-effective than Cool and Archive, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
-- The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.
-- The **Archive** tier, which is available only for individual block blobs. The Archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days. The Archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the Hot or Cool tiers.
+- The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is more cost-effective than cool and archive, while storage costs are somewhat higher. New storage accounts are created in the hot tier by default.
+- The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the hot tier.
+- The **Archive** tier, which is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and will remain in the archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data, but accessing that data is more expensive than accessing data in the hot or cool tiers.
 
-If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/storage-blob-storage-tiers.md).
+If there is a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: Hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Changing the access tier for an existing storage account or blob may result in additional charges. For more information, see the [Storage account billing section](#storage-account-billing).
