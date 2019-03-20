@@ -42,7 +42,7 @@ When performing a subsequent scale-out operation, for example, increasing the nu
 
 * When deleting a model database from the primary server, it does not automatically get deleted from replicas in the query pool. You must perform a synchronization operation that removes the file/s for that database from the replica's shared blob storage location and then deletes the model database on the replicas in the query pool.
 
-* When renaming a model database on the primary server, after renaming the database, perform a synchronization specifying the `-Database` parameter with the old database name. This first synchronization removes the database and files with the old name from any replicas. Then perform another synchronization specifying the `-Database` parameter with the new database name. The second synchronization copies the newly named database to the second set of files and hydrates any replicas. These synchronizations cannot be performed by using the Synchronize model command in the portal.
+* When renaming a database on the primary server, there's an additional step necessary to ensure the database is properly synchronized to any replicas. You must first perform a synchronization specifying the `-Database` parameter with the old database name. This first synchronization removes the database and files with the old name from any replicas. Then perform another synchronization specifying the `-Database` parameter with the new database name. The second synchronization copies the newly named database to the second set of files and hydrates any replicas. These synchronizations cannot be performed by using the Synchronize model command in the portal.
 
 ### Separate processing from query pool
 
