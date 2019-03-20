@@ -117,8 +117,10 @@
         href: index-add-custom-analyzers.md
     - name: Type-ahead
       items:
-      - name: Add autosuggest
+      - name: Create a suggester
         href: index-add-suggesters.md
+      - name: Autosuggest example
+        href: search-autosuggest-example.md
       - name: Autocomplete example
         href: search-autocomplete-tutorial.md
     - name: Synonyms
