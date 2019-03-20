@@ -7,15 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Manage web traffic - Portal
+  - name: Create Application Gateway - Portal
     href: quick-create-portal.md
-  - name: Manage web traffic - PowerShell
+  - name: Create Application Gateway - PowerShell
     href: quick-create-powershell.md
-  - name: Manage web traffic - Azure CLI
+  - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
 - name: Tutorials
   items:
-  - name: Manage web traffic
+  - name: Host single site
     href: tutorial-manage-web-traffic-cli.md
   - name: Enable web application firewall
     href: tutorial-restrict-web-traffic-cli.md
@@ -109,6 +109,8 @@
       href: end-to-end-ssl-portal.md      
     - name: End-to-end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Create certificates for whitelisting backend
+      href: certificates-for-backend-authentication.md        
     - name: Renew certificates
       href: renew-certificates.md
     - name: Configure SSL policy
