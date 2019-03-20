@@ -220,7 +220,7 @@ The following tables show the minimum required permissions needed for onboarding
 |Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | Workspace         |
+|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
 |Onboarding state check - Read linked workspace property of account     | Microsoft.Automation/automationAccounts/read      | Automation account        |
 |Onboarding state check - Read solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |

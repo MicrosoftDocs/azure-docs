@@ -4,7 +4,7 @@ description: Learn how to onboard an Azure virtual machine with Update Managemen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
@@ -21,7 +21,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable the solutions
 
-Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account.
+Go to an existing virtual machine. Under **OPERATIONS**, select **Update management**, **Inventory**, or **Change tracking**. The virtual machine can exist in any region no matter the location of your Automation Account. When onboarding a solution from a VM you need to have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is onboarded to a workspace. To learn about additional permissions that are needed in general, see [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding).
 
 To enable the solution for the VM only, ensure that **Enable for this VM** is selected. To onboard multiple machines to the solution, select **Enable for VMs in this subscription**, and then select **Click to select machines to enable**. To learn how to onboard multiple machines at once, see [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md).
 
