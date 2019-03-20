@@ -52,7 +52,7 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 ## File name options
 
    * Default: Allow Spark to name files based on PART defaults
-   * Pattern: Enter a pattern for your output files. For example, this will create loans1.csv, loans2.csv, ... "loans[n]"
+   * Pattern: Enter a pattern for your output files. For example, "loans[n]" will create loans1.csv, loans2.csv, ...
    * Per partition: Enter a file name per partition
    * As data in column: Set the output file to the value of a column
 
