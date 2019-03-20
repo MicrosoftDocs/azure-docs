@@ -31,32 +31,15 @@ To complete this quickstart, you need an Azure subscription. If you don't have o
 
 To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path, and then run this command:
 
-	```
-	pip install azure-mgmt-kusto
-	```
+```
+pip install azure-mgmt-kusto
+```
 
 ## Create the Azure Data Explorer cluster
 
 1. Create your cluster by using the following command:
 
-    ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
-	from azure.mgmt.kusto.models import Cluster, AzureSku
-	
-	credentials = "xxxxxxx"
-	subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-	kusto_management_client = KustoManagementClient(credentials, subscription_id)
-	cluster_operations= kusto_management_client.clusters
-	
-	location="Central US"
-	sku = "D13_v2"
-	capacity = 3;
-	resource_group_name="testrg"
-	clusterName="mykustocluster"
-
-	_cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
-	cluster_operations.create_or_update(resource_group_name=resource_group_name, cluster_name=clusterName, parameters=_cluster)	
-    ```
+    
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
@@ -66,7 +49,7 @@ To install the Python package for Azure Data Explorer (Kusto), open a command pr
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 	
-	Set the 'credentials' to your credentials (for more information see https://docs.microsoft.com/en-us/python/azure/python-sdk-azure-authenticate?view=azure-python )
+	Set the 'credentials' to your credentials (for more information see https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
 
 2. Run the following command to check whether your cluster was successfully created:
 

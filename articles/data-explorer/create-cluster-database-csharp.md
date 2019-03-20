@@ -26,14 +26,14 @@ This quickstart describes how to create an Azure Data Explorer cluster and datab
 
 ## Prerequisites
 
-1. If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+- If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-1. To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Install C# nuget
 
-1. you will need nuget package for Azure Data Explorer (Kusto), you can find the Nuget here: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-1. you will also need the nuget Microsoft.IdentityModel.Clients.ActiveDirectory for authentication https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+-. You will need nuget package for Azure Data Explorer (Kusto), you can find the Nuget here: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
+-. You will also need the nuget Microsoft.IdentityModel.Clients.ActiveDirectory for authentication https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
 
 
 ## Create the Azure Data Explorer cluster
@@ -69,7 +69,7 @@ This quickstart describes how to create an Azure Data Explorer cluster and datab
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 	
-	Set the 'credentials' to your credentials (for more information see https://docs.microsoft.com/en-us/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet )
+	Set the 'credentials' to your credentials (for more information see https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet )
 
 2. Run the following command to check whether your cluster was successfully created:
 
