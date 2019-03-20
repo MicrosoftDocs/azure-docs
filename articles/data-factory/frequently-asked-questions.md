@@ -61,7 +61,7 @@ If you are an advanced user and looking for a programmatic interface, Data Facto
 Users can also use the documented REST APIs to interface with Data Factory V2.
 
 ### Iterative development and debugging using visual tools
-Azure Data Factory visual tools enables iterative development and debugging. You can create your pipelines and do test runs using the Debug capability in the pipeline canvas without writing a single line of code. You can view the results of your test runs in the Output window of your pipeline canvas. After your test run succeeds, you can add more activities to your pipeline and continue debugging in an iterative manner. You can also cancel your test runs after they are in progress. You are not required to publish your changes to the data factory service before selecting Debug. This is helpful in scenarios where you want to make sure that the new additions or changes will work as expected before you update your data factory workflows in dev, test, or prod environments. 
+Azure Data Factory visual tools enable iterative development and debugging. You can create your pipelines and do test runs using the Debug capability in the pipeline canvas without writing a single line of code. You can view the results of your test runs in the Output window of your pipeline canvas. After your test run succeeds, you can add more activities to your pipeline and continue debugging in an iterative manner. You can also cancel your test runs after they are in progress. You are not required to publish your changes to the data factory service before selecting Debug. This is helpful in scenarios where you want to make sure that the new additions or changes will work as expected before you update your data factory workflows in dev, test, or prod environments. 
 
 ### Deploy SSIS packages to Azure 
 If you want to move your SSIS workloads, you can create a Data Factory and provision an Azure-SSIS integration runtime. An Azure-SSIS integration runtime is a fully managed cluster of Azure VMs (nodes) that are dedicated to run your SSIS packages in the cloud. For step-by-step instructions, see the [Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) tutorial. 
@@ -79,13 +79,13 @@ Since the initial Public Preview release in 2017, Data Factory has added the fol
 -	SQL Database with Azure Virtual Network service endpoints
 -	Managed instance
 -	Elastic pool
--	Support for Azure Resource Manager Virtual Network on top of a classic virtual network that will be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network that is configured for SQL Database with virtual network service endpoints/MI/on-premises data access; see also:
+-	Support for Azure Resource Manager Virtual Network on top of a classic virtual network to be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network configured for SQL Database with virtual network service endpoints/MI/on-premises data access, see also:
 https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -	Support for Azure Active Directory (Azure AD) authentication on top of SQL authentication to connect to the SSISDB, which lets you use Azure AD authentication with your Data Factory managed identity for Azure resources
 -	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from the Azure Hybrid Benefit (AHB) option
--	Support for Enterprise Edition of Azure-SSIS integration runtime that lets you use advanced/premium features, a custom setup interface to install additional components/extensions, and a third-party ecosystem; see also: 
+-	Support for Enterprise Edition of Azure-SSIS integration runtime that lets you use advanced/premium features, a custom setup interface to install additional components/extensions, and a third-party ecosystem, see also: 
 https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
--	Deeper integration of SSIS in Data Factory that lets you invoke/trigger first-class Execute SSIS Package activities in Data Factory pipelines and schedule them via SSMS; see also:
+-	Deeper integration of SSIS in Data Factory that lets you invoke/trigger first-class Execute SSIS Package activities in Data Factory pipelines and schedule them via SSMS, see also:
 https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 
 
 
