@@ -23,11 +23,11 @@
     href: search-create-index-rest-api.md
   - name: C#
     items:
-    - name: Create an index
+    - name: 1 - Create an index
       href: search-create-index-dotnet.md
-    - name: Import data
+    - name: 2 - Load data
       href: search-import-data-dotnet.md
-    - name: Search
+    - name: 3 - Search an index
       href: search-query-dotnet.md
 - name: Tutorials
   items:

@@ -121,7 +121,7 @@
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Customize WAF rules
+  - name: Configure WAF rule sets
     items:
     - name: Azure portal
       href: application-gateway-customize-waf-rules-portal.md
