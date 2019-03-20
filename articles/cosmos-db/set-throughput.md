@@ -80,7 +80,7 @@ After you create an Azure Cosmos container or a database, you can update the pro
 * The maximum throughput that you ever provision on the container
 * The maximum number of Azure Cosmos containers that you ever create in a database with shared throughput. 
 
-You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .Net SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the minimum throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-samples#offer-examples.md) method allows you to scale the minimum throughput value. 
+You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .Net SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the minimum throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) method allows you to scale the minimum throughput value. 
 
 When using the .Net SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
 
