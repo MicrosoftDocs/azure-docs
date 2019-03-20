@@ -36430,6 +36430,11 @@
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/View-Dashboard.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/human-in-the-loop#review-tool-dashboard",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/workflow-api.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/review-api#workflows",
+      "redirect_document_id": true
     }
   ]
 }

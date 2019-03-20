@@ -41,8 +41,6 @@
     href: Review-Tool-User-Guide/human-in-the-loop.md
   - name: Reviews, workflows, and jobs
     href: review-api.md
-  - name: Workflows
-    href: workflow-api.md
 - name: How-to guides
   items:
   - name: Use the Moderation services
