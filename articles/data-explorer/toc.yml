@@ -14,7 +14,7 @@
   - name: Create a cluster - PowerShell
     href: create-cluster-database-powershell.md
   - name: Create a cluster - C#
-    href: create-cluster-database-C#.md
+    href: create-cluster-database-csharp.md
   - name: Create a cluster - Python
     href: create-cluster-database-python.md
   - name: Ingest data
