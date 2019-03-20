@@ -64,7 +64,11 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 > At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in an FCI. The features supported by the extension are not available to the SQL VMs after the agent is uninstalled.
 
 ## Installation
-The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
+The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. The SQL IaaS extension offfers managebnility for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but oinly one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then extension will fail to install. 
+
+
+
+If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
 
 ```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
@@ -74,7 +78,17 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 > If the extension is not already installed, installing the extension restarts the SQL Server service. However, updating the SQL IaaS extension does not restart the SQL Server service. 
 
 > [!NOTE]
-> The SQL Server IaaS Agent Extension is only supported on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license). It is not supported if you manually install SQL Server on an OS-only Windows Server virtual machine or if you deploy a customized SQL Server VM VHD. In these cases, it might be possible to install and manage the extension manually by using PowerShell, but you do not get the SQL Server configuration settings in the Azure portal. However, it is strongly recommended to instead install a SQL Server VM gallery image and then customize it.
+> While it is possible to install the SQL Server IaaS Agent extension to custom SQL Server images, the functionality is currently limited to [changing the license type](virtual-machines-windows-sql-ahb.md). Other features provided by the SQL IaaS extension will only work on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license).
+
+### Using a named instance
+The SQL IaaS extension will work with a named instance on a SQL Server image if the default instance was uninstalled properly. 
+
+To use a named instance, do the following:
+   1. Deploy a SQL Server VM from the marketplace. 
+   1. Uninstall the IaaS extension.
+   1. Uninstall SQL Server completely.
+   1. Install SQL Server with a named instance. 
+   1. Install the IaaS extension. 
 
 ## Status
 One way to verify that the extension is installed is to view the agent status in the Azure portal. Select **All settings** in the virtual machine window, and then click on **Extensions**. You should see the **SqlIaasExtension** extension listed.
