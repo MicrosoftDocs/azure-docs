@@ -59,7 +59,7 @@ Before you follow the steps in this section, note the following information:
     ![Enable replication Select virtual machines window](./media/vmware-azure-enable-replication/enable-replication5.png)
 
 1. For **Properties** > **Configure properties**, select the account that the process server used to automatically install the Site Recovery Mobility service on the virtual machine. Also, choose the type of target managed disk to replicate to based on your data churn patterns.
-10. By default, all the disks of a source virtual machine are replicated. To exclude disks from replication, clear the **Include** chec kbox for any disks that you don't want to replicate. Then select **OK**. You can set additional properties later. Learn more about [excluding disks](vmware-azure-exclude-disk.md).
+10. By default, all the disks of a source virtual machine are replicated. To exclude disks from replication, clear the **Include** check box for any disks that you don't want to replicate. Then select **OK**. You can set additional properties later. Learn more about [excluding disks](vmware-azure-exclude-disk.md).
 
     ![Enable replication configure properties window](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -109,7 +109,7 @@ Next, verify the properties of the source virtual machine. Remember that the Azu
 
 Microsoft Software Assurance customers can use Azure Hybrid Benefit to save on licensing costs for Windows Server computers that are migrated to Azure. The benefit also applies to Azure disaster recovery. If you're eligible, you can assign the benefit to the virtual machine that Site Recovery creates if there's a failover. To do that, follow these steps:
 1. Go to the **Computer and Network properties** of the replicated virtual machine.
-2. Answer when asked if you have a Windows Server License that makes you eligible for Azure Hybrid Benefit.
+2. Answer when asked if you have a Windows Server license that makes you eligible for Azure Hybrid Benefit.
 3. Confirm that you have an eligible Windows Server license with Software Assurance that you can use to apply the benefit to the VM that will be created at failover.
 4. Save the settings for the replicated virtual machine.
 
