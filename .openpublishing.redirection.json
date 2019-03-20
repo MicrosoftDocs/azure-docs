@@ -36361,10 +36361,10 @@
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/backup/backup-sql-server-azure-vms.md",
       "redirect_url": "/azure/backup/backup-azure-sql-database",
-      "redirect_document_id": True
+      "redirect_document_id": false
     }
   ]
 }
