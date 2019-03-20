@@ -155,13 +155,19 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 ## Filter events
 
-IoT Hub event subscriptions can filter events based on event type and device name. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
+IoT Hub event subscriptions can filter events based on event type, data content and subject, which is the device name.
+
+Event Grid enables [filtering](..azure/event-grid.md#event-filtering) on event types, subject and the event data content. 
+For non-telemetry events like deviceConnected, deviceDisconnected, deviceCreated and deviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body. See [LINK DOC/TUTORIAL SHOWING HOW TO QUERY USING ROUTES]. 
+
+Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
 
 The subject of IoT Events uses the format:
 
 ```json
 devices/{deviceId}
 ```
+
 ## Limitations for device connected and device disconnected events
 
 To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 

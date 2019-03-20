@@ -56,7 +56,7 @@ The schema for DeviceConnected and DeviceDisconnected events have the same struc
 }]
 ```
 
-The schema for DeviceTelemetry events is shown below. This event is raised when a telemetry event is sent to an IoT Hub:
+The DeviceTelemetry event is raised when a telemetry event is sent to an IoT Hub. A sample schema for this event is shown below.
 
 ```json
 [{
@@ -160,7 +160,9 @@ For all IoT Hub events, the data object contains the following properties:
 | hubName | string | Name of the IoT Hub where the device was created or deleted. |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
-The contents of the data object are different for each event publisher. For **Device Connected** and **Device Disconnected** IoT Hub events, the data object contains the following properties:
+The contents of the data object are different for each event publisher. 
+
+For **Device Connected** and **Device Disconnected** IoT Hub events, the data object contains the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -168,7 +170,7 @@ The contents of the data object are different for each event publisher. For **De
 | deviceConnectionStateEventInfo | object | Device connection state event information
 | sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. See [how to use sequence number](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-The contents of the data object are different for each event publisher. For **Device Telemetry** IoT Hub event, the data object contains the device-to-cloud message in [IoT hub message format](../iot-hub/iot-hub-devguide-messages-construct.md) and has the following properties:
+For **Device Telemetry** IoT Hub event, the data object contains the device-to-cloud message in [IoT hub message format](../iot-hub/iot-hub-devguide-messages-construct.md) and has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -176,7 +178,7 @@ The contents of the data object are different for each event publisher. For **De
 | properties | string | Application properties are user-defined strings that can be added to the message. These fields are optional. |
 | system properties | string | [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) help identify contents and source of the messages. |
 
-The contents of the data object are different for each event publisher. For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
+For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
