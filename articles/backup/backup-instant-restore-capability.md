@@ -6,7 +6,7 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sogup
 ---
 
@@ -23,7 +23,7 @@ The new model for Instant Restore provides the following feature enhancements:
 * Reduces backup and restore times by retaining snapshots locally, for two days by default. This default vault is configurable to any value between 1 to 5 days.
 * Supports disk sizes up to 4 TB.
 * Supports Standard SSD disks.
-*	Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations
+*	Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 
 
 ## What's new in this feature
@@ -57,90 +57,12 @@ By default, snapshots are retained for two days. This feature allows restores op
 The incremental snapshots are stored in VM’s storage account, which are used for instant recovery. Incremental snapshot means the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot and the price per GB is same as mentioned in the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 
-## Upgrading to Instant Restore
-
-If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements.
-To open a screen for upgrading to Instant Restore, select the banner.
-
-![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
-
-Click on **Upgrade** as shown in the screenshot below:
-
-![Backup job in VM backup stack Resource Manager deployment model--upgrade](./media/backup-azure-vms/instant-rp.png)
-
-Alternatively, you can go to **Properties** page of the vault to get the **Upgrade** option under **VM backup stack**.
-
-![Backup job in VM backup stack -- Properties page](./media/backup-azure-vms/instant-restore-capability-properties.png)
-
-
 ## Configure snapshot retention using Azure portal
-All the users across all **public geos** have been upgraded to Instant restore.
 
-For the upgraded users, in the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
+**All the Azure backup users have now been upgraded to Instant restore**.
 
-![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
+In the Azure portal you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
-## Upgrade to Instant Restore using PowerShell
-
-If you wish to self-serve and upgrade to Instant Restore, run the following cmdlets from an elevated PowerShell terminal:
-
-1.	Sign in to your Azure account:
-
-    ```
-    PS C:> Connect-AzAccount
-    ```
-
-2.	Select the subscription that you want to register:
-
-    ```
-    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
-    ```
-
-3.	Register this subscription:
-
-    ```
-    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## Upgrade to Instant Restore using CLI
-
-Run the following commands from a shell:
-
-1.	Sign in to your Azure account:
-
-    ```
-    az login
-    ```
-
-2.	Select the subscription that you want to register:
-
-    ```
-    az account set --subscription "Subscription Name"
-    ```
-
-3.	Register this subscription:
-
-    ```
-    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-    ```
-
-## Verify that the upgrade is successful
-
-### PowerShell
-From an elevated PowerShell terminal, run the following cmdlet:
-
-```
-Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
-```
-
-### CLI
-From a shell, run the following command:
-
-```
-az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-```
-
-If it says "Registered," then your subscription is upgraded to Instant Restore.
 
 ## Frequently asked questions
 
