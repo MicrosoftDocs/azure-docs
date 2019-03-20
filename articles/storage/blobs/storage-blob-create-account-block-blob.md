@@ -1,10 +1,10 @@
 ---
-title: Create a premium block blob storage account - Azure storage  | Microsoft Docs
+title: Create a block blob storage account - Azure Storage  | Microsoft Docs
 description: Shows how to create an Azure block blob storage account with premium performance characteristics.
 
 ms.service: storage
-ms.topic: cnceptual
-ms.date: 03/22/2019
+ms.topic: conceptual
+ms.date: 03/26/2019
 author: twooley
 ms.author: twooley
 ms.subservice: blobs
@@ -44,7 +44,7 @@ To create a block blob storage account in the Azure portal, follow these steps:
    |**Account kind**    | Select **BlockBlobStorage**.      |
    |**Replication**    |  Leave the default setting of **Locally-redundant storage (LRS)**.      |
 
-   ![Shows portal UI to create a block blob storage account](media/storage-create-account-block-blob/create-block-blob-storage-account.png)
+   ![Shows portal UI to create a block blob storage account](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
 1. Select **Review + create** to review the storage account settings.
 

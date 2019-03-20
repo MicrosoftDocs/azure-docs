@@ -4,8 +4,8 @@ description: "include file"
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: "include"
-ms.date: 03/22/2019
+ms.topic: include
+ms.date: 03/26/2019
 ms.author: tamram
 ms.custom: "include file"
 ---

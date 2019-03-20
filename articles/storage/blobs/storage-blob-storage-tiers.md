@@ -4,8 +4,8 @@ description: Hot, cool, and archive access tiers for Azure storage accounts.
 services: storage
 author: Xansky
 ms.service: storage
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: conceptual
+ms.date: 03/26/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ---

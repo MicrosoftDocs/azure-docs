@@ -4,8 +4,8 @@ description: Understand options for creating and using an Azure Storage account.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: conceptual
+ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -175,5 +175,5 @@ The Import/Export service can also be used to transfer data from Azure Blob stor
 ## Next steps
 
 - To learn how to create an Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
-- To learn how to create a block blob storage account, see [Create a block blob storage account](../blobs/storage-create-account-block-blob.md).
+- To learn how to create a block blob storage account, see [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md).
 - To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).
