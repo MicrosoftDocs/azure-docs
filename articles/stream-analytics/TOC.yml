@@ -72,6 +72,8 @@
     items:
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Configure event ordering policies
+      href: event-ordering.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
     - name: Start a job
@@ -437,4 +439,3 @@
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-

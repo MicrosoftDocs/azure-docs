@@ -34,7 +34,7 @@ The usual cause of this issue is that a proxy has not yet been registered. If a 
 
 The main symptom of this problem is 30018 events in the DC agent Admin event log. This may have several possible causes:
 
-1. The DC agent is located in a isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
+1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be expected\benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
 1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 

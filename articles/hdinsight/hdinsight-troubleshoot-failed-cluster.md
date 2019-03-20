@@ -263,6 +263,6 @@ To help diagnose the source of a cluster error, start a new cluster with the sam
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Analyze HDInsight Logs](hdinsight-debug-jobs.md)
-* [Access Apache Hadoop YARN application log on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Access Apache Hadoop YARN application sign in Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Known Issues for Apache Spark cluster on HDInsight](hdinsight-apache-spark-known-issues.md)

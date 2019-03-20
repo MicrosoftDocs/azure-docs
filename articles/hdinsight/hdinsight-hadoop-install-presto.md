@@ -173,7 +173,5 @@ TPC-DS is the industry standard for measuring the performance of many decision-s
 
 * [Install Apache Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on Hadoop-based HDInsight clusters. With Giraph, you can perform graph processing by using Hadoop. It can also be used with Azure HDInsight.
 
-* [Install and use Apache Solr on HDInsight Hadoop clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on Hadoop-based HDInsight clusters. By using Solr, you can perform powerful search operations on stored data.
-
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 
 ms.reviewer: krbain
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ---
 # Set up self-service group management in Azure Active Directory 
 
-You can enable users to create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists. 
+You can enable users to create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests, and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists.
 
 ## Self-service group membership defaults
 
@@ -41,6 +41,7 @@ Groups created in | Security group default behavior | Office 365 group default b
     An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other’s teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the  application to the SharePoint Online site. From then on, any requests that get approved gives access to the two SharePoint Online sites and also to this SaaS application.
 
 ## Make a group available for user self-service
+
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
 2. Select **Users and groups**, and then select **Group settings**.
 3. Set **Self-service group management enabled** to **Yes**.
@@ -48,11 +49,14 @@ Groups created in | Security group default behavior | Office 365 group default b
    * When these settings are enabled, all users in your directory are allowed to create new security groups and add members to these groups. These new groups would also show up in the Access Panel for all other users. If the policy setting on the group allows it, other users can create requests to join these groups. 
    * When these settings are disabled, users can't create groups and can't change existing groups for which they are an owner. However, they can still manage the memberships of those groups and approve requests from other users to join their groups.
 
-You can also use **Users who can manage security groups** and **Users who can manage Office 365 groups** to achieve more granular access control over self-service group management for your users. When **Users can create groups** is enabled, all users in your tenant are allowed to create new groups and add members to these groups. By setting them to **Some**, you are restricting group management to only a limited group of users. When this switch is set to **Some**, you must add users to the group SSGMSecurityGroupsUsers before they can create new groups and add members to them. By setting **Users who can use self-service for security groups** and **Users who can manage Office 365 groups** to **All**, you enable all users in your tenant to create new groups.
+You can also use **Users who can manage security groups** and **Users who can manage Office 365 groups** to achieve more granular access control over self-service group management for your users. When **Users can create groups** is enabled, all users in your tenant are allowed to create new groups and add members to these groups. You can't specify individuals who can create their own groups. You can specify individuals only for making another group member a group owner.
+
+By setting **Users who can use self-service for security groups** and **Users who can manage Office 365 groups** to **Yes**, you enable all users in your tenant to create new groups.
 
 You can also use **Group that can manage security groups** or **Group that can manage Office 365 groups** to specify a single group whose members can use self-service.
 
 ## Next steps
+
 These articles provide additional information on Azure Active Directory.
 
 * [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
