@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -18,16 +18,33 @@ manager: femila
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Deploy a smart contract
-> * Send transactions using Remix and MetaMask
+> * Add transaction nodes
+> * Use Truffle to deploy a smart contract
+> * Send a transaction
+> * Validate transaction privacy
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 * [Create a blockchain member using Azure portal](create-member-portal.md)
-* [Connect to MetaMask](connect-metamask.md)
+* [Use Truffle to connect to a consortium network](connect-truffle.md)
+* Install VS Code
+* Install web3
 
+## Create transaction nodes
+
+By default, you have one transaction node. We're going to add two more for some reason.
+
+1. Sign in to the Azure portal.
+1. Navigate to your transaction node
+1. Select Add to add additional nodes. Name the new nodes b, c.
+
+## Create Truffle project
+
+1. Create a new project folder called c:\nodeA
+1. In Visual Studio Code, select File > Open folder > C:\nodeA to open the project.
+1. 
 ## Deploy a smart contract
 
 After setting up MetaMask, we can use Injected Web3 in Remix. [Remix](https://remix.ethereum.org/) is an online solidity IDE that enables you to write and debug smart contracts.

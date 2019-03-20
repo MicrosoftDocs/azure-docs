@@ -17,7 +17,7 @@ manager: femila
 
 Azure Blockchain Service is a blockchain platform that you can execute your business logic within a smart contract. This quickstart shows you how to get started by creating a managed ledger using the Azure portal.
 
-If you don’t have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a managed ledger
 
@@ -56,9 +56,9 @@ Azure Blockchain Service is created with a defined set of compute and storage re
 
     **Name** | **Explanation**
     --- | ---
-    Status | The status of the service shows whether if it is deployed successfully.
-    Node Credential | The public key of the transaction node 
-    Service DNS | The RPC endpoint address of your service. You may use it to connect your service to third party application such as MetaMask.
+    Status | The status of the service shows whether if it is deployed successfully
+    Node Credential | The public key of the transaction node
+    Service DNS | The RPC endpoint address of your service. You may use it to connect your service to third party application such as MetaMask
 
 ## Clean up resources
 

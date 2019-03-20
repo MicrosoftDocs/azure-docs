@@ -17,7 +17,7 @@ manager: femila
 
 MetaMask is an easy way to interact with blockchain. It provides a browser extension to manage a Ether wallet and perform smart contract actions.
 
-If you don’t have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
