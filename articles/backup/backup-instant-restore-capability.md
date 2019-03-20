@@ -35,7 +35,7 @@ A recovery point is considered created only after phases 1 and 2 are completed. 
 
 ![Backup job in VM backup stack Resource Manager deployment model--storage and vault](./media/backup-azure-vms/instant-rp-flow.png)
 
-By default, snapshots are retained for two days. This feature allows restores operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault to the user's storage account for unmanaged disk scenarios while for managed disk users, it creates managed disks out of the Recovery Services data.
+By default, snapshots are retained for two days. This feature allows restore operation from these snapshots there by cutting down the restore times. It reduces the time that is required to transform and copy data back from the vault.
 
 ## Feature considerations
 
@@ -48,11 +48,12 @@ By default, snapshots are retained for two days. This feature allows restores op
 >[!NOTE]
 >With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration as per your requirement to any value between 1 to 5 days.
 
-
 ## Cost impact
 
 The incremental snapshots are stored in VM’s storage account, which are used for instant recovery. Incremental snapshot means the space occupied by a snapshot is equal to the space occupied by pages that are written after the snapshot was created. Billing is still for the per GB used space occupied by the snapshot and the price per GB is same as mentioned in the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+>[!NOTE]
+> Snapshot retention is fixed to 5 days for weekly policies.
 
 ## Configure snapshot retention using Azure portal
 
