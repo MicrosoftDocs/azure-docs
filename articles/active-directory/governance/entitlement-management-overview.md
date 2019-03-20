@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Providing access to all the resources a user needs to be productive is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of all the resources needed, the scope of the project, the individuals involved in the project, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with individuals or companies outside your organization.
+Managing access to all the resources a user needs to be productive is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of all the resources needed, the scope of the project, the individuals involved in the project, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with individuals or companies outside your organization.
 
 Azure Active Directory (Azure AD) entitlement management enables organizations to efficiently manage user's access to groups, enterprise applications, and SharePoint Online sites.
 
