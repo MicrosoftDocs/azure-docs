@@ -157,16 +157,18 @@ For a detailed description of each property, see [Azure Event Grid event schema 
 
 IoT Hub event subscriptions can filter events based on event type, data content and subject, which is the device name.
 
-Event Grid enables [filtering](..azure/event-grid.md#event-filtering) on event types, subject and the event data content. 
-For non-telemetry events like deviceConnected, deviceDisconnected, deviceCreated and deviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body. See [LINK DOC/TUTORIAL SHOWING HOW TO QUERY USING ROUTES]. 
-
-Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
+Event Grid enables [filtering](..azure/event-grid.md#event-filtering) on event types, subjects and data content. While creating the Event Grid subscription, you can choose to subscribe to selected IoT events. Subject filters in Event Grid work based on **Begins With** (prefix) and **Ends With** (suffix) matches. The filter uses an `AND` operator, so events with a subject that match both the prefix and suffix are delivered to the subscriber. 
 
 The subject of IoT Events uses the format:
 
 ```json
 devices/{deviceId}
 ```
+
+Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](..azure/event-grid/event-filtering.md#advanced-filtering) to see examples. 
+
+For non-telemetry events like deviceConnected, deviceDisconnected, deviceCreated and deviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body. See [LINK DOC/TUTORIAL SHOWING HOW TO QUERY USING ROUTES]. 
+
 
 ## Limitations for device connected and device disconnected events
 
