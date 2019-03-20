@@ -26,7 +26,7 @@ Application Gateway supports autoscaling, SSL offloading and end to end SSL, Web
 
 ### What is the difference between Application Gateway and Azure Load Balancer?
 
-Application Gateway is a layer 7 load balancer, which means it works with web traffic only (HTTP/HTTPS/WebSocket). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer load balances traffic at layer 4 (TCP/UDP).
+Application Gateway is a layer 7 load balancer, which means it works with web traffic only (HTTP/HTTPS/WebSocket/HTTP/2). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load balancing traffic. Load Balancer load balances traffic at layer 4 (TCP/UDP).
 
 ### What protocols does Application Gateway support?
 
@@ -99,6 +99,10 @@ New Application Gateway v1 SKU deployments can take up to 20 minutes to provisio
 
 V2 SKU deployments can take about five to six minutes to provision.
 
+### Can Exchange server be used as backend with Application Gateway?
+
+No, Application Gateway does not support email protocols such as SMTP, IMAP and POP3. 
+
 ## Performance
 
 ### How does Application Gateway support high availability and scalability?
@@ -133,9 +137,9 @@ Yes, Azure distributes instances across update and fault domains to ensure that 
 
 Yes, Application Gateway is always deployed in a virtual network subnet. This subnet can only contain Application Gateways. See [virtual network and subnet requirements](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet) to understand the subnet considerations for Application Gateway.
 
-### Can Application Gateway communicate with instances outside its virtual network?
+### Can Application Gateway communicate with instances outside of the virtual network it is in or outside of the subscription it is in?
 
-Application Gateway can communicate with instances outside of the virtual network that it is in, as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](../virtual-network/virtual-network-peering-overview.md) or [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Application Gateway can communicate with instances outside of the virtual network that it is in or outside of the subscription it is in, as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](../virtual-network/virtual-network-peering-overview.md) or [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### Can I deploy anything else in the application gateway subnet?
 
@@ -264,6 +268,10 @@ Up to 10 authentication certificates are supported with a default of 5.
 ### Does Application Gateway integrate with Azure Key Vault natively?
 
 No, it is not integrated with Azure Key Vault.
+
+### How to configure HTTPS listeners for .com and .net sites? 
+
+For multiple domain-based (host-based) routing, you can create multi-site listeners, choose HTTPS as the protocol in listener configuration and associate the listeners with the routing rules. For more details, see [hosting multiple sites with Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
 
 ## Configuration - Web Application Firewall (WAF)
 

@@ -159,7 +159,7 @@
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
-    - name: Prepare DPM workloads in Azure portal
+    - name: Prepare DPM workloads in the Azure portal
       href: backup-azure-dpm-introduction.md
     - name: Use DPM to back up Exchange server
       href: backup-azure-backup-exchange-server.md
@@ -171,14 +171,16 @@
       href: backup-azure-backup-sharepoint.md
   - name: Use Azure PowerShell
     items:
-    - name: Azure VMs in Azure portal
+    - name: Azure VMs in the Azure portal
       href: backup-azure-vms-automation.md
-    - name: DPM in Azure portal
+    - name: DPM in the Azure portal
       href: backup-dpm-automation.md
-    - name: Windows Server in Azure portal
+    - name: Windows Server in the Azure portal
       href: backup-client-automation.md
-    - name: Azure File shares in Azure portal
+    - name: Azure File shares in the Azure portal
       href: backup-azure-afs-automation.md
+    - name: SQL in Azure VM backups
+      href: backup-azure-sql-automation.md
   - name: Use Azure Backup REST API
     items:
     - name: Create Recovery Services vault
