@@ -1,6 +1,6 @@
 ---
-title: Azure AD password protection preview
-description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection preview
+title: Azure AD password protection
+description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection
 
 services: active-directory
 ms.service: active-directory
@@ -15,14 +15,9 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Enforce Azure AD password protection for Windows Server Active Directory
+# Enforce Azure AD password protection for Windows Server Active Directory
 
-|     |
-| --- |
-| Azure Active Directory (Azure AD) password protection and the custom banned password list are public preview features of Azure AD. For information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Azure AD password protection is a new feature in public preview that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
+Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
 
 ## Design principles
 
