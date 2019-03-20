@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: iainfou
 ---
 
@@ -47,7 +47,7 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Preview limitations and region availability
+## Limitations and region availability
 
 AKS clusters can currently be created using availability zones in the following regions:
 
@@ -57,10 +57,14 @@ AKS clusters can currently be created using availability zones in the following 
 * West Europe
 * West US 2
 
-While this feature is in preview, the following limitations apply when you create an AKS cluster using availability zones:
+The following limitations apply when you create an AKS cluster using availability zones:
 
 * You can't disable availability zones for an AKS cluster once it has been created.
 * The node size (VM SKU) selected must be available across all availability zones.
+
+While this feature is in preview, the following additional limitation applies:
+
+* You can't create a service, as the Azure basic balancer doesn't correctly attach nodes for network traffic to be routed to your applications.
 
 ### Azure disks limitations
 
