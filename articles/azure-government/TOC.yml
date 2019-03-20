@@ -68,15 +68,15 @@
       - name: Integration Services
         href: documentation-government-impact-level-5.md#integration-services
       - name: Management and Governance
-        href: documentation-government-impact-level-5.md#management-and-government
+        href: documentation-government-impact-level-5.md#management-and-governance
       - name: Media Services
         href: documentation-government-impact-level-5.md#media-services
       - name: Networking Services
         href: documentation-government-impact-level-5.md#networking-services
       - name: Security & Identity Services
-        href: documentation-government-impact-level-5.md#Security-&-Identity Services
+        href: documentation-government-impact-level-5.md#security-&-identity-services
       - name: Storage & Database Services
-        href: documentation-government-impact-level-5.md#Storage-&-Database Services
+        href: documentation-government-impact-level-5.md#storage-&-database-services
 - name: Reference
   items:
   - name: Marketplace
