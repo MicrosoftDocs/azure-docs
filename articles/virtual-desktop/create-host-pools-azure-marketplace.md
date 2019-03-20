@@ -64,9 +64,9 @@ For the Virtual machine setting blade:
 
 For the Windows Virtual Desktop tenant information blade:
 
-1. Enter **the name of the Windows Virtual Desktop tenant group** that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
-2. Enter **the name of the Windows Virtual Desktop tenant** under which this host pool will be created.
-3. Specify the type of credentials you want to use to authenticate as a tenant admin. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
+1. Enter the **Windows Virtual Desktop tenant group name** for the tenant group that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
+2. Enter the **Windows Virtual Desktop tenant name** for the tenant you'll be creating this host pool in.
+3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
 4. Enter either the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
