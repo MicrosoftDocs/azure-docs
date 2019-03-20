@@ -43,7 +43,7 @@ While this feature is in preview, the following limitations apply when deploying
 * **Virtual network peering** - You can't peer a virtual network containing a subnet delegated to Azure Container Instances to another virtual network
 * **Route tables** - User-defined routes can't be set up in a subnet delegated to Azure Container Instances
 * **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
-* **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with an IP address and a fully qualified domain name 
+* **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name 
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
 
