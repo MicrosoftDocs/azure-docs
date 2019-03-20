@@ -43,7 +43,7 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
         $Description = ""
     }
 
-    $https:\//managementFiles = @{
+    $hdiConfigFiles = @{
         "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
         "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
         "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
@@ -51,12 +51,12 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
         "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
     }
 
-    if (!($https:\//managementFiles[$ConfigFileName])) {
+    if (!($hdiConfigFiles[$ConfigFileName])) {
         Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
         return
     }
 
-    [xml]$configFile = Get-Content $https:\//managementFiles[$ConfigFileName]
+    [xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
 
     $existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
 
@@ -71,7 +71,7 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
         $configFile.configuration.AppendChild($newproperty)
     }
 
-    $configFile.Save($https:\//managementFiles[$ConfigFileName])
+    $configFile.Save($hdiConfigFiles[$ConfigFileName])
 
     Write-HDILog "$configFileName has been configured."
 
@@ -140,7 +140,7 @@ Here are the helper methods that are provided by this script:
 | **Test-IsHDIHeadNode** |Check if the computer where the script executes is a head node. |
 | **Test-IsActiveHDIHeadNode** |Check if the computer where the script executes is an active head node. |
 | **Test-IsHDIDataNode** |Check if the computer where the script executes is a data node. |
-| **Edit-https:\//managementFile** |Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml. |
+| **Edit-hdiConfigFile** |Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml. |
 
 ## Best practices for script development
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
