@@ -5,7 +5,6 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 
 ms.service: azure-stack
 ms.workload: na
@@ -13,8 +12,9 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
+ms.lastreviewed: 03/20/2019
 
 ---
 
@@ -63,8 +63,8 @@ The following diagram shows the general process for deploying the cluster.
 
     The script does the following tasks:
     - Installs etcd, Docker, and Kubernetes resources such as kubelet. etcd is a distributed key value store that provides a way to store data across a cluster of machines. Docker supports bare-bones operating system-level virtualizations known as containers. Kubelet is the node agent that runs on each Kubernetes node.
-    - Sets up the etcd service.
-    - Sets up the kubelet service.
+    - Sets up the **etcd** service.
+    - Sets up the **kubelet** service.
     - Starts kubelet. This task involves the following steps:
         1. Starts the API service.
         2. Starts the controller service.
@@ -74,9 +74,9 @@ The following diagram shows the general process for deploying the cluster.
 7. Download and run the custom script extension.
 
 7. Run the agent script. The agent custom script does the following tasks:
-    - Installs etcd
-    - Sets up the kubelet service
-    - Joins the Kubernetes cluster
+    - Installs **etcd**.
+    - Sets up the **kubelet** service.
+    - Joins the Kubernetes cluster.
 
 ## Steps for troubleshooting
 
@@ -118,17 +118,17 @@ When you deploy your Kubernetes cluster, you can review the deployment status to
 
 ## Review deployment logs
 
-If the Azure Stack portal does not provide enough information for you to troubleshoot or overcome a deployment failure, the next step is to dig into the cluster logs. To manually retrieve the deployment logs, you typically need to connect to one of the cluster's master virtual machines. A simpler alternative approach would be to download and execute this [Bash script](https://aka.ms/AzsK8sLogCollectorScript) provided by the Azure Stack team. This script connects to the DVM and cluster's virtual machines, collects relevant system and cluster logs, and downloads them back to your workstation.
+If the Azure Stack portal does not provide enough information for you to troubleshoot or overcome a deployment failure, the next step is to dig into the cluster logs. To manually retrieve the deployment logs, you typically need to connect to one of the cluster's master virtual machines. A simpler alternative approach would be to download and run the following [Bash script](https://aka.ms/AzsK8sLogCollectorScript) provided by the Azure Stack team. This script connects to the DVM and cluster's virtual machines, collects relevant system and cluster logs, and downloads them back to your workstation.
 
 ### Prerequisites
 
-You will need a Bash prompt on the machine that you use to manage Azure Stack. On a Windows system, an easy way of getting a Bash prompt is by installing [Git for Windows](https://git-scm.com/downloads). Once installed, look for _Git Bash_ in your start menu.
+You will need a Bash prompt on the machine you use to manage Azure Stack. On a Windows system, you can get a Bash prompt by installing [Git for Windows](https://git-scm.com/downloads). Once installed, look for _Git Bash_ in your start menu.
 
 ### Retrieving the logs
 
 Follow these steps to collect and download the cluster logs:
 
-1. Open a Bash prompt. From a Windows system, open _Git Bash_ or execute this program: `C:\Program Files\Git\git-bash.exe`.
+1. Open a Bash prompt. From a Windows machine, open _Git Bash_ or run: `C:\Program Files\Git\git-bash.exe`.
 
 2. Download the log collector script by running the following commands in your Bash prompt:
 
@@ -139,17 +139,18 @@ Follow these steps to collect and download the cluster logs:
     chmod 744 getkuberneteslogs.sh
     ```
 
-3. Look for the information required by the script and execute it:
+3. Look for the information required by the script and run it:
 
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -u, --user          | The user name passed to the marketplace item when creating the Kubernetes cluster. Needed to remote in to the Kubernetes nodes | azureuser (default value)
-    | -i, --identity-file | The RSA private key file passed to the marketplace item when creating the Kubernetes cluster. Needed to remote in to the Kubernetes nodes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -d, --vmd-host      | The public IP or the fully qualified domain name (FQDN) of the DVM. The virtual machine name starts with `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external
-    | -m, --master-host   | The public IP or the fully qualified domain name (FQDN) of a Kubernetes master node. The virtual machine name starts with `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host      | The public IP or the fully qualified domain name (FQDN) of the DVM. The virtual machine name starts with `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Print command usage. | |
+    | -i, --identity-file | The RSA private key file passed to the marketplace item when creating the Kubernetes cluster. Needed to remote in to the Kubernetes nodes. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m, --master-host   | The public IP or the fully qualified domain name (FQDN) of a Kubernetes master node. The virtual machine name starts with `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | The user name passed to the marketplace item when creating the Kubernetes cluster. Needed to remote in to the Kubernetes nodes | azureuser (default value) |
 
-   When you add your parameter values, it might look something like this:
+
+   When you add your parameter values, your command might look something like this:
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
