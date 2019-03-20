@@ -7,6 +7,9 @@
     href: ./concepts/managed-services-offers.md
 - name: How-to guides
   items:
+  - name: Onboard a customer to Azure Delegated Resource Management
+    displayName: resource management
+    href: ./how-to/onboard-customer.md
   - name: Publish Managed Services offers to Azure Marketplace 
     displayName: managed services offer, azure marketplace, publish
     href: ./how-to/publish-managed-services-offers.md

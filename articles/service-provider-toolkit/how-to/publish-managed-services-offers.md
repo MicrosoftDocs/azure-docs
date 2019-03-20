@@ -13,7 +13,7 @@ manager: carmonm
 In this article, you’ll learn how to publish a Managed Services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management.
 
 > [!NOTE]
-> Customers can also be onboarded manually by using Azure Resource Manager templates. For more info, see *Onboard your customers to Azure Delegated Resource Management*.
+> Customers can also be onboarded manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Delegated Resource Management](onboard-customer.md).
 
 Publishing a Managed Services offer is similar to publishing any other type of offer to Azure Marketplace. To learn about that process, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
 
