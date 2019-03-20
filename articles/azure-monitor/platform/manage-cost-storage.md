@@ -108,13 +108,13 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
     ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
+If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
 > [!NOTE]
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
 
 > [!NOTE]
-> You can learn more about [setting the pricing tier via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) and 
+> You can learn more about [setting the pricing tier via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) and 
 > how to ensure that your ARM deployment will succeed regardless of whether the subscription is in the legacy or new pricing model. 
 
 
@@ -148,7 +148,7 @@ To understand the number of computers (nodes) reporting data each day in the las
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#isbillable) property:
+To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#_isbillable) property:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -183,13 +183,13 @@ You can drill in further to see data trends for specific data types, for example
 
 ### Data volume by computer
 
-To see the **size** of billable events ingested per computer, use the `_BilledSize` property ([https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-standard-properties#_billedsize](learn more)) which provides the size in bytes:
+To see the **size** of billable events ingested per computer, use the `_BilledSize` property ([log-standard-properties#_billedsize.md](learn more)) which provides the size in bytes:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-The `_IsBillable` property specifies whether the ingested data will incur charges ([https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-standard-properties#_isbillable](Learn more).)
+The `_IsBillable` property specifies whether the ingested data will incur charges ([log-standard-properties.md#_isbillable](Learn more).)
 
 To see the **count** of events ingested per computer, use
 
@@ -211,7 +211,7 @@ If you want to see counts for billable data types are sending data to a specific
 
 ### Data volume by Azure resource, resource group or subscription
 
-For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the `_ResourceId` property which provides the full path to the resource ([https://docs.microsoft.com/en-us/azure/azure-monitor/platform/log-standard-properties#_resourceid](learn more)):
+For data from nodes hosted in Azure you can get the **size** of billable events ingested __per computer__, use the `_ResourceId` property which provides the full path to the resource ([log-standard-properties.md#_resourceid](learn more)):
 
 `union withsource = tt * 
 | where _IsBillable == true 
