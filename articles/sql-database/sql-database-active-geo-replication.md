@@ -110,11 +110,11 @@ You can upgrade or downgrade a primary database to a different compute size (wit
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
 
-> Important to reference here:
-Primary database in failover group cannot scale to higher tier unless secondary database is scaled to higher tier first. If you try to scale primary database to a higher tier before scaling secondary, it fails with this message:
-
-Error code: .
-Error message: The source database 'Primaryserver.DBName cannot have higher edition than the target database 'Secondaryserver.DBName’. Upgrade the edition on the target before upgrading source.
+> [!IMPORTANT]
+> The primary database in a failover group can't scale to a higher tier unless the secondary database is first scaled to the higher tier. If you try to scale the primary database before the secondary database is scaled, you might receive the following error:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
 
 ## Preventing the loss of critical data
 
