@@ -61,16 +61,16 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     - download.microsoft.com
     - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (For Azure public geos)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (For Azure China)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (For Azure US Government)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (For Azure Germany)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (For Azure public geos)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (For Azure US Government)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (For Azure Germany)
     - outbound port 3260
 
 > [!Note]
 > 
 > * The downloaded script file name will have the **geo-name** to be filled in the URL. For eg: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like ContosoVM_wcus_12345678.....<br><br>
-> * The URL would be "<https://pod01-rec2.wcus.backup.windowsazure.com>"
+> * The URL would be "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 
    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
