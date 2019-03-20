@@ -13,7 +13,7 @@ ms.date: 03/26/2019
 ms.author: anroth
 ---
 
-# Use the prediction endpoint to test images programmatically with a Custom Vision Service classifier
+#  Use your Model with the Prediction API
 
 After you train your model, you can test images programmatically by submitting them to the Prediction API. 
 
@@ -33,8 +33,6 @@ Once your model has been successfully published, you'll see a "Published" label 
 ![The performance tab is shown, with a red rectangle surrounding the "Published label and the name of the published iteration.](./media/use-prediction-api/published-iteration.png)
 
 ## Get the URL and prediction key
-
-From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. 
 
 Once your model has been published, you can retrieve information about using the Prediction API by selecting __Prediction URL__. This will open up a dialog like the one shown below with information for using the Prediction API, including the __Prediction URL__ and __Prediction-Key__.
 
@@ -140,3 +138,11 @@ When running the application, you will enter the path to an image file in the co
 [Export the model for mobile use](export-your-model.md)
 
 [Get started with .NET SDKs](csharp-tutorial.md)
+
+[Get started with Python SDKs](python-tutorial.md)
+
+[Get started with Java SDKs](java-tutorial.md)
+
+[Get started with Node SDKs](node-tutorial.md)
+
+[Get started with Go SDKs](go-tutorial.md)
