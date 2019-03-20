@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 01/25/2019
+ms.lastreviewed: 03/19/2019
 
 ---
 # Backup and data recovery for Azure Stack with the Infrastructure Backup Service
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can back up and restore configuration and service data using the Infrastructure Backup Service. Each Azure Stack installation contains an instance of the service. You can use backups created by the service for the redeployment of the Azure Stack Cloud to restore identity, security, and Azure Resource Manager data.
+You can back up and restore configuration and service data using the Infrastructure Backup Service. Each Azure Stack installation contains an instance of the service. You can use backups created by the service for the redeployment of the Azure Stack Cloud to restore identity, security, and Azure Resource Manager data. 
 
 You can enable backup when you are ready to put your cloud into production. Do not enable backup if you plan to perform testing and validation for a long period of time.
 
 Before you enable your backup service, make sure you have [requirements in place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> The Infrastructure Backup Service does not include user data and applications. <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
+> The Infrastructure Backup Service does not include user data and applications. Refer to [protect VMs deployed on Azure Stack](user/azure-stack-manage-vm-protect.md) for more information on how to protect IaaS VM based applications. For a comprehensive understanding of how to protect applications on Azure Stack, refer to the [Azure Stack onsiderations for business continuity and disaster recovery whitepaper](http://aka.ms/azurestackbcdrconsiderationswp).
 
 ## The Infrastructure Backup Service
 
