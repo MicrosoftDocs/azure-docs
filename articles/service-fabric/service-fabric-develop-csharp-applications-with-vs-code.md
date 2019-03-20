@@ -82,7 +82,7 @@ Along with deploying the application to the local cluster, you can also publish 
 
 2. From the **Command Palette**, select the **Service Fabric: Publish Application command**. The output of the install process is sent to the integrated terminal.
 
-   ![Deploy Application command in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![Publish Application command in VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. When the deployment is complete, launch a browser and open Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. You should see that the application is running. This may take some time, so be patient. 
 
