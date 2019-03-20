@@ -45,7 +45,7 @@ Data points sent to the Anomaly Detector API must have a valid Coordinated Unive
 
 ### Missing data points
 
-Missing data points are common in evenly distributed time series data sets, especially those with a fine granularity (A small sampling interval, for example data sampled every 5 minutes or less). If your data set is missing less than 10% of its expected values, there should be no negative impact on your detection results. Consider filling gaps in your data based on its characteristics. For example, these can include substituting data points from an earlier period, linear interpolation, or a moving average.
+Missing data points are common in evenly distributed time series data sets, especially those with a fine granularity (A small sampling interval, for example data sampled every 5 minutes or less). If your data set is missing less than 10% of  the expected number of points, there should be no negative impact on your detection results. Consider filling gaps in your data based on its characteristics. For example, these can include substituting data points from an earlier period, linear interpolation, or a moving average.
 
 ### Aggregate distributed data
 

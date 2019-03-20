@@ -103,7 +103,7 @@ def detect_batch(request_data):
 
     # Find and display the positions of anomalies in the data set
     anomalies = result["isAnomaly"]
-
+    print("Anomalies detected in the following data positions:")
     for x in range(len(anomalies)):
         if anomalies[x] == True:
             print (x)
@@ -125,7 +125,7 @@ def detect_latest(request_data):
 
 ## Load your time series data and send the request
 
-1. load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
+1. Load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
 
     [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
     
