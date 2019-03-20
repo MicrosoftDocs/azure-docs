@@ -70,7 +70,7 @@ For more information on how to configure Automated Backup for SQL VMs, see one o
 
 For a quick overview of how it works along with a demo, watch the following video:
 
-> [!VIDEO https://www.youtube.com/watch?v=wmbANpHos_E&t=4s]
+> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
 This Azure Backup solution for SQL VMs is generally available. For more information, see [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md).
 
