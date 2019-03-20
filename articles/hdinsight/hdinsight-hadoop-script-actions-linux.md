@@ -94,7 +94,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
+You can find the full script that contains these snippets at https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
 For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](hdinsight-component-versioning.md) document.
 
@@ -109,7 +109,7 @@ The best practice is to download and archive everything in an Azure Storage acco
 > [!IMPORTANT]  
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
-For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account. This location is a public, read-only container maintained by the HDInsight team.
+For example, the samples provided by Microsoft are stored in the [https://https:\//managementactions.blob.core.windows.net/](https://https:\//managementactions.blob.core.windows.net/) storage account. This location is a public, read-only container maintained by the HDInsight team.
 
 ### <a name="bPS4"></a>Use pre-compiled resources
 
@@ -207,16 +207,16 @@ The following examples demonstrate how to use this function.
 ```bash
 retry ls -ltr foo
 
-retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+retry wget -O ./tmpfile.sh https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 ```
 
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
-Script action helper methods are utilities that you can use while writing custom scripts. These methods are contained in the [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Use the following to download and use them as part of your script:
+Script action helper methods are utilities that you can use while writing custom scripts. These methods are contained in the [https://https:\//managementactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://https:\//managementactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) script. Use the following to download and use them as part of your script:
 
 ```bash
 # Import the helper method module.
-wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+wget -O /tmp/HDInsightUtilities-v01.sh -q https://https:\//managementactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
 ```
 
 The following helpers available for use in your script:

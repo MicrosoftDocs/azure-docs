@@ -33,7 +33,7 @@ The script installs the following Mono packages:
 
 ## The script
 
-__Script location__: [https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash](https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash)
+__Script location__: [https://https:\//managementactions.blob.core.windows.net/install-mono/install-mono.bash](https://https:\//managementactions.blob.core.windows.net/install-mono/install-mono.bash)
 
 __Requirements__:
 
@@ -45,7 +45,7 @@ For information on how to use this script with HDInsight, see the [Customize Lin
 
 While following the script action document, use the following URI:
 
-    https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
+    https://https:\//managementactions.blob.core.windows.net/install-mono/install-mono.bash
 
 To specify the Mono version that is installed, use the version number in the __Parameters__ field. For example, enter `5.4` to install Mono 5.4.
 

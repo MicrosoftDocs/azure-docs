@@ -43,7 +43,7 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
         $Description = ""
     }
 
-    $hdiConfigFiles = @{
+    $https:\//managementFiles = @{
         "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
         "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
         "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
@@ -51,12 +51,12 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
         "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
     }
 
-    if (!($hdiConfigFiles[$ConfigFileName])) {
+    if (!($https:\//managementFiles[$ConfigFileName])) {
         Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
         return
     }
 
-    [xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
+    [xml]$configFile = Get-Content $https:\//managementFiles[$ConfigFileName]
 
     $existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
 
@@ -71,7 +71,7 @@ For creating HDInsight clusters on Windows operating system, the Script Action i
         $configFile.configuration.AppendChild($newproperty)
     }
 
-    $configFile.Save($hdiConfigFiles[$ConfigFileName])
+    $configFile.Save($https:\//managementFiles[$ConfigFileName])
 
     Write-HDILog "$configFileName has been configured."
 
@@ -87,10 +87,10 @@ HDInsight provides several scripts to install additional components on HDInsight
 
 | Name | Script |
 | --- | --- |
-| **Install Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. See [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]. |
-| **Install R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. See [Install and use R on HDInsight clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Install Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. See [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
-| **Pre-load Hive libraries** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. See [Add Apache Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
+| **Install Spark** | `https://https:\//managementactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. See [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]. |
+| **Install R** | `https://https:\//managementactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. See [Install and use R on HDInsight clusters](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
+| **Install Giraph** | `https://https:\//managementactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. See [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
+| **Pre-load Hive libraries** | `https://https:\//managementactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. See [Add Apache Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 Script Action can be deployed from the Azure portal, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
@@ -101,10 +101,10 @@ Script Action can be deployed from the Azure portal, Azure PowerShell or by usin
 >
 
 ## Helper methods for custom scripts
-Script Action helper methods are utilities that you can use while writing custom scripts. These methods are defined in [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), and can be included in your scripts using the following sample:
+Script Action helper methods are utilities that you can use while writing custom scripts. These methods are defined in [https://https:\//managementactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://https:\//managementactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), and can be included in your scripts using the following sample:
 
     # Download config action module from a well-known directory.
-    $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+    $CONFIGACTIONURI = "https://https:\//managementactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
     $CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
     $webclient = New-Object System.Net.WebClient;
     $webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
@@ -140,7 +140,7 @@ Here are the helper methods that are provided by this script:
 | **Test-IsHDIHeadNode** |Check if the computer where the script executes is a head node. |
 | **Test-IsActiveHDIHeadNode** |Check if the computer where the script executes is an active head node. |
 | **Test-IsHDIDataNode** |Check if the computer where the script executes is a data node. |
-| **Edit-HDIConfigFile** |Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml. |
+| **Edit-https:\//managementFile** |Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml. |
 
 ## Best practices for script development
 When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:
@@ -151,7 +151,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 * Provide stable links to script resources.
 
     Users should make sure that all the scripts and other artifacts used in the customization of a cluster remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration. These resources are required if the reimaging of nodes in the cluster is required. The best practice is to download and archive everything in a Storage account that the user controls. This account can be the default Storage account or any of the additional Storage accounts specified at the time of deployment for a customized cluster.
-    In the Spark and R customized cluster samples provided in the documentation, for example, there is a local copy of the resources in this Storage account: https://hdiconfigactions.blob.core.windows.net/.
+    In the Spark and R customized cluster samples provided in the documentation, for example, there is a local copy of the resources in this Storage account: https://https:\//managementactions.blob.core.windows.net/.
 * Ensure that the cluster customization script is idempotent.
 
     You must expect that the nodes of an HDInsight cluster are reimaged during the cluster lifetime. The cluster customization script is run whenever a cluster is reimaged. This script must be designed to be idempotent in the sense that upon reimaging, the script should ensure that the cluster is returned to the same customized state that it was in just after the script ran for the first time when the cluster was initially created. For example, if a custom script installed an application at D:\AppLocation on its first run, then on each subsequent run, upon reimaging, the script should check whether the application exists at the D:\AppLocation location before proceeding with other steps in the script.

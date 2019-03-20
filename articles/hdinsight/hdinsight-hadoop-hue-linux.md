@@ -39,7 +39,7 @@ Hue is a set of Web applications used to interact with an Apache Hadoop cluster.
 
 ## Install Hue using Script Actions
 
-The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Storage as default storage.
+The script to install Hue on a Linux-based HDInsight cluster is available at https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Storage as default storage.
 
 This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
 
@@ -59,7 +59,7 @@ This section provides instructions about how to use the script when provisioning
     ![Provide script action parameters for Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "Provide script action parameters for Hue")
 
    * **NAME**: Enter a friendly name for the script action.
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+   * **SCRIPT URI**: https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Check this option.
    * **WORKER**: Leave this blank.
    * **ZOOKEEPER**: Leave this blank.
@@ -91,7 +91,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     This is the hostname of the primary headnode where the Hue website is located.
-4. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
+4. Use the browser to open the Hue portal at http:\//HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
 
    > [!NOTE]  
    > When you log in for the first time, you will be prompted to create an account to log in to the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.

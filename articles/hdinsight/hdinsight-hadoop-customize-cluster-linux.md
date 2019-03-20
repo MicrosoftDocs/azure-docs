@@ -150,12 +150,12 @@ HDInsight provides scripts to install the following components on HDInsight clus
 
 | Name | Script |
 | --- | --- |
-| Add an Azure Storage account |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. See [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md). |
-| Install Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. See [Install and use Hue on HDInsight Hadoop clusters](hdinsight-hadoop-hue-linux.md). |
+| Add an Azure Storage account |`https://https:\//managementactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. See [Add additional storage accounts to HDInsight](hdinsight-hadoop-add-storage.md). |
+| Install Hue |`https://https:\//managementactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. See [Install and use Hue on HDInsight Hadoop clusters](hdinsight-hadoop-hue-linux.md). |
 | Install Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. See [Install and use Presto on Hadoop-based HDInsight clusters](hdinsight-hadoop-install-presto.md). |
-| Install Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. See [Install Apache Giraph on HDInsight Hadoop clusters](hdinsight-hadoop-giraph-install-linux.md). |
-| Preload Hive libraries |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. See [Add custom Apache Hive libraries when creating your HDInsight cluster](hdinsight-hadoop-add-hive-libraries.md). |
-| Install or update Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. See [Install or update Mono on HDInsight](hdinsight-hadoop-install-mono.md). |
+| Install Giraph |`https://https:\//managementactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. See [Install Apache Giraph on HDInsight Hadoop clusters](hdinsight-hadoop-giraph-install-linux.md). |
+| Preload Hive libraries |`https://https:\//managementactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. See [Add custom Apache Hive libraries when creating your HDInsight cluster](hdinsight-hadoop-add-hive-libraries.md). |
+| Install or update Mono | `https://https:\//managementactions.blob.core.windows.net/install-mono/install-mono.bash`. See [Install or update Mono on HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## Use a script action during cluster creation
 
@@ -282,7 +282,7 @@ After the operation finishes, you receive information similar to the following t
     OperationState  : Succeeded
     ErrorMessage    :
     Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+    Uri             : https://https:\//managementactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
     Parameters      :
     NodeTypes       : {HeadNode, WorkerNode}
 
@@ -467,7 +467,7 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
 * All **stdout** and **stderr** of the corresponding host is uploaded to the storage account. There's one **output-\*.txt** and **errors-\*.txt** for each script action. The **output-*.txt** file contains information about the URI of the script that was run on the host. The following text is an example of this information:
 
-        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
+        'Start downloading script locally: ', u'https://https:\//managementactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
 * It's possible that you repeatedly create a script action cluster with the same name. In that case, you can distinguish the relevant logs based on the **DATE** folder name. For example, the folder structure for a cluster, **mycluster**, created on different dates appears similar to the following log entries:
 

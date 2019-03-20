@@ -347,7 +347,7 @@ static void Main(string[] args)
     };
 
     ScriptAction rScriptAction = new ScriptAction("Install R",
-        new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
+        new Uri("https://https:\//managementactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
 
     parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
     parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
