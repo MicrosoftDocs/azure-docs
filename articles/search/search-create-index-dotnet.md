@@ -34,15 +34,15 @@ This article will walk you through the process of creating, loading, and queryin
 
 + URL endpoint and admin api-key of your Search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-    1. In the Azure portal, [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
+  1. In the Azure portal, [find your service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the service list.
 
-    2. In **Overview**, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
+  2. In **Overview**, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
 
-    3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on your request.
+  3. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on your request.
 
-    ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+     ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
-    All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+     All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## 1 - Create a new project
 

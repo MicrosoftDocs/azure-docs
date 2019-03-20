@@ -149,8 +149,8 @@ In conclusion, the type of JSON operator in Hive that you choose depends on your
 For related articles, see:
 
 * [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
-* [Analyze flight delay data by using Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analyze flight delay data by using Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 
