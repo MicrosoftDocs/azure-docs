@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/20/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on your Azure Data Box Edge
@@ -62,8 +62,10 @@ Do the following steps in the Azure portal to create a share.
 
         ![Add NFS share](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Click **Create** to create the share. You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
- 
+7. To easily access the shares from Edge compute modules, use the local mount point. Select **Use the share with Edge compute** so that the share is automatically mounted after it its created. When this option is selected, the Edge module can also use the compute with the local mount point.
+
+8. Click **Create** to create the share. You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
+
 ## Add a local share
 
 1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. Select **+ Add share** on the command bar.
@@ -88,11 +90,32 @@ Do the following steps in the Azure portal to create a share.
 
     You see a notification that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
 
-    ![View updates Shares blade](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![View updates Shares blade](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Select the share to view the local mountpoint for the Edge compute modules for this share.
 
     ![View local share details](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+
+## Unmount a share
+
+Do the following steps in the Azure portal to unmount a share.
+
+1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**.
+
+    ![Select share](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. From the list of the shares, select the share that you want to unmount. You want to make sure that the share you unmount is not used by any modules. If the share is used by a module, then you will see issues with the corresponding module. Select **Unmount**.
+
+    ![Select unmount](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. When prompted for confirmation, select **Yes**. This will unmount the share.
+
+    ![Confirm unmount](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. After the share is unmounted, go to the list of shares. You'll see that **Used for compute** column shows the share status as **Disabled**.
+
+    ![Share unmounted](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## Delete a share
 

@@ -70,7 +70,7 @@ This device is shipped in a single box. Complete the following steps to unpack y
 3. Unpack the box. After unpacking the box, make sure that you have:
     - One single enclosure Edge device
     - Two power cords
-    - One tool-less slide rack-mount kit (two side rails and mounting hardware are included)
+    - One rail kit assembly
 
 If you didn't receive all of the items listed here, contact Data Box Edge support. The next step is to rack mount your device.
 
@@ -169,7 +169,7 @@ Before you start cabling your device, you need the following:
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 25-GbE network interface such as PORT 3, PORT 4, PORT 5, or PORT 6 to send data to Azure. 
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
-> - The Edge device should be connected to the datacenter network so that it can ingest data from data source servers. 
+> - The Edge device should be connected to the datacenter network so that it can ingest data from data source servers.
 
 Your Edge device has 8 NVMe SSDs. The front panel also has status LEDs and power buttons. The device includes redundant power supply units (PSUs) at the back. Your device has six network interfaces: two 1-Gbps interfaces and four 25-Gbps interfaces. Your device has a baseboard management controller (BMC). Identify the various ports on the backplane of your device.
  
