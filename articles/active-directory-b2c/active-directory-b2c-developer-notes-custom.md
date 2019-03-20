@@ -134,4 +134,4 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Application Insights Event Logs (via orchestration steps) |  | X |  | Used to monitor user flows in production. |
 
 ## Next steps
-[Get started with custom policies](active-directory-b2c-get-started-custom.md).
+[Learn more about custom policies](active-directory-b2c-overview-custom.md).
