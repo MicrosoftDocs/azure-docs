@@ -69,10 +69,10 @@ Now that you have a Storage destination to export data to, follow these steps to
     > [!NOTE] 
     > For 7 day trial apps, the only way to configure continuous data export is through a connection string. This is because 7 day trial apps do not have an associated Azure subscription.
 
-    ![Create new cde Event Hub](media/howto-export-data/export_create_blob.png)
+    ![Create new cde Event Hub](media/howto-export-data/export-create-blob.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
-    - Storage account, go to the Storage account in the Azure Portal.
+    - Storage account, go to the Storage account in the Azure portal.
         - Under **Settings**, select **Access keys**
         - Copy either the key1 Connection string or the key2 Connection string
  
@@ -82,7 +82,7 @@ Now that you have a Storage destination to export data to, follow these steps to
 
 6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
-  ![Configure continuous data export](media/howto-export-data/export_list_blob.png)
+  ![Configure continuous data export](media/howto-export-data/export-list-blob.png)
 
 7. After a few minutes, your data will appear in your chosen destination.
 
