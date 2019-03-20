@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: monhaber
 
 ---
@@ -29,7 +29,7 @@ This article provides guidance on how to install a Microsoft Monitoring Agent an
 > - Data collection is only needed for Compute resources (VMs, Virtual Machine Scale Sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
 > - For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
 > - Data collection for Virtual machine scale set is not currently supported.
-
+> - Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage, see the pricing page for more details.
 
 ## Enable automatic provisioning of Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
 
@@ -85,7 +85,8 @@ To select a workspace created by Security Center:
 1. Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
 
 > [!NOTE]
-> Log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
+> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
+> Storing data in Log Analytics might incur additional charges for data storage, see the pricing page for more details.
 
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -99,7 +100,7 @@ To use your existing Log Analytics workspace, you must have read and write permi
 
 > [!NOTE]
 > Solutions enabled on the existing workspace will be applied to Azure VMs that are connected to it. For paid solutions, this could result in additional charges. For data privacy considerations, make sure your selected workspace is in the right geographic region.
->
+> Storing data in log analytics might incur additional charges for data storage, see the pricing page for more details.
 
 To select an existing Log Analytics workspace:
 
@@ -223,7 +224,7 @@ You can turn off automatic provisioning from resources at any time by turning of
 
 
 1. Return to the Security Center main menu and select the Security policy.
-2. Select the subscription that you wish to disable automatic provisioning.
+2. Click **Edit settings** in the row of the subscription for which you want to disable automatic provisioning.
 3. On the **Security policy – Data Collection** blade, under **Auto provisioning** select **Off**.
 4. Select **Save**.
 
@@ -284,7 +285,6 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
      
            $PublicConf = '{
                "workspaceId": "WorkspaceID value",
-               "MultipleConnections": true
            }' 
  
            $PrivateConf = '{

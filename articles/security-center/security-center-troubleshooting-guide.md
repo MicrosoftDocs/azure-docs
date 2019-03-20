@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -25,7 +25,7 @@ This guide is for information technology (IT) professionals, information securit
 >
 
 ## Troubleshooting guide
-This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](../azure-monitor/platform/activity-logs-overview.md) records for the failed component. Through audit logs, you can determine:
 
 * Which operations were taken place
 * Who initiated the operation
