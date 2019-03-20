@@ -1,5 +1,5 @@
 ---
-title: Configure Cross-Origin Resource Sharing
+title: Configure Cross-Origin Resource Sharing in Azure API for FHIR
 description: This article describes how to configure Cross-Origin Resource Sharing (CORS) in Azure API for FHIR..
 author: matjazl
 ms.author: matjazl 
