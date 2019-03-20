@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.  
 ---
-# Tutorial: Install Azure Data Box Edge (preview)
+# Tutorial: Install Azure Data Box Edge
 
 This tutorial describes how to install a Data Box Edge physical device. The installation procedure involves unpacking, rack mounting, and cabling the device. 
 
@@ -24,9 +24,6 @@ In this tutorial, you learn how to:
 > * Rack mount the device
 > * Cable the device
 
-> [!IMPORTANT]
-> The Data Box Edge solution is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
-
 ## Prerequisites
 
 The prerequisites for installing a physical device as follows:
@@ -35,7 +32,7 @@ The prerequisites for installing a physical device as follows:
 
 Before you begin, make sure that:
 
-* You've completed all the steps in [Prepare to deploy Azure Data Box Edge (preview)](data-box-edge-deploy-prep.md).
+* You've completed all the steps in [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md).
     * You've created a Data Box Edge resource to deploy your device.
     * You've generated the activation key to activate your device with the Data Box Edge resource.
 

@@ -14,9 +14,6 @@ ms.author: alkohli
 
 This article describes how to troubleshoot issues on your Azure Data Box Edge. 
 
-> [!IMPORTANT]
-> - Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]

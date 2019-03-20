@@ -12,7 +12,7 @@ ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Transform data with Azure Data Box Edge (preview)
+# Tutorial: Transform data with Azure Data Box Edge
 
 This tutorial describes how to configure a compute role on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
 
@@ -26,8 +26,6 @@ In this tutorial, you learn how to:
 > * Add a compute module
 > * Verify data transform and transfer
 
-> [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## Prerequisites
 

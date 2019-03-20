@@ -11,7 +11,7 @@ ms.date: 03/19/2019
 ms.author: alkohli
 ---
 
-# Develop a C# IoT Edge module to move files on Data Box Edge (Preview)
+# Develop a C# IoT Edge module to move files on Data Box Edge
 
 This article steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
 
@@ -23,8 +23,6 @@ In this article, you learn how to:
 > * Create a container registry to store and manage your modules (Docker images).
 > * Create an IoT Edge module to deploy on your Data Box Edge device.
 
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
 
 ## About the IoT Edge module
 
