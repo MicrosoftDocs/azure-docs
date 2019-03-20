@@ -194,7 +194,7 @@
   - name: Backup SQL Server databases on Azure VMs
     items:
     - name: About SQL Server Backup in Azure VMs
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Back up SQL Server databases in Azure VMs
       href: backup-sql-server-database-azure-vms.md
     - name: Restore SQL Server databases in Azure VMs
