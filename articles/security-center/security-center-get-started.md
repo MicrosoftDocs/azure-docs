@@ -33,7 +33,7 @@ To upgrade a subscription to the Standard tier, you must be assigned the role of
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
@@ -51,13 +51,13 @@ For the purpose of the Security Center quickstarts and tutorials you must upgrad
 
 1. Under the Security Center main menu, select **Getting started**.
  
-  ![Get started][4]
+   ![Get started][4]
 
 2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
    - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
    -	You can upgrade subscriptions and workspaces that are not eligible for trial.
    -	You can select eligible workspaces and subscriptions to start your trial.
-3.	Click **Start trial** to start your trial on the selected subscriptions.
+3. Click **Start trial** to start your trial on the selected subscriptions.
 
 
   ![Security alerts][9]

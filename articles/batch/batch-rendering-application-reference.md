@@ -2,6 +2,7 @@
 title: Use rendering applications - Azure Batch
 description: How to use rendering applications with Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018

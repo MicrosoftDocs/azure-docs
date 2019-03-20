@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Access Azure Data Lake Storage Gen2 data with Azure Databricks using Spark | Microsoft Docs'
-description: This tutorial shows how to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
+description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
@@ -28,22 +28,22 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Create an Azure Data Lake Storage Gen2 account.
 
-  See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 
 * Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
 * Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-*  Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   There's a couple of specific things that you'll have to do as you perform the steps in that article.
+  There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-   :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
-   > [!IMPORTANT]
-   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
+  > [!IMPORTANT]
+  > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 ### Download the flight data
 
@@ -143,12 +143,12 @@ In this section, you'll create a file system and a folder in your storage accoun
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
-    > [!NOTE]
-    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+   > [!NOTE]
+   > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-    Keep this notebook open as you will add commands to it later.
+   Keep this notebook open as you will add commands to it later.
 
 ## Ingest data
 
@@ -178,7 +178,7 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. Replace the `storage-account-name` placeholder value in this code snippet with the name of the folder that you saved the csv file to.
+In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -280,5 +280,5 @@ When they're no longer needed, delete the resource group and all related resourc
 
 ## Next steps
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/13/2019
 ---
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
@@ -472,7 +472,11 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file can't be changed and new files can be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if  they need more than 168 GB in `tempdb`.
+Max file size of `tempdb` cannot be greather than 24GB/core on General Purpose tier. Max `tempdb` size on Business Critical tier is limited with the instance storage size. `tempdb` is always split into 12 data files. This maximum size per file can't be changed and new files can be added to `tempdb`. Some queries might return an error if  they need more than 24GB / core in `tempdb`.
+
+### Cannot restore contained database
+
+Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases don't work on Managed Instance. This issue will be removed soon and in the meantime we recommend to remove containment option from your databases that are placed on Managed Instance, and do not use containment option for the production databases.
 
 ### Exceeding storage space with small database files
 
@@ -505,7 +509,7 @@ Several system views, performance counters, error messages, XEvents, and error l
 
 ### Database mail profile
 
-There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`.
+The database mail profile used by SQL Agent must be called `AzureManagedInstance_dbmail_profile`.
 
 ### Error logs are not-persisted
 
@@ -519,7 +523,7 @@ A Managed Instance places verbose information in error logs and many of them are
 
 ### Transaction Scope on two databases within the same instance isn't supported
 
-`TransactionScope` class in .Net doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
+`TransactionScope` class in .NET doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
 
 ```C#
 using (var scope = new TransactionScope())

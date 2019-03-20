@@ -1,3 +1,8 @@
+---
+ms.service: azure
+ms.topic: conceptual
+ms.date: 03/08/2019
+---
 # Legal Notices
 
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content

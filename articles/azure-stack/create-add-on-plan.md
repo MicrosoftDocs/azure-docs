@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
 ms.date: 03/07/2019
 ms.author: sethm

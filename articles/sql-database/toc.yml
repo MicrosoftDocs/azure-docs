@@ -192,7 +192,7 @@
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
-    - name: Planned manintenance events
+    - name: Planned maintenance events
       href: sql-database-planned-maintenance.md  
     - name: Failover groups and geo-replication
       items: 
@@ -324,6 +324,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
+    - name: Overview
+      href: sql-database-features-index.yml
     - name: SQL features comparison
       href: sql-database-features.md
     - name: Multi-model capabilities
@@ -530,10 +532,16 @@
       href: sql-database-develop-overview.md
     - name: Working with JSON data
       href: sql-database-json-features.md
+    - name: Use ASP.NET App Service
+      href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
     - name: Use Azure Functions
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+    - name: Use Azure Logic Apps
+      href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
+    - name: Index with Azure Search
+      href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
     - name: Authenticate app 
       href: sql-database-client-id-keys.md
     - name: Error messages
@@ -692,7 +700,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/sql-azure
+    href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
@@ -700,7 +708,7 @@
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories
-    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
   - name: Elastic jobs (deprecated)
     items:
     - name: Elastic jobs (deprecated)

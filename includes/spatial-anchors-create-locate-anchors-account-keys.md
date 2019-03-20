@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
 ---
-## Setting up authentication
+## Set up authentication
 
 To access the service, you need to provide an account key, access token, or AAD auth token.
 

@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer:
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database
 
@@ -48,7 +48,7 @@ The following content should be placed in a file that represents a template that
 
 ```
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "instance": {

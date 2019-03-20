@@ -5,7 +5,7 @@ services: container-service
 author: iainfoulds
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: iainfou
 

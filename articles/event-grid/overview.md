@@ -40,6 +40,7 @@ For full details on the capabilities of each source as well as related articles,
 * Service Bus
 * Storage Blob
 * Storage General-purpose v2 (GPv2)
+* Azure Maps
 
 ## Event handlers
 

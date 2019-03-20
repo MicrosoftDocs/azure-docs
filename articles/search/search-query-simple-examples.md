@@ -190,7 +190,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
       "count": "true"
     }
 ```
-For more readable results, search results are trimmed to include a job id, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, for a work location on Staten island.
+For more readable results, search results are trimmed to include a job ID, job title, and the work location. The starting coordinates were obtained from a random document in the index (in this case, for a work location on Staten island.
 
 You can also try this out in Postman using GET:
 
@@ -268,7 +268,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Try specifying queries in your code. The following links explain how to set up search queries for both .NET and the REST API using the default simple syntax.
 
 * [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
-* [Query your Azure Search Index using the REST API](search-query-rest-api.md)
+* [Query your Azure Search Index using the REST API](search-create-index-rest-api.md)
 
 Additional syntax reference, query architecture, and examples can be found in the following links:
 

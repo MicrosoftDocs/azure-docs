@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -13,7 +13,7 @@ ms.reviewer: minewiskan
 
 # Client libraries for connecting to Azure Analysis Services
 
-Client libraries are necessary for client applications and tools to connect to Analysis Services servers. 
+Client libraries are necessary for client applications and tools to connect to Analysis Services servers. Microsoft client applications like Power BI Desktop, Excel, SQL Server Management Studio (SSMS), and SQL Server Data Tools (SSDT) install all three client libraries and update them along with regular application updates. In some cases, you may need to install newer versions of the client libraries. Custom client applications also require client libraries are installed.
 
 ## Download the latest client libraries (Windows Installer)  
 

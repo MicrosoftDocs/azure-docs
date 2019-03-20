@@ -2,15 +2,15 @@
 title: FAQ about using the Azure Database Migration Service | Microsoft Docs
 description: Learn frequently asked questions about using the Azure Database Migration Service to perform database migrations.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/12/2019
 ---
 
 # FAQ about using the Azure Database Migration Service

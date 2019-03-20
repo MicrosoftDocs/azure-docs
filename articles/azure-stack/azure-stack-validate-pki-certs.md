@@ -250,17 +250,17 @@ Use these steps to prepare and validate the Azure Stack PKI certificates for pla
 
 | Directory | Certificate |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
-| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
-| ACSTable  |  wildcard_table\< region>\< externalFQDN> |
-| Admin Extension Host  |  wildcard_adminhosting\< region>\< externalFQDN> |
-| Admin Portal  |  adminportal\< region>\< externalFQDN> |
-| ARM Admin  |  adminmanagement\< region>\< externalFQDN> |
-| ARM Public  |  management\< region>\< externalFQDN> |
-| KeyVault  |  wildcard_vault\< region>\< externalFQDN> |
-| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
-| Public Extension Host  |  wildcard_hosting\< region>\< externalFQDN> |
-| Public Portal  |  portal\< region>_\< externalFQDN> |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| Admin Extension Host  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| Admin Portal  |  adminportal_\<region>_\<externalFQDN> |
+| ARM Admin  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM Public  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| Public Extension Host  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| Public Portal  |  portal_\<region>_\<externalFQDN> |
 
 ## Using validated certificates
 

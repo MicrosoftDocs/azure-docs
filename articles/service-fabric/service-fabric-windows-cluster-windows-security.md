@@ -48,13 +48,16 @@ The sample *ClusterConfig.gMSA.Windows.MultiMachine.JSON* configuration file dow
 | **Configuration setting** | **Description** |
 | --- | --- |
 | ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  | 
-| ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
-| WindowsIdentities |Contains the cluster and client identities. |  
-| ClustergMSAIdentity |Configures node-to-node security. A group managed service account. |  
-| ClusterSPN |Registered SPN for gMSA account|  
-| ClientIdentities |Configures client-to-node security. An array of client user accounts. | 
-| Identity |Add the domain user, domain\username, for the client identity. |  
-| IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |  
+| ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |
+| WindowsIdentities |Contains the cluster and client identities. |
+| ClustergMSAIdentity |Configures node-to-node security. A group managed service account. |
+| ClusterSPN |Registered SPN for gMSA account|
+| ClientIdentities |Configures client-to-node security. An array of client user accounts. |
+| Identity |Add the domain user, domain\username, for the client identity. |
+| IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |
+
+> [!NOTE]
+> ClustergMSAIdentity value can not include the domain name, and can only be the group managed service account name. I.E. "mysfgmsa" is correct, and both "mydomain//mysfgmsa" or "mysfgmsa@mydomain" are invalid; as the domain is implied by the host machine.
 
 [Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting **ClustergMSAIdentity** when service fabric needs to run under gMSA. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished in two different ways: Specify the Group Managed Service Account that includes all nodes in the cluster or Specify the domain machine group that includes all nodes in the cluster. We strongly recommend using the [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) approach, particularly for larger clusters (more than 10 nodes) or for clusters that are likely to grow or shrink.  
 This approach does not require the creation of a domain group for which cluster administrators have been granted access rights to add and remove members. These accounts are also useful for automatic password management. For more information, see [Getting Started with Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431.aspx).  
@@ -97,10 +100,10 @@ This model is being deprecated. The recommendation is to use gMSA as detailed ab
 
 | **Configuration setting** | **Description** |
 | --- | --- |
-| ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  | 
-| ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |  
-| WindowsIdentities |Contains the cluster and client identities. |  
-| ClusterIdentity |Use a machine group name, domain\machinegroup, to configure node-to-node security. |  
+| ClusterCredentialType |Set to *Windows* to enable Windows security for node-node communication.  |
+| ServerCredentialType |Set to *Windows* to enable Windows security for client-node communication. |
+| WindowsIdentities |Contains the cluster and client identities. |
+| ClusterIdentity |Use a machine group name, domain\machinegroup, to configure node-to-node security. |
 | ClientIdentities |Configures client-to-node security. An array of client user accounts. |  
 | Identity |Add the domain user, domain\username, for the client identity. |  
 | IsAdmin |Set to true to specify that the domain user has administrator client access or false for user client access. |  

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/12/2019
 ms.author: magoedte
 ---
 
@@ -27,6 +27,10 @@ The agent may be installed by using one of the following methods. Most installat
 * Azure Automation Desired State Configuration (DSC). Using DSC in Azure Automation with a script for Windows computers already deployed in your environment.  
 * PowerShell script.
 * Resource Manager template for virtual machines running Windows on-premises in Azure Stack.  
+
+>[!NOTE]
+>Azure Security Center (ASC) depends on the Microsoft Monitoring Agent (also referred to as the Log Analytics Windows agent) and will install and configure it to report to a Log Analytics workspace as part of its deployment. ASC includes an automatic provisioning option which enables automatic installation of the Log Analytics Windows agent on all VMs in your subscription and configures it to report to a specific workspace. For more information about this option, see [Enable automatic provisioning of Log Analytics agent](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
+>
 
 To understand the supported configuration, review [supported Windows operating systems](log-analytics-agent.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-firewall-requirements).
 

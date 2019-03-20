@@ -123,6 +123,8 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Best Practices
+    href: key-vault-best-practices.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
   - name: Authentication, requests and responses

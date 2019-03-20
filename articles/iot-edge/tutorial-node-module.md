@@ -58,14 +58,14 @@ If you don't already have a container registry, follow these steps to create a n
 
 2. Provide the following values to create your container registry:
 
-   | Field | Value | 
+   | Field | Value |
    | ----- | ----- |
    | Registry name | Provide a unique name. |
    | Subscription | Select a subscription from the drop-down list. |
    | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
    | Admin user | Set to **Enable**. |
-   | SKU | Select **Basic**. | **Terminal**
+   | SKU | Select **Basic**. |
 
 5. Select **Create**.
 
@@ -194,11 +194,11 @@ Each template comes with sample code included, which takes simulated sensor data
 11. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)

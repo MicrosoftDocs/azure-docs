@@ -198,7 +198,7 @@ Perform the following steps to configure the Wire Data solution for your workspa
 > [!NOTE]
 > You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
 > 
-### Install the Dependency Agent on Windows
+> ### Install the Dependency Agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
 
@@ -267,7 +267,7 @@ To easily deploy the Dependency Agent on many servers at once, it helps to use a
 
 ```PowerShell
 
-Invoke-WebRequest &quot;https://aka.ms/dependencyagentwindows&quot; -OutFile InstallDependencyAgent-Windows.exe
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S
 
@@ -290,7 +290,7 @@ To deploy the Dependency Agent via Desired State Configuration, you can use the 
 ```
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
-$DAPackageLocalPath = &quot;C:\InstallDependencyAgent-Windows.exe&quot;
+$DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
 
 
@@ -304,11 +304,11 @@ Node $NodeName
 
     {
 
-        Uri = &quot;https://aka.ms/dependencyagentwindows&quot;
+        Uri = "https://aka.ms/dependencyagentwindows"
 
         DestinationPath = $DAPackageLocalPath
 
-        DependsOn = &quot;[Package]OI&quot;
+        DependsOn = "[Package]OI"
 
     }
 
@@ -316,21 +316,21 @@ Node $NodeName
 
     {
 
-        Ensure=&quot;Present&quot;
+        Ensure = "Present"
 
-        Name = &quot;Dependency Agent&quot;
+        Name = "Dependency Agent"
 
         Path = $DAPackageLocalPath
 
         Arguments = '/S'
 
-        ProductId = &quot;&quot;
+        ProductId = ""
 
-        InstalledCheckRegKey = &quot;HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent&quot;
+        InstalledCheckRegKey = "HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
 
-        InstalledCheckRegValueName = &quot;DisplayName&quot;
+        InstalledCheckRegValueName = "DisplayName"
 
-        InstalledCheckRegValueData = &quot;Dependency Agent&quot;
+        InstalledCheckRegValueData = "Dependency Agent"
 
     }
 
@@ -382,9 +382,9 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 | **Blade** | **Description** |
 | --- | --- |
-| Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for `WireData | summarize sum(TotalBytes) by Computer | take 500000`. Click a computer in the list to run a log search returning the total number of bytes captured. |
-| Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for `WireData | summarize sum(TotalBytes) by LocalSubnet` that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
-| Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for `WireData | summarize sum(TotalBytes) by ApplicationProtocol`. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
+| Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>. Click a computer in the list to run a log search returning the total number of bytes captured. |
+| Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
+| Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by ApplicationProtocol</code>. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
 
 ![Wire Data dashboard](./media/wire-data/wire-data-dash.png)
 

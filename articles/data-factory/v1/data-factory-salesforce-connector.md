@@ -281,6 +281,7 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 
 
 ### Type mapping for Salesforce
+
 | Salesforce type | .NET-based type |
 | --- | --- |
 | Auto Number |String |

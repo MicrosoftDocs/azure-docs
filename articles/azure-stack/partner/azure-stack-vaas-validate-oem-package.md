@@ -185,30 +185,30 @@ The following tests are required for OEM package validation:
 
     OEM Extension Package Verification is split into two manual steps: Azure Stack Update, and OEM Update.
 
-    1. **Select** "Run" in the UI to execute the precheck script. This is an automated test that takes about 5 minutes to complete and requires no action.
+   1. **Select** "Run" in the UI to execute the precheck script. This is an automated test that takes about 5 minutes to complete and requires no action.
 
-    1. Once the precheck script has completed, perform the manual step: **install** the latest available Azure Stack update using the Azure Stack portal.
+   1. Once the precheck script has completed, perform the manual step: **install** the latest available Azure Stack update using the Azure Stack portal.
 
-    1. **Run** Test-AzureStack on the stamp. If any failures occur, do not continue with the test and contact [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+   1. **Run** Test-AzureStack on the stamp. If any failures occur, do not continue with the test and contact [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
-        For information on how to run the Test-AzureStack command, see [Validate Azure Stack system state](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+       For information on how to run the Test-AzureStack command, see [Validate Azure Stack system state](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
-    1. **Select** "Next" to execute the postcheck script. This is an automated test and marks the end of the Azure Stack update process.
+   1. **Select** "Next" to execute the postcheck script. This is an automated test and marks the end of the Azure Stack update process.
 
-    1. **Select** "Run" to execute the precheck script for OEM Update.
+   1. **Select** "Run" to execute the precheck script for OEM Update.
 
-    1. Once the precheck has completed, perform the manual step: **install** the OEM extension package through the portal.
+   1. Once the precheck has completed, perform the manual step: **install** the OEM extension package through the portal.
 
-    1. **Run** Test-AzureStack  on the stamp.
+   1. **Run** Test-AzureStack  on the stamp.
 
-        > [!NOTE]
-        > As before, do not continue with the test and contact [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) if it fails. This step is critical as it will save you a redeployment.
+      > [!NOTE]
+      > As before, do not continue with the test and contact [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) if it fails. This step is critical as it will save you a redeployment.
 
-    1. **Select** "Next" to execute the postcheck script. This marks the end of the OEM update step.
+   1. **Select** "Next" to execute the postcheck script. This marks the end of the OEM update step.
 
-    1. Answer any remaining questions at the end of the test and **select** "Submit".
+   1. Answer any remaining questions at the end of the test and **select** "Submit".
 
-    1. This marks the end of the interactive test.
+   1. This marks the end of the interactive test.
 
 5. Review the result for OEM Extension Package Verification. Once the test has succeeded, schedule Cloud Simulation Engine for execution.
 

@@ -12,7 +12,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
@@ -296,6 +296,7 @@ In this example, the deployment or support team receive the readiness report fro
 > -RegionName
 
 Specifies the Azure Stack deployment's region name.
+
 |  |  |
 |----------------------------|--------------|
 |Type:                       |String        |
@@ -307,6 +308,7 @@ Specifies the Azure Stack deployment's region name.
 > -FQDN
 
 Specifies the Azure Stack deployment's external FQDN, also aliased as ExternalFQDN and ExternalDomainName.
+
 |  |  |
 |----------------------------|--------------|
 |Type:                       |String        |
@@ -318,6 +320,7 @@ Specifies the Azure Stack deployment's external FQDN, also aliased as ExternalFQ
 > -IdentitySystem
 
 Specifies the Azure Stack deployment's Identity System valid values, AAD or ADFS, for Azure Active Directory and Active Directory Federated Services respectively.
+
 |  |  |
 |----------------------------|--------------|
 |Type:                       |String        |
@@ -330,6 +333,7 @@ Specifies the Azure Stack deployment's Identity System valid values, AAD or ADFS
 > -PfxPassword
 
 Specifies the password associated with PFX certificate files.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |SecureString |
@@ -341,6 +345,7 @@ Specifies the password associated with PFX certificate files.
 > -PaaSCertificates
 
 Specifies the hashtable containing paths and passwords to PaaS Certificates.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |Hashtable |
@@ -352,6 +357,7 @@ Specifies the hashtable containing paths and passwords to PaaS Certificates.
 > -DeploymentDataJSONPath
 
 Specifies the Azure Stack deployment data JSON configuration file. This file is generated for deployment.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -363,6 +369,7 @@ Specifies the Azure Stack deployment data JSON configuration file. This file is 
 > -PfxPath
 
 Specifies the path to a problematic certificate that requires import/export routine to fix, as indicated by certificate validation in this tool.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -374,6 +381,7 @@ Specifies the path to a problematic certificate that requires import/export rout
 > -ExportPFXPath  
 
 Specifies the destination path for the resultant PFX file from import/export routine.  
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -385,6 +393,7 @@ Specifies the destination path for the resultant PFX file from import/export rou
 > -Subject
 
 Specifies an ordered dictionary of the subject for the certificate request generation.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |OrderedDictionary   |
@@ -412,6 +421,7 @@ Specifies the SAN type of the certificate request. Valid values MultipleCSR, Sin
 > -OutputRequestPath
 
 Specifies the destination path for certificate request files, directory must already exist.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -423,6 +433,7 @@ Specifies the destination path for certificate request files, directory must alr
 > -AADServiceAdministrator
 
 Specifies Azure Active Directory Service Administrator to be used for Azure Stack deployment.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |PSCredential   |
@@ -434,6 +445,7 @@ Specifies Azure Active Directory Service Administrator to be used for Azure Stac
 > -AADDirectoryTenantName
 
 Specifies the Azure Active Directory name to be used for Azure Stack deployment.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -445,6 +457,7 @@ Specifies the Azure Active Directory name to be used for Azure Stack deployment.
 > -AzureEnvironment
 
 Specifies the instance of Azure Services containing the accounts, directories, and subscriptions to be used for Azure Stack deployment and registration.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -457,6 +470,7 @@ Specifies the instance of Azure Services containing the accounts, directories, a
 > -RegistrationAccount
 
 Specifies the Registration Account to be used for Azure Stack registration.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -468,6 +482,7 @@ Specifies the Registration Account to be used for Azure Stack registration.
 > -RegistrationSubscriptionID
 
 Specifies the Registration Subscription ID to be used for Azure Stack registration.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |Guid     |
@@ -479,6 +494,7 @@ Specifies the Registration Subscription ID to be used for Azure Stack registrati
 > -ReportPath
 
 Specifies path for Readiness Report, defaults to current directory and default report name.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -524,6 +540,7 @@ Specifies if PaaS services/hostnames should be added to the certificate request(
 > -ReportSections
 
 Specifies whether to only show report summary, omits detail.
+
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
@@ -536,6 +553,7 @@ Specifies whether to only show report summary, omits detail.
 > -Summary
 
 Specifies whether to only show report summary, omits detail.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -547,6 +565,7 @@ Specifies whether to only show report summary, omits detail.
 > -CleanReport
 
 Removes previous execution and validation history and writes validations to a new report.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -571,6 +590,7 @@ Specifies custom path to save Readiness JSON report and verbose log file.  If th
 > -Confirm
 
 Prompts for confirmation before running the cmdlet.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -583,6 +603,7 @@ Prompts for confirmation before running the cmdlet.
 > -WhatIf
 
 Shows what would happen if the cmdlet runs. The cmdlet is not run.
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
@@ -591,3 +612,4 @@ Shows what would happen if the cmdlet runs. The cmdlet is not run.
 |Default value:              |False             |
 |Accept pipeline input:      |False             |
 |Accept wildcard characters: |False             |
+

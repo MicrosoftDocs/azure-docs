@@ -34,7 +34,7 @@ To build the samples, you will need to install the Azure Storage Client Library 
 To install the Azure Storage Client 2.4.0 for C++, you can use one of the following methods:
 
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
+* **Windows:** In Visual Studio, click **Tools &gt; NuGet Package Manager &gt; Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
   
 ```
 Install-Package wastorage
@@ -67,7 +67,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## Create an Azure file share
-All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use a Azure Files client.
+All files and directories in an Azure file share reside in a container called a **Share**. Your storage account can have as many shares as your account capacity allows. To obtain access to a share and its contents, you need to use an Azure Files client.
 
 ```cpp
 // Create the Azure Files client.

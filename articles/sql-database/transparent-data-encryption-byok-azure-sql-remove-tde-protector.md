@@ -11,13 +11,15 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running. 
@@ -79,7 +81,7 @@ This how-to guide goes over two approaches depending on the desired result after
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet. 
+5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
 
    ```powershell
    Remove-AzKeyVaultKey `

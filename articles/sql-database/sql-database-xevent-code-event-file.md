@@ -11,7 +11,7 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 12/19/2018
+ms.date: 03/12/2019
 ---
 # Event File target code for extended events in SQL Database
 
@@ -32,6 +32,8 @@ This topic presents a two-phase code sample:
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.

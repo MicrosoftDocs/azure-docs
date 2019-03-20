@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/20/2019
 ms.author: raynew
 
 ---
@@ -43,7 +43,7 @@ Disk free space | 600 GB of space required for process server cache.
 Disk free space | 600 GB  of space required for retention drive.
 Operating system  | Windows Server 2012 R2 or Windows Server 2016 |
 Operating system locale | English (en-us)
-PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") should be installed.
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") is not required for configuration server with versions from [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server roles | Don't enable: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
 Group policies| Don't enable: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
@@ -181,7 +181,7 @@ Guest/server multipath (MPIO) | No
 
 > [!NOTE]
 > UEFI boot VMware virtual machines running Windows Server 2012 or later can be migrated to Azure. The following restrictions apply:
-
+> 
 > - Only migration to Azure is supported. Failback to on-premises VMware site isn't supported.
 > - The server shouldn't have more than four partitions on the OS disk.
 > - Requires Mobility Service version 9.13 or later.
@@ -240,7 +240,7 @@ Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
 
 **Source data churn** | **Maximum Limit**
 ---|---
@@ -261,7 +261,7 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 ## Download latest Azure Site Recovery components
 
 **Name** | **Description** | **Latest version download instructions**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Configuration server | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | For fresh installation, click [here](vmware-azure-deploy-configuration-server.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Process server|Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.| For fresh installation, click [here](vmware-azure-set-up-process-server-scale.md). For upgrading existing component to latest version, click [here](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobility Service | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate | For fresh installation, click [here](vmware-azure-install-mobility-service.md). For upgrading existing component to latest version, click [here](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).

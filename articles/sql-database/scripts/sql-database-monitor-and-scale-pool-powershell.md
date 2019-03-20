@@ -11,7 +11,7 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # Use PowerShell to monitor and scale an elastic pool in Azure SQL Database
 

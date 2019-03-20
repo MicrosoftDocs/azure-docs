@@ -68,7 +68,7 @@
       href: vpn-gateway-about-skus-legacy.md
   - name: Site-to-Site connections
     items:
-    - name: Configure a S2S connection
+    - name: Configure S2S connections
       items:
       - name: Azure portal
         href: vpn-gateway-howto-site-to-site-resource-manager-portal.md

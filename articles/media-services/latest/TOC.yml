@@ -73,7 +73,8 @@
         href: filters-concept.md
     - name: Content protection
       items:
-      - name: Overview      
+      - name: Streaming protocols and encryption types
+        displayName: Dynamic encryption      
         href: content-protection-overview.md  
       - name: Multi-DRM system with access control
         href: design-multi-drm-system-with-access-control.md  
@@ -104,6 +105,7 @@
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
+      displayName: archive
       href: live-event-cloud-dvr.md
     - name: Feature comparison
       href: live-event-types-comparison.md
@@ -164,9 +166,14 @@
     - name: Local file as Job input - .NET
       displayName: encode, encoding
       href: job-input-from-local-file-how-to.md    
-    - name: Use a custom Transform - .NET
-      displayName: encode, encoding, tranform
-      href: customize-encoder-presets-how-to.md
+    - name: Encode with a custom Transform
+      items:
+      - name: With .NET
+        href: customize-encoder-presets-how-to.md
+      - name: With CLI
+        href: custom-preset-cli-howto.md
+      - name: With REST
+        href: custom-preset-rest-howto.md      
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal

@@ -7,7 +7,6 @@ author: zr-msft
 ms.author: zarhoads
 ms.date: "05/11/2018"
 ms.topic: "conceptual"
-ms.technology: "azds-kubernetes"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---

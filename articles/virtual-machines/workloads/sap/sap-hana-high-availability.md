@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
 
 ---
@@ -190,6 +190,9 @@ To deploy the template, follow these steps:
 
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
+> [!IMPORTANT]
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421) currently contains contradicting statement, advising you to set net.ipv4.tcp_timestamps to 1. For Azure VMs placed behind Azure Load balancer, set parameter **net.ipv4.tcp_timestamps** to **0**. 
 
 ## Create a Pacemaker cluster
 

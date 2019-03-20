@@ -38,6 +38,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Here, we specify the following parameters to the PyTorch constructor:
+
 Parameter | Description
 --|--
 `source_directory` |  Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
@@ -78,6 +79,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 This code exposes the following new parameters to the PyTorch constructor:
+
 Parameter | Description | Default
 --|--|--
 `node_count` |  Number of nodes to use for your training job. | `1`

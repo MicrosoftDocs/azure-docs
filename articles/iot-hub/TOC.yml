@@ -273,19 +273,14 @@
         href: iot-hub-configure-file-upload-powershell.md
       - name: Use Azure CLI
         href: iot-hub-configure-file-upload-cli.md
-    - name: Monitor with diagnostics
+    - name: Metrics in Azure Monitor
+      href: iot-hub-metrics.md
+    - name: Set up diagnostic logs
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: Migrate to diagnostics settings
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: Operations monitoring
-        href: iot-hub-operations-monitoring.md
     - name: Secure your hub with an X.509 certificate
       href: iot-hub-security-x509-get-started.md
     - name: Upgrade an IoT hub
       href: iot-hub-upgrade.md
-    - name: Usage metrics
-      href: iot-hub-metrics.md
     - name: Enable message tracing
       href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
@@ -377,6 +372,12 @@
     href: https://docs.microsoft.com/rest/api/iothub/certificates
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: Feature and API retirement
+    items:
+    - name: Operations monitoring
+      href: iot-hub-operations-monitoring.md
+    - name: Migrate to diagnostics settings
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: Related
   items:
   - name: Solutions

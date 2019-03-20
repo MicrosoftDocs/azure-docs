@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
@@ -78,7 +78,7 @@ After running the experiment, you can inspect the evaluation results by clicking
 Figure 4. Cross-Validation Results of a Regression Model.
 
 ## Evaluating a Binary Classification Model
-In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50 K”, “>50 K”}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning Studio computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) dataset to create a Studio experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
+In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50 K”, “>50 K”}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning Studio computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) dataset to create a Studio experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
 
 ### Creating the Experiment
 Add the following modules to your workspace in Azure Machine Learning Studio:
@@ -128,8 +128,8 @@ Figure 8. Cross-Validating a Binary Classification Model.
 Figure 9. Cross-Validation Results of a Binary Classifier.
 
 ## Evaluating a Multiclass Classification Model
-In this experiment we will use the popular [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") dataset which contains instances of 3 different types (classes) of the iris plant. There are 4 feature values (sepal length/width and petal length/width) for each instance. In the previous experiments we trained and tested the models using the same datasets. Here, we will use the [Split Data][split] module to create 2 subsets of the data, train on the first, and score and evaluate on the second. 
-The Iris dataset is publicly available on the [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
+In this experiment we will use the popular [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") dataset which contains instances of 3 different types (classes) of the iris plant. There are 4 feature values (sepal length/width and petal length/width) for each instance. In the previous experiments we trained and tested the models using the same datasets. Here, we will use the [Split Data][split] module to create 2 subsets of the data, train on the first, and score and evaluate on the second. 
+The Iris dataset is publicly available on the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
 
 ### Creating the Experiment
 Add the following modules to your workspace in Azure Machine Learning Studio:

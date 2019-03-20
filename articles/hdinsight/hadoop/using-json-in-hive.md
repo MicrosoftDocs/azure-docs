@@ -53,7 +53,7 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
 }
 ```
 
-The file can be found at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
+The file can be found at **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
 In this tutorial, you use the Apache Hive console. For instructions on how to open the Hive console, see [Use Apache Ambari Hive View with Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
@@ -79,7 +79,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-The raw JSON file is located at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. The **StudentsRaw** Hive table points to the raw JSON document that is not flattened.
+The raw JSON file is located at **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. The **StudentsRaw** Hive table points to the raw JSON document that is not flattened.
 
 The **StudentsOneLine** Hive table stores the data in the HDInsight default file system under the **/json/students/** path.
 
@@ -149,8 +149,8 @@ In conclusion, the type of JSON operator in Hive that you choose depends on your
 For related articles, see:
 
 * [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
-* [Analyze flight delay data by using Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analyze flight delay data by using Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

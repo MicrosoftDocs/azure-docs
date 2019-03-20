@@ -256,7 +256,7 @@ In this step, you create a dataset to represent the data that is copied from the
 
     1. Select **AzureStorageLinkedService** for **Linked service**.
     2. Enter **adftutorial/incchgtracking** for **folder** part of the **filePath**.
-    3. Enter **@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
+    3. Enter **\@CONCAT('Incremental-', pipeline().RunId, '.txt')** for **file** part of the **filePath**.  
 
        ![Sink dataset - connection](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -368,29 +368,29 @@ In this step, you create a pipeline with the following activities, and run it pe
     ![Lookup Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Switch to the **Settings** in the **Properties** window, and do the following steps:
 
-    1. Select **SourceDataset** for the **Source Dataset** field.
-    2. Select **Query** for **Use Query**. 
-    3. Enter the following SQL query for **Query**. 
+   1. Select **SourceDataset** for the **Source Dataset** field.
+   2. Select **Query** for **Use Query**. 
+   3. Enter the following SQL query for **Query**. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store. 
 
     ![Copy Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. Switch to the **Source** tab in the **Properties** window, and do the following steps:
 
-    1. Select **SourceDataset** for **Source Dataset**. 
-    2. Select **Query** for **Use Query**. 
-    3. Enter the following SQL query for **Query**. 
+   1. Select **SourceDataset** for **Source Dataset**. 
+   2. Select **Query** for **Use Query**. 
+   3. Enter the following SQL query for **Query**. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. Switch to the **Sink** tab, and select **SinkDataset** for the **Sink Dataset** field. 
 
     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -421,9 +421,9 @@ In this step, you create a pipeline with the following activities, and run it pe
 15. Click **Validate** on the toolbar. Confirm that there are no validation errors. Close the **Pipeline Validation Report** window by clicking **>>**. 
 
     ![Validate button](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message. 
+16. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message. 
 
-        ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### Run the incremental copy pipeline
 1. Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**. 

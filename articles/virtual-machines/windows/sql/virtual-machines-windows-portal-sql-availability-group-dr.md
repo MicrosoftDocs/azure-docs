@@ -3,7 +3,7 @@ title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recove
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management

@@ -44,7 +44,7 @@ First, create two Event Grid topics. These topics will act as your primary and s
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
 1. From the upper left corner of the main Azure menu, 
-choose **All services** > search for **Event Grid** > select **Event Grid Topics**.
+   choose **All services** > search for **Event Grid** > select **Event Grid Topics**.
 
    ![Event Grid Topics menu](./media/custom-disaster-recovery/select-topics-menu.png)
 
@@ -52,10 +52,10 @@ choose **All services** > search for **Event Grid** > select **Event Grid Topics
 
 1. In the Event Grid Topics Menu, select **+ADD** to create your primary topic.
 
-    * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
-    * This topic's region will be your primary region.
+   * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
+   * This topic's region will be your primary region.
 
-    ![Event Grid Topic primary create dialogue](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Event Grid Topic primary create dialogue](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Once the Topic has been created, navigate to it and copy the **Topic Endpoint**. you'll need the URI later.
 
@@ -67,11 +67,11 @@ choose **All services** > search for **Event Grid** > select **Event Grid Topics
 
 1. In the Topic blade, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
 
-    * Give the event subscription a logical name and add "-primary" as a suffix to make it easy to track.
-    * Select Endpoint Type Web Hook.
-    * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Give the event subscription a logical name and add "-primary" as a suffix to make it easy to track.
+   * Select Endpoint Type Web Hook.
+   * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../best-practices-availability-paired-regions.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
 
@@ -89,7 +89,7 @@ Now that you have a regionally redundant pair of topics and subscriptions setup,
 
 ### Basic client-side implementation
 
-The following sample code is a simple .Net publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
+The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
 
 ```csharp
 using System;

@@ -139,39 +139,39 @@ Microsoft Text-to-Speech API supports SSML 1.0 as defined in W3C [Speech Synthes
 
 1. Adding break
 
-  ```
-  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+   ```
 
 2. Change speaking rate
 
-  ```
-  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 3. Pronunciation
 
-  ```
-  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+   ```
 
 4. Change volume
 
-  ```
-  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 5. Change pitch
 
-  ```
-  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 6. Change prosody contour
 
-  ```
-  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+   ```
 
 > [!NOTE]
 > Note the audio data has to be 8k or 16k wav filed in the following format: **CRC code** (CRC-32): 4 bytes (DWORD) with valid range 0x00000000 ~ 0xFFFFFFFF; **Audio format flag**: 4 bytes (DWORD) with valid range 0x00000000 ~ 0xFFFFFFFF; **Sample count**: 4 bytes (DWORD) with valid range 0x00000000 ~ 0x7FFFFFFF; **Size of binary body**: 4 bytes (DWORD) with valid range 0x00000000 ~ 0x7FFFFFFF; **Binary body**: n bytes.
@@ -264,6 +264,7 @@ zh-HK | Male | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apol
 zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)"
 zh-TW | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)"
 zh-TW | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)"
+
  *ar-EG supports Modern Standard Arabic (MSA).
 
 > [!NOTE]

@@ -7,7 +7,7 @@ author: basilhariri
 manager: timlt
 
 ms.service: event-hubs
-ms.topic: mirror-maker
+ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri

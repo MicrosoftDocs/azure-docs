@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 03/20/2019
 ms.author: raynew
 
 ---
@@ -28,7 +28,7 @@ This article summarizes supported configurations and components when you deploy 
 ## Resource support
 
 **Resource action** | **Details**
---- | --- | ---
+--- | --- 
 **Move vault across resource groups** | Not supported
 **Move compute/storage/network resources across resource groups** | Not supported.<br/><br/> If you move a VM or associated components such as storage/network after the VM is replicating, you need to disable and then re-enable replication for the VM.
 **Replicate Azure VMs from one subscription to another for disaster recovery** | Supported within the same Azure Active Directory tenant.
@@ -215,7 +215,7 @@ Premium P10 or P15 disk | 8 KB	| 2 MB/s | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MB/s |	336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
-Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
 ## Replicated machines - networking
 **Configuration** | **Support** | **Details**
 --- | --- | ---

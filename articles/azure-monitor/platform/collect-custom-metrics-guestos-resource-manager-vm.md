@@ -4,7 +4,7 @@ description: Send guest OS metrics to the Azure Monitor metric store using a Res
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics

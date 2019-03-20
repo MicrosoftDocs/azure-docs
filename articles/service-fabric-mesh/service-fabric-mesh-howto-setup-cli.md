@@ -51,7 +51,7 @@ Follow instructions on [Set up Service Fabric CLI](https://docs.microsoft.com/az
 In order to use the Maven CLI, the following needs to be installed on your machine: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Azure Mesh CLI (az mesh) - To target Azure Service Fabric Mesh 
 * SFCTL (sfctl) - To target local clusters 

@@ -43,7 +43,7 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 
 ## See also
 
-[Use the .Net SDK to trigger jobs in the Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Use the .NET SDK to trigger jobs in the Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

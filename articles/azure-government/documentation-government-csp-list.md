@@ -15,6 +15,7 @@ Since the launch of the [Azure Government in the Cloud Solution Provider Program
 
 Below you can find a list of all the authorized Cloud Solution Providers, which can resell Azure Government. This list includes all approved CSPs as of **February 28, 2019** as well as the list of Licensing Solution Providers (LSP). Updates to this list will be made as new partners are onboarded. 
 ## Approved direct CSPs
+
 |Partner Name|
 |----------------------------|
 |[10th Magnitude](https://www.10thmagnitude.com)|
@@ -53,7 +54,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Blueforce Development Corporation](http://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
-|[CACI Inc - Federal](http://www.caci.com/)|
+|[CACI Inc - Federal](https://www.caci.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[CAPSYS Technologies, LLC](https://www.capsystech.com/)|
 |[CB5 Solutions](https://www.cbfive.com/)|
@@ -62,7 +63,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
 |CENTRALE LLC|
-|[Centurylink](http://www.centurylink.com/public-sector/federal-government.html)|
+|[Centurylink](https://www.centurylink.com/public-sector/federal-government.html)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
@@ -106,7 +107,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[eWay Corp](https://www.ewaycorp.com)|
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
 |[FCN, Inc.](https://fcnit.com)|
-|[Federal Resources Corporation FRC](http://fedresources.com/)|
+|[Federal Resources Corporation FRC](https://fedresources.com/)|
 |[FMT Consultants](https://www.fmtconsultants.com/)|
 |[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
@@ -115,7 +116,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Global Justice Solutions, LLC](http://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
-|[GovPlace](http://www.govplace.com/)|
+|[GovPlace](https://www.govplace.com/)|
 |[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
@@ -164,7 +165,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Microtechnologies, LLC](https://www.microtech.net/)|
 |[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
-|[MIS Sciences Corp](http://www.mis-sciences.com/)|
+|[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
 |MSCloud Express, LLC|
@@ -240,7 +241,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](https://www.sybatech.com)|
-|[Synergy Technical, LLC](http://www.syntechva.com/)|
+|[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
 |[Taborda Solutions](https://tabordasolutions.com)|
@@ -268,7 +269,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[ViON Corp.](https://www.vion.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
-|[VVL Systems & Consulting, LLC](http://www.vvlsystems.com/)|
+|[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|
@@ -280,6 +281,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Zones Inc](https://www.zones.com/site/home/index.html)|
 
 ## Approved indirect CSPs
+
 |Partner Name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
@@ -289,10 +291,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Tech Data Corporation](https://www.techdata.com/)|
 
 ## Approved LSPs
+
 |LSP Name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
-|CompuCom Systems Inc.|sales@compucom.com|972-856-3600|
+|CompuCom Systems Inc.|sales\@compucom.com|972-856-3600|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |En Pointe Technologies|govsales@enpointe.com|310-337-5977|
 |Hewlett Packard||877-686-9637|

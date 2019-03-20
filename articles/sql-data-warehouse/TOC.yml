@@ -64,6 +64,12 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: Workload Management
+    items: 
+    - name: Create workload classifier (Preview)
+      items:
+      - name: T-SQL
+        href: quickstart-create-a-workload-classifier-tsql.md
 - name: Concepts
   items:
   - name: Security
@@ -154,6 +160,10 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
+    - name: Workload Classification (Preview)
+      href: sql-data-warehouse-workload-classification.md
+    - name: Workload Importance (Preview)
+      href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
   - name: Manageability & monitoring
@@ -168,8 +178,6 @@
       href: backup-and-restore.md
     - name: Recommendations 
       href: sql-data-warehouse-concept-recommendations.md
-    - name: Maintenance schedule
-      href: service-maintenance.md
     - name: Troubleshoot
       href: sql-data-warehouse-troubleshoot.md
   - name: Maintenance schedules

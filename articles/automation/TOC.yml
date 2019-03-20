@@ -121,8 +121,6 @@
     - name: Manage Azure Automation data
       href: automation-managing-data.md
       displayName: backup
-    - name: Manage Python 2 packages
-      href: python-packages.md
     - name: Learning PowerShell Workflow
       href: automation-powershell-workflow.md
     - name: Child runbooks
@@ -176,16 +174,18 @@
       displayName: DSC
   - name: Manage shared resources
     items:
-    - name: Certificates
-      href: automation-certificates.md
-    - name: Connections
-      href: automation-connections.md
-    - name: Credentials
-      href: automation-credentials.md
-    - name: Integration modules
-      href: automation-integration-modules.md
     - name: Schedules
       href: automation-schedules.md
+    - name: Modules
+      href: shared-resources/modules.md
+    - name: Manage Python 2 packages
+      href: python-packages.md
+    - name: Credentials
+      href: automation-credentials.md
+    - name: Connections
+      href: automation-connections.md
+    - name: Certificates
+      href: automation-certificates.md
     - name: Variables
       href: automation-variables.md
     - name: Update Azure PowerShell modules

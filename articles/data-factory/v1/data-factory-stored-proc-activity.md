@@ -79,7 +79,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
     ```
 
    > [!IMPORTANT]
-   > **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
+   > **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **\@** is used as a prefix for the parameter.
 
 ### Create a data factory
 1. Log in to [Azure portal](https://portal.azure.com/).

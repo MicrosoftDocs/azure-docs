@@ -36,6 +36,7 @@ The following section list the supported operating systems for the Dependency ag
 >
 
 ### Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -83,7 +84,7 @@ The following section list the supported operating systems for the Dependency ag
 
 | OS version | Kernel version |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
