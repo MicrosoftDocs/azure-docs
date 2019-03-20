@@ -36316,6 +36316,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/release-notes-december-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0#december-2018",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-october-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0#october-2018",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
       "redirect_document_id": false
