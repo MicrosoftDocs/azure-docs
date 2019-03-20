@@ -6,6 +6,7 @@ metadata:
   description: Learn how to manage customer resources at scale
   author: JnHs
   manager: carmonm
+  ms.service: service-provider-toolkit
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
