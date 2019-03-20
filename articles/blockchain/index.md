@@ -27,7 +27,7 @@ ms.topic: hub-page
                             </div>
                             <div class="cardText">
                                 <h3>What is Azure Blockchain Service?</h3>
-                                <p>Learn about Azure Blockchain Service and how to operate blockchain networks at scale in Azure.</p>
+                                <p>Learn about Azure Blockchain Service and how to operate blockchain networks at scale in Azure.<br></p>
                             </div>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ ms.topic: hub-page
                             </div>
                             <div class="cardText">
                                 <h3>What is Azure Blockchain Workbench?</h3>
-                                <p>Learn about Azure Blockchain Workbench and how to create and deploy blockchain applications to share business processes and data with other organizations.</p>
+                                <p>Learn about Azure Blockchain Workbench and how to create blockchain applications to share business processes and data with other organizations.</p>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ ms.topic: hub-page
                             </div>
                             <div class="cardText">
                                 <h3>Deploy blockchain solution templates</h3>
-                                <p>Use deployment templates to create and deploy Ethereum PoA and Hyperledger Fabric consortium members</p>
+                                <p>Use deployment templates to create and deploy Ethereum PoA and Hyperledger Fabric consortium members.<br></p>
                             </div>
                         </div>
                     </div>
