@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
+ms.date: 03/20/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -218,5 +218,5 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
 
