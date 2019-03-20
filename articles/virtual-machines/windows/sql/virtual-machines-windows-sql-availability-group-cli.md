@@ -113,7 +113,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
   > The public IP resource for each SQL Server VM should have a standard SKU to be compatible with the Standard Load Balancer. To determine the SKU of your VM's public IP resource, navigate to your **Resource Group**, select your **Public IP Address** resource for the desired SQL Server VM, and locate the value under **SKU** of the **Overview** pane.  
 
 ## Step 6 - Create availability group listener
-Once the availability group has been manually created, you can create the listener using [az sql vm ag-listener](https://docs.microsoft.com/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
+Once the availability group has been manually created, you can create the listener using [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
 
 - The **subnet resource ID** is the value of `/subnets/<subnetname>` appended to the resource ID of the vNet resource. To identify the subnet resource ID, do the following:
@@ -144,6 +144,54 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
   --subnet <subnet resource id> `
   --sqlvms <names of SQL VM's hosting AG replicas ex: sqlvm1 sqlvm2>
 ```
+
+## Modify number of replicas in availability group
+There is an added layer of complexity when deploying an availability group to SQL Server VMs hosted in Azure, as resources are now managed by the resource provider, and by the `virtual machine group`. As such, when adding or removing replicas to the availability group, there is an additional step of updating the listener metadata with information about the SQL Server VMs. Therefore, when modifying the number of replicas in the availability group, you must also use the [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) command to update the listener with the metadata of the SQL Server VMs. 
+
+
+### Add a replica
+
+To add a new replica to the availability group, do the following:
+
+1. Add the SQL Server VM to the cluster:
+
+  ```cli
+  # Add SQL Server VM to the Cluster
+  # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
+  # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
+  az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
+  -b <bootstrap account password> -p <operator account password> -s <service account password>
+  ```
+
+1. Use SQL Server Management Studio (SSMS) to add the SQL Server instance as a replica within the availability group.
+1. Add the SQL Server VM metadata do the listener:
+
+  ```cli
+  # Update the listener metadata with the new VM
+  # example: az sql vm group ag-listener update -n AGListener `
+  -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
+  ```
+
+### Remove a replica
+
+To remove a replica from the availability group, do the following:
+
+1. Remove the replica from the availability group using SQL Server Management Studio (SSMS). 
+1. Remove the SQL Server VM metadata from the listener:
+
+  ```cli
+  # Update the listener metadata with the new VM
+  # example: az sql vm group ag-listener update -n AGListener `
+  -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
+  ```
+
+1. Remove the SQL Server VM from the cluster metadata:
+
+  ```cli
+  # Remove SQL VM from cluster metadata
+  # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
+  az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
+  ```
 
 ## Remove availability group listener
 If you later need to remove the availability group listener configured with Azure CLI, you must go through the SQL VM resource provider. Since the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. It actually should be deleted through the SQL VM resource provider using Azure CLI. Doing so removes the AG listener metadata from the SQL VM resource provider, and physically deletes the listener from the availability group. 
