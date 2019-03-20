@@ -133,7 +133,7 @@ The following table lists some of the most common Ambari monitoring API calls. F
 ## Next Steps
 Now you have learned how to use Apache Ambari monitoring API calls. To learn more, see:
 
-* [Manage HDInsight clusters using the Azure portal][hdinsight-admin-portal]
+* [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
 * [Manage HDInsight clusters using command-line interface][hdinsight-admin-cli]
 * [HDInsight documentation][hdinsight-documentation]
