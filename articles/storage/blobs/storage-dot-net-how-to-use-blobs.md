@@ -68,7 +68,7 @@ First, parse the connection string by calling the [CloudStorageAccount.TryParse]
 Then, create an object that represents Blob storage in your storage account by calling the [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method.
 
 ```cs
-public bool GetBlob(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
+public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
 {
     if (CloudStorageAccount.TryParse
         (storageConnectionString, out CloudStorageAccount storageAccount))
