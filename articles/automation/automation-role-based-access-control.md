@@ -220,11 +220,14 @@ The following tables show the minimum required permissions needed for onboarding
 |Create saved search      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Create scope config      | Microsoft.OperationalInsights/workspaces/write          | Workspace         |
 |Link solution to scope config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+|Onboarding state check - Read workspace      | Microsoft.OperationalInsights/workspaces/read         | Workspace         |
 |Onboarding state check - Read linked workspace property of account     | Microsoft.Automation/automationAccounts/read      | Automation account        |
 |Onboarding state check - Read solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Onboarding state check - Read VM      | Microsoft.Compute/virtualMachines/read         | Virtual Machine         |
 |Onboarding state check - Read account      | Microsoft.Automation/automationAccounts/read  |  Automation account   |
+| Onboarding workspace check for VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+
+<sup>1</sup> This permission is needed to onboard through the VM portal experience.
 
 ### Onboarding from Automation account
 
