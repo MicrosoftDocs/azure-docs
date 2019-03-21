@@ -24,11 +24,11 @@ In this article, you learn how to:
 
 ## Manage device access
 
-The access to your Data Box Gateway device is controlled by the use of a device administrator password. You can change the administrator password via the local web UI. You can also reset the device administrator password in the Azure portal.
+The access to your Data Box Gateway device is controlled by the use of a device password. You can change the password via the local web UI. You can also reset the device password in the Azure portal.
 
-### Change device administrator password
+### Change device password
 
-Follow these steps in the local UI to change the device administrator password.
+Follow these steps in the local UI to change the device password.
 
 1. In the local web UI, go to **Maintenance > Password change**.
 2. Enter the current password and then the new password. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Confirm the new password.
@@ -37,7 +37,7 @@ Follow these steps in the local UI to change the device administrator password.
 
 3. Click **Change password**.
  
-### Reset device administrator password
+### Reset device password
 
 The reset workflow does not require the user to recall the old password and is useful when the password is lost. This workflow is performed in the Azure portal.
 

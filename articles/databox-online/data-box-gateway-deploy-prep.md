@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure. 
 ---
+
 # Tutorial: Prepare to deploy Azure Data Box Gateway (preview)
 
 
@@ -29,7 +30,7 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
 
-### Get started
+## Get started
 
 To deploy your Data Box Gateway, refer to the following tutorials in the prescribed sequence.
 
@@ -60,7 +61,7 @@ Before you deploy a virtual device, make sure that:
 - You have access to a host system running Hyper-V on Windows Server 2012 R2 or later or VMware (ESXi 6.0, 6.5, or 6.7) that can be used to a provision a device.
 - The host system is able to dedicate the following resources to provision your Data Box virtual device:
   
-  - A minimum of 4 cores.
+  - A minimum of 4 virtual processors.
   - At least 8 GB of RAM.
   - One network interface.
   - A 250 GB OS disk.

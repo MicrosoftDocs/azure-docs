@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
 ---
-# Manage an Azure Data Box Edge device via Windows PowerShell (preview)
+# Manage an Azure Data Box Edge device via Windows PowerShell
 
 Azure Data Box Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
@@ -27,18 +27,9 @@ This article includes the following procedures:
 - Get compute logs
 - Monitor and troubleshoot compute modules
 
-> [!IMPORTANT]
-> Azure Data Box Edge is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Connect to the PowerShell interface
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## Start a support session
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## Create a support package
 

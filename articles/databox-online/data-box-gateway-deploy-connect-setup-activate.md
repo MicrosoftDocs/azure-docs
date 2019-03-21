@@ -52,9 +52,9 @@ Before you configure and set up your Data Box Gateway, make sure that:
    
     ![Sign in to local web UI](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-4. At the prompt, change the device administrator password. The new password must contain between 8 and 16 characters. It must contain 3 of the following: uppercase, lowercase, numeric, and special characters.
+4. At the prompt, change the device password. The new password must contain between 8 and 16 characters. It must contain 3 of the following: uppercase, lowercase, numeric, and special characters.
 
-    ![Change device admin password](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Change device password](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 You're now at the **Dashboard** of your device.
 
@@ -118,13 +118,14 @@ Your dashboard displays the various settings that are required to configure and 
        
          ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. First the device is activated. The device is then scanned for any critical updates and if available, the updates are automatically applied. You see a notification to that effect. 
-
-        The dialog also has a recovery key that you should copy and save it in a safe location. This key is used to recover your data in the event the device can't boot up.
+    3. The device is activated and critical updates, if available, are automatically applied. You see a notification to that effect. Monitor the update progress via the Azure portal.
 
         ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        
+        **The dialog also has a recovery key that you should copy and save in a safe location. This key is used to recover your data in the event the device can't boot up.**
 
-    4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
+
+    4. You may need to wait several minutes for the update to successfully complete. After the update is complete, sign in to the device. The **Cloud settings** page updates to indicate that the device is successfully activated.
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 

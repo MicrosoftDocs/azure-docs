@@ -61,7 +61,7 @@ Usage:  dkr port CONTAINER [PRIVATE_PORT[/PROTO]]
 List port mappings or a specific mapping for the container
 [10.100.10.10]: P> dkrdbe login --help
 
-Usage:  dkr login [OPTIONS] [SERVER]
+Usage:  docker login [OPTIONS] [SERVER]
 
 Log in to a Docker registry.
 If no server is specified, the default is defined by the daemon.
