@@ -37,19 +37,20 @@ Certain limitations apply when you deploy container groups to a virtual network.
 
 While this feature is in preview, the following limitations apply when deploying container groups to a virtual network. 
 
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
+
+Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
+
 ### Unsupported networking scenarios 
 
 * **Azure Load Balancer** - Placing an Azure Load Balancer in front of container instances in a networked container group is not supported
 * **Virtual network peering** - You can't peer a virtual network containing a subnet delegated to Azure Container Instances to another virtual network
 * **Route tables** - User-defined routes can't be set up in a subnet delegated to Azure Container Instances
 * **Network security groups** - Outbound security rules in NSGs applied to a subnet delegated to Azure Container Instances aren't currently enforced 
-* **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name 
+* **Public IP or DNS label** - Container groups deployed to a virtual network don't currently support exposing containers directly to the internet with a public IP address or a fully qualified domain name
+* **Name resolution for resources** - Internal name resolution for Azure resources in the virtual network is not supported
 
 **Network resource deletion** requires [additional steps](#delete-network-resources) once you've deployed container groups to the virtual network.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
-
-Container resource limits may differ from limits for non-networked container instances in these regions. Currently only Linux containers are supported for this feature. Windows support is planned.
 
 ## Required network resources
 
