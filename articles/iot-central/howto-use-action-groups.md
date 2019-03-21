@@ -14,7 +14,7 @@ manager: philmea
 
 *This article applies to builders and administrators.*
 
-In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This how-to article describes how to use *action groups* to attach multiple actions to a rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
+In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../azure-monitor/overview.md) *action groups* to attach multiple actions to a rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
 
 ## Prerequisites
 
@@ -50,20 +50,20 @@ Select **Save**. The action group now appears in the list of actions to run when
 
 ![Saved action group](media/howto-use-action-groups/savedactiongroup.png)
 
-The following table summarizes the information sent to the different types of action in an action group:
+The following table summarizes the information sent to the supported types of action in an action group:
 
 | Action type | Output format |
 | ----------- | -------------- |
 | Email       | Standard IoT Central email template |
-| SMS         | Azure IoT Central alert: ${payload.application.name} - "${payload.rule.name}" triggered on "${payload.device.name}" at ${triggerDate} ${triggerTime} |
-| Voice       | Azure I.O.T Central alert: rule, "${payload.rule.name}", triggered on device, "${payload.device.name}", at ${triggerDate} ${triggerTime}, in application, ${payload.application.name} |
-| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {regular webhook payload} } |
-| Other       | A default template that contains the app name, rule name, and device name. |
+| SMS         | Azure IoT Central alert: ${applicationName} - "${ruleName}" triggered on "${deviceName}" at ${triggerDate} ${triggerTime} |
+| Voice       | Azure I.O.T Central alert: rule "${ruleName}" triggered on device "${deviceName}" at ${triggerDate} ${triggerTime}, in application ${applicationName} |
+| Webhook     | { "schemaId" : "AzureIoTCentralRuleWebhook", "data": {[regular webhook payload](#payload)} } |
 
 The following text is an example SMS message from an action group:
 
 `iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
 
+<a id="payload">
 The following JSON shows an example webhook action payload:
 
 ```json
@@ -107,4 +107,4 @@ The following JSON shows an example webhook action payload:
 
 ## Next steps
 
-Now that you've learned how to use action groups with rules, the suggested next step is to learn how to[manage your devices](howto-manage-devices.md).
+Now that you've learned how to use action groups with rules, the suggested next step is to learn how to [manage your devices](howto-manage-devices.md).
