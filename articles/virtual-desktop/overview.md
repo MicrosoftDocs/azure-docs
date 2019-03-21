@@ -40,7 +40,7 @@ You can deploy and manage virtual desktops:
 * Use the new Diagnostics service to troubleshoot errors.
 * Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
 
-You can also also assign and connect users to your virtual desktops:
+You can also assign and connect users to your virtual desktops:
 
 * Once assigned, users can launch any Windows Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
 * Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
