@@ -33,7 +33,7 @@ The user behavior analytics tools don't currently support counting users or sess
 ## Naming Events
 **My app has thousands of different page view and custom event names. It's hard to distinguish between them, and the user behavior analytics tools often become unresponsive. How can I fix these naming issues?**
 
-Page view and custom event names are used throughout the user behavior analytics tools. Naming events well is critical to getting value from these tools. The goal is a balance between having too few, overly generic names ("Button clicked") and having too many, overly specific names ("Edit button clicked on http://www.contoso.com/index").
+Page view and custom event names are used throughout the user behavior analytics tools. Naming events well is critical to getting value from these tools. The goal is a balance between having too few, overly generic names ("Button clicked") and having too many, overly specific names ("Edit button clicked on http:\//www.contoso.com/index").
 
 To make any changes to the page view and custom event names your app is sending, you need to change your app's source code and redeploy. **All telemetry data in Application Insights is stored for 90 days and cannot be deleted**, so changes you make to event names will take 90 days to fully manifest. For the 90 days after making name changes, both the old and new event names will show up in your telemetry, so adjust queries and communicate within your teams, accordingly.
 

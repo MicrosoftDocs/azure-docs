@@ -109,6 +109,8 @@
       href: end-to-end-ssl-portal.md      
     - name: End-to-end SSL - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Create certificates for whitelisting backend
+      href: certificates-for-backend-authentication.md        
     - name: Renew certificates
       href: renew-certificates.md
     - name: Configure SSL policy
@@ -119,7 +121,7 @@
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Customize WAF rules
+  - name: Configure WAF rule sets
     items:
     - name: Azure portal
       href: application-gateway-customize-waf-rules-portal.md

@@ -1,0 +1,28 @@
+- name: Overview
+  items:
+  - name: Considerations for Oracle VMs
+    href: oracle-considerations.md
+- name: Quickstarts
+  items:
+  - name: Create an Oracle DB
+    href: oracle-database-quick-create.md
+- name: Tutorials
+  items:
+  - name: Configure Oracle ASM
+    href: configure-oracle-asm.md
+  - name: Configure Oracle DataGuard
+    href: configure-oracle-dataguard.md
+  - name: Configure Oracle GoldenGate
+    href: configure-oracle-golden-gate.md
+- name: Concepts
+  items:
+  - name: Architect an Oracle DB
+    href: oracle-design.md
+  - name: Backup strategy for Oracle DB
+    href: oracle-backup-recovery.md
+  - name: Oracle Disaster Recovery options
+    href: oracle-disaster-recovery.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
