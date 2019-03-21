@@ -189,7 +189,7 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
   -SourceCred $sourceCred `
   -TargetConnection $targetConnInfo `
   -TargetCred $targetCred `
-  -SelectedDatabase  $selectedDbs`
+  -SelectedDatabase  $selectedDbs `
 ```
 
 ## Monitor the migration
