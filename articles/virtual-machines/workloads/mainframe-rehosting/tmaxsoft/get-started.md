@@ -1,5 +1,5 @@
 ---
-title: Get started with TmaxSoft OpenFrame | Microsoft Docs
+title: Get started with TmaxSoft OpenFrame
 description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure virtual machines (VMs).
 services: virtual-machines-linux
 documentationcenter:

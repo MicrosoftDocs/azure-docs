@@ -1,5 +1,5 @@
 ---
-title: Install TmaxSoft OpenFrame on Azure | Microsoft Docs
+title: Install TmaxSoft OpenFrame on Azure
 description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure virtual machines (VMs).
 services: virtual-machines-linux
 documentationcenter:
