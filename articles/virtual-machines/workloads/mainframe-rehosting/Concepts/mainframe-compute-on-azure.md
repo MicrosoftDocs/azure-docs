@@ -78,7 +78,7 @@ To determine the correct VM size for a given workload in a LPAR, first optimize 
 
 The M-series VMs can scale up to 128 vCPUs (at the time this article was written). Using the conservative estimate of 150 MIPS per vCPU, the M-series VM equates to about 19,000 MIPS. The general rule of thumb for estimating MIPS for a mainframe is 1,000 MIPS per processor. A z14 mainframe can have up to 24 processors. This provides about 24,000 MIPS for a single mainframe system.
 
-While the largest single z14 mainframe has approximately 5,000 MIPS more than the largest VM available in Azure, it is important to compare how workloads are deployed on a mainframe and on an Azure Virtual Machine. If a system has both an application and a relational database, both are typically deployed on the same physical mainframe, using separate LPARs for the application and database. 
+While the largest single z14 mainframe has approximately 5,000 MIPS more than the largest VM available in Azure, it is important to compare how workloads are deployed on a mainframe and on an Azure Virtual Machine. If a system has both an application and a relational database, both are typically deployed on the same physical mainframe, using separate LPARs for the application and database.
 
 On Azure, the same solution is typically deployed using one VM for the application and a separate, suitably sized VM for the database. For example, if a M64 vCPU system supports the application, and a M96 vCPU is used for the database,
 approximately 150 vCPUs are needed—or about 24,000 MIPS as the following figure shows.
