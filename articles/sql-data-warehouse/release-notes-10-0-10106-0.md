@@ -31,7 +31,7 @@ This article summarizes the new features and improvements in the recent releases
 
 | Documentation improvements | Details |
 | --- | --- |
-|Added documents for Workload Management |For more information, see [importance]((sql-data-warehouse-workload-importance.md)) and [classification](sql-data-warehouse-workload-classification.md). |
+|Added documents for Workload Management |For more information, see [importance](sql-data-warehouse-workload-importance.md) and [classification](sql-data-warehouse-workload-classification.md). |
 | | |
 
 ## Version 10.0.10106.0 (January 2019)
