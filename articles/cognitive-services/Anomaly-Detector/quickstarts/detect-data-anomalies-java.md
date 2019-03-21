@@ -5,7 +5,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: aahi
@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Detect anomalies in your time series data using the Anomaly Detector REST API and Java
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Java application sends two API requests containing JSON-formatted time series data, and gets the responses. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Java application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|

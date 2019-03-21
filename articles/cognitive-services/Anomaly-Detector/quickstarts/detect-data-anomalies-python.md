@@ -5,7 +5,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: aahi
@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Detect anomalies in your time series data using the Anomaly Detector REST API and Python
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the responses. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Python application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -126,8 +126,6 @@ def detect_latest(request_data):
 ## Load your time series data and send the request
 
 1. Load your JSON time series data opening a file handler, and using `json.load()` on it. Then call the anomaly detection methods created above.
-
-    [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
     
     ```python
     file_handler = open (data_location)
@@ -145,6 +143,5 @@ A successful response is returned in JSON format. Click the links below to view 
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 > [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect)
-
-[Find time series anomalies in batch](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyFinderV2/operations/post-timeseries-entire-detect) 
