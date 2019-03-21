@@ -25,12 +25,14 @@ sections:
     items:
       - image:
           src:  
-        text: Learn about Media Services fundamental concepts.
+        html: <p>Learn about Media Services fundamental concepts.</p>
         href:  /azure/media-services/latest/concepts-overview/
+        title: Learn concepts 
       - image:
           src:  
-        text: Currently, you cannot manage v3 resources with the Azure portal. Use the REST API, CLI, or one of the supported SDKs
-        href:  /azure/media-services/latest/developers-guide/      
+        html: <p>Currently, you cannot manage v3 resources with the Azure portal. Use the REST API, CLI, or one of the supported SDKs.</p>
+        href:  /azure/media-services/latest/developers-guide/  
+        title: Develop with v3 API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
