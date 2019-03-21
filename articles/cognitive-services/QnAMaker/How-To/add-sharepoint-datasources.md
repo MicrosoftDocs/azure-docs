@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/21/2019
 ms.author: tulasim
 ---
 
@@ -143,4 +143,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Where does this go](./help.md)
+> [Collaborate on your knowledge base](collaborate-knowledge-base.md)
