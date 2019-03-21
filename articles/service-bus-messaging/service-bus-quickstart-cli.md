@@ -59,31 +59,31 @@ After the last command runs, copy and paste the connection string, and the queue
 
 After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) on your computer by issuing the following command:
+1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) on your computer by issuing the following command:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Change your current directory to the sample folder, using forward slashes as path separators:
+1. Change your current directory to the sample folder, using forward slashes as path separators:
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. Issue the following command to build the application:
+1. Issue the following command to build the application:
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. To run the program, issue the following command after replacing the connection string with the value you copied earlier:
+1. To run the program, issue the following command after replacing the connection string with the value you copied earlier:
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. Observe 10 messages being sent to the queue. Ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
+1. Observe 10 messages being sent to the queue. Ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
 
     ```
     Message sending: Id = 0

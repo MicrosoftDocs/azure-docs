@@ -1,4 +1,4 @@
-## Setting up the library
+## Set up the session
 
 Invoke Start() to enable your session to process environment data.
 

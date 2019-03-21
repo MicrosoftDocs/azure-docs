@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -204,10 +204,6 @@ A successful response is returned in JSON. The sample webpage parses and display
   }
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the file.
 
 ## Next steps
 

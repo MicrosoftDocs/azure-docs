@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -45,9 +45,9 @@ For more information about assigning access to Cost Management data, see [Assign
 
 ## Review costs in cost analysis
 
-To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost analysis**. Select **Scope: _ScopeName_**, choose a scope, and then click **Select**.
+To review your costs in cost analysis, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll up to and then you filter-down to what you want. This is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll up to and then you filter-down to what you want. This is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 
 Click **Open Cost analysis**.
 

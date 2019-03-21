@@ -47,7 +47,7 @@ The Azure Diagnostics agent should be used when you want to:
 * Configure Log Analytics to import metrics and log data collected from Cloud Services, classic VMs, and Service Fabric nodes stored in an Azure storage account.
 
 ## Log Analytics agent
-For advanced monitoring where you need to do more than collect metrics and a subset of logs, the Log Analytics agent for Windows and Linux is required. The Log Analytics agent was developed for comprehensive management across on-premises physical and virtual machines, computers monitored by System Center Operations Manager, and VMs in hosted in other clouds. The Windows and Linux agents connect to a Log Analytics workspace to collect both monitoring solution-based data as well as custom data sources that you configure.
+For advanced monitoring where you need to do more than collect metrics and a subset of logs, the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) and Linux is required. The Log Analytics agent was developed for comprehensive management across on-premises physical and virtual machines, computers monitored by System Center Operations Manager, and VMs in hosted in other clouds. The Windows and Linux agents connect to a Log Analytics workspace to collect both monitoring solution-based data as well as custom data sources that you configure.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

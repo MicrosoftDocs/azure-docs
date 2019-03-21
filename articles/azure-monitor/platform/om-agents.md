@@ -127,7 +127,7 @@ Perform the following steps if an internal proxy server is between the managemen
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Expand Operations Management Suite, and then click **Connections**.
 1. In the OMS Connection view, click **Configure Proxy Server**.
-1. On **Operations Management Suite Wizard: Proxy Server** page, select **Use a proxy server to access the Operations Management Suite**, and then type the URL with the port number, for example, http://corpproxy:80 and then click **Finish**.
+1. On **Operations Management Suite Wizard: Proxy Server** page, select **Use a proxy server to access the Operations Management Suite**, and then type the URL with the port number, for example, http:\//corpproxy:80 and then click **Finish**.
 
 If your proxy server requires authentication, perform the following steps to configure credentials and settings that need to propagate to managed computers that reports to Log Analytics in the management group.
 

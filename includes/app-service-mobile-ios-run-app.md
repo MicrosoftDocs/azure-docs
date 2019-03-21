@@ -7,10 +7,10 @@ ms.author: crdun
 ---
 1. On your Mac, visit the [Azure portal]. Click **All Services** > **App Services** > the backend that you just created. In the mobile app settings, choose your preferred language:
 
-    - Objective-C &ndash; **Quickstart** > **iOS (Objective-C)**
-    - Swift &ndash; **Quickstart** > **iOS (Swift)**
+   - Objective-C &ndash; **Quickstart** > **iOS (Objective-C)**
+   - Swift &ndash; **Quickstart** > **iOS (Swift)**
 
-    Under **3. Configure your client application**, click **Download**. This downloads a complete Xcode project pre-configured to connect to your backend. Open the project using Xcode.
+     Under **3. Configure your client application**, click **Download**. This downloads a complete Xcode project pre-configured to connect to your backend. Open the project using Xcode.
 
 1. Press the **Run** button to build the project and start the app in the iOS simulator.
 

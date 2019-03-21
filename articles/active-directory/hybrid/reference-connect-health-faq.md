@@ -187,6 +187,9 @@ CheckForMS17-010
 
 Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure audit logs is not in disabled state. Read more about [ADFS audit logs](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notice if there are advanced audit settings pushed to the ADFS server, any changes with auditpol.exe will be overwritten (event if Application Generated is not configured). In this case, please set the local security policy to log Application Generated failures and success.
 
+**Q: When will the agent certificate be automatic renewed before expiration?**
+The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, please ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
+
 
 ## Related links
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)

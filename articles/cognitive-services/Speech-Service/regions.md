@@ -5,7 +5,6 @@ description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual

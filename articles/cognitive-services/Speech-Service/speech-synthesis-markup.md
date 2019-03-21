@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language - Speech Services
+title: Speech Synthesis Markup Language (SSML) - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
@@ -13,16 +13,13 @@ ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# Speech Synthesis Markup Language
+# Speech Synthesis Markup Language (SSML)
 
 The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more. For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
 For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md#text-to-speech).
 
 The following sections provide samples for common speech synthesis tasks.
-
->[!IMPORTANT]
-> Currently, prosody tagging is only available for standard voices.
 
 ## Add a break
 ```xml
@@ -33,6 +30,9 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change speaking rate
+
+Speaking rate can be applied to standard voices at the word or sentence-level. Whereas speaking rate can only be applied to neural voices at the sentence level.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -50,6 +50,9 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change volume
+
+Volume changes can be applied to standard voices at the word or sentence-level. Whereas volume changes can only be applied to neural voices at the sentence level.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -59,6 +62,9 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change pitch
+
+Pitch changes can be applied to standard voices at the word or sentence-level. Whereas pitch changes can only be applied to neural voices at the sentence level.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -67,6 +73,10 @@ The following sections provide samples for common speech synthesis tasks.
 ```
 
 ## Change pitch contour
+
+> [!IMPORTANT]
+> Pitch contour changes aren't supported with neural voices.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>

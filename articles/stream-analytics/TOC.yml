@@ -31,15 +31,17 @@
 - name: Concepts
   items:
   - name: Input types for a job
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Inputs overview
+      href: stream-analytics-add-inputs.md
     - name: Streaming data inputs
       href: stream-analytics-define-inputs.md
     - name: Reference data inputs
       href: stream-analytics-use-reference-data.md
   - name: Output types for a job
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Outputs overview
+      href: stream-analytics-define-outputs.md
     - name: Output to Cosmos DB
       href: stream-analytics-documentdb-output.md
     - name: Output to Azure SQL DB
@@ -70,6 +72,8 @@
     items:
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Configure event ordering policies
+      href: event-ordering.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
     - name: Start a job
@@ -84,7 +88,7 @@
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity
       href: stream-analytics-managed-identities-adls.md
-    - name: Use SQL reference
+    - name: Use SQL reference data
       href: sql-reference-data.md
   - name: Build solutions
     items:
@@ -113,7 +117,7 @@
       href: stream-analytics-monitoring.md
     - name: Monitor jobs- PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Monitor jobs- Azure .Net SDK
+    - name: Monitor jobs- Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
     - name: Monitor jobs- Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -121,9 +125,10 @@
     items:
     - name: Scale with streaming units
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Scale with query parallelization
-      href: stream-analytics-parallelization.md
+    - name: Scale with parallelization
       items:
+      - name: Query parallelization
+        href: stream-analytics-parallelization.md
       - name: Increase throughput
         href: stream-analytics-scale-jobs.md
     - name: Scale with ML functions
@@ -427,11 +432,10 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper - Real-time event processing
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-

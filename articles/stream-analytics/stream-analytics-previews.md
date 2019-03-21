@@ -56,7 +56,7 @@ You can now operationalize your real-time pipelines with managed identities for 
 
 ### Visual Studio Code for Azure Stream Analytics
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code. For access to tooling private preview features, contact to *ASAToolsfeedback@microsoft.com*.
+Azure Stream Analytics jobs can be authored in Visual Studio Code. For access to tooling private preview features, contact to *ASAToolsfeedback\@microsoft.com*.
 
 ## Next steps
 

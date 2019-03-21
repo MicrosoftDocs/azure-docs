@@ -41,29 +41,29 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
 1. Define the alert condition by using the **Select Resource** link and specifying the target by selecting a resource. Filter by choosing the _Subscription_, _Resource Type_, and required _Resource_.
 
-    >[!NOTE]
-
-    > For creating a log alert - verify the **log** signal is available for the selected resource before you proceed.
-    ![Select resource](media/alerts-log/Alert-SelectResourceLog.png)
+   > [!NOTE]
+   > 
+   > For creating a log alert - verify the **log** signal is available for the selected resource before you proceed.
+   >  ![Select resource](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *Log Alerts*: Ensure **Resource Type** is an analytics source like *Log Analytics* or *Application Insights* and signal type as **Log**, then once appropriate **resource** is chosen, click *Done*. Next use the **Add criteria** button to view list of signal options available for the resource and from the signal list **Custom log search** option for chosen log monitor service like *Log Analytics* or *Application Insights*.
 
    ![Select a resource - custom log search](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > Alerts lists can import analytics query as signal type - **Log (Saved Query)**, as seen in above illustration. So users can perfect your query in Analytics and then save them for future use in alerts - more details on using saving query available at [using log search in log analytics](../../azure-monitor/log-query/log-query-overview.md) or [shared query in application insights analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 1. *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
     ![Configure alert rule](media/alerts-log/AlertsPreviewAlertLog.png)
 
-    > [!NOTE]
-    
-    > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
-    > For Metric Measurement type of Log Alerts using Application Insights or [switched to new API](alerts-log-api-switch.md), you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
-    >
-    > ![aggregate on option](media/alerts-log/aggregate-on.png)
+   > [!NOTE]
+   > 
+   > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
+   > For Metric Measurement type of Log Alerts using Application Insights or [switched to new API](alerts-log-api-switch.md), you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
+   > 
+   > ![aggregate on option](media/alerts-log/aggregate-on.png)
 
 1. *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**. **Log Alerts** can be based on:
     - [Number of Records](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): An alert is created if the count of records returned by the query is either greater than or less than the value provided.
@@ -96,9 +96,9 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
 1. If all fields are valid and with green tick the **create alert rule** button can be clicked and an alert is created in Azure Monitor - Alerts. All alerts can be viewed from the alerts Dashboard.
 
-    ![Rule Creation](media/alerts-log/AlertsPreviewCreate.png)
+     ![Rule Creation](media/alerts-log/AlertsPreviewCreate.png)
 
-    Within a few minutes, the alert is active and triggers as previously described.
+     Within a few minutes, the alert is active and triggers as previously described.
 
 Users can also finalized their analytics query in [log analytics](../log-query/portals.md) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
@@ -312,7 +312,7 @@ Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/m
 > [!NOTE]
 > Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
-Log alerts currently do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
+Log alerts currently do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section :
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"

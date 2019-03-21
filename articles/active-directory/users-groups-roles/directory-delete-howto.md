@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: curtand
 
 ms.reviewer: elkuzmen
@@ -19,6 +19,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 # Delete an Azure Active Directory tenant
+
 When a tenant is deleted, all resources that are contained in the tenant are also deleted. You must prepare the tenant by minimizing its associated resources before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD tenant from the portal.
 
 ## Prepare the tenant for deletion
@@ -36,13 +37,13 @@ You can't delete a tenant in Azure AD until it passes several checks. These chec
 
 2. Select **Azure Active Directory**.
 
-3. Switch to the tenant you want to delete.
+3. Switch to the organization you want to delete.
   
-  ![delete directory button](./media/directory-delete-howto/delete-directory-command.png)
+   ![Confirm organization before deleting](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Select **Delete directory**.
   
-  ![delete directory button](./media/directory-delete-howto/delete-directory-list.png)
+   ![select the command to delete the organization](./media/directory-delete-howto/delete-directory-list.png)
 
 5. If your tenant does not pass one or more checks, you're provided with a link to more information on how to pass. After you pass all checks, select **Delete** to complete the process.
 
@@ -54,10 +55,10 @@ For what to expect when a trial Office 365 subscription expires (not including p
 
 Subscription state | Data | Access to data
 ----- | ----- | -----
-Active (30 days for trial)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources 
-Expired (30 days)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Office 365 admin center and resources
-Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>Admins can access the Office 365 admin center but can’t assign licenses to or update users
-Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | <li>Users can’t access Office 365 files, or apps<li>Admins can access the Office 365 admin center to purchase and manage other subscriptions 
+Active (30 days for trial)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Microsoft 365 admin center and resources 
+Expired (30 days)	| Data accessible to all	| <li>Users have normal access to Office 365 files, or apps<li>Admins have normal access to Microsoft 365 admin center and resources
+Disabled (30 days) | Data accessible to admin only	| <li>Users can’t access Office 365 files, or apps<li>Admins can access the Microsoft 365 admin center but can’t assign licenses to or update users
+Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | <li>Users can’t access Office 365 files, or apps<li>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions 
 
 ## Delete a subscription in the Microsoft 365 admin center
 
@@ -67,17 +68,18 @@ You can put a subscription into a **Deprovisoned** state to be deleted in 3 days
 
 2. Go to the **Billing** tab and select **Products and Services**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
   
-  ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
+   ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
   
 3. Select **Delete** to delete the subscription and accept the terms and conditions. All data is permanently deleted within three days. You can reactivate the subscription during the three-day period if you change your mind.
   
-  ![terms and conditions](./media/directory-delete-howto/delete-terms.png)
+   ![carefully read terms and conditions](./media/directory-delete-howto/delete-terms.png)
 
 4. Now the subscription state has changed, the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
 5. Once you have deleted a subscription on your tenant, and 72 hours have elapsed, you can sign back into the Azure AD admin center again and there should be no required action and no subscriptions blocking your tenant deletion. You should be able to successfully delete your Azure AD tenant.
   
-  ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
+   ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## Next steps
+
 [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/)

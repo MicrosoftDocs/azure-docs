@@ -30,8 +30,8 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 4. Set the value to `TOP` and **Save**.
 
 To enable wait statistics in your Query Store: 
-5. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
-6. Set the value to `ALL` and **Save**.
+1. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+1. Set the value to `ALL` and **Save**.
 
 
 Alternatively you can set these parameters using the Azure CLI.
@@ -81,6 +81,7 @@ Here are some examples of how you can gain more insights into your workload usin
 When Query Store is enabled it saves data in 15-minute aggregation windows, up to 500 distinct queries per window. 
 
 The following options are available for configuring Query Store parameters.
+
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
@@ -89,6 +90,7 @@ The following options are available for configuring Query Store parameters.
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
 
 The following options apply specifically to wait statistics.
+
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all|

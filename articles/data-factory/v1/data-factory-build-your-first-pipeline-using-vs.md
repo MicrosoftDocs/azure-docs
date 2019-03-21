@@ -116,7 +116,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
             }
         }
 	}
-	```
+    ```
 
     The following table provides descriptions for the JSON properties used in the snippet:
 
@@ -206,7 +206,7 @@ Now, you create the output dataset to represent output data stored in the Azure 
             }
         }
     }
-	```
+    ```
     The JSON snippet defines a dataset called **AzureBlobOutput** that represents output data produced by the hive activity in the pipeline. You specify that the output data is produced by the hive activity is placed in the blob container called `adfgetstarted` and the folder called `partitioneddata`. 
  	
 	The **availability** section specifies that the output dataset is produced on a monthly basis. The output dataset drives the schedule of the pipeline. The pipeline runs monthly between its start and end times. 
@@ -267,7 +267,7 @@ You have created the Azure Storage linked service, and input and output datasets
             "isPaused": false
         }
     }
-	```
+    ```
 
 	> [!IMPORTANT]
 	> Replace `<storageaccountname>` with the name of your storage account.
@@ -312,8 +312,8 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
    5. Select the **region** for the data factory.
    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
 
-	> [!IMPORTANT]
-	> If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
+      > [!IMPORTANT]
+      > If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
 1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
 
 	![Publish items page](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -328,12 +328,12 @@ Important points to note:
 	- In Azure PowerShell, run the following command to register the Data Factory provider.
 		```PowerShell	
 		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-		```
+        ```
 		You can run the following command to confirm that the Data Factory provider is registered.
 
 		```PowerShell
 		Get-AzResourceProvider
-		```
+        ```
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 - To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
@@ -477,7 +477,7 @@ Add a configuration file for each environment by performing the following steps:
 	        }
 	    ]
 	}
-	```
+    ```
 
     This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
@@ -494,7 +494,7 @@ Add a configuration file for each environment by performing the following steps:
             "type": "String"
         }
     ],
-	```
+    ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
@@ -515,7 +515,7 @@ Add a configuration file for each environment by performing the following steps:
         "name": "$.properties.structure[1].type",
         "value": "String"
     }
-	```
+    ```
 
 ### Property names with spaces
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):
@@ -563,6 +563,7 @@ You can chain two activities (run one activity after another) by setting the out
 
 
 ## See Also
+
 | Topic | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct data-driven workflows for your scenario or business. |

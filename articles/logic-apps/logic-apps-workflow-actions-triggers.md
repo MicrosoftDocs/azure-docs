@@ -2936,7 +2936,7 @@ information about using and securing parameters, see
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "Basic",
          "username": "@parameters('userNameParam')",
@@ -2985,7 +2985,7 @@ For more information about using and securing parameters, see
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "ClientCertificate",
          "pfx": "@parameters('pfxParam')",
@@ -3036,7 +3036,7 @@ For more information about using and securing parameters, see
    "type": "Http",
    "inputs": {
       "method": "GET",
-      "uri": "http://www.microsoft.com",
+      "uri": "https://www.microsoft.com",
       "authentication": {
          "type": "ActiveDirectoryOAuth",
          "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",

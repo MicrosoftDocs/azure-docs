@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -20,6 +20,9 @@ ms.custom: seodec18
 # Media Services concepts
 
 This topic gives a brief overview of Azure Media Services concepts and provides links to articles with in-depth explanation of Media Services v3 concepts and functionality. The fundamental concepts described in these topics should be reviewed prior to starting development.
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
 ## Cloud upload and storage
 
@@ -80,7 +83,7 @@ You can use Media Services **Dynamic Manifests** to stream only a specific rendi
 
 ## Live streaming
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoid**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoint**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.
 
 The following image illustrates the Pass-through type workflow:
 

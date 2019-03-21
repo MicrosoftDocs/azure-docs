@@ -51,7 +51,7 @@ For an assembly object, the tool provides a user-friendly UI editor that helps y
 
 The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a .zip file that includes all DDL statements in a single U-SQL script in the **DDL** folder, and all DLLs and additional files for assemblies in the **Temp** folder.
 
-Learn more about [how to build a U-SQL database project with the MSBuild command line and a Azure DevOps Services build task](data-lake-analytics-cicd-overview.md).
+Learn more about [how to build a U-SQL database project with the MSBuild command line and an Azure DevOps Services build task](data-lake-analytics-cicd-overview.md).
 
 ## Deploy a U-SQL database
 

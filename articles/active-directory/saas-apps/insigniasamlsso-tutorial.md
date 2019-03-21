@@ -109,6 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Insignia SAML SSO Domain and URLs single sign-on information](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<customername>.insigniails.com/ils` |

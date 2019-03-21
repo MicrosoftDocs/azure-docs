@@ -74,6 +74,7 @@ sections:
     - html: Transform data in virtual network - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
     - html: Add branching and chaining - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a> 
     - html: Run SSIS packages in Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Continuous integration and delivery (CI/CD) in Azure Data Factory - <a href="/azure/data-factory/continuous-integration-deployment">Data Factory UI</a>
 - title: Samples
   items:
   - type: paragraph

@@ -27,7 +27,7 @@ To complete the steps in this article, you'll need the following:
 
 - [Download and install Storage Explorer](https://www.storageexplorer.com/)
 
-- [Connect to a Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Connect to an Azure storage account or service](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## Create a File Share
 

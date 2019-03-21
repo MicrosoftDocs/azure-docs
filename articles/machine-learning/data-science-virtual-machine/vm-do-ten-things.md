@@ -232,7 +232,7 @@ New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Lo
 # Set your current working storage account
 Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
+# Create an Azure File Service Share
 $s = New-AzureStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
 New-AzureStorageDirectory -Share $s -Path <directory name>
@@ -278,7 +278,7 @@ Azure blob is a reliable, economical cloud storage for data big and small. This 
 ![Screenshot of the Storage Account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory containing the azcopy.exe is already on your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool, refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
-* Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/). 
 
 ![Screenshot of the Azure Storage Explorer accessing a Storage Account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -295,7 +295,7 @@ Replace **C:\myfolder** to the path where your file is stored, **mystorageaccoun
 Run AzCopy command in PowerShell or from a command prompt. Here is some example usage of AzCopy command:
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

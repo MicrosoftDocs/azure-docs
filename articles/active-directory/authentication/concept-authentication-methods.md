@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication methods
+title: Authentication methods - Azure Active Directory
 description: What authentication methods are available in Azure AD for MFA and SSPR
 
 services: active-directory
@@ -145,6 +145,8 @@ The Microsoft Authenticator app or other third-party apps can be used as a softw
 > [!WARNING]
 > For self-service password reset when only one method is required for reset verification code is the only option available to users **to ensure the highest level of security**.
 >
+
+Users may have a combination of up to 5 OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
 
 ## OATH hardware tokens (public preview)
 

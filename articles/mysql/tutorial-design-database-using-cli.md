@@ -179,6 +179,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 The `az mysql server restore` command needs the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group in which the source server exists.  |

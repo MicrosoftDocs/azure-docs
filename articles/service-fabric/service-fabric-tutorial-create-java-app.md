@@ -72,6 +72,7 @@ First, create the web front end of the Voting application. A web UI powered by A
     ![Eclipse Package Explorer following creation of application]( ./media/service-fabric-tutorial-create-java-app/eclipse-package-explorer.png)
 
 The table gives a short description of each item in the package explorer from the previous screenshot. 
+
 | **Package Explorer Item** | **Description** |
 | --- | --- |
 | PublishProfiles | Contains JSON files describing profile details of local and Azure Service Fabric clusters. The contents of these files is used by the plugin when deploying the application. |
@@ -99,7 +100,7 @@ To add a UI that can be rendered by the stateless service, add an HTML file. Thi
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>
 
@@ -907,7 +908,7 @@ At this point, the application is ready to be deployed to a local Service Fabric
 
 4. In the Package Explorer for Eclipse, right click on the **Voting** project and click **Service Fabric -> Publish Application ...** 
 5. In the **Publish Application** window, select **Local.json** from the dropdown, and click **Publish**.
-6. Go to your web browser and access **http://localhost:8080** to view your running application on the local Service Fabric cluster. 
+6. Go to your web browser and access http:\//localhost:8080 to view your running application on the local Service Fabric cluster. 
 
 ## Next steps
 
