@@ -39,9 +39,9 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > * Create an access package with a group as a resource
 > * Designate a user as an approver
-> * Demonstrate how a user from your organization can request the access package
+> * Demonstrate how an internal user in your organization can request the access package
 > * Approve the access request
-> * Demonstrate how a user from another organization can request the access package  
+> * Demonstrate how a guest user from another organization can request the access package  
 
 ## Prerequisites
 
@@ -186,13 +186,13 @@ In this step, you create a **Web project access package** in the Engineering cat
 
 1. In the **Select users and groups** section, click **Add users and groups**.
 
-1. In the Select groups pane, select **Beth** (or another user) you created earlier and then click **Select**.
+1. In the Select groups pane, select the **internal user** you created earlier (Beth or another user) and then click **Select**.
 
     ![New access package - Policy tab](./media/entitlement-management-get-started/access-package-policy.png)
 
 1. Scroll down and to the **Select approvers** section and click **Add approvers**.
 
-1. In the Select approvers pane, select **Nadine** (or another user) you created earlier and then click **Select**.
+1. In the Select approvers pane, select the **approver** you created earlier (Nadine or another user) and then click **Select**.
 
 1. In the **Expiration** section, set **Access package expires** to **Number of days**.
 
@@ -210,13 +210,13 @@ In this step, you create a **Web project access package** in the Engineering cat
 
 ## Step 5: Request access
 
-In this step, you perform the steps as the internal user **Beth** and request access to the access package.
+In this step, you perform the steps as the **internal user** and request access to the access package.
 
-**Prerequisite role:** User
+**Prerequisite role:** Internal user
 
 1. Sign out of the Azure portal.
 
-1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the internal user **Beth**.
+1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
 
 1. Find the **Web project access package** in the list of all access packages.
 
@@ -238,17 +238,17 @@ In this step, you perform the steps as the internal user **Beth** and request ac
 
 ## Step 6: Approve an access request
 
-In this step, you sign in as the approver user and approve the access request for an internal requester user.
+In this step, you sign in as the **approver** user and approve the access request for an internal user.
 
 **Prerequisite role:** Approver
 
 1. Sign out of the My Access portal.
 
-1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **Approver** user.
+1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **approver** user (Nadine or another user).
 
 1. In the left menu, click **Approvals**.
 
-1. Find the **Internal requester** user.
+1. Find the **internal user** (Beth or another user).
 
 1. Click **Details** to display details about the request.
 
@@ -262,7 +262,7 @@ In this step, you sign in as the approver user and approve the access request fo
 
 1. Sign out of the My Access portal.
 
-1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **Internal requester** user.
+1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
 
 1. In the left menu, click **Access package**.
 
@@ -280,23 +280,23 @@ In this step, you add an additional policy for users who are not yet in the reso
 
 ![Create guest policy](./media/entitlement-management-get-started/elm-guest-policy.png)
 
-**Hana**
+
 
 ## Step 9: Request access as a guest user (optional)
 
-**JoeC**
+
 
 ## Step 10: Approve an access request for a guest user (optional)
 
-**JoeC**
+
 
 ## Step 11: Validate that access has been assigned for a guest user (optional)
 
-**JoeC**
+
 
 ## Step 12: View changes in the audit log
 
-**Hana/Mark**
+
 
 ## Step 13: Clean up resources
 
