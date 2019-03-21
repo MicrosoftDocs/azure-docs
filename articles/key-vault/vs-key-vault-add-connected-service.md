@@ -3,13 +3,13 @@ title: Add Key Vault support to your ASP.NET project using Visual Studio - Azure
 description: Use this tutorial to help you learn how to add Key Vault support to an ASP.NET or ASP.NET Core web application.
 services: key-vault
 author: ghogen
-manager: douge
-ms.prod: visual-studio-dev15
+manager: jillfra
+ms.prod: visual-studio
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/21/2019
 ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services
@@ -132,6 +132,94 @@ When no longer needed, delete the resource group. This deletes the Key Vault and
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+
+## How your ASP.NET Core project is modified
+
+This section identifies the exact changes made to an ASP.NET project when adding the Key Vault connected service using Visual Studio.
+
+### Added references
+
+Affects the project file *.NET references and NuGet package references.
+
+| Type | Reference |
+| --- | --- |
+| NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
+
+### Added files
+
+- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link the documentation.
+
+### Project file changes
+
+- Added the Connected Services ItemGroup and ConnectedServices.json file.
+
+### launchsettings.json changes
+
+- Added the following environment variable entries to both the IIS Express profile and the profile that matches your web project name:
+
+    ```json
+      "environmentVariables": {
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED": "true",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT": "<your keyvault URL>"
+      }
+    ```
+
+### Changes on Azure
+
+- Created a resource group (or used an existing one).
+- Created a Key Vault in the specified resource group.
+
+## How your ASP.NET Framework project is modified
+
+This section identifies the exact changes made to an ASP.NET project when adding the Key Vault connected service using Visual Studio.
+
+### Added references
+
+Affects the project file *.NET references and `packages.config` (NuGet references).
+
+| Type | Reference |
+| --- | --- |
+| .NET; NuGet | Microsoft.Azure.KeyVault |
+| .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime.Azure |
+
+### Added files
+
+- ConnectedService.json added, which records some information about the Connected Service provider, version, and a link to the documentation.
+
+### Project file changes
+
+- Added the Connected Services ItemGroup and ConnectedServices.json file.
+- References to the .NET assemblies described in the [Added references](#added-references) section.
+
+### web.config or app.config changes
+
+- Added the following configuration entries:
+
+    ```xml
+    <configSections>
+      <section
+           name="configBuilders"
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           restartOnExternalChanges="false"
+           requirePermission="false" />
+    </configSections>
+    <configBuilders>
+      <builders>
+        <add 
+             name="AzureKeyVault"
+             vaultName="vaultname"
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             vaultUri="https://vaultname.vault.azure.net" />
+      </builders>
+    </configBuilders>
+    ```
+
+### Changes on Azure
+
+- Created a resource group (or used an existing one).
+- Created a Key Vault in the specified resource group.
 
 ## Next steps
 
