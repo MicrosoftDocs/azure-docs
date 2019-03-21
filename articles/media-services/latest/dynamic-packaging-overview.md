@@ -30,6 +30,9 @@ In Media Services, Dynamic Packaging is used whether you are streaming live or o
 
 ![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+
 ## Delivery protocols
 
 |Protocol|Example|
