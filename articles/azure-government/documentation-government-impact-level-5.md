@@ -50,6 +50,10 @@ When applying this to services the following evaluation:
 
 This ensures all key material for decrypting data is stored separately of the data itself and done so with a hardware key management solution.
 
+## Applying This Guidance
+
+When deploying a workload at Impact Level 5 there is expected to be a high degree of security, isolation, and control. The below configurations are required in **addition** to any other configurations or controls needed to meet Impact Level 5. Network isolation, access controls and other necessary security measures are not necessarily addressed in the guidance below.
+
 ## Analytics Services
 
 ### [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/)
