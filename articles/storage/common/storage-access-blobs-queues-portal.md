@@ -26,15 +26,15 @@ To access blob and queue data with the account access key, one of the following 
 1. You are the owner of the storage account. In this case, you can always access data with your account key. 
 1. An RBAC role has been assigned to you that includes the RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This RBAC role may be a built-in or a custom role. 
 
-The built-in RBAC roles that support this action are:
+The built-in RBAC roles that support **Microsoft.Storage/storageAccounts/listkeys/action** action are:
     - The [Storage Account Key Operator Service](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role) role.
     - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role. This role includes the wildcard **Microsoft.Storage/storageAccounts/\*** actions, so it also supports **Microsoft.Storage/storageAccounts/listkeys/action**.
     
-The Azure portal attempts to authenticate access to blob and queue data with the account key first. If the user does not have permissions to access data with the account key, then the Azure portal attempts to authenticate access with the user's Azure AD credentials. 
+The Azure portal attempts to authenticate access to blob and queue data with the account key first. If you do not have permissions to access data with the account key, then the Azure portal attempts to authenticate access with the user's Azure AD credentials. 
 
 ### Azure AD credentials
 
-To access blob or queue data from the Azure portal using Azure AD credentials, both of the following statements must be true for you:
+To access blob or queue data from the Azure portal using your Azure AD credentials, both of the following statements must be true for you:
 
 1. You have been assigned either a built-in or custom role that provides access to blobs or queue. 
 1. You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher.
@@ -48,19 +48,15 @@ The built-in roles that support access to your blob or queue data include:
 
 The **Reader** role permits users to view storage account resources in the Azure portal, but not to modify them. The **Reader** role does not provide read permissions to data in Azure Storage, but only to account management resources. Without the **Reader** role, you cannot navigate to blob or queue data in the Azure portal. For more information about the Reader role, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
 
-## Navigate to blobs or queues in the Azure portal
+## Navigate to blobs or queues in the portal
 
 To view blob or queue data in the portal, navigate to the **Overview** for your storage account, and click on the links for **Blobs** or **Queues**. 
 
 ![Navigate to blob or queue data in the Azure portal](media/storage-access-blobs-queues-portal/blob-queue-access.png)
 
-If you have access to the storage account keys, then by default the Azure portal uses the account key to authorize your access to blobs and queues. 
+## Determine the current authentication method
 
-If you don't have access to the account keys, then the portal checks your Azure AD credentials to see if you have been assigned one of the roles that provides access to blobs or queues. If you do, then the portal uses your Azure AD credentials to authenticate access.
-
-## Determine which authentication method you are using
-
-When you navigate to a container or a queue, the Azure portal indicates whether you are using the account access key or your Azure AD credentials to authenticate.
+When you navigate to a container or a queue, the Azure portal indicates whether you are currently using the account access key or your Azure AD credentials to authenticate.
 
 The examples in this section show accessing a container and its blobs, but the portal displays the same message when you are accessing a queue and its messages.
 
