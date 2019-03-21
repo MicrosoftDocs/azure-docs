@@ -57,7 +57,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 
 ## Configure source control - PowerShell
 
-You can also use PowerShell to configure source control in Azure Automation. To configure source control with the PowerShell cmdlets, a [personal access token (PAT)](#personal-access-token) is needed. You use the [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) to create the source control connection. The cmdlet requires a secure string of the Personal Access Token, to learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+You can also use PowerShell to configure source control in Azure Automation. To configure source control with the PowerShell cmdlets, a personal access token (PAT) is needed. You use the [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) to create the source control connection. The cmdlet requires a secure string of the Personal Access Token, to learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### Azure Repos (Git)
 
