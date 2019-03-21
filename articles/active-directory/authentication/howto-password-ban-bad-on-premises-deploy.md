@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure AD password protection
+title: Deploy Azure AD password protection - Azure Active Directory
 description: Deploy Azure AD password protection to ban bad passwords on-premises
 
 services: active-directory

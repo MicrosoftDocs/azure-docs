@@ -1,5 +1,5 @@
 ---
-title: RADIUS Authentication and Azure MFA Server | Microsoft Docs
+title: RADIUS Authentication and Azure MFA Server - Azure Active Directory
 description: Deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication

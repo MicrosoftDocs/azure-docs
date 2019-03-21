@@ -33,10 +33,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Select **Lab Accounts** in the **DEVOPS** section. If you select star (`*`) next to **Lab Accounts**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Accounts** under **FAVORITES**.
+2. Select **All Services** on the left menu. Select **Lab Services** in the **DEVOPS** section. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
 
-    ![All Services -> Lab Accounts](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. On the **Lab Accounts** page, select **Add** on the toolbar. 
+    ![All Services -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. On the **Lab Services** page, select **Add** on the toolbar. 
 
     ![Select Add on the Lab Accounts page](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. On the **Lab Account** page, do the following actions: 
