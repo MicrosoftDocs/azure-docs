@@ -1,6 +1,6 @@
 ---
-title: What is Azure Service Provider Management Toolkit?
-description: Azure Service Provider Management Toolkit lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
+title: What is Microsoft Azure Service Provider Management Toolkit?
+description: Microsoft Azure Service Provider Management Toolkit lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
 author: JnHs
 ms.author: jenhayes
 ms.date: 12/06/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: service-provider-toolkit
 manager: carmonm
 ---
-# What is Azure Service Provider Management Toolkit?
+# What is Microsoft Azure Service Provider Management Toolkit?
 
-Azure Service Provider Management Toolkit provides comprehensive and robust management tooling, allowing service providers to deliver managed services for their customers with higher automation and efficiency at scale. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
+Microsoft Azure Service Provider Management Toolkit provides comprehensive and robust management tooling, allowing service providers to deliver managed services for their customers with higher automation and efficiency at scale. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
 
 > [!IMPORTANT]
-> Some aspects of Azure Service Provider Management Toolkit are currently in limited public preview. The info in this topic may change before general availability (expected later this year).
+> Some aspects of Microsoft Azure Service Provider Management Toolkit are currently in limited public preview. The info in this topic may change before general availability.
 
 ## Benefits
 Azure Service Provider Management Toolkit helps you to profitably and efficiently build and deliver managed services for your customers. The benefits include:

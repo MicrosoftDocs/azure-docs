@@ -13,7 +13,7 @@ manager: carmonm
 This article describes the new **Managed Services** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com), which allow service providers to offer resource management services with Azure Delegated Resource Management. You can make these offers available to all potential customers, or only to a specific set of one or more customers that you define.
 
 > [!IMPORTANT]
-> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability (expected later this year).
+> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
 Managed services offers streamline the process of onboarding customers for Azure Delegated Resource Management. Once a customer purchases an offer in Azure Marketplace, they'll be onboarded so that specified users in your organization can perform administration tasks for the customer from within your organization's tenant.  No further action is required by either the customer or the service provider to get the customer onboarded. This is because when you define the offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), you create a manifest that specifies the users and roles who will have access to customer resources using Azure Delegated Resource Management. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
 
