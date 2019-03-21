@@ -31,6 +31,6 @@
 - name: Resources
   items:
     - name: Pricing
-      href:
-    - name: Region
-      href:
+      href: https://aka.ms/anomaly-detector-pricing
+    - name: Regional availability 
+      href: https://aka.ms/anomaly-detector-region
