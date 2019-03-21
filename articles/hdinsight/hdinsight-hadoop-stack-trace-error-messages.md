@@ -20,7 +20,7 @@ Articles are organized by types of errors.
 
 ## Apache Hive query performance
 * [Optimize Apache Hive queries for Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
-* [Troubleshoot Apache Hive by using Azure HDInsight](hdinsight/hdinsight-troubleshoot-hive.md).
+* [Troubleshoot Apache Hive by using Azure HDInsight](hdinsight-troubleshoot-hive.md).
 
 ## More troubleshooting articles
 * [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
