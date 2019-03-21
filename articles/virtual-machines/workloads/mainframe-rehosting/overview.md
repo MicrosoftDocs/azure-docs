@@ -16,7 +16,7 @@ Migrating workloads from mainframe environments to the cloud enables you to mode
 
 The term *mainframe* generally refers to a large computer system, but the vast majority currently deployed are IBM System Z servers or IBM plug-compatible systems running MVS, DOS, VSE, OS/390, or z/OS.
 
-An Azure virtual machine (VM) is used to isolate and manage the resources for a specific application on a single instance. Mainframes such as IBM z/OS use Logical Partitions (LPARS) for this purpose. A mainframe might use one LPAR for a CICS region with associated COBOL programs, and a separate LPAR for IBM Db2 database. A typical [n-tier application on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) deploys Azure VMs into a virtual network that can be segmented into subnets for each tier.
+An Azure virtual machine (VM) is used to isolate and manage the resources for a specific application on a single instance. Mainframes such as IBM z/OS use Logical Partitions (LPARS) for this purpose. A mainframe might use one LPAR for a CICS region with associated COBOL programs, and a separate LPAR for IBM Db2 database. A typical [n-tier application on Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server) deploys Azure VMs into a virtual network that can be segmented into subnets for each tier.
 
 Azure VMs can run mainframe emulation environments and compilers that support lift-and-shift scenarios. Development and testing are often among the first workloads to migrate from a mainframe to an Azure dev/test environment. Common server components that you can emulate include online transaction process (OLTP), batch, and data ingestion systems as the following figure shows.
 
@@ -26,13 +26,13 @@ Some mainframe workloads can be migrated to Azure with relative ease, while othe
 
 ## Mainframe migration
 
-Rehost, rebuild, replace, or retire? IaaS for Paas? For help determining the right migration strategy for your mainframe application, see the [Mainframe migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  guide in the Azure Architecture Center.
+Rehost, rebuild, replace, or retire? IaaS for Paas? For help determining the right migration strategy for your mainframe application, see the [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  guide in the Azure Architecture Center.
 
 ## Micro Focus rehosting platform
 
 Micro Focus Enterprise Server is one of the largest mainframe rehosting platforms available. You can use it run your z/OS workloads on a less expensive x86 platform on Azure.
 
-To get started, see the following articles:
+To get started:
 
 - [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./microfocus/set-up-micro-focus-on-azure.md)
 - [Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 in Azure](./microfocus/demo.md)
@@ -41,43 +41,59 @@ To get started, see the following articles:
 
 TmaxSoft OpenFrame is a popular mainframe rehosting solution that makes it easy to lift your existing mainframe assets and shift them to Azure. An OpenFrame environment on Azure is suitable for development, demos, testing, or production workloads.
 
-To get started, download the [Install TmaxSoft OpenFrame on Azure](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/) ebook.
+To get started:
 
-## Set up a dev/test environment using IBM Z Dev/Test 12.0
+- [Get started with TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
+- [Download the ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
+
+## IBM zD&T 12.0
 
 IBM Z Development and Test Environment (IBM zD&T) sets up a non-production environment on Azure that you can use for development, testing, and demos of z/OS-based applications.
 
 The emulation environment on Azure can host a variety of Z instances through Application Developers Controlled Distributions (ADCDs). You can run zD&T Personal Edition, zD&T Parallel Sysplex, and zD&T Enterprise Edition on Azure and Azure Stack.
 
-To get started, see the following articles:
+To get started:
 
--   [Set up IBM zD&T 12.0 on Azure](./ibm/install-ibm-z-environment.md)
--   [Set up ADCD on zD&T](./ibm/demo.md)
+- [Set up IBM zD&T 12.0 on Azure](./ibm/install-ibm-z-environment.md)
+- [Set up ADCD on zD&T](./ibm/demo.md)
 
-## Migrate IBM DB2 pureScale to Azure
+## IBM DB2 pureScale on Azure
 
 The IBM DB2 pureScale environment provides a database cluster for Azure with high availability and scalability on Linux operating systems. Though not identical to the original environment, IBM DB2 pureScale on Linux delivers similar high-availability and scalability features as IBM DB2 for z/OS running in a Parallel Sysplex configuration on the mainframe.
 
-To get started, see [IBM DB2 pureScale on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure).
+To get started, see [IBM DB2 pureScale on Azure](/azure/virtual-machines/linux/ibm-db2-purescale-azure).
 
 ## Considerations
 
-When you migrate mainframe workloads to Azure infrastructure as a service (IaaS), you can choose from several types of on-demand, scalable computing resources, including Azure VMs. Azure offers a range of [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/overview) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/overview) VMs.
+When you migrate mainframe workloads to Azure infrastructure as a service (IaaS), you can choose from several types of on-demand, scalable computing resources, including Azure VMs. Azure offers a range of [Linux](/azure/virtual-machines/linux/overview) and [Windows](/azure/virtual-machines/windows/overview) VMs.
+
+### Compute
+
+In comparing mainframe capacity to Azure compute power, the metric of one million instructions per second (MIPS) is often mapped to virtual CPUs. Azure provides mainframe-like features and compute capacity that is comparable to IBM z14-based systems.
+
+To get started:
+
+- [Move mainframe compute to Azure](./concepts/mainframe-compute.md)
+- [Make the switch from mainframes to Azure](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/migration-strategies)
 
 ### High availability and failover
 
 Azure offers commitment-based service-level agreements (SLAs), where multiple 9s availability is the default, optimized with local or geo-based replication of services. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
-For Azure IaaS such as VMs, failover relies on specific system functionality, such as failover clustering instances and [availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets). When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction), the platform handles failovers automatically.
+For Azure IaaS such as VMs, failover relies on specific system functionality, such as failover clustering instances and [availability sets](/azure/virtual-machines/windows/regions-and-availability#availability-sets). When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction), the platform handles failovers automatically.
 
 ### Scalability
 
-Mainframes typically scale up, while cloud environment scale out. Azure offers a range of [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
-[scale](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling) on demand under a usage-based billing model.
+Mainframes typically scale up, while cloud environment scale out. Azure offers a range of [Linux](/azure/virtual-machines/linux/sizes) and [Windows](/azure/virtual-machines/windows/sizes) sizes to meet your needs. The cloud also scales up or down to match exact user specifications. Compute power, storage, and services
+[scale](/azure/architecture/best-practices/auto-scaling) on demand under a usage-based billing model.
 
 ### Storage
 
-In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
+In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
+
+To get started:
+
+- [Move mainframe storage to Azure](./concepts/mainframe-storage.md)
 
 ### Backup and recovery
 
@@ -100,9 +116,10 @@ refer to the [Platform Modernization Alliance](https://www.platformmodernization
 
 See also:
 
--   [Mainframe migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
--   [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
--   [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [White papers about mainframe topics](mainframe-white-papers.md)
+- [Mainframe migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
+- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md
