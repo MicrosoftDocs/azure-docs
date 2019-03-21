@@ -79,4 +79,4 @@ For more information on replication, see [Apache Kafka: replication](https://kaf
 ## Next steps
 
 * [Processing trillions of events per day with Apache Kafka on Azure](https://azure.microsoft.com/blog/processing-trillions-of-events-per-day-with-apache-kafka-on-azure/)
-* [What is Apache Kafka on HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction)
+* [What is Apache Kafka on HDInsight?](apache-kafka-introduction.md)
