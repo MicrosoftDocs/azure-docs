@@ -1,7 +1,7 @@
 ---
 title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
+description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 author: diberry
 manager: nitinme 
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 03/21/2019
 ms.author: diberry
 ---
 
-# Use active learning to improve knowledge base
+# Use active learning to improve your knowledge base
 
 Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
 Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 
-## Active learning
+## What is active learning?
 
 QnA Maker learns new question variations with implicit and explicit feedback.
  
@@ -37,7 +37,7 @@ When 5 or more similar queries are clustered, every 30 minutes, QnA Maker sugges
 
 Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. 
 
-## Upgrade version to use active learning
+## Upgrade your version to use active learning
 
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
 
@@ -59,12 +59,12 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. To turn active learning on, Click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 
-    ![On the service settings page, toggle on Active learning](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Find the QnA Maker service then toggle **Active Learning**. 
 
-    [![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     Once **Active Learning** is enabled, the knowledge suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
@@ -72,15 +72,15 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **Show Suggestions**. 
 
-    [![On the service settings page, toggle the Show Suggestions button](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filter the knowledge base with question and answer pairs to show only suggestions by selecting **Filter by Suggestions**.
 
-    [![On the service settings page, filter by suggestions to see just those question/answer pairs](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Use the Filter by suggestions toggle to view only the active learning's suggested question alternatives.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.	Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
 
-    [![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all**.
 
