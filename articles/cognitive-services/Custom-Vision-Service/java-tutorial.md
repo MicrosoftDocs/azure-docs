@@ -85,7 +85,7 @@ while (iteration.status().equals("Training"))
 System.out.println("Training Status: "+ iteration.status());
 
 String publishName = "classifyModel";
-trainer.publishIteration(project.id(), iteration.id(), publishName, "<enter your publish resource id here>");
+trainer.publishIteration(project.id(), iteration.id(), publishName, "<enter your prediction resource id here>");
 ```
 
 ### Use the prediction endpoint
