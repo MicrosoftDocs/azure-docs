@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/04/2019
+ms.date: 03/21/2019
 ms.author: alkohli
 ---
 
@@ -13,6 +13,6 @@ Here is a list of the supported operating systems for clients or hosts connected
 | Windows Server |2012 R2 <br> 2016 <br> 2019|
 | Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
-| Ubuntu |16.04.3 LTS|
+| Ubuntu |16.04.3 LTS, 16.04.5, 16.04.6|
 | CentOS | 7.0 |
 | Mac OS | 10.14.1 |
