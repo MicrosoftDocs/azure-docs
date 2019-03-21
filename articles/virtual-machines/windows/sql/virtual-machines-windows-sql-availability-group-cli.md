@@ -155,22 +155,22 @@ To add a new replica to the availability group, do the following:
 
 1. Add the SQL Server VM to the cluster:
 
-  ```azurecli
-  # Add SQL Server VM to the Cluster
-  # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
-  # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
-  az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
-  -b <bootstrap account password> -p <operator account password> -s <service account password>
-  ```
+   ```azurecli
+   # Add SQL Server VM to the Cluster
+   # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
+   # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
+   az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
+   -b <bootstrap account password> -p <operator account password> -s <service account password>
+   ```
 
 1. Use SQL Server Management Studio (SSMS) to add the SQL Server instance as a replica within the availability group.
 1. Add the SQL Server VM metadata do the listener:
 
-  ```azurecli
-  # Update the listener metadata with the new VM
-  # example: az sql vm group ag-listener update -n AGListener `
-  -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
-  ```
+   ```azurecli
+   # Update the listener metadata with the new VM
+   # example: az sql vm group ag-listener update -n AGListener `
+   -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
+   ```
 
 ### Remove a replica
 
@@ -179,19 +179,19 @@ To remove a replica from the availability group, do the following:
 1. Remove the replica from the availability group using SQL Server Management Studio (SSMS). 
 1. Remove the SQL Server VM metadata from the listener:
 
-  ```azurecli
-  # Update the listener metadata by removing the VM from the SQLVMs list
-  # example: az sql vm group ag-listener update -n AGListener `
-  -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
-  ```
+   ```azurecli
+   # Update the listener metadata by removing the VM from the SQLVMs list
+   # example: az sql vm group ag-listener update -n AGListener `
+   -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
+   ```
 
 1. Remove the SQL Server VM from the cluster:
 
-  ```azurecli
-  # Remove SQL VM from cluster
-  # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
-  az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
-  ```
+   ```azurecli
+   # Remove SQL VM from cluster
+   # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
+   az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
+   ```
 
 ## Remove availability group listener
 If you later need to remove the availability group listener configured with Azure CLI, you must go through the SQL VM resource provider. Since the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. It actually should be deleted through the SQL VM resource provider using Azure CLI. Doing so removes the AG listener metadata from the SQL VM resource provider, and physically deletes the listener from the availability group. 
