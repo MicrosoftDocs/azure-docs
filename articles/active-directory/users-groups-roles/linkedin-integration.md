@@ -32,7 +32,7 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 ## Enable or disable LinkedIn integration for your users in the Azure portal
 
-You can consent to LinkedIn account connections for your entire organization or for only selected users in your organization.
+You can enable LinkedIn account connections for only the users you want to have access. This could be your entire organization or only selected users in your organization.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
 2. Select **Users**.
