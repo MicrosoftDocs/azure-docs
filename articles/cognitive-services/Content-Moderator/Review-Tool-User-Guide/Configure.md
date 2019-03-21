@@ -98,13 +98,13 @@ The [Review tool](./human-in-the-loop.md) includes the following connectors:
 
 ### Add a connector
 
-To add a connector (and make it available for use in content [workflows](../review-api.md#workflow)), select the appropriate **Connect** button. In the next dialog, enter your subscription key for that service. When you are done, your new connector should appear at the top of the page.
+To add a connector (and make it available for use in content [workflows](../review-api.md#workflows)), select the appropriate **Connect** button. In the next dialog, enter your subscription key for that service. When you are done, your new connector should appear at the top of the page.
 
 ![Content Moderator Connectors Settings](images/settings-4-connectors.png)
 
 ## Workflows
 
-The **workflows** tab lets you manage your [workflows](../review-api.md#workflow). Workflows are cloud-based filters for content, and they work with connectors to sort content in different ways and take appropriate actions. Here, you can define, edit, and test your workflows. See [Define and use workflows](Workflows.md) for guidance on how to do this.
+The **workflows** tab lets you manage your [workflows](../review-api.md#workflows). Workflows are cloud-based filters for content, and they work with connectors to sort content in different ways and take appropriate actions. Here, you can define, edit, and test your workflows. See [Define and use workflows](Workflows.md) for guidance on how to do this.
 
 ![Content Moderator Workflow Settings](images/settings-5-workflows.png)
 
