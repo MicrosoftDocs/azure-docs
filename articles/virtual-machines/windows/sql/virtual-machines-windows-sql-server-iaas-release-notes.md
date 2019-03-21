@@ -25,14 +25,12 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | Service improvements | Details |
 | --- | --- |
 | **Custom image supportability** | You can now install the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](virtual-machines-windows-sql-ahb.md). When registering your custom image with the SQL resource provider, specify the license type as 'AHUB' as otherwise the registration will fail.  | 
+| **Named instance supportability** | You can now utilize the the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) with a named instance, if the default instance has been uninstalled  | 
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements
 
-| Documentation improvements | Details |
-| --- | --- |
-|none | |
-| | |
+None
 
 
 ## February 2019

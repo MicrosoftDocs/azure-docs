@@ -48,7 +48,7 @@ The ability to switch between licensing models is a feature provided by the new 
   > [!NOTE] 
   > If you drop your SQL Server VM resource, you will go back to the hard coded license setting of the image. 
 
-To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with the Azure Portal, Azure CLI, or PowerShell. 
+To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with the Azure portal, Azure CLI, or PowerShell. 
 
 ### With the Azure portal
 The following steps will register the SQL resource provider to your Azure subscription using the Azure portal. 
@@ -65,15 +65,15 @@ The following steps will register the SQL resource provider to your Azure subscr
 The following code snippet will register the SQL resource provider to your Azure subscription. 
 
 ```azurecli
-# Register the new SQL resource provider for your subscription 
+# Register the new SQL resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
 ### With PowerShell
-The following code snippet will register the SQL resource provider tp your Azure subscription. 
+The following code snippet will register the SQL resource provider to your Azure subscription. 
 
 ```powershell
-# Register the new SQL resource provider for your subscription
+# Register the new SQL resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 

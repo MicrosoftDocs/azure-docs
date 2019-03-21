@@ -80,7 +80,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 > [!NOTE]
 > While it is possible to install the SQL Server IaaS Agent extension to custom SQL Server images, the functionality is currently limited to [changing the license type](virtual-machines-windows-sql-ahb.md). Other features provided by the SQL IaaS extension will only work on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license).
 
-### Using a named instance
+### Using a single named instance
 The SQL IaaS extension will work with a named instance on a SQL Server image if the default instance was uninstalled properly. 
 
 To use a named instance, do the following:
