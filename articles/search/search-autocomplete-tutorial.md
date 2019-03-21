@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 # Example: Add autocomplete to partial term inputs in Azure Search
 
-This preview feature "finishes" a partial term input by supplying a complete term from documents in an Azure Search index. You might have noticed this capability in commercial search engines. You can now add this feature, currently in public preview, to an Azure Search solution to simplify query inputs.
+This preview feature "finishes" a partial term input by supplying a completed term from documents in an Azure Search index. You might have noticed this capability in commercial search engines. You can now add this feature, currently in public preview, to an Azure Search solution to simplify a query intake.
 
 
 
