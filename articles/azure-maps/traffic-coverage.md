@@ -67,7 +67,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Finland     |✓         |✓         |
 |+Åland Islands      |✓         |✓         |
 |France     |✓         |✓         |
-|+Monaco     |✓         |✓         |
+|Monaco     |✓         |✓         |
 |Germany     |✓         |✓         |
 |Gibralter   |✓         |✓         |
 |Greece     |✓         |✓         |
