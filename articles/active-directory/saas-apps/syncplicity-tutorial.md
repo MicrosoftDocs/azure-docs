@@ -203,7 +203,7 @@ For AAD users to be able to sign in, they must be provisioned to Syncplicity app
    
     ![Manage Users](./media/syncplicity-tutorial/ic769764.png "Manage Users")
 
-1. Type the **Email addressess** of an AAD account you want to provision, select **User** as **Role**, and then click **NEXT**.
+1. Type the **Email addresses** of an AAD account you want to provision, select **User** as **Role**, and then click **NEXT**.
    
     ![Account Information](./media/syncplicity-tutorial/ic769765.png "Account Information")
    

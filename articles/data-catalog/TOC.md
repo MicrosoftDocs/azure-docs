@@ -40,5 +40,5 @@
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](../active-directory/fundamentals/whats-new.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Terminology](data-catalog-terminology.md)

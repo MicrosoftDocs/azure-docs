@@ -17,7 +17,7 @@ ms.date: 12/04/2018
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Elastic Database jobs** is a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL databases by running Transact-SQL scripts to perform administrative operations.
+**Elastic Database jobs** is a customer-hosted Azure Cloud Service that enables the execution of ad hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL databases by running Transact-SQL scripts to perform administrative operations.
 
 To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to reliably execute a Transact-SQL (T-SQL) script across a group of databases, including:
 
@@ -108,7 +108,7 @@ Custom groups, on the other hand, are rigidly defined. You must explicitly add o
 
 ## Components and pricing
 
-The following components work together to create an Azure Cloud service that enables ad-hoc execution of administrative jobs. The components are installed and configured automatically during setup, in your subscription. You can identify the services as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 randomly generated characters.
+The following components work together to create an Azure Cloud service that enables ad hoc execution of administrative jobs. The components are installed and configured automatically during setup, in your subscription. You can identify the services as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 randomly generated characters.
 
 - Azure Cloud Service
 

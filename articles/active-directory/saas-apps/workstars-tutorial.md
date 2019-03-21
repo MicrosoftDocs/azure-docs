@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the main toolbar, click **Settings**.
 
-	![Workstars sett](./media/workstars-tutorial/tutorial_workstars_sett.png)
+	![Workstars settings](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
 1. Go to **Sign On** > **Settings**.
 

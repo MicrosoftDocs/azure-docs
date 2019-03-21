@@ -251,7 +251,7 @@ Review our full list of services and IP addresses [here](../../azure-monitor/app
 
 Allow your web server to send telemetry to our endpoints. 
 
-### Proxy redirect
+### Gateway redirect
 
 Route traffic from your server to a gateway on your intranet by overwriting Endpoints in your configuration.
 If these "Endpoint" properties are not present in your config, these classes will use the default values shown below in the example ApplicationInsights.config. 
@@ -282,7 +282,19 @@ Your gateway should route traffic to our endpoint's base address. In your config
 
 _Note ApplicationIdProvider is available starting in v2.6.0_
 
+### Proxy passthrough
 
+Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
+For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Example Web.config:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## Can I run Availability web tests on an intranet server?

@@ -26,7 +26,7 @@ ms.author: shvija
 The following table compares the available service tiers of Event Hubs. The Event Hubs Dedicated offering is a fixed monthly price, compared to usage pricing for most features of Standard. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity for customers with demanding workloads. 
 
 | Feature | Standard | Dedicated |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | Ingress events | Pay per million events | Included |
 | Throughput unit (1 MB/sec ingress, 2 MB/sec egress) | Pay per hour | Included |
 | Message Size | 1 MB | 1 MB |

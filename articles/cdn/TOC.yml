@@ -12,6 +12,8 @@
     href: cdn-create-new-endpoint.md
   - name: Integrate a storage account
     href: cdn-create-a-storage-account-with-cdn.md    
+  - name: Create a profile using Azure Resource Manager template
+    href: create-profile-resource-manager-template.md
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
@@ -177,6 +179,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cdn
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-cdn
+    href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=cdn

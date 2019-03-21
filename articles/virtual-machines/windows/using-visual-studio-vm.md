@@ -14,7 +14,6 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.prod: vs-devops-alm 
 ms.date: 02/19/2019
 ms.author: phillee
 keywords: visualstudio

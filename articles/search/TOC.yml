@@ -17,36 +17,26 @@
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
-  - name: .NET
+  - name: Postman
+    href: search-fiddler.md
+  - name: PowerShell
+    href: search-create-index-rest-api.md
+  - name: C#
     items:
-    - name: Create an index
+    - name: 1 - Create an index
       href: search-create-index-dotnet.md
-    - name: Import data
+    - name: 2 - Load data
       href: search-import-data-dotnet.md
-    - name: Search
+    - name: 3 - Search an index
       href: search-query-dotnet.md
-  - name: REST
-    items:
-    - name: Create an index
-      href: search-create-index-rest-api.md
-    - name: Import data
-      href: search-import-data-rest-api.md
-    - name: Search
-      href: search-query-rest-api.md
-    - name: Explore using Postman or Fiddler
-      href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Learn cognitive search APIs
-    href: cognitive-search-tutorial-blob.md
-  - name: Index Azure blobs
-    href: search-semi-structured-data.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
-  - name: Add synonyms in .NET
-    href: search-synonyms-tutorial-sdk.md
-  - name: Add autocomplete in .NET
-    href: search-autocomplete-tutorial.md
+  - name: Index Azure blobs
+    href: search-semi-structured-data.md
+  - name: Index with AI (Cognitive Services)
+    href: cognitive-search-tutorial-blob.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -73,8 +63,10 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Allocate partitions and replicas
+    - name: Scale partitions and replicas
       href: search-capacity-planning.md
+    - name: Deployment strategies and best practices
+      href: search-performance-optimization.md
   - name: Security
     items:
     - name: Security overview
@@ -123,12 +115,18 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Add autosuggest
-      href: index-add-suggesters.md
-    - name: Add faceted navigation
-      href: search-faceted-navigation.md
-    - name: Add synonyms
-      href: search-synonyms.md
+    - name: Type-ahead
+      items:
+      - name: Add autosuggest
+        href: index-add-suggesters.md
+      - name: Autocomplete example
+        href: search-autocomplete-tutorial.md
+    - name: Synonyms
+      items:
+      - name: Add synonyms
+        href: search-synonyms.md
+      - name: Synonyms example
+        href: search-synonyms-tutorial-sdk.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
     - name: Model relational data
@@ -147,7 +145,7 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-    - name: Indexers (crawlers)
+    - name: Indexers
       items:
       - name: Indexers overview
         href: search-indexer-overview.md
@@ -159,6 +157,8 @@
         href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
       - name: Cosmos DB indexer
         href: search-howto-index-cosmosdb.md
+      - name: One-to-many blob indexing
+        href: search-howto-index-one-to-many-blobs.md
       - name: CSV blob indexing
         href: search-howto-index-csv-blobs.md
       - name: JSON blob indexing
@@ -213,6 +213,8 @@
       href: search-filters.md
     - name: Facet filters
       href: search-filters-facets.md
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
     - name: Filter and OrderBy expression syntax
       href: query-odata-filter-orderby-syntax.md
   - name: Relevance tuning
@@ -225,8 +227,6 @@
       href: search-manage.md
     - name: PowerShell administration
       href: search-manage-powershell.md
-    - name: Performance & optimizations
-      href: search-performance-optimization.md
   - name: Monitoring
     items:
     - name: Monitor activity and logging
@@ -291,11 +291,11 @@
   - name: Demo sites
     items:
     - name: Financial files demo
-      href: http://wolterskluwereap.azurewebsites.net/
+      href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
-      href: http://aka.ms/jfkfiles
+      href: https://aka.ms/jfkfiles
     - name: Job listings app
-      href: http://aka.ms/azjobsdemo
+      href: https://aka.ms/azjobsdemo
     - name: Search Analyzer demo
       href: https://alice.unearth.ai/
     - name: Search use cases

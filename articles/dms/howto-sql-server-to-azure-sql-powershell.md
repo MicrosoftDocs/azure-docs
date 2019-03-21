@@ -2,15 +2,15 @@
 title: Migrate SQL Server to Azure SQL Database with Database Migration Service and PowerShell | Microsoft Docs
 description: Learn to migrate from on-premises SQL Server to Azure SQL Database by using Azure PowerShell.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 03/12/2019
 ---
 
 # Migrate SQL Server on-premises to Azure SQL Database using Azure PowerShell

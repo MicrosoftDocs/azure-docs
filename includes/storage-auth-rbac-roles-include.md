@@ -18,6 +18,4 @@ Azure provides the following built-in RBAC roles for access to storage data:
 - [Storage Queue Data Contributor (Preview)](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Use to grant read/write/delete permissions to Azure queues.
 - [Storage Queue Data Reader (Preview)](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Use to grant read-only permissions to Azure queues.
 
-For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview).
-
-Azure Storage also supports custom RBAC roles. For more information, see [Create custom roles for Azure Role-Based Access Control](../articles/role-based-access-control/custom-roles.md). 
+For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../articles/role-based-access-control/role-definitions.md#management-and-data-operations-preview). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../articles/role-based-access-control/custom-roles.md). 

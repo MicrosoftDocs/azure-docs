@@ -174,7 +174,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network#expressroute
+    href: /powershell/module/az.network#expressroute
   - name: Azure CLI
     href: /cli/azure/network/express-route
   - name: REST

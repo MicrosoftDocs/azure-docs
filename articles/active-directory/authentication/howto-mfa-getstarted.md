@@ -40,6 +40,9 @@ Before you start, make sure you have the following prerequisites:
 
 Enable at least one authentication method for your users based on your organization's requirements. We find that when enabled for users the Microsoft Authenticator app provides the best user experience. If you need to understand which methods are available and how to set them, see the article [What are authentication methods](concept-authentication-methods.md).
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 ## Get users to enroll
 
 Once you enable the conditional access policy, users will be forced to enroll the next time they use an app protected with the policy. If you enable a policy requiring MFA for all users on all cloud apps, this action could cause headaches for your users and your helpdesk. The recommendation is to ask users to register authentication methods beforehand using the registration portal at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Many organizations find that creating posters, table cards, and email messages helps drive adoption.

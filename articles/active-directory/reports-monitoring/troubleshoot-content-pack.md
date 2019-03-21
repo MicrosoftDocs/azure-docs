@@ -69,6 +69,6 @@ This article provides you with information about the possible causes and how to 
 
 ## Next steps
 
-* [Install Power BI contect pack for Azure AD reports](quickstart-install-power-bi-content-pack.md).
+* [Install Power BI content pack for Azure AD reports](quickstart-install-power-bi-content-pack.md).
 * [Use Power BI content pack for Azure AD reports to visualize your data](howto-power-bi-content-pack.md)
 * [How to get support for Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

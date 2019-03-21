@@ -1,5 +1,5 @@
 ---
-title: What is the MyApps portal in Azure Active Directory? | Microsoft Docs
+title: What is the MyApps portal - Azure Active Directory? | Microsoft Docs
 description: Learn how to use variations of the MyApps portal (web browser, Android app, iPhone and iPad app) to access SaaS apps.
 services: active-directory
 author: eross-msft
@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.custom: "user-help, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -79,11 +80,11 @@ To sign in to password-based single sign-on, you must use the extension. After t
 
 > [!NOTE]
 > Additional features are available only for Microsoft Edge, Chrome, and Firefox.
->
-You can download the extension directly from the following sites:
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> You can download the extension directly from the following sites:
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
 1. While you are *not* signed in to the extension, right-click the extension icon.

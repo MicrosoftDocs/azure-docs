@@ -3,7 +3,6 @@ title: "Troubleshooting"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: "09/11/2018"
@@ -140,8 +139,8 @@ You see this error in Visual Studio Code if you have a newer version of the VS C
 
 Download and install the latest version of the Azure Dev Spaces CLI:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## Error 'azds' is not recognized as an internal or external command, operable program, or batch file
@@ -204,7 +203,7 @@ Starting the VS Code debugger may sometimes result in this error.
 Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
 
 ### Reason
-You do not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .Net Core (CoreCLR).
+You do not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .NET Core (CoreCLR).
 
 ### Try:
 Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

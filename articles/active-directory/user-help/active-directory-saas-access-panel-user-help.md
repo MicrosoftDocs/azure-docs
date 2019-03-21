@@ -1,5 +1,5 @@
 ---
-title: Get help with accessing and using the MyApps portal in Azure Active Directory | Microsoft Docs
+title: Get help with accessing and using the MyApps portal - Azure Active Directory | Microsoft Docs
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 author: eross-msft
@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.custom: "user-help, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -91,8 +92,8 @@ If you have installed the extension and are still experiencing issues, try the f
 
 ## How do I add a new app?
 
-1.	On the **Apps** page, select **Add App**.
-2.	Search for the app that you want to add, and then select **Add**.
+1. On the **Apps** page, select **Add App**.
+2. Search for the app that you want to add, and then select **Add**.
 
    > [!NOTE]
    > * You can access this option only if your administrator has enabled it for your account.

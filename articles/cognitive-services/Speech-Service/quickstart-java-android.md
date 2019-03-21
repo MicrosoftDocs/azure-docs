@@ -25,7 +25,7 @@ The Speech SDK is currently compatible with Android devices having 32/64-bit ARM
 
 ## Prerequisites
 
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
 
 ## Create and configure a project
 
@@ -56,11 +56,11 @@ Android Studio takes a moment to prepare your new Android project. Next, configu
 The current version of the Cognitive Services Speech SDK is `1.3.1`.
 
 The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions.
-It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
+It is hosted in a Maven repository at https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Set up your project to use the Speech SDK. Open the Project Structure window by choosing **File** > **Project Structure** from the Android Studio menu bar. In the Project Structure window, make the following changes:
 
-1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. In the list on the left side of the window, select **Project**. Edit the **Default Library Repository** settings by appending a comma and our Maven repository URL enclosed in single quotes. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Screenshot of Project Structure window](media/sdk/qs-java-android-06-add-maven-repository.png)
 
@@ -132,7 +132,7 @@ The text and graphical representation of your UI should now look like this:
 
    ![Screenshot of Select Deployment Target window](media/sdk/qs-java-android-12-deploy.png)
 
-Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
+Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
 
 ![Screenshot of the Android application](media/sdk/qs-java-android-13-gui-on-device.png)
 
