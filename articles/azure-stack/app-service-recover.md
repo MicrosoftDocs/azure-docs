@@ -46,7 +46,7 @@ After [preparing the SQL Server instance](azure-stack-app-service-before-you-get
 3. Verify that both App Service databases have been successfully restored and exit SQL Server Management Studio.
 
 > [!NOTE]
-> TO recover from a failover cluster instance failure, [these instructions](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
+> To recover from a failover cluster instance failure, [these instructions](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017). 
 
 ## Restore the App Service file share content
 After [preparing the file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) to host the App Service file share, you need to restore the tenant file share content from backup. You can use whatever method you have available to copy the files into the newly created App Service file share location. Running this example on the file server will use PowerShell and robocopy to connect to a remote share and copy the files to the share:
