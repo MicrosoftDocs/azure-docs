@@ -30,6 +30,7 @@ Before you begin:
 * Install the [Service Fabric CLI](service-fabric-cli.md)
 * Install the [Azure CLI](/cli/azure/install-azure-cli)
 * To learn the key concepts of clusters, read [Overview of Azure clusters](service-fabric-azure-clusters-overview.md)
+* [Plan and prepare](service-fabric-cluster-azure-deployment-preparation.md) for a production cluster deployment.
 
 The following procedures create a seven-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
