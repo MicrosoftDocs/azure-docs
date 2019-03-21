@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection agent version release history
+title: On-premises Azure AD Password Protection agent version release history - Azure Active Directory
 description: Documents version release and behavior change history
 
 services: active-directory
