@@ -23,7 +23,7 @@ The Azure DevTest Labs service significantly improves management of virtual mach
 Here are some scenarios where you need to import VMs from one lab into another lab: 
 
 - An individual on the team is moving to another group within the enterprise and wants to take the developer desktop to the new team’s DevTest Labs.
-- The group has hit a [subscription-level quota](azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
+- The group has hit a [subscription-level quota](../azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
 - The company is moving to Express Route (or some other new networking topology) and the team wants to move the Virtual Machines to use this new infrastructure
 
 ## Solution and Constraints
