@@ -42,12 +42,12 @@ By sending new data points as you generate them, you can monitor your data in re
 
 ## Adjusting lower and upper anomaly detection boundaries
 
-By default, the upper and lower boundaries for anomaly detection are calculated using `ExpectedValue`, `UpperMargin`, and `LowerMargin`. If you require different boundaries, we recommend applying a `MarginScale` to `UpperMargin` or `LowerMargin`. The boundaries would be calculated as follows:
+By default, the upper and lower boundaries for anomaly detection are calculated using `expectedValue`, `upperMargin`, and `lowerMargin`. If you require different boundaries, we recommend applying a `marginScale` to `upperMargin` or `lowerMargin`. The boundaries would be calculated as follows:
 
 |Boundary  |Calculation  |
 |---------|---------|
-|`UpperMargin`     | `ExpectedValue + (100 - MarginScale) * UpperMargin`        |
-|`LowerMargin`     |  `ExpectedValue - (100 - MarginScale) * LowerMargin`       |
+|`upperBoundary` | `expectedValue + (100 - marginScale) * upperMargin`        |
+|`lowerBoundary` | `expectedValue - (100 - marginScale) * lowerMargin`        |
 
 The following examples show an Anomaly Detector API result at different sensitivities.
 

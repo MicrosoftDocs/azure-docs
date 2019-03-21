@@ -49,7 +49,7 @@ Missing data points are common in evenly distributed time series data sets, espe
 
 ### Aggregate distributed data
 
-The Anomaly Detector API works best on an evenly distributed time series. If your data is randomly distributed, you should aggregate it by a unit of time. per-minute, hourly, or daily for example.
+The Anomaly Detector API works best on an evenly distributed time series. If your data is randomly distributed, you should aggregate it by a unit of time, per-minute, hourly, or daily for example.
 
 ## Anomaly detection on data with seasonal patterns
 
