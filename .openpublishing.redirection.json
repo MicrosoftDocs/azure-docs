@@ -4275,6 +4275,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/tutorial-create-vmss-powershell.md",
+      "redirect_url": "/azure/application-gateway/tutorial-manage-web-traffic-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
       "redirect_document_id": false
@@ -21346,6 +21351,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/reports-monitoring/tutorial-signin-logs-download-script.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/concept-sign-ins",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/active-directory/active-directory-reporting-activity-audit-reference.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-audit-activities",
       "redirect_document_id": false
@@ -36306,6 +36316,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-export-data.md",
+      "redirect_url": "/azure/iot-central/howto-export-data-event-hubs-service-bus",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/service-maintenance.md",
       "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
       "redirect_document_id": false
@@ -36359,6 +36374,11 @@
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-customize-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-sql-server-azure-vms.md",
+      "redirect_url": "/azure/backup/backup-azure-sql-database",
       "redirect_document_id": false
     }
   ]
