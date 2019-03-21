@@ -32,7 +32,7 @@ With Azure AD entitlement management, you can configure policies to require appr
 
 ## Prerequisites
 
-- Designated approver of an access request
+- Approver of an access request
 
 ## Open the access request
 
