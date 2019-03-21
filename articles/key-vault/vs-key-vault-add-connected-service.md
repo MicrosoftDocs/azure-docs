@@ -14,15 +14,15 @@ ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services
 
-In this tutorial, you will learn how to easily add everything you need to start using Azure Key Vault to manage your secrets for web projects in Visual Studio, whether you are using ASP.NET Core or any type of ASP.NET project. By using the Connected Services feature in Visual Studio 2017, you can have Visual Studio automatically add all the NuGet packages and configuration settings you need to connect to Key Vault in Azure. 
+In this tutorial, you will learn how to easily add everything you need to start using Azure Key Vault to manage your secrets for web projects in Visual Studio, whether you are using ASP.NET Core or any type of ASP.NET project. By using the Connected Services feature in Visual Studio, you can have Visual Studio automatically add all the NuGet packages and configuration settings you need to connect to Key Vault in Azure. 
 
-For details on the changes that Connected Services makes in your project to enable Key Vault, see [Key Vault Connected Service - What happened to my ASP.NET 4.7.1 project](vs-key-vault-aspnet-what-happened.md) or [Key Vault Connected Service - What happened to my ASP.NET Core project](vs-key-vault-aspnet-core-what-happened.md).
+For details on the changes that Connected Services makes in your project to enable Key Vault, see [Key Vault Connected Service - What happened to my ASP.NET 4.7.1 project](#how-your-asp-net-framework-project-is-modified) or [Key Vault Connected Service - What happened to my ASP.NET Core project](#how-your-asp-net-core-project-is-modified).
 
 ## Prerequisites
 
 - **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- For ASP.NET (not Core), you need the .NET Framework 4.7.1 Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
+- **Visual Studio 2019** or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- For ASP.NET (not Core) with Visual Studio 2017, you need the .NET Framework 4.7.1 Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
 - An ASP.NET 4.7.1 or ASP.NET Core 2.0 web project open.
 
 ## Add Key Vault support to your project
@@ -102,20 +102,26 @@ Now, you can access your secrets in code. The next steps are different depending
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
    ```
-3. Next open About.cshtml.cs file and write the following code
-   1. Include a reference to Microsoft.Extensions.Configuration by this using statement    
-       ```
+
+3. Next open About.cshtml.cs file and write the following code:
+   1. Include a reference to Microsoft.Extensions.Configuration by this using statement:
+
+       ```csharp
        using Microsoft.Extensions.Configuration
        ```
-   2. Add this constructor
-       ```
+
+   1. Add this constructor:
+
+       ```csharp
        public AboutModel(IConfiguration configuration)
        {
            _configuration = configuration;
        }
        ```
-   3. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
-       ```
+
+   1. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands.
+
+       ```csharp
        public void OnGet()
        {
            //Message = "Your application description page.";
