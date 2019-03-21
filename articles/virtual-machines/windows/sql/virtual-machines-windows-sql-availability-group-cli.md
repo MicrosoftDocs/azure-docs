@@ -158,15 +158,19 @@ To add a new replica to the availability group, do the following:
    # Add SQL Server VM to the Cluster
    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
    # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
+
    az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
    -b <bootstrap account password> -p <operator account password> -s <service account password>
    ```
 1. Use SQL Server Management Studio (SSMS) to add the SQL Server instance as a replica within the availability group.
-1. Add the SQL Server VM metadata do the listener:
+1. Add the SQL Server VM metadata to the listener:
    ```azurecli
    # Update the listener metadata with the new VM
    # example: az sql vm group ag-listener update -n AGListener `
    -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
+
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs, along with new SQL VM>
    ```
 
 ### Remove a replica
@@ -178,12 +182,16 @@ To remove a replica from the availability group, do the following:
    ```azurecli
    # Update the listener metadata by removing the VM from the SQLVMs list
    # example: az sql vm group ag-listener update -n AGListener `
-   -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
+
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
    ```
 1. Remove the SQL Server VM from the cluster:
    ```azurecli
    # Remove SQL VM from cluster
    # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
+
    az sql vm remove-from-group --name <SQL VM name> --resource-group <RG name> 
    ```
 
