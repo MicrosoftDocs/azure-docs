@@ -36372,6 +36372,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
+      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/mt219005(v=azure.100)",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-sql-server-azure-vms.md",
       "redirect_url": "/azure/backup/backup-azure-sql-database",
       "redirect_document_id": false
