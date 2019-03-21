@@ -205,12 +205,12 @@ wishful-mastiff	  1       	Wed Mar  6 19:11:38 2019	DEPLOYED	wordpress-2.1.3	 4.
 
 ## Clean up resources
 
-When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, use the `helm delete` command and specify your release name, as found in the previous `helm list` command. The following example deletes the release named *wishful mastiff*:
+When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up these resources, use the `helm delete` command and specify your release name, as found in the previous `helm list` command. The following example deletes the release named *pilfering-seagull*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete pilfering-seagull
 
-release "wishful-mastiff" deleted
+release "pilfering-seagull" deleted
 ```
 
 ## Next steps
