@@ -190,7 +190,7 @@ public async Task ListBlobs(CloudBlobClient cloudBlobClient, string containerNam
 
 Create a reference to a blob by calling the [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method. Pass in the name of the blob that you want to download.
 
-Then, call the [ClouidBlockBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) to download the file to your local computer. Provide the fully qualified path of the destination. This path includes the name that you want to give to the downloaded file.
+Then, call the [CloudBlockBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) method to download the file to your local computer. Provide the fully qualified path of the destination. This path includes the name that you want to give to the downloaded file.
 
 ```cs
 public async Task DownloadBlobs(CloudBlobClient cloudBlobClient,
@@ -212,13 +212,13 @@ public async Task DownloadBlobs(CloudBlobClient cloudBlobClient,
 > * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
 view=azure-dotnet) method.
 > * [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method.
-> * [ClouidBlockBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet)
+> * [CloudBlockBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet)
 
 ## Delete blobs from the container
 
 Create a reference to a blob by calling the [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method. Pass in the name of the blob that you want to delete.
 
-Then, delete the blob by calling the [ClouidBlockBlob.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.deleteasync?view=azure-dotnet) method.
+Then, delete the blob by calling the [CloudBlockBlob.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.deleteasync?view=azure-dotnet) method.
 
 ```cs
 public async Task DeleteBlob(CloudBlobClient cloudBlobClient,
@@ -240,13 +240,13 @@ public async Task DeleteBlob(CloudBlobClient cloudBlobClient,
 > * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
 view=azure-dotnet) method.
 > * [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method.
-> * [ClouidBlockBlob.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.deleteasync?view=azure-dotnet) method.
+> * [CloudBlockBlob.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.deleteasync?view=azure-dotnet) method.
 
 ## Delete the container
 
 Create a reference to the container by calling the [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method. Pass in the name of the container that you want to delete.
 
-Then, delete the container by calling the [ClouidBlockBlob.DeleteIfExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) method.
+Then, delete the container by calling the [CloudBlockBlob.DeleteIfExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) method.
 
 ```cs
 public async Task DeleteBlobContainer(CloudBlobClient cloudBlobClient,
@@ -267,7 +267,7 @@ public async Task DeleteBlobContainer(CloudBlobClient cloudBlobClient,
 
 > [!div class="checklist"]
 > * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
-> * [ClouidBlockBlob.DeleteIfExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) method.
+> * [CloudBlockBlob.DeleteIfExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) method.
 
 ## Add directories to the container
 

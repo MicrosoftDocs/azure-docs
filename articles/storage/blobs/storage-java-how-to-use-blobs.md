@@ -14,21 +14,28 @@ ms.component: data-lake-storage-gen2
 
 This guide shows you how to interact with blobs by using Java. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
 
-## Install what you need
+## Create a storage account
 
-Install the JDK.
+To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Note: The JAVA_HOME environment variable must be set to the install location of the JDK to complete this tutorial.
+Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
 
-Install Apache Maven Version 3 or greater.
+![Enabling a hierarchical namespace](media/storage-java-how-to-use-blobs/enable-hierarchical-namespace.png)
 
-Create a Maven project. This is a great resource for setting up and creating a Java program in VS Code - [Writing Java with Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial).
+## Set up your development environment
 
-Add a dependency to your Maven pom.xml file. See [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-stable)
+To set up your environment, perform these tasks:
+
+> [!div class="checklist"]
+> * Install the [JDK](https://docs.microsoft.com/en-us/java/azure/java-supported-jdk-runtime?view=azure-java-stable).
+> * Set the JAVA_HOME environment variable to the install location of the JDK.
+> * Install [Apache Maven](https://maven.apache.org/download.cgi).
+> * Create an Apache Maven project. If you're using VS Code, see [Writing Java with Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) for specific guidance.
+> * Add a Blob service dependency to the `pom.xml` file of your Apache Maven project. See [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-stable) for specific guidance.
 
 ## Add library references to your code file
 
-Add these import statements to your code file.
+Add these import statements to your .java code file.
 
 ```java
 import java.io.BufferedReader;
@@ -55,23 +62,13 @@ import com.microsoft.rest.v2.RestException;
 import io.reactivex.*;
 ```
 
-## Create a storage account
-
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
-
-![Enabling a hierarchical namespace](media/storage-java-how-to-use-blobs/enable-hierarchical-namespace.png)
-
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Create a container and setup objects
 
-Some guidance goes here.
+Create an instance of a [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) class by calling the [ServiceURL.createContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l.createcontainerurl?view=azure-java-preview) method.
 
-** Comments from code.
-
-// Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
+Then, create a blob container by calling the [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) method.
 
 ```java
 static ContainerURL createContainer(String containerName, String accountName,
@@ -109,17 +106,14 @@ String accountKey) throws IOException, InvalidKeyException {
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [ServiceURL.createContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l.createcontainerurl?view=azure-java-preview)
+> * [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview)
 
 ## Upload blobs to the container
 
-Some guidance goes here.
+Create a blob by calling the [ContainerURL.createBlockBlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.createblockbloburl?view=azure-java-preview) method.
 
-** Taken from code comments **
-
-// Uploading a file to the blobURL using the high-level methods available in TransferManager class
-// Alternatively call the PutBlob/PutBlock low-level methods from BlockBlobURL type
+Then, you can call the [TrasferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) method upload a file from your local computer.
 
 ```java
 static BlockBlobURL uploadFile(ContainerURL containerURL, String sourceFilePath,
@@ -144,19 +138,14 @@ static BlockBlobURL uploadFile(ContainerURL containerURL, String sourceFilePath,
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [ContainerURL.createBlockBlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.createblockbloburl?view=azure-java-preview)
+> * [TrasferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview)
 
 ## List blobs in the container
 
-Some guidance goes here.
+Get a collection of blob items in the container by calling the [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) method.
 
-** Comments from code:
-
-        // Each ContainerURL.listBlobsFlatSegment call return up to maxResults 
-        // (maxResults=10 passed into ListBlobOptions below).
-        // To list all Blobs, we are creating a helper static method called listAllBlobs,
-    	// and calling it after the initial listBlobsFlatSegment call
+This method returns a group of items called a *segment*. You can iterate through the items in th segment. This example gets a segment of 10 items and uses a static helper method to obtain other segments of 10 items until there are no more items to retrieve.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -221,19 +210,18 @@ private static Single <ContainerListBlobFlatSegmentResponse> listAllBlobs(
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview)
 
 ## Download blobs from the container
 
-Some guidance goes here.
+Call the [TransferManager.downloadBlobToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.downloadblobtofile?view=azure-java-preview) method to download a file to your local computer.
 
 ```java
-static void downloadBlob(BlockBlobURL blobURL, String destinationFilePath) 
-    throws IOException { 
+static void downloadBlob(BlockBlobURL blobURL, String destinationFilePath)
+    throws IOException {
 
-    AsynchronousFileChannel fileChannel = 
-        AsynchronousFileChannel.open(Paths.get(destinationFilePath), 
+    AsynchronousFileChannel fileChannel =
+        AsynchronousFileChannel.open(Paths.get(destinationFilePath),
             StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 
     TransferManager.downloadBlobToFile(fileChannel, blobURL, null, null)
@@ -247,12 +235,11 @@ static void downloadBlob(BlockBlobURL blobURL, String destinationFilePath)
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [TransferManager.downloadBlobToFile](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.downloadblobtofile?view=azure-java-preview)
 
 ## Delete blobs from the container
 
-Some guidance goes here.
+Delete the blob by calling the [BlobURL.Delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.delete?view=azure-java-preview) method.
 
 ```java
 static void deleteBlob(BlockBlobURL blobURL) {
@@ -268,12 +255,11 @@ static void deleteBlob(BlockBlobURL blobURL) {
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [BlobURL.Delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.delete?view=azure-java-preview)
 
 ## Delete the container
 
-Some guidance goes here.
+Delete the container by calling the [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview&viewFallbackFrom=azure-java-stable) method.
 
 ```java
 static void deleteContainer(ContainerURL containerURL) {
@@ -286,8 +272,7 @@ static void deleteContainer(ContainerURL containerURL) {
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [Type]()
-> * [Method]()
+> * [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview&viewFallbackFrom=azure-java-stable)
 
 ## Add directories to the container
 
