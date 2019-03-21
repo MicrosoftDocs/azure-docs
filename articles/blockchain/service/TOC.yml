@@ -10,6 +10,7 @@
   - name: Create member - Portal
     href: create-member-portal.md
   - name: Create member - CLI
+    href: create-member-cli.md
   - name: Connect to member
     items:
     - name: Using MetaMask

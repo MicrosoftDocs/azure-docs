@@ -29,7 +29,7 @@ Members are consortium participants with no administrator capabilities. They can
 
 ### Administrator
 
- An administrator can manage members within the consortium. An administrator can invite members, remove members, or update members roles within the consortium.
+An administrator can manage members within the consortium. An administrator can invite members, remove members, or update members roles within the consortium.
 
 Consortium founders will automatically be assigned the administrator role.
 
