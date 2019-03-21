@@ -36378,7 +36378,7 @@
     },
     {
       "source_path": "articles/data-factory/how-to-create-tumbling-window-trigger.md",
-      "redirect_url": "azure/data-factory/how-to-create-tumbling-window-trigger",
+      "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
       "redirect_document_id": false
     }
   ]
