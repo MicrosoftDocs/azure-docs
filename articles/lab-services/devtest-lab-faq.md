@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
 
 ---
@@ -23,6 +23,25 @@ Get answers to some of the most common questions about Azure DevTest Labs.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **General**
+
+## Blog post
+Our DevTest Labs Team blog has been retired as of 20 March, 2019. 
+
+### Where can I track feature updates going forward?
+Going forward, we will be posting feature updates and/or informative blog posts on the Azure blog and Azure updates. These blog posts will also link to our documentation wherever required.
+
+Subscribe to the [DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) and [DevTest Labs Azure updates](https://azure.microsoft.com/updates/?product=devtest-lab) to stay informed about new features in DevTest Labs.
+
+### What happens to the existing blog posts?
+We are currently working on migrating existing blog posts (excluding outage updates) to our [DevTest Labs documentation](devtest-lab-overview.md). When the MSDN blog is deprecated, it will be redirected to the documentation overview for DevTest Labs. Once redirected, you can search for the topic you are looking for in the 'Filter by' title (screenshot attached). Note we haven't migrated all posts yet, but should be done by end of this month. 
+
+
+### Where do I see outage updates?
+We will be posting outage updates using our Twitter handle going forward. Follow us on Twitter to get latest updates on outages and known bugs.
+
+### Twitter 
+Our Twitter handle: azlabservices
+
 ## What if my question isn't answered here?
 If your question is not listed here, let us know, so we can help you find an answer.
 
