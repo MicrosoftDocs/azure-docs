@@ -147,12 +147,72 @@ Refer to the following list to configure managed identity for Azure Container In
 
 The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
 
-| Service | Resource ID | Status | Assign access |
-| ------- | ----------- | ------ | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | Available | [Azure portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) <br>[Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md) |
-| Azure Key Vault | `https://vault.azure.net` | Available |  
-| Azure Data Lake | `https://datalake.azure.net/` | Available |
-| Azure SQL | `https://database.windows.net/` | Available |
-| Azure Event Hubs | `https://eventhubs.azure.net` | Preview |
-| Azure Service Bus | `https://servicebus.azure.net` | Preview |
-| Azure Storage | `https://storage.azure.com/` | Preview |
+### Azure Resource Manager
+
+Refer to the following list to configure access to Azure Resource Manager:
+
+- [Assign access via Azure portal](howto-assign-access-portal.md)
+- [Assign access via Powershell](howto-assign-access-powershell.md)
+- [Assign access via Azure CLI](howto-assign-access-CLI.md)
+- [Assign access via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://management.azure.com/`| Available |
+| Azure Government | `https://management.usgovcloudapi.net/` | Available |
+| Azure Germany | `https://management.microsoftazure.de/` | Available |
+| Azure China 21Vianet | `https://management.chinacloudapi.cn` | Available |
+
+### Azure Key Vault
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://vault.azure.net`| Available |
+| Azure Government | `https://vault.usgovcloudapi.net` | Available |
+| Azure Germany |  `https://vault.microsoftazure.de` | Available |
+| Azure China 21Vianet | `https://vault.azure.cn` | Available |
+
+## Azure Data Lake 
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://datalake.azure.net/` | Available |
+| Azure Government |  | Not Available |
+| Azure Germany |   | Not Available |
+| Azure China 21Vianet |  | Not Available |
+
+## Azure SQL 
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://database.windows.net/` | Available |
+| Azure Government | `https://database.usgovcloudapi.net/` | Available |
+| Azure Germany | `https://database.cloudapi.de/` | Available |
+| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Available |
+
+## Azure Event Hubs
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://eventhubs.azure.net` | Preview |
+| Azure Government |  | Not Available |
+| Azure Germany |   | Not Available |
+| Azure China 21Vianet |  | Not Available |
+
+## Azure Service Bus
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://servicebus.azure.net`  | Preview |
+| Azure Government |  | Not Available |
+| Azure Germany |   | Not Available |
+| Azure China 21Vianet |  | Not Available |
+
+## Azure Storage
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://storage.azure.com/` | Preview |
+| Azure Government |  | Not Available |
+| Azure Germany |   | Not Available |
+| Azure China 21Vianet |  | Not Available |
