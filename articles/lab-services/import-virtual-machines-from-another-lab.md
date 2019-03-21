@@ -17,7 +17,7 @@ ms.author: spelluru
 ---
 
 # Import virtual machines from another lab in Azure DevTest Labs
-The Azure DevTest Labs service significantly improves management of virtual machines for development and testing activities.  However, team or infrastructure requirements change over time and you need to adapt your current activities to meet the new requirements. This article particularly talks about how to import virtual machines from another lab into your lab. 
+This article provides information about how to import virtual machines from another lab into your lab. 
 
 ## Scenarios
 Here are some scenarios where you need to import VMs from one lab into another lab: 
@@ -27,13 +27,20 @@ Here are some scenarios where you need to import VMs from one lab into another l
 - The company is moving to Express Route (or some other new networking topology) and the team wants to move the Virtual Machines to use this new infrastructure
 
 ## Solution and Constraints
-This feature enables the lab owner to import VMs in the source lab into a destination lab. You can optionally give a new name for the destination VM in the process. The import process includes all the dependencies like disks, schedules, network settings, etc. The process does take some time and is impacted by the number/size of the disks attached to the source machine (since it’s a copy operation and not a move operation) and the distance to the destination (For example, East US region to Southeast Asia).  Once the process is complete, the source Virtual Machine remains shutdown and the new one is running in the destination lab.
+This feature enables you to import VMs in one lab (source) into another lab (destination). You can optionally give a new name for the destination VM in the process. The import process includes all the dependencies like disks, schedules, network settings, and so on.
+
+The process does take some time and is impacted by the following factors:
+
+- Number/size of the disks that are attached to the source machine (since it’s a copy operation and not a move operation) 
+- Distance to the destination (For example, East US region to Southeast Asia).  
+
+Once the process is complete, the source Virtual Machine remains shutdown and the new one is running in the destination lab.
 
 There are two key constraints to be aware of when planning to import VMs from one lab in to another lab:
 
 - Virtual Machine imports across subscriptions and across regions are supported, but the subscriptions must be associated to the same Azure Active Directory tenant.
 - Virtual Machines must not be in a claimable state in the source lab.
-- You need to be the owner of the VM in the source lab and owner of the lab in the destination lab.
+- You're the owner of the VM in the source lab and owner of the lab in the destination lab.
 - Currently, this feature is supported only through Powershell and REST API.
 
 ## Use PowerShell
