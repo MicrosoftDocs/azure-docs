@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Service Provider Management Toolkit Documentation
+title: Microsoft Azure Service Provider Management Toolkit Documentation
 metadata:
-  title: Azure Service Provider Management Toolkit Documentation
+  title: Microsoft Azure Service Provider Management Toolkit Documentation
   description: Learn how to manage customer resources at scale
   author: JnHs
   manager: carmonm
@@ -13,15 +13,16 @@ metadata:
   ms.date: 04/03/2019
   ms.author: jenhayes
 abstract:
-  description: Azure Service Provider Management Toolkit lets you manage customer resources at scale.
+  description: Microsoft Azure Service Provider Management Toolkit lets you manage customer resources at scale.
 sections:
 - title: Concepts
   items:
   - type: paragraph
-    text: Learn about key aspects of Azure Service Provider Management Toolkit.
+    text: Learn about key aspects of Microsoft Azure Service Provider Management Toolkit.
   - type: list
     style: unordered
     items:
+    - html: <a href="concepts/azure-delegated-resource-management">Azure Delegated Resource Management</a>
     - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
 - title: How-to guides
   items:
