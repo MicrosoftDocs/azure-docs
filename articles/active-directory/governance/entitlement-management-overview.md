@@ -114,7 +114,7 @@ To better understand entitlement management and its documentation, you should re
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include guest access and employee access. |
 | resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
-| resource type | The type of resource. A resource type includes: Azure AD security group, Office 365 group, Azure AD enterprise application, SaaS applications, custom integrated applications, SharePoint Online site collection, and SharePoint Online site. |
+| resource type | The type of resource. For entitlement management, resource types include: Azure AD security group, Office 365 group, Azure AD enterprise application, SaaS application, custom integrated application, SharePoint Online site collection, and SharePoint Online site. |
 | resource role | A collection of permissions associated with a resource. |
 | resource directory | A directory that has one or more resources to share. |
 | assigned users | An assignment of an access package to a user or group. |
