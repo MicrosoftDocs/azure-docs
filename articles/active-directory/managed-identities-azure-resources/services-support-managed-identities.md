@@ -154,7 +154,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 - [Assign access via Azure portal](howto-assign-access-portal.md)
 - [Assign access via Powershell](howto-assign-access-powershell.md)
 - [Assign access via Azure CLI](howto-assign-access-CLI.md)
-- [Assign acces via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
+- [Assign access via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -186,9 +186,9 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
 | Azure Global | `https://database.windows.net/` | Available |
-| Azure Government | | Not Available |
-| Azure Germany | | Not Available |
-| Azure China 21Vianet | | Not Available |
+| Azure Government | `https://database.usgovcloudapi.net/` | Available |
+| Azure Germany | `https://database.cloudapi.de/` | Available |
+| Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Available |
 
 ## Azure Event Hubs
 
