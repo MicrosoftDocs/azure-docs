@@ -2,9 +2,10 @@
 title: Migrate on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -31,6 +32,8 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 
 Before you start, it's helpful to review the [VMware](vmware-azure-architecture.md) or [Hyper-V](hyper-v-azure-architecture.md) architectures for disaster recovery.
 
+> [!TIP]
+> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
 
 ## Prerequisites
 
@@ -50,7 +53,6 @@ Devices exported by paravirtualized drivers aren't supported.
    ![New vault](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
-
 
 
 ## Select a replication goal
@@ -108,10 +110,10 @@ Run a failover for the machines you want to migrate.
 5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
 
-    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
-    - This step cleans up the replication data. It doesn't delete the migrated VMs.
+   - Finishes the migration process, stops replication for the on-premises VM, and stops Site Recovery billing for the VM.
+   - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
-    ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Complete migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

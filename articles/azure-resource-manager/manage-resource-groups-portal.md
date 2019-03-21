@@ -42,11 +42,11 @@ The resource group stores metadata about the resources. When you specify a locat
 3. Select **Add**.
 4. Enter the following values:
 
-    - **Subscription**: Select your Azure subscription. 
-    - **Resource group**: Enter a new resource group name. 
-    - **Region**: Select an Azure location, such as **Central US**.
+   - **Subscription**: Select your Azure subscription. 
+   - **Resource group**: Enter a new resource group name. 
+   - **Region**: Select an Azure location, such as **Central US**.
 
-    ![create resource group](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+     ![create resource group](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Select **Review + Create**
 6. Select **Create**. It takes a few seconds to create a resource group.
 7. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
@@ -126,14 +126,14 @@ This method exports the templates for certain deployments. If you have changed t
 3. Select one of the deployments from the list.
 4. In the left pane, select **Template**. Resource Manager retrieves the following six files for you:
 
-    - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
-    - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
-    - **CLI** - An Azure CLI script file that you can use to deploy the template.
-    - **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
-    - **.NET** - A .NET class that you can use to deploy the template.
-    - **Ruby** - A Ruby class that you can use to deploy the template.
+   - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
+   - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
+   - **CLI** - An Azure CLI script file that you can use to deploy the template.
+   - **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
+   - **.NET** - A .NET class that you can use to deploy the template.
+   - **Ruby** - A Ruby class that you can use to deploy the template.
 
-    By default, the portal displays the template.
+     By default, the portal displays the template.
 
 5. Select **Download** to export a template to your local computer.
 
@@ -147,14 +147,14 @@ If you've changed your resources from the portal, or added/remove resources in m
 1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
 2. In the left pane, select **Automation script**. Resource Manager retrieves the following six files for you:
 
-    - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
-    - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
-    - **CLI** - An Azure CLI script file that you can use to deploy the template.
-    - **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
-    - **.NET** - A .NET class that you can use to deploy the template.
-    - **Ruby** - A Ruby class that you can use to deploy the template.
+   - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
+   - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
+   - **CLI** - An Azure CLI script file that you can use to deploy the template.
+   - **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
+   - **.NET** - A .NET class that you can use to deploy the template.
+   - **Ruby** - A Ruby class that you can use to deploy the template.
 
-    By default, the portal displays the template.
+     By default, the portal displays the template.
 3. Select **Download** to export a template to your local computer.
 
 Some exported templates need some edits before they can be used. To learn how to develop templates, see the [Step-by-step tutorials](/azure/azure-resource-manager/).

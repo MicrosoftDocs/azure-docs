@@ -9,7 +9,7 @@ editor: ''
 tags: azure-virtual-machine
 
 ms.assetid: ''
-ms.service: ''
+ms.service: virtual-machines-linux
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm

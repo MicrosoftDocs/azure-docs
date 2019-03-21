@@ -62,7 +62,7 @@ In the previous step, if you did not have a storage account connection string th
 ### Guidance
 
 * Do not check "slot setting" for any of these settings. When you swap deployment slots the Function will break.
-* Do not set these settings when using automated deployments.
+* Do not modify these settings as part of automated deployments.
 * These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
 
 ## Storage account credentials invalid

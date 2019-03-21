@@ -49,7 +49,7 @@ Ensure that the following prerequisites are met before initiating the Offline Ba
 
 * An Azure Storage account with *classic* deployment model has been created in the subscription from which you downloaded the publish settings file as shown below: 
 
- ![Creating a classic storage account](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Creating a classic storage account](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * With regards to disks that will be sent to Azure, ensure that only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives are used. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
@@ -68,12 +68,12 @@ The information in this section helps you complete the offline-backup workflow s
 
     The description of the inputs is as follows:
 
-    * **Staging Location**: The temporary storage location to which the initial backup copy is written. Staging location might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
-    * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure.
-    * **Azure Publish Settings**: Provide the local path to the publish settings file.
-    * **Azure Subscription ID**: The Azure subscription ID for the subscription from where you downloaded the Azure Publish settings file. 
-    * **Azure Storage Account**: The name of the storage account in the Azure subscription associated with the Azure Publish settings file.
-    * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where the backup data is imported.
+   * **Staging Location**: The temporary storage location to which the initial backup copy is written. Staging location might be on a network share or a local computer. If the copy computer and source computer are different, we recommended that you specify the full network path of the staging location.
+   * **Azure Import Job Name**: The unique name by which Azure Import service and Azure Backup track the transfer of data sent on disks to Azure.
+   * **Azure Publish Settings**: Provide the local path to the publish settings file.
+   * **Azure Subscription ID**: The Azure subscription ID for the subscription from where you downloaded the Azure Publish settings file. 
+   * **Azure Storage Account**: The name of the storage account in the Azure subscription associated with the Azure Publish settings file.
+   * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where the backup data is imported.
 
      Save the *staging location* and the *Azure Import Job Name* you provided as it is required to prepare the disks.  
      
@@ -96,14 +96,14 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
 1. Go to the directory, and copy the **AzureOfflineBackupDiskPrep** directory to a copy computer on which the SATA drives to be prepared are connected. Ensure the following with regards to the copy computer:
 
-    * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
-    * BitLocker is enabled on the copy computer.
-    * The copy computer can access the Azure portal.
+   * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
+   * BitLocker is enabled on the copy computer.
+   * The copy computer can access the Azure portal.
 
-    If necessary, the copy computer can be the same as the source computer. 
+     If necessary, the copy computer can be the same as the source computer. 
     
-    > [!IMPORTANT] 
-    > If the source computer is a virtual machine, then it is mandatory to use a different physical server or client machine as the copy computer.
+     > [!IMPORTANT] 
+     > If the source computer is a virtual machine, then it is mandatory to use a different physical server or client machine as the copy computer.
     
     
 2. Open an elevated command prompt on the copy computer with the *AzureOfflineBackupDiskPrep* utility directory as the current directory, and run the following command:

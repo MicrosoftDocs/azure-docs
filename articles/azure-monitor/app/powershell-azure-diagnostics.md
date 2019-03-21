@@ -14,6 +14,9 @@ ms.date: 11/17/2015
 ms.author: mbullwin
 ---
 # Using PowerShell to set up Application Insights for an Azure web app
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [Microsoft Azure](https://azure.com) can be [configured to send Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) to [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The diagnostics relate to Azure Cloud Services and Azure VMs. They complement the telemetry that you send from within the app using the Application Insights SDK. As part of automating the process of creating new resources in Azure, you can configure diagnostics using PowerShell.
 
 ## Azure template
@@ -50,9 +53,9 @@ The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
      -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
        -StorageAccountName $diagnostics_storagename `
        -StorageAccountKey $primary_storagekey
 
@@ -84,9 +87,9 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
          -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
         -StorageAccountName $diagnostics_storagename `
         -StorageAccountKey $primary_storagekey
 

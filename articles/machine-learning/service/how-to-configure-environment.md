@@ -37,7 +37,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 - An Azure Machine Learning service workspace. To create the workspace, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
 
-- Either the [Continuum Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
+- Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 
     > [!IMPORTANT]
     > Anaconda and Miniconda are not required when you're using Azure Notebooks.
@@ -296,7 +296,9 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
    |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl_databricks]|
 
-   * No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+   > [!Warning]
+   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
 
@@ -317,7 +319,7 @@ SDK for Databricks **_without_** automated machine learning
 ![Azure Machine Learning SDK for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
 SDK for Databricks **WITH** automated machine learning
-![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+![SDK with automated machine learning installed on Databricks](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### Start exploring
 

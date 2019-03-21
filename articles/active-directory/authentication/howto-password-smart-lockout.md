@@ -1,5 +1,5 @@
 ---
-title: Preventing brute-force attacks using Azure AD smart lockout
+title: Preventing brute-force attacks using Azure AD smart lockout - Azure Active Directory
 description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
 
 services: active-directory
@@ -69,9 +69,9 @@ To check or modify the smart lockout values for your organization, use the follo
 
 ![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## How to determine if the Smartlockout feature is working or not
+## How to determine if the Smart lockout feature is working or not
 
-When the smartlockout threshold is triggered, you will get the following message while the account is locked:
+When the smart lockout threshold is triggered, you will get the following message while the account is locked:
 
 **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
 

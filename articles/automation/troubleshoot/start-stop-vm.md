@@ -135,7 +135,7 @@ Review the following list for potential solutions to your problem or places to l
 
 * To start and stop VMs, the RunAs account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
-* If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs.
+* If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 

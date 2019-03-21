@@ -27,20 +27,22 @@ Depending on your organization’s settings, you might be able to choose and ans
 
 If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to your questions.
 
->[!Note]
->Security questions are stored privately and securely on a user object in the directory and can only be answered by you during registration. There is no way for your administrator to read or modify your questions or answers.
-
->If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+> [!Note]
+> Security questions are stored privately and securely on a user object in the directory and can only be answered by you during registration. There is no way for your administrator to read or modify your questions or answers.
+> 
+> If you don't see the security questions option, it's possible that your organization doesn't allow you to use security questions for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+> 
+> Administrator accounts are not allowed to use Security Questions as a password reset method. If you are logged in as an admin level account you will not see these options.
 
 ### To set up your security questions
 
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
-    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile.png)
+    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
 2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
-    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. On the **Add a method** page, select **Security questions** from the drop-down list, and then select **Add**.
 

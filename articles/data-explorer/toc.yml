@@ -11,6 +11,12 @@
     href: create-cluster-database-portal.md
   - name: Create a cluster - Azure CLI
     href: create-cluster-database-cli.md
+  - name: Create a cluster - PowerShell
+    href: create-cluster-database-powershell.md
+  - name: Create a cluster - C#
+    href: create-cluster-database-csharp.md
+  - name: Create a cluster - Python
+    href: create-cluster-database-python.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub
@@ -119,10 +125,10 @@
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Product feedback
-    href: http://aka.ms/adefeedback
+    href: https://aka.ms/adefeedback
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-explorer/
   - name: Cost Estimator
-    href: http://aka.ms/adecostestimator
+    href: https://aka.ms/adecostestimator
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer

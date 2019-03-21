@@ -192,6 +192,12 @@ This PowerShell script includes support for the following configurations:
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -315,13 +321,13 @@ This section describes how to delete and re-create a Run As or Classic Run As ac
 
 3. On the **Run As Accounts** properties page, select either the Run As account or Classic Run As account that you want to delete. Then, on the **Properties** pane for the selected account, click **Delete**.
 
- ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
+   ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. While the account is being deleted, you can track the progress under **Notifications** from the menu.
 
 1. After the account has been deleted, you can re-create it on the **Run As Accounts** properties page by selecting the create option **Azure Run As Account**.
 
- ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
+   ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Self-signed certificate renewal
 

@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 02/06/2019
+ms.date: 02/20/2019
 ms.author: aahi
 ---
 

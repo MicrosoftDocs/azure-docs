@@ -45,30 +45,30 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 |:---|:----------:|:--------------------:|
 | Central US |  | X |
 | East US |  | X |
-| East US 2 | X | X |
-| North Central US | X | X |
+| East US 2 |  | X |
+| North Central US |  | X |
 | South Central US | X | X |
-| West US | X | X |
+| West US |  | X |
 | West US 2 |  | X |
-| Brazil South | X | X |
-| Canada Central | X | X |
-| Canada East | X | X |
+| Brazil South |  | X |
+| Canada Central |  | X |
+| Canada East |  | X |
 | North Europe | X | X |
 | West Europe |  | X |
 | France Central |  | X |
 | UK South |  | X |
 | UK West |  | X |
-| East Asia | X | X |
+| East Asia |  | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
 | Australia Central |  | X |
 | Australia Central 2 |  | X |
 | Australia Southeast |  | X |
-| Central India | X | X |
+| Central India |  | X |
 | South India |  | X |
-| West India | X | X |
+| West India |  | X |
 | Japan East | X | X |
-| Japan West | X | X |
+| Japan West |  | X |
 | Korea Central |  | X |
 | Korea South |  | X |
 | China East 1 | X |  |

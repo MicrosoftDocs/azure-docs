@@ -76,7 +76,7 @@ You've completed the getting started guide! You learned how to:
 > * Productively develop and test your code in a team environment.
 > * Establish a baseline of functionality using Dev Spaces to easily test isolated changes within the context of a larger microservice application
 
-Now that you've explored Azure Dev Spaces, [share your dev space with a team member](../articles/dev-spaces/how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
+Now that you've explored Azure Dev Spaces, [share your dev space with a team member](../articles/dev-spaces/how-to/share-dev-spaces.md) and begin collaborating.
 
 ## Clean up
 To completely delete an Azure Dev Spaces instance on a cluster, including all the dev spaces and running services within it, use the `az aks remove-dev-spaces` command. Bear in mind that this action is irreversible. You can add support for Azure Dev Spaces again on the cluster, but it will be as if you are starting again. Your old services and spaces won't be restored.

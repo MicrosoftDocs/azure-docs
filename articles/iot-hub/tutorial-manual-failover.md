@@ -134,4 +134,4 @@ In this tutorial, you learned how to configure and perform a manual failover, an
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Manage the state of an IoT device](tutorial-device-twins.md)
+> [Manage the state of an IoT device](tutorial-device-twins.md)

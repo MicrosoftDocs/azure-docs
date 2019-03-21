@@ -262,7 +262,7 @@ New-AzWebAppSSLBinding `
 ## Public certificates (optional)
 If your app needs to access remote resources as a client, and the remote resource requires certificate authentication, you can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your app. Public certificates are not required for SSL bindings of your app.
 
-For more details on loading and using a public certificate in your app, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md). You can use public certificates with apps in App Service Environments too. If you need to store the certificate in the LocalMachine certificate store, you need to use a app on App Service Environment. For more information, see [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+For more details on loading and using a public certificate in your app, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md). You can use public certificates with apps in App Service Environments too. If you need to store the certificate in the LocalMachine certificate store, you need to use an app on App Service Environment. For more information, see [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

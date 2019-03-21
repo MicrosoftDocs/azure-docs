@@ -670,13 +670,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 | AvailableStorage|	Available Storage	|Bytes|	Total|	Total available storage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Available Storage|	 Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.| 
 | DataUsage	|Data Usage	|Bytes|	Total	|Total data usage  reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Data size	| Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes.|
 | IndexUsage|	Index Usage|	Bytes|	Total	|Total Index usage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Index Size|	Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes. |
-| DocumentQuota|	Document Quota|	Bytes|	Total|	Total storage quota reported at 5 minutes granularity per region. Applicable for f|	DatabaseName, CollectionName, Region|	5M	|Storage Capacity|	Used to monitor total quota at collection and region, minimum granularity should be 5 minutes.|
+| DocumentQuota|	Document Quota|	Bytes|	Total|	Total storage quota reported at 5 minutes granularity per region. Applicable for fixed storage collections|	DatabaseName, CollectionName, Region|	5M	|Storage Capacity|	Used to monitor total quota at collection and region, minimum granularity should be 5 minutes.|
 | DocumentCount|	Document Count|	Count	|Total	|Totaldocument count reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Document Count|Used to monitor document count at collection and region, minimum granularity should be 5 minutes.|
 
 ### Latency metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | ReplicationLatency	| Replication Latency|	MilliSeconds| 	Minimum,Maximum,Average	| P99 Replication Latency across source and target regions for geo-enabled account|	SourceRegion, TargetRegion|	All	| Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
 
 ### Availability metrics
@@ -688,7 +688,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 ### Cassandra API metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | CassandraRequests	| Cassandra Requests |	Count|	Count|	Number of Cassandra API requests made|	DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|	All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
 | CassandraRequestCharges|	Cassandra Request Charges| Count|	Sum, Min, Max, Avg|	Request Units consumed by Cassandra API requests|	DatabaseName, CollectionName, Region, OperationType, ResourceType|	All| Used to monitor RUs used per minute by a Cassandra API account.|
 | CassandraConnectionClosures	| Cassandra Connection Closures	|Count|	Count	|Number of Cassandra Connections closed|	ClosureReason, Region|	All	| Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|

@@ -88,7 +88,8 @@ It is important to make sure you have planned enough capacity between connectors
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* This machine used a custom setting to raise some of the default connection limits beyond .Net recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
+
+\* This machine used a custom setting to raise some of the default connection limits beyond .NET recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
  
 >[!NOTE]
 >There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  

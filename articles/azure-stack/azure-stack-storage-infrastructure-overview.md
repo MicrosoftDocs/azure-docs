@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: 
-ms.date: 02/22/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
+ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
 
 # Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for the users that I support.

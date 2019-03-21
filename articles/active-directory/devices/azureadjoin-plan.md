@@ -37,7 +37,7 @@ This article assumes that you are familiar with the [Introduction to device mana
 
 ## Plan your implementation
 
-To plan your hybrid Azure AD implementation, you should familiarize yourself with:
+To plan your Azure AD join implementation, you should familiarize yourself with:
 
 |   |   |
 |---|---|

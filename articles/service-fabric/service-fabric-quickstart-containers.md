@@ -144,7 +144,7 @@ Click **Publish**.
 
 Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
 
-Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  You should see the IIS default web page:
 ![IIS default web page][iis-default]

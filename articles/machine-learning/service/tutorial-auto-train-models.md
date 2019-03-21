@@ -30,7 +30,7 @@ In this tutorial, you learn the following tasks:
 > * Run the model locally with custom parameters.
 > * Explore the results.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.0.
@@ -77,6 +77,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.  Aft
 
     ```shell
     jupyter notebook
+    ```
 
 ## <a name="start"></a>Set up your development environment
 
@@ -106,7 +107,7 @@ import os
 
 ### Configure workspace
 
-Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
+Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
 
 `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
 

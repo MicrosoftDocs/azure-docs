@@ -1,15 +1,14 @@
 ---
-title: "Business continuity and disaster recovery in Azure Dev Spaces | Microsoft Docs"
+title: "Business continuity and disaster recovery in Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: "lisaguthrie"
 ms.author: "lcozzens"
 ms.date: "01/28/2019"
-ms.topic: "article"
+ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 manager: "jeconnoc"
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces

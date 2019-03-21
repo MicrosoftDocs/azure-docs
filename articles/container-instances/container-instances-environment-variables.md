@@ -249,7 +249,7 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
-[azure-instance-log]: /powershell/module/azurerm.containerinstance/get-Azcontainerinstancelog
+[azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
-[new-Azcontainergroup]: /powershell/module/azurerm.containerinstance/new-Azcontainergroup
+[new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com
