@@ -37,7 +37,7 @@ If your administrator has given you permission to perform your own access review
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-accessreview-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
 3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
 

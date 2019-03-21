@@ -133,7 +133,7 @@ If your administrator has given you permission, you can add a new app to the **A
 
     The **Add apps** page appears.
 
-    ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-addapps-page.png)
+    ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-add-apps-page.png)
 
 2. Select the app you want to add from the provided list, and then select **Add**.
 
