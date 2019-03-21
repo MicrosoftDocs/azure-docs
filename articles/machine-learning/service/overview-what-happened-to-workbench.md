@@ -115,6 +115,6 @@ Learn about the [latest architecture for Azure Machine Learning service](concept
 
 For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
 
-For a quickstart showing you how to run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-get-started.md).
+For a quickstart showing you how to run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service. 

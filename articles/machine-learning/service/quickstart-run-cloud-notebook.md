@@ -1,23 +1,23 @@
 ---
-title: "Quickstart through Azure portal"
+title: "Quickstart run a notebook in the cloud"
 titleSuffix: Azure Machine Learning service
-description: Get started with Azure Machine Learning service. Try out your workspace, the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
+description: Get started with Azure Machine Learning service. Use a managed notebook server in the cloud to try out your workspace.  Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/18/2019
+ms.date: 03/21/2019
 ms.custom: seodec18
 
 ---
 
-# Quickstart: Use the Azure portal to get started with Azure Machine Learning
+# Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
 In this article, you use the Azure Notebooks to run code that is logged in the Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
 
-This quickstart uses cloud resources and requires no installation. To configure your own Jupyter Notebooks server instead, see [Quickstart: Use Python to get started with Azure Machine Learning](quickstart-create-workspace-with-python.md).  
+This quickstart uses cloud resources and requires no installation. To use your own environment instead, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).  
  
 In this quickstart, you take the following actions:
 

@@ -66,7 +66,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
 
-For an example of using an experiment, see [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md).
+For an example of using an experiment, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 ## Model
 
@@ -152,7 +152,7 @@ A run is a record that contains the following information:
 
 You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
 
-For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md).
+For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 ## Snapshot
 

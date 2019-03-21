@@ -27,20 +27,16 @@ abstract:
     href: https://www.youtube.com/watch?v=GBDSBInvz08
     width: 250  
 sections:   
-- title: Setup
-  items:
-  - type: paragraph
-    text: 'To use this service, you need a workspace.  <a href="setup-create-workspace">Create your workspace now.</a>'
-
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Try out your workspace in the cloud or on your own server.'
+    text: 'To use this service, you need a workspace.  <a href="setup-create-workspace">Create your workspace now.</a>'
+    text: 'Then try out your workspace in the cloud or on your own server.'
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">Azure portal quickstart</a>: Run experiments without installing anything.'
-    - html: '<a href="quickstart-create-workspace-with-python">Python quickstart</a>: Run experiments in a local notebook server.'
+    - html: '<a href="quickstart-run-cloud-notebook">Run notebook in the cloud quickstart</a>: Run experiments without installing anything.'
+    - html: '<a href="quickstart-run-local-notebook">Run local notebook quickstart</a>: Run experiments in your local notebook server.'
 
 - title: Step-by-Step Tutorials
   items:

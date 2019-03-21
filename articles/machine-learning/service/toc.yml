@@ -18,10 +18,10 @@
   items:
   - name: Get started - Portal
     displayName: install sdk workspace
-    href: quickstart-get-started.md
+    href: quickstart-run-cloud-notebook.md
   - name: Get started - Python
     displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+    href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)

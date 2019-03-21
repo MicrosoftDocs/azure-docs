@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/25/2019
+ms.date: 03/21/2019
 
 ---
 
@@ -189,8 +189,8 @@ No matter how it was created, you can view your workspace in the [Azure portal](
 
 * Try out your workspace with these quickstarts and tutorials.
 
-    * Quickstart: [Run Jupyter notebook in the cloud](quickstart-get-started.md).
-    * Quickstart: [Run Jupyter notebook on your own server](quickstart-create-workspace-with-python.md).
+    * Quickstart: [Run Jupyter notebook in the cloud](quickstart-run-cloud-notebook.md).
+    * Quickstart: [Run Jupyter notebook on your own server](quickstart-run-local-notebook.md).
     * Two-part tutorial: [Train](tutorial-train-models-with-aml.md) and [deploy](tutorial-deploy-models-with-aml.md) an image classification mode.
     * Two-part tutorial: [Prepare data](tutorial-data-prep.md) and [use automated machine learning](tutorial-auto-train-models.md) to build a regression model.
 

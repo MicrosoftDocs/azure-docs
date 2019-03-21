@@ -56,7 +56,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 * The Azure Machine Learning SDK is already installed.
 * After you create an Azure Machine Learning service workspace in the Azure portal, you can click a button to automatically configure your Azure Notebook environment to work with the workspace.
 
-To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 

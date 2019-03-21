@@ -1,24 +1,23 @@
 ---
-title: 'Quickstart: Get started in Python'
+title: "Quickstart run a notebook on your own notebook server"
 titleSuffix: Azure Machine Learning service
-description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.
-services: machine-learning
+description: Get started with Azure Machine Learning service. Use your own local notebook server to try out your workspace.  Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/22/2019
+ms.date: 03/21/2019
 ms.custom: seodec18
 
 ---
 
-# Quickstart: Use the Python SDK to get started with Azure Machine Learning
+# Quickstart: Use your own notebook server to get started with Azure Machine Learning
 
-In this article, you use the Azure Machine Learning SDK for Python to run code that is logged in the Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
+In this article, you use your own notebook server to run code that is logged in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
 
-This quickstart uses your own Python environment and Jupyter Notebook Server. For a quickstart with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md). 
+This quickstart uses your own Python environment and Jupyter Notebook Server. For a quickstart with no installation, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md) 
 
 View a video version of this quickstart:
 
