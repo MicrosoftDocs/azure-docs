@@ -6,14 +6,14 @@ author: tamram, maliksahil
 
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/20/2019
 ms.author: tamram, sahmalik
 ms.subservice: common
 ---
 
 # Authenticate with Azure Active Directory from an application for access to blobs and queues (Preview)
 
-A key advantage of using Azure Active Directory (Azure AD) with Azure Storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from Azure AD. Azure AD handles the authentication of the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Storage. Given that this is standards based authentication, it truly opens a lot of flexibility for your applications, while respecting industry accepted standards.
+A key advantage of using Azure Active Directory (Azure AD) with Azure Storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform (formerly Azure AD). Azure AD handles the authentication of the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Storage. Given that this is standards based authentication, it truly opens a lot of flexibility for your applications, while respecting industry accepted standards.
 
 This article shows how to configure your application for authentication with Azure AD. The code example features .NET, but other languages use a similar approach.
 
@@ -29,11 +29,11 @@ To authenticate a security principal from your Azure Storage application, first 
 
 ## Register your application with an Azure AD tenant
 
-The first step in using Azure AD to authorize access to storage resources is registering your client application in an Azure AD tenant. Once your application is registered, you can use [Azure Acitve Directory v2.0 authentication libraries](../../active-directory/reference-v2-libraries.md) to authenticate and call the necessary endpoints for the desired functionality. This includes Microsoft Authentication Library(MSAL) or other open-source libraries that support OAuth 2.0 or OpenID Connect 1.0. MSAL provides an API for authenticating with Azure AD from your application, and requesting the appropriate refresh tokens and access tokens for the required resources. Registering your application also enables you to authorize calls from that application to Azure Storage APIs with an access token.
+The first step in using Azure AD to authorize access to storage resources is registering your client application in an Azure AD tenant. Once your application is registered, you can use [Azure Active Directory v2.0 authentication libraries](../../active-directory/reference-v2-libraries.md) to authenticate and call the necessary endpoints for the desired functionality. This includes Microsoft Authentication Library(MSAL) or other open-source libraries that support OpenID Connect 1.0. MSAL provides APIs to acquire security tokens for your application to call APIs/resources such as Azure Storage. For the list of scenarios for which you can get tokens ; see [Scenarios](https://aka.ms/msal-net-scenarios).
 
 When you register your application, you supply information about your application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-v2-register-an-app.md) section in [Integrating applications with Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. For native applications, this value does not have to be a real URL. For Web applications, this is the URL to which tokens are provided to, so it needs to be a valid URL.
+To register your Azure Storage application, follow the steps in the [Adding an Application](../../active-directory/develop/quickstart-register-an-app.md) section in [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). If you register your application as a native application, you can specify any valid URI for the **Redirect URI**. For native applications, this value does not have to be a real URL. For Web applications, this is the URL to which tokens are provided to, so it needs to be a valid URL.
 
 ![Screen shot showing how to register your storage application with Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
