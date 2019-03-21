@@ -16,7 +16,15 @@ This guide shows you how to interact with blobs by using Java. It contains snipp
 
 ## Install what you need
 
-Put guidance here.
+Install the JDK.
+
+Note: The JAVA_HOME environment variable must be set to the install location of the JDK to complete this tutorial.
+
+Install Apache Maven Version 3 or greater.
+
+Create a Maven project. This is a great resource for setting up and creating a Java program in VS Code - [Writing Java with Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial).
+
+Add a dependency to your Maven pom.xml file. See [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-stable)
 
 ## Add library references to your code file
 
@@ -24,15 +32,12 @@ Add these import statements to your code file.
 
 ```java
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.AsynchronousFileChannel;
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.security.InvalidKeyException;
 import com.microsoft.azure.storage.blob.BlockBlobURL;
@@ -64,35 +69,41 @@ Enable a hierarchical namespace if you want to use the code snippets in this art
 
 Some guidance goes here.
 
+** Comments from code.
+
+// Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
+
 ```java
+static ContainerURL createContainer(String containerName, String accountName,
+String accountKey) throws IOException, InvalidKeyException {
+  
+        SharedKeyCredentials creds = new SharedKeyCredentials(accountName, accountKey);
 
-// Create a ServiceURL to call the Blob service.
-// We will also use this to construct the ContainerURL
-SharedKeyCredentials creds = new SharedKeyCredentials(accountName, accountKey);
+        // We are using a default pipeline here, you can learn more about it at 
+        // https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 
-// We are using a default pipeline here, you can learn more about it at
-// https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
-final ServiceURL serviceURL = new ServiceURL(
-new URL("http://"+ accountName + ".blob.core.windows.net"), StorageURL.createPipeline(
-creds, new PipelineOptions()));
+        final ServiceURL serviceURL = new ServiceURL
+            (new URL("https://" + accountName + ".blob.core.windows.net"), 
+            StorageURL.createPipeline(creds, new PipelineOptions()));
 
-// Let's create a container using a blocking call to Azure Storage
-// If container exists, we'll catch and continue
-ContainerURL containerURL = serviceURL.createContainerURL("quickstart");
+        // Let's create a container using a blocking call to Azure Storage
+        // If container exists, we'll catch and continue
 
-try {
-    ContainersCreateResponse response = containerURL.create(null, null).blockingGet();
-    System.out.println("Container Create Response was " + response.statusCode());
-} catch (RestException e){
-    if (e instanceof RestException && ((RestException)e).response().statusCode() != 409) {
-        throw e;
-    } else {
-        System.out.println("quickstart container already exists, resuming...");
-    }
+        ContainerURL containerURL = serviceURL.createContainerURL(containerName);
+
+        try {
+            ContainerCreateResponse response = containerURL.create(null, null, null).blockingGet();
+            System.out.println("Container Create Response was " + response.statusCode());
+            return containerURL;
+        } catch (RestException e){
+            if (e instanceof RestException && ((RestException)e).response().statusCode() != 409) {
+                throw e;
+            } else {
+                System.out.println("quickstart container already exists, resuming...");
+            }
+            return null;
+        }
 }
-
-// Create a BlockBlobURL to run operations on Blobs
-final BlockBlobURL blobURL = containerURL.createBlockBlobURL("SampleBlob.txt");
 ```
 
 ### APIs featured in this snippet
@@ -105,20 +116,28 @@ final BlockBlobURL blobURL = containerURL.createBlockBlobURL("SampleBlob.txt");
 
 Some guidance goes here.
 
+** Taken from code comments **
+
+// Uploading a file to the blobURL using the high-level methods available in TransferManager class
+// Alternatively call the PutBlob/PutBlock low-level methods from BlockBlobURL type
+
 ```java
-static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
+static BlockBlobURL uploadFile(ContainerURL containerURL, String sourceFilePath,
+    String blobName) throws IOException {
 
-    AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(
-sourceFile.toPath());
+    AsynchronousFileChannel fileChannel =
+        AsynchronousFileChannel.open(Paths.get(sourceFilePath));
 
-    // Uploading a file to the blobURL using the high-level methods
-    // available in TransferManager class. Alternatively call the
-    // PutBlob/PutBlock low-level methods from BlockBlobURL type
-    TransferManager.uploadFileToBlockBlob(fileChannel, blob, 8*1024*1024, null)
-       .subscribe(response-> {
-       System.out.println("Completed upload request.");
-       System.out.println(response.response().statusCode());
-    });
+        // Create a BlockBlobURL to run operations on Blobs
+    BlockBlobURL blobURL = containerURL.createBlockBlobURL("SampleBlob.txt");
+
+    TransferManager.uploadFileToBlockBlob(fileChannel, blobURL, 8*1024*1024, null)
+        .subscribe(response-> {
+            System.out.println("Completed upload request.");
+            System.out.println(response.response().statusCode());
+        });
+
+    return blobURL;
 }
 ```
 
@@ -132,35 +151,34 @@ sourceFile.toPath());
 
 Some guidance goes here.
 
+** Comments from code:
+
+        // Each ContainerURL.listBlobsFlatSegment call return up to maxResults 
+        // (maxResults=10 passed into ListBlobOptions below).
+        // To list all Blobs, we are creating a helper static method called listAllBlobs,
+    	// and calling it after the initial listBlobsFlatSegment call
+
 ```java
 static void listBlobs(ContainerURL containerURL) {
 
-    // Each ContainerURL.listBlobsFlatSegment call return up to maxResults
-    // (maxResults=10 passed into ListBlobOptions below).
-    // To list all Blobs, we are creating a helper static method called listAllBlobs,
-    // and calling it after the initial listBlobsFlatSegment call
     ListBlobsOptions options = new ListBlobsOptions();
-    options.withMaxResults(10);
+        options.withMaxResults(10);
 
-    containerURL.listBlobsFlatSegment(null, options, null).flatMap(
-        containerListBlobFlatSegmentResponse ->
-        listAllBlobs(containerURL, containerListBlobFlatSegmentResponse))
+        containerURL.listBlobsFlatSegment(null, options, null).
+        flatMap(containerListBlobFlatSegmentResponse ->
+            listAllBlobs(containerURL, containerListBlobFlatSegmentResponse))
             .subscribe(response-> {
                 System.out.println("Completed list blobs request.");
                 System.out.println(response.statusCode());
-    });
+            });
 }
-
-### APIs featured in this snippet
-
-> [!div class="checklist"]
-> * [Type]()
-> * [Method]()
 
 private static Single <ContainerListBlobFlatSegmentResponse> listAllBlobs(
     ContainerURL url, ContainerListBlobFlatSegmentResponse response) {
-    // Process the blobs returned in this result segment
+
+    // Process the blobs returned in this result segment 
     // (if the segment is empty, blobs() will be null.
+
     if (response.body().segment() != null) {
         for (BlobItem b : response.body().segment().blobItems()) {
             String output = "Blob name: " + b.name();
@@ -179,22 +197,22 @@ private static Single <ContainerListBlobFlatSegmentResponse> listAllBlobs(
         return Single.just(response);
     } else {
         /*
-        IMPORTANT: ListBlobsFlatSegment returns the start of the next segment;
-        you MUST use this to get the next segment (after processing the
+        IMPORTANT: ListBlobsFlatSegment returns the start of the next segment; 
+        you MUST use this to get the next segment (after processing the 
         current result segment
         */
 
         String nextMarker = response.body().nextMarker();
 
-        /*
-        The presence of the marker indicates that there are more blobs to list,
-        so we make another call to listBlobsFlatSegment and pass the result
-        through this helper function.
+         /*
+        The presence of the marker indicates that there are more blobs to list, 
+        so we make another call to listBlobsFlatSegment and pass the result through 
+        this helper function.
         */
 
         return url.listBlobsFlatSegment(
             nextMarker, new ListBlobsOptions().withMaxResults(10), null)
-                 .flatMap(containersListBlobFlatSegmentResponse ->
+                .flatMap(containersListBlobFlatSegmentResponse ->
                         listAllBlobs(url, containersListBlobFlatSegmentResponse));
     }
 }
@@ -211,16 +229,18 @@ private static Single <ContainerListBlobFlatSegmentResponse> listAllBlobs(
 Some guidance goes here.
 
 ```java
-static void getBlob(BlockBlobURL blobURL, File sourceFile) throws IOException {
+static void downloadBlob(BlockBlobURL blobURL, String destinationFilePath) 
+    throws IOException { 
 
-     AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(sourceFile.toPath(), 
-         StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+    AsynchronousFileChannel fileChannel = 
+        AsynchronousFileChannel.open(Paths.get(destinationFilePath), 
+            StandardOpenOption.CREATE, StandardOpenOption.WRITE);
 
-     TransferManager.downloadBlobToFile(fileChannel, blobURL, null, null)
-        .subscribe(response-> {
-            System.out.println("Completed download request.");
-            System.out.println("The blob was downloaded to " + sourceFile.getAbsolutePath());
-     });
+    TransferManager.downloadBlobToFile(fileChannel, blobURL, null, null)
+    .subscribe(response-> {
+        System.out.println("Completed download request.");
+        System.out.println("The blob was downloaded to " + destinationFilePath);
+    });
 }
 ```
 
@@ -236,14 +256,38 @@ Some guidance goes here.
 
 ```java
 static void deleteBlob(BlockBlobURL blobURL) {
-    // Delete the blob
+
     blobURL.delete(null, null, null)
-        .subscribe(
-            response -> System.out.println(">> Blob deleted: " + blobURL),
-            error -> System.out.println(
-                ">> An error encountered during deleteBlob: " + error.getMessage()));
+    .subscribe(
+        response -> System.out.println(">> Blob deleted: " + blobURL),
+        error -> System.out.println(">> An error encountered during deleteBlob: " + 
+        error.getMessage()));
 }
 ```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
+
+## Delete the container
+
+Some guidance goes here.
+
+```java
+static void deleteContainer(ContainerURL containerURL) {
+
+    containerURL.delete(null, null).blockingGet();
+
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [Type]()
+> * [Method]()
 
 ## Add directories to the container
 
