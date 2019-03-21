@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
@@ -70,7 +70,7 @@ For more information, see:
 
 ### Can I use the Azure portal to manage v3 resources?
 
-Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
+Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
 ### Is there an AssetFile concept in v3?
 

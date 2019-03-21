@@ -9,8 +9,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-author: nabhishek
-ms.author: abnarain
+author: craigg-msft
+ms.author: craigg
+ms.reviewer: abnarain
 manager: craigg
 ---
 # Create a tumbling window trigger dependency

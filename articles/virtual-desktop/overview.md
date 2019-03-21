@@ -40,7 +40,7 @@ You can deploy and manage virtual desktops:
 * Use the new Diagnostics service to troubleshoot errors.
 * Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
 
-You can also also assign and connect users to your virtual desktops:
+You can also assign and connect users to your virtual desktops:
 
 * Once assigned, users can launch any Windows Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Windows Virtual Desktop HTML5 web client.
 * Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
@@ -75,7 +75,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. During public preview, desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 and US Central regions). This may result in data transfer to the United States while you test the service during public preview. We'll start to scale out the management solution and data localization to all Azure regions starting at general availability.
+Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. During public preview, desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States while you test the service during public preview. We'll start to scale out the management solution and data localization to all Azure regions starting at general availability.
 
 For optimal performance, make sure your network meets the following requirements:
 

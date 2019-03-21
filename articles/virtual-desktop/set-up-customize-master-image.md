@@ -96,35 +96,36 @@ The following XML sample will install the Insiders release, also known as Inside
 
 ```xml
 <Configuration>
-  <Add SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" OfficeClientEdition="64">
-    <Product ID="O365ProPlusRetail">
-      <Language ID="en-US" />
-  <Language ID="MatchOS" Fallback = "en-US"/>
-  <Language ID="MatchPreviousMSI" />
-  <ExcludeApp ID="Groove" />
-  <ExcludeApp ID="Lync" />
-  <ExcludeApp ID="OneDrive" />
-       <ExcludeApp ID="Teams" />
-    </Product>
-    <Product ID="VisioProRetail">
-      <Language ID="en-US" />
-  <Language ID="MatchOS" Fallback = "en-US"/>
-  <Language ID="MatchPreviousMSI" />
-    </Product>
-<Product ID="ProjectProRetail">
-      <Language ID="en-US" />
-  <Language ID="MatchOS" Fallback = "en-US"/>
-  <Language ID="MatchPreviousMSI" />
-    </Product>
-  </Add>
-  <RemoveMSI All="True" />
-  <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-  <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
-  <Property Name="SharedComputerLicensing" Value="1"/>
- 
-  <Property Name="PinIconsToTaskbar" Value="TRUE"/>
+    <Add OfficeClientEdition="64" SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
+        <Product ID="O365ProPlusRetail">
+            <Language ID="en-US" />
+            <Language ID="MatchOS" Fallback = "en-US"/>
+            <Language ID="MatchPreviousMSI" />
+            <ExcludeApp ID="Groove" />
+            <ExcludeApp ID="Lync" />
+            <ExcludeApp ID="OneDrive" />
+            <ExcludeApp ID="Teams" />
+        </Product>
+        <Product ID="VisioProRetail">
+            <Language ID="en-US" />
+            <Language ID="MatchOS" Fallback = "en-US"/>
+            <Language ID="MatchPreviousMSI" />
+            <ExcludeApp ID="Teams" /> 
+        </Product>
+        <Product ID="ProjectProRetail">
+            <Language ID="en-US" />
+            <Language ID="MatchOS" Fallback = "en-US"/>
+            <Language ID="MatchPreviousMSI" />
+            <ExcludeApp ID="Teams" />
+        </Product>
+    </Add>
+    <RemoveMSI All="True" />
+    <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
+    <Display Level="None" AcceptEULA="TRUE" />
+    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
+    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
+    <Property Value="1" Name="SharedComputerLicensing"/>
+    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
 </Configuration>
 ```
 
@@ -136,7 +137,6 @@ After installing Office, you can update the default Office behavior. Run the fol
 ```batch
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
 rem Must be executed with default registry hive mounted.
 reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
 rem Set Outlook's Cached Exchange Mode behavior
@@ -218,7 +218,7 @@ Here's how to install OneDrive in per-machine mode:
 8. Redirect and move Windows known folders to OneDrive by running the following command.
 
     ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "72f988bf-86f1-41af-91ab-2d7cd011db47" /f
+    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
 ### Teams and Skype
