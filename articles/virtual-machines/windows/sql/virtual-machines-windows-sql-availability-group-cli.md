@@ -167,7 +167,7 @@ To add a new replica to the availability group, do the following:
    ```azurecli
    # Update the listener metadata with the new VM
    # example: az sql vm group ag-listener update -n AGListener `
-   -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
 
    az sql vm group ag-listener update -n <Listener> `
    -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs, along with new SQL VM>
