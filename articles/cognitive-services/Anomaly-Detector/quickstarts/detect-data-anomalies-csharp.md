@@ -5,7 +5,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: aahi
@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
 
-Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses. 
+Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
 | API request                                        | Application output                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -102,11 +102,9 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 
 1. Create a new function called `detectAnomaliesBatch()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for batch anomaly detection, and the time series data.
 
-2. Deserialize the JSON object, and write it to the console. 
+2. Deserialize the JSON object, and write it to the console.
 
-### Find the positions of detected data anomalies
-
-3. The response's `isAnomaly` field contains an array of boolean values, each of which indicates whether a data point is an anomaly. Convert this to a string array with the response object's `ToObject<bool[]>()` function.
+3. Find the positions of anomalies in the data set. The response's `isAnomaly` field contains an array of boolean values, each of which indicates whether a data point is an anomaly. Convert this to a string array with the response object's `ToObject<bool[]>()` function.
 
 4. Iterate through the array, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
 
@@ -157,8 +155,6 @@ static void detectAnomaliesLatest(string requestData){
 
 1. In the main method of your application, load your JSON time series data with `File.ReadAllText()`. 
 
-    [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
 2. Call the anomaly detection functions created above. Use `System.Console.ReadKey()` to keep the console window open after running the application.
 
 ```csharp
@@ -173,11 +169,13 @@ static void Main(string[] args){
 }
 ```
 
-## Example response
+### Example response
 
 A successful response is returned in JSON format. Click the links below to view the JSON response on GitHub:
 * [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## Next steps
+
+> [!div class="nextstepaction"]
 > [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
