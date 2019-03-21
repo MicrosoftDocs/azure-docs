@@ -89,6 +89,7 @@ TBD
 
 + [Explore REST API using Postman](search-fiddler.md)
 + [Example: Autocomplete](search-autocomplete-tutorial.md)
-+ [Add suggesters](index-add-suggesters.md)
-+ [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
-+ [Suggester class (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet).
++ [Add suggesters to an index](index-add-suggesters.md)
++ [Add a Suggesters class using .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)
++ [Call suggestions using GET or POST (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions)
++ [Call suggestions using SuggestWithHttpMessagesAsync (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) or 
