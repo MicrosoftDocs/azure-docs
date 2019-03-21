@@ -21,7 +21,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop? (Preview)</a>
+    - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop preview?</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -38,4 +38,4 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell (Preview)</a>
+    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

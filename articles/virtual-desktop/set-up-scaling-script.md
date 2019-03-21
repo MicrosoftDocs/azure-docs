@@ -1,6 +1,6 @@
 ---
 title: Automatically scale session hosts - Azure
-description: Describes how to set up the automatic scaling script for Windows Virtual Desktop (preview) session hosts.
+description: Describes how to set up the automatic scaling script for Windows Virtual Desktop preview session hosts.
 services: virtual-desktop
 author: Heidilohr
 

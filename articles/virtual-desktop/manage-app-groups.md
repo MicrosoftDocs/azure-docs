@@ -1,5 +1,5 @@
 ---
-title: Manage app groups for Windows Virtual Desktop (preview)  - Azure
+title: Manage app groups for Windows Virtual Desktop preview  - Azure
 description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
@@ -9,9 +9,9 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Tutorial: Manage app groups for Windows Virtual Desktop (Preview)
+# Tutorial: Manage app groups for Windows Virtual Desktop preview
 
-The default app group created for a new host pool also publishes the full desktop. In addition, you can create one or more RemoteApp (preview) application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+The default app group created for a new host pool also publishes the full desktop. In addition, you can create one or more RemoteApp preview application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
 
 In this tutorial, learn how to:
 

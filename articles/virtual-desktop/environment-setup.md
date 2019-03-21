@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop environment (preview)  - Azure
+title: Windows Virtual Desktop environment preview  - Azure
 description: The basic elements of a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Windows Virtual Desktop environment (Preview)
+# Windows Virtual Desktop environment preview
 
-Windows Virtual Desktop (preview) is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
+Windows Virtual Desktop preview is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 
 ## Tenants
 
