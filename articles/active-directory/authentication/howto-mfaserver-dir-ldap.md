@@ -1,5 +1,5 @@
 ---
-title: LDAP Authentication and Azure MFA Server | Microsoft Docs
+title: LDAP Authentication and Azure MFA Server - Azure Active Directory
 description: Deploying LDAP Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication

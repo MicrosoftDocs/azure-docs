@@ -2,9 +2,10 @@
 title: Migrate on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
 ---
