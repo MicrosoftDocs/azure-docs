@@ -3,8 +3,8 @@ title: Terminology for Azure Service Fabric Mesh | Microsoft Docs
 description: Learn about common terms for Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh

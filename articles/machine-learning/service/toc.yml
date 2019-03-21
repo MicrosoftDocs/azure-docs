@@ -110,7 +110,7 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-    - name: Track experiments and metrics
+    - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
