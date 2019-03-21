@@ -13,7 +13,7 @@ ms.date: 03/25/2019
 
 ---
 
-# Create a Azure Machine Learning service workspace
+# Create an Azure Machine Learning service workspace
 
 You need an [**Azure Machine Learning service workspace**](concept-azure-machine-learning-architecture.md#workspace) in order to use Azure Machine Learning service.  This workspace is your top-level resource for Azure Machine Learning service. Your workspace provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
 
@@ -43,11 +43,9 @@ You can create a workspace from any of the following:
 
 Create your workspace using the Python SDK. First you need to install the SDK.
 
-### Install the SDK
-
 > [!IMPORTANT]
 > Skip installation of the SDK if you use an Azure Data Science Virtual Machine or Azure Databricks.
-> * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
+> * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled. Skip the installation and start with [Create a workspace with the SDK](#sdk-create).
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
 >[!NOTE]
@@ -113,7 +111,7 @@ The instructions in this article will install all the packages you need to run t
 > * 'azureml-sdk[automl]'
 >
 
-## Create a workspace
+###<a name='sdk-create'></a> Create a workspace with the SDK
 
 Create your workspace in a Jupyter Notebook using the Python SDK.
 
@@ -150,7 +148,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
 
-## Write a configuration file
+### Write a configuration file
 
 Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config/config.json*.  
 
