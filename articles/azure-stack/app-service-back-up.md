@@ -49,6 +49,8 @@ Use the administration portal to back up app service secrets by following these 
 
 4. When secrets are ready for downloading, click **Save** and store the App Service secrets (**SystemSecrets.JSON**) file in a safe location. 
 
+   ![Save secrets](./media/app-service-back-up/save-secrets.png)
+
 > [!NOTE]
 > Repeat these steps every time the App Service secrets are rotated.
 
