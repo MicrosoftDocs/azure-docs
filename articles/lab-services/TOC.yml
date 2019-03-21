@@ -90,7 +90,6 @@
       href: personal-data-delete-export.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md
-      href: personal-data-delete-export.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
