@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -13,7 +13,7 @@ ms.subservice: files
 
 # How to create an Azure premium file storage account
 
-Premium files is a new tier for Azure Files, it is designed for high performance and enterprise scale applications. It provides consistent low latency, high IOPS, and high throughput shares.
+The FileStorage storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using the [Azure portal](https://portal.azure.com/).
 
@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a storage account
 
-Now that you're in the Azure portal, you are ready to create your storage account.
+Now you're ready to create your storage account.
 
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
