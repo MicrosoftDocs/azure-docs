@@ -29,7 +29,7 @@ This how-to shows examples for the following tasks:
 
 To use datastores, you need a [workspace](concept-azure-machine-learning-architecture.md#workspace) first. 
 
-Start by either [creating a new workspace](setup-create-workspace.md#[sdk]) or retrieving an existing one:
+Start by either [creating a new workspace](setup-create-workspace.md#sdk) or retrieving an existing one:
 
 ```Python
 import azureml.core

@@ -28,9 +28,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisite
 
-1. [Create an Azure Machine Learning workspace](how-to-create-workspace.md#portal) if you don't have one.
+1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  See how to [find your workspace](how-to-create-workspace.md#find).
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  See how to [find your workspace](how-to-manage-workspace.md#view).
 
 ## Use your workspace
 

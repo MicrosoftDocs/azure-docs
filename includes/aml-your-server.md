@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 01/25/2019
 ---
 
-1. Use the instructions at [Create a Azure Machine Learning service workspace](setup-create-workspace.md#portal) to create a Miniconda environment, create a workspace, and write a workspace configuration file (**aml_config/config.json** ).
+1. Use the instructions at [Create a Azure Machine Learning service workspace](../articles/machine-learning/service/setup-create-workspace.md#portal) to create a Miniconda environment, create a workspace, and write a workspace configuration file (**aml_config/config.json** ).
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
