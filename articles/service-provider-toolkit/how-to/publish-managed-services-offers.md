@@ -21,7 +21,7 @@ In this article, you’ll learn how to publish a managed services offer to [Azur
 Publishing a Managed Services offer is similar to publishing any other type of offer to Azure Marketplace. To learn about that process, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
 
 > [!NOTE]
-> You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/en-us/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
+> You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
 
 ## Create your offer in the Cloud Partner Portal
 
