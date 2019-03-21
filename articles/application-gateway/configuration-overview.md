@@ -16,28 +16,32 @@ Azure Application Gateway consists of several components that can be configured 
 
 ![application-gateway-components flow chart](./media/configuration-overview/configuration-overview1.png)
 
-This example image illustrates configuration of an application that has three listeners. The first two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both listen on port 80. The third listener is a basic listener that has end-to-end Secure Sockets Layer (SSL) termination.
+This image illustrates configuration of an application that has three listeners. The first two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both listen on port 80. The third listener is a basic listener that has end-to-end Secure Sockets Layer (SSL) termination.
 
 ## Prerequisites
 
 ### Azure virtual network and dedicated subnet
 
-An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for your application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.  
+An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for your application gateway. You can have multiple instances of a given application gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the application gateway subnet.
 
 > [!NOTE]	
 > Mixing Standard_v2 and Standard Application Gateway on the same subnet is not supported.
 
 #### Size of the subnet
 
-Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage. For example, if an application gateway is set to three instances and no private frontend IP, then at least eight IP addresses will be required in the subnet - five IP addresses for internal usage and three IP addresses for the three instances of the application gateway. Therefore, in this case a /29 subnet size or greater is needed. If you have three instances and an IP address for the private frontend IP configuration, then nine IP addresses will be required - three IP addresses for the three instances of the application gateway, one IP address for private frontend IP and five IP addresses for internal usage. Therefore, in this case a /28 subnet size or greater is needed.
+Application Gateway consumes one private IP address per instance, plus another private IP address if there's a private front-end IP configuration. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
 
-As a best practice, use at least a /28 subnet size. This gives you 11 usable addresses. If your application load requires more than 10 instances, you should consider a /27 or /26 subnet size.
+For example, if an application gateway is set to three instances and there's no private frontend IP,you need at least eight IP addresses in the subnet: five for internal usage and three for the three instances of the application gateway. So, in this case a /29 subnet size or larger is needed.
 
-#### Network security groups supported on the Application Gateway subnet
+ If you have three instances and an IP address for the private front-end IP configuration, you need nine IP addresses: three for the three instances of the application gateway, one for the private front-end IP, and five for internal use. In this case a /28 subnet size or greater is needed.
+
+As a best practice, use at least a /28 subnet size. This gives you 11 usable addresses. If your application load requires more than 10 instances, consider using a /27 or /26 subnet size.
+
+#### Network security groups supported on the application gateway subnet
 
 Network security groups (NSGs) are supported on the application gateway. But there are several restrictions:
 
-- Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200-65535 for the v2 SKU. This port-range is required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates in place.
+- Exceptions must be put in for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200-65535 for the v2 SKU. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates.
 
 - Outbound internet connectivity can't be blocked. Default outbound rules in the NSG already allow internet connectivity. We recommend that you don't remove the default outbound rules and that you don't create other outbound rules that deny outbound internet connectivity.
 
