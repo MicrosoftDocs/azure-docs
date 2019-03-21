@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Host pool load-balancing methods
+# Host pool load-balancing methods (Preview)
 
 Windows Virtual Desktop (preview) supports two load-balancing methods. Each method determines which session host will host a user’s session when they connect to a resource in a host pool.
 

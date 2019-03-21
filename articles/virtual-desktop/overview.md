@@ -34,7 +34,7 @@ With Windows Virtual Desktop, you can set up a scalable and flexible environment
 
 You can deploy and manage virtual desktops:
 
-* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources
+* Use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources.
 * Publish full desktop or individual remote apps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
 * As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
 * Use the new Diagnostics service to troubleshoot errors.
