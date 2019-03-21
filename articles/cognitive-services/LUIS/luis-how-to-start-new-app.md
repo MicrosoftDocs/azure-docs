@@ -54,13 +54,13 @@ You can create a new app with the authoring APIs in a couple of ways:
 ## Import an app from file
 
 1. On **My Apps** page, select **Import new app**.
-1. In the pop-up dialog, select a valid app JSON file then select **Done**.
+1. In the pop-up dialog, select a valid app JSON file, and then select **Done**.
 
 ### Import errors
 
 Possible errors are: 
 
-* An app with that name already exists. Reimport the add, and set the **Optional Name** to a new name. 
+* An app with that name already exists. Reimport the app, and set the **Optional Name** to a new name. 
 
 ## Next steps
 
