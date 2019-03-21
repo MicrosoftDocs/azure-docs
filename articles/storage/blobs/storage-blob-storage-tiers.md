@@ -5,7 +5,7 @@ services: storage
 author: Xansky
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ---

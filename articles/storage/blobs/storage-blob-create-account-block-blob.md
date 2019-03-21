@@ -4,7 +4,7 @@ description: Shows how to create an Azure block blob storage account with premiu
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 03/23/2019
 author: twooley
 ms.author: twooley
 ms.subservice: blobs
