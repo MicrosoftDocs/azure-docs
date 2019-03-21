@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # Access data from your datastores
 
- In Azure Machine Learning service, datastores are a compute location independent mechanism to access storage without requiring changes to your source code. Whether you write training code to take a path as a parameter or provide a datastore to an estimator, Azure Machine Learning workflows ensure your datastore locations are accessible and made available to your compute context.
+ In Azure Machine Learning service, datastores are compute location independent mechanisms to access storage without requiring changes to your source code. Whether you write training code to take a path as a parameter, or provide a datastore directly to an estimator, Azure Machine Learning workflows ensure your datastore locations are accessible and made available to your compute context.
 
 This how-to shows examples for the following tasks:
 * [Choose a datastore](#access)
@@ -216,7 +216,6 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-
 
 ## Next steps
 
