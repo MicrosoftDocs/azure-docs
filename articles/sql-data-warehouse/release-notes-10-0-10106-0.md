@@ -14,9 +14,9 @@ manager: craigg
 
 # Azure SQL Data Warehouse release notes
 
-This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
+This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
-## Version XXX (March 2019)
+## March 2019
 
 | Service improvements | Details |
 | --- | --- |
@@ -31,10 +31,10 @@ This article summarizes the new features and improvements in the recent releases
 
 | Documentation improvements | Details |
 | --- | --- |
-|Added documents for Workload Management |For more information, see [importance](sql-data-warehouse-workload-importance.md) and [classification](sql-data-warehouse-workload-classification.md). |
+|New Workload Management documents |For more information, see [importance](sql-data-warehouse-workload-importance.md) and [classification](sql-data-warehouse-workload-classification.md). |
 | | |
 
-## Version 10.0.10106.0 (January 2019)
+## January 2019
 
 ### Service improvements
 
