@@ -59,7 +59,7 @@ print(run.get_portal_url())
 
 Use the link to view the logged values in the Azure portal in your browser.
 
-![Logged values in the Azure portal](./media/quickstart-create-workspace-with-python/logged-values.png)
+![Logged values in the Azure portal](./media/quickstart-run-local-notebook/logged-values.png)
 
 ## Clean up resources 
 

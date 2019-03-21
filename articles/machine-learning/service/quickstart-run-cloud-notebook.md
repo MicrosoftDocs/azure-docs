@@ -52,7 +52,7 @@ This example shows how the workspace can help you keep track of information gene
 
 1. On the workspace Overview page, select **Get Started Azure Notebooks** to try your first experiment in Azure Notebooks.  Azure Notebooks is a separate service that lets you run Jupyter notebooks for free in the cloud.  When you use this link to the service, information about how to connect to your workspace will be added to the library you create in Azure Notebooks.
 
-   ![Explore the workspace](./media/quickstart-get-started/explore_aml.png)
+   ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore_aml.png)
 
 1. Sign into Azure Notebooks.  Make sure you sign in with the same account you used to sign into the Azure portal. Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
@@ -62,11 +62,11 @@ This example shows how the workspace can help you keep track of information gene
 
 1. Select **Clone**.
 
-   ![Clone a library](./media/quickstart-get-started/clone.png)
+   ![Clone a library](./media/quickstart-run-cloud-notebook/clone.png)
 
 1. If you see that the project status is stopped, click on **Run on Free Computer** to use the free notebook server.
 
-    ![Run a project on free compute](./media/quickstart-get-started/run-project.png)
+    ![Run a project on free compute](./media/quickstart-run-cloud-notebook/run-project.png)
 
 ### Run the notebook
 
@@ -76,7 +76,7 @@ In the list of files for this project, you see a `config.json` file. This config
 
 1. The status area tells you to wait until the kernel has started.  The message disappears once the kernel is ready.
 
-    ![Wait for kernel to start](./media/quickstart-get-started/wait-for-kernel.png)
+    ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
 1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk, __*__, next to a cell, the cell is still running. After the code for that cell finishes, a number appears. 
 
@@ -88,13 +88,13 @@ After you've finished running all of the cells in the notebook, you can view the
 
 1. The output from the `run` cell contains a link back to the Azure portal to view the experiment results in your workspace. 
 
-    ![View experiments](./media/quickstart-get-started/view_exp.png)
+    ![View experiments](./media/quickstart-run-cloud-notebook/view_exp.png)
 
 1. Click the **Link to Azure portal** to view information about the run in your workspace.  This link opens your workspace in the Azure portal.
 
 1. The plots of logged values you see were automatically created in the workspace. Whenever you log multiple values with the same name parameter, a plot is automatically generated for you.
 
-   ![View history](./media/quickstart-get-started/web-results.png)
+   ![View history](./media/quickstart-run-cloud-notebook/web-results.png)
 
 Because the code to approximate pi uses random values, your plots will show different values.  
 
