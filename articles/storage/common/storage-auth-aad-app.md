@@ -119,6 +119,8 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 ### Get an OAuth token from Azure AD
 
+**A full working sample for this article can be downloaded at http://aka.ms/aadstorage.** 
+
 Next, add a method that requests a token from Azure AD. The token you request will be on behalf of the user, and we will use the GetTokenOnBehalfOfUser method. 
 
 To request the token, you will need the following values from your app's registration,
