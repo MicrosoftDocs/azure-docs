@@ -264,13 +264,13 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
 
-1. In the left menu, click **Access package**.
+1. In the left menu, click **Access packages**.
 
-1. Find the **First access package**. If you do not see the package, wait 5 minutes and refresh the page.
+1. Find the **Web project access package**. If you do not see the package, wait 5 minutes and refresh the page.
 
-1. Click the **First access package**.
+1. Click the **Web project access package**.
 
-1. Click the **Resources** tab. You should see the **Test** group.
+1. Click the **Resources** tab. You should see the **Engineering Team** group.
 
 ## Step 8: Add a policy for guest users to request access (optional)
 
