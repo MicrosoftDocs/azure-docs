@@ -11,7 +11,7 @@ ms.date: 02/21/2019
 ---
 # Performance optimization for Apache Kafka HDInsight clusters
 
-This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus in on adjusting producer and broker configuration. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
+This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer and broker configuration. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
 
 ## Architecture Overview
 
@@ -23,11 +23,11 @@ Replication is used to duplicate partitions across nodes. This protects against 
 
 ## Identify your scenario
 
-Apache Kafka performance has two main aspects – throughput and latency. Throughput is the maximum rate at which data can be processed and higher is better. Latency is the time it takes for data to be stored or retrieved and lower is better. Finding the right balance between throughput, latency and the cost of the application's infrastructure can be challenging. Your performance requirements will likely match one of three common situations, based on whether you require high throughput, low latency, or both.
+Apache Kafka performance has two main aspects – throughput and latency. Throughput is the maximum rate at which data can be processed. Higher throughput is usually better. Latency is the time it takes for data to be stored or retrieved. Lower latency is usually better. Finding the right balance between throughput, latency and the cost of the application's infrastructure can be challenging. Your performance requirements will likely match one of the following three common situations, based on whether you require high throughput, low latency, or both:
 
-* High throughput, low latency - this scenario requires both high throughput and low latency (~100 milliseconds). An example of this type of application is service availability monitoring.
-* High throughput, high latency - this scenario requires high throughput (~1.5 GBps) but can tolerate higher latency (< 250 ms). An example of this type of application is telemetry data ingestion for near real-time processes like security and intrusion detection applications.
-* Low throughput, low latency - this scenario requires low latency (< 10 ms) for real-time processing, but can tolerate lower throughput. An example of this type of application is online spelling and grammar checks.
+* High throughput, low latency. This scenario requires both high throughput and low latency (~100 milliseconds). An example of this type of application is service availability monitoring.
+* High throughput, high latency. This scenario requires high throughput (~1.5 GBps) but can tolerate higher latency (< 250 ms). An example of this type of application is telemetry data ingestion for near real-time processes like security and intrusion detection applications.
+* Low throughput, low latency. This scenario requires low latency (< 10 ms) for real-time processing, but can tolerate lower throughput. An example of this type of application is online spelling and grammar checks.
 
 ## Producer Configurations
 
@@ -51,6 +51,9 @@ Using data compression will increase the number of records that can be stored on
 
 ## Broker settings
 
+The following sections will highlight some of the most important settings to optimize performance of your Kafka brokers. For a detailed explanation of all broker settings, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
+
+
 ### Number of disks
 
 Storage disks have limited IOPS (Input/Output Operations Per Second) and read/write bytes per second. When creating new partitions, Kafka stores each new partition on the disk with fewest existing partitions to balance them across the available disks. Despite storage strategy, when processing hundreds of partition replicas on each disk, Kafka can easily saturate the available disk throughput. The tradeoff here is between throughput and cost. If your application requires greater throughput, create a cluster with more managed disks per broker. HDInsight does not currently support adding managed disks to a running cluster. For more information on how to configure the number of managed disks, see [Configure storage and scalability for Apache Kafka on HDInsight](apache-kafka-scalability.md). Understand the cost implications of increasing storage space for the nodes in your cluster.
@@ -59,19 +62,19 @@ Storage disks have limited IOPS (Input/Output Operations Per Second) and read/wr
 
 Kafka producers write to topics. Kafka consumers read from topics. A topic is associated with a log, which is a data structure on disk. Kafka appends records from a producer(s) to the end of a topic log. A topic log consists of many partitions that are spread over multiple files. These files are, in turn, spread across multiple Kafka cluster nodes. Consumers read from Kafka topics at their cadence and and can pick their position (offset) in the topic log.
 
-Each Kafka partition is a log file on the system, and producer threads can write to multiple logs simultaneously. Similarly, since each consumer thread reads messages from one partition, consuming from multiple partitions is handled in parallel as well. 
+Each Kafka partition is a log file on the system, and producer threads can write to multiple logs simultaneously. Similarly, since each consumer thread reads messages from one partition, consuming from multiple partitions is handled in parallel as well.
 
 Increasing the partition density (the number of partitions per broker) adds an overhead related to metadata operations and per partition request/response between the partition leader and its followers. Even in the absence of data flowing through, partition replicas still fetch data from leaders, which results in extra processing for send and receive requests over the network.
 
-The recommendation for Azure HDInsight (for Kafka 1.1 and above) is to have a maximum of 1000 partitions per broker, including replicas. Increasing the number of partitions per broker decreases throughput and may also cause topic unavailability. For more information on Kafka partition support, see [the official Apache Kafka blog post on the increase in the number of supported partitions in version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions).
+For Apache Kafka clusters 1.1 and above in HDInsight, we recommend you to have a maximum of 1000 partitions per broker, including replicas. Increasing the number of partitions per broker decreases throughput and may also cause topic unavailability. For more information on Kafka partition support, see [the official Apache Kafka blog post on the increase in the number of supported partitions in version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). For details on modifying topics, see [Apache Kafka: modifying topics](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
 
 ### Number of replicas
 
 Higher replication factor results in additional requests between the partition leader and followers. Consequently, a higher replication factor consumes more disk and CPU to handle additional requests, increasing write latency and decreasing throughput.
 
-We recommend that users running Kafka in HDInsight use at least 3x replication. Most Azure regions have three fault domains, but in regions with only two fault domains, users should use 4x replication.
+We recommend that you use at least 3x replication for Kafka in Azure HDInsight. Most Azure regions have three fault domains, but in regions with only two fault domains, users should use 4x replication.
 
-For more information on replication, see [Apache Kafka -- replication](https://kafka.apache.org/documentation/#replication).
+For more information on replication, see [Apache Kafka: replication](https://kafka.apache.org/documentation/#replication) and [Apache Kafka: increasing replication factor](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
 
 ## Next steps
 
