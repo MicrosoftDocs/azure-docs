@@ -16,11 +16,11 @@
     href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Get started - Portal
-    displayName: install sdk workspace
+  - name: Run notebook in cloud
+    displayName: workspace
     href: quickstart-run-cloud-notebook.md
-  - name: Get started - Python
-    displayName: create workspace install sdk
+  - name: Run local notebook
+    displayName: workspace install sdk
     href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
