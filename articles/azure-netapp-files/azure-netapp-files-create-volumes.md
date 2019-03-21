@@ -41,11 +41,6 @@ A subnet must be delegated to Azure NetApp Files.
 
         The name must be unique within a resource group. It must be at least three characters long.  You can use any alphanumeric characters.
 
-    * **File path**  
-        Specify the file path that will be used to create the export path for the new volume. The export path is used to mount and access the volume.   
-     
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
-
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
 
@@ -70,6 +65,11 @@ A subnet must be delegated to Azure NetApp Files.
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
 4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
+    * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
+
+        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
+
+    * Optionally, you can [configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
@@ -175,5 +175,5 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
 ## Next steps  
 
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Configure export policy for a volume](azure-netapp-files-configure-export-policy.md)
+* [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

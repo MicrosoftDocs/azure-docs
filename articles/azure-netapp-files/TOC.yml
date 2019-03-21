@@ -34,7 +34,7 @@
     href: azure-netapp-files-delegate-subnet.md
   - name: Create a volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
-  - name: Configure export policy for a volume
+  - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
