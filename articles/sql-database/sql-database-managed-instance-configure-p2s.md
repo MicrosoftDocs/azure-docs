@@ -49,8 +49,8 @@ This quickstart:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGatewayAz.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-    > [!IMPORTANT]
-    > To use the Azure PowerShell Resource Manager module rather than the Az module, use the following cmdlet: `attachVPNGateway.ps1` rather than the `attachVPNGatewayAz.ps1` cmdlet.
+     > [!IMPORTANT]
+     > To use the Azure PowerShell Resource Manager module rather than the Az module, use the following cmdlet: `attachVPNGateway.ps1` rather than the `attachVPNGatewayAz.ps1` cmdlet.
 
 3. Paste the script in your PowerShell window and provide the required parameters. The values for `<subscriptionId>`, `<resourceGroup>`, and `<virtualNetworkName>` should match the ones that you used for the [Create Managed Instance](sql-database-managed-instance-get-started.md) quickstart. The value for `<certificateNamePrefix>` can be a string of your choice.
 

@@ -26,15 +26,15 @@ Security Center reports the following endpoint protection issues:
 - Endpoint protection not installed on non-Azure computers – A supported antimalware is not installed on these non-Azure computers.
 - Endpoint protection health:
 
-   - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
-   - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-partner-integration.md) for a list of supported solutions.
-   - Not reporting – An antimalware solution is installed but not reporting data.
-   - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
+  - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
+  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-partner-integration.md) for a list of supported solutions.
+  - Not reporting – An antimalware solution is installed but not reporting data.
+  - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
 
-   > [!NOTE]
-   > See [Integrate security solutions](security-center-partner-integration.md#integrated-azure-security-solutions) for a list of endpoint protection security solutions integrated with Security Center.
-   >
-   >
+    > [!NOTE]
+    > See [Integrate security solutions](security-center-partner-integration.md#integrated-azure-security-solutions) for a list of endpoint protection security solutions integrated with Security Center.
+    >
+    >
 
 ## Implement the recommendation
 Endpoint protection issues is presented as a recommendation in Security Center.  If your environment is vulnerable to antimalware threats, this recommendation will be displayed under **Recommendations** and under **Compute**. To see the **Endpoint protection issues dashboard**, you need to follow the Compute workflow.

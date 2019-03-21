@@ -25,8 +25,8 @@ From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure 
 
 ![Audit history](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-You can sort the data by Action, and look for “Activation Approved”
+> [!NOTE]
+> You can sort the data by Action, and look for “Activation Approved”
 
 
 ## Audit history graph

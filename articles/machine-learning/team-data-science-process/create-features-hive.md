@@ -155,11 +155,11 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
    
 	Typically, the default value of:
 	
-	- *mapred.min.split.size* is 0, that of
-	- *mapred.max.split.size* is **Long.MAX** and that of 
-	- *dfs.block.size* is 64 MB.
+   - *mapred.min.split.size* is 0, that of
+   - *mapred.max.split.size* is **Long.MAX** and that of 
+   - *dfs.block.size* is 64 MB.
 
-	As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.
+     As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used.
 
 4. Here are a few other more **advanced options** for optimizing Hive performance. These allow you to set the memory allocated to map and reduce tasks, and can be useful in tweaking performance. Keep in mind that the *mapreduce.reduce.memory.mb* cannot be greater than the physical memory size of each worker node in the Hadoop cluster.
    

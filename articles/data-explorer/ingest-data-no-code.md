@@ -298,12 +298,12 @@ Select a resource from which to export metrics. Several resource types support e
     ![Diagnostic settings](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. The **Diagnostics settings** pane opens. Take the following steps:
-    1. Give your diagnostics log data the name *ADXExportedData*.
-    1. Under **METRIC**, select the **AllMetrics** check box (optional).
-    1. Select the **Stream to an event hub** check box.
-    1. Select **Configure**.
+   1. Give your diagnostics log data the name *ADXExportedData*.
+   1. Under **METRIC**, select the **AllMetrics** check box (optional).
+   1. Select the **Stream to an event hub** check box.
+   1. Select **Configure**.
 
-    ![Diagnostics settings pane](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Diagnostics settings pane](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. In the **Select event hub** pane, configure how to export data from diagnostic logs to the event hub you created:
     1. In the **Select event hub namespace** list, select *AzureMonitoringData*.

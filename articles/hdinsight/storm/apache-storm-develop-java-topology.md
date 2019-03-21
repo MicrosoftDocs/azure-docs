@@ -196,21 +196,21 @@ This section is used to add plug-ins, resources, and other build configuration o
 
     Another useful plug-in is the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/), which is used to change compilation options. Change the Java version that Maven uses for the source and target for your application.
     
-    * For HDInsight __3.4 or earlier__, set the source and target Java version to __1.7__.
+  * For HDInsight __3.4 or earlier__, set the source and target Java version to __1.7__.
     
-    * For HDInsight __3.5__, set the source and target Java version to __1.8__.
+  * For HDInsight __3.5__, set the source and target Java version to __1.8__.
     
     Add the following text in the `<plugins>` section of the `pom.xml` file to include the Apache Maven Compiler plugin. This example specifies 1.8, so the target HDInsight version is 3.5.
     
     ```xml
     <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
-        </configuration>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.3</version>
+      <configuration>
+      <source>1.8</source>
+      <target>1.8</target>
+      </configuration>
     </plugin>
     ```
 

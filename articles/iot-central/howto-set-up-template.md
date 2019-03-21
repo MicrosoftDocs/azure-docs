@@ -39,11 +39,13 @@ From this device template, an operator can create and connect real fan devices w
 
 1. Navigate to the **Device Templates** page.
 
-2. To create a blank template, select **+**, and then enter a name, such as **Refrigerator** for your new device template. Then select **Create**:
+2. To create a template, start by selecting **+New**.
 
-   ![Device details page with "Refrigerator" as the template name](./media/howto-set-up-template/devicedetailspage.png)
+3. To get started quickly, choose from the existing pre-built templates. Otherwise, select **Custom**, enter a name, and click **Create** to build your own template from scratch.
 
-4. Now you’re on the **Device Details** page for a new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
+   ![Device template library](./media/howto-set-up-template/newtemplate.png)
+
+4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
 The following sections describe each of the tabs on the **Device Template** page.
 
@@ -71,6 +73,8 @@ For example, you can add a new temperature telemetry measurement:
 !["Create Telemetry" form with details for temperature measurement](./media/howto-set-up-template/measurementsform.png)
 
 After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
+
+When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart. 
 
 > [!NOTE]
 > The data type of the telemetry measurement is a floating point number.

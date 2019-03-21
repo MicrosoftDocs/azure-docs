@@ -85,11 +85,11 @@ The first step is to create an application in Azure Active Directory that the ma
     ![Select API](media/solution-office-365/select-api.png)
 
 1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
-    - Read service health information for your organization
-    - Read activity data for your organization
-    - Read activity reports for your organization
+   - Read service health information for your organization
+   - Read activity data for your organization
+   - Read activity reports for your organization
 
-    ![Select API](media/solution-office-365/select-permissions.png)
+     ![Select API](media/solution-office-365/select-permissions.png)
 
 1. Click **Select** and then **Done**.
 1. Click **Grant permissions** and then click **Yes** when asked for verification.

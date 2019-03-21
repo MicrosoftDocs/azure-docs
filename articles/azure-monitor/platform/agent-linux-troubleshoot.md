@@ -156,17 +156,17 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 
 ### Resolution
 1. Reonboard to the Log Analytics service with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. It allows verbose output of the agent connecting through the proxy to the Log Analytics service. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+   `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
-2. Review the section [Update proxy settings](agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
-* Double check that the following Log Analytics endpoints are whitelisted:
+1. Review the section [Update proxy settings](agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
+1. Double check that the following Log Analytics endpoints are whitelisted:
 
-    |Agent Resource| Ports | Direction |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
-    |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
-    |*.blob.core.windows.net | Port 443| Inbound and outbound |  
-    |*.azure-automation.net | Port 443| Inbound and outbound | 
+     |Agent Resource| Ports | Direction |
+     |------|---------|----------|  
+     |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
+     |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
+     |*.blob.core.windows.net | Port 443| Inbound and outbound |  
+     |*.azure-automation.net | Port 443| Inbound and outbound | 
 
 ## Issue: You receive a 403 error when trying to onboard
 
@@ -361,15 +361,15 @@ This error indicates that the Linux Diagnostic extension (LAD) is installed side
 * The setting **Apply the following configuration to my Linux Servers** has not been selected.
 * omsconfig has not picked up the latest custom log configuration from the service.
 * Log Analytics agent for Linux user `omsagent` is unable to access the custom log due to permissions or not being found.  You may see the following errors:
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+  * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Known Issue with Race Condition fixed in Log Analytics agent for Linux version 1.1.0-217
 
 ### Resolution
 1. Verify onboarding to the Log Analytics was successful by checking if the following file exists: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. If not, either:  
 
-  1. Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
-  2. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.  
+   1. Reonboard using the omsadmin.sh command line [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+   2. Under **Advanced Settings** in the Azure portal, ensure that the setting **Apply the following configuration to my Linux Servers** is enabled.  
 
 2. Check that the `omsconfig` agent can communicate with the Log Analytics service by running the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  This command returns the configuration that agent receives from the service, including Syslog settings, Linux performance counters, and custom logs. If this command fails, run the following command `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. This command forces the omsconfig agent to talk to the Log Analytics service and retrieve the latest configuration.
 
@@ -403,9 +403,9 @@ You can continue reonboard after using the `--purge` option
 ### Resolution 
 Perform the following steps to correct the issue.
 1. Remove extension from Azure portal.
-2. Install the agent following the [instructions](../../azure-monitor/learn/quick-collect-linux-computer.md).
-3. Restart the agent by running the following command: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Wait several minutes and the provisioning state changes to **Provisioning succeeded**.
+1. Install the agent following the [instructions](../../azure-monitor/learn/quick-collect-linux-computer.md).
+1. Restart the agent by running the following command: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Wait several minutes and the provisioning state changes to **Provisioning succeeded**.
 
 
 ## Issue: The Log Analytics agent upgrade on-demand

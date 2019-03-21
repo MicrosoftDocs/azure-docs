@@ -70,10 +70,10 @@ Now, you can access your secrets in code. The next steps are different depending
 ## Access your secrets in code
 
 1. Install these two nuget packages 
-[AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
+   [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
 
 2. Open Program.cs file and update the code with the following code: 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -101,27 +101,27 @@ Now, you can access your secrets in code. The next steps are different depending
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. Next open About.cshtml.cs file and write the following code
-    1. Include a reference to Microsoft.Extensions.Configuration by this using statement    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. Add this constructor
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. Include a reference to Microsoft.Extensions.Configuration by this using statement    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. Add this constructor
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. Update the OnGet method. Update the placeholder value shown here with the secret name you created in the above commands
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 Run the app locally by browsing to About page. You should your secret value retrieved
 

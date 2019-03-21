@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Powerschool Performance Matters, perfo
     ![[Application Name] Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+    
     | |
     |-|
     | `https://ola.performancematters.com/ola/?clientcode=<Client Code>`|

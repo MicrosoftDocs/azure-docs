@@ -327,7 +327,7 @@ The following table explains some of the considerations to output batching:
 
 ## Next steps
 > [!div class="nextstepaction"]
-
+> 
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

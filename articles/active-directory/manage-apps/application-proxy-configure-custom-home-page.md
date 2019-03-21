@@ -109,7 +109,7 @@ Create the home page URL, and update your application with that value. Continue 
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Now that you've confirmed the app, you're ready to update the home page, as follows.
+   Now that you've confirmed the app, you're ready to update the home page, as follows.
 
 2. Create a blank application object to hold the changes that you want to make. This variable holds the values that you want to update. Nothing is created in this step.
 

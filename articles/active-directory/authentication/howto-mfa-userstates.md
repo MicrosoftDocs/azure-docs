@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Multi-Factor Authentication User States
+title: Azure Multi-Factor Authentication user states - Azure Active Directory
 description: Learn about user states in Azure Multi-Factor Authentication.
 
 services: multi-factor-authentication

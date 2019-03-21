@@ -253,4 +253,4 @@ When you click the Salesforce tile in the Access Panel, you should be automatica
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configure User Provisioning](salesforce-provisioning-tutorial.md)
+- [Configure User Provisioning](salesforce-provisioning-tutorial.md)

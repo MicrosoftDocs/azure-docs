@@ -102,66 +102,66 @@ The following list shows ways you can check the process server:
 > Process Server must have a static IPv4 address and should not have NAT IP configured on it.
 
 * **Check connectivity between source machines and Process Server**
-1. In case you are able to telnet from source machine and yet the PS is not reachable from source, check the end-to-end connection with cxprocessserver from the source VM by running cxpsclient tool on source VM:
+* In case you are able to telnet from source machine and yet the PS is not reachable from source, check the end-to-end connection with cxprocessserver from the source VM by running cxpsclient tool on source VM:
 
-       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+      <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
 
-    Check the generated logs on PS in the following directories for details on corresponding errors:
+   Check the generated logs on PS in the following directories for details on corresponding errors:
 
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-       and
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-2. Check the following logs on the PS in case there is no heartbeat from PS. This is identified by **Error code 806** on the portal.
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+      and
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+* Check the following logs on the PS in case there is no heartbeat from PS. This is identified by **Error code 806** on the portal.
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+      C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+      and
+      C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-*  **Check whether the process server is actively pushing data to Azure**.
+* **Check whether the process server is actively pushing data to Azure**.
 
-   1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
-   2. Select the **Performance** tab, and then select the **Open Resource Monitor** link. 
-   3. On the **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether **cbengine.exe** is actively sending a large volume of data.
+  1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
+  2. Select the **Performance** tab, and then select the **Open Resource Monitor** link. 
+  3. On the **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether **cbengine.exe** is actively sending a large volume of data.
 
-        ![Screenshot that shows the volumes under Processes with Network Activity](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+       ![Screenshot that shows the volumes under Processes with Network Activity](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-   If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
+  If cbengine.exe isn't sending a large volume of data, complete the steps in the following sections.
 
-*  **Check whether the process server can connect to Azure Blob storage**.
+* **Check whether the process server can connect to Azure Blob storage**.
 
-   Select **cbengine.exe**. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure Blog storage URL.
+  Select **cbengine.exe**. Under **TCP Connections**, check to see whether there is connectivity from the process server to the Azure Blog storage URL.
 
-   ![Screenshot that shows connectivity between cbengine.exe and the Azure Blob storage URL](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+  ![Screenshot that shows connectivity between cbengine.exe and the Azure Blob storage URL](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-   If there's no connectivity from the process server to the Azure Blog storage URL, in Control Panel, select **Services**. Check to see whether the following services are running:
+  If there's no connectivity from the process server to the Azure Blog storage URL, in Control Panel, select **Services**. Check to see whether the following services are running:
 
-   *  cxprocessserver
-   *  InMage Scout VX Agent – Sentinel/Outpost
-   *  Microsoft Azure Recovery Services Agent
-   *  Microsoft Azure Site Recovery Service
-   *  tmansvc
+  *  cxprocessserver
+  *  InMage Scout VX Agent – Sentinel/Outpost
+  *  Microsoft Azure Recovery Services Agent
+  *  Microsoft Azure Site Recovery Service
+  *  tmansvc
 
-   Start or restart any service that isn't running. Check to see whether the problem still occurs.
+  Start or restart any service that isn't running. Check to see whether the problem still occurs.
 
-*  **Check whether the process server can connect to the Azure public IP address by using port 443**.
+* **Check whether the process server can connect to the Azure public IP address by using port 443**.
 
-   In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or for the string **connection attempt failed**.
+  In %programfiles%\Microsoft Azure Recovery Services Agent\Temp, open the latest CBEngineCurr.errlog file. In the file, search for **443** or for the string **connection attempt failed**.
 
-   ![Screenshot that shows the error logs in the Temp folder](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![Screenshot that shows the error logs in the Temp folder](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-   If issues are shown, at the command line in the process server, use Telnet to ping your Azure public IP address (the IP address is masked in the preceding image). You can find your Azure public IP address in the CBEngineCurr.currLog file by using port 443:
+  If issues are shown, at the command line in the process server, use Telnet to ping your Azure public IP address (the IP address is masked in the preceding image). You can find your Azure public IP address in the CBEngineCurr.currLog file by using port 443:
 
-   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+  `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
-   If you can't connect, check whether the access issue is due to firewall or proxy settings as described in the next step.
+  If you can't connect, check whether the access issue is due to firewall or proxy settings as described in the next step.
 
-*  **Check whether the IP address-based firewall on the process server blocks access**.
+* **Check whether the IP address-based firewall on the process server blocks access**.
 
-   If you use IP address-based firewall rules on the server, download the complete list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Add the IP address ranges to your firewall configuration to ensure that the firewall allows communication to Azure (and to the default HTTPS port, 443). Allow IP address ranges for the Azure region of your subscription and for the Azure West US region (used for access control and identity management).
+  If you use IP address-based firewall rules on the server, download the complete list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Add the IP address ranges to your firewall configuration to ensure that the firewall allows communication to Azure (and to the default HTTPS port, 443). Allow IP address ranges for the Azure region of your subscription and for the Azure West US region (used for access control and identity management).
 
-*  **Check whether a URL-based firewall on the process server blocks access**.
+* **Check whether a URL-based firewall on the process server blocks access**.
 
-   If you use a URL-based firewall rule on the server, add the URLs listed in the following table to the firewall configuration:
+  If you use a URL-based firewall rule on the server, add the URLs listed in the following table to the firewall configuration:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 

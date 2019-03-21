@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -25,7 +25,7 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 
 ### Custom voices
 
-Voice customization lets you create a recognizable, one-of-a-kind voice for your brand: a *voice font.* To create your voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use this voice font to synthesize speech. For more information, see [custom voices](how-to-customize-voice-font.md).
+Voice customization lets you create a recognizable, one-of-a-kind voice for your brand. To create your custom voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use this custom voice font to synthesize speech. For more information, see [custom voices](how-to-customize-voice-font.md).
 
 ## Core features
 
