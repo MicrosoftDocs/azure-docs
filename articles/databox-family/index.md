@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>
-<ul class="cardsA singlePanelContent cols cols3">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b> for data sizes < 40 TB. Microsoft ships you 1 to 5 encrypted solid-state drives (SSDs) to copy data and ship back.</p>
+                            <p><b>Data Box Disk</b> for data sizes &lt; 40 TB. Microsoft ships you 1 to 5 encrypted solid-state drives (SSDs) to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy</b> for data sizes > 500 TB. Microsoft ships you a 1 petabyte (PB) device via freight to copy data and ship back.</p>
+                            <p><b>Data Box Heavy</b> for data sizes &gt; 500 TB. Microsoft ships you a 1 petabyte (PB) device via freight to copy data and ship back.</p>
                         </div>
                     </div>
                 </div>
