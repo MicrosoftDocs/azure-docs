@@ -182,7 +182,7 @@ To resolve connectivity problems or other transient problems with the service, r
 1. Look for the **Microsoft Azure AD Sync** entry.
 1. Right-click the service entry, select **Restart**, and then wait for the operation to finish.
 
-   ![Restart the Azure AD Sync service][Service restart]
+   ![Restart the Azure AD Sync service using the GUI][Service restart]
 
 These steps re-establish your connection with the cloud service and resolve any interruptions you might be experiencing. If restarting the ADSync service does not resolve your problem, we recommend that you try to disable and then re-enable the password writeback feature.
 
@@ -229,33 +229,27 @@ Azure AD Connect requires Active Directory **Reset password** permission to perf
 
 1. Sign in to the Azure AD Connect server and start the **Synchronization Service Manager** by selecting **Start** > **Synchronization Service**.
 1. Under the **Connectors** tab, select the on-premises **Active Directory Domain Services** connector, and then select **Properties**.  
-   ![Effective permission - step 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Synchronization Service Manager showing how to edit properties](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. In the pop-up window, select **Connect to Active Directory Forest** and make note of the **User name** property. This property is the AD DS account used by Azure AD Connect to perform directory synchronization. For Azure AD Connect to perform password writeback, the AD DS account must have reset password permission.  
    
-   ![Effective permission - step 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+   ![Finding the synchronization service Active Directory user account](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Sign in to an on-premises domain controller and start the **Active Directory Users and Computers** application.
 1. Select **View** and make sure the **Advanced Features** option is enabled.  
    
-   ![Effective permission - step 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+   ![Active Directory Users and Computers show Advanced Features](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Look for the Active Directory user account you want to verify. Right-click the account name and select **Properties**.  
-   
-   ![Effective permission - step 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. In the pop-up window, go to the **Security** tab and select **Advanced**.  
-   
-   ![Effective permission - step 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. In the **Advanced Security Settings for Administrator** pop-up window, go to the **Effective Access** tab.
 1. Select **Select a user**, select the AD DS account used by Azure AD Connect (see step 3), and then select **View effective access**.
 
-   ![Effective permission - step 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Effective Access tab showing the Synchronization Account](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Scroll down and look for **Reset password**. If the entry has a check mark, the AD DS account has permission to reset the password of the selected Active Directory user account.  
    
-   ![Effective permission - step 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+   ![Validating that the sync account has the Reset password permission](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## Azure AD forums
 

@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 The Microsoft Authenticator app can be used to sign in to any Azure AD account without using a password. Similar to the technology of [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device and uses a biometric or PIN.
 
-![Example of a browser sign-in asking for user to approve the sign-in attempt in their Microsoft Authenticator app](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Example of a browser sign-in asking for user to approve the sign-in](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Instead of seeing a prompt for a password after entering a username, a person who has enabled phone sign-in in the Microsoft Authenticator app will see a message telling them to tap a number in their app. In the app, the user must match the number, choose Approve, then provide their PIN or biometric, then the authentication will complete.
 

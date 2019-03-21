@@ -73,7 +73,7 @@ Users can only reset their password if they have data present in the authenticat
 > [!WARNING]
 > Accounts assigned Azure Administrator roles will be required to use methods as defined in the section [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Authentication][Authentication]
+![Authentication methods selection in the Azure portal][Authentication]
 
 ### Number of authentication methods required
 
@@ -157,7 +157,7 @@ Example: There are four administrators in an environment. Administrator A resets
 
 If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](howto-sspr-writeback.md).
 
-![Writeback][Writeback]
+![Validating password writeback is enabled and working][Writeback]
 
 This page provides you a quick status of the on-premises writeback client, one of the following messages is displayed based on the current configuration:
 

@@ -28,7 +28,7 @@ Even if SSPR is not enabled, users still have a "Contact your administrator" lin
 
 We recommend that you set this contact to something like an email address or website that your users already use for support questions.
 
-![Contact][Contact]
+![Sample request to reset email sent to Administrator][Contact]
 
 The contact email is sent to the following recipients in the following order:
 
