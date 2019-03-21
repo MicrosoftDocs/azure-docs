@@ -33,9 +33,9 @@ Click the **Remote Monitoring** tile. On the **Remote Monitoring** page, click *
 
 ![Choose Remote Monitoring](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-On the **Create Remote Monitoring solution** page, select a **Basic** deployment. If you're deploying the solution accelerator to learn how it works or to run a demonstration, choose the **Basic** option to minimize costs.
+A **Basic** version will be deployed using the web-based UI. To deploy a **Standard** version, you have to use the  [CLI](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy-cli)
 
-Choose **.NET** as the language. The Java and .NET implementations have the same features.
+Choose **C# Microservices** as the Deployment options. The Java and C# implementations have the same features.
 
 Enter a unique **Solution name** for your Remote Monitoring solution accelerator. For this quickstart, we're calling ours **contoso-rm**.
 
