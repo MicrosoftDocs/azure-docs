@@ -1,5 +1,5 @@
 ---
-title: Azure AD self-service password reset Windows 7 and 8.1
+title: Azure AD self-service password reset Windows 7 and 8.1 - Azure Active Directory
 description: How to enable self-service password reset using forgot password at the Windows 7 or 8.1 logon screen 
 
 services: active-directory

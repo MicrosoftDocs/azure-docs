@@ -1,5 +1,5 @@
 ---
-title: Combined registration for Azure AD SSPR and MFA (preview)
+title: Combined registration for Azure AD SSPR and MFA (preview) - Azure Active Directory
 description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
