@@ -1,6 +1,6 @@
 ---
-title: "How to use the migration tool to migrate your classic alerts"
-description: Learn how to use voluntary migration tool.
+title: "Migrate your classic alerts in Azure Monitor using the voluntary migration tool"
+description: Learn how to use voluntary migration tool to migrate your classic alert rules.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -81,24 +81,26 @@ The following procedure describes how to trigger the migration of your classic a
 
 ## Frequently asked questions
 
-**Why is my subscription(s) listed as Not ready for migration?**
+### **Why is my subscription(s) listed as Not ready for migration?**
 
 The migration tool is rolling out in phases to all customers. In the early phases, most or all your subscriptions might be marked as **Not ready for migration**. However, by mid-April, all subscriptions should be ready to migrate.
 
 When a subscription becomes ready for migration, Subscription Owners will receive an email notifying the availability of the tool. Keep an eye out for this notification.
 
-**Who can trigger the migration?**
-Users who have the Monitoring Contributor role assigned to them at the subscription level will be able to trigger the migration. Learn more about RBAC for migration process.
+### **Who can trigger the migration?**
 
-**How long is the migration going to take?**
+Users who have the Monitoring Contributor role assigned to them at the subscription level will be able to trigger the migration. Learn more about [Role Based Access Control for migration process](alerts-understand-migration.md#who-can-trigger-the-migration).
+
+### **How long is the migration going to take?**
 
 For most subscriptions, migration should complete under 2 hours. However if you have a subscription with large number of classic alert rules(>500), the migration could take up to a few hours.  During this time, please be ensured that your alerts are still running either in the classic alerts system or the new one.
 
 **What can I do if I run into an issue during migration?**
+
 Please follow the troubleshooting guide to see remediation steps for any issues you might face during migration. If any action is needed from you to complete the migration, you will be notified on the email address(es) provided during migration.
 
 ## Next steps
 
 - [Prepare for migration](alerts-prepare-migration.md)
-- [Understand how the migration tool works](alerts-metric-overview.md)
+- [Understand how the migration tool works](alerts-understand-migration.md)
 - [Common Alert Schema](https://aka.ms/commonAlertSchemaDocs)

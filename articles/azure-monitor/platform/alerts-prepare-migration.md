@@ -1,5 +1,5 @@
 ---
-title: "How to prepare your web hook endpoints for classic alerts migration"
+title: "Prepare for classic alerts migration by updating your logic apps and runbooks"
 description: Learn how to modify your webhook, logic app and runbooks to prepare for for voluntary migration.
 author: snehithm
 ms.service: azure-monitor
@@ -8,7 +8,7 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ---
-# Prepare your logic apps and runbook to migrate your classic alert rules
+# Prepare your logic apps and run books for classic alert rules migration
 
 As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. The migration tool to trigger migration voluntarily is available in Azure portal and is rolling out to customers who use classic alert rules.
 
@@ -19,7 +19,8 @@ If you choose to voluntarily migrate your classic alert rules to new alert rules
 The APIs used to create/manage classic alert rules (`microsoft.insights/alertrules`) are different from the APIs used to create/manage new metric alerts (`microsoft.insights/metricalerts`). If you programmatically create/manage alert rules through REST API, Azure CLI or PS cmdlets will need to update their programs/scripts to ensure they work with new APIs.
 
 The following table provides you a reference to programmatic interfaces for both classic and new alerts.
-|  |Classic alerts  |New metric alerts |
+
+|         |Classic alerts  |New metric alerts |
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
@@ -34,7 +35,7 @@ While the notification payloads for new metric alerts could be more complex than
 
 |  |Classic alerts  |New metric alerts |
 |---------|---------|---------|
-|Was the alert activated or resolved     | status       | data.status
+|Was the alert activated or resolved     | status       | data.status |
 |Contextual information about the alert     | context        | data.context        |
 |Timestamp at which the alert was activated or resolved      | context.timestamp       | data.context.timestamp        |
 | Alert Rule ID | context.id | data.context.id |
