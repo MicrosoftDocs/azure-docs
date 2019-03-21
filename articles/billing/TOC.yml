@@ -104,7 +104,7 @@
   - name: Grant access to billing
     href: billing-manage-access.md
   - name: EA roles in Azure
-    href: billing-understand-ea-roles.md 
+    href: billing-understand-ea-roles.md
   - name: Microsoft Customer Agreements roles in Azure
     href: billing-understand-mca-roles.md
   - name: Link partner ID
@@ -201,8 +201,6 @@
     items:
     - name: Azure Billing REST API
       href: https://docs.microsoft.com/rest/api/billing
-    - name: Partner solution – Cloud Cruiser
-      href: billing-usage-rate-card-partner-solution-cloudcruiser.md
   - name: Azure Consumption API overview
     href: billing-consumption-api-overview.md
     items:
