@@ -36375,6 +36375,11 @@
       "source_path": "articles/backup/backup-sql-server-azure-vms.md",
       "redirect_url": "/azure/backup/backup-azure-sql-database",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/how-to-create-tumbling-window-trigger.md",
+      "redirect_url": "azure/data-factory/how-to-create-tumbling-window-trigger",
+      "redirect_document_id": false
     }
   ]
 }
