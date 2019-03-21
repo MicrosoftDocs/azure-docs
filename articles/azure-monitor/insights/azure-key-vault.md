@@ -133,13 +133,13 @@ To use the updated solution:
 1. [Configure diagnostics to be sent directly to Log Analytics from Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md)
 3. Update any saved queries, dashboards, or alerts to use the new data type
-  + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
-  - Instead of: `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Fields: (Field names are case-sensitive)
-  - For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
-  - For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names. For example, the UPN of the caller is stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   - Field CallerIpAddress changed to CallerIPAddress
-   - Field RemoteIPCountry is no longer present
+   + Type is change from: KeyVaults to AzureDiagnostics. You can use the ResourceType to filter to Key Vault Logs.
+   + Instead of: `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Fields: (Field names are case-sensitive)
+   + For any field that has a suffix of \_s, \_d, or \_g in the name, change the first character to lower case
+   + For any field that has a suffix of \_o in name, the data is split into individual fields based on the nested field names. For example, the UPN of the caller is stored in a field `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Field CallerIpAddress changed to CallerIPAddress
+   + Field RemoteIPCountry is no longer present
 4. Remove the *Key Vault Analytics (Deprecated)* solution. If you are using PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.

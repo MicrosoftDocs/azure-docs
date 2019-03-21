@@ -676,7 +676,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 ### Latency metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | ReplicationLatency	| Replication Latency|	MilliSeconds| 	Minimum,Maximum,Average	| P99 Replication Latency across source and target regions for geo-enabled account|	SourceRegion, TargetRegion|	All	| Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
 
 ### Availability metrics
@@ -688,7 +688,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 ### Cassandra API metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | CassandraRequests	| Cassandra Requests |	Count|	Count|	Number of Cassandra API requests made|	DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|	All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
 | CassandraRequestCharges|	Cassandra Request Charges| Count|	Sum, Min, Max, Avg|	Request Units consumed by Cassandra API requests|	DatabaseName, CollectionName, Region, OperationType, ResourceType|	All| Used to monitor RUs used per minute by a Cassandra API account.|
 | CassandraConnectionClosures	| Cassandra Connection Closures	|Count|	Count	|Number of Cassandra Connections closed|	ClosureReason, Region|	All	| Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|

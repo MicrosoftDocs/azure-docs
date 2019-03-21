@@ -122,7 +122,7 @@ When this operation runs successfully, you should see output similar to as shown
    "se=2020-01-01&sp=***"
 ```
 
-2. In this step we will use the output ($sasToken) generated above to create a SAS Definition. For more documentation read [here](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. In this step we will use the output ($sasToken) generated above to create a SAS Definition. For more documentation read [here](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -144,8 +144,8 @@ In this section we will discuss how you can do operations on your storage accoun
 
 In the below section, we demonstrate how to fetch SAS tokens once a SAS definition is created as shown above.
 
-> [!NOTE] 
-  There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
 > - Using Managed Service Identity (Highly recommended)
 > - Using Service Principal and certificate 
 > - Using Service Principal and password (NOT recommended)

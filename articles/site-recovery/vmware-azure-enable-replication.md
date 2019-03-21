@@ -67,7 +67,7 @@ When replicating VMware virtual machines:
 12. Enable **Multi-VM consistency** if you want to gather machines into a replication group. Specify a name for the group, and then click **OK**. 
 
     > [!NOTE]
-
+    > 
     >    * Machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
     >    * Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can impact workload performance. Use only if machines are running the same workload and you need consistency.
 
@@ -82,17 +82,17 @@ Next, you verify the properties of the source machine. Remember that the Azure V
 1. Click **Settings** > **Replicated items** >, and then select the machine. The **Essentials** page shows information about machine settings and status.
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can change multiple VM propoerties:
-    * Azure VM name - Modify the name to comply with Azure requirements if necessary
-    * Target VM size or VM type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
+   * Azure VM name - Modify the name to comply with Azure requirements if necessary
+   * Target VM size or VM type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
 
-    ![Compute and Network properties](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![Compute and Network properties](./media/vmware-azure-enable-replication/vmproperties.png)
 
-    *  Resource Group - You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) from which a machine becomes part of a post failover. You can change this setting any time before failover. Post failover, if you migrate the machine to a different resource group, the protection settings for that machine break.
-    * Availability Set - You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine needs to be part of a post failover. While you're selecting an availability set, keep in mind that:
+   * Resource Group - You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) from which a machine becomes part of a post failover. You can change this setting any time before failover. Post failover, if you migrate the machine to a different resource group, the protection settings for that machine break.
+   * Availability Set - You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your machine needs to be part of a post failover. While you're selecting an availability set, keep in mind that:
 
-        * Only availability sets belonging to the specified resource group are listed.  
-        * Machines with different virtual networks cannot be a part of the same availability set.
-        * Only virtual machines of the same size can be a part of an availability set.
+       * Only availability sets belonging to the specified resource group are listed.  
+       * Machines with different virtual networks cannot be a part of the same availability set.
+       * Only virtual machines of the same size can be a part of an availability set.
 4. You can also view and add information about the target network, subnet, and IP address assigned to the Azure VM.
 5. In **Disks**, you can see the operating system and data disks on the VM to be replicated.
 

@@ -110,92 +110,68 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 To run the ROOBO tests and validate your development kit setup, build and install the sample application:
 
-1.	Start Android Studio.
+1. Start Android Studio.
 
-1.	Select **Open an existing Android Studio project**.
+1. Select **Open an existing Android Studio project**.
 
-    ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
 
-1.	Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
+1. Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
 
-1.	Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
+1. Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
-    Your keys and application information go in the following lines in the source file MainActivity.java:
+   Your keys and application information go in the following lines in the source file MainActivity.java:
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\Android-Sample-Release\keyword\Computer contains the files used for the wake word "Computer".
 
     You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To install the wake word you want to use:
+    To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-    * Create a keyword folder in the data folder on the device by running the following commands in a Command Prompt window:
+   * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Update the MainActivity.java with the keyword and the package name: 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. Update the following lines, which contain the microphone array geometry settings:
 
-    * Copy the files kws.table, kws_k.fst, and words_kw.txt to the device's \data\keyword folder. Run the following commands in a Command Prompt window. If you created a [custom wake word](speech-devices-sdk-create-kws.md), the kws.table file generated from the web is in the same directory as the kws.table, kws_k.fst, and words_kw.txt files. For a custom wake word, use the `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` command to push the kws.table file to the dev kit:
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   The following table describes the available values:
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * Reference these files in the sample application. Find the following lines in MainActivity.java. Make sure that the keyword specified is the one you're using, and that the path points to the `kws.table` file that you pushed to the device.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > In your own code, you can use the kws.table file to create a keyword model instance and start recognition:
-        >
-        > ```java
-    	> KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.	Update the following lines, which contain the microphone array geometry settings:
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    The following table describes the available values:
-
-    |Variable|Meaning|Available values|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
-    |||For a linear dev kit: `Linear4`|
-    |`SelectedGeometry`|Software mic configuration|For a circular dev kit that uses all mics: `Circular6+1`|
-    |||For a circular dev kit that uses four mics: `Circular3+1`|
-    |||For a linear dev kit that uses all mics: `Linear4`|
-    |||For a linear dev kit that uses two mics: `Linear2`|
+   |Variable|Meaning|Available values|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
+   |||For a linear dev kit: `Linear4`|
+   |`SelectedGeometry`|Software mic configuration|For a circular dev kit that uses all mics: `Circular6+1`|
+   |||For a circular dev kit that uses four mics: `Circular3+1`|
+   |||For a linear dev kit that uses all mics: `Linear4`|
+   |||For a linear dev kit that uses two mics: `Linear2`|
 
 
-1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
+1. To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
 
 1. Select your device, and then select **OK** to deploy the application to the device.
 
     ![Select Deployment Target dialog box](media/speech-devices-sdk/qsg-7.png)
 
-1.	The Speech Devices SDK example application starts and displays the following options:
+1. The Speech Devices SDK example application starts and displays the following options:
 
-    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
+   ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
 
 1. Experiment!
 

@@ -86,22 +86,40 @@ You can [Configure and manage Azure AD authentication with SQL](https://docs.mi
 
 For this next step, you need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-1.  Start SSMS.
+1. Start SSMS.
 
-2.  In the **Connect to Server** dialog, enter your Azure SQL Database server name in
-    the **Server name** field.
+2. In the **Connect to Server** dialog, enter your Azure SQL Database server name in
+   the **Server name** field.
 
-3.  In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
+4. In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
 
-5.  select **Connect** and complete the sign-in process.
+5. select **Connect** and complete the sign-in process.
 
-6.  In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
+6. In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
 
-7.  Right-click on **master** database and select **New query**.
+7. Right-click on **master** database and select **New query**.
 
-8.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+8. In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   The command should complete successfully, creating a contained user to represent the group.
+
+9. Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
+
+10. If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+
+11. In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -109,25 +127,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
     The command should complete successfully, creating a contained user to represent the group.
 
-9.  Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
-
-10.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
-
-11.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    The command should complete successfully, creating a contained user to represent the group.
-
-12.  Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+12. Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]

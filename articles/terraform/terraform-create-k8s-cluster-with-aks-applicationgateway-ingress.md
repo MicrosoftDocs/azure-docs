@@ -31,10 +31,10 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
-    - Note the Object ID of the Service Principal by running the following command
+  - Note the Object ID of the Service Principal by running the following command
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## Create the directory structure
@@ -94,8 +94,8 @@ Create the Terraform configuration file that declares the Azure provider.
     ```bash
     :wq
     ```
-## Define input variables
-Create the Terraform configuration file that lists all the variables required for this deployment
+   ## Define input variables
+   Create the Terraform configuration file that lists all the variables required for this deployment
 1. In Cloud Shell, create a file named `variables.tf`
     ```bash
     vi variables.tf

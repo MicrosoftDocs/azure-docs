@@ -286,7 +286,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |end| String | Ends of the activity run in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
 
-
 ### Pipeline Run Logs Attributes
 
 ```json
@@ -331,7 +330,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |end| String | End of the activity runs in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
 |status| String | Final status of the pipeline run (Succeeded or Failed) | `Succeeded`|
-
 
 ### Trigger Run Logs Attributes
 

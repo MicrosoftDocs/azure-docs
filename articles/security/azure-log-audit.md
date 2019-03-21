@@ -132,7 +132,7 @@ The included reports are listed in the following table:
 |Sign-ins from possibly infected devices|	Individual user activity||
 |Users with anomalous sign-in activity|	Groups activity report||
 ||Password reset registration activity report||
-||Password reset activity|||
+||Password reset activity||
 
 The data in these reports can be useful to your applications, such as Security Information and Event Management (SIEM) systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) from various programming languages and tools.
 
@@ -227,15 +227,15 @@ In addition to the previously mentioned logging capabilities, Network Watcher cu
 
 - [Variable packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuning controls, such as time- and size-limitation settings, provide versatility. The packet data can be stored in a blob store or on the local disk in *.cap* file format.
 
-* [IP flow verification](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Checks to see whether a packet is allowed or denied based on flow information 5-tuple packet parameters (that is, destination IP, source IP, destination port, source port, and protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
+- [IP flow verification](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Checks to see whether a packet is allowed or denied based on flow information 5-tuple packet parameters (that is, destination IP, source IP, destination port, source port, and protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
 
-* [Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determines the next hop for packets being routed in the Azure network fabric, so that you can diagnose any misconfigured user-defined routes.
+- [Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determines the next hop for packets being routed in the Azure network fabric, so that you can diagnose any misconfigured user-defined routes.
 
-* [Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Gets the effective and applied security rules that are applied on a VM.
+- [Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Gets the effective and applied security rules that are applied on a VM.
 
-* [Virtual network gateway and connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helps you troubleshoot virtual network gateways and connections.
+- [Virtual network gateway and connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helps you troubleshoot virtual network gateways and connections.
 
-* [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Enables you to view network resource usage against limits.
+- [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Enables you to view network resource usage against limits.
 
 ### Application Insights
 
@@ -273,17 +273,17 @@ The following table lists and describes integration scenarios:
 
 | Integration scenario | Description |
 | --------------------- | :---------- |
-|[Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|The components of your app, with key metrics and alerts.||
-|[Diagnostics search for instance data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.||
-|[Metrics Explorer for aggregated data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.||
-|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.||
-|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.||
-|[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Answer tough questions about your app's performance and usage by using this powerful query language.||
-|[Automatic and manual alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatic alerts adapt to your app's normal patterns of telemetry and are triggered when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.||
-|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|View performance data in the code. Go to code from stack traces.||
-|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integrate usage metrics with other business intelligence.||
-|[REST API](https://dev.applicationinsights.io/)|Write code to run queries over your metrics and raw data.||
-|[Continuous export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Bulk export of raw data to storage when it arrives.||
+|[Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|The components of your app, with key metrics and alerts.|
+|[Diagnostics search for instance data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.|
+|[Metrics Explorer for aggregated data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.|
+|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.|
+|[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.|
+|[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Answer tough questions about your app's performance and usage by using this powerful query language.|
+|[Automatic and manual alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatic alerts adapt to your app's normal patterns of telemetry and are triggered when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.|
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|View performance data in the code. Go to code from stack traces.|
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integrate usage metrics with other business intelligence.|
+|[REST API](https://dev.applicationinsights.io/)|Write code to run queries over your metrics and raw data.|
+|[Continuous export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Bulk export of raw data to storage when it arrives.|
 
 ### Azure Security Center alerts
 
@@ -355,7 +355,7 @@ There are four ways to [collect logs and metrics for Azure services](https://doc
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Web server farms|Microsoft.Web/<br>serverfarms|| 	Diagnostics
 |Websites|	Microsoft.Web/<br>sites ||	 	Diagnostics|	[More information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites/<br>slots|||||
+||Microsoft.Web/<br>sites/<br>slots||||
 
 
 ## Log Integration with on-premises SIEM systems

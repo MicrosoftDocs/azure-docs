@@ -50,7 +50,7 @@ For more information about NSGs, see [Network security groups](../../virtual-n
 
     ![ExpressRoute Monitor configuration](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
+   After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
 
 ### Enable monitoring of the ExpressRoute peering connections 
 

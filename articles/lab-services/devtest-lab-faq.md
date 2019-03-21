@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
 
 ---
@@ -23,8 +23,27 @@ Get answers to some of the most common questions about Azure DevTest Labs.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **General**
+
+## Blog post
+Our DevTest Labs Team blog has been retired as of 20 March 2019. 
+
+### Where can I track feature updates going forward?
+Going forward, we will be posting feature updates and/or informative blog posts on the Azure blog and Azure updates. These blog posts will also link to our documentation wherever required.
+
+Subscribe to the [DevTest Labs Azure Blog](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) and [DevTest Labs Azure updates](https://azure.microsoft.com/updates/?product=devtest-lab) to stay informed about new features in DevTest Labs.
+
+### What happens to the existing blog posts?
+We are currently working on migrating existing blog posts (excluding outage updates) to our [DevTest Labs documentation](devtest-lab-overview.md). When the MSDN blog is deprecated, it will be redirected to the documentation overview for DevTest Labs. Once redirected, you can search for the article you are looking for in the 'Filter by' title. Note that we haven't migrated all posts yet, but should be done by end of this month. 
+
+
+### Where do I see outage updates?
+We will be posting outage updates using our Twitter handle going forward. Follow us on Twitter to get latest updates on outages and known bugs.
+
+### Twitter 
+Our Twitter handle: azlabservices
+
 ## What if my question isn't answered here?
-If your question is not listed here, let us know, so we can help you find an answer.
+If your question is not listed here, let us know, and we can help you find an answer.
 
 * Post a question at the end of this FAQ. Engage with the Azure Cache team and other community members about this article.
 * To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engage with the Azure DevTest Labs team and other members of the community.
@@ -37,7 +56,7 @@ Azure DevTest Labs can save your team time and money. Developers can create thei
 Worry-free self-service means that developers and testers create their own environments as needed. Administrators have the security of knowing that DevTest Labs can help minimize waste and control costs. Administrators can specify which VM sizes are allowed, the maximum number of VMs, and when VMs are started and shut down. DevTest Labs also makes it easy to monitor costs and set alerts, to help you stay aware of how lab resources are being used.
 
 ## How can I use DevTest Labs?
-DevTest Labs is useful any time you require dev or test environments, and want to reproduce them quickly, or manage them by using cost-saving policies.
+DevTest Labs is useful anytime you require dev or test environments, and want to reproduce them quickly, or manage them by using cost-saving policies.
 
 Here are some scenarios that our customers use DevTest Labs for:
 
@@ -102,8 +121,8 @@ For other continuous integration (CI)/continuous delivery (CD) toolchains, you c
 
 
 **Virtual machines**
-## Why can't I see VMs on the Virtual Machines blade that I see in DevTest Labs?
-When you create a VM in DevTest Labs, you are given permission to access that VM. You can view the VM both on the labs blade and on the **Virtual Machines** blade. Users assigned to the DevTest Labs lab user role can see all VMs that were created in the lab on the lab's **All Virtual Machines** blade. However, users who have the DevTest Labs lab user role are not automatically granted read access to VM resources that other users have created. Therefore, those VMs are not displayed on the **Virtual Machines** blade.
+## Why can't I see VMs on the Virtual Machines page that I see in DevTest Labs?
+When you create a VM in DevTest Labs, you are given permission to access that VM. You can view the VM both on the labs page and on the **Virtual Machines** page. Users assigned to the DevTest Labs lab user role can see all VMs that were created in the lab on the lab's **All Virtual Machines** page. However, users who have the DevTest Labs lab user role are not automatically granted read access to VM resources that other users have created. Therefore, those VMs are not displayed on the **Virtual Machines** page.
 
 ## What is the difference between a custom image and a formula?
 A custom image is a virtual hard disk (VHD). A formula is an image that you can configure with additional settings, and then save and reproduce. A custom image might be preferable if you want to quickly create several environments by using the same basic, immutable image. A formula might be better if you want to reproduce the configuration of your VM with the latest bits, as part of a virtual network or subnet, or as a VM of a specific size. For a more in-depth explanation, see [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -180,7 +199,7 @@ You can delete VMs from your lab in the Azure portal. You also can delete all th
 
 **Artifacts**
 ## What are artifacts?
-Artifacts are customizable elements that you can use to deploy your latest bits or deploy your dev tools to a VM. Attach artifacts to your VM when you create the VM. After the VM is provisioned, the artifacts deploy and configure your VM. Various preexisting artifacts are available in our [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). You can also [author your own artifacts](devtest-lab-artifact-author.md).
+Artifacts are customizable elements that you can use to deploy your latest bits or deploy your dev tools to a VM. Attach artifacts to your VM when you create the VM. After the VM is provisioned, the artifacts deploy and configure your VM. Various pre-existing artifacts are available in our [public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). You can also [author your own artifacts](devtest-lab-artifact-author.md).
 
 
 **Lab configuration**
@@ -228,7 +247,7 @@ When one resource is a parent to another resource, the parent resource must exis
 VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## Where can I find more error information if a VM deployment fails?
-VM deployment errors are captured in activity logs. You can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM blade (the blade appears after you select the VM from the **My virtual machines** list).
+VM deployment errors are captured in activity logs. You can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM page (the page appears after you select the VM from the **My virtual machines** list).
 
 Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 

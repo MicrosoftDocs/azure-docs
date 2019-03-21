@@ -54,14 +54,14 @@ The template defines four parameters:
     ![Show the pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Select **Debug**, write the value for the **Parameters** and select **Finish**.  In the picture below, we set the parameters as following.
-    -  **FolderPath_Source** = **/source/**
-    -  **FolderPath_Destination** = **/destination/**
-    -  **LastModified_From** =  **2019-02-01T00:00:00Z**
-    -  **LastModified_To** = **2019-03-01T00:00:00Z**
+   - **FolderPath_Source** = **/source/**
+   - **FolderPath_Destination** = **/destination/**
+   - **LastModified_From** =  **2019-02-01T00:00:00Z**
+   - **LastModified_To** = **2019-03-01T00:00:00Z**
 	
-	The example is indicating the files which have been last modified within the timespan between *2019-02-01T00:00:00Z* and *2019-03-01T00:00:00Z* will be copied from a folder */source/* to a folder */destination/*.  You can replace these with your own parameters.
+     The example is indicating the files which have been last modified within the timespan between *2019-02-01T00:00:00Z* and *2019-03-01T00:00:00Z* will be copied from a folder */source/* to a folder */destination/*.  You can replace these with your own parameters.
 	
-    ![Run the pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
+     ![Run the pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
 7. Review the result. You will see only the files last modified within the configured timespan has been copied to the destination store.
 
@@ -80,10 +80,10 @@ The template defines four parameters:
     ![Create trigger](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)	
 	
 11. Write the value for the **Trigger Run Parameters** as following, and select **Finish**.
-    -  **FolderPath_Source** = **/source/**.  You can replace with your folder in source data store.
-    -  **FolderPath_Destination** = **/destination/**.  You can replace with your folder in destination data store.
-    -  **LastModified_From** =  **@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determining the time when the pipeline was triggered last time.
-    -  **LastModified_To** = **@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determining the time when the pipeline is triggered this time.
+    - **FolderPath_Source** = **/source/**.  You can replace with your folder in source data store.
+    - **FolderPath_Destination** = **/destination/**.  You can replace with your folder in destination data store.
+    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determining the time when the pipeline was triggered last time.
+    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determining the time when the pipeline is triggered this time.
 	
     ![Input parameters](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
 	

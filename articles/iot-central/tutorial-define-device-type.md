@@ -54,21 +54,21 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 4. To create a new Azure IoT Central application:
     
-    * Choose **Trial**. You don't need an Azure subscription to create a Trial application.
+   * Choose **Trial**. You don't need an Azure subscription to create a Trial application.
     
-       For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central.md).
+      For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central.md).
     
-    * Choose **Custom Application**.
+   * Choose **Custom Application**.
     
-    * Optionally you can choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
+   * Optionally you can choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
     
-    * Select **Create**.
+   * Select **Create**.
 
-    ![Azure IoT Central Create Application page](./media/tutorial-define-device-type/iotcentralcreate.png)
+     ![Azure IoT Central Create Application page](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+     For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
-## Create a new custom device template
+## Create a device template
 
 As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
@@ -80,32 +80,36 @@ To add a new device template to your application, you need to go to the **Device
 
 The following steps show you how to create a new **Connected Air Conditioner** device template for devices that send temperature telemetry to your application:
 
-1. On the **Device Templates** page, select **+**:
+1. On the **Device Templates** page, select **+ New**:
 
     ![Device Templates page, Create Device Template](./media/tutorial-define-device-type/newtemplate.png)
 
-3. On the **Custom Device Template** page, enter **Connected Air Conditioner** as the name of your device, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+2. The page shows the templates you can choose from.
+
+    ![Device Template Library](./media/tutorial-define-device-type/devicetemplatelibrary.png)
+
+3. Select the **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
 
     ![Custom Device](./media/tutorial-define-device-type/createcustomdevice.png)
 
 4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** tab where you define the telemetry. Each device template you define has separate tabs for you to:
 
-    * Specify the _measurements_, such as telemetry, event, and state, sent by the device.
+   * Specify the _measurements_, such as telemetry, event, and state, sent by the device.
 
-    * Define the _settings_ used to control the device.
+   * Define the _settings_ used to control the device.
 
-    * Define the _properties_ that are the device metadata.
+   * Define the _properties_ that are the device metadata.
 
-    * Define the _commands_ to be run directly on the device.
+   * Define the _commands_ to be run directly on the device.
 
-    * Define the _rules_ associated with the device.
+   * Define the _rules_ associated with the device.
 
-    * Customize the device _dashboard_ for your operators.
+   * Customize the device _dashboard_ for your operators.
 
-    ![Air conditioner measurements](./media/tutorial-define-device-type/airconmeasurements.png)
+     ![Air conditioner measurements](./media/tutorial-define-device-type/airconmeasurements.png)
 
-    > [!NOTE]
-    > To change the name of the device template, select the template name at the top of the page.
+     > [!NOTE]
+     > To change the name of the device template, select the template name at the top of the page.
 
 5. To add the temperature telemetry measurement, select **+ New Measurement**. Then choose **Telemetry** as the measurement type:
 
@@ -113,28 +117,31 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
 6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
-    * Display options.
+   * Display options.
 
-    * Details of the telemetry.
+   * Details of the telemetry.
 
-    * Simulation parameters.
+   * Simulation parameters.
 
-    To configure your **Temperature** telemetry, use the information in the following table:
+     To configure your **Temperature** telemetry, use the information in the following table:
 
-    | Setting              | Value         |
-    | -------------------- | -----------   |
-    | Display Name         | Temperature   |
-    | Field Name           | temperature   |
-    | Units                | F             |
-    | Min                  | 60            |
-    | Max                  | 110           |
-    | Decimal places       | 0             |
+     | Setting              | Value         |
+     | -------------------- | -----------   |
+     | Display Name         | Temperature   |
+     | Field Name           | temperature   |
+     | Units                | F             |
+     | Min                  | 60            |
+     | Max                  | 110           |
+     | Decimal places       | 0             |
 
-    You can also choose a color for the telemetry display. To save the telemetry definition, select **Save**:
+     You can also choose a color for the telemetry display. To save the telemetry definition, select **Save**:
 
-    ![Configure Temperature simulation](./media/tutorial-define-device-type/temperaturesimulation.png)
+     ![Configure Temperature simulation](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. After a short while, the **Measurements** tab shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
+ 
+    > [!NOTE]
+    > For telemetry, **Average** is set as the default aggregation. 
 
     ![View temperature simulation](./media/tutorial-define-device-type/viewsimulation.png)
 
@@ -158,17 +165,17 @@ Use events to define point-in-time data that the device sends when there's an ev
 
    * Severity.
 
-    To configure your **Fan Motor Error** event, use the information in the following table:
+     To configure your **Fan Motor Error** event, use the information in the following table:
 
-    | Setting              | Value             |
-    | -------------------- | -----------       |
-    | Display Name         | Fan Motor Error   |
-    | Field Name           | fanmotorerr       |
-    | Severity             | Error             |
+     | Setting              | Value             |
+     | -------------------- | -----------       |
+     | Display Name         | Fan Motor Error   |
+     | Field Name           | fanmotorerr       |
+     | Severity             | Error             |
 
-    To save the event definition, select **Save**:
+     To save the event definition, select **Save**:
 
-    ![Configure Event measurement](./media/tutorial-define-device-type/eventconfiguration.png)
+     ![Configure Event measurement](./media/tutorial-define-device-type/eventconfiguration.png)
 
 3. After a short while, the **Measurements** tab shows a chart of the events randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the event definition:
 
@@ -196,20 +203,20 @@ You can use state to define and visualize the state of the device or its compone
 
    * Color for each value.
 
-    To configure your **Fan Mode** state, use the information in the following table:
+     To configure your **Fan Mode** state, use the information in the following table:
 
-    | Setting              | Value             |
-    | -------------------- | -----------       |
-    | Display Name         | Fan Mode          |
-    | Field Name           | fanmode           |
-    | Value                | 1                 |
-    | Display label        | Operating         |
-    | Value                | 0                 |
-    | Display label        | Stopped           |
+     | Setting              | Value             |
+     | -------------------- | -----------       |
+     | Display Name         | Fan Mode          |
+     | Field Name           | fanmode           |
+     | Value                | 1                 |
+     | Display label        | Operating         |
+     | Value                | 0                 |
+     | Display label        | Stopped           |
 
-    To save the state measurement definition, select **Save**:
+     To save the state measurement definition, select **Save**:
 
-    ![Configure State measurement](./media/tutorial-define-device-type/stateconfiguration.png)
+     ![Configure State measurement](./media/tutorial-define-device-type/stateconfiguration.png)
 
 3. After a short while, the **Measurements** tab shows a chart of the states randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the state definition:
 
@@ -225,9 +232,9 @@ Settings, properties, and commands are different values defined in a device temp
 
 * You use _properties_ to define metadata that's associated with your device. There are two categories of properties:
     
-    * You use _application properties_ to record information about your device in your application. For example, you can use application properties to record a device's location and its last service date. These properties are stored in the application and don't synchronize with the device. An operator can assign values to properties.
+  * You use _application properties_ to record information about your device in your application. For example, you can use application properties to record a device's location and its last service date. These properties are stored in the application and don't synchronize with the device. An operator can assign values to properties.
 
-    * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only. In this scenario of a connected air conditioner, the firmware version and device serial number are device properties reported by the device.
+  * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only. In this scenario of a connected air conditioner, the firmware version and device serial number are device properties reported by the device.
     
     For more information, see [Properties](howto-set-up-template.md#properties) in the how-to guide on setting up a device template.
 

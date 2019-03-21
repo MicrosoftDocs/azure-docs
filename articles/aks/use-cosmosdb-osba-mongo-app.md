@@ -78,7 +78,7 @@ Start your application and tell it to use the *mongodb* profile:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Navigate to http://localhost:8080 in your browser.
+Navigate to `http://localhost:8080` in your browser.
 
 ![Spring Music app with default data](media/music-app.png)
 
@@ -181,7 +181,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Notice your application still uses the *mongodb* profile and a URI that begins with *mongodb://* to connect to the Cosmos DB database. The [Azure Cosmos DB API for MongoDB](../cosmos-db/mongodb-introduction.md) provides this compatibility. It allows your application to continue to operate as if it is using a MongoDB database, but it is actually using Cosmos DB.
 
-Navigate to http://localhost:8080 in your browser. Notice the default data has been restored. Interact with it by deleting a few existing albums and creating a few new ones. You can verify your changes are persisted by stopping your application, restarting it, and navigating back to it in your browser. Notice the changes you have made are still there. The changes are persisted to the Cosmos DB you created using Open Service Broker for Azure.
+Navigate to `http://localhost:8080` in your browser. Notice the default data has been restored. Interact with it by deleting a few existing albums and creating a few new ones. You can verify your changes are persisted by stopping your application, restarting it, and navigating back to it in your browser. Notice the changes you have made are still there. The changes are persisted to the Cosmos DB you created using Open Service Broker for Azure.
 
 
 ## Run your application on your AKS cluster

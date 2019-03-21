@@ -281,13 +281,13 @@ To use the new feature:
 
 1. Go to the Networking UI in the portal. If your app is able to use the new feature, then you will see a capability to use the new preview feature.  
 
- ![Select the new preview VNet Integration][6]
+   ![Select the new preview VNet Integration][6]
 
 1. Select **Add VNet (preview)**.  
 
 1. Select the Resource Manager VNet that you want to integrate with and then either create a new subnet or pick an empty pre-existing subnet. The integration takes less than a minute to complete. During the integration, your app is restarted.  When integration is completed, you will see details on the VNet you are integrated with and a banner at the top that tells you the feature is in preview.
 
- ![Select the VNet and subnet][7]
+   ![Select the VNet and subnet][7]
 
 To enable your app to use the DNS server that your VNet is configured with, create an Application setting for your app where the name is WEBSITE_DNS_SERVER and the value is the IP address of the server.  If you have a secondary DNS server, then create another Application setting where the name is WEBSITE_DNS_ALT_SERVER and the value is the IP address of the server. 
 

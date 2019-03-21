@@ -4,7 +4,7 @@ description: include file
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -50,26 +50,26 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
 
 
 ## Create your single page application’s UI
-1.	Create an `index.html` file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: **Add > New Item > HTML page** and name it index.html.
+1. Create an `index.html` file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: **Add > New Item > HTML page** and name it index.html.
 
-2.	Add the following code to your page:
-```html
-<!DOCTYPE html>
-<html>
-<head>
-        <title>Quickstart for MSAL JS</title>
-    	<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-        <h2>Welcome to MSAL.js Quickstart</h2><br/>
-        <h4 id="WelcomeMessage"></h4>
-        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
-    	<pre id="json"></pre>
-        <script>
-            //JS code
-        </script>
-</body>
-</html>
-```
+2. Add the following code to your page:
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Quickstart for MSAL JS</title>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   </head>
+   <body>
+       <h2>Welcome to MSAL.js Quickstart</h2><br/>
+       <h4 id="WelcomeMessage"></h4>
+       <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+       <pre id="json"></pre>
+       <script>
+           //JS code
+       </script>
+   </body>
+   </html>
+   ```

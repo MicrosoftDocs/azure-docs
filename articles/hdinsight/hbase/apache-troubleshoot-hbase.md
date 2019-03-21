@@ -362,7 +362,7 @@ Here's what's happening behind the scenes:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Because of the abrupt shutdown, the port associated with the process might not be released, even though the region server process is stopped. This situation can lead to an AddressBindException when the region server is starting, as shown in the following logs. You can verify this in the region-server.log in the /var/log/hbase directory on the worker nodes where the region server fails to start. 
+   Because of the abrupt shutdown, the port associated with the process might not be released, even though the region server process is stopped. This situation can lead to an AddressBindException when the region server is starting, as shown in the following logs. You can verify this in the region-server.log in the /var/log/hbase directory on the worker nodes where the region server fails to start. 
 
    ```apache
 
