@@ -165,7 +165,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Users and Groups option](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    The **vCenter Users and Groups** panel appears.
+    The **vCenter Users and Groups** panel appear.
 
 
 2. In the **vCenter Users and Groups** panel, select the **Users** tab, and then click the add users icon (the + symbol).
@@ -321,31 +321,31 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
      ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
 1. In **Consistency Check Options**, select how and when to automate the consistency checks. Then click **Next**.
-     - You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
-     - If you don't want to configure automatic consistency checks, you can run a manual check. To do this, right-click the protection group > **Perform Consistency Check**.
+      - You can run consistency checks when replica data becomes inconsistent, or on a set schedule.
+      - If you don't want to configure automatic consistency checks, you can run a manual check. To do this, right-click the protection group > **Perform Consistency Check**.
 
 1. In **Specify Online Protection Data** page, select the VMs or VM folders that you want to back up. You can select the members individually, or click **Select All** to choose all members. Then click **Next**.
 
-     ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. On the **Specify Online Backup Schedule** page, specify how often you want to back up data from local storage to Azure.
 
     - Cloud recovery points for the data will be generated according to the schedule. Then click **Next**.
     - After the recovery point is generated, it is transferred to the Recovery Services vault in Azure.
 
-    ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that are created from the daily/weekly/monthly/yearly backups to Azure. then click **Next**.
 
     - There's no time limit for how long you can keep data in Azure.
     - The only limit is that you can't have more than 9999 recovery points per protected instance. In this example, the protected instance is the VMware server.
 
-    ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
 1. On the **Summary** page, review the settings, and then click **Create Group**.
 
-    ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## VMWare vSphere 6.7
 
@@ -359,13 +359,13 @@ To backup vSphere 6.7 do the following:
 
   Windows Registry Editor Version 5.00
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
 
 
 ## Next steps

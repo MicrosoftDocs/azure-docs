@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: cforbe
-ms.author: cforbe
+author: sihhu
+ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18

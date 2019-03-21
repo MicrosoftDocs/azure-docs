@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Get started in Python'
 titleSuffix: Azure Machine Learning service
-description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
+description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -31,7 +31,7 @@ In this quickstart, you:
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-## Prerequisites
+##Prerequisites
 
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning Data Prep SDK for Python
@@ -39,6 +39,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 * A workspace configuration file (**aml_config/config.json** ).
 
 Get all these prerequisites from [Create a Azure Machine Learning service workspace](setup-create-workspace.md#portal).
+
 
 ## Use the workspace
 
@@ -78,4 +79,4 @@ In this article, you created the resources you need to experiment with and deplo
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
 
-You can also explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks).
+You can also explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks) or view the [SDK user guide](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
