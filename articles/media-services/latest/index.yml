@@ -12,11 +12,27 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10-15-2018
+  ms.date: 03/20/2019
   ms.author: juliako
 abstract:
   description: Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. <br/> The SDKs are based on <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Specification (Swagger)</a>.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+      - image:
+          src:  
+        html: <p>Learn about Media Services fundamental concepts.</p>
+        href:  /azure/media-services/latest/concepts-overview/
+        title: Learn concepts 
+      - image:
+          src:  
+        html: <p>Currently, you cannot manage v3 resources with the Azure portal. Use the REST API, CLI, or one of the supported SDKs.</p>
+        href:  /azure/media-services/latest/developers-guide/  
+        title: Develop with v3 API
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

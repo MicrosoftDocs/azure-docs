@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Get started in Python'
 titleSuffix: Azure Machine Learning service
-description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
+description: Get started with Azure Machine Learning service in Python. Use the Python SDK to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 In this article, you use the Azure Machine Learning SDK for Python 3 to create and then use an Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
 
-You begin by configuring your own Python environment and Jupyter Notebook Server. To run it with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md). 
+You begin by configuring your own Python environment and Jupyter Notebook Server. To run it with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
 
 View a video version of this quickstart:
 
@@ -35,10 +35,10 @@ In this quickstart, you:
 You create a workspace and a configuration file to use as prerequisites to other Machine Learning tutorials and how-to articles. As with other Azure services, certain limits and quotas are associated with Machine Learning. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
 
 The following Azure resources are added automatically to your workspace when they're regionally available:
- 
+
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
-- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
+- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
@@ -55,7 +55,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
 >[!NOTE]
-> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote virtual machine, set up a remote desktop or X terminal session. 
+> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote virtual machine, set up a remote desktop or X terminal session.
 
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -63,7 +63,7 @@ The instructions in this quickstart will install all the packages you need to ru
 
 ### Install Miniconda
 
-[Download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Select the Python 3.7 version to install. Don't select the Python 2.x version.  
+[Download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Select the Python 3.7 version to install. Don't select the Python 2.x version.
 
 ### Create an isolated Python environment
 
@@ -130,7 +130,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
     jupyter notebook
     ```
 
-1. In the browser window, create a new notebook by using the default `Python 3` kernel. 
+1. In the browser window, create a new notebook by using the default `Python 3` kernel.
 
 1. To display the SDK version, enter and then execute the following Python code in a notebook cell:
 
@@ -141,10 +141,10 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
    ```python
    from azureml.core import Workspace
    ws = Workspace.create(name='myworkspace',
-                         subscription_id='<azure-subscription-id>',	
+                         subscription_id='<azure-subscription-id>',
                          resource_group='myresourcegroup',
                          create_resource_group=True,
-                         location='eastus2' 
+                         location='eastus2'
                         )
    ```
 
@@ -157,9 +157,9 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
 ## Write a configuration file
 
-Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.  
+Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.
 
-This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory.  
+This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
@@ -194,7 +194,7 @@ Use the link to view the logged values in the Azure portal in your browser.
 
 ![Logged values in the Azure portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
-## Clean up resources 
+## Clean up resources
 >[!IMPORTANT]
 >You can use the resources you've created here as prerequisites to other Machine Learning tutorials and how-to articles.
 
@@ -209,4 +209,4 @@ In this article, you created the resources you need to experiment with and deplo
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
 
-You can also explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks).
+You can also explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks) or view the [SDK user guide](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

@@ -40,16 +40,16 @@ Listed below is a non-exhaustive list of applications that can send these parame
 
 | Application name | Application URL to be used |
 | -- | -- |
-| Access panel | https://myapps.microsoft.com/contoso.com |
-| Outlook on Web | https://outlook.office365.com/contoso.com |
-| Office 365 portals | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Access panel | https:\//myapps.microsoft.com/contoso.com |
+| Outlook on Web | https:\//outlook.office365.com/contoso.com |
+| Office 365 portals | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's endpoints set up as tenants - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
+In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's endpoints set up as tenants - that is, https:\//login.microsoftonline.com/contoso.com/<..> or https:\//login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https:\//login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
 
 | Application name | Application URL to be used |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Azure portal | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Azure portal | https:\//portal.azure.com/contoso.com |
 
 In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
 

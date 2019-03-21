@@ -305,9 +305,6 @@
     - name: Run Apache Hadoop MapReduce samples
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Use Apache Solr on clusters
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Use Apache Giraph to process large-scale graphs
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -320,26 +317,14 @@
     - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Customize using Script Action
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Access Apache Hadoop YARN application logs
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Generate movie recommendations using Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Analyze Twitter data
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Manage clusters with Azure portal
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Monitor clusters using the Apache Ambari API
       href: ../hdinsight-monitor-use-ambari-api.md
