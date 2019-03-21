@@ -26,7 +26,7 @@ Here are some scenarios where you need to import VMs from one lab into another l
 - The group has hit a [subscription-level quota](../azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
 - The company is moving to Express Route (or some other new networking topology) and the team wants to move the Virtual Machines to use this new infrastructure
 
-## Solution and Constraints
+## Solution and constraints
 This feature enables you to import VMs in one lab (source) into another lab (destination). You can optionally give a new name for the destination VM in the process. The import process includes all the dependencies like disks, schedules, network settings, and so on.
 
 The process does take some time and is impacted by the following factors:
