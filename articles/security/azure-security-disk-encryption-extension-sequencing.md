@@ -16,16 +16,67 @@ You can add extensions to an Azure virtual machines scale set in a specified ord
 
 In general, encryption should be applied to a disk:
 
-- After extensions or scriptions that prepare the disks or volumes
-- Before extensions or scriptions that access or consume the 
+- After extensions or customer scriptions that prepare the disks or volumes.
+- Before extensions or custom scripts that access or consume the data on the encrypted disks or volumes.
 
-- Custom script extensions / Scripts that prepare the disks / volumes should go first and NOT depend on ADE extension.  
+In either case, the "provisionAfterExtensions" property is used to designate which extension should be added later in the sequence. 
 
-ADE extension should depend on the extension that prepares the disks / volumes as ADE extension needs to encrypt them. 
+If, for instance, you wish to have the Azure Disk Encryption extention added after the custome scripts, add the provisionAfterExtensions property to the AzureDiskEncryption extension block:
 
-Extensions / scripts that access / consume data in  the disks / volumes  should depend on ADE extension. As the ADE extension unlocks the volumes during reimage and the data consuming extensions can access the data. 
-
-
+```json
+"virtualMachineProfile": {
+  "extensionProfile": {
+    "extensions": [
+      {
+        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
+        "name": "CustomScriptExtension",
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "publisher": "Microsoft.Compute",
+          "type": "CustomScriptExtension",
+          "typeHandlerVersion": "1.8",
+          "autoUpgradeMinorVersion": true,
+          "forceUpdateTag": "[parameters('forceUpdateTag')]",
+          "settings": {
+            "fileUris": [
+              "https://gist.githubusercontent.com/mayank88mahajan/14278adad46ca174af9c313b85b05d45/raw/9846e2f606deb0be65241c94ebeeff9303067d4a/CustomScriptTest.ps1"
+            ]
+          },
+          "protectedSettings": {
+            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File CustomScriptTest.ps1 -message Testing -logFilePath C:\\ExtSequenceTest.log"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
+        "name": "AzureDiskEncryption",
+        "location": "[resourceGroup().location]",
+        "properties": {
+          "provisionAfterExtensions": [
+            "CustomScriptExtension"
+          ],
+          "publisher": "Microsoft.Azure.Security",
+          "type": "AzureDiskEncryption",
+          "typeHandlerVersion": "2.2",
+          "autoUpgradeMinorVersion": true,
+          "forceUpdateTag": "[parameters('forceUpdateTag')]",
+          "settings": {
+            "EncryptionOperation": "EnableEncryption",
+            "KeyVaultURL": "[reference(variables('keyVaultResourceId'),'2018-02-14-preview').vaultUri]",
+            "KeyVaultResourceId": "[variables('keyVaultResourceID')]",
+            "KeyEncryptionKeyURL": "[parameters('keyEncryptionKeyURL')]",
+            "KekVaultResourceId": "[variables('keyVaultResourceID')]",
+            "KeyEncryptionAlgorithm": "[parameters('keyEncryptionAlgorithm')]",
+            "VolumeType": "[parameters('volumeType')]",
+            "SequenceVersion": "[parameters('sequenceVersion')]"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+If, on the other hand, you wish to have the Azure Disk Encryption extention added first, add the provisionAfterExtensions property to the custom scripts extension block:
 
 
 ```json
@@ -79,59 +130,6 @@ Extensions / scripts that access / consume data in  the disks / volumes  sho
           }    
         }
       }  
-    ]
-  }
-}
-```
-```json
-"virtualMachineProfile": {
-  "extensionProfile": {
-    "extensions": [
-      {
-        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-        "name": "AzureDiskEncryption",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "provisionAfterExtensions": [
-            "CustomScriptExtension"
-          ],
-          "publisher": "Microsoft.Azure.Security",
-          "type": "AzureDiskEncryption",
-          "typeHandlerVersion": "2.2",
-          "autoUpgradeMinorVersion": true,
-          "forceUpdateTag": "[parameters('forceUpdateTag')]",
-          "settings": {
-            "EncryptionOperation": "EnableEncryption",
-            "KeyVaultURL": "[reference(variables('keyVaultResourceId'),'2018-02-14-preview').vaultUri]",
-            "KeyVaultResourceId": "[variables('keyVaultResourceID')]",
-            "KeyEncryptionKeyURL": "[parameters('keyEncryptionKeyURL')]",
-            "KekVaultResourceId": "[variables('keyVaultResourceID')]",
-            "KeyEncryptionAlgorithm": "[parameters('keyEncryptionAlgorithm')]",
-            "VolumeType": "[parameters('volumeType')]",
-            "SequenceVersion": "[parameters('sequenceVersion')]"
-          }
-        }
-      },
-      {
-        "type": "Microsoft.Compute/virtualMachineScaleSets/extensions",
-        "name": "CustomScriptExtension",
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "publisher": "Microsoft.Compute",
-          "type": "CustomScriptExtension",
-          "typeHandlerVersion": "1.8",
-          "autoUpgradeMinorVersion": true,
-          "forceUpdateTag": "[parameters('forceUpdateTag')]",
-          "settings": {
-            "fileUris": [
-              "https://gist.githubusercontent.com/mayank88mahajan/14278adad46ca174af9c313b85b05d45/raw/9846e2f606deb0be65241c94ebeeff9303067d4a/CustomScriptTest.ps1"
-            ]
-          },
-          "protectedSettings": {
-            "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File CustomScriptTest.ps1 -message Testing -logFilePath C:\\ExtSequenceTest.log"
-          }
-        }
-      }
     ]
   }
 }
