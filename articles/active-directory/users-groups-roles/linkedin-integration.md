@@ -1,5 +1,5 @@
 ---
-title: Admin consent for LinkedIn integration account connections - Azure Active Directory | Microsoft Docs
+title: Admin consent for LinkedIn account connections - Azure Active Directory | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Consent to LinkedIn integration for your Azure Active Directory organization
+# Consent to LinkedIn account connections for an Azure Active Directory organization
 
-In this article, you can learn how to enable or disable LinkedIn integration for your organization in the Azure Active Directory (Azure AD) admin center.
+In this article, you can learn how to allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization in the Azure Active Directory (Azure AD) [admin center](https://aad.portal.azure.com).
 
 > [!IMPORTANT]
 > The LinkedIn integration setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
@@ -28,13 +28,13 @@ In this article, you can learn how to enable or disable LinkedIn integration for
 > * The setting is off by default for tenants provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
 > * The setting is off by default for tenants provisioned in France.
 >
-> The integration works only if you have it enabled *and* after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> Integrating LinkedIn account connections works only if you have it enabled *and* after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
 ## Enable or disable LinkedIn integration for your users in the Azure portal
 
-You can consent to LinkedIn integration for your entire organization or for only selected users in your organization.
+You can integrate LinkedIn account connections for your entire organization or for only selected users in your organization.
 
-1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
 2. Select **Users**.
 3. On the **Users** blade, select **User settings**.
 4. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
@@ -43,9 +43,9 @@ You can consent to LinkedIn integration for your entire organization or for only
   * Select **Selected** to consent for only selected users in the organization
   * Select **No** to withdraw consent for users in your organization
 
-    ![Enable LinkedIn integration in the organization](./media/linkedin-integration/linkedin-integration.png)
+    ![Integrate LinkedIn account connections in the organization](./media/linkedin-integration/linkedin-integration.png)
 
-5. Save your settings when you're done by selecting **Save**.
+5. When you're done, select **Save** to save your settings.
      
 ## Enable or disable LinkedIn integration for your users in Group Policy
 
@@ -64,7 +64,7 @@ This group policy affects only Office 2016 apps for a local computer. Users can 
 
 ## Next steps
 
-* [Integrate LinkedIn in your organization](linkedin-user-consent.md)
+* [User consent and data sharing for LinkedIn](linkedin-user-consent.md)
 
 * [LinkedIn information and features in your Microsoft apps](https://go.microsoft.com/fwlink/?linkid=850740)
 
