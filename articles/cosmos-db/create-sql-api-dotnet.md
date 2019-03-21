@@ -7,9 +7,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/15/2019
+ms.date: 03/21/2019
 ---
-# Quickstart: Build a .NET web app using Azure Cosmos DB SQL API account
+# Quickstart: Build a .NET web app using an Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -27,7 +27,9 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 ## Prerequisites
 
-If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+Visual Studio 2017 with Azure development workflow installed
+You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+To install the Azure development workflow from Visual Studio 2017. ... 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -65,7 +67,6 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
     ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
-<a id="add-sample-data"></a>
 ## Add sample data
 
 You can now add data to your new collection using Data Explorer.
@@ -193,6 +194,7 @@ Now go back to the Azure portal to get your connection string information and co
    ```
  
 ## Run the web app
+
 1. In Visual Studio, right-click on the project in **Solution Explorer** and then select **Manage NuGet Packages**. 
 
 2. In the NuGet **Browse** box, type *DocumentDB*.
