@@ -32309,6 +32309,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-msi.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities",
+      "redirect_document_id": true
+    },        
+    {
       "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm",
       "redirect_document_id": true
@@ -36394,6 +36399,11 @@
     {
       "source_path": "articles/backup/backup-sql-server-azure-vms.md",
       "redirect_url": "/azure/backup/backup-azure-sql-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
+      "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
       "redirect_document_id": false
     }
   ]
