@@ -1,0 +1,274 @@
+---
+title: How to use Azure Blob storage from .NET
+description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage
+services: storage
+author: normesta
+ms.service: storage
+ms.date: 03/21/2019
+ms.author: normesta
+ms.topic: article
+ms.component: data-lake-storage-gen2
+---
+
+# How to use Blob storage from .NET
+
+This guide shows you how to interact with blobs by using .NET. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
+
+## Create a storage account
+
+To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
+
+![Enabling a hierarchical namespace](media/storage-dot-net-how-to-use-blobs/enable-hierarchical-namespace.png)
+
+## Set up your development environment
+
+What you install depends on the operating system that you are running on your development computer.
+
+### Windows
+
+* Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+
+* Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional. 
+
+* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+
+### Linux
+
+* Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
+
+* Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+
+* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+
+### macOS
+
+* Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
+
+* Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+
+* Install the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+
+## Add library references to your code file
+
+Add these using statements to your code file.
+
+```cs
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+```
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
+
+## Connect to the storage account
+
+First, parse the connection string by calling the [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method.
+
+Then, create an object that represents Blob storage in your storage account by calling the [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method.
+
+```cs
+public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)
+{
+    if (CloudStorageAccount.TryParse
+        (storageConnectionString, out CloudStorageAccount storageAccount))
+    {
+        cloudBlobClient = storageAccount.CreateCloudBlobClient();
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudStorageAccount.TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method
+> * [CloudStorageAccount.CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) method
+
+## Create a container and set permissions
+
+Create a blob container instance by calling the [CloudBlobContainer.CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_CreateAsync) method.
+
+Then, set the permissions on that container by calling the [CloudBlobContainer.SetPermissionsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.setpermissionsasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_SetPermissionsAsync_Microsoft_WindowsAzure_Storage_Blob_BlobContainerPermissions_) method.
+
+```cs
+public async Task CreateContainerAsync
+    (CloudBlobClient cloudBlobClient, string containerName)
+{
+    // Create container and give that container the name that you pass into this method.
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    await cloudBlobContainer.CreateAsync();
+
+    // Set the permissions so the blobs are public.
+    BlobContainerPermissions permissions = new BlobContainerPermissions
+    {
+        PublicAccess = BlobContainerPublicAccessType.Blob
+    };
+
+    await cloudBlobContainer.SetPermissionsAsync(permissions);
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_CreateAsync) method.
+> * [CloudBlobContainer.SetPermissionsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.setpermissionsasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_SetPermissionsAsync_Microsoft_WindowsAzure_Storage_Blob_BlobContainerPermissions_) method.
+
+## Upload blobs to the container
+
+Create a reference to a blob by calling the [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method. Pass in a name that you want to give to the blob.
+
+Then, call the [CloudBlockBlob.UploadFromFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync?view=azure-dotnet) method to upload a file from your local computer. Pass in the fully qualified path of your file. This path includes the file name.
+
+```cs
+public async Task UploadBlob(CloudBlobClient cloudBlobClient, 
+    string sourceFilePath, string containerName, string blobName)
+    {
+        CloudBlobContainer cloudBlobContainer = 
+        cloudBlobClient.GetContainerReference(containerName);
+
+        CloudBlockBlob cloudBlockBlob = 
+        cloudBlobContainer.GetBlockBlobReference(blobName);
+
+        await cloudBlockBlob.UploadFromFileAsync(sourceFilePath);
+    }
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method.
+> * [CloudBlockBlob.UploadFromFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync?view=azure-dotnet) method.
+
+## List blobs in the container
+
+Get a collection of blob items in the container by calling the [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) method.
+
+This method returns a group of items called a *segment*. You can iterate through the items in th segment. Keep calling the [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) method until you've located the items that you want or until the [BlobResultSegment.ContinuationToken](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) property of the [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) method contains a **null** value.
+
+```cs
+public async Task ListBlobs(CloudBlobClient cloudBlobClient, string containerName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    BlobContinuationToken blobContinuationToken = null;
+    do
+    {
+        var resultSegment = await cloudBlobContainer.ListBlobsSegmentedAsync
+            (null, blobContinuationToken);
+
+        // Get the value of the continuation token returned by the listing call.
+        blobContinuationToken = resultSegment.ContinuationToken;
+        foreach (IListBlobItem item in resultSegment.Results)
+        {
+            Console.WriteLine(item.Uri);
+        }
+    } while (blobContinuationToken != null);
+    // Loop while the continuation token is not null.
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) method.
+> * [BlobResultSegment.ContinuationToken](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync?view=azure-dotnet) property.
+
+## Download blobs from the container
+
+Create a reference to a blob by calling the [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method. Pass in the name of the blob that you want to download.
+
+Then, call the [CloudBlockBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) method to download the file to your local computer. Provide the fully qualified path of the destination. This path includes the name that you want to give to the downloaded file.
+
+```cs
+public async Task DownloadBlobs(CloudBlobClient cloudBlobClient,
+    string containerName, string blobName, string destinationFile)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    CloudBlockBlob cloudBlockBlob =
+        cloudBlobContainer.GetBlockBlobReference(blobName);
+
+    await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+view=azure-dotnet) method.
+> * [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method.
+> * [CloudBlockBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet)
+
+## Delete blobs from the container
+
+Create a reference to a blob by calling the [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method. Pass in the name of the blob that you want to delete.
+
+Then, delete the blob by calling the [CloudBlockBlob.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.deleteasync?view=azure-dotnet) method.
+
+```cs
+public async Task DeleteBlob(CloudBlobClient cloudBlobClient,
+    string blobName, string containerName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    CloudBlockBlob cloudBlockBlob =
+        cloudBlobContainer.GetBlockBlobReference(blobName);
+
+    await cloudBlockBlob.DeleteAsync();
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+view=azure-dotnet) method.
+> * [CloudBlobContainer.GetBlockBlobReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet) method.
+> * [CloudBlockBlob.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.deleteasync?view=azure-dotnet) method.
+
+## Delete the container
+
+Create a reference to the container by calling the [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method. Pass in the name of the container that you want to delete.
+
+Then, delete the container by calling the [CloudBlockBlob.DeleteIfExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) method.
+
+```cs
+public async Task DeleteBlobContainer(CloudBlobClient cloudBlobClient,
+    string containerName)
+    {
+        CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+        if (cloudBlobContainer != null)
+        {
+            await cloudBlobContainer.DeleteIfExistsAsync();
+        }
+    }
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlockBlob.DeleteIfExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync?view=azure-dotnet) method.
+
+## Next steps
+
+Explore more APIs in the [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) namespace of the [Azure Storage APIs for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) docs.
