@@ -64,4 +64,15 @@ In this tutorial, you complete the following steps:
 
    ![Home page for the data factory](./media/data-flow/data-factory-home-page.png)
 
-1. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab. 
+1. Select **Author & Monitor** to open the Data Factory user interface (UI) on a separate tab.
+
+## Create data flow
+
+1. From the Data Factory UI, click "+ Data Flow" to create a new Data Flow
+
+   ![New data flow](media/data-flow/newdataflow.png)
+   
+2. In the new data flow UI, click on the blank "Add Source" Transformation
+
+
+
