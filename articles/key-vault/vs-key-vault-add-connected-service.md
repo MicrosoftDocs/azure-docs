@@ -145,7 +145,7 @@ This section identifies the exact changes made to an ASP.NET project when adding
 
 ### Added references
 
-Affects the project file *.NET references and NuGet package references.
+Affects the project file .NET references and NuGet package references.
 
 | Type | Reference |
 | --- | --- |
@@ -181,7 +181,7 @@ This section identifies the exact changes made to an ASP.NET project when adding
 
 ### Added references
 
-Affects the project file *.NET references and `packages.config` (NuGet references).
+Affects the project file .NET references and `packages.config` (NuGet references).
 
 | Type | Reference |
 | --- | --- |
