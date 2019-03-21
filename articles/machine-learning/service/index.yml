@@ -30,12 +30,12 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'To use this service, you need a workspace.  <a href="setup-create-workspace">Create your workspace now.</a> Then try out your workspace in the cloud or on your own server.'
+    text: 'After you  <a href="setup-create-workspace">create a workspace</a> for Azure Machine Learning service, you can get started using these quickstarts:'
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-run-cloud-notebook">Run notebook in the cloud quickstart</a>: Run experiments without installing anything.'
-    - html: '<a href="quickstart-run-local-notebook">Run local notebook quickstart</a>: Run experiments in your local notebook server.'
+    - html: '<a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a>: (No install required)'
+    - html: '<a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a>: (local SDK install).'
 
 - title: Step-by-Step Tutorials
   items:

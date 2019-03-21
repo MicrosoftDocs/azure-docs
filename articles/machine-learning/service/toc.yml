@@ -16,10 +16,10 @@
     href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Run notebook in cloud
+  - name: Experiment with a cloud notebook
     displayName: workspace
     href: quickstart-run-cloud-notebook.md
-  - name: Run local notebook
+  - name: Experiment with a local notebook
     displayName: workspace install sdk
     href: quickstart-run-local-notebook.md
 - name: Tutorials
