@@ -13,6 +13,7 @@ ms.author: heidist
 
 # Example: Add autosuggest for dropdown query phrases
 
-Commercial search engines provide typeahead query support to make term inputs easier. One of those approaches is autosuggest: a list of suggested query terms that have been popular in the past.
+Search term inputs can include a dropdown list of suggested query terms. You've seen this capability in commercial search engines, and you can implement a similar experience in Azure Search using a [suggester construct](index-add-suggesters.md) and a suggestions operation on a query request. This article is an example of how to formulate an autosuggest query, using a suggester that you've already defined.
 
-Azure Search provides a variant of this feature in the form of *autosuggest*.
+
+

@@ -48,7 +48,7 @@ To create a suggester, add one to an index schema. You can have one suggester in
 
 Key points to notice about suggesters is that there is a name (suggesters are referenced by name on a request), a searchMode (currently just one, "analyzingInfixMatching"), and the list of fields for which typeahead is enabled. 
 
-It is important to specify only those fields that lend themselves to an expected and appropriate experience. A hotel name has precision, and you can imagine how hotel names might appear as suggested or completed terms in a search bar. Verbose fields like descriptions and comments, or numeric fields like rating, are either too dense or too sparse for this feature. Similarly, repetative fields, such as categories and tags, are less effective.
+Choosing fields is important. You should specify only those fields that lend themselves to an expected and appropriate response, whether its a completed string in a search bar or a dropdown list. A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments, or numeric fields like rating, are either too dense or too sparse for this feature. Similarly, repetitive fields, such as categories and tags, are less effective, but we included "category" anyway to demonstrate that you can include multiple fields.
 
 ```json
 {
@@ -71,7 +71,7 @@ It is important to specify only those fields that lend themselves to an expected
 ```
 After a suggester is created, add the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) in your query logic to invoke the feature.
 
-## Property reference
+### Property reference
 
 Properties that define a **suggester** include the following:
 
@@ -81,13 +81,13 @@ Properties that define a **suggester** include the following:
 |`searchMode`  |The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.|
 |`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used. |
 
-## Index rebuilds for existing fields
+### Index rebuilds for existing fields
 
 Suggesters contain fields, and if you are adding a suggester to an existing index or changing its field composition, you will most likely have to rebuild the index.
 
 | Action | Impact |
 |--------|--------|
-| Create new fields and create a new suggester simultaneoulsy in the same update | Least impact. If an index contains previously added fields, the addition of new fields and a new suggester has no impact on existing fields. |
+| Create new fields and create a new suggester simultaneously in the same update | Least impact. If an index contains previously added fields, the addition of new fields and a new suggester has no impact on existing fields. |
 | Add pre-existing fields to a suggester | High impact. Adding a field changes the field definition, necessitating a [full rebuild](search-howto-reindex.md).|
 
 ## Use a suggester
@@ -102,7 +102,7 @@ For .NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/a
 
 The [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) sample contains both C# and Java code, and demonstrates a suggester construction, autosuggest, autocomplete, and facet navigation. 
 
-It uses a sandbox Azure Search service and a pre-loaded index so all you have to do is press F5 to run it. No subscription or sign up necessary.
+It uses a sandbox Azure Search service and a pre-loaded index so all you have to do is press F5 to run it. No subscription or sign in necessary.
 
 ## Next steps
 
