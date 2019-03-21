@@ -37739,6 +37739,26 @@
     "source_path": "articles/azure-stack/user/vm-update-management.md",
     "redirect_url": "/azure-stack/user/vm-update-management",
     "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/azure-stack/index.yml",
+    "redirect_url": "/azure-stack",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/azure-stack/user/index.yml",
+    "redirect_url": "/azure-stack/user",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/azure-stack/asdk/index.yml",
+    "redirect_url": "/azure-stack/asdk",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "articles/azure-stack/partner/index.yml",
+    "redirect_url": "/azure-stack/partner",
+    "redirect_document_id": false
   }
    ]
 }
