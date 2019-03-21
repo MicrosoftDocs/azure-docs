@@ -1,7 +1,7 @@
 ---
 title: Business continuity plan - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
+description: Add secured Sharepoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -12,7 +12,9 @@ ms.date: 03/21/2019
 ms.author: tulasim
 ---
 
-# Add a secured Sharepoint data source to knowledge base
+# Add a secured Sharepoint data source to your knowledge base
+
+Add secured Sharepoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory. 
 
 When you add a secured Sharepoint document to your knowledge base, as the QnA Maker manager, you must request Active Directory permission for QnA Maker. Once this permission is given from the Active Directory manager to QnA Maker for access to Sharepoint, it doesn't have to be given again. Each subsequent document addition to the knowledge base will not need authorization if it is in the same Sharepoint resource. 
 
