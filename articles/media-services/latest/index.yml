@@ -24,16 +24,17 @@ sections:
       className: cardsM
       columns: 2
       items:
-        - href: /azure/media-services/latest/concepts-overview/
-          html: <p>Learn about Media Services concepts that apply to the Azure Media Services v3 APIs.</p>
+        - href: /azure/media-services/latest/
+          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
           image:
-            src:         
-          title: Learn concepts
-        - href: /azure/media-services/latest/developers-guide/
-          html: <p>Currently, you cannot use the Azure portal to manage v3 resources. Use the REST API, CLI, or one of the supported SDKs.</p>
+            src: 
+          title: Azure Media Services v3 
+        - href: /azure/media-services/video-indexer/
+          html: <p>Learn how to extract the insights from your video and audio files using Video Indexer.</p>
           image:
-            src:          
-          title: Develop with v3 API
+            src: 
+          title: Video Indexer
+
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
