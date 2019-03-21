@@ -68,11 +68,15 @@ If the compute role is configured on your device, you can also get the compute l
     ```
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
-    Here is a description of the parameters used for the cmdlet: 
+    Here is a description of the parameters used for the cmdlet:
     - `Path`: Provide a network path to the share where you want to create the compute log package.
     - `Credential`: Provide the username and password for the network share.
     - `RoleInstanceName`: Provide this string `IotRole` for this parameter.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
+
+## Monitor and troubleshoot compute modules
+
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 
 ## Next steps
