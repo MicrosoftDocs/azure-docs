@@ -1,6 +1,6 @@
 ---
-title: Azure AD password protection preview
-description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection preview
+title: Azure AD password protection - Azure Active Directory
+description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection
 
 services: active-directory
 ms.service: active-directory
@@ -15,14 +15,9 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Enforce Azure AD password protection for Windows Server Active Directory
+# Enforce Azure AD password protection for Windows Server Active Directory
 
-|     |
-| --- |
-| Azure Active Directory (Azure AD) password protection and the custom banned password list are public preview features of Azure AD. For information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Azure AD password protection is a new feature in public preview that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
+Azure AD password protection is a feature that enhances password policies in an organization. On-premises deployment password protection uses both the global and custom banned-password lists that are stored in Azure AD. It does the same checks on-premises as Azure AD for cloud-based changes.
 
 ## Design principles
 
@@ -59,7 +54,7 @@ After the DC Agent service receives a new password policy from Azure AD, the ser
 
 The DC Agent service always requests a new policy at service startup. After the DC Agent service is started, it checks the age of the current locally available policy hourly. If the policy is older than one hour, the DC Agent requests a new policy from Azure AD, as described previously. If the current policy isn't older than one hour, the DC Agent continues to use that policy.
 
-Whenever a Azure AD password protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
+Whenever an Azure AD password protection password policy is downloaded, that policy is specific to a tenant. In other words, password policies are always a combination of the Microsoft global banned-password list and the per-tenant custom banned-password list.
 
 The DC Agent communicates with the proxy service via RPC over TCP. The proxy service listens for these calls on a dynamic or static RPC port, depending on the configuration.
 

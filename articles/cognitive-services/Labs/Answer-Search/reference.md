@@ -52,7 +52,7 @@ For information about permitted use and display of results, see [Use and display
 > - Pragma – the caller does not have control over whether URL Preview uses cache
 > - Cache-Control – the caller does not have control over whether URL Preview uses cache
 > - User-Agent
-
+> 
 > Also, some parameters are not currently meaningful for URL Preview API, but may be used in the future for improved globalization. 
  
 ## Headers  

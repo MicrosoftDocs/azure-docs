@@ -147,9 +147,9 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1.  Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
 
-1.  Contact the application vendor and share the following info:
+1. Contact the application vendor and share the following info:
 
    -   SAML request
 

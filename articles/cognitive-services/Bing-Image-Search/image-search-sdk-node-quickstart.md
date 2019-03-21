@@ -63,7 +63,7 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-## Send a query and handle the response
+   ## Send a query and handle the response
 
 1. Call the helper function and handle its `promise` to parse the image results returned in the response.
 

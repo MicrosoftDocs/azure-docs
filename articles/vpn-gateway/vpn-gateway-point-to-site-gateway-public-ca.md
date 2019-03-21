@@ -46,8 +46,8 @@ Only older gateways are affected by this change. If your gateway certificate nee
 2. Open or extract the zip file and browse to the “Generic” folder. In the Generic folder, you will see two files, one of which is *VPNSettings.xml*.
 3. Open *VPNSettings.xml* in any xml viewer/editor. In the xml file, search for the following fields:
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. If *ServerCertRotCn* and *ServerCertIssuerCn* are "DigiCert Global Root CA", you are not affected by this update and you don't need to proceed with steps in this article. However, if they show something else, your gateway certificate is part of the update and will be transitioned.
 
 ### Classic

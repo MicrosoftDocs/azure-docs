@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD SSPR data requirements | Microsoft Docs'
+title: Azure AD SSPR data requirements - Azure Active Directory
 description: Data requirements for Azure AD self-service password reset and how to satisfy them
 
 services: active-directory

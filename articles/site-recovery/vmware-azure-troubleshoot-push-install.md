@@ -168,11 +168,11 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 
 
 - The following line is from the GRUB file **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - The following line is from the GRUB file **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 If you observe the bold string above, GRUB has actual device names for the parameters "root" and "resume" instead of UUID.
  
@@ -181,15 +181,15 @@ The device names should be replaced with the corresponding UUID.<br>
 
 
 1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
-```
-blkid /dev/sda1
-/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
-blkid /dev/sda2 
-/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```
+   ```
+   blkid /dev/sda1
+   /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+   blkid /dev/sda2 
+   /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```
 
 2. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files look like. <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Restart the protection again
 
 ## Install Mobility Service completed with warning to reboot (ErrorID: 95265 & 95266)
@@ -284,20 +284,20 @@ If application consistency is not critical for your Disaster Recovery requiremen
 To bypass the Azure Site Recovery VSS Provider installation and manually install Azure Site Recovery VSS Provider post installation:
 
 1. Install the mobility service. 
-> [!Note]
-> 
-> The Installation will fail at 'Post install configuration' step. 
+   > [!Note]
+   > 
+   > The Installation will fail at 'Post install configuration' step. 
 2. To bypass the VSS installation:
    1. Open the Azure Site Recovery Mobility Service installation directory located at:
    
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-   2.  Modify the Azure Site Recovery VSS Provider installation scripts **nMageVSSProvider_Install** and **InMageVSSProvider_Uninstall.cmd** to always succeed by adding the following lines:
+      C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   2. Modify the Azure Site Recovery VSS Provider installation scripts **nMageVSSProvider_Install** and **InMageVSSProvider_Uninstall.cmd** to always succeed by adding the following lines:
     
-    ```     
-    rem @echo off
-    setlocal
-    exit /B 0
-    ```
+      ```     
+      rem @echo off
+      setlocal
+      exit /B 0
+      ```
 
 3. Rerun the Mobility Agent installation manually. 
 4. When the Installation succeeds and moves to the next step, **Configure**, remove the lines you added.
@@ -305,7 +305,7 @@ To bypass the Azure Site Recovery VSS Provider installation and manually install
    
     **C:\Program Files (x86)\Microsoft Azure Site Recovery\agent> .\InMageVSSProvider_Install.cmd**
 
-9.	Verify that the ASR VSS Provider is installed as a service in Windows Services and open the Component Service MMC to verify that ASR VSS Provider is listed.
+9. Verify that the ASR VSS Provider is installed as a service in Windows Services and open the Component Service MMC to verify that ASR VSS Provider is listed.
 10.	If the VSS Provider install continues to fail, work with CX to resolve the permissions errors in CAPI2.
 
 ## VSS Provider installation fails due to the cluster service being enabled on non-cluster machine

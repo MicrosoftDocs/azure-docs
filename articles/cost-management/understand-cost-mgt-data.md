@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -90,7 +90,7 @@ The following tables show data that's included or isn't in Cost Management.
 
 ## Rated usage data refresh schedule
 
-Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](https://aka.ms/costmgmt/docs). Keep the following points in mind as you review costs:
+Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](index.yml). Keep the following points in mind as you review costs:
 
 - Estimated charges for the current billing period are updated six times per day.
 - Estimated charges for the current billing period can change as you incur more usage.

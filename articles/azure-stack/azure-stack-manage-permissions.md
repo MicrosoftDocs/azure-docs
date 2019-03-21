@@ -37,8 +37,8 @@ A user in Azure Stack can be a reader, owner, or contributor for each instance o
 
 ## Set access permissions for a universal group 
 
-> [!Note]  
-Applicable only to Active Directory Federated Services (AD FS).
+> [!Note]
+> Applicable only to Active Directory Federated Services (AD FS).
 
 1. Sign in with an account that has owner permissions to the resource you want to manage.
 2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).

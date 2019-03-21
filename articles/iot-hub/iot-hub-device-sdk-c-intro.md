@@ -84,7 +84,7 @@ If you're not familiar with the device explorer tool, the following procedure de
 
 1. When you run the program, you see this interface:
 
-  ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub. 
 
@@ -92,17 +92,17 @@ The **Connection String** can be found under **IoT Hub Service** > **Settings** 
 
 1. When the IoT Hub connection string is configured, click the **Management** tab:
 
-  ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 This tab is where you manage the devices registered in your IoT hub.
 
 1. You create a device by clicking the **Create** button. A dialog displays with a set of pre-populated keys (primary and secondary). Enter a **Device ID** and then click **Create**.
 
-  ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. When the device is created, the Devices list updates with all the registered devices, including the one you just created. If you right-click your new device, you see this menu:
 
-  ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. If you choose **Copy connection string for selected device**, the device connection string is copied to the clipboard. Keep a copy of the device connection string. You need it when running the sample applications described in the following sections.
 
@@ -346,7 +346,7 @@ As with the previous sample, this one includes several NuGet packages:
 
 You've seen most of these packages in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This package is required when you use the **serializer** library.
 
-You can find the implementation of the sample application in the ***iothub_client\_samples\_iothub_convenience_sample** file.
+You can find the implementation of the sample application in the **iothub_client\_samples\_iothub_convenience_sample** file.
 
 The following sections walk you through the key parts of this sample.
 

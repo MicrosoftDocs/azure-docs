@@ -18,7 +18,7 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-#Customer intent: As a It admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
+#Customer intent: As an IT admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
 
 ms.collection: M365-identity-device-management
 ---
@@ -289,13 +289,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require one of the selected controls**   
+   - **Require one of the selected controls**   
  
-    ![Conditional access](./media/app-based-conditional-access/11.png)
+     ![Conditional access](./media/app-based-conditional-access/11.png)
 
 
 
@@ -385,13 +385,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require all the selected controls**   
+   - **Require all the selected controls**   
  
-    ![Conditional access](./media/app-based-conditional-access/13.png)
+     ![Conditional access](./media/app-based-conditional-access/13.png)
 
 
 
@@ -417,13 +417,13 @@ For the conditional access policy in this step, you need to configure the follow
 
 5. As **Access controls**, you need to have the following selected:
 
-    - **Require device to be marked as compliant**
+   - **Require device to be marked as compliant**
 
-    - **Require approved client app (preview)**
+   - **Require approved client app (preview)**
 
-    - **Require all the selected controls**   
+   - **Require all the selected controls**   
  
-    ![Conditional access](./media/app-based-conditional-access/64.png)
+     ![Conditional access](./media/app-based-conditional-access/64.png)
 
 
 
