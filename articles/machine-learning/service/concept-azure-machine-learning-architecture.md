@@ -76,7 +76,7 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
 
-For an example of training a model, see [Quickstart: Create a Machine Learning service workspace](quickstart-get-started.md).
+For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 ### Model registry
 
@@ -139,7 +139,7 @@ For information about selecting a compute target for deployment, see the [Deploy
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example, see [Create a workspace with Python](quickstart-get-started.md).
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 ## Run
 
@@ -223,6 +223,6 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 To get started with Azure Machine Learning service, see:
 
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
+* [Create a Azure Machine Learning service workspace](setup-create-workspace.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
 * [Create a workspace with a resource manager template](how-to-create-workspace-template.md)

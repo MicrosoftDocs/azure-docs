@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # Quickstart: Use the Python SDK to get started with Azure Machine Learning
 
-In this article, you use the Azure Machine Learning SDK for Python 3 to create and then use an Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
+In this article, you use the Azure Machine Learning SDK for Python to run code that is logged in the Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
 
-You begin by configuring your own Python environment and Jupyter Notebook Server. To run it with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md). 
+This quickstart uses your own Python environment and Jupyter Notebook Server. For a quickstart with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md). 
 
 View a video version of this quickstart:
 
@@ -26,124 +26,23 @@ View a video version of this quickstart:
 
 In this quickstart, you:
 
-* Install the Python SDK.
-* Create a workspace in your Azure subscription.
-* Create a configuration file for that workspace to use later in other notebooks and scripts.
 * Write code that logs values inside the workspace.
 * View the logged values in your workspace.
-
-You create a workspace and a configuration file to use as prerequisites to other Machine Learning tutorials and how-to articles. As with other Azure services, certain limits and quotas are associated with Machine Learning. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
-
-The following Azure resources are added automatically to your workspace when they're regionally available:
- 
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-- [Azure Storage](https://azure.microsoft.com/services/storage/)
-- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-
->[!NOTE]
-> Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.8.
-
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## Prerequisites
 
-### Install the SDK
-> [!IMPORTANT]
-> Skip installation of the SDK if you use an Azure Data Science Virtual Machine or Azure Databricks.
-> * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
-> * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
+* A Python 3.6 notebook server with the following installed:
+    * The Azure Machine Learning Data Prep SDK for Python
+* An Azure Machine Learning service workspace
+* A workspace configuration file (**aml_config/config.json** ).
 
->[!NOTE]
-> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote virtual machine, set up a remote desktop or X terminal session. 
-
-Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
-
-The instructions in this quickstart will install all the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
-
-### Install Miniconda
-
-[Download and install Miniconda](https://docs.conda.io/en/latest/miniconda.html). Select the Python 3.7 version to install. Don't select the Python 2.x version.  
-
-### Create an isolated Python environment
-
-1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded.
-
-    ```shell
-    conda create -n myenv python=3.6.5
-    ```
-
-1. Activate the environment.
-
-    ```shell
-    conda activate myenv
-    ```
-
-1. Enable environment-specific ipython kernels:
-
-    ```shell
-    conda install notebook ipykernel
-    ```
-
-    Then create the kernel:
-
-    ```shell
-    ipython kernel install --user
-    ```
-
-### Install the SDK
-
-1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities. The installation takes a few minutes to finish based on the configuration of your machine.
-
-    ```shell
-    pip install --upgrade azureml-sdk[notebooks]
-    ```
-
-1. To use this environment for the Azure Machine Learning tutorials, install these packages.
-
-    ```shell
-    conda install -y cython matplotlib pandas
-    ```
-
-1. To use this environment for the Azure Machine Learning tutorials, install the automated machine learning components.
-
-    ```shell
-    pip install --upgrade azureml-sdk[automl]
-    ```
-
-> [!IMPORTANT]
-> In some command-line tools, you might need to add quotation marks as follows:
-> *  'azureml-sdk[notebooks]'
-> * 'azureml-sdk[automl]'
->
-
-
-## Create a workspace
-
-Create your workspace in a Jupyter Notebook using the Python SDK.
-
-1. Create and/or cd to the directory you want to use for the quickstart and tutorials.
-
-1. To launch Jupyter Notebook, enter this command:
-
-    ```shell
-    jupyter notebook
-    ```
-
-1. In the browser window, create a new notebook by using the default `Python 3` kernel. 
-
-1. To display the SDK version, enter and then execute the following Python code in a notebook cell:
-
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
-
-1. Find a value for the `<azure-subscription-id>` parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
-
-@@ add link to new article here
+Get all these prerequisites from [Create a Azure Machine Learning service workspace](setup-create-workspace.md#portal).
 
 ## Use the workspace
 
-Run some code that uses the basic APIs of the SDK to track experiment runs:
+Create a script or start a notebook in the same directory as your workspace configuration file. Run this code that uses the basic APIs of the SDK to track experiment runs.
 
 1. Create an experiment in the workspace.
 1. Log a single value into the experiment.
@@ -152,6 +51,7 @@ Run some code that uses the basic APIs of the SDK to track experiment runs:
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
 ## View logged results
+
 When the run finishes, you can view the experiment run in the Azure portal. To print a URL that navigates to the results for the last run, use the following code:
 
 ```python
@@ -163,6 +63,7 @@ Use the link to view the logged values in the Azure portal in your browser.
 ![Logged values in the Azure portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
 ## Clean up resources 
+
 >[!IMPORTANT]
 >You can use the resources you've created here as prerequisites to other Machine Learning tutorials and how-to articles.
 

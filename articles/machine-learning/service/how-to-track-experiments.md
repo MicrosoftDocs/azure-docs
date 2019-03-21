@@ -45,7 +45,7 @@ If you want to track or monitor your experiment, you must add code to start logg
 ## Set up the workspace
 Before adding logging and submitting an experiment, you must set up the workspace.
 
-1. Load the workspace. To learn more about setting the workspace configuration, follow the [quickstart](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+1. Load the workspace. To learn more about setting the workspace configuration, follow the steps in [Create a Azure Machine Learning service workspace](setup-create-workspace.md#python).
 
    ```python
    from azureml.core import Experiment, Run, Workspace

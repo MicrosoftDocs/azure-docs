@@ -22,7 +22,7 @@ In this article, you learn how to train a forecasting regression model using aut
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. To create the workspace, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+* An Azure Machine Learning service workspace. To create the workspace, see [Create a Azure Machine Learning service workspace](setup-create-workspace.md).
 * This article assumes basic familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
 ## Preparing data
