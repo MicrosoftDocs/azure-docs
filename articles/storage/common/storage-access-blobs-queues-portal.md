@@ -21,13 +21,13 @@ Depending on how you want to authenticate access blob or queue data in the Azure
 
 ### Account access key
 
-To access blob and queue data with the account access key, you must have an RBAC role assigned to you that includes the RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This RBAC role may be a built-in or a custom role. 
+To access blob and queue data with the account access key, you must have an RBAC role assigned to you that includes the RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This RBAC role may be a built-in or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include:
 
-The built-in RBAC roles that support **Microsoft.Storage/storageAccounts/listkeys/action** action are:
-    - The [Storage Account Key Operator Service](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role) role.
-    - The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role. This role includes the wildcard **Microsoft.Storage/storageAccounts/\*** actions, so it also supports **Microsoft.Storage/storageAccounts/listkeys/action**.
-    
-The Azure portal first checks whether the user has been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If the user has been assigned a role with this action, then the portal uses the account key for accessing blob and queue data. If the user does not have a role with this action, then the portal attempts to access data using their Azure AD account.
+- The Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role
+- The Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role
+- The [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role
+
+When you attempt to access blob or queue data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing blob and queue data. If you have not been assigned a role with this action, then the portal attempts to access data using your Azure AD account.
 
 > [!NOTE]
 > The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob and queue data with the account key. For more information, see [Classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
@@ -39,7 +39,7 @@ To access blob or queue data from the Azure portal using your Azure AD account, 
 1. You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 1. You have been assigned either a built-in or custom role that provides access to blobs or queue data.
 
-The **Reader** role assignment or another Azure Resource Manager role assignment is necessary so that the user can navigate through the Azure portal to access blob or queue data. The RBAC roles that grant access to blob or queue data do not grant access to storage account management resources. Without the **Reader** role or another Azure Resource Manager role, the user will not have permissions to view storage account resources and will not be able to reach blob or queue data in the portal. For more information about this requirement, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
+The **Reader** role assignment or another Azure Resource Manager role assignment is necessary so that the user can view and navigate storage account management resources in the Azure portal. The RBAC roles that grant access to blob or queue data do not grant access to storage account management resources. To access blob or queue data in the portal, the user needs permissions to navigate storage account resources. For more information about this requirement, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
 
 The built-in roles that support access to your blob or queue data include:
     - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): For POSIX access control for Azure Data Lake Storage Gen2 (preview).
@@ -51,7 +51,7 @@ The built-in roles that support access to your blob or queue data include:
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating custom RBAC roles, see [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
 > [!NOTE]
-> The classic subscription administrator roles support accessing blob data using an Azure AD account. However, accessing queue data with a classic subscription administrator role is not supported. To access queue data, a user must have either the **Storage Queue Reader** or **Storage Queue Contributor** RBAC role assigned.
+> Listing queues with a classic subscription administrator role is not supported. To list queues, a user must have assigned to them the Azure Resource Manager **Reader** role, the **Storage Queue Data Reader** role, or the **Storage Queue Data Contributor** role.
 
 ## Navigate to blobs or queues in the portal
 
