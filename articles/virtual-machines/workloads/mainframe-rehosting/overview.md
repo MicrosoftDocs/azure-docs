@@ -34,8 +34,10 @@ Micro Focus Enterprise Server is one of the largest mainframe rehosting platform
 
 To get started:
 
-- [Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure](./microfocus/set-up-micro-focus-on-azure.md)
-- [Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 in Azure](./microfocus/demo.md)
+- [Install Enterprise Server and Enterprise Developer on Azure](./microfocus/set-up-micro-focus-on-azure.md)
+- [Set up CICS BankDemo for Enterprise Developer on Azure](./microfocus/demo.md)
+- [Run Enterprise Server in a Docker Container on Azure](./microfocus/run-enterprise-server-in-container.md)
+
 
 ## TmaxSoft OpenFrame on Azure
 
