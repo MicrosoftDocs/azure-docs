@@ -29,7 +29,7 @@ This tutorial explains how to:
 ## Before you start
 
 * [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* Read about the feature capabilities for [backing up SQL DBs within Azure VMs](backup-sql-server-azure-vms.md#before-you-start).
+* Read about the feature capabilities for [backing up SQL DBs within Azure VMs](backup-azure-sql-database.md#before-you-start).
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ### Recovery Services object hierarchy
