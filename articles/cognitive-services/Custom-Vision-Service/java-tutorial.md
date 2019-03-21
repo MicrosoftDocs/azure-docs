@@ -84,7 +84,7 @@ while (iteration.status().equals("Training"))
 }
 System.out.println("Training Status: "+ iteration.status());
 
-String publishName = "detectModel";
+String publishName = "classifyModel";
 trainer.publishIteration(project.id(), iteration.id(), publishName, "<enter your publish resource id here>");
 ```
 
