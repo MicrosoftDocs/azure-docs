@@ -80,7 +80,7 @@ After the App Service databases and file share content have been restored, you n
     # Press ENTER when prompted to reconfigure App Service from backup 
 
     # If necessary, use -OverrideDatabaseServer <restored server> with Restore-AppServiceStamp when the restored database server has a different address than backed-up deployment.
-    # If necessary, use -OverrideContentShare <restored file share path> with Restore-AppServiceStamp When the restored file share has a different path from backed-up deployment, 
+    # If necessary, use -OverrideContentShare <restored file share path> with Restore-AppServiceStamp when the restored file share has a different path from backed-up deployment, 
     Restore-AppServiceStamp -FilePath $pathToExportedSecretFile 
 
     # Restore App Service roles
