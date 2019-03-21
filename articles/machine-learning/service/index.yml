@@ -30,8 +30,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'To use this service, you need a workspace.  <a href="setup-create-workspace">Create your workspace now.</a>'
-    text: 'Then try out your workspace in the cloud or on your own server.'
+    text: 'To use this service, you need a workspace.  <a href="setup-create-workspace">Create your workspace now.</a> Then try out your workspace in the cloud or on your own server.'
   - type: list
     style: unordered
     items:
