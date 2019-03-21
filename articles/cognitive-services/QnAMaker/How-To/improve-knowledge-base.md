@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/21/2019
 ms.author: diberry
 ---
 
@@ -177,7 +177,7 @@ The JSON body has several settings:
 |JSON body property|Type|Purpose|
 |--|--|--|--|
 |`feedbackRecords`|array|List of feedback.|
-|`userId`|string|The user ID in the client application's conversation. Optional.|
+|`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
 |`userQuestion`|string|Exact text of the question. Required.|
 |`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
