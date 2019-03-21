@@ -33,8 +33,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* A Python 3.6 notebook server with the following installed:
-    * The Azure Machine Learning Data Prep SDK for Python
+* A Python 3.6 notebook server with the Azure Machine Learning SDK installed
 * An Azure Machine Learning service workspace
 * A workspace configuration file (**aml_config/config.json** ).
 
