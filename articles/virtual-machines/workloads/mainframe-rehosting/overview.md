@@ -69,12 +69,9 @@ When you migrate mainframe workloads to Azure infrastructure as a service (IaaS)
 
 ### Compute
 
-In comparing mainframe capacity to Azure compute power, the metric of one million instructions per second (MIPS) is often mapped to virtual CPUs. Azure provides mainframe-like features and compute capacity that is comparable to IBM z14-based systems.
+In comparing mainframe capacity to Azure compute power, the metric of one million instructions per second (MIPS) is often mapped to virtual CPUs. Azure provides mainframe-like features and compute capacity that is comparable to IBM z14-based systems. 
 
-To get started:
-
-- [Move mainframe compute to Azure](./concepts/mainframe-compute.md)
-- [Make the switch from mainframes to Azure](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/migration-strategies)
+Learn how to [move mainframe compute to Azure](./concepts/mainframe-compute-on-azure.md).
 
 ### High availability and failover
 
@@ -91,21 +88,19 @@ Mainframes typically scale up, while cloud environment scale out. Azure offers a
 
 In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 
-To get started:
-
-- [Move mainframe storage to Azure](./concepts/mainframe-storage.md)
+Learn how to [move mainframe storage to Azure](./concepts/mainframe-storage-on-azure.md)
 
 ### Backup and recovery
 
 Maintaining your own disaster recovery site can be an expensive proposition. Azure has easy-to-implement and cost-effective options for
-[backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup), [recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and [redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+[backup](/azure/backup/backup-introduction-to-azure-backup), [recovery](/azure/site-recovery/site-recovery-overview), and [redundancy](/azure/storage/common/storage-redundancy)
 at local or regional levels, or via geo-redundancy.
 
 ## Azure Government for mainframe migrations
 
 Many public sector entities would love to move their mainframe applications to a more modern, flexible platform. Microsoft Azure Government is a physically separated instance of cloud services based on the global Microsoft Azure platform but packaged for federal, state, and local government systems. It provides world-class security, protection, and compliance services specifically for United States government agencies and their partners.
 
-Azure Government earned a Provisional Authority to Operate (P-ATO) for FedRAMP High Impact for systems that need this type of environment. 
+Azure Government earned a Provisional Authority to Operate (P-ATO) for FedRAMP High Impact for systems that need this type of environment.
 
 To get started, download [Microsoft Azure Government cloud for mainframe applications](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/en-us/).
 
@@ -117,8 +112,8 @@ refer to the [Platform Modernization Alliance](https://www.platformmodernization
 See also:
 
 - [White papers about mainframe topics](mainframe-white-papers.md)
-- [Mainframe migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mainframe migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
+- [Troubleshooting](/azure/virtual-machines/troubleshooting/)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
 
 <!-- INTERNAL LINKS -->
