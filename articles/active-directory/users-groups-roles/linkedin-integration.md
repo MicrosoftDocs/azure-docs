@@ -32,7 +32,7 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 ## Enable or disable LinkedIn integration for your users in the Azure portal
 
-You can enable LinkedIn account connections for only the users you want to have access. This could be your entire organization or only selected users in your organization.
+You can enable LinkedIn account connections for only the users you want to have access, from your entire organization to only selected users in your organization.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
 2. Select **Users**.
@@ -60,7 +60,7 @@ You can enable LinkedIn account connections for only the users you want to have 
    **Enabled** | The **Show LinkedIn features in Office applications** setting in Office 2016 Options is enabled. Users in your organization can use LinkedIn features in their Office applications.
    **Disabled** | The **Show LinkedIn features in Office applications** setting in Office 2016 Options is disabled and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications.
 
-This group policy affects only Office 2016 apps for a local computer. Users can see LinkedIn features in profile cards throughout Office 365 even if they disable LinkedIn in their Office 2016 apps.
+This group policy affects only Office 2016 apps for a local computer. If users disable LinkedIn in their Office 2016 apps, they can still see LinkedIn features in Office 365.
 
 ## Next steps
 
