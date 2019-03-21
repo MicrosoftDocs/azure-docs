@@ -80,8 +80,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Additional reading
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## How do I configure an Apache Spark application by using a Jupyter notebook on clusters?
 
@@ -95,7 +94,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Additional reading
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## How do I configure an Apache Spark application by using Apache Livy on clusters?
@@ -112,8 +111,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Additional reading
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## How do I configure an Apache Spark application by using spark-submit on clusters?
 
@@ -129,7 +127,7 @@ These changes are cluster-wide but can be overridden when you submit the Spark j
 
 ### Additional reading
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## What causes an Apache Spark application OutofMemoryError exception?
@@ -214,9 +212,8 @@ The most likely cause of this exception is that not enough heap memory is alloca
 ### Additional reading
 
 - [Apache Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### See Also
 [Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
-
