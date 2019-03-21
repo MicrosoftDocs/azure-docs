@@ -24,7 +24,8 @@
     href: send-transaction.md
 - name: Concepts
   items:
-  - name: Members, nodes, consortium
+  - name: Consortium
+    href: consortium.md
   - name: Quorum
   - name: Data access, security
   - name: Develop
@@ -36,6 +37,7 @@
   items: 
   - name: Configure transaction nodes
   - name: Manage consortium
+    href: manage-consortium.md
 - name: Resources
   items:
   - name: Blog
