@@ -95,7 +95,7 @@ Users who have the Monitoring Contributor role assigned to them at the subscript
 
 For most subscriptions, migration should complete under 2 hours. However if you have a subscription with large number of classic alert rules(>500), the migration could take up to a few hours.  During this time, please be ensured that your alerts are still running either in the classic alerts system or the new one.
 
-**What can I do if I run into an issue during migration?**
+### **What can I do if I run into an issue during migration?**
 
 Please follow the troubleshooting guide to see remediation steps for any issues you might face during migration. If any action is needed from you to complete the migration, you will be notified on the email address(es) provided during migration.
 
