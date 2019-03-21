@@ -72,7 +72,7 @@ To manually back up these databases while logged into the SQL Server, you can us
 
 After all databases have been successfully backed up, copy the .bak files to a safe location along with the App Service secrets information.
 
-### Back up the App Service file share
+## Back up the App Service file share
 App Service stores tenant app information in the file share. This must be backed up on a regular basis along with the App Service databases so that as little data as possible is lost if a restore is required. 
 
 To back up the App Service file share content, you can use Azure Backup Server or another method to regularly copy the file share content to the location you've saved all previous recovery information. 
