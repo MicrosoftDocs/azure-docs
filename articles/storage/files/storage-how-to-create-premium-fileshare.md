@@ -66,7 +66,7 @@ If you would like to clean up the resources created in this article, you can sim
 
 ## Next steps
 
-In this article, you've created a premium files storage account. To learn about the performance this account offers, continue to our premium files performance article.
+In this article, you've created a premium files storage account. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
 
 > [!div class="nextstepaction"]
-> [Premium files performance](storage-files-premium-files-performance.md)
+> [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)
