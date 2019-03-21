@@ -30,6 +30,8 @@ The following actions must be taken to recover App Service on Azure Stack from b
 2.	Restore the file server share content
 3.	Restore App Service roles and services
 
+If Azure Stack storage was used for Function Apps storage, then you must also take steps to restore Function Apps.
+
 ## Restore the App Service databases
 The App Service SQL Server databases should be restored on a production ready SQL Server instance. 
 
