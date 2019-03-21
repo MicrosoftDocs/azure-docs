@@ -89,7 +89,7 @@ A support person will contact you and provide any assistance you need.
 
 **Should I plan for any downtime during the migration?**
 
-There is no downtime caused by the migration. During a live migration, you can use your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
+There is no downtime caused by the migration. During a live migration, you can continue  your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
 
 **Is there any data loss associated with the migration?**
 
@@ -109,7 +109,7 @@ Before submitting a request for a live migration to ZRS make sure your applicati
 
 **Can I request a live migration of my storage account(s) to ZRS  to another region?**
 
-You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
+If you want to migrate your data into a ZRS account located in a region different from the region of the source account, then you must perform a manual migration.
 
 ## ZRS Classic: A legacy option for block blobs redundancy
 > [!NOTE]
