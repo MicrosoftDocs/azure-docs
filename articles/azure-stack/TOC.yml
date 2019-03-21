@@ -297,6 +297,10 @@
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configure deployment sources
       href: azure-stack-app-service-configure-deployment-sources.md
+    - name: Back up App Service
+      href: app-service-back-up.md
+    - name: Recover App Service
+      href: app-service-recover.md
     - name: App Service on Azure Stack release notes
       items:
       - name: App Service on Azure Stack update 1 release notes
