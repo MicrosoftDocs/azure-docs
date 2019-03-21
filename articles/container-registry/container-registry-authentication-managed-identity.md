@@ -122,7 +122,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-Because you need the identity's ID in a later step when you log in to the CLI from your virtual machine, show the value:
+Because you need the identity's ID in a later step when you sign in to the CLI from your virtual machine, show the value:
 
 ```bash
 echo $userID
@@ -166,7 +166,7 @@ First, sign into the Azure CLI with [az login][az-login], using the identity you
 az login --identity --username <userID>
 ```
 
-Then, log in to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
+Then, sign in to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -218,7 +218,7 @@ First, sign into the Azure CLI with [az login][az-login], using the system-assig
 az login --identity
 ```
 
-Then, log in to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
+Then, sign in to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
