@@ -1,7 +1,15 @@
 - name: Azure Service Provider Management Toolkit documentation
   href: index.yml
+- name: Overview
+  items:
+  - name: What is Microsoft Azure Service Provider Management Toolkit?
+    displayName: management at scale, service providers
+    href: overview.md
 - name: Concepts
   items:
+  - name: Azure Delegated Resource Management
+    displayName: delegation
+    href: ./concepts/azure-delegated-resource-management.md
   - name: Managed services offers in Azure Marketplace
     displayName: managed services offer, azure marketplace
     href: ./concepts/managed-services-offers.md

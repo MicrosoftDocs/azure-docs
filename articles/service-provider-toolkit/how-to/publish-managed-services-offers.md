@@ -10,7 +10,10 @@ manager: carmonm
 ---
 # Publish a managed services offer to Azure Marketplace
 
-In this article, you’ll learn how to publish a Managed Services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management.
+> [!IMPORTANT]
+> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
+
+In this article, you’ll learn how to publish a managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management. 
 
 > [!NOTE]
 > Customers can also be onboarded manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure Delegated Resource Management](onboard-customer.md).
@@ -18,7 +21,7 @@ In this article, you’ll learn how to publish a Managed Services offer to [Azur
 Publishing a Managed Services offer is similar to publishing any other type of offer to Azure Marketplace. To learn about that process, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
 
 > [!NOTE]
-> You will need to have a valid publisher account in Cloud Partner Portal in order to create and publish these offers. 
+> You will need to have a valid [publisher account in Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher) in order to create and publish these offers. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
 
 ## Create your offer in the Cloud Partner Portal
 
