@@ -215,7 +215,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
    ```
 
 ## Cancel a run
-Ater a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run id. 
+After a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run id. 
 
 ```python
 from azureml.core import Experiment
