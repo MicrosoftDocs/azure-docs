@@ -152,7 +152,7 @@ Contoso admins run the TFS Migration Tool against the ContosoDev collection data
 
 2. They run the tool to perform the validation, by specifying the URL of the project collection:
 
-        **TfsMigrator validate /collection:http:\//contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator validate /collection:http:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. The tool shows an error.
