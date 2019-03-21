@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 07/18/2017
+ms.date: 03/20/2019
 ms.author: billmath
 
 ms.collection: M365-identity-device-management

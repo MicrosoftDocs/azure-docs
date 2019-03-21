@@ -1,5 +1,5 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection preview
+title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
 description: Understand Azure AD Password Protection monitoring and logging
 
 services: active-directory
@@ -14,17 +14,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
-
-# Preview: Azure AD Password Protection monitoring and logging
-
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Azure AD Password Protection monitoring and logging
 
 After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 
-# DC agent event logging
+## DC agent event logging
 
 On each domain controller, the DC agent service software writes the results of each individual password validation operation (and other status) to a local event log:
 
