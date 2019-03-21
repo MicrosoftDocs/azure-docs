@@ -99,7 +99,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 
    ![Configure diagnostics for elastic pools](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need configure diagnostics telemetry for each database in elastic pool, as documented below. 
 
 ### Configure streaming of diagnostics telemetry for single datatbase, or database in elastic pool
@@ -154,7 +154,7 @@ To enable streaming of diagnostics telemetry for a managed instance resource, fo
 
    ![Configure diagnostics for managed instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for a managed instance, you also need to configure diagnostics telemetry for each instance database, as documented below. 
 
 ### Configure streaming of diagnostics telemetry for instance databases
