@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
