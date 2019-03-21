@@ -94,7 +94,7 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
 Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. 
 
-You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications are your own audits and security reviews. 
+You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) certifications for your own audits and security reviews. 
 
 To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/). 
 
