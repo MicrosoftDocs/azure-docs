@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on iOS
+title: Certificate-based authentication on iOS - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with iOS devices
 
 services: active-directory
