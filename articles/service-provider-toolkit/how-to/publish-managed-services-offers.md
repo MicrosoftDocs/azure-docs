@@ -10,6 +10,9 @@ manager: carmonm
 ---
 # Publish a managed services offer to Azure Marketplace
 
+> [!IMPORTANT]
+> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability (expected later this year).
+
 In this article, you’ll learn how to publish a Managed Services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure Delegated Resource Management.
 
 > [!NOTE]

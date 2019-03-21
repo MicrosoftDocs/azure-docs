@@ -1,6 +1,6 @@
 - name: Azure Service Provider Management Toolkit documentation
   href: index.yml
-  - name: Overview
+- name: Overview
   items:
   - name: What is Azure Service Provider Management Toolkit?
     displayName: management at scale, service providers
