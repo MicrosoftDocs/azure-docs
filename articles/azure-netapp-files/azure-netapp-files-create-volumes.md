@@ -69,7 +69,7 @@ A subnet must be delegated to Azure NetApp Files.
 
         The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
 
-    * Optionally, [configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
+    * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md)
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
