@@ -67,8 +67,7 @@ Azure Event Hubs can be used in Azure Government supporting Impact Level 5 workl
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-|  
+| **Event Hubs** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X | 
 
 ### [Azure HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/)
 
@@ -80,7 +79,6 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure HDInsight** | X | X | X | X | X | X |
-|
 
 ### [Azure SQL Data Warehouse](https://azure.microsoft.com/en-us/services/sql-data-warehouse/)
 
@@ -93,7 +91,6 @@ Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 wo
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure SQL Data Warehouse** | X | X | X | X | X | X |
-|
 
 ### [Power BI Embedded](https://azure.microsoft.com/en-us/services/power-bi-embedded/)
 
@@ -102,7 +99,6 @@ Power BI Embedded can be used in Azure Government supporting Impact Level 5 work
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Power BI Embedded** |   |   |   |   | X | X |
-|
 
 ## Compute Services
 
@@ -115,7 +111,6 @@ Azure Batch can be used in Azure Government supporting Impact Level 5 workloads 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Batch** | X | X | X | X | X | X |
-|
 
 ### [Azure Functions](https://azure.microsoft.com/en-us/services/functions/)
 
@@ -126,7 +121,6 @@ Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloa
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Web Apps** | X | X | X | X | X | X |
-|
 
 ### [Azure Service Fabric](https://azure.microsoft.com/en-us/services/service-fabric/)
 
@@ -135,7 +129,6 @@ Azure Service Fabric can be used in Azure Government supporting Impact Level 5 w
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Service Fabric** |   |   |   |   | X | X |
-|
 
 ### [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) &amp; [Virtual Machine Scale Sets](https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/)
 
@@ -146,8 +139,7 @@ All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Virtual Machines** | X<sup>1</sup>  | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-| **Virtual Machine Scale Sets (VMSS)** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-|  
+| **Virtual Machine Scale Sets (VMSS)** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X | 
 
 <sup>1</sup> When deploying VMs in these regions you must use **Isolated Virtual Machines** as described below.
 
@@ -166,7 +158,6 @@ Current VM SKUs that offer necessary compute isolation include specific offering
 | Compute Optimized | Standard\_F72s\_v2 |
 | Large Memory Optimized | Standard\_M128ms |
 | GPU Enabled VMs | Standard\_NV24 |
-|
 
 **Note:** As new hardware generations become available, some VM types may require reconfiguration (scale up or migration to a new VM SKU) to ensure they remain on properly dedicated hardware. This document will be updated to reflect any changes.
 
@@ -195,7 +186,6 @@ Azure Web Apps can be used in Azure Government supporting Impact Level 5 workloa
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Web Apps** | X | X | X | X | X | X |
-|
 
 ## Integration Services
 
@@ -208,7 +198,6 @@ Azure Service Bus can be used in Azure Government supporting Impact Level 5 work
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Service Bus** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-|  
 
 ### [Azure API Management](https://azure.microsoft.com/en-us/services/api-management/)
 
@@ -217,7 +206,6 @@ Azure API Management can be used in Azure Government supporting Impact Level 5 w
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **API Management** | X | X | X | X | X | X |
-|
 
 ## Management and Governance
 
@@ -228,7 +216,6 @@ Azure Backup can be used in Azure Government supporting all impact levels with n
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Backup** | X | X | X | X | X | X |
-|
 
 ### [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/)
 
@@ -237,7 +224,6 @@ Azure Monitor can be used in Azure Government supporting all impact levels with 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Monitor** | X | X | X | X | X | X |
-|
 
 ### [Azure Scheduler](https://azure.microsoft.com/en-us/services/scheduler/)
 
@@ -246,7 +232,6 @@ Azure Scheduler can be used in Azure Government supporting all impact levels wit
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Scheduler** | X | X | X | X | X | X |
-|
 
 ## Media Services
 
@@ -257,7 +242,6 @@ Azure Media Services can be used in Azure Government supporting Impact Level 5 w
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Media Services** |   |   |   |   | X | X |
-|
 
 ## Networking Services
 
@@ -268,7 +252,6 @@ Application Gateway can be used in Azure Government supporting all impact levels
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Application Gateway** | X | X | X | X | X | X |
-|
 
 ### [Azure DNS](https://azure.microsoft.com/en-us/services/dns/)
 
@@ -277,7 +260,6 @@ Azure DNS can be used in Azure Government supporting all impact levels with no a
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure DNS** | X | X | X | X | X | X |
-|
 
 ### [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/)
 
@@ -333,7 +315,6 @@ Azure Active Directory can be used in all Azure Government regions, supporting a
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Active Directory** | X | X | X | X | X | X |
-|
 
 ### [Microsoft Graph](https://docs.microsoft.com/en-us/graph/overview)
 
@@ -342,7 +323,6 @@ Microsoft Graph can be used in Azure Government supporting all impact levels wit
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Microsoft Graph** | X | X | X | X | X | X |
-|
 
 ### [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
 
@@ -351,7 +331,6 @@ Azure Key Vault can be used in Azure Government supporting all impact levels wit
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Key Vault** | X | X | X | X | X | X |
-|
 
 ## Storage & Database Services
 
@@ -362,7 +341,6 @@ Azure Analysis Services can be used in Azure Government supporting all impact le
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Analysis Services** | X | X | X | X | X | X |
-|
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/)
 
@@ -371,7 +349,6 @@ Azure Cache for Redis can be used in Azure Government supporting all impact leve
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Cache for Redis** | X | X | X | X | X | X |
-|
 
 ### [Azure Import/Export](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
 
@@ -382,7 +359,6 @@ The target storage account for Import and source storage account for Export can 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure Import/Export** | X | X | X | X | X | X |
-|
 
 ### [Azure CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/)
 
@@ -391,7 +367,6 @@ Azure CosmosDB can be used in Azure Government supporting Impact Level 5 workloa
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure CosmosDB** |  |  |  |  | X | X |
-|
 
 ### [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)
 
@@ -405,7 +380,6 @@ When using an Azure Storage account, you must follow the steps for using **Stora
 | **Files** | X | X | X | X | X | X |
 | **Tables** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
 | **Queues** | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X<sup>1</sup> | X | X |
-|  
 
 <sup>1</sup>Tables and Queues when used outside the **USDoD Regions** must encrypt the data before inserting into the Table and Queue (instructions [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-client-side-encryption-java)).
 
@@ -426,7 +400,6 @@ Azure SQL Database can be used in Azure Government supporting Impact Level 5 wor
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure SQL DB** | X | X | X | X | X | X |
-|
 
 ### [Azure SQL Stretch Database](https://azure.microsoft.com/en-us/services/sql-server-stretch-database/)
 
@@ -437,4 +410,3 @@ Azure SQL Stretch Database can be used in Azure Government supporting Impact Lev
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Azure SQL Stretch DB** | X | X | X | X | X | X |
-|
