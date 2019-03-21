@@ -22,15 +22,9 @@ ms.custom: H1Hack27Feb2017
 
 # Create a Windows virtual machine from a Resource Manager template
 
-This article shows you how to deploy an Azure Resource Manager template using Azure PowerShell from Azure Cloud shell. The template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
+This article shows you how to create a Windows virtual machine by deploying an Azure Resource Manager template from the Azure Cloud shell. The template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
 For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
-
-It should take about five minutes to do the steps in this article.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a virtual machine
 
@@ -60,11 +54,13 @@ New-AzResourceGroupDeployment `
     -adminPassword $adminPassword `
     -dnsLabelPrefix $dnsLabelPrefix
 
- Get-AzVm -ResourceGroupName $resourceGroupName
+ (Get-AzVm -ResourceGroupName $resourceGroupName).name
 
 ```
 
-The last Azure PowerShell command shows the public IP address of the newly created VM. You need the public IP address to connect to the virtual machine. To connect to the virtual machine, see [How to connect and sign on to an Azure virtual machine running Windows](./connect-login.md).
+The last PowerShell command shows the virtual machine name. To connect to the virtual machine, see [How to connect and sign on to an Azure virtual machine running Windows](./connect-logon.md).
+
+If you choose to install and use the PowerShell locally instead of from the Azure Cloud shell, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 In the previous example, you specified a template stored in GitHub. You can also download or create a template and specify the local path with the `--template-file` parameter.
 
