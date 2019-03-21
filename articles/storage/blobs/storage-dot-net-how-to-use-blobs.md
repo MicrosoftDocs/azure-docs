@@ -1,10 +1,10 @@
 ---
-title: How to use Blob storage from .NET
-description: Use the Azure Storage Client Library for .NET to interact with Blob storage
+title: How to use Azure Blob storage from .NET
+description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 04/14/2019
+ms.date: 03/21/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2

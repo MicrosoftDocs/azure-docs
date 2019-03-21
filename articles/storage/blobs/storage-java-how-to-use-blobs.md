@@ -1,10 +1,10 @@
 ---
-title: How to use Blob storage from Java
-description: Use the Azure Storage libraries for Java to interact with Blob storage
+title: How to use Azure Blob storage from Java
+description: Use the Azure Storage libraries for Java to interact with Azure Blob storage
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 04/21/2019
+ms.date: 03/21/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
@@ -268,4 +268,4 @@ static void deleteContainer(ContainerURL containerURL) {
 
 ## Next steps
 
-Explore more APIs in the [com.microsoft.azure.storage.blob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob?view=azure-java-preview) namespace of the [Azure Storage libraries for Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage?view=azure-java-preview) docs.
+Explore more APIs in the [com.microsoft.azure.storage.blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob?view=azure-java-preview) namespace of the [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-preview) docs.
