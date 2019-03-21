@@ -36,7 +36,7 @@ Before you configure and set up your Data Box Edge device, make sure that:
 
 2. Connect the computer to PORT 1 on your device. Use the following illustration to identify PORT 1 on your device.
 
-  ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
 
 3. Open a browser window and access the local web UI of the device at https://192.168.100.10.  

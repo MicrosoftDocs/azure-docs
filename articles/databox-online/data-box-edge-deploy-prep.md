@@ -117,7 +117,7 @@ To create a Data Box Edge resource, take the following steps in the Azure portal
 
 7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Review Data Box Edge resource details nad privacy terms](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
+    ![Review Data Box Edge resource details and privacy terms](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
 
 8. Select **Create**.
 

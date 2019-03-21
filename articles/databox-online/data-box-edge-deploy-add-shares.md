@@ -131,6 +131,7 @@ On your Linux client connected to your Data Box Edge device, do the following pr
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
+    > Use of `sync` option when mounting shares improves the transfer rates of large files.
     > Before you mount the share, make sure that the directories that will act as mountpoints on your local computer are already created. These directories should not contain any files or subfolders.
 
     The following example shows how to connect via NFS to a share on your Data Box Edge device. The device IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/databoxubuntuhost/edge`.
