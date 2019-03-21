@@ -267,7 +267,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): Delete request with a subquery based on select over a view.
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto a external table fail when drop partition first.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto an external table fail when drop partition first.
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC does not recognize UNIONTYPE columns.
 
@@ -365,7 +365,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): With CBO enabled, Query on partitioned views throws IndexOutOfBoundException.
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto a external table fail when drop partition first.
+-   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): insert overwrite partition onto an external table fail when drop partition first.
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC does not recognize UNIONTYPE columns.
 
@@ -987,7 +987,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                         | Order by position does not work when cbo is disabled                                                   |
 | BUG-93595              | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378), [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)         | HBase mapped table in Hive insert fail for decimal and binary columns                                  |
 | BUG-94007              | [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112) | Phoenix Queries returns Null values due to HBase Partial rows                                          |
-| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | insert overwrite partition onto a external table fail when drop partition first                        |
+| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | insert overwrite partition onto an external table fail when drop partition first                        |
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | View with union type and UDF to \`cast\` the struct is broken                                          |
 | BUG-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | Integer overflow in GroupBy execution                                                                  |
 | BUG-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat - negative array index                                                             |
