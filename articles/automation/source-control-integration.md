@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -14,7 +14,7 @@ manager: carmonm
 
 Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
 
-Azure Automation supports 3 types of source control:
+Azure Automation supports three types of source control:
 
 * GitHub
 * Azure Repos (Git)
@@ -24,6 +24,7 @@ Azure Automation supports 3 types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run-As Account](manage-runas-account.md)
+* Ensure you have the [latest Azure modules](shared-resources/modules.md) in your Automation Account
 
 > [!NOTE]
 > Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
@@ -43,10 +44,10 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Source control name     | A friendly name for the source control        |
 |Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository, type the name in the field and click **Search on GitHub**.|
-|Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
-|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks </br>*Only runbooks in the folder specified are synced. Recursion is not supported.*        |
+|Branch     | The branch to pull the source files from. Branch targeting isn't available for the TFVC source control type.          |
+|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks </br>*Only runbooks in the folder specified are synced. Recursion isn't supported.*        |
 |Auto Sync     | Turns on or off automatic sync when a commit is made in the source control repository         |
-|Publish Runbook     | If set to **On**, after runbooks are synced from source control they will be automatically published.         |
+|Publish Runbook     | If set to **On**, after runbooks are synced from source control they'll be automatically published.         |
 |Description     | A text field to provide additional details        |
 
 ![Source control summary](./media/source-control-integration/source-control-summary.png)
@@ -107,7 +108,7 @@ For more information about creating a personal access token in Azure Repos, visi
 |Work items (read)    |
 |Service Connections (read, query, and manage)<sup>1</sup>    |
 
-<sup>1</sup>The Service Connections permission is only required if you have enabled autosync.
+<sup>1</sup> The Service Connections permission is only required if you have enabled autosync.
 
 ## Syncing
 
@@ -162,7 +163,7 @@ Select the source control you want to remove. On the **Source Control Summary** 
 
 ## Encoding
 
-If multiple people are editing runbooks in your source control repository with different editors there is a chance to run into encoding issues. This can insert incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## Next steps
 
