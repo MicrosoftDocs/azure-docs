@@ -10,9 +10,9 @@ manager: carmonm
 ---
 # Onboard a customer to Azure Delegated Resource Management
 
-This article explains how you, as a service provider, can onboard a customer to Azure Delegated Resource Management, allowing their resources to be accessed and managed through your own tenant. While we’ll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+This article explains how you, as a service provider, can onboard a customer to Azure Delegated Resource Management, allowing their resources to be accessed and managed through your own Azure AD tenant. While we’ll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
-You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your own Azure AD tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to log in to every individual customer tenant.
+You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to log in to every individual customer tenant.
 
 > [!NOTE]
 > Customers can be onboarded automatically when they purchase a managed services offer that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md).
@@ -20,7 +20,7 @@ You can repeat this process if you are managing resources for multiple customers
 The onboarding process requires actions to be taken from within both the service provider’s tenant and from the customer’s tenant. All of these steps are described in this article.
 
 > [!IMPORTANT]
-> Currently, if a customer has deployed any Azure managed applications to a subscription, that subscription can’t be onboarded for Azure Delegated Resource Management.
+> If a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management at this time.
 
 ## Gather tenant and subscription details
 
@@ -100,16 +100,16 @@ Microsoft.ManagedServices  Registered
 
 As a service provider, you may have multiple offers with a single customer, requiring different access for different customer scopes. 
 
-To make management easier, we recommend using Azure AD groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
+To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
 
 For example, you may want to use a structure like this:
 
 
 |Group name  |Type  |objectId/appId  |Role definition  |Role definition ID  |
 |---------|---------|---------|---------|---------|
-|Architects     |Azure AD group         |\<objectId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Assessment     |Azure AD group         |\<objectId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|VM Specialists     |Azure AD group         |\<objectId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
+|Architects     |User group         |\<objectId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Assessment     |User group         |\<objectId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|VM Specialists     |User group         |\<objectId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automation     |Service principal name (SPN)         |\<objectId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 You’ll need to have these ID values ready in order to define authorizations. If you don’t have them already, you can retrieve them in one of the following ways.
@@ -134,13 +134,13 @@ You’ll need to have these ID values ready in order to define authorizations. I
 
 ```azurecli
 # To retrieve the objectId for an Azure AD group
-az ad group list –-query "[?displayName == '<yourGroupName> '].objectId" –-output tsv
+az ad group list –-query "[?displayName == '<yourGroupName>'].objectId" –-output tsv
 
 # To retrieve the objectId for an Azure AD user
 az ad user show –-upn-or-object-id "<yourUPN>" –-query "objectId " –-output tsv
 
 # To retrieve the objectId for an SPN
-az ad sp list –-query "[?displayName == '<spDisplayName> '].objectId" –-output tsv
+az ad sp list –-query "[?displayName == '<spDisplayName>'].objectId" –-output tsv
 
 # To retrieve role definition IDs
 az role definition list –-name "<roleName>" | grep name
@@ -153,12 +153,12 @@ To onboard your customer, you’ll need to create an [Azure Resource Manager](ht
 
 |Field  |Definition  |
 |---------|---------|
-|mspName     |Service provider name         |
-|description     |A brief description of your offer (for example, “Contoso VM management offer”)      |
-|managedByTenantId     |Your tenant ID         |
-|authorizations     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
+|**mspName**     |Service provider name         |
+|**description**     |A brief description of your offer (for example, “Contoso VM management offer”)      |
+|**managedByTenantId**     |Your tenant ID         |
+|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
 
-Use the Azure Resource Manager template **namegoeshere**. Be sure to download the **parameter file** and modify it to match your configuration and define your authorizations.
+Use the Azure Resource Manager template that we provide, along with a parameter file that you modify to match your configuration and define your authorizations.
 
 The following example shows a modified parameter file.
 
@@ -237,7 +237,7 @@ az deployment create –-name <deploymentName \
 
 When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider’s tenant will be able to see the subscription and its resources (if they have the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
 
-## Azure portal
+### Azure portal
 
 In the service provider’s tenant:
 1. Open the **My customers** blade.
@@ -249,11 +249,12 @@ In the customer’s tenant:
 2. Select **Providers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
-## PowerShell
+### PowerShell
 
 ```powershell
 Get-AzureRmSubscription
 ```
+### Azure CLI
 
 ```azurecli
 az account list
