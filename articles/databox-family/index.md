@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>The Azure Data Box family offers products of differing storage capacities to help send terabytes (TB) of data to Azure in a quick, inexpensive, and reliable way. Microsoft accelerates secure data transfer by shipping you proprietary storage devices that enable offline or over the network data transfer.</p>
 <h2>Offline data transfer</h2>
 <p>For limited to no network bandwidth</p>
-<ul class="cardsA panelContent cols cols3">
+<ul class="cardsA singlePanelContent cols cols3" style="display:flex!important;">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
