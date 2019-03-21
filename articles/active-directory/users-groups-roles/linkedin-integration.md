@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Consent to LinkedIn account connections for an Azure Active Directory organization
 
-In this article, you can learn how to allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization in the Azure Active Directory (Azure AD) [admin center](https://aad.portal.azure.com).
+In this article, you'll see how to allow users to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts. You can integrate your organization in the Azure Active Directory (Azure AD) [admin center](https://aad.portal.azure.com).
 
 > [!IMPORTANT]
 > The LinkedIn integration setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
