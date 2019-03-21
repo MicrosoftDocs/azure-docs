@@ -22,7 +22,7 @@ You can deploy models to the following compute targets:
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure Machine Learning Compute](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
+| [Azure Machine Learning Compute (amlcompute)](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
