@@ -73,7 +73,7 @@ When you migrate mainframe workloads to Azure infrastructure as a service (IaaS)
 
 In comparing mainframe capacity to Azure compute power, the metric of one million instructions per second (MIPS) is often mapped to virtual CPUs. Azure provides mainframe-like features and compute capacity that is comparable to IBM z14-based systems.
 
-Learn how to [move mainframe compute to Azure](/concepts/mainframe-compute-on-azure.md).
+Learn how to [move mainframe compute to Azure](./Concepts/mainframe-compute-on-azure.md).
 
 ### High availability and failover
 
@@ -90,7 +90,7 @@ Mainframes typically scale up, while cloud environment scale out. Azure offers a
 
 In the cloud, you have a range of flexible, scalable storage options, and you pay only for what you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 
-Learn how to [move mainframe storage to Azure](/concepts/mainframe-storage-on-azure.md)
+Learn how to [move mainframe storage to Azure](./Concepts/mainframe-storage-on-azure.md).
 
 ### Backup and recovery
 
