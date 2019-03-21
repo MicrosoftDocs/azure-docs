@@ -21,12 +21,12 @@ sections:
   - type: list
     style: cards
     className: cardsM
-    columns: 3
+    columns: 2
     items:
       - image:
           src:  
-        text: What is Video Indexer?
-        href:  /azure/media-services/latest/stream-files-dotnet-quickstart
+        text: Learn about Media Services concepts that apply to the Azure Media Services v3 APIs.
+        href:  /azure/media-services/latest/concepts-overview/
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
