@@ -20,7 +20,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 ## <a id="prereq"></a>Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
 

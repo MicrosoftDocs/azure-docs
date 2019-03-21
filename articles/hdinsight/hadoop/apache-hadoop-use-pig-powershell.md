@@ -23,7 +23,7 @@ This document provides an example of using Azure PowerShell to submit Apache Pig
 
 ## <a id="prereq"></a>Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **An Azure HDInsight cluster**
 

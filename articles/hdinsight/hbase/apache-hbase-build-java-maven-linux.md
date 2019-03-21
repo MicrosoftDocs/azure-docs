@@ -24,7 +24,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 ## Requirements
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * [Java platform JDK](https://aka.ms/azure-jdks) 8 or later.
 

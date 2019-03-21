@@ -14,7 +14,7 @@ ms.author: hrasheed
 
 This article gives recommendations for managing the infrastructure of Azure HDInsight clusters. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Plan for HDInsight cluster capacity
 

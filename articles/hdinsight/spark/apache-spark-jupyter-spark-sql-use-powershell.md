@@ -24,7 +24,7 @@ In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluste
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Create an HDInsight Spark cluster
 
