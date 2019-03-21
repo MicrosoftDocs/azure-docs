@@ -6,39 +6,45 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: danlep
 ---
 
 # Upgrade a Classic container registry
 
-Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries). This article details how to migrate your unmanaged Classic registry to one of the managed SKUs.
+Azure Container Registry (ACR) is available in several service tiers, [known as SKUs](container-registry-skus.md). The initial release of ACR offered a single SKU, Classic, that lacks several features inherent to the Basic, Standard, and Premium SKUs (collectively known as *managed* registries).
 
-> [!IMPORTANT]
-> The Classic SKU is **deprecated** as of **March 2019**. You should upgrade any Classic registry in current use to a managed SKU. Use Basic, Standard, or Premium for all new container registries. 
-> 
+The Classic SKU is being deprecated, and will be unavailable after April 2019. This article details how to migrate your unmanaged Classic registry to one of the managed SKUs so that you can take advantage of their enhanced feature set.
 
-## Upgrade options
+## Why upgrade?
 
-See [Azure Container Registry SKUs](container-registry-skus.md) for details about the storage limits and features of the Basic, Standard, and Premium SKUs. The managed SKUs all provide the same programmatic capabilities. They also all benefit from [image storage](container-registry-storage.md) managed entirely by Azure. 
+The Classic registry SKU is being **deprecated**, and will be unavailable after **April 2019**. All existing Classic registries should be upgraded prior to April 2019. Creation of new Classic registries will be disabled after April 2019.
 
-When you upgrade a registry, the storage limit of the target SKU must be greater than the current size of the registry. If you use the Azure CLI to upgrade, you can select any SKU with sufficient capacity. If you use the Azure portal to upgrade, the lowest-level SKU that can accommodate your images is automatically selected.
+Because of the planned deprecation and limited capabilities of Classic unmanaged registries, all Classic registries should be upgraded to managed registries (Basic, Standard, or Premium). These higher-level SKUs more deeply integrate the registry into the capabilities of Azure. For more information about the pricing and capabilities of the different service tiers, see [Container Registry SKUs](container-registry-skus.md).
+
+The Classic registry depends on the storage account that Azure automatically provisions in your Azure subscription when you create the registry. By contrast, the Basic, Standard, and Premium SKUs take advantage of Azure's [advanced storage features](container-registry-storage.md) by transparently handling the storage of your images for you. A separate storage account is not created in your own subscription.
+
+Managed registry storage provides the following benefits:
+
+* Container images are [encrypted at rest](container-registry-storage.md#encryption-at-rest).
+* Images are stored using [geo-redundant storage](container-registry-storage.md#geo-redundant-storage), assuring backup of your images with multi-region replication (Premium SKU only).
+* Ability to freely [move between SKUs](container-registry-skus.md#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase.
+* Unified security model for the registry and its storage provides simplified rights management. You manage permissions only for the container registry, without having to also manage permissions for a separate storage account.
+
+For additional details on image storage in ACR, see [Container image storage in Azure Container Registry](container-registry-storage.md).
+
+## Migration considerations
+
+When you upgrade a Classic registry to a managed registry, Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. Depending on the size of your registry, this process can take a few minutes to several hours. For estimation purposes, expect a migration time of approximately 0.5 GiB per minute.
+
+During the conversion process, `docker push` operations are disabled during the last 10% of the migration. `docker pull` continues to function normally.
+
+Do not delete or modify the contents of the storage account backing your Classic registry during the conversion process. Doing so can result in the corruption of your container images.
+
+Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is no longer used by Azure Container Registry. After you've verified that the migration was successful, consider deleting the storage account to help minimize cost.
 
 >[!IMPORTANT]
 > Upgrading from Classic to one of the managed SKUs is a **one-way process**. Once you've converted a Classic registry to Basic, Standard, or Premium, you cannot revert to Classic. You can, however, freely move between managed SKUs with sufficient capacity for your registry.
-
-
-## Before you upgrade
-
-Be aware of the following before you upgrade a Classic registry:
-
-* Azure must copy all existing container images from the ACR-created storage account in your subscription to a storage account managed by Azure. Depending on the registry's size, this process can take a few minutes to several hours.
-
-* During the conversion process, all `docker push` operations are blocked, while `docker pull` continues to function.
-
-* Do not delete or modify the contents of the storage account backing your Classic registry during the conversion process. Doing so can result in the corruption of your container images.
-
-* Once the migration is complete, the storage account in your subscription that originally backed your Classic registry is no longer used by ACR. After you've verified that the migration was successful, consider deleting the storage account to help minimize cost.
 
 ## How to upgrade
 
@@ -83,7 +89,7 @@ If you receive a similar error, run the [az acr update][az-acr-update] command a
 
 ## Upgrade in Azure portal
 
-When you upgrade a Classic registry by using the Azure portal, Azure automatically selects the lowest-level SKU that can accommodate your images. For example, if your registry contains 12 GiB in images, Azure automatically selects and converts the Classic registry to Standard (100 GiB maximum).
+When you upgrade a Classic registry by using the Azure portal, Azure selects either the Standard or Premium SKU by default, depending on which SKU can accommodate your images. For example, if your registry contains less than 100 GiB in images, Azure automatically selects and converts the Classic registry to Standard (100 GiB maximum).
 
 To upgrade your Classic registry by using the Azure portal, navigate to the container registry **Overview** and select **Upgrade to managed registry**.
 
@@ -91,19 +97,17 @@ To upgrade your Classic registry by using the Azure portal, navigate to the cont
 
 Select **OK** to confirm that you want to upgrade to a managed registry.
 
-![Classic registry upgrade confirmation in the Azure portal UI][update-classic-02-confirm]
-
-During migration, the portal indicates that the registry's **Provisioning state** is *Updating*. As mentioned earlier, `docker push` operations are disabled during the migration, and you must not delete or update the storage account used by the Classic registry while the migration is in progress--doing so can result in image corruption.
+During migration, the portal indicates that the registry's **Provisioning state** is *Updating*. As mentioned earlier, `docker push` operations are disabled during the last 10% of the migration. Do not delete or update the storage account used by the Classic registry while the migration is in progress--doing so can result in image corruption.
 
 ![Classic registry upgrade progress in the Azure portal UI][update-classic-03-updating]
 
-When the migration is complete, the **Provisioning state** indicates *Succeeded*, and you can once again `docker push` to your registry.
+When the migration is complete, the **Provisioning state** indicates *Succeeded*, and you can resume normal operations with your registry.
 
 ![Classic registry upgrade completion state in the Azure portal UI][update-classic-04-updated]
 
 ## Next steps
 
-Once you've upgraded a Classic registry to Basic, Standard, or Premium, Azure no longer uses the storage account that originally backed the Classic registry. To reduce cost, consider deleting the storage account or the Blob container within the account that contains your old container images.
+Once you've upgraded a Classic registry to a managed registry, Azure no longer uses the storage account that originally backed the Classic registry. To reduce cost, consider deleting the storage account or the Blob container within the account that contains your old container images.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade/update-classic-01-upgrade.png
