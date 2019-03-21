@@ -184,7 +184,7 @@ To remove a replica from the availability group, do the following:
    ```azurecli
    # Remove SQL VM from cluster
    # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
-   az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
+   az sql vm remove-from-group --name <SQL VM name> --resource-group <RG name> 
    ```
 
 ## Remove availability group listener
