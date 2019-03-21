@@ -8,14 +8,14 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
 ---
 
-# Use the prediction endpoint to test images programmatically with a Custom Vision Service classifier
+# Use the prediction endpoint to test images programmatically
 
-After you train your model, you can test images programmatically by submitting them to the Prediction API. 
+After you train your model, you can test images programmatically by submitting them to the Prediction API.
 
 > [!NOTE]
 > This document demonstrates using C# to submit an image to the Prediction API. For more information and examples of using the API, see the [Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865445).
@@ -36,7 +36,7 @@ From the [Custom Vision web page](https://customvision.ai), select your project 
 
 1. From Visual Studio, create a new C# console application.
 
-2. Use the following code as the body of the __Program.cs__ file.
+1. Use the following code as the body of the __Program.cs__ file.
 
     > [!IMPORTANT]
     > Change the following information:
