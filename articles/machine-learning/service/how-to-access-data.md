@@ -17,13 +17,13 @@ ms.custom: seodec18
 
 # Access data from your datastores
 
-Datastores allow you to interact with and access your data whether you are running your code locally, on a compute cluster, or on a virtual machine. In this article, you learn the Azure Machine Learning workflows that ensure your datastores are accessible and made available to your compute context.
+ In Azure Machine Learning service, datastores are a compute location independent mechanism to access storage without requiring changes to your source code. Whether you write training code to take a path as a parameter or provide a datastore to an estimator, Azure Machine Learning workflows ensure your datastore locations are accessible and made available to your compute context.
 
 This how-to shows examples for the following tasks:
 * [Choose a datastore](#access)
 * [Get data](#get)
 * [Upload and download data to datastores](#up-and-down)
-* [Access datastore](#train)
+* [Access datastore during training](#train)
 
 ## Prerequisites
 
@@ -142,7 +142,7 @@ ds.download(target_path='your target path',
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
 <a name="train"></a>
-## Access datastores
+## Access datastores during training
 
 Once you make your datastore available on the remote compute, you can access it during training runs (for example, training or validation data) by simply passing the path to it as a parameter in your training script.
 
@@ -175,7 +175,7 @@ ds.path('./bar').as_download()
 
 ### Which methods are compatible with my compute context and datastore type?
 
-The following matrix displays the methods and functions that are usable in each compute context scenario for Azure Blob and Azure File datastores. For additional datastore types please refer to the Data Reference documentation.
+The following matrix displays the usable methods and functions in each compute context scenario for Azure Blob and Azure File datastores.
 
 ||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
