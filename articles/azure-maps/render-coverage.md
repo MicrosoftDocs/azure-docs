@@ -263,7 +263,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Guernsey                  | ✓ | ✓ |
 | Hungary                   | ✓ | ✓ |
 | Iceland                   | ✓ | ✓ |
-| Ireland (Republic of)     | ✓ | ✓ |
+| Ireland                   | ✓ | ✓ |
 | Isle of Man               | ✓ | ✓ |
 | Italy                     | ✓ | ✓ |
 | Jan Mayen                 | ✓ | ✓ |

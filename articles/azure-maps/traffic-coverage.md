@@ -13,7 +13,7 @@ manager: timlt
 
 # Azure Maps traffic coverage
 
-Azure Maps provides rich traffic information in the form of traffic **flow** and **incidents**. This data can be visualized on maps or used to generate smarter routes that factor in real driving conditions. 
+Azure Maps provides rich traffic information in the form of traffic **flow** and **incidents**. This data can be visualized on maps or used to generate smarter routes that factor in real driving conditions.
 
 However, Maps does not have the same level of information and accuracy for all regions. The following table provides information about what kind of traffic information you can request from each region: 
 
@@ -30,7 +30,7 @@ However, Maps does not have the same level of information and accuracy for all r
 |Peru       |✓         |✓         | 
 |United States     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
-|Uraguay |✓         |✓         |
+|Uruguay |✓         |✓         |
 
 
 ## Asia Pacific
@@ -67,17 +67,17 @@ However, Maps does not have the same level of information and accuracy for all r
 |Finland     |✓         |✓         |
 |+Åland Islands      |✓         |✓         |
 |France     |✓         |✓         |
-|Monaco     |✓         |✓         |
+|+Monaco     |✓         |✓         |
 |Germany     |✓         |✓         |
 |Gibralter   |✓         |✓         |
 |Greece     |✓         |✓         |
 |Hungary     |✓         |✓         |
 |Iceland     |✓         |✓         |
-|Ireland (Republic of)     |✓         |✓         |
+|Ireland     |✓         |✓         |
 |Italy     |✓         |✓        |
-|+San Marino     |✓         |✓         |
 |Latvia     |✓         |✓         |
 |Lesotho     |✓         |✓         |
+|Liechtenstein      |✓         |✓         |
 |Lithuania     |✓         |✓         |
 |Luxembourg     |✓         |✓         |
 |Malta     |✓         |✓         |
@@ -99,13 +99,12 @@ However, Maps does not have the same level of information and accuracy for all r
 |+Gibraltar     |✓         |✓         |
 |Sweden     |✓         |✓         |
 |Switzerland     |✓         |✓        |
-|+Liechtenstein      |✓         |✓         |
 |Turkey     |✓         |✓         |
 |Ukraine     |✓         |✓         |
 |United Kingdom     |✓         |✓         |
-|(Guernsey & Jersey)     |✓         |✓         |
+|+Guernsey & Jersey     |✓         |✓         |
 |+Isle of Man     |✓         |✓         |
-|Vatican    |✓         |✓         |
+|Vatican City   |✓         |✓         |
 
 
 ## Middle East and Africa

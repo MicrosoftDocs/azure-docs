@@ -106,6 +106,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
+| Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -129,7 +130,6 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Senkaku Islands                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Solomon Islands                                     |                 |                |              |      ✓     |          ✓         |
-| Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Southern Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Spratly Islands                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
@@ -172,7 +172,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Hungary                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Iceland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ireland (Republic of)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ireland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isle Of Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Italy                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
@@ -283,7 +283,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Syria                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé and Príncipe, Democratic Republic of       |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé and Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunisia                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |

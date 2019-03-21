@@ -136,6 +136,7 @@ The following table provides coverage information for Azure Maps routing.
 | Hong Kong                      |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
+| Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Macau                          |        ✓       |         ✓            |             |
 | Malaysia                       |        ✓       |         ✓            |             |
@@ -143,7 +144,6 @@ The following table provides coverage information for Azure Maps routing.
 | New Zealand                    |        ✓       |         ✓            |     ✓       | 
 | Philippines                    |        ✓       |         ✓            |             |
 | Singapore                      |        ✓       |         ✓            |             |
-| Korea                          |        Ø       |                      |             |
 | Taiwan                         |        ✓       |         ✓            |             |
 | Thailand                       |        ✓       |         ✓            |             |
 | Vietnam                        |        ✓       |         ✓            |             |
@@ -181,7 +181,7 @@ The following table provides coverage information for Azure Maps routing.
 | Guernsey                       |        ✓       |                      |             |
 | Hungary                        |        ✓       |         ✓            |     ✓      | 
 | Iceland                        |        ✓       |         ✓            |             |
-| Ireland (Republic of)          |        ✓       |         ✓            |     ✓      | 
+| Ireland                        |        ✓       |         ✓            |     ✓      | 
 | Italy                          |        ✓       |         ✓            |     ✓      | 
 | Jersey                         |        ✓       |                      |             |
 | Latvia                         |        ✓       |         ✓            |     ✓      | 
@@ -239,3 +239,8 @@ The following table provides coverage information for Azure Maps routing.
 | Saudi Arabia                   |        ✓       |         ✓            |             |
 | United Arab Emirates           |        ✓       |         ✓            |             |
 | Yemen                          |        ✓       |                      |             |
+
+
+## Next steps
+
+For more information about Azure Maps routing, see the [Routing](https://docs.microsoft.com/rest/api/maps/route) reference pages.
