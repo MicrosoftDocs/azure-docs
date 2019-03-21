@@ -76,11 +76,11 @@ For the simple deployment in this tutorial, you'll need two shares: one Edge sha
 
     If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
 
-    `rsync --inplace <source file path> < destination file path>`
+    `rsync <source file path> < destination file path>`
 
     For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).
 
-    The local share is created, and you'll receive a successful creation notification. The share list might be updated, but you must wait for the share creation to be completed.
+    The Edge share is created, and you'll receive a successful creation notification. The share list might be updated, but you must wait for the share creation to be completed.
 
 2. Add an Edge local share on the Edge device by repeating all the steps in the preceding step and selecting the check box for **Configure as Edge local share**. The data in the local share stays on the device.
 
