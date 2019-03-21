@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Perform an access review from the My Apps portal
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-myapps-portal.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
@@ -37,17 +37,17 @@ If your administrator has given you permission to perform your own access review
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/myapps-portal/myapps-portal-apps-page-accessreview-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-accessreview-tile.png)
 
 3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
 
-    ![Access reviews page with pending access reviews for the organization](media/myapps-portal/myapps-portal-access-reviews-page.png)
+    ![Access reviews page with pending access reviews for the organization](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
 4. Select **Begin review** to start your access review.
 
-5. Review your access and determine whether it's stil necessary.
+5. Review your access and determine whether it's still necessary.
 
-    ![Access review page, showing the review details](media/myapps-portal/myapps-portal-perform-access-reviews-page.png)
+    ![Access review page, showing the review details](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
     >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
@@ -56,7 +56,7 @@ If your administrator has given you permission to perform your own access review
 
     If you select **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![Access review page, showing the Reason box with sample text](media/myapps-portal/myapps-portal-perform-access-reviews-reasonbox.png)
+    ![Access review page, showing the Reason box with sample text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
 7. Select **Submit**.
 
@@ -67,8 +67,8 @@ If your administrator has given you permission to perform your own access review
 
 ## Next steps
 
-- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](myapps-portal-end-user-update-profile.md).
+- [Change your profile information](my-apps-portal-end-user-update-profile.md).
 
-- [View and update your groups-related information](myapps-portal-end-user-groups.md).
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).

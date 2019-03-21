@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Update your profile and account info from the My Apps portal
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-myapps-portal.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
@@ -27,13 +27,13 @@ You can use your work or school account with the web-based **My Apps** portal, t
 Depending on what your organization has chosen to include on your **Profile** page of the **My Apps** portal, you might see your specific work-related details, along with your devices and activity, and any additional organizations to which you belong.
 
 ### To view your profile information
-1.	Sign in to your work or school account, [go to the **My Apps** portal](myapps-portal-end-user-access.md).
+1.	Sign in to your work or school account, [go to the **My Apps** portal](my-apps-portal-end-user-access.md).
 
 2. From the **Apps** page, select your profile picture from the upper-right corner, where it says your name and your organization, and then select **Profile**.
 
     The **Profile** page appears, showing your profile information.
 
-    ![Profile page, showing all of the available information](media/myapps-portal/myapps-portal-profile-page.png)
+    ![Profile page, showing all of the available information](media/my-apps-portal/my-apps-portal-profile-page.png)
 
 3. From the **Profile** page, you can:
 
@@ -64,7 +64,7 @@ If you want to change the password for your work or school account, you can sele
 
 2. On the **Change password** page, make sure your User ID is correct, and then type your old password and your new password into the boxes.
 
-    ![Change password page](media/myapps-portal/myapps-portal-change-password-page.png)
+    ![Change password page](media/my-apps-portal/my-apps-portal-change-password-page.png)
 
 3. Select **Submit**.
 
@@ -84,7 +84,7 @@ Two-factor verification requires you to use two pieces of verification info, lik
 ### To change your security information
 1. From the **Manage account** area of the **Profile** page, select **Additional security verification**.
 
-    ![Additional security verification page](media/myapps-portal/myapps-portal-additional-verification-page.png)
+    ![Additional security verification page](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
 
 2. On the **Additional security verification** page, you can add, change, or delete the following information:
 
@@ -103,7 +103,7 @@ You can choose to review your organization’s terms of use statement, if it’s
 
 2. Review your organization's terms of use and select **Accept** to confirm that you've read and understood the terms of use for your organization.
 
-    ![Terms of use page from the My Apps portal](media/myapps-portal/myapps-portal-tou-page.png)
+    ![Terms of use page from the My Apps portal](media/my-apps-portal/my-apps-portal-tou-page.png)
 
     If your organization doesn't have a terms of use, you can select **Done** to return to the **Profile** page.
 
@@ -118,8 +118,8 @@ You can choose to sign out of everywhere you’re currently signed in to using y
 ## Next steps
 After you finish your updates on the **Profile** page, you can:
 
-- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [View and update your groups-related information](myapps-portal-end-user-groups.md).
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 
-- [Perform your own access reviews](myapps-portal-end-user-access-reviews.md).
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

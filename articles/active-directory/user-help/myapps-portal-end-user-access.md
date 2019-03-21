@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Access and use apps on the My Apps portal
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-myapps-portal.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
@@ -61,18 +61,18 @@ An icon is added to the right of your **Address** bar, letting you sign-in and c
 #### To change your My Apps portal using the extension
 You can choose how many apps to view in the **Recently Used** section and decide whether to allow your organization's internal URLs to redirect.
 
-1. Select the new **My Apps Secure Sign-in Extension** icon ![Extension icon](media/myapps-portal/myapps-portal-extension-icon.png) to the right of your **Address** bar, and then select **Sign in to get started**.
+1. Select the new **My Apps Secure Sign-in Extension** icon ![Extension icon](media/my-apps-portal/my-apps-portal-extension-icon.png) to the right of your **Address** bar, and then select **Sign in to get started**.
 
-2. Right-click the **Settings** icon ![Settings icon](media/myapps-portal/myapps-portal-extension-settings-icon.png), and then select **Settings**.
+2. Right-click the **Settings** icon ![Settings icon](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), and then select **Settings**.
 
 3. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
 
-    ![Settings page of the extension, showing the available customizations](media/myapps-portal/myapps-portal-extension-settings-page.png)
+    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
 ## Access and use the My Apps portal by device
 You can access and use the My Apps portal on your computer, from an Intune-managed browser, or from an iOS or Android mobile device.
 
-![Apps page in the My Apps portal](media/myapps-portal/myapps-portal-apps-page.png)
+![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
 
 ### Access and use the My Apps portal on your computer
 If you have permission to access and use your organization's cloud-based apps, you can get to them through the **My Apps** portal.
@@ -133,7 +133,7 @@ If your administrator has given you permission, you can add a new app to the **A
 
     The **Add apps** page appears.
 
-    ![Add apps page, in the My Apps portal](media/myapps-portal/myapps-portal-addapps-page.png)
+    ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-addapps-page.png)
 
 2. Select the app you want to add from the provided list, and then select **Add**.
 
@@ -144,8 +144,8 @@ If your administrator has given you permission, you can add a new app to the **A
 ## Next steps
 After you get to the **Apps** page, you can perform the following actions:
 
-- [Change your profile information](myapps-portal-end-user-update-profile.md).
+- [Change your profile information](my-apps-portal-end-user-update-profile.md).
 
-- [View and update your groups-related information](myapps-portal-end-user-groups.md).
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 
-- [Perform your own access reviews](myapps-portal-end-user-access-reviews.md).
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

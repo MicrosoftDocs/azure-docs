@@ -56,7 +56,7 @@ To be able to reset your own password, your administrator must first turn on the
 ## I'm getting an Access Denied message when I start an app
 If you're getting an **Access Denied** message after you start an app from the **My App** portal, you can try the following:
 
-- Make sure you've installed the [My Apps Secure Sign-in Extension](myapps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) and that you're using a [supported browser](myapps-portal-end-user-access.md#supported-browsers).
+- Make sure you've installed the [My Apps Secure Sign-in Extension](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) and that you're using a [supported browser](my-apps-portal-end-user-access.md#supported-browsers).
 
 - Make sure you're using the right URL for the app, and that the URL is on your **Internet Properties > Security > Trusted sites** list.
 
@@ -71,10 +71,10 @@ If after trying these things you still can't access your app, you must contact y
 ## Next steps
 After you sign in to the **My Apps** portal, you can also update your profile and account information, your group information, and access review information (if you have permission).
 
-- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](myapps-portal-end-user-update-profile.md).
+- [Change your profile information](my-apps-portal-end-user-update-profile.md).
 
-- [View and update your groups-related information](myapps-portal-end-user-groups.md).
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
 
-- [Perform your own access reviews](myapps-portal-end-user-access-reviews.md).
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

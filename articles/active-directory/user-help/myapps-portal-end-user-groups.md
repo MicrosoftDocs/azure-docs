@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 # Update your Groups info from the My Apps portal
 You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-myapps-portal.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
@@ -38,11 +38,11 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/myapps-portal/myapps-portal-apps-page-groups-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
 
 3. Select the **Groups** tile to see your group-related information.
 
-    ![Groups page with both owned and member groups](media/myapps-portal/myapps-portal-groups-page.png)
+    ![Groups page with both owned and member groups](media/my-apps-portal/my-apps-portal-groups-page.png)
 
 4. Based on your permissions, you can use the **Groups** page to:
 
@@ -65,7 +65,7 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
     The **Create group** box appears.
 
-    ![Create group box](media/myapps-portal/myapps-portal-creategroup-page.png)
+    ![Create group box](media/my-apps-portal/my-apps-portal-create-group-page.png)
 
 2. Enter the required information:
 
@@ -101,17 +101,17 @@ You can add or remove members for any of your own groups.
 ### To add or remove a member
 1. Select the group you want to add members to, and then select **+** on the *&lt;group_name&gt;* page.
 
-    ![Add a group member, with + sign highlighted](media/myapps-portal/myapps-portal-addmember-link.png)
+    ![Add a group member, with + sign highlighted](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
 2. Search for the member you want to add, from the **Add members** box, and then select **Add**.
 
-    ![Add members box, with new member to add](media/myapps-portal/myapps-portal-addmember-page.png)
+    ![Add members box, with new member to add](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
     An invitation is sent to the new member, to get started accessing the organization's apps.
 
 3. If you added a member by mistake, or if a member has left your organization, you can remove the member by selecting **Remove member** next to the member's name on the *&lt;group_name&gt;* page.
 
-    ![Remove a member, with the removal link highlighted](media/myapps-portal/myapps-portal-removemember-link.png)
+    ![Remove a member, with the removal link highlighted](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
 ## Delete a group
 You can delete any of your own groups at any time. However, if you delete a group by mistake you'll have to create it and add members again.
@@ -119,7 +119,7 @@ You can delete any of your own groups at any time. However, if you delete a grou
 ### To delete the group
 1. Select the group you want to permanently delete, and then select **Delete group** on the *&lt;group_name&gt;* page.
 
-    ![<Group_name> page with the Delete group link highlighted](media/myapps-portal/myapps-portal-deletegroup-link.png)
+    ![<Group_name> page with the Delete group link highlighted](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. Select **Yes** on the confirmation message.
 
@@ -134,7 +134,7 @@ You can join an already existing group from the **Groups** page.
 
     The **Join groups** page appears.
 
-    ![Join groups page, with Join group button highlighted](media/myapps-portal/myapps-portal-joingroup-link.png)
+    ![Join groups page, with Join group button highlighted](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
 2. On the **Join groups** page, select the name of the group you want to join, view the associated group details, and then if the group is available, select **Join group**.
 
@@ -142,12 +142,12 @@ You can join an already existing group from the **Groups** page.
 
 3. If you joined a group by mistake or if you no longer need to be part of it, you can select the group name from the **Join groups** page, and then select **Leave group**.
 
-    ![Join groups page, with Leave group button highlighted](media/myapps-portal/myapps-portal-leavegroup-link.png)    
+    ![Join groups page, with Leave group button highlighted](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
 
 ## Next steps
 
-- [Access and use apps on the My Apps portal](myapps-portal-end-user-access.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](myapps-portal-end-user-update-profile.md).
+- [Change your profile information](my-apps-portal-end-user-update-profile.md).
 
-- [Perform your own access reviews](myapps-portal-end-user-access-reviews.md).
+- [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

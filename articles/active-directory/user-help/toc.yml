@@ -93,14 +93,14 @@
 - name: My Apps portal help
   items:
   - name: Overview
-    href: myapps-portal-end-user-overview.md
+    href: my-apps-portal-end-user-overview.md
   - name: Access and use the My Apps portal
-    href: myapps-portal-end-user-access.md
+    href: my-apps-portal-end-user-access.md
   - name: Update your profile and account info
-    href: myapps-portal-end-user-update-profile.md
+    href: my-apps-portal-end-user-update-profile.md
   - name: Update your groups info
-    href: myapps-portal-end-user-groups.md
+    href: my-apps-portal-end-user-groups.md
   - name: Perform your own access reviews
-    href: myapps-portal-end-user-access-reviews.md
+    href: my-apps-portal-end-user-access-reviews.md
   - name: Troubleshoot issues
-    href: myapps-portal-end-user-troubleshoot.md
+    href: my-apps-portal-end-user-troubleshoot.md
