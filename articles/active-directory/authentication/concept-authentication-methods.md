@@ -1,5 +1,5 @@
 ---
-title: Azure AD authentication methods
+title: Authentication methods - Azure Active Directory
 description: What authentication methods are available in Azure AD for MFA and SSPR
 
 services: active-directory

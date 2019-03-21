@@ -35,7 +35,7 @@ You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsFor
 
 If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under User Settings:
 
-![External Users settings](media/troubleshoot/external-user-settings.png)
+![Screenshot showing the External Users settings](media/troubleshoot/external-user-settings.png)
 
 If you have recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
@@ -47,7 +47,7 @@ Common errors include:
 
 When inviting users whose organization is using Azure Active Directory, but where the specific user’s account does not exist (for example, the user does not exist in Azure AD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The user must check with their admin to determine if external users are allowed. The external user’s admin may need to allow Email Verified users in their domain (see this [article](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) on allowing Email Verified Users).
 
-![Error stating this tenant does not allow email verified users to be added](media/troubleshoot/allow-email-verified-users.png)
+![Error stating the tenant does not allow email verified users](media/troubleshoot/allow-email-verified-users.png)
 
 ### External user does not exist already in a federated domain
 

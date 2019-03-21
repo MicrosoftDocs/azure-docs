@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting in Azure AD password protection
+title: Troubleshooting in Azure AD password protection - Azure Active Directory
 description: Understand Azure AD password protection common troubleshooting
 
 services: active-directory

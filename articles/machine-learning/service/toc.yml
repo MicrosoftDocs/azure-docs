@@ -93,8 +93,8 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Access data
-    displayName: blob get fileshare
+  - name: Get data in datastore
+    displayName: blob get fileshare access storage
     href: how-to-access-data.md
   - name: Train models
     items:
