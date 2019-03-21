@@ -1,6 +1,6 @@
 ---
-title: 'Example for adding autosuggest typeahead to your search box - Azure Search'
-description: Examples of how to improve the end user experience of your data-centric applications using Azure Search autosuggest and suggestions APIs. 
+title: 'Autocomplete example for adding typeahead to a search box - Azure Search'
+description: Enable typeahead query actions in Azure Search by creating suggesters and formulating requests that invoke  suggested queries. 
 manager: cgronlun
 author: heidisteen
 services: search

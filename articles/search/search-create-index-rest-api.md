@@ -1,6 +1,6 @@
 ---
-title: 'Create an index in code using PowerShell and the REST API - Azure Search'
-description: Create a full text searchable index in code using HTTP requests and the Azure Search REST API.
+title: 'Create, load, and query an index using PowerShell and the REST API - Azure Search'
+description: Create, load, and query an index using PowerShell, Invoke-RestMethod, and the Azure Search REST API.
 
 ms.date: 03/15/2019
 author: heidisteen
@@ -28,7 +28,7 @@ This article walks you through the process of creating, loading, and querying an
 
 [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
-A URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+Get the URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
 1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like https:\//my-service-name.search.windows.net.
 
