@@ -12,7 +12,7 @@ ms.date: 03/21/2019
 
 # Use Azure Disk Encryption with Azure virtual machine scale sets extension sequencing
 
-You can add extensions to an Azure virtual machines scale set in a specified order with [extension sequencing](virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Azure disk encryption is one of the extension that can be added as part of a sequence. 
+You can add extensions to an Azure virtual machines scale set in a specified order with [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Azure disk encryption is one of the extension that can be added as part of a sequence. 
 
 In general, encryption should be applied to a disk:
 
