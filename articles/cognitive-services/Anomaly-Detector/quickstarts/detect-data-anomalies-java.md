@@ -1,5 +1,5 @@
 ---
-title: Detect anomalies in your time series data using the Anomaly Detector REST API and Java | Microsoft Docs
+title: "Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Java | Microsoft Docs"
 description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
@@ -11,7 +11,7 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-# Detect anomalies in your time series data using the Anomaly Detector REST API and Java
+# Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Java
 
 Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This Java application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
@@ -65,7 +65,8 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
     static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. For example: https://westus2.api.cognitive.microsoft.com
+    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. 
+    //For example: https://westus2.api.cognitive.microsoft.com
     static final String endpoint = "[YOUR_ENDPOINT_URL]";
     // Replace the dataPath string with a path to the JSON formatted time series data.
     static final String dataPath = "[PATH_TO_TIME_SERIES_DATA]";

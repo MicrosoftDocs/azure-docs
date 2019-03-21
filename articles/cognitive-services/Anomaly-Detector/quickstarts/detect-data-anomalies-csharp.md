@@ -1,5 +1,5 @@
 ---
-title: Detect anomalies in your time series data using the Anomaly Detector REST API and C# | Microsoft Docs
+title: "Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C# | Microsoft Docs"
 description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
@@ -11,7 +11,7 @@ ms.date: 03/01/2019
 ms.author: aahi
 ---
 
-# Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
+# Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and C# 
 
 Use this quickstart to start using the Anomaly Detector API's two detection modes to detect anomalies in your time series data. This C# application sends two API requests containing JSON-formatted time series data, and gets the responses.
 
