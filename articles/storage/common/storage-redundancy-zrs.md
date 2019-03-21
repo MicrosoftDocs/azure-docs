@@ -101,11 +101,11 @@ Once the migration is complete the replication type of the account(s) will chang
 
 **Can I request a live migration of my general-purpose v1 account(s) to ZRS?**
 
-ZRS only supports general-purpose v2 accounts so before submitting a request for a live migration to ZRS make sure to upgrade your account(s) to general-purpose v2. See [Azure storage account overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) and [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-upgrade) for more details.
+ZRS only supports general-purpose v2 accounts so before submitting a request for a live migration to ZRS make sure to upgrade your account(s) to general-purpose v2. See [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [Upgrade to a general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) for more details.
 
 **Can I request a live migration of my read-access geo-redundant storage (RA-GRS) account(s) to ZRS?**
 
-Before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to geo-redundant storage (GRS). See [Changing replication strategy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
+Before submitting a request for a live migration to ZRS make sure your application(s) or workload(s) no longer require access to the secondary read-only endpoint and change the replication type of your storage account(s) to geo-redundant storage (GRS). See [Changing replication strategy](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) for more details.
 
 **Can I request a live migration of my storage account(s) to ZRS  to another region?**
 
