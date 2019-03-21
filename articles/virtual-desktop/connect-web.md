@@ -30,7 +30,7 @@ While any HTML5-capable browser should work, we officially support the following
 
 ## Access remote resources feed
 
-In a browser, navigate to the web client URL your admin gave you to access the client and sign in with your user account.
+In a browser, navigate to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient) sign in with your user account.
 
 >[!NOTE]
 >If you are already signed in using an Azure AD account that is different than the one you would like to use for Windows Virtual Desktop, you may need to sign out or use a private browser window.
