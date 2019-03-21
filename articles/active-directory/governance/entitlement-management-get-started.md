@@ -216,21 +216,27 @@ In this step, you perform the steps as the **internal user** and request access 
 
 1. Sign out of the Azure portal.
 
-1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
+1. Sign in to the [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
+
+1. In the left menu, click **Access packages**.
 
 1. Find the **Web project access package** in the list of all access packages.
 
     ![My Access portal - Access packages](./media/entitlement-management-get-started/my-access-access-packages.png)
 
-1. Click the chevron to view more details about the access package.
+1. In the **Details** column, click the chevron to view details about the access package.
 
-1. Click **Request access**.
+1. Click the checkmark to select the package.
+
+1. Click **Request access** to open the Request access pane.
 
 1. In the **Business justification** box, type the justification **Working on web project**.
 
-1. Set the **Request for a specific period** to **Yes**.
+1. Set the **Request for specific period** toggle to **Yes**.
 
-1. Set the **Starts on** date to today and **Expires on** date to tomorrow.
+1. Set the **Start date** date to today and **End date** date to tomorrow.
+
+    ![My Access portal - Request access](./media/entitlement-management-get-started/my-access-request-access.png)
 
 1. Click **Submit**.
 
@@ -244,17 +250,21 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Sign out of the My Access portal.
 
-1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **approver** user (Nadine or another user).
+1. Sign in to the [My Access portal](https://myaccess.microsoft.com) as the **approver** user (Nadine or another user).
 
 1. In the left menu, click **Approvals**.
 
-1. Find the **internal user** (Beth or another user).
+1. On the **Pending** tab, find the **internal user** (Beth or another user).
 
-1. Click **Details** to display details about the request.
-
-1. In the **Reason** box, type a reason.
+1. In the **Details** column, click **View** to open the Access request pane.
 
 1. Click **Approve**.
+
+1. In the **Reason** box, type the reason **Approved access for web project**.
+
+    ![My Access portal - Access request](./media/entitlement-management-get-started/my-access-approve-request.png)
+
+1. Click **Submit**.
 
 ## Step 7: Validate that access has been assigned
 
@@ -262,15 +272,15 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Sign out of the My Access portal.
 
-1. Sign in to [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
+1. Sign in to the [My Access portal](https://myaccess.microsoft.com) as the **internal user** (Beth or another user).
 
 1. In the left menu, click **Access packages**.
 
 1. Find the **Web project access package**. If you do not see the package, wait 5 minutes and refresh the page.
 
-1. Click the **Web project access package**.
+1. In the **Details** column, click the chevron to view details about the access package.
 
-1. Click the **Resources** tab. You should see the **Engineering Team** group.
+    In the **Groups** list, you should see the **Engineering Team** group.
 
 ## Step 8: Add a policy for guest users to request access (optional)
 
