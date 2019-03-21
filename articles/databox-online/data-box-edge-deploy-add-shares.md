@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/15/2019
+ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
 ---
@@ -32,8 +32,6 @@ Before you add shares to Data Box Edge, make sure that:
 
 - You've activated the physical device as described in [Connect, set up, and activate Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md).
 
-- The device is ready for you to create shares and transfer data.
-
 
 ## Add a share
 
@@ -43,26 +41,28 @@ To create a share, do the following procedure:
 
    ![Device online](./media/data-box-edge-deploy-add-shares/device-online-1.png)
 
-2. Select **+ Add share** on the device command bar. 
+2. Select **+ Add share** on the device command bar.
 
    ![Add a share](./media/data-box-edge-deploy-add-shares/select-add-share-1.png)
 
 3. In the **Add share** pane, do the following procedure:
 
     a. In the **Name** box, provide a unique name for your share.  
-    The share name can have only lowercase letters, numerals, and hyphens. It must have between 3 to 63 characters long and begin with a letter or a numeral. Hyphens must be preceded and followed by a letter or a numeral.
+    The share name can have only lowercase letters, numerals, and hyphens. It must have between 3 to 63 characters and begin with a letter or a numeral. Hyphens must be preceded and followed by a letter or a numeral.
     
     b. Select a **Type** for the share.  
     The type can be **SMB** or **NFS**, with SMB being the default. SMB is the standard for Windows clients, and NFS is used for Linux clients.  
     Depending upon whether you choose SMB or NFS shares, the rest of the options vary slightly. 
 
-    c. Provide a storage account where the share will reside.  
-    If a container doesn't already exist, it's created in the storage account with the newly created share name. If the container already exists, that container is used. 
+    c. Provide a storage account where the share will reside. 
+
     
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
-    The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as blob blocks in Azure, we select **Block Blob**. If you select Page Blob, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
+    The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
+
+    e. Create a new blob container or use an existing one from the dropdown list. If creating a blob container, provide a container name. If a container doesn't already exist, it's created in the storage account with the newly created share name.
    
-    e. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
+    f. Depending on whether you've created an SMB share or an NFS share, do one of the following steps: 
      
     - **SMB share**: Under **All privilege local user**, select **Create new** or **Use existing**. If you create a new local user, enter a username and password, and then confirm the password. This action assigns permissions to the local user. After you've assigned the permissions here, you can use File Explorer to modify them.
 
@@ -74,7 +74,7 @@ To create a share, do the following procedure:
 
         ![Add NFS share](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
    
-4. Select **Create** to create the share. 
+4. Select **Create** to create the share.
     
     You're notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** tile updates to reflect the new share.
     
