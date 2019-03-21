@@ -85,7 +85,7 @@ To create a virtual device, you need:
 Perform the following steps to provision a device in your hypervisor.
 
 1. On your Windows Server host, copy the virtual device image to a local drive. You downloaded this VHDX image through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
-2. Open **Server Manager**. In the top right corner, click **Tools** and select **Hyper-V Manager**.
+2. Open **Server Manager**. In the top-right corner, click **Tools** and select **Hyper-V Manager**.
 
     ![Select Hyper-V Manager in Server Manager](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
   

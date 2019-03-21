@@ -52,7 +52,7 @@ Before you configure and set up your Data Box Gateway, make sure that:
    
     ![Sign in to local web UI](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-4. At the prompt, change the device administrator password. The new password must contains between 8 and 16 characters. It must contain 3 of the following: uppercase, lowercase, numeric, and special characters.
+4. At the prompt, change the device administrator password. The new password must contain between 8 and 16 characters. It must contain 3 of the following: uppercase, lowercase, numeric, and special characters.
 
     ![Change device admin password](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
@@ -124,7 +124,7 @@ Your dashboard displays the various settings that are required to configure and 
 
         ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
 
-    4. You may need to wait several minute after the update is successfully completed. The page updates to indicate that the device is successfully activated.
+    4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 

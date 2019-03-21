@@ -6,11 +6,11 @@ ms.date: 03/05/2019
 ms.author: alkohli
 ---
 
-On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dockerdbe` function.
+On a Data Box Edge device that has the compute role configured, a subset of docker commands are available to monitor or troubleshoot modules. To see a list of available commands, [connect to the PowerShell interface](#connect-to-the-powershell-interface) and use the `dkrdbe` function.
 
 ```powershell
-[10.128.26.24]: PS>dockerdbe -?
-Usage: dockerdbe COMMAND
+[10.128.26.24]: PS>dkrdbe -?
+Usage: dkrdbe COMMAND
 
 Commands:
    image [prune]
@@ -30,7 +30,7 @@ Commands:
 
 [10.128.26.24]: PS>
 ```
-The following table has a brief description of the commands available for `dockerdbe`:
+The following table has a brief description of the commands available for `dkrdbe`:
 
 |command  |Description |
 |---------|---------|
@@ -49,19 +49,19 @@ The following table has a brief description of the commands available for `docke
 |`system`     | Manage Docker         |
 |`top`     | Display the running processes of a container         |
 
-To get help for any available command, use `dockerdbe <command-name> --help`.
+To get help for any available command, use `dkrdbe <command-name> --help`.
 
 For example, to understand the usage of the `port` command, type:
 
 ```powershell
-[10.128.47.126]: P> dockerdbe port --help
+[10.128.47.126]: P> dkrdbe port --help
 
-Usage:  docker port CONTAINER [PRIVATE_PORT[/PROTO]]
+Usage:  dkr port CONTAINER [PRIVATE_PORT[/PROTO]]
 
 List port mappings or a specific mapping for the container
-[10.128.47.126]: P> dockerdbe login --help
+[10.128.47.126]: P> dkrdbe login --help
 
-Usage:  docker login [OPTIONS] [SERVER]
+Usage:  dkr login [OPTIONS] [SERVER]
 
 Log in to a Docker registry.
 If no server is specified, the default is defined by the daemon.
@@ -73,7 +73,7 @@ Options:
 [10.128.47.126]: PS>
 ```
 
-The available commands for the dockerdbe function use the same parameters as the ones used for the normal docker commands. For the options and parameters used with the docker command, go to [Use the Docker commandline](https://docs.docker.com/engine/reference/commandline/docker/).
+The available commands for the `dkrdbe` function use the same parameters as the ones used for the normal docker commands. For the options and parameters used with the docker command, go to [Use the Docker commandline](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ### To check if the module deployed successfully
 
@@ -82,7 +82,7 @@ Compute modules are containers that have a business logic implemented. To check 
 To get the list of all the containers (including the ones that are paused), run the `ps -a` command.
 
 ```powershell
-[10.128.47.126]: P> dockerdbe ps -a
+[10.128.47.126]: P> dkrdbe ps -a
 CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
 d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
 0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
@@ -97,7 +97,7 @@ Because `logs edgeAgent` dumps all the logs, a good way to see the recent errors
 
 
 ```powershell
-[10.128.47.126]: PS>dockerdbe logs edgeAgent --tail 20
+[10.128.47.126]: PS>dkrdbe logs edgeAgent --tail 20
 2019-02-28 23:38:23.464 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Util.Uds.HttpUdsMessageHandler] - Connected socket /var/run/iotedge/mgmt.sock
 2019-02-28 23:38:23.464 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Util.Uds.HttpUdsMessageHandler] - Sending request http://mgmt.sock/modules?api-version=2018-06-28
 2019-02-28 23:38:23.464 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Agent] - Getting edge agent config...
@@ -120,7 +120,7 @@ To get logs for a specific container, first list the container and then get the 
 2. To get the list of running containers, run the `ps` command.
 
     ```powershell
-    [10.128.47.126]: P> dockerdbe ps
+    [10.128.47.126]: P> dkrdbe ps
     CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
     d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
     0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
@@ -133,7 +133,7 @@ To get logs for a specific container, first list the container and then get the 
 4. To get the logs for a specific container, run the `logs` command providing the container ID.
 
     ```powershell
-    [10.128.47.126]: PS>dockerdbe logs d99e2f91d9a8
+    [10.128.47.126]: PS>dkrdbe logs d99e2f91d9a8
     02/26/2019 18:21:45: Info: Opening module client connection.
     02/26/2019 18:21:46: Info: Initializing with input: /home/input, output: /home/output.
     02/26/2019 18:21:46: Info: IoT Hub module client initialized.
@@ -153,13 +153,13 @@ To monitor the memory, CPU usage, and IO on the device, use the `stats` command.
 2. Run the `stats` command so as to disable the live stream and pull only the first result.
 
    ```powershell
-   dockerdbe stats --no-stream
+   dkrdbe stats --no-stream
    ```
 
    The following example shows the usage of this cmdlet:
 
     ```
-    [10.128.47.126]: P> dockerdbe stats --no-stream
+    [10.128.47.126]: P> dkrdbe stats --no-stream
     CONTAINER ID        NAME          CPU %         MEM USAGE / LIMIT     MEM %         NET I/O             BLOCK I/O           PIDS
     d99e2f91d9a8        movefile      0.0           24.4MiB / 62.89GiB    0.04%         751kB / 497kB       299kB / 0B          14
     0a06f6d605e9        filemove      0.00%         24.11MiB / 62.89GiB   0.04%         679kB / 481kB       49.5MB / 0B         14

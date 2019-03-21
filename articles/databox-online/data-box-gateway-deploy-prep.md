@@ -81,7 +81,7 @@ Before you begin, make sure that:
 
 If you have an existing Data Box Gateway resource to manage your virtual devices, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-To create a Data Box Gateway resource, take the following steps in the Azure portal .
+To create a Data Box Gateway resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to:
 
