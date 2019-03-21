@@ -30,7 +30,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**. 
 
-  ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
+   ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
 
 ## Get recommendation details and implement a solution
 

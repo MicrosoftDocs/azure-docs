@@ -6,7 +6,7 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 
 ---
@@ -24,7 +24,7 @@ A recovery plan helps you to define a systematic recovery process, by creating s
 
 * Model an app around its dependencies.
 * Automate recovery tasks to reduce RTO.
-- Verify that you're prepared for migration or disaster recovery by ensuring that your apps are part of a recovery plan.
+* Verify that you're prepared for migration or disaster recovery by ensuring that your apps are part of a recovery plan.
 * Run test failover on recovery plans, to ensure disaster recovery or migration is working as expected.
 
 
@@ -88,4 +88,4 @@ Watch a quick example video showing a on-click failover for a two-tier WordPress
 ## Next steps
 
 - [Create](site-recovery-create-recovery-plans.md) a recovery plan.
-* Learn about [running failovers](site-recovery-failover.md).  
+- Learn about [running failovers](site-recovery-failover.md).  

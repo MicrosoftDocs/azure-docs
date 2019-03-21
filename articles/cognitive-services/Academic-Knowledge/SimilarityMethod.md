@@ -34,6 +34,7 @@ Parameter        |Data Type      |Required | Description
 *Strings to compare have a maximum length of 1MB.
 </sub>
 <br>
+
 ## Response
 
 Name | Description
@@ -52,6 +53,7 @@ HTTP Status | Reason | Response
 **Timed out**     | Request timed out.  | Error message
 
 <br>
+
 ## Example: Calculate similarity of two partial abstracts
 #### Request:
 ```

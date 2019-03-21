@@ -27,10 +27,8 @@ The intent is to facilitate the investigation process by linking all entities ([
 
 
 > [!NOTE]
-    > * [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
-    > * Investigation is only supported for alerts based on data collected from Windows servers.
->
->
+> * [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
+> * Investigation is only supported for alerts based on data collected from Windows servers.
 
 
 ## How Investigation works?
@@ -94,17 +92,17 @@ The following items are going to be presented regardless of the selected time sc
 
 ## How to perform an investigation?
 
-You can start your investigation from a security incident, or from an alert, the option that you choose will vary according to your needs. The steps that follows are used to start a investigation from an alert:
+You can start your investigation from a security incident, or from an alert, the option that you choose will vary according to your needs. The steps that follows are used to start an investigation from an alert:
 
-1.	Open **Security Center** dashboard.
-2.	Click on **Security Alerts**, and select the incident that you want to investigate.
-3.	In the incident’s page, click on the **Start Investigation** button, and the **Investigation** dashboard appears.
+1.  Open **Security Center** dashboard.
+2.  Click on **Security Alerts**, and select the incident that you want to investigate.
+3.  In the incident’s page, click on the **Start Investigation** button, and the **Investigation** dashboard appears.
 
-	![Alert](./media/security-center-investigation/security-center-investigation-fig8.png)
+    ![Alert](./media/security-center-investigation/security-center-investigation-fig8.png)
 
 4. From this dashboard you can select the entity in the map, and the relevant information about this entity appears on the right side of the screen.
 
-	![Investigation dashboard](./media/security-center-investigation/security-center-investigation-fig9.png)
+    ![Investigation dashboard](./media/security-center-investigation/security-center-investigation-fig9.png)
 
 From this point you can explore the entities that were involved in this incident, and explore more details about each one of them.
 

@@ -116,9 +116,9 @@ To manually add VMs:
 * Data redundancy 
 * Azure Hybrid Benefit
 
-3.	You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
+1. You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
 
-4.	Click 'Re-calculate cost' to update cost.
+1. Click 'Re-calculate cost' to update cost.
 
 **VM Name**: The name of the VM.
 

@@ -1,5 +1,5 @@
 ---
-title: IIS Authentication and Azure MFA Server | Microsoft Docs
+title: IIS Authentication and Azure MFA Server - Azure Active Directory
 description: Deploying IIS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication
@@ -27,7 +27,7 @@ To secure an IIS web application that uses form-based authentication, install th
 1. In the Azure Multi-Factor Authentication Server, click the IIS Authentication icon in the left menu.
 2. Click the **Form-Based** tab.
 3. Click **Add**.
-4. To detect username, password and domain variables automatically, enter the Login URL (like https://localhost/contoso/auth/login.aspx) within the Auto-Configure Form-Based Website dialog box and click **OK**.
+4. To detect username, password and domain variables automatically, enter the Login URL (like `https://localhost/contoso/auth/login.aspx`) within the Auto-Configure Form-Based Website dialog box and click **OK**.
 5. Check the **Require Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.
 6. If the page variables cannot be detected automatically, click **Specify Manually** in the Auto-Configure Form-Based Website dialog box.
 7. In the Add Form-Based Website dialog box, enter the URL to the login page in the Submit URL field and enter an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
@@ -36,9 +36,9 @@ To secure an IIS web application that uses form-based authentication, install th
 10. Check the **Require Azure Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.
 11. Click **Advanced** to review advanced settings, including:
 
-  - Select a custom denial page file
-  - Cache successful authentications to the website for a period of time using cookies
-  - Select whether to authenticate the primary credentials against a Windows Domain, LDAP directory. or RADIUS server.
+    - Select a custom denial page file
+    - Cache successful authentications to the website for a period of time using cookies
+    - Select whether to authenticate the primary credentials against a Windows Domain, LDAP directory. or RADIUS server.
 
 12. Click **OK** to return to the Add Form-Based Website dialog box.
 13. Click **OK**.
@@ -50,7 +50,7 @@ To secure an IIS web application that uses Integrated Windows HTTP authenticatio
 1. In the Azure Multi-Factor Authentication Server, click the IIS Authentication icon in the left menu.
 2. Click the **HTTP** tab.
 3. Click **Add**.
-4. In the Add Base URL dialogue box, enter the URL for the website where HTTP authentication is performed (like http://localhost/owa) and provide an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
+4. In the Add Base URL dialogue box, enter the URL for the website where HTTP authentication is performed (like <http://localhost/owa>) and provide an Application name (optional). The Application name appears in Azure Multi-Factor Authentication reports and may be displayed within SMS or Mobile App authentication messages.
 5. Adjust the Idle timeout and Maximum session times if the default is not sufficient.
 6. Check the **Require Multi-Factor Authentication user match** box if all users have been or will be imported into the Server and subject to multi-factor authentication. If a significant number of users have not yet been imported into the Server and/or will be exempt from multi-factor authentication, leave the box unchecked.
 7. Check the **Cookie cache** box if desired.

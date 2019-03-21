@@ -332,6 +332,22 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
     (This component enables performance counters.)
 
+## Azure App Service config (Spring Boot)
+
+Spring Boot apps running on Windows require additional configuration to run on Azure App Services. Modify **web.config** and add the following:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## Exceptions and request failures
 Unhandled exceptions are automatically collected.

@@ -113,7 +113,7 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 OS/machine | Size limit of data source
---- | --- | ---
+--- | --- 
 Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB

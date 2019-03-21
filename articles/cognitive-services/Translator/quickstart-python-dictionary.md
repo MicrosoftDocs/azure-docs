@@ -27,7 +27,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Python project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `dictionary-lookup.py`.
+Create a new Python project using your favorite IDE or editor, or create a new folder on your desktop. Copy this code snippet into your project/folder into a file named `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -55,8 +55,8 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+# below and add your subscription key. Then, be sure to delete your "os" import.
+# subscriptionKey = 'put_your_key_here'
 ```
 
 The Translator Text global endpoint is set as the `base_url`. `path` sets the `dictionary/lookup` route and identifies that we want to hit version 3 of the API.
@@ -119,7 +119,7 @@ print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separat
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-python dictionary-lookup.py
+python alt-translations.py
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).

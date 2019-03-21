@@ -93,9 +93,9 @@ To resolve the error, follow these steps:
     - If the My Apps Secure Sign-in extension is installed, from the **Test single sign-on** blade, click **download the SAML response**.
     - If the extension is not installed, use a tool such as [Fiddler](https://www.telerik.com/fiddler) to retrieve the SAML response. 
 1. Notice these elements in the SAML response token:
-    - User unique identifier of NameID value and format
-    - Claims issued in the token
-    - Certificate used to sign the token. 
+   - User unique identifier of NameID value and format
+   - Claims issued in the token
+   - Certificate used to sign the token. 
 
      For more information on the SAML response, see [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md).
 

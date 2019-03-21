@@ -107,7 +107,7 @@ In the Object Explorer:
 #### Blob storage
 1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<user\>** has been added.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Click **wingtipstaging\<user\>** storage account to explore the objects present.
 1. Click **Blobs** tile

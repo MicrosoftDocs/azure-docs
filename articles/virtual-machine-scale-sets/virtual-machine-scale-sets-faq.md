@@ -231,7 +231,7 @@ You can provide SSH public keys in plain text when you create a Linux VM:
 ```
 
 linuxConfiguration element name | Required | Type | Description
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
 path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
 keyData | Yes | String | Specifies a base64-encoded SSH public key

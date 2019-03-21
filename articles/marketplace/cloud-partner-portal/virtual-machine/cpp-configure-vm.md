@@ -69,24 +69,23 @@ Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.
 > [!WARNING]
 >  Because updates may run automatically, once you run sysprep, you should to turn off the VM until it is deployed.  This shutdown will avoid subsequent updates from making instance-specific changes to the VHD OS or installed services.
 
-For more information about running sysprep, see [Steps to generalize a VHD]
-(https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### Linux
 
 Following two-step process will generalize a Linux VM and redeploy it as a separate VM.  For more information, see [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md). 
 
 #### Remove the Azure Linux agent
-1.	Connect to your Linux VM using an SSH client.
-2.	In the SSH window, type the following command: <br/>
+1.  Connect to your Linux VM using an SSH client.
+2.  In the SSH window, type the following command: <br/>
     `sudo waagent -deprovision+user`
-3.	Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
-4.	After the command completes, type `exit` to close the SSH client.
+3.  Type `y` to continue. (You can add the `-force` parameter to the previous command avoid this confirmation step.)
+4.  After the command completes, type `exit` to close the SSH client.
 
 <!-- TD: I need to add meat and/or references to the following steps -->
 #### Capture the Image
 1.  Go to the Azure portal, select your resource group (RG) and de-allocate the VM.
-2.	Your VHD is generalized now and you can create a new VM by using this VHD.
+2.  Your VHD is generalized now and you can create a new VM by using this VHD.
 
 
 ## Create one or more copies

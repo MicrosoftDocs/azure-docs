@@ -102,12 +102,14 @@ To configure Azure AD single sign-on with Directions on Microsoft, perform the f
     ![Directions on Microsoft Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
+
     |  |
 	| --- |
 	| `https://www.directionsonmicrosoft.com/user/login` |
 	| `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
     |  |
 	| --- |
 	| `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |

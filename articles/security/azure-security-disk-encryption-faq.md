@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/15/2019
 ms.custom: seodec18
 ---
 
@@ -146,6 +146,9 @@ On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume 
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## Is XFS filesystem supported?
+XFS volumes are supported for data disk encryption. To encrypt a volume currently formated using XFS, specify the EncryptFormatAll option. This will reformat the volume. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 

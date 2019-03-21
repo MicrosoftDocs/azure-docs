@@ -198,12 +198,12 @@ The method has a few key components that you need to understand:
 
 	```powershell
 	Install-Package Microsoft.Azure.Management.DataFactories
-	```
+    ```
 1. Import the **Azure Storage** NuGet package into the project. You need this package because you use the Blob Storage API in this sample:
 
 	```powershell
 	Install-Package Az.Storage
-	```
+    ```
 1. Add the following using directives to the source file in the project:
 
 	```csharp
@@ -217,17 +217,17 @@ The method has a few key components that you need to understand:
 	
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
-	```
+    ```
 1. Change the name of the namespace to **MyDotNetActivityNS**.
 
 	```csharp
 	namespace MyDotNetActivityNS
-	```
+    ```
 1. Change the name of the class to **MyDotNetActivity**, and derive it from the **IDotNetActivity** interface as shown:
 
 	```csharp
 	public class MyDotNetActivity : IDotNetActivity
-	```
+    ```
 1. Implement (add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class. Copy the following sample code to the method. For an explanation of the logic used in this method, see the [Execute method](#execute-method) section.
 
 	```csharp
@@ -309,7 +309,7 @@ The method has a few key components that you need to understand:
 	   // This feature is not implemented yet, so just return an empty dictionary.
 	   return new Dictionary<string, string>();
 	}
-	```
+    ```
 1. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most important, the **Calculate** method isolates the code that iterates through each blob.
 
 	```csharp
@@ -378,7 +378,7 @@ The method has a few key components that you need to understand:
 	   }
 	   return output;
 	}
-	```
+    ```
     The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to.
 
 	```csharp
@@ -390,7 +390,7 @@ The method has a few key components that you need to understand:
 	    "typeProperties": {
 	        "fileName": "file.txt",
 	        "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
-	```
+    ```
 
     The Calculate method calculates the number of instances of the keyword "Microsoft" in the input files (blobs in the folder). The search term "Microsoft" is hard-coded in the code.
 
@@ -429,7 +429,7 @@ This section provides more details about the code in the Execute method.
 	
 	} while (continuationToken != null);
 
-	```
+    ```
    For more information, see the documentation for the [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) method.
 
 1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
@@ -438,38 +438,38 @@ This section provides more details about the code in the Execute method.
 
 	```csharp
 	output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-	```
+    ```
 1. After the **Calculate** method is finished, it must be written to a new blob. For every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
 
 	```csharp
 	// Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
 	Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-	```
+    ```
 1. The code also calls the helper method **GetFolderPath** to retrieve the folder path (the storage container name).
 
 	```csharp
 	folderPath = GetFolderPath(outputDataset);
-	```
+    ```
    The GetFolderPath method casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
 
 	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FolderPath;
-	```
+    ```
 1. The code calls the **GetFileName** method to retrieve the file name (blob name). The code is similar to the previous code that was used to get the folder path.
 
 	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FileName;
-	```
+    ```
 1. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
 
 	```csharp
 	// Write the name of the file.
 	Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-	```
+    ```
 1. After the name of the file is written, you can write the output string from the **Calculate** method to a new blob:
 
 	```csharp
@@ -477,7 +477,7 @@ This section provides more details about the code in the Execute method.
 	CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
 	logger.Write("Writing {0} to the output blob", output);
 	outputBlob.UploadText(output);
-	```
+    ```
 
 ### Create the data factory
 In the [Create the custom activity](#create-the-custom-activity) section, you created a custom activity and uploaded the zip file with binaries and the PDB file to a blob container. In this section, you create a data factory with a pipeline that uses the custom activity.
@@ -658,7 +658,7 @@ In this step, you create datasets to represent input and output data.
 	       "policy": {}
 	   }
 	}
-	```
+    ```
 
 	You create a pipeline later in this walkthrough with the start time 2015-11-16T00:00:00Z and the end time 2015-11-16T05:00:00Z. It's scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -\> **05**:00:00).
 
@@ -719,7 +719,7 @@ In this step, you create another dataset of the type AzureBlob to represent the 
 	       }
 	   }
 	}
-	```
+    ```
 
 	An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder, `mycontainer\\outputfolder`.
 
@@ -789,7 +789,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
 	       "isPaused": false
 	  }
 	}
-	```
+    ```
    Note the following points:
 
    * Only one activity is in the pipeline, and it's of the type **DotNetActivity**.
@@ -801,8 +801,8 @@ In this step, you create a pipeline with one activity, the custom activity you c
    * The **linkedServiceName** property of the custom activity points to **AzureBatchLinkedService**, which tells Data Factory that the custom activity needs to run on Batch.
    * The **concurrency** setting is important. If you use the default value, which is 1, even if you have two or more compute nodes in the Batch pool, the slices are processed one after another. Therefore, you aren't taking advantage of the parallel processing capability of Batch. If you set **concurrency** to a higher value, say 2, it means that two slices (corresponds to two tasks in Batch) can be processed at the same time. In this case, both the VMs in the Batch pool are utilized. Set the concurrency property appropriately.
    * Only one task (slice) is executed on a VM at any point by default. By default, **Maximum tasks per VM** is set to 1 for a Batch pool. As part of the prerequisites, you created a pool with this property set to 2. Therefore, two data factory slices can run on a VM at the same time.
-    - The **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to **true** to pause the pipeline and set it back to **false** to restart.
-    -   The **start** and **end** times are five hours apart. Slices are produced hourly, so five slices are produced by the pipeline.
+     - The **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to **true** to pause the pipeline and set it back to **false** to restart.
+     -   The **start** and **end** times are five hours apart. Slices are produced hourly, so five slices are produced by the pipeline.
 
 1. Select **Deploy** on the command bar to deploy the pipeline.
 
@@ -835,9 +835,9 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
    Five output files are listed, one for each input slice. Each of the output files has content similar to the following output:
 
-	```
+    ```
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
-	```
+    ```
    The following diagram illustrates how the data factory slices map to tasks in Batch. In this example, a slice has only one run.
 
    ![Slice mapping diagram](./media/data-factory-data-processing-using-batch/image16.png)
@@ -852,13 +852,13 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
 1. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**). The output file appears under `mycontainer` in `outputfolder` in your blob storage. There should be a line for each file of the slice.
 
-	```
+    ```
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
-	```
+    ```
 
 > [!NOTE]
 > If you didn't delete the output file 2015-11-16-01.txt before you tried with five input files, you see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to the output file if it already exists.
@@ -899,7 +899,7 @@ Debugging consists of a few basic techniques.
 
    Check the system-0.log for any system error messages and exceptions.
 
-	```
+    ```
 	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
 	
 	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
@@ -907,7 +907,7 @@ Debugging consists of a few basic techniques.
 	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
 	
 	Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
-	```
+    ```
 1. Include the **PDB** file in the zip file so that the error details have information such as call stack when an error occurs.
 
 1. All the files in the zip file for the custom activity must be at the top level with no subfolders.
@@ -943,13 +943,13 @@ You can extend this sample to learn more about Data Factory and Batch features. 
  
 	Autoscale formula:
 
-	``` 
+    ``` 
 	startingNumberOfVMs = 1;
 	maxNumberofVMs = 25;
 	pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 	pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 	$TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
-	```
+    ```
 
    For more information, see [Automatically scale compute nodes in a Batch pool](../../batch/batch-automatic-scaling.md).
 
