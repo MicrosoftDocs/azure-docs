@@ -48,7 +48,13 @@ az account show
 
 ## Confirm that the customer's subscription is ready for onboarding
 
-During the limited preview period, each subscription must be authorized for onboarding. The customer can confirm this by checking to see if they have access to the **Microsoft.ManagedServices** Resource Provider. They can do so in the Azure portal by selecting the subscription, selecting Resource providers, and confirming that **Microsoft.ManagedServices** shows as Registered. They can also do so by using PowerShell or/and Azure CLI.
+During the limited preview period, each subscription must be authorized for onboarding. When a subscription is authorized, the **Microsoft.ManagedServices** resource provider is registered for that subscription. You can confirm that this is the case (from within the customer's tenant) in one of the following ways.
+
+### Azure portal
+
+1. In the Azure portal, select the subscription.
+2. Select **Resource providers**.
+3. Confirm that **Microsoft.ManagedServices** shows as **Registered**.
 
 ### PowerShell
 
@@ -188,7 +194,7 @@ The following example shows a modified parameter file.
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Resource Management template in the customer’s tenant. This must be done by a user with authorization to change roleAssignments for the scopes to the subscriptions you’re onboarding, and the template must be deployed as a subscription level deployment.
+Once you have updated your parameter file, you must deploy the Resource Management template in the customer’s tenant. This must be done by a user with authorization to change role assignments for the subscriptions you’re onboarding, and the template must be deployed as a subscription-level deployment.
 
 > [!IMPORTANT]
 > A separate deployment is needed for each subscription that you want to onboard to Azure Delegated Resource Management.
@@ -229,7 +235,7 @@ az deployment create –-name <deploymentName \
 
 ## Confirm successful onboarding
 
-When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider’s tenant will be able to see the subscription and its resources (if they have the appropriate permissions). You can confirm this in one of the following ways.
+When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider’s tenant will be able to see the subscription and its resources (if they have the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
 
 ## Azure portal
 
@@ -243,6 +249,11 @@ In the customer’s tenant:
 2. Select **Providers**.
 3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
-Note For more about the portal experience for service providers, see ____. For more about the portal experience for customers, see ____.
-
 ## PowerShell
+
+```powershell
+Get-AzureRmSubscription
+```
+
+```azurecli
+az account list
