@@ -1,15 +1,14 @@
 ---
-title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure | Microsoft Docs'
+title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure'
 description: Create and install Windows, Linux, Linux (strongSwan), and Mac OS X VPN client configuration files for P2S certificate authentication.
 services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-
 ---
+
 # Create and install VPN client configuration files for native Azure certificate authentication P2S configurations
 
 VPN client configuration files are contained in a zip file. Configuration files provide the settings required for a native Windows, Mac IKEv2 VPN, or Linux clients to connect to a VNet over Point-to-Site connections that use native Azure certificate authentication.

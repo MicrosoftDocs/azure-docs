@@ -1,5 +1,5 @@
 ---
-title: Azure AD password protection
+title: Azure AD password protection - Azure Active Directory
 description: Ban weak passwords in on-premises Active Directory by using Azure AD password protection
 
 services: active-directory
