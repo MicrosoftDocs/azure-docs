@@ -83,7 +83,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 1. Create a new function called `sendRequest()` that takes the variables created above. Then perform the following steps.
 
-2. Create a `CloseableHttpClient` object that can send requests to the API. send the request to an `HttpPost` request object by combining your endpoint, and an Anomaly Detector URL.
+2. Create a `CloseableHttpClient` object that can send requests to the API. Send the request to an `HttpPost` request object by combining your endpoint, and an Anomaly Detector URL.
 
 3. Use the request's `setHeader()` function to set the `Content-Type` header to to `application/json`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
