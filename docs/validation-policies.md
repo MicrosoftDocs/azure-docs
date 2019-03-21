@@ -210,7 +210,7 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|13.1|Power BI custom visuals must be free. Power BI custom visuals can offer additional purchases. If your Power BI custom visual offers an additional purchase, it must comply with the IAP guidelines. For details, see [Guidelines for Power BI visuals with additional purchases](/power-bi/developer/office-store-in-app-purchase-visual-guidelines). |
+|13.1|Power BI custom visuals must be free. Power BI custom visuals can offer additional purchases. If your Power BI custom visual offers an additional purchase, it must comply with the IAP guidelines. For details, see [Guidelines for Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals). |
 |13.2|Power BI custom visuals submitted to AppSource must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
 |13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI for that visual type, including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
