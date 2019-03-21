@@ -50,7 +50,7 @@ If your administrator has given you permission to perform your own access review
     ![Access review page, showing the review details](media/myapps-portal/myapps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/en-us/azure/active-directory/governance/perform-access-review).
+    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
 
 6. Select **Yes** to keep your access or **No** to remove your access.
 
