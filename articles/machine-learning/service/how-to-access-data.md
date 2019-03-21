@@ -23,11 +23,11 @@ This how-to shows examples for the following tasks:
 * [Choose a datastore](#access)
 * [Get data](#get)
 * [Upload and download data to datastores](#up-and-down)
-* [Access datastore during training](#train)
+* [Access datastore](#train)
 
 ## Prerequisites
 
-To use datastores, you need a [workspace](concept-azure-machine-learning-architecture.md#workspace) first. 
+To use datastores, you first need a [workspace](concept-azure-machine-learning-architecture.md#workspace).
 
 Start by either [creating a new workspace](quickstart-create-workspace-with-python.md) or retrieving an existing one:
 
@@ -142,21 +142,19 @@ ds.download(target_path='your target path',
 `target_path` is the location of the local directory to download the data to. To specify a path to the folder in the file share (or blob container) to download, provide that path to `prefix`. If `prefix` is `None`, all the contents of your file share (or blob container) will get downloaded.
 
 <a name="train"></a>
-## Access datastores during training
+## Access datastores
 
 Once you make your datastore available on the remote compute, you can access it during training runs (for example, training or validation data) by simply passing the path to it as a parameter in your training script.
 
-The following table lists the common [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) method(s) that make datastores available on the remote compute.
+The following table lists the  [`DataReference`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) method(s) that make datastores available on the remote compute.
 
-# #
-
-Way|Method|Description
+Way|Method|Description|
 ----|-----|--------
-Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use to mount a datastore on the remote compute. Default mode for datastores.
-Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Use to download data from the location specified by `path_on_compute` on your datastore to the remote compute.
-Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use to upload data to the root of your datastore from the location specified by `path_on_compute`.
+Mount| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Use to mount a datastore on the remote compute. <br>Default mode for datastores.
+Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Use to download data from the location specified by `path_on_compute` on your datastore to the remote compute. <br> For  training run context, this download happens before the training run. 
+Upload|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Use to upload data to the root of your datastore from the location specified by `path_on_compute`. <br> For training run context, this upload happens after your training run to facilitate inclusion of any output writes to the datastore.
 
-```Python
+ ```Python
 import azureml.data
 from azureml.data import DataReference
 
@@ -172,15 +170,26 @@ To reference a specific folder or file in your datastore, use the datastore's [`
 ds.path('./bar').as_download()
 ```
 
-
-
 > [!NOTE]
 > Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the remote compute. The datastore path on the remote compute might not be the same as the execution path for the training script.
 
+### Which methods are compatible with my compute context and datastore type?
+
+The following matrix displays the methods and functions that are usable in each compute context scenario for Azure Blob and Azure File datastores. For additional datastore types please refer to the Data Reference documentation.
+
+||Local Compute|Azure Machine Learning Compute|Data Transfer|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
+-|--|-----------|----------|---------|-----|--------------|---------|---------|
+|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> pipeline|pipeline|pipeline|[`as_download()`] <br> [`as_upload()`]|pipeline||[`as_download()`] <br> [`as_upload()`]|
+|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+
+> [!NOTE]
+> There may be scenarios in which highly iterative, large data processes run faster using [`as_download()`] instead of [`as_mount()`]; this can be validated experimentally.
+
 ### Examples 
 
-The following illustrate examples specific to the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing your datastore during training.
+The following code examples are specific to the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing your datastore during training.
 
+This code creates an estimator using the training script, `train.py`, from the indicated source directory using the parameters defined in `script_params`, all on the specified compute target.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -190,14 +199,13 @@ script_params = {
 }
 
 est = Estimator(source_directory='your code directory',
+                entry_script='train.py',
                 script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+                compute_target=compute_target
+                )
 ```
 
-Since `as_mount()` is the default mode for a datastore, you could also directly pass `ds` to the `'--data_dir'` argument.
-
-Or pass in a list of datastores to the Estimator constructor `inputs` parameter to mount or copy to/from your datastore(s). This code example:
+You can also pass in a list of datastores to the Estimator constructor `inputs` parameter to mount or copy to/from your datastore(s). This code example:
 * Downloads all the contents in datastore `ds1` to the remote compute before your training script `train.py` is run
 * Downloads the folder `'./foo'` in datastore `ds2` to the remote compute before `train.py` is run
 * Uploads the file `'./bar.pkl'` from the remote compute up to the datastore `ds3` after your script has run
