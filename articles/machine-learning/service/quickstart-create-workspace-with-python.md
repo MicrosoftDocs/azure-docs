@@ -31,7 +31,7 @@ In this quickstart, you:
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-##Prerequisites
+## Prerequisites
 
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning Data Prep SDK for Python
