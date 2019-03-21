@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/19/2019
+ms.date: 03/21/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- User administrator
+- Global administrator or User administrator
     - Directories that are deployed in Azure Government, China, or other specialized clouds are not currently available for use in this preview.
 - Azure AD Premium P2
     - The directory where the preview is being configured must have a license for Azure AD Premium P2, or a license that contains Azure AD Premium P2 such as EMS E5. If you don't have an Azure subscription, sign up for an [EMS E5 trial](https://www.microsoft.com/en-us/cloud-platform/enterprise-mobility-security-trial) before you begin. (Note that a directory can only activate an EMS E5 trial once per directory).
@@ -56,11 +56,11 @@ In this tutorial, you'll learn how to:
 
 The resource directory has one or more resources to share. In this step, you create a group named **Engineering Team** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up two additional users: an approver and an internal user.
 
-**Prerequisite role:** User administrator
+**Prerequisite role:** Global administrator or User administrator
 
 ![Create users and groups](./media/entitlement-management-get-started/elm-users-groups.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a User administrator.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.  
 
 1. In the upper right of the Azure portal, make sure you signed in to the resource directory. If not, switch to the resource directory.
 
@@ -74,9 +74,9 @@ The resource directory has one or more resources to share. In this step, you cre
 
 1. Create or configure the following three users. You can use these names or different names. Ensure each user has a mailbox.
 
-    | Name | Directory role | Notes |
+    | Name | Directory role | Description |
     | --- | --- | --- |
-    | **Viktor** | Limited administrator (User administrator) | IT administrator<br/>This user might be the user you are already signed in as. |
+    | **Viktor** | Global administrator<br/>-or-<br/>Limited administrator (User administrator) | IT administrator<br/>This user might be the user you are already signed in as. |
     | **Nadine** | User | Approver |
     | **Beth** | User | Internal user |
 
@@ -90,11 +90,11 @@ Entitlement management uses Azure AD business-to-business (B2B) to allow a user 
 
 This step is optional. If you want to only use entitlement management for users already in your directory, you can skip to the next step.
 
-**Prerequisite role:** User administrator
+**Prerequisite role:** Global administrator or User administrator
 
 ![Create guest user](./media/entitlement-management-get-started/elm-guest-user.png)
 
-1. In a separate directory, called the *home directory*, sign in to the Azure portal as User administrator.
+1. In a separate directory, called the *home directory*, sign in to the Azure portal as Global administrator or User administrator.
 
 1. Record the domain name of the home directory, such as **microsoft.onmicrosoft.com**.
 
@@ -106,15 +106,17 @@ This step is optional. If you want to only use entitlement management for users 
 
 In this step, you create a catalog and add the **Engineering Team** group as a resource. A catalog is a container of related resources and access packages.
 
-**Prerequisite role:** User administrator or Catalog creator
+**Prerequisite role:** Global administrator, User administrator, or Catalog creator
 
 ![Create an access package](./media/entitlement-management-get-started/elm-catalog.png)
 
-1. If you have not already signed in to the resource directory, sign in to the [Azure portal](https://portal.azure.com) as a User administrator.
+1. If you have not already signed in to the resource directory, sign in to the [Azure portal](https://portal.azure.com) as a Global administrator or User administrator.
 
-1. Navigate to the entitlement management preview administrative page, [https://aka.ms/elm](https://aka.ms/elm). Ensure that the directory name in the upper right of the Azure portal corresponds to the directory from Step 1.
+1. Navigate to the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
 
     ![Entitlement management in the Azure portal](./media/entitlement-management-get-started/elm-catalogs.png)
+
+1. Ensure that the directory name in the upper right of the Azure portal corresponds to the resource directory from [Step 1: Prepare resource directory](#step-1-prepare-resource-directory).
 
 1. Click **Catalogs** and then click **New catalog** to create your first catalog. A pane will appear on the right.
 
@@ -148,7 +150,7 @@ In this step, you create a catalog and add the **Engineering Team** group as a r
 
 In this step, you create a **Web project access package** in the Engineering catalog and one policy for that access package. This policy allows users who are already in the resource directory to request access.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
 ![Create an access package](./media/entitlement-management-get-started/elm-access-package.png)
 
@@ -256,7 +258,7 @@ In this step, you sign in as the approver user and approve the access request fo
 
 ## Step 7: Validate that access has been assigned
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 1. Sign out of the My Access portal.
 
@@ -274,7 +276,7 @@ In this step, you sign in as the approver user and approve the access request fo
 
 In this step, you add an additional policy for users who are not yet in the resource directory to request access.
 
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
 ![Create guest policy](./media/entitlement-management-get-started/elm-guest-policy.png)
 
@@ -298,7 +300,7 @@ In this step, you add an additional policy for users who are not yet in the reso
 
 ## Step 13: Clean up resources
 
-**Prerequisite role:** User administrator
+**Prerequisite role:**  Global administrator or User administrator
 
 1. In the Azure portal, open entitlement management.
 
