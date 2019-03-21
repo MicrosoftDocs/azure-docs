@@ -152,7 +152,7 @@ Create a storage account for maintaining your VHDs. Consider the following point
 For data disks, you can choose to keep some data disks in a standard storage account (for example, disks that have cooler storage), but we strongly recommend you moving all data for production workload to use premium storage.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Step 3. Copy VHD with AzCopy or PowerShell
-You will need to find your container path and storage account key to process either of these two options. Container path and storage account key can be found in **Azure Portal** > **Storage**. The container URL will be like "https://myaccount.blob.core.windows.net/mycontainer/".
+You will need to find your container path and storage account key to process either of these two options. Container path and storage account key can be found in **Azure Portal** > **Storage**. The container URL will be like "https:\//myaccount.blob.core.windows.net/mycontainer/".
 
 ##### Option 1: Copy a VHD with AzCopy (Asynchronous copy)
 Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.

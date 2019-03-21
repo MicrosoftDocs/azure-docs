@@ -201,10 +201,10 @@ Once the Azure AD server principal (login) has been created, and provided with `
 1. In **Object Explorer**, right-click the server and choose **New Query** for the new connection.
 1. Check server permissions for the newly created Azure AD server principal (login) by executing the following command:
 
-     ```sql
-     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-     GO
-     ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Azure AD guest users are supported for managed instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD that the managed instance belongs to, from another Azure AD. For example, joe@contoso.com (Azure AD Account) or steve@outlook.com (MSA Account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the managed instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (For example, joe@contoso.com or steve@outlook.com).

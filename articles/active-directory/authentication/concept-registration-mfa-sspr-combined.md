@@ -1,12 +1,12 @@
 ---
-title: Combined registration for Azure AD SSPR and MFA (preview)
+title: Combined registration for Azure AD SSPR and MFA (preview) - Azure Active Directory
 description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -65,11 +65,11 @@ As we continue to add more authentication methods such to Azure AD, those method
 
 ## Combined registration Modes
 
-There are two “modes” of combined registration: interrupt and manage. 
+There are two “modes” of combined registration: interrupt and manage.
 
-Interrupt mode, is a wizard-like experience, shown to a user when they register or refresh their security info at sign in. 
+Interrupt mode, is a wizard-like experience, shown to a user when they register or refresh their security info at sign in.
 
-Manage mode is part of the user’s profile and allows them to manage their security info. 
+Manage mode is part of the user’s profile and allows them to manage their security info.
 
 For both modes, if a user has previously registered a method that can be used for MFA, they will need to perform MFA before they can access their security info.
 
