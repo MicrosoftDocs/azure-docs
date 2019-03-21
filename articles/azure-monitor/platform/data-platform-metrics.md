@@ -90,15 +90,11 @@ There are three fundamental sources of metrics collected by Azure Monitor. Once 
 
 **Platform metrics** are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
 
+**Guest OS metrics** are collected from the guest operating system of a virtual machine. Enable guest OS metrics Windows virtual machines with [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) and for Linux virtual machines with [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
+
 **Application metrics** are created by Application Insights for your monitored applications and help you detect performance issues and track trends in how your application is being used. This includes such values as _Server response time_ and _Browser exceptions_.
 
-**Custom metrics** are metrics that you define in addition to the standard metrics that are automatically available. Custom metrics must be created against a single resource in the same region as that resource. You can create custom metrics using the following methods:
-
-- [Define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights. These are in addition to the standard set of application metrics.
-- Collect metrics from the guest operating system of your Windows virtual machines using [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md).
-- Collect metrics from the guest operating system of your Linux virtual machines using [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
-- Write custom metrics from an Azure service using the custom metrics API.
-
+**Custom metrics** are metrics that you define in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights or create custom metrics for an Azure service using the custom metrics API.
 
 
 ## Next steps
