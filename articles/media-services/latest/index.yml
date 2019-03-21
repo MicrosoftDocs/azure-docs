@@ -25,8 +25,12 @@ sections:
     items:
       - image:
           src:  
-        text: Learn about Media Services concepts that apply to the Azure Media Services v3 APIs.
+        text: Learn about Media Services fundamental concepts.
         href:  /azure/media-services/latest/concepts-overview/
+      - image:
+          src:  
+        text: Currently, you cannot manage v3 resources with the Azure portal. Use the REST API, CLI, or one of the supported SDKs
+        href:  /azure/media-services/latest/developers-guide/      
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
