@@ -268,7 +268,6 @@ ExpressRoute can be used in Azure Government supporting all impact levels with n
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **ExpressRoute** | X | X | X | X | X | X |
-|
 
 ### [Azure Load Balancer](https://azure.microsoft.com/en-us/services/load-balancer/)
 
@@ -277,7 +276,6 @@ Load Balancer can be used in Azure Government supporting all impact levels with 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Load Balancer** | X | X | X | X | X | X |
-|
 
 ### [Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/)
 
@@ -286,7 +284,6 @@ Azure Traffic Manager can be used in Azure Government supporting all impact leve
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Traffic Manager** | X | X | X | X | X | X |
-|
 
 ### [Azure Virtual Network](https://azure.microsoft.com/en-us/services/virtual-network/)
 
@@ -295,7 +292,6 @@ Azure Virtual Network can be used in Azure Government supporting all impact leve
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Virtual Network** | X | X | X | X | X | X |
-|
 
 ### [Azure VPN Gateway](https://azure.microsoft.com/en-us/services/vpn-gateway/)
 
@@ -304,7 +300,6 @@ Azure VPN Gateway can be used in Azure Government supporting all impact levels w
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **VPN Gateway** | X | X | X | X | X | X |
-|
 
 ## Security & Identity Services
 
