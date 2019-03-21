@@ -96,10 +96,10 @@ With soft-delete enabled:
 You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
-- *Id* can be used to identify the resource when recovering, or purging. 
+- *ID* can be used to identify the resource when recovering or purging. 
 - *Resource ID* is the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
 - *Scheduled Purge Date* is when the vault will be permanently deleted, if no action is taken. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
@@ -237,7 +237,7 @@ You can enable purge protection only if soft-delete is also enabled.
 To turn on both soft delete and purge protection when creating a vault, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
 
 ```powershell
-New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete -EnablePurgeProtection
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
 To add purge protection to an existing vault (that already has soft delete enabled), use the [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), and [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlets:
