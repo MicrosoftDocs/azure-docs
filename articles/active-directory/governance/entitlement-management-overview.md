@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -60,6 +60,18 @@ Here are some of capabilities of entitlement management:
 For an overview of identity governance and entitlement management, watch the following video from the Ignite 2018 conference:
 
 >[!VIDEO https://www.youtube.com/embed/aY7A0Br8u5M]
+
+## What resources can you manage?
+
+Here are the types of resources you can manage access to with entitlement management:
+
+- Azure AD security group
+- Office 365 group
+- Azure AD enterprise application
+- SaaS application
+- Custom integrated applications
+- SharePoint Online site collection
+- SharePoint Online site
 
 ## Prerequisites
 
@@ -114,7 +126,7 @@ To better understand entitlement management and its documentation, you should re
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include guest access and employee access. |
 | resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
-| resource type | The type of resource. For entitlement management, resource types include: Azure AD security group, Office 365 group, Azure AD enterprise application, SaaS application, custom integrated application, SharePoint Online site collection, and SharePoint Online site. |
+| resource type | The type of resource, which includes groups, applications, and SharePoint Online sites. |
 | resource role | A collection of permissions associated with a resource. |
 | resource directory | A directory that has one or more resources to share. |
 | assigned users | An assignment of an access package to a user or group. |
