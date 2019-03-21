@@ -35,7 +35,7 @@ You can get to the **My Apps** portal from any of the following web browsers:
 - Internet Explorer, version 11 (limited support)
 
 ## Download and install the My Apps Secure Sign-in Extension
-Download and install the the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
+Download and install the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
 This extension helps you: 
 
