@@ -246,7 +246,7 @@
       href: analyze-your-workload.md    
   - name: Monitor and tune
     items:
-    - name: Monitor your workload
+    - name: Monitor your workload with DMVs 
       href: sql-data-warehouse-manage-monitor.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
@@ -309,7 +309,7 @@
   - name: Support
     href: sql-data-warehouse-get-started-create-support-ticket.md
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+    href: sql-data-warehouse-videos.md
   - name: Partners
     items:
     - name: Business intelligence

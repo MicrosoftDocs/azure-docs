@@ -85,9 +85,6 @@
     - name: Use R
       href: ../hdinsight-hadoop-r-scripts-linux.md
       maintainContext: true
-    - name: Use Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Use Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
