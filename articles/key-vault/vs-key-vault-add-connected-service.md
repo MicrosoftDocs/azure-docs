@@ -129,7 +129,7 @@ Now, you can access your secrets in code. The next steps are different depending
        }
        ```
 
-Run the app locally by browsing to About page. You should your secret value retrieved
+Run the app locally by browsing to the About page. You should see your secret value retrieved.
 
 ## Clean up resources
 
