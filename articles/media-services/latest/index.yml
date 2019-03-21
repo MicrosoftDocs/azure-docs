@@ -34,7 +34,6 @@ sections:
           image:
             src:          
           title: Develop with v3 API
-
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
