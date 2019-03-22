@@ -274,7 +274,17 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### Why do I sometimes see GUIDs in ACLs?
 
-A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid). 
+A GUID is shown if the entry represents a user and that user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid).
+
+### How do I set ACLs correctly for a Service Principal?
+When defining ACLs for service principals, it is important to use the Object Id (OID) of the *service principal* for the app registration that you have created. It is important to note that registered apps have a separate service principal in the specific AAD tenant. Registered Apps have an OID which is visible on the Azure Portal, but the *service principal* has another (different) OID.
+
+To get the OID for the service principal corresponding to an app registration, you can use the “az ad sp show” command, specifying the Application ID as the parameter. Here is an example on obtaining the OID for the service principal corresponding an App Registration with App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Using the Azure CLI you can execute the command below:
+
+az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>
+
+Once you have the correct OID for the service principal from the above command, please use the Storage Explorer “Manage Access” screen to add that OID, assign appropriate permissions for the OID. Make sure you click Save.
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
