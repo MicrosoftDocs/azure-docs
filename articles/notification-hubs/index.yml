@@ -53,13 +53,9 @@ sections:
 - title: Reference
   items:
   - type: list
-    style: cards
-    className: cardsD
+    style: ordered
     items:
-    - title: Command-Line
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.notificationhubs">Azure PowerShell</a></p>
-    - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.notificationhubs">.NET</a></p>
-    - title: REST
       html: <p><a href="https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn223264(v%3dazure.100)">REST API</a></p>      
       html: <p><a href="/rest/api/notificationhubs">Management API</a></p>      
