@@ -207,14 +207,12 @@ and then choose **Review + create**, for example:
 
    * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
    remember to [add this specific route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
-   used by your ISE:
+   used by your ISE. If you use a route table with your subnets, 
+   [add this specific route to that route table](../virtual-network/manage-route-table.md):
 
      **Name**: D3655BASE-route<br>
      **Address prefix**: 0.0.0.0/0<br>
      **Next hop**: Internet
-
-     If you use a route table with your subnets, 
-     [add your route to that route table](../virtual-network/manage-route-table.md).
 
    1. Under the **Subnets** list, choose **Manage subnet configuration**.
 
