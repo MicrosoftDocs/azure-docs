@@ -33,7 +33,6 @@ Configure your Azure AD app to use the OAuth 2.0 implicit grant flow.
 1. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 
       ![Azure AD implicit flow][1]
-      (../../includes/media/digital-twins-permissions/how-to-configure-postman/implicit-flow.png)
 
 1. Configure a **Reply URL** to [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback).
 
