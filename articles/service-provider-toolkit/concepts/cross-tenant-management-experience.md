@@ -13,7 +13,7 @@ manager: carmonm
 > [!IMPORTANT]
 > Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
-This article describes the scenarios that you, as a service provider, can use with [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). 
+This article describes the scenarios that you, as a service provider, can use with [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
 > Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure Active Directory (Azure AD) tenants of its own to simplify cross-tenant administration.
@@ -28,9 +28,9 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
-- Compliance snapshots showing details for assigned policies within delegated subscriptions
-- Creating and editing policy definitions within a delegated subscription
-- Assignment of customer-defined policy definitions within the delegated subscription
+- Compliance snapshots show details for assigned policies within delegated subscriptions
+- Create and edit policy definitions within a delegated subscription
+- Assign customer-defined policy definitions within the delegated subscription
 - Customers see policies authored by the service provider alongside any policies they’ve authored themselves
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
