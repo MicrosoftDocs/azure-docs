@@ -241,7 +241,7 @@ The Storage Client Library automatically generates a unique client request ID fo
 >
 
 ### <a name="server-request-id"></a>Server request ID
-The storage service automatically generates server request ids.
+The storage service automatically generates server request IDs.
 
 * In the server-side Storage Logging log, the server request ID appears the **Request ID header** column.
 * In a network trace such as one captured by Fiddler, the server request ID appears in response messages as the **x-ms-request-id** HTTP header value.
