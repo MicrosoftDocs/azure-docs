@@ -13,7 +13,7 @@ metadata:
   ms.date: 04/03/2019
   ms.author: jenhayes
 abstract:
-  description: Microsoft Azure Service Provider Management Toolkit lets you manage customer resources at scale.
+  description: Microsoft Azure Service Provider Management Toolkit (limited public preview) lets you manage customer resources at scale.
 sections:
 - title: Concepts
   items:
@@ -33,4 +33,6 @@ sections:
     items:
     - html: <a href-"how-to/onboard-customer">Onboard a customer to Azure Delegated Resource Management</a>
     - html: <a href="how-to/publish-managed-services-offers">Publish Managed Services offers to Azure Marketplace</a>
+    - html: <a href="how-to/view-manage-customers">View and manage customers and delegated resources</a>
+    - html: <a href="how-to/view-manage-service providers">View and manage service providers</a>
 
