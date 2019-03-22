@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: rolyon
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
@@ -30,11 +30,13 @@ ms.collection: M365-identity-device-management
 
 ## View resources a user has access to
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the **Identity Governance** page.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **User permissions**.
+1. Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. Click **Select user** to open the Select user pane.
+1. Click **User assignments report**.
+
+1. Click **Select users** to open the Select users pane.
 
 1. Find the user in the list that you want to view their resource permissions.
 
