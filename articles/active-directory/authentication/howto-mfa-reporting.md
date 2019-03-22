@@ -1,5 +1,5 @@
 ---
-title: Access and usage reports for Azure MFA | Microsoft Docs
+title: Access and usage reports for Azure MFA - Azure Active Directory
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 
 services: multi-factor-authentication
@@ -33,7 +33,9 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 2. On the left, select **Azure Active Directory** > **MFA Server**.
 3. Select the report that you wish to view.
 
-   <center>![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   <center>
+   
+   ![Cloud](./media/howto-mfa-reporting/report.png)</center>
 
 ## Azure AD sign-ins report
 

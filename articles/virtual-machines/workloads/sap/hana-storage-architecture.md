@@ -96,10 +96,10 @@ The storage used in HANA Large Instances has a file size limitation. The [size l
 > [!IMPORTANT]
 > In order to prevent HANA trying to grow data files beyond the 16 TB file size limit of HANA Large Instance storage, you need to set the following parameters in the global.ini configuration file of HANA
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- See also SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Be aware of SAP note [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - See also SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Be aware of SAP note [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

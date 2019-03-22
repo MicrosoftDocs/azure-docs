@@ -159,7 +159,7 @@ After you update your sources, you can install the SDK. Install the Service Fabr
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   The following commands automate accepting the license for Service Fabric packages:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections

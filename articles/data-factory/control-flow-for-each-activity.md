@@ -471,7 +471,7 @@ It's possible to iterate over multiple activities (for example: copy and web act
 
 ## Aggregating outputs
 
-To aggregate outputs of __foreach__ activity, please utilize _Variable_s and _Append Variable_ activity.
+To aggregate outputs of __foreach__ activity, please utilize _Variables_ and _Append Variable_ activity.
 
 First, declare an `array` _variable_ in the pipeline. Then, invoke _Append Variable_ activity inside each __foreach__ loop. Subsequently, you can retrieve the aggregation from your array.
 

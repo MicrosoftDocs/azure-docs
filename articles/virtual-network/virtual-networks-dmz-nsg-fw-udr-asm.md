@@ -482,7 +482,7 @@ Also recall that Network Security Groups are in-place for inbound internet traff
 11. AppVM01 prompts for user name password
 
 #### (Allowed) Web Server DNS lookup on DNS server
-1. Web Server, IIS01, needs a data feed at www.data.gov, but needs to resolve the address.
+1. Web Server, IIS01, needs a data feed at www\.data.gov, but needs to resolve the address.
 2. The network configuration for the VNet lists DNS01 (10.0.2.4 on the Backend subnet) as the primary DNS server, IIS01 sends the DNS request to DNS01
 3. UDR routes outbound traffic to the firewall as the next hop
 4. No outbound NSG rules are bound to the Frontend subnet, traffic is allowed

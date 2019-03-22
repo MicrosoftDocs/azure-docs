@@ -676,10 +676,6 @@ Get-AzWebSiteLog -Name <function app name> -Tail
 
 For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
-### Local view of log files
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## Next steps
 
 For more information, see the following resources:

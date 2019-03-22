@@ -198,7 +198,7 @@ Perform the following steps to configure the Wire Data solution for your workspa
 > [!NOTE]
 > You cannot add the previous version of the Wire Data solution to new workspaces. If you have the original Wire Data solution enabled, you can continue to use it. However, to use Wire Data 2.0, you must first remove the original version.
 > 
-### Install the Dependency Agent on Windows
+> ### Install the Dependency Agent on Windows
 
 Administrator privileges are required to install or uninstall the agent.
 
@@ -382,9 +382,9 @@ In the **Overview** page for your Log Analytics workspace in the Azure portal, c
 
 | **Blade** | **Description** |
 | --- | --- |
-| Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for `WireData | summarize sum(TotalBytes) by Computer | take 500000`. Click a computer in the list to run a log search returning the total number of bytes captured. |
-| Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for `WireData | summarize sum(TotalBytes) by LocalSubnet` that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
-| Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for `WireData | summarize sum(TotalBytes) by ApplicationProtocol`. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
+| Agents capturing network traffic | Shows the number of agents that are capturing network traffic and lists the top 10 computers that are capturing traffic. Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>. Click a computer in the list to run a log search returning the total number of bytes captured. |
+| Local Subnets | Shows the number of local subnets that agents have discovered.  Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> that lists all subnets with the number of bytes sent over each one. Click a subnet in the list to run a log search returning the total number of bytes sent over the subnet. |
+| Application-level Protocols | Shows the number of application-level protocols in use, as discovered by agents. Click the number to run a log search for <code>WireData \| summarize sum(TotalBytes) by ApplicationProtocol</code>. Click a protocol to run a log search returning the total number of bytes sent using the protocol. |
 
 ![Wire Data dashboard](./media/wire-data/wire-data-dash.png)
 

@@ -54,7 +54,7 @@ To view activity logs:
 3. Select desired filtering scope and click **Apply**.
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
-Diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed. Learn more about [Azure Monitor diagnostic logs](..\azure-monitor\platform\diagnostic-logs-overview.md). 
+Diagnostic logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Diagnostics logs differ from activity logs. Activity logs provide insights into the operations that were performed on your Azure resources. Diagnostics logs provide insight into operations that your resource performed. Learn more about [Azure Monitor diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 To configure diagnostic logs for your Front Door:
 

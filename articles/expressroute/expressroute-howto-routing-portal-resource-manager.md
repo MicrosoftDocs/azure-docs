@@ -53,37 +53,37 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-  ![list Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![list Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
-  * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-  * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-  * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-  * Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
-  * **Optional -** Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered.
-  * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
-  * **Optional -** An MD5 hash if you choose to use one.
+   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
+   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
+   * Advertised prefixes: You must provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
+   * **Optional -** Customer ASN: If you are advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they are registered.
+   * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
+   * **Optional -** An MD5 hash if you choose to use one.
 3. You can select the peering you wish to configure, as shown in the following example. Select the Microsoft peering row.
 
-  ![select Microsoft peering row](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
+   ![select Microsoft peering row](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
 4. Configure Microsoft peering. The following image shows a configuration example:
 
-  ![configure Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
+   ![configure Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Save the configuration once you have specified all parameters.
 
-  If your circuit gets to a 'Validation needed' state (as shown in the image), you must open a support ticket to show proof of ownership of the prefixes to our support team.
+   If your circuit gets to a 'Validation needed' state (as shown in the image), you must open a support ticket to show proof of ownership of the prefixes to our support team.
 
-  ![Save Microsoft peering configuration](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![Save Microsoft peering configuration](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-  You can open a support ticket directly from the portal, as shown in the following example:
+   You can open a support ticket directly from the portal, as shown in the following example:
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
 1. After the configuration has been accepted successfully, you see something similar to the following image:
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
@@ -111,23 +111,23 @@ This section helps you create, get, update, and delete the Azure private peering
 
 1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
-  * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-  * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-  * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering except for the number from 65515 to 65520, inclusively.
-  * **Optional -** An MD5 hash if you choose to use one.
+   * A /30 subnet for the primary link. The subnet must not be part of any address space reserved for virtual networks. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A /30 subnet for the secondary link. The subnet must not be part of any address space reserved for virtual networks. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
+   * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering except for the number from 65515 to 65520, inclusively.
+   * **Optional -** An MD5 hash if you choose to use one.
 3. Select the Azure Private peering row, as shown in the following example:
 
-  ![private](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+   ![private](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
 4. Configure private peering. The following image shows a configuration example:
 
-  ![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+   ![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 5. Save the configuration once you have specified all parameters. After the configuration has been accepted successfully, you see something similar to the following example:
 
-  ![save private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![save private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
 ### <a name="getprivate"></a>To view Azure private peering details
 
@@ -160,23 +160,23 @@ This section helps you create, get, update, and delete the Azure public peering 
 
 1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-  ![list public peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![list public peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure Azure public peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
-  * A /30 subnet for the primary link. This must be a valid public IPv4 prefix. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router. 
-  * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-  * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-  * **Optional -** An MD5 hash if you choose to use one.
+   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router. 
+   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
+   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
+   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
+   * **Optional -** An MD5 hash if you choose to use one.
 3. Select the Azure public peering row, as shown in the following image:
 
-  ![select public peering row](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
+   ![select public peering row](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
 4. Configure public peering. The following image shows a configuration example:
 
-  ![Configure public peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+   ![Configure public peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 5. Save the configuration once you have specified all parameters. After the configuration has been accepted successfully, you see something similar to the following example:
 
-  ![Save public peering configuration](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+   ![Save public peering configuration](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
 ### <a name="getpublic"></a>To view Azure public peering details
 

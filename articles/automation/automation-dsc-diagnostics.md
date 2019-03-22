@@ -12,9 +12,11 @@ manager: carmonm
 ---
 # Forward Azure Automation State Configuration reporting data to Azure Monitor logs
 
-Azure Automation State Configuration can send Desired State Configuration (DSC) node status data to
-your Log Analytics workspace. Compliance status is visible in the Azure portal or with PowerShell,
-for nodes and for individual DSC resources in node configurations. With Azure Monitor logs you can:
+Azure Automation State Configuration retains node status data for 30 days.
+You can send node status data to your Log Analytics workspace if you prefer to retain this data for a longer period.
+Compliance status is visible in the Azure portal or with PowerShell,
+for nodes and for individual DSC resources in node configurations.
+With Azure Monitor logs you can:
 
 - Get compliance information for managed nodes and individual resources
 - Trigger an email or alert based on compliance status
@@ -39,26 +41,26 @@ To begin importing data from Azure Automation DSC into Azure Monitor logs, compl
 
 1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
-  (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
+   (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
 1. Get the _ResourceId_ of your Log Analytics workspace by running the following PowerShell command:
-  (if you have more than one workspace, choose the _ResourceID_ for the workspace you want to configure).
+   (if you have more than one workspace, choose the _ResourceID_ for the workspace you want to configure).
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
 1. Run the following PowerShell command, replacing `<AutomationResourceId>` and `<WorkspaceResourceId>` with the _ResourceId_ values from each of the previous steps:
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
 If you want to stop importing data from Azure Automation State Configuration into Azure Monitor logs, run the following PowerShell command:
 

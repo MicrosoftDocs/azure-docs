@@ -108,8 +108,8 @@ This article provides step-by-step instructions for moving data into Azure SQL D
         DISTRIBUTION = ROUND_ROBIN,
         CLUSTERED COLUMNSTORE INDEX
     )
-	```
-With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
+    ```
+  With the prerequisite steps completed, we are now ready to configure the copy activity using the Copy Wizard.
 
 ## Launch Copy Wizard
 1. Log in to the [Azure portal](https://portal.azure.com).

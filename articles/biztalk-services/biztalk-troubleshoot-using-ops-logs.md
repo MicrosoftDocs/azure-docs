@@ -20,7 +20,7 @@ ms.author: mandia
 # BizTalk Services: Troubleshoot using operation logs
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## What are the Operation Logs
