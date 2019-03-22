@@ -194,7 +194,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![SQL Server connection information](media/app-service-deploy-ha/10.png)
 
-12. Because the machine being used to install App Service is not located on the same VNet as the SQL server being used to host the App Service databases, you will not be able to resolve the name.  This is expected behavior.<br><br>Verify that the information entered for the SQL Server name and accounts information is correct and press **Yes** to continue App Service installation. Click **Next**.
+12. Because the machine being used to install App Service is not located on the same VNet as the SQL server being used to host the App Service databases, you will not be able to resolve the name.  **This is expected behavior**.<br><br>Verify that the information entered for the SQL Server name and accounts information is correct and press **Yes** to continue App Service installation. Click **Next**.
 
     ![SQL Server connection information](media/app-service-deploy-ha/11.png)
 
