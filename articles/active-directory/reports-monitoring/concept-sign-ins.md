@@ -145,7 +145,7 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSCON file of the most recent 250,000 records.  
+You can [download the sign-ins data](quickstart-download-sign-in-report.md) if you want to work with it outside the Azure portal. Clicking **Download** gives you the option to create a CSV or JSON file of the most recent 250,000 records.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -164,7 +164,7 @@ In addition to Azure AD, the Azure portal provides you with additional entry poi
 
 ### Users sign-ins data in Identity security protection
 
-The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
+The user sign-in graph in the **Identity security protection** overview page shows weekly aggregations of sign-ins for all users in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/06.png "Sign-in activity")
 
@@ -211,7 +211,7 @@ Your entry point to this data is the top 3 applications in your organization wit
 
 ![Sign-in activity](./media/concept-sign-ins/10.png "Sign-in activity")
 
-The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
+The app usage graph weekly aggregations of sign-ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
 ![Sign-in activity](./media/concept-sign-ins/47.png "Sign-in activity")
 

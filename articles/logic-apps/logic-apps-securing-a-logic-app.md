@@ -35,7 +35,7 @@ encrypted and secured with Secure Sockets Layer (SSL) protocol.
 Here are different ways you can secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
-* [Restrict incoming IP addresses](#restrict-incoming-IP)
+* [Restrict incoming IP addresses](#restrict-incoming-ip-addresses)
 * [Add Azure Active Directory, OAuth, or other security](#add-authentication)
 
 <a name="sas"></a>
