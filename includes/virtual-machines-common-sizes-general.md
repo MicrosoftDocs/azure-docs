@@ -36,8 +36,9 @@ The B-series burstable VMs are ideal for workloads that do not need the full per
 Example use cases include development and test servers, low-traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers.
 
 
-| Size             | vCPU  | Memory: GiB | Local SSD: GiB | Base Perf of a Core | Credits banked / hour | Max Banked Credits | Max data disks | Max local disk perf: IOPS / MBps | Max uncached disk perf: IOPS / MBps | Max NICs |          
+| Size             | vCPU  | Memory: GiB | Temp storage (SSD) GiB | Base Perf of a Core | Credits banked / hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
+| Standard_B1ls  | 1           | 0.5              | 4                          | 5%                   | 3                  | 72            | 2                                      | 200 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10%                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1ms | 1           | 2              | 4                          | 20%                   | 12                 | 288            | 2                                      | 800 / 10                                  | 640 / 10                                  | 2  |
 | Standard_B2s  | 2           | 4              | 8                          | 40%                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
