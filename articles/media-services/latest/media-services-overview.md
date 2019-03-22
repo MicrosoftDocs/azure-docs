@@ -81,7 +81,9 @@ See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) 
 
 ## Next steps
 
-To see how easy it is to start encoding and streaming video files:
+How can I get started with v3? 
 
 > [!div class="nextstepaction"]
-> [Stream files](stream-files-dotnet-quickstart.md)
+> [Learn about fundamental concepts](concepts-overview.md)
+> [Develop with the Media Services v3 API using SDKs](developers-guide.md) 
+
