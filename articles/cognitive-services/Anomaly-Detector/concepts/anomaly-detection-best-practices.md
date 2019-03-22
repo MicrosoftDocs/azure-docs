@@ -61,7 +61,7 @@ For best results, provide 4 `period`'s worth of data point, plus an additional o
 
 ### Sampling data for real-time monitoring
 
-If your streaming data is sampled at a short interval (for example seconds or minutes), sending the recommended amount of data points may exceed the Anomaly Detector API's maximum number allowed (8640 data points). If your data shows a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval. Sampling your data in this way can also noticeably improve the API response time. 
+If your streaming data is sampled at a short interval (for example seconds or minutes), sending the recommended amount of data points may exceed the Anomaly Detector API's maximum number allowed (8640 data points). If your data shows a stable seasonal pattern, consider sending a sample of your time series data at a larger time interval, like hours. Sampling your data in this way can also noticeably improve the API response time. 
 
 ## Next Steps
 
