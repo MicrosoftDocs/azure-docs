@@ -15,6 +15,11 @@ ms.custom: seodec18
 
 # Release notes
 
+## Speech SDK 1.4.0: 2019-March release
+
+currently maintained on our onenote page...
+
+
 ## Speech SDK 1.3.1: 2019-February refresh
 
 This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
