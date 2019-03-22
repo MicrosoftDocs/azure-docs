@@ -101,8 +101,8 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
 
 1. Create an [API key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Update the Power BI M script that you exported from Analytics by replacing the Azure Resource Manager URL with the Application Insights API.
-   * Replace **https://management.azure.com/subscriptions/...**
-   * with, **https://api.applicationinsights.io/beta/apps/...**
+   * Replace **https:\//management.azure.com/subscriptions/...**
+   * with, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Finally, update the credentials to basic, and use your API key.
 
 **Existing script**
