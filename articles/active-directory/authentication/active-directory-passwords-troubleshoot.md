@@ -91,7 +91,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 
 ## Password writeback event-log error codes
 
-A best practice when you troubleshoot problems with password writeback is to inspect the application event log on your Azure AD Connect machine. This event log contains events from two sources of interest for password writeback. The PasswordResetService source describes operations and problems related to the operation of password writeback. The ADSync source describes operations and problems related to setting passwords in your Active Directory environment.
+A best practice when you troubleshoot problems with password writeback is to inspect the application event log, on your Azure AD Connect machine. This event log contains events from two sources of interest for password writeback. The PasswordResetService source describes operations and problems related to the operation of password writeback. The ADSync source describes operations and problems related to setting passwords in your Active Directory environment.
 
 ### If the source of the event is ADSync
 

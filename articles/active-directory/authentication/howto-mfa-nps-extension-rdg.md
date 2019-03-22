@@ -32,7 +32,7 @@ The Network Policy and Access Services (NPS) gives organizations the ability to 
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 * Provide a means to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.
 
-Typically, organizations use NPS (RADIUS) to simplify and centralize the management of VPN polices. However, many organizations also use NPS to simplify and centralize the management of RD Desktop Connection Authorization Policies (RD CAPs).
+Typically, organizations use NPS (RADIUS) to simplify and centralize the management of VPN policies. However, many organizations also use NPS to simplify and centralize the management of RD Desktop Connection Authorization Policies (RD CAPs).
 
 Organizations can also integrate NPS with Azure MFA to enhance security and provide a high level of compliance. This helps ensure that users establish two-step verification to sign in to the Remote Desktop Gateway. For users to be granted access, they must provide their username/password combination along with information that the user has in their control. This information must be trusted and not easily duplicated, such as a cell phone number, landline number, application on a mobile device, and so on. For more information about supported authentication methods see the section [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
@@ -69,10 +69,10 @@ This section details the prerequisites necessary before integrating Azure MFA wi
 
 ### Remote Desktop Services (RDS) infrastructure
 
-You must have a working Remote Desktop Services (RDS) infrastructure in place. If you do not, then you can quickly create this infrastructure in Azure using the following quick start template: [Create Remote Desktop Session Collection deployment](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
+You must have a working Remote Desktop Services (RDS) infrastructure in place. If you do not, then you can quickly create this infrastructure in Azure using the following quickstart template: [Create Remote Desktop Session Collection deployment](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 If you wish to manually create an on-premises RDS infrastructure quickly for testing purposes, follow the steps to deploy one.
-**Learn more**: [Deploy RDS with Azure quick start](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) and [Basic RDS infrastructure deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Learn more**: [Deploy RDS with Azure quickstart](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) and [Basic RDS infrastructure deployment](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### Azure MFA License
 
@@ -169,7 +169,7 @@ To use the script, provide the extension with your Azure AD Admin credentials an
 
 1. The script creates a self-signed certificate and performs other configuration changes. The output should be like the image shown below.
 
-   ![Output of PowerShell showing self signed certificate](./media/howto-mfa-nps-extension-rdg/image7.png)
+   ![Output of PowerShell showing self-signed certificate](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## Configure NPS components on Remote Desktop Gateway
 
@@ -293,7 +293,7 @@ Recall that the NPS server with the Azure MFA extension is the designated centra
 
 1. Optionally, click the **Conditions** tab and add conditions that must be met for the connection to be authorized, for example, membership in a specific Windows group.
 
-   ![Optionally connection specify conditions](./media/howto-mfa-nps-extension-rdg/image23.png)
+   ![Optionally specify connection conditions](./media/howto-mfa-nps-extension-rdg/image23.png)
 
 1. Click **OK**. When prompted to view the corresponding Help topic, click **No**.
 1. Ensure that your new policy is at the top of the list, that the policy is enabled, and that it grants access.
@@ -316,9 +316,9 @@ If you successfully authenticate with the secondary authentication method you pr
 
 In the example below, the Authenticator app on a Windows phone is used to provide the secondary authentication.
 
-![Example Windows Phone Autehnticator app showing verification](./media/howto-mfa-nps-extension-rdg/image27.png)
+![Example Windows Phone Authenticator app showing verification](./media/howto-mfa-nps-extension-rdg/image27.png)
 
-Once you have successfully authenticated using the secondary authentication method, you are logged into the Remote Desktop Gateway as normal. However, because you are required to use a secondary authentication method using a mobile app on a trusted device, the log-in process is more secure than it would be otherwise.
+Once you have successfully authenticated using the secondary authentication method, you are logged into the Remote Desktop Gateway as normal. However, because you are required to use a secondary authentication method using a mobile app on a trusted device, the sign in process is more secure than it would be otherwise.
 
 ### View Event Viewer logs for successful logon events
 

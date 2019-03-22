@@ -287,7 +287,7 @@ In this section, you confirm that the VPN client is authenticated and authorized
 11. Right-click the VPN connection, and then select **Connect**.
 
 12. In the **Settings** window, select **Connect**.  
-    A successful connection appears in the Security log on the RADIUS server as Event ID 6272, as shown here:
+    A successful connection appears in the Security log, on the RADIUS server, as Event ID 6272, as shown here:
 
     ![Event Properties window showing a successful connection](./media/howto-mfa-nps-extension-vpn/image21.png)
 
@@ -407,7 +407,7 @@ After you've successfully authenticated by using the secondary method, you are g
 
 ### View Event Viewer logs for successful sign-in events
 
-To view successful sign-in events in the Windows Event Viewer logs, query the Windows Security log on the NPS server by entering the following PowerShell command:
+To view successful sign-in events in the Windows Event Viewer logs query the Windows Security log, on the NPS server, by entering the following PowerShell command:
 
     `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
 
