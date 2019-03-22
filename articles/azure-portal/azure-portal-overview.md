@@ -1,6 +1,6 @@
 ---
 title: Azure portal overview | Microsoft Docs 
-description: Learn how to navigate the Azure portal for day-to-day service management
+description: Learn how to navigate the Azure portal and use it to manage services
 services: azure-portal
 keywords: 
 author: kfollis
@@ -17,17 +17,17 @@ This article introduces the Azure portal, identifies portal page elements, and h
 
 ## What is the Azure portal?
 
-The Azure portal is a web-based, unified console that provides an alternative to command-line tools and lets you manage your Azure subscription using a graphical user interface. With the Azure portal you can build, manage, and monitor everything from simple web apps to complex cloud deployments, create custom dashboards for an organized view of resources, and configure accessibility options for the best experience.
+The Azure portal is a web-based, unified console that provides an alternative to command-line tools. With the Azure portal, you can manage your Azure subscription using a graphical user interface. You can build, manage, and monitor everything from simple web apps to complex cloud deployments, create custom dashboards for an organized view of resources, and configure accessibility options for the best experience.
 
 ## Azure Home
 
-As a new subscriber to Azure services, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription, and includes links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources. You can’t customize this page, but you can choose whether to see **Azure Home** or **Azure Dashboard** as your default view. The first time you sign in, there’s a prompt at the top of the page where you can save your preference.
+As a new subscriber to Azure services, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription. We have included links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources. You can’t customize this page, but you can choose whether to see **Azure Home** or **Azure Dashboard** as your default view. The first time you sign in, there’s a prompt at the top of the page where you can save your preference.
 
 ![Screenshot showing default view selector](./media/azure-portal-overview/azure-portal-default-view.png)
 
 ## Azure Dashboard
 
-Dashboards provide a focused view of the resources in your subscription that matter most to you. We’ve given you a default dashboard to get you started, which you can customize to pull together the resources you use most into a single view. Any changes you make to the default view affect your experience only. However, you can create additional dashboards for your own use or publish your customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+Dashboards provide a focused view of the resources in your subscription that matter most to you. We’ve given you a default dashboard to get you started. You can customize this dashboard to bring the resources you use most into a single view. Any changes you make to the default view affect your experience only. However, you can create additional dashboards for your own use or publish your customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## Getting around the portal
 
