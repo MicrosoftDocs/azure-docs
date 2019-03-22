@@ -31,14 +31,14 @@ You can use reservation recommendations to help determine the reservations you s
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - For EA customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
 
-## Analyze your usage information
+### Analyze your usage information
 You should analyze your usage information to help determine which reservations you should purchase.
 
 Usage data is available in the usage file and APIs. Use them together to determine which reservation to purchase. You should check for VM instances that have high usage on daily basis to determine the quantity of reservations to purchase.
 
 Avoid the `Meter` subcategory and `Product` fields in usage data. They don't distinguish between VM sizes that use premium storage. If you use these fields to determine the VM size for reservation purchase, you may buy the wrong size. Then you won't get the reservation discount you expect. Instead, refer to the `AdditionalInfo` field in your usage file or usage API to determine the correct VM size.
 
-## Purchase restrictions
+### Purchase restriction considerations
 
 Reserved VM Instances are available for most VM sizes with some exceptions. Reservation discounts don't apply for the following VMs:
 
