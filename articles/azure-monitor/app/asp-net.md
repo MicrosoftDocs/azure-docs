@@ -128,6 +128,10 @@ There are alternative topics to look at if you are interested in:
 * [Instrumenting a web app at runtime](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
 
+## Video
+
+* External video about <a href="https://www.youtube.com/watch?v=blnGAVgMAfA" "target=_blank">configuring Application Insights with a .NET application from scratch.</a>
+
 ### More telemetry
 
 * **[Browser and page load data](../../azure-monitor/app/javascript.md)** - Insert a code snippet in your web pages.
