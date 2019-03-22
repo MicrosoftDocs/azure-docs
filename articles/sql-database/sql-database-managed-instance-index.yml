@@ -100,33 +100,27 @@ sections:
       - title: Create a new Instance
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+          - href: /powershell/module/az.sql/new-azsqlinstance#examples
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
       - title: Modify the Instance
         values:
           - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../change-size-azure-sql-managed-instance-using-powershell/
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+          - href: /powershell/module/az.sql/set-azsqlinstance#examples
           - href:
       - title: Configure Azure network environment
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+          - href: 
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
       - title: Point in time restore
         values:
           - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+          - href: /powershell/module/az.sql/restore-azsqlinstancedatabase#examples
           - href:
-      - title: Restore dropped database
-        values:
-          - href: 
-          - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/
-          - href: 
 - title: Step-by-Step tutorials and learning materials
   items:
   - type: paragraph
