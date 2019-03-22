@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure geo-filtering on a domain for Azure Front Door Service | Microsoft Docs
+title: Tutorial - Configure geo-filtering web application firewall policy for Azure Front Door service
 description: In this tutorial, you learn how to create a simple geo-filtering policy and associate the policy with your existing Front Door frontend host
 services: frontdoor
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 03/21/2019
 ms.author: kumud;tyao
 
 ---
-# How to set up a geo-filtering policy for your Front Door
+# How to set up a geo-filtering WAF policy for your Front Door
 This tutorial shows how to use Azure PowerShell to create a sample geo-filtering policy and associate the policy with your existing Front Door frontend host. This sample geo-filtering policy will block requests from all other countries except United States.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
@@ -73,7 +73,7 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 ## Add Rules to a Policy
-Find the name of the resource group that contains the Front Door profile using `Get-AzureRmResourceGroup`. Next, create a `geoPolicy` policy object containing `nonUSBlockRule`  using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile. ou must provide a unique name for the geo policy. 
+Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, create a `geoPolicy` policy object containing `nonUSBlockRule`  using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile. You must provide a unique name for the geo policy. 
 
 The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article.
 
@@ -86,8 +86,8 @@ $geoPolicy = New-AzFrontDoorFireWallPolicy `
 -EnabledState Enabled
 ```
 
-## Link policy to a Front Door frontend host
-Link the protection policy object to the existing Front Door frontend host and update Front Door properties. 
+## Link WAF policy to a Front Door frontend host
+Link the WAF policy object to the existing Front Door frontend host and update Front Door properties. 
 
 To do so, first retrieve your Front Door object using [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor). 
 
@@ -103,7 +103,7 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 ```
 
 > [!NOTE] 
-> You only need to set WebApplicationFirewallPolicyLink property once to link a protection policy to a Front Door frontend host. Subsequent policy updates are automatically applied to the frontend host.
+> You only need to set WebApplicationFirewallPolicyLink property once to link a WAF policy to a Front Door frontend host. Subsequent policy updates are automatically applied to the frontend host.
 
 ## Next steps
 
