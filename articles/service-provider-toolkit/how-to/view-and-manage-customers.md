@@ -48,7 +48,7 @@ You can work directly in the context of a delegated subscription within the Azur
 
 1. Select **Azure Active Directory** from the left navigation pane. (Alternately, select your user name in the upper right corner of the Azure portal.)
 2. Select **Switch directory**.
-3. In the Global subscription filter, ensure that only the box for that delegated subscription is selected. 
+3. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. 
 
 If you then access a service which supports cross-tenant management experiences, the service will default to the scope of the delegated subscription that you selected. You can remove this scope by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
