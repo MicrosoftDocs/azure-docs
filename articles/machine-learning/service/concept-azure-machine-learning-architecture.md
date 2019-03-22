@@ -202,7 +202,7 @@ For an example of deploying a model as a web service, see [Deploy an image class
 
 ### IoT module
 
-A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on Edge devices.
+A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
 
 If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
 
@@ -223,6 +223,6 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 To get started with Azure Machine Learning service, see:
 
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Create a Azure Machine Learning service workspace](setup-create-workspace.md)
+* [Create an Azure Machine Learning service workspace](setup-create-workspace.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
-* [Create a workspace with a resource manager template](how-to-create-workspace-template.md)
+* [Create a workspace with a Resource Manager template](how-to-create-workspace-template.md)

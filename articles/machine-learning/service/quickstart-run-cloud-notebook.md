@@ -52,7 +52,7 @@ This example shows how the workspace can help you keep track of information gene
 
 1. On the workspace Overview page, select **Get Started Azure Notebooks** to try your first experiment in Azure Notebooks.  Azure Notebooks is a separate service that lets you run Jupyter notebooks for free in the cloud.  When you use this link to the service, information about how to connect to your workspace will be added to the library you create in Azure Notebooks.
 
-   ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore_aml.png)
+   ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore-aml.png)
 
 1. Sign into Azure Notebooks.  Make sure you sign in with the same account you used to sign into the Azure portal. Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
@@ -88,7 +88,7 @@ After you've finished running all of the cells in the notebook, you can view the
 
 1. The output from the `run` cell contains a link back to the Azure portal to view the experiment results in your workspace. 
 
-    ![View experiments](./media/quickstart-run-cloud-notebook/view_exp.png)
+    ![View experiments](./media/quickstart-run-cloud-notebook/view-exp.png)
 
 1. Click the **Link to Azure portal** to view information about the run in your workspace.  This link opens your workspace in the Azure portal.
 

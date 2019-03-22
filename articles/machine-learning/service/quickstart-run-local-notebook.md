@@ -36,7 +36,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 * An Azure Machine Learning service workspace
 * A workspace configuration file (**aml_config/config.json** ).
 
-Get all these prerequisites from [Create a Azure Machine Learning service workspace](setup-create-workspace.md#portal).
+Get all these prerequisites from [Create an Azure Machine Learning service workspace](setup-create-workspace.md#portal).
 
 
 ## Use the workspace
