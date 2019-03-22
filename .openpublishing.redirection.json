@@ -32309,6 +32309,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-msi.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities",
+      "redirect_document_id": true
+    },        
+    {
       "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm",
       "redirect_document_id": true
@@ -36388,7 +36393,7 @@
     },
     {
       "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
-      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/mt219005(v=azure.100)",
+      "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
       "redirect_document_id": false
     },
     {
