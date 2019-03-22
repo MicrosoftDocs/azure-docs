@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -40,12 +40,12 @@ There are a few scenarios where clustered columnstore may not be a good option:
 
 - Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max). Consider heap or clustered index instead.
 - Columnstore tables may be less efficient for transient data. Consider heap and perhaps even temporary tables.
-- Small tables with less than 100 million rows. Consider heap tables.
+- Small tables with less than 60 million rows. Consider heap tables.
 
 ## Heap tables
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
+When you are temporarily landing data in SQL Data Warehouse, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
 
-For small lookup tables, less than 100 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 100 million rows.
+For small lookup tables, less than 60 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 60 million rows.
 
 To create a heap table, simply specify HEAP in the WITH clause:
 
@@ -74,7 +74,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-To add a non-clustered index on a table, simply use the following syntax:
+To add a non-clustered index on a table, use the following syntax:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -177,7 +177,7 @@ If you have identified tables with poor segment quality, you want to identify th
 These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group. They can also cause rows to go to the delta row group instead of a compressed row group. 
 
 ### Memory pressure when index was built
-The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the data warehouse units allocated to your system, and the number of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the data warehouse units allocated to your system, and the number of concurrency slots you can give to the session which is writing data to your table.
 
 ### High volume of DML operations
 A high volume of DML operations that update and delete rows can introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a row group are modified.
@@ -200,7 +200,7 @@ Once your tables have been loaded with some data, follow the below steps to iden
 
 ## Rebuilding indexes to improve segment quality
 ### Step 1: Identify or create user which uses the right resource class
-One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view returns an ALTER INDEX REBUILD statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum. The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you need to do so first. The minimum recommended resource class is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view returns an ALTER INDEX REBUILD statement which can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum. 
 
 Below is an example of how to allocate more memory to a user by increasing their resource class. To work with resource classes, see [Resource classes for workload management](resource-classes-for-workload-management.md).
 
@@ -211,7 +211,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Step 2: Rebuild clustered columnstore indexes with higher resource class user
 Log in as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements. Be sure that this user has ALTER permission to the tables where the index is being rebuilt. These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table [using CTAS](sql-data-warehouse-develop-ctas.md). Which way is best? For large volumes of data, CTAS is usually faster than [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). For smaller volumes of data, ALTER INDEX is easier to use and won't require you to swap out the table. See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
+Alternatively, instead of rebuilding the index, you could copy the table to a new table [using CTAS](sql-data-warehouse-develop-ctas.md). Which way is best? For large volumes of data, CTAS is usually faster than [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). For smaller volumes of data, ALTER INDEX is easier to use and won't require you to swap out the table. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -258,25 +258,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 For more details about re-creating partitions using CTAS, see [Using partitions in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).

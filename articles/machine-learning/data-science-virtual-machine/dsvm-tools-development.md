@@ -62,7 +62,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | What is it?   | Web-based IDE for R    |
 | Supported DSVM Versions      | Linux      |
 | Typical Uses      |  R development     |
-| How to use / run it?      | Enable the service with _systemctl enable rstudio-server_, then start the service with _systemctl start rstudio-server_. You can then log in to RStudio Server at http://your-vm-ip:8787.       |
+| How to use / run it?      | Enable the service with _systemctl enable rstudio-server_, then start the service with _systemctl start rstudio-server_. You can then log in to RStudio Server at http:\//your-vm-ip:8787.       |
 | Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## Juno 
