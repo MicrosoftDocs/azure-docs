@@ -38,6 +38,26 @@ The table describes the types:
 |--------|--------|--------|  
 |**Standard Streaming Endpoint** (recommended)|0|The **Standard** type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. The throughput is up to 600 Mbps from this type of Streaming Endpoint and scales with Content Delivery Network (CDN). <br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
 |**Premium Streaming Endpoint**|>0|**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits`. `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
+ 
+## Comparing streaming types
+
+### Features
+
+Feature|Standard|Premium
+---|---|---
+Free first 15 days| Yes |No
+Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
+SLA | 99.9|99.9(200 Mbps per SU).
+CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
+Billing is prorated| Daily|Daily
+Dynamic encryption|Yes|Yes
+Dynamic packaging|Yes|Yes
+Scale|Auto scales up to the targeted throughput.|Additional streaming units
+IP filtering/G20/Custom host  <sup>*</sup>|Yes|Yes
+Progressive download|Yes|Yes
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
+
+<sup>*</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled directly on the endpoint.
 
 ## Working with CDN
 
