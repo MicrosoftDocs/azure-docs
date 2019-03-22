@@ -37,7 +37,7 @@ Front Door sends periodic HTTP/HTTPS probe requests to each of your configured b
 For more information, see [health probes](front-door-health-probes.md).
 
 ### Load-balancing settings
-Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. 
+Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool.
 
 #### Settings available for load-balancing configuration
 
@@ -54,7 +54,7 @@ A backend is equal to an app's deployment instance in a region. Front Door suppo
 
 Front Door backends refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend.
 
-When you add a backend in a Front Door backend pool, you must also add:
+When you add a backend in a Front Door backend pool, you must also add the following.
 
 - **Backend host type**. The type of resource you want to add. Front Door supports autodiscovery of your app backends if from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
 
