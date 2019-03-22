@@ -31,3 +31,5 @@ This document covers creating a VNet by using the classic deployment model. You 
 
 [!INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 
+[!NOTE] In previous classic setup, you could create subnet names with space included. That was due to the absence of validation. We now have validation checks in place. And if you have existing space(s) in the subnet name(s), you might not be able to create a new gateway.
+In order to add a new virtual machine or gateway and remove the space from the subnet name, you will need to delete the virtual machine from the subnet, keeping the disk to recreate. And then, you can create the subnet without a space.
