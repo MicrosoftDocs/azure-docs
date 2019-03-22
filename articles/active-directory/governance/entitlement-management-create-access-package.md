@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/15/2019
+ms.date: 03/22/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -34,37 +34,39 @@ An access package enables an access package manager to do a one-time setup or re
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the **Identity Governance** page.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Access packages**.
+1. Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages**.
+
+    ![Entitlement management in the Azure portal](./media/entitlement-management-create-access-package/elm-access-packages.png)
 
 1. Click **New access package**.
 
-1. On the **Details** tab, provide a display name and description for the access package. Users will see this information for the access package.
+1. On the **Basics** tab, provide a display name and description for the access package. Users will see this information for the access package.
 
-1. Set the **Discoverable** setting to **Yes** or **No**.
+1. Set the **Do you want to have someone else manage this access package?** setting to **Yes** or **No**.
 
-    Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal.
+    Set this setting to **No** if you do not want to delegate management of the access package to a set of assigned Catalog owners. the access package will be created in the Default catalog.
 
-    If set to **Yes**, the access package will be listed in the user's My Access portal.
+    If set to **Yes**, a **Catalog** drop-down list appears where you can select which catalog to crete this access package in.
 
-    If set to **No**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct URL to the access package.
-
-1. For the **Select catalog** drop-down list, select the catalog you would like to create the access package in.
+1. For the **Catalog** drop-down list, select the catalog you would like to create the access package in. You will only be shown catalogs you have permission to create access packages in.
 
     - **Default catalog**
-        - Prerequisites: User administrator
-        - If you do not want to delegate management of the access package to a set of assigned Catalog owners, then click **No** to the ______. This will create the access package in the Default catalog.
+        - **Prerequisite role:** User administrator
+        - If you do not want to delegate management of the access package to a set of assigned Catalog owners, then set the **Do you want to have someone else manage this access package?** setting to **No**.
     - Existing catalog
-        - Prerequisites: User administrator, Catalog owner, Access package manager
-        - Select the catalog you would like to create the access package in from the drop down. You will only be shown catalogs you have permission to build access packages in.
-    - New catalog
-        - Prerequisites: User administrator, Catalog creator
-        - If you would like to create your access package in a new catalog, click **Yes** to the ________.
-        - In the catalog section, click **Create new**. Enter the Catalog name and description and click **Create**.
+        - **Prerequisite role:** User administrator, Catalog owner, Access package manager
+    - **Create new**
+        - **Prerequisite role:** User administrator or Catalog creator
+        - If you would like to create your access package in a new catalog, click **Create new**. Enter the Catalog name and description and then click **Create**.
         - The access package you are creating and any resources included in it will be added to the new catalog. Additionally, you will automatically become the first owner of the catalog. You can add additional catalog owners.
 
-1. Click **Next** to open the **Permissions** tab.
+    ![Access package - Basics](./media/entitlement-management-create-access-package/access-package-basics.png)
+
+1. Click **Next** to open the **Resource roles** tab.
 
     On this tab, you select the resource roles to be include in the access package.
 
@@ -82,7 +84,7 @@ An access package enables an access package manager to do a one-time setup or re
 
 1. Select if you want to allow users in your directory or users not in your directory to request the access package. You can also choose to create a policy later.
 
-    To allow people to request the access package, you must create its first policy. You can always create more policies to allow additional groups of users to request the access package with certain approval and expiration settings.
+    To allow people to request the access package, you must create a policy. You can always create more policies to allow additional groups of users to request the access package with certain approval and expiration settings.
 
     - For users in your directory:
 
@@ -126,13 +128,15 @@ An access package enables an access package manager to do a one-time setup or re
 
 1. Click **Review + create**.
 
-1. Check that all of the access package's settings are correct and click **Create** to create the access package.
+1. Review the access package's settings and then click **Create** to create the access package.
 
 ## Add resource roles to an access package
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Resource roles**.
 
@@ -150,7 +154,9 @@ Any users with existing assignments to the access package will automatically be 
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Resource roles**.
 
@@ -164,7 +170,9 @@ The way you specify who can request an access package is to create a policy. You
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Policies** and then **Add policy**.
 
@@ -218,7 +226,9 @@ You can directly assign specific users to an access package if you do not need t
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Create a new policy.
 
@@ -240,9 +250,11 @@ You can directly assign specific users to an access package if you do not need t
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. Click **User assignments** to see a list of active assignments.
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Assignments** to see a list of active assignments.
 
 1. Click a specific assignment to see additional details.
 
@@ -258,7 +270,9 @@ You can directly assign specific users to an access package if you do not need t
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Requests**.
 
@@ -268,7 +282,9 @@ You can directly assign specific users to an access package if you do not need t
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Requests**.
 
@@ -286,7 +302,9 @@ You can only cancel a pending request that has not yet been fulfilled.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Requests**.
 
@@ -294,17 +312,23 @@ You can only cancel a pending request that has not yet been fulfilled.
 
 1. In the request details pane, click **Cancel request**.
 
-## Hide an access package
+## Change the Hidden setting for an access package
 
-Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal. If the **Discoverable** setting is set to **No**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct URL to the access package.
+Access packages are discoverable by default. This means that if a policy allows a user to request the access package, they will automatically see the access package listed in their My Access portal.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. On its Overview page, click **Edit**.
+1. In the left menu, click **Access packages** and then open the access package.
 
-1. Set the **Discoverable** setting to **No**.
+1. On the Overview page, click **Edit**.
+
+1. Set the **Hidden** setting.
+
+    If set to **No**, the access package will be listed in the user's My Access portal.
+
+    If set to **Yes**, the access package will not be listed in the user's My Access portal. The only way a user can view the access package is if they have the direct **MyAccess portal link** to the access package.
 
 ## Delete an access package
 
@@ -312,7 +336,9 @@ An access package can only be deleted if it has no active user assignments.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
-1. In the Azure portal, open the access package.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. On the access package's Overview page, click **Delete**.
 

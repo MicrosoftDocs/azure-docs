@@ -82,7 +82,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 ![Create an access package](./media/entitlement-management-get-started/elm-access-package.png)
 
-1. In the Azure portal, open the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
     ![Entitlement management in the Azure portal](./media/entitlement-management-get-started/elm-catalogs.png)
 

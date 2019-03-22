@@ -36,7 +36,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1.  Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+1. Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
 1. In the left menu, click **Catalogs**.
 
