@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 ### Configure TeamSeer Single Sign-On
 
-1. In a different web browser window, log in to your TeamSeer company site as an administrator.
+1. In a different web browser window, sign in to your TeamSeer company site as an administrator.
 
 1. Go to **HR Admin**.
 
@@ -208,11 +208,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create TeamSeer test user
 
-To enable Azure AD users to log in to TeamSeer, they must be provisioned in to ShiftPlanning. In the case of TeamSeer, provisioning is a manual task.
+To enable Azure AD users to sign in to TeamSeer, they must be provisioned in to ShiftPlanning. In the case of TeamSeer, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **TeamSeer** company site as an administrator.
+1. Sign in to your **TeamSeer** company site as an administrator.
 
 1. Go to **HR Admin \> Users** and then click **Run the New User wizard**.
 
