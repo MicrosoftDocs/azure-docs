@@ -22,6 +22,8 @@ All messages to the Kafka cluster (including replicas maintained by Kafka) are e
 
 You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight Kafka cluster starts using the new key within minutes. Enable the "Do Not Purge" and "Soft Delete" key protection features to protect against ransomware scenarios and accidental deletion. Keys without these protection features are not supported.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Get started with BYOK
 
 1. Create managed identities for Azure resources.
@@ -94,7 +96,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 **How can I recover the cluster if the keys are deleted?**
 
-   Since only “Soft Delete” enabled keys are supported, if the keys are restored in the key vault, the cluster should regain access to the keys. To restore an Azure Key Vault key, see [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Since only “Soft Delete” enabled keys are supported, if the keys are restored in the key vault, the cluster should regain access to the keys. To restore an Azure Key Vault key, see [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Can I have producer/consumer applications working with a BYOK cluster and a non-BYOK cluster simultaneously?**
 
