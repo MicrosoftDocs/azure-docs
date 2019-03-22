@@ -58,7 +58,9 @@ To include resources in an access package, the resources must exist in the catal
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. On the **Catalogs** page, click to open the catalog you want to add resources to.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Catalogs** and then open the catalog you want to add resources to.
 
 1. In the left menu, click **Resources**.
 
@@ -78,7 +80,9 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. On the **Catalogs** page, click to open the catalog you want to remove resources from.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Catalogs** and then open the catalog you want to remove resources from.
 
 1. In the left menu, click **Resources**.
 
@@ -92,7 +96,9 @@ You can edit the name and description for a catalog. Users see this information 
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. On the **Catalogs** page, click to open the catalog you want to edit.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Catalogs** and then open the catalog you want to edit.
 
 1. On the catalog's **Overview** page, click **Edit**.
 
@@ -106,7 +112,9 @@ You can delete a catalog, but only if it does not have any access packages.
 
 **Prerequisite role:** User administrator or Catalog owner
 
-1. On the **Catalogs** page, click to open the catalog you want to delete.
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Catalogs** and then open the catalog you want to delete.
 
 1. On the catalog's **Overview**, click **Delete**.
 

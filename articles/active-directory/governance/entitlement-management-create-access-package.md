@@ -48,21 +48,17 @@ An access package enables an access package manager to do a one-time setup or re
 
 1. Set the **Do you want to have someone else manage this access package?** setting to **Yes** or **No**.
 
-    Set this setting to **No** if you do not want to delegate management of the access package to a set of assigned Catalog owners. the access package will be created in the Default catalog.
+    Set this setting to **No** if you do not want to delegate management of this access package to a set of assigned Catalog owners. The access package will be created in the Default catalog. To create access package in the Default catalog, you must be at least a User administrator.
 
-    If set to **Yes**, a **Catalog** drop-down list appears where you can select which catalog to crete this access package in.
+    Set this setting to **Yes** if you do want to delegate management of this access package. A **Catalog** drop-down list appears where you can select which catalog to crete this access package in.
 
-1. For the **Catalog** drop-down list, select the catalog you would like to create the access package in. You will only be shown catalogs you have permission to create access packages in.
+1. In the **Catalog** drop-down list, select the catalog you would like to create the access package in. You will only be shown catalogs you have permission to create access packages in. To create access package in an existing catalog, you must be at least a User administrator, Catalog owner, or Access package manager.
 
-    - **Default catalog**
-        - **Prerequisite role:** User administrator
-        - If you do not want to delegate management of the access package to a set of assigned Catalog owners, then set the **Do you want to have someone else manage this access package?** setting to **No**.
-    - Existing catalog
-        - **Prerequisite role:** User administrator, Catalog owner, Access package manager
-    - **Create new**
-        - **Prerequisite role:** User administrator or Catalog creator
-        - If you would like to create your access package in a new catalog, click **Create new**. Enter the Catalog name and description and then click **Create**.
-        - The access package you are creating and any resources included in it will be added to the new catalog. Additionally, you will automatically become the first owner of the catalog. You can add additional catalog owners.
+    If you would like to create your access package in a new catalog, click **Create new**. Enter the Catalog name and description and then click **Create**.
+
+    This access package you are creating and any resources included in it will be added to the new catalog. Additionally, you will automatically become the first owner of the catalog. You can add additional catalog owners.
+
+    To create a new catalog, you must be at least a User administrator or Catalog creator.
 
     ![Access package - Basics](./media/entitlement-management-create-access-package/access-package-basics.png)
 
