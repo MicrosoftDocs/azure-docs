@@ -14,7 +14,7 @@ ms.topic: article
 
 The following Jenkins plugins support various features for use with Azure.
   
-| Jenkins plugin name and link | Description                                   |
+| Jenkins plugin | Description                                   |
 |------------------------------------------------------------------------------|
 | [Azure App Service plugin](https://plugins.jenkins.io/azure-app-service)     | A Jenkins plugin to deploy an Azure App Service (currently supports only Web App). | 
 | [Azure AD plugin](https://plugins.jenkins.io/azure-ad)                       | A Jenkins Plugin that supports authentication & authorization via Azure Active Directory. | 

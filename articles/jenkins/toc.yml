@@ -30,9 +30,9 @@
         href: jenkins-aks-blue-green-deployment.md
     - name: App Service
       items:
-      - name: Create Azure resources in a pipeline job
-        href: execute-cli-jenkins-pipeline.md
-      - name: CI/CD to App Service
+      - name: Deploy an app to App Service
+        href: deploy-jenkins-app-service-plugin.md
+      - name: Deploy an app from GitHub to App Service
         href: tutorial-jenkins-deploy-web-app-azure-app-service.md
     - name: Build using Azure Container Instances
       href: /azure/container-instances/container-instances-jenkins
@@ -52,7 +52,7 @@
       href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
       maintainContext: true
 - name: How-to
-  items:
+  item: 
     - name: Use the App Service plugin
       href: deploy-jenkins-app-service-plugin.md
 - name: Samples
@@ -61,7 +61,7 @@
       href: https://github.com/azure/jenkins
 - name: Resources
   items:
-  - name: Plugins
+  - name: Jenkins Plugins for Azure
     href: jenkins-plugins.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
