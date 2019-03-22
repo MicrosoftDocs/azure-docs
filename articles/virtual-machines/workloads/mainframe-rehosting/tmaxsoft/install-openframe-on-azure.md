@@ -175,13 +175,13 @@ When giving new individuals access the VM:
 2. Click **3 Settings** and use the default settings to configure optional features.
 3. Review your payment details.
 
-    ![Create virtual machine - Purchase](media/createVM_02.png.png)
+    ![Create virtual machine - Purchase](media/createVM_02.png)
 
 4. Submit your selections. Azure begins to deploy the VM. This process typically takes a few minutes.
 
 5. When the VM is deployed, its dashboard is displayed, showing all the settings that were selected during the configuration. Make a note of the **Public IP address**.
 
-    ![tmax on Azure dashboard](media/createVM_03.png.png)
+    ![tmax on Azure dashboard](media/createVM_03.png)
 
 6. Open PuTTY.
 
