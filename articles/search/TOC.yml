@@ -115,10 +115,12 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Type-ahead
+    - name: Typeahead
       items:
-      - name: Add autosuggest
+      - name: Create a suggester
         href: index-add-suggesters.md
+      - name: Autosuggest example
+        href: search-autosuggest-example.md
       - name: Autocomplete example
         href: search-autocomplete-tutorial.md
     - name: Synonyms
@@ -294,7 +296,7 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://aka.ms/jfkfiles
-    - name: Job listings app
+    - name: NYC Jobs demo
       href: https://aka.ms/azjobsdemo
     - name: Search Analyzer demo
       href: https://alice.unearth.ai/
