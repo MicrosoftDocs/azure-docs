@@ -18,7 +18,7 @@ This article outlines the protocol that Front Door Service supports with parts o
 
 ![Azure Front Door Service HTTP headers protocol][1]
 
->[!WARNING] Front Door Service can't certify any HTTP headers that aren't documented here.
+[!WARNING] Front Door Service doesn't certify any HTTP headers that aren't documented here.
 
 ## Client to Front Door
 Front Door accepts most headers from the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
@@ -33,7 +33,7 @@ Front Door includes headers from an incoming request unless removed because of r
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Represents the client IP address associated with the request being processed. For example, a request coming from a proxy might add the X-Forwarded-For header to indicate the IP address of the original caller. |
 | X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Represents the socket IP address associated with the TCP connection that the current request originated from. A request's client IP address might not be equal to its socket IP address because it can be arbitrarily overwritten by a user.|
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> A unique reference string that identifies a request served by Front Door. It's used to search access logs and critical for troubleshooting.|
-| X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> A header that Front Door uses to detect request loops that users should not take a dependency on. |
+| X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> A header that Front Door uses to detect request loops and users should not take a dependency on it. |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> The X-Forwarded-For (XFF) HTTP header field often identifies the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. If there's an existing XFF header, then Front Door appends the client socket IP to it or adds the XFF header with the client socket IP. |
 | X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header, since the host name from Front Door may differ for the backend server handling the request. |
 | X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> The X-Forwarded-Proto HTTP header field is a common method for identifying the originating protocol of an HTTP request, since based on the configuration, Front Door may communicate with the backend by using HTTPS even if the request to the reverse proxy is HTTP. |
@@ -44,7 +44,7 @@ The following are headers sent from Front Door to clients. Any headers sent to F
 
 | Header  | Example |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door. It's critical for troubleshooting as it is used to search access logs.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door. This is critical for troubleshooting as it's used to search access logs.|
 
 ## Next steps
 
