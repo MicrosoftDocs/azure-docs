@@ -97,4 +97,3 @@ Follow these steps to assign the **Reader** role so that a user can access blobs
     - [Manage role-based access control (RBAC) with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
     - [Manage role-based access control (RBAC) with the REST API](../../role-based-access-control/role-assignments-rest.md)
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with Azure Storage applications](storage-auth-aad-app.md).
-
