@@ -127,7 +127,7 @@
     href: concept-generating-thumbnails.md
   - name: Recognize printed and handwritten text
     href: concept-recognizing-text.md
-  - name: Detecting adult and racy content
+  - name: Detecting adult content
     href: concept-detecting-adult-content.md
 - name: How-to guides
   items:

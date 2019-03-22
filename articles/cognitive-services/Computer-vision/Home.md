@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # What is Computer Vision?
 
-Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or it can find all of the human faces in an image.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
 
 You can use Computer Vision in your application by using either a native SDK or invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
 
@@ -47,7 +47,7 @@ You can also use the [Read API](concept-recognizing-text.md#read-api) to extract
 
 ## Moderate content in images
 
-You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image and return a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
+You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 
 ## Use containers
 

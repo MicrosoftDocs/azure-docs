@@ -103,8 +103,10 @@ A successful response is returned in JSON. The sample parses and displays a succ
   "adult": {
     "isAdultContent": false,
     "isRacyContent": false,
+    "isGoryContent": false,
     "adultScore": 0.0934349000453949,
-    "racyScore": 0.068613491952419281
+    "racyScore": 0.068613491952419281,
+    "goreScore": 0.010493467561900616
   },
   "tags": [
     {
