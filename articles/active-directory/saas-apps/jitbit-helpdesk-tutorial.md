@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Jitbit Helpdesk, perform the following
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Jitbit Helpdesk** section, copy the appropriate URL(s) as per your requirement.
+6. In the **Set up Jitbit Helpdesk** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -130,7 +130,7 @@ To configure Azure AD single sign-on with Jitbit Helpdesk, perform the following
 
 ### Configure Jitbit Helpdesk Single Sign-On
 
-1. In a different web browser window, log into your Jitbit Helpdesk company site as an administrator.
+1. In a different web browser window, sign in to your Jitbit Helpdesk company site as an administrator.
 
 1. In the toolbar on the top, click **Administration**.
 
@@ -205,11 +205,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Jitbit Helpdesk test user
 
-In order to enable Azure AD users to log into Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk. In the case of Jitbit Helpdesk, provisioning is a manual task.
+In order to enable Azure AD users to sign in to Jitbit Helpdesk, they must be provisioned into Jitbit Helpdesk. In the case of Jitbit Helpdesk, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **Jitbit Helpdesk** tenant.
+1. Sign in to your **Jitbit Helpdesk** tenant.
 
 1. In the menu on the top, click **Administration**.
 
