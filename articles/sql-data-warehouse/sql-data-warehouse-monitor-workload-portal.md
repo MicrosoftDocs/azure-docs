@@ -38,9 +38,9 @@ For more details on workspaces, visit the following [documentation](https://docs
 Configure diagnostic settings to emit logs from your SQL data warehouse. Logs consist of telemetry views of your data warehouse equivalent to the most commonly used performance troubleshooting DMVs for SQL Data Warehouse. Currently the following views are supported:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
-- [sys.dm_pdw_request_steps](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)
+- [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_dms_workers](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=aps-pdw-2016-au7)
-- [sys.dm_pdw_waits](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
+- [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7)
 
 
@@ -69,8 +69,6 @@ For details on the capabilities of log queries, visit the following [documentati
 
 ## Sample log queries
 
-
-
 ```Kusto
 //List all queries 
 AzureDiagnostics
@@ -92,7 +90,7 @@ AzureDiagnostics
 | where Type_s == "UserConcurrencyResourceType"
 | summarize totalQueuedQueries = dcount(RequestId_s)
 ```
-# Next steps
+## Next steps
 
 Now that you have set up and configured Azure monitor logs, customize
  Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) to share across your team.
