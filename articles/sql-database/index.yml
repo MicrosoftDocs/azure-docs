@@ -116,8 +116,8 @@ sections:
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
-          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
+          - href: /azure/sql-database/scripts/sql-database-create-and-configure-managed-instance-powershell
+          - href: /azure/sql-database/sql-database-single-database-get-started-template
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
