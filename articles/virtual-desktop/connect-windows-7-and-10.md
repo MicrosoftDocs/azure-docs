@@ -1,6 +1,6 @@
 ---
-title: Connect with Windows 7 and Windows 10 preview  - Azure
-description: How to connect to the Windows Virtual Desktop HTML5 web client.
+title: Connect to Windows Virtual Desktop Preview with Windows 7 and Windows 10  - Azure
+description: How to connect to the Windows Virtual Desktop Preview client with Windows 7 or Windows 10.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Connect with Windows 7 and Windows 10 review
+# Connect with Windows 7 and Windows 10
 
 > Applies to: Windows 7 and Windows 10.
 
-A downloadable client is available that provides access to Windows Virtual Desktop preview resources from devices running Windows 7 and Windows 10.
+A downloadable client is available that provides access to Windows Virtual Desktop Preview resources from devices running Windows 7 and Windows 10.
 
 ## Install the client
 

@@ -1,6 +1,6 @@
 ---
-title: Create a host pool with PowerShell preview  - Azure
-description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
+title: Create a Windows Virtual Desktop Preview host pool with PowerShell  - Azure
+description: How to create a host pool in Windows Virtual Desktop Preview with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Create a host pool with PowerShell preview
+# Create a host pool with PowerShell
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant preview environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 ## Use your PowerShell client to create a host pool
 
@@ -65,7 +65,7 @@ You can create a virtual machine in multiple ways:
 - [Create a virtual machine from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## Prepare the virtual machines for Windows Virtual Desktop agent installations
+## Prepare the virtual machines for Windows Virtual Desktop Preview agent installations
 
 You need to do the following things to prepare your virtual machines before you can install the Windows Virtual Desktop agents and register the virtual machines to your Windows Virtual Desktop host pool:
 
@@ -80,7 +80,7 @@ To successfully domain-join, do the following things on each virtual machine:
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
 5. Authenticate with a domain account that has privileges to domain-join machines.
 
-## Register the virtual machines to the Windows Virtual Desktop host pool
+## Register the virtual machines to the Windows Virtual Desktop Preview host pool
 
 Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
 

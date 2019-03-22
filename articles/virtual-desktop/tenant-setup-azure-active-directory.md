@@ -1,6 +1,6 @@
 ---
-title: Create a tenant in Windows Virtual Desktop preview  - Azure
-description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
+title: Create a tenant in Windows Virtual Desktop Preview  - Azure
+description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
 ---
-# Tutorial: Create a tenant in Windows Virtual Desktop preview
+# Tutorial: Create a tenant in Windows Virtual Desktop Preview
 
-Creating a tenant in Windows Virtual Desktop preview is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build out host pools, create app groups, assign users, and make connections through the service.
+Creating a tenant in Windows Virtual Desktop Preview is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build out host pools, create app groups, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 
@@ -27,7 +27,7 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
    * This also applies to Cloud Solution Provider (CSP) organizations creating a Windows Virtual Desktop tenant for their customers. If you are a CSP organization, you must be able to sign in as global administrator of the customer's Azure Active Directory.
 * An Azure subscription ID
 
-## Grant Azure Active Directory permissions to the Windows Virtual Desktop service
+## Grant Azure Active Directory permissions to the Windows Virtual Desktop Preview service
 
 If you have already granted permissions to Windows Virtual Desktop for this Azure Active Directory, skip this section.
 
@@ -61,7 +61,7 @@ To assign the TenantCreator application role with your global administrator acco
    - For simplicity, this can be the global administrator account.
 6. Select the user account, click the **Select** button, and then select **Assign**.
 
-## Create a Windows Virtual Desktop tenant
+## Create a Windows Virtual Desktop Preview tenant
 
 Now that you've granted the Windows Virtual Desktop service permissions to query the Azure Active Directory and assigned the TenantCreator role to a user account, you can create a Windows Virtual Desktop tenant.
 
