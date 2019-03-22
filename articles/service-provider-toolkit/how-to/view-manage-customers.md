@@ -18,7 +18,7 @@ In this article, you'll learn how, as a service provider using [Azure Delegated 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **Service providers** and select it.You can also find it by entering “Service providers” in the search box near the top of the Azure portal.
 
 > [!NOTE]
-> Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-and-manage-service-providers.md).
+> Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).
 
 ## View and manage customer details
 
