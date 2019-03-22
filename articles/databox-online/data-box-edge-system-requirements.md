@@ -45,7 +45,7 @@ The system requirements for the Data Box Edge include:
 
 The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Edge device sends data externally, beyond the deployment, for example, outbound to the internet.
 
-[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-confi                                                                                                                           g.md)]
+[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
 ### Port requirements for IoT Edge
 
