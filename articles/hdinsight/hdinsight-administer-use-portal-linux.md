@@ -52,7 +52,7 @@ Select your cluster name from the [**HDInsight clusters** page](#showClusters). 
     - **Tools**: Help information for HDInsight related tools.
 
 - **Settings menu**  
-  - **Cluster size**: Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+  - **Cluster size**: Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).
   - **Quota limits**: Display the used and available cores for your subscription.
   - **SSH + Cluster login**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
   - **Data Lake Storage Gen1**: Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -182,7 +182,7 @@ You are also charged for an HDInsight cluster, even when it is not in use. Since
 There are many ways you can program the process:
 
 * User Azure Data Factory. See [Create on-demand Linux-based Apache Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
-* Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md).
+* Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data-linux.md).
 * Use Azure Classic CLI. See [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md).
 * Use HDInsight .NET SDK. See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

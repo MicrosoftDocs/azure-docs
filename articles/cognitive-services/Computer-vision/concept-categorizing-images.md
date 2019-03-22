@@ -20,7 +20,7 @@ In addition to tags and a description, Computer Vision returns the taxonomy-base
 
 ## The 86-category concept
 
-Computer vision can categorize an image broadly or specifically, using the list of 86 categroies in the following diagram. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
+Computer vision can categorize an image broadly or specifically, using the list of 86 categories in the following diagram. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 
 ![Grouped lists of all the categories in the category taxonomy](./Images/analyze_categories-v2.png)
 
