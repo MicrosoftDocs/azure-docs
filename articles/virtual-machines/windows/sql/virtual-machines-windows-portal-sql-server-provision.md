@@ -76,33 +76,34 @@ There are multiple tabs for configuring a SQL Server virtual machine. For the pu
 
 On the **Basics** tab, provide the following information:
 
-1. Under **Project Details**, make sure the correct subscription is selected. 
-1.  In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Use existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.). 
+* Under **Project Details**, make sure the correct subscription is selected. 
+*  In the **Resource group** box, type a name for a new resource group. Alternatively, to use an existing resource group click **Use existing**. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.). 
 
-   ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
-1. Under **Instance details**:
+  > [!NOTE]
+  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
+
+
+* Under **Instance details**:
     1. Enter a unique **Virtual machine name**.  
     1. Choose a location for your **Region**. 
     1. For the purpose of this guide, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Azure regions and availability](../../windows/regions-and-availability.md). 
     1. If the  **Image** is not _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_, then select it from the drop-down. 
     1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-   ![Instance details](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![Instance details](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > The estimated monthly cost displayed on the **Choose a size** window does not include SQL Server licensing costs. This estimate is the cost of the VM alone. For the Express and Developer editions of SQL Server, this estimate is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) and [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-1. Under **Administrator account**, provide a username and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* Under **Administrator account**, provide a username and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Administrator account](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down. 
+* Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down. 
 
    ![Inbound port rules](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
-
-  > [!NOTE]
-  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../azure-resource-manager/resource-group-overview.md).
 
 
 ## 2. Configure optional features
@@ -160,12 +161,12 @@ On the **SQL Server settings** tab, configure specific settings and optimization
 
 ### Connectivity
 
-Under **SQL connectivity**, specify the type of access you want to the SQL Server instance on this VM. For the purposes of this walkthrough, select **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure automatically configures the firewall and the network security group to allow traffic on port 1433.
-
-![SQL Connectivity Options](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-connectivity-alt.png)
+Under **SQL connectivity**, specify the type of access you want to the SQL Server instance on this VM. For the purposes of this walkthrough, select **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure automatically configures the firewall and the network security group to allow traffic on the port selected.
 
 > [!TIP]
 > By default, SQL Server listens on a well-known port, **1433**. For increased security, change the port in the previous dialog to listen on a non-default port, such as 1401. If you change the port, you must connect using that port from any client tools, such as SSMS.
+
+![SQL VM Security](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-security.png)
 
 To connect to SQL Server via the internet, you also must enable SQL Server Authentication, which is described in the next section.
 
@@ -176,7 +177,7 @@ If you would prefer to not enable connections to the Database Engine via the int
 
 In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication. You can edit Network Security Group after the VM is created. For more information, see [Security Considerations for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-![SQL VM Security](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-security.png)
+
 
 ### Authentication
 
@@ -187,7 +188,7 @@ If you require SQL Server Authentication, click **Enable** under **SQL authentic
 > [!NOTE]
 > If you plan to access SQL Server over the internet (the Public connectivity option), you must enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
 
-If you enable SQL Server Authentication, specify a **Login name** and **Password**. This user name is configured as a SQL Server Authentication login and member of the **sysadmin** fixed server role. For more information about Authentication Modes, see [Choose an Authentication Mode](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
+If you enable SQL Server Authentication, specify a **Login name** and **Password**. This login name is configured as a SQL Server Authentication login and member of the **sysadmin** fixed server role. For more information about Authentication Modes, see [Choose an Authentication Mode](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
 If you do not enable SQL Server Authentication, then you can use the local Administrator account on the VM to connect to the SQL Server instance.
 
