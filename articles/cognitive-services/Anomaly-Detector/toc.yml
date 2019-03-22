@@ -11,24 +11,30 @@
     - name: Detect Anomalies in your data
       items:
         - name: Using C#
-          href: quickstarts/find-data-anomalies-csharp.md
+          href: quickstarts/detect-data-anomalies-csharp.md
         - name: Using Java
-          href: quickstarts/find-data-anomalies-java.md
+          href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
-          href: quickstarts/find-data-anomalies-python.md
-- name: Tutorials
-  items:
-    - name: Visualize Anomalies Using Python.md
-      href: ./tutorials/visualize-anomalies-using-python.md
-- name: How-to
+          href: quickstarts/detect-data-anomalies-python.md
+- name: How-to guides
   items:
     - name: Identify anomalies in your data
       href: how-to/identify-anomalies.md
-    - name: Install and use container images
-      href: how-to/install-and-use-anomaly-detector-containers.md
-    - name: Configure a container image
-      href: how-to/configure-anomaly-detector-containers.md
 - name: Concepts
   items: 
     - name: Anomaly Detection API best practices
       href: concepts/anomaly-detection-best-practices.md
+- name: Reference
+  items:
+    - name: REST API Reference
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect
+    - name: SDKs
+      items:
+        - name: .NET
+          href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector
+- name: Resources
+  items:
+    - name: Pricing
+      href: https://aka.ms/anomaly-detector-pricing
+    - name: Regional availability 
+      href: https://aka.ms/anomaly-detector-region
