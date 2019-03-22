@@ -27,6 +27,8 @@ Script Action can be used to install additional software running on an Apache Ha
 > 
 > It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Sample scripts
 For creating HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script. The following script is a sample for configuring the site configuration files:
 
@@ -185,8 +187,8 @@ Scripts used to customize a cluster needs to either be in the default storage ac
 
 In this example, you must ensure that the container `somecontainer` in storage account `somestorageaccount` is publicly accessible. Otherwise, the script throws a ‘Not Found’ exception and fail.
 
-### Pass parameters to the Add-AzureRmHDInsightScriptAction cmdlet
-To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
+### Pass parameters to the Add-AzHDInsightScriptAction cmdlet
+To pass multiple parameters to the Add-AzHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
