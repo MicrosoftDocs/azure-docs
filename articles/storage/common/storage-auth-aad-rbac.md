@@ -1,12 +1,12 @@
 ---
-title: Use the Azure portal to manage Azure AD access rights to containers and queues with RBAC (preview) - Azure Storage | Microsoft Docs
+title: Use the Azure portal to manage Azure AD access rights to containers and queues with RBAC (preview) - Azure Storage
 description: Use role-based access control (RBAC) from the Azure portal to assign access to containers and queues to security principals. Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -97,14 +97,6 @@ Follow these steps to assign the **Reader** role so that a user can access blobs
 
 > [!NOTE]
 > Assigning the Reader role is necessary only for users who need to access blobs or queues using the Azure portal. 
-
-## Use Azure AD credentials with the portal
-
-To access blobs or queues in the Azure portal using your Azure AD credentials, use the preview links shown in the following image:
-
-![Access blobs or queues with Azure AD credentials in portal](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-If you access blob or queue data using the production links rather than the preview links, the Azure portal uses your account key to authorize access, rather than using Azure AD.
 
 ## Next steps
 

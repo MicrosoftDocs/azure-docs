@@ -71,7 +71,7 @@ Use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvm
    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verify the disks are encrypted:** To check on the encryption status of a IaaS VM, use the [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
+- **Verify the disks are encrypted:** To check on the encryption status of an IaaS VM, use the [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
      ```azurepowershell-interactive
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
@@ -103,7 +103,7 @@ Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enab
      > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
   https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Verify the disks are encrypted:** To check on the encryption status of a IaaS VM, use the [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) command. 
+- **Verify the disks are encrypted:** To check on the encryption status of an IaaS VM, use the [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) command. 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"

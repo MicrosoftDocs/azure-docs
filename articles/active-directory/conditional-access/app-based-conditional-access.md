@@ -18,7 +18,7 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-#Customer intent: As a It admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
+#Customer intent: As an IT admin, I wan to know how to require approved client apps for the access to certain resources to ensure that they are accessed only from devices that meet my standards for security and compliance
 
 ms.collection: M365-identity-device-management
 ---

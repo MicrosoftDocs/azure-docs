@@ -192,6 +192,12 @@ This PowerShell script includes support for the following configurations:
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias 
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
