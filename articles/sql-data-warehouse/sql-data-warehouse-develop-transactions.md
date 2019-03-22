@@ -30,6 +30,7 @@ In the table below the following assumptions have been made:
 * The average row length is 250 bytes
 
 #Gen 2
+
 | [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
@@ -50,6 +51,7 @@ In the table below the following assumptions have been made:
 | DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
 
 #Gen 1
+
 | [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
