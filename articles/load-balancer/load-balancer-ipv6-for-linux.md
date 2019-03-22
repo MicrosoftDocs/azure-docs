@@ -51,13 +51,13 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
     ```
 Beginning with Ubuntu 17.10, the default network configuration mechanism is [NETPLAN]( https://netplan.io).  At install/instantiation time, NETPLAN reads network configuration from YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml.
 
-Please include a “dhcp6:true” statement for each ethernet interface in your configuration.  For example:
+Please include a *dhcp6:true* statement for each ethernet interface in your configuration.  For example:
   
-network:
-  version: 2
-  ethernets:
-    eno1:
-      dhcp6: true
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
 
 During early boot, the netplan “network renderer” writes configuration to /run to hand off control of devices to the specified networking daemon
 For reference information about NETPLAN, see https://netplan.io/reference.
