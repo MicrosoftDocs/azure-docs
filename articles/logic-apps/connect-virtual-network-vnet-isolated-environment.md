@@ -203,8 +203,8 @@ and then choose **Review + create**, for example:
      [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
-   remember to [create a route table] that has the following route and 
-   link that table with each subnet used by your ISE:
+   remember to [create a route table](../virtual-network/manage-route-table.md) 
+   that has the following route and link that table with each subnet used by your ISE:
 
      **Name**: <*route-name*><br>
      **Address prefix**: 0.0.0.0/0<br>
