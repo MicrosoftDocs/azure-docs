@@ -192,4 +192,4 @@ https://github.com/Azure/azure-quickstart-templates/tree/master/201-waf-frontdoo
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- Learn how to [create a Front Door profile](quickstart-create-front-door.md).

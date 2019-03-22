@@ -41,5 +41,5 @@ IP block list is often used to block access to your web applications from a list
 
 ## Next steps
 
-Next, you can configure IP restriction following instructions * [How to configure WAF IP restriction rule for Front Door end-points](front-door-waf-configure-ip-restriction.md)
+- Learn how to [configure WAF IP restriction rules for Front Door end-points](front-door-waf-configure-ip-restriction.md).
 
