@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 03/22/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
-# Tutorial: Provision Azure Data Box Gateway in Hyper-V (Preview)
+# Tutorial: Provision Azure Data Box Gateway in Hyper-V
 
 ## Overview
 
@@ -27,9 +27,6 @@ In this tutorial, you learn how to:
 > * Start the virtual device and get the IP address
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 ## Prerequisites
 

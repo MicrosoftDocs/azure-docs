@@ -11,7 +11,7 @@ ms.date: 03/18/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Gateway so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Connect, set up, activate Azure Data Box Gateway (preview)
+# Tutorial: Connect, set up, activate Azure Data Box Gateway
 
 ## Introduction
 
@@ -24,9 +24,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Connect to a virtual device
 > * Set up and activate the virtual device
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Before you order and deploy this solution, review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

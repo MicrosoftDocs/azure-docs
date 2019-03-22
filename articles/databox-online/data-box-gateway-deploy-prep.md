@@ -12,7 +12,7 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure. 
 ---
 
-# Tutorial: Prepare to deploy Azure Data Box Gateway (preview)
+# Tutorial: Prepare to deploy Azure Data Box Gateway
 
 
 This is the first tutorial in the series of deployment tutorials required to completely deploy your Azure Data Box Gateway. This tutorial describes how to prepare the Azure portal to deploy Data Box Gateway resource. 
@@ -25,10 +25,6 @@ In this tutorial, you learn how to:
 > * Create a new resource
 > * Download the virtual device image
 > * Get the activation key
-
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
 
 ## Get started
 
