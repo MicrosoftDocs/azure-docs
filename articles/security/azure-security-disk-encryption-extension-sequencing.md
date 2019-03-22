@@ -147,11 +147,6 @@ Here is an example using "AzureDiskEncryption" followed by "VMDiagnosticsSetting
 }
 ```
 
-More in-depth templates can be found [here](https://github.com/Jyotsna-Anand/vmss-templates):
-* Apply the Azure Disk Encryption extension after a custom shell script that formats the desk (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Jyotsna-Anand/vmss-templates/blob/master/deploy-extseq-linux-ADE-after-customscript.json)
-* Apply the Azure Disk Encryption extension after a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Jyotsna-Anand/vmss-templates/blob/master/deploy-extseq-windows-ADE-after-customscript.json
-* Apply the Azure Disk Encryption extension before a custom Powershell script that initializes and formats the disk (Windows): [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Jyotsna-Anand/vmss-templates/blob/master/deploy-extseq-windows-CustomScript-after-ADE.json)
-
 
 ## Next Steps
 - For more information on extension sequencing, see [Sequence extension provisioning in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
