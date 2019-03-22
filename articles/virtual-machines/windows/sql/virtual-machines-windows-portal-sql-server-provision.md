@@ -93,7 +93,7 @@ On the **Basics** tab, provide the following information:
 > [!IMPORTANT]
 > The estimated monthly cost displayed on the **Choose a size** window does not include SQL Server licensing costs. This estimate is the cost of the VM alone. For the Express and Developer editions of SQL Server, this estimate is the total estimated cost. For other editions, see the [Windows Virtual Machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and select your target edition of SQL Server. Also see the [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) and [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-1. Under **Administrator account**, provide a username and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../windows/faq#what-are-the-password-requirements-when-creating-a-vm.md).
+1. Under **Administrator account**, provide a username and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Administrator account](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
@@ -182,7 +182,7 @@ In general, improve security by choosing the most restrictive connectivity that 
 
 If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
 
-![SQL Server Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png)
+![SQL Server Authentication](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 > [!NOTE]
 > If you plan to access SQL Server over the internet (the Public connectivity option), you must enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
@@ -197,7 +197,7 @@ If you do not enable SQL Server Authentication, then you can use the local Admin
 
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
 
-![SQL Azure Key Vault Integration](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-akv.png)
+![Azure Key Vault integration](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
 The following table lists the parameters required to configure Azure Key Vault Integration.
 
