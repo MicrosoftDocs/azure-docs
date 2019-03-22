@@ -117,18 +117,18 @@ Comparing the column BikeBuyer (actual) with the Scored Labels (prediction), you
 To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader_new.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize_new.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata_new.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns_new.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector_new.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split_new.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train_new.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector_new.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score_new.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate_new.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults_new.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults_new.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11e-valresults-new.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
 <!--Article references-->
