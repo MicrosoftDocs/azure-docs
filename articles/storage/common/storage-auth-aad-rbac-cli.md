@@ -27,8 +27,31 @@ This article describes how to use Azure CLI to assign RBAC roles that are scoped
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## Assign RBAC roles using Azure CLI
+## List available RBAC roles
 
+To list available built-in RBAC roles with Azure CLI, use the [az role assignment list](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-list) command:
+
+```azurecli-interactive
+az role definition list --out table
+```
+
+## Assign an RBAC role to a user
+
+To assign an RBAC role to a user, use the [az role assignment create]() command. The format of the command can differ based on the scope of the assignment. The following examples show how to assign a role to a user at various scopes.
+
+### Container or queue 
+
+To assign a role at the scope of the container or queue, you need to specify the full scope of the resource for the `--scope` parameter. The full scope is in the form:
+
+```
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/[<container-name>|<queue-name>]
+```
+
+The following example assigns the **Storage Blob Data Reader** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder in brackets with your own values: 
+
+```azurecli-interactive
+az role assignment create --role "Storage Blob Data Reader" --assignee user@azure.com --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples/blobServices/default/containers/sample-container"
+```
 
 
 ## Next steps
