@@ -1,16 +1,16 @@
---- 
-title: What is the Anomaly Detector API? | Microsoft Docs 
+---
+title: What is the Anomaly Detector API? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API's advanced algorithms to identify anomalies in your time series data. 
-services: cognitive-services 
+description: Use the Anomaly Detector API's advanced algorithms to identify anomalies in your time series data.
+services: cognitive-services
 author: aahill
-ms.service: cognitive-services 
-ms.subservice: anomaly-detection 
+ms.service: cognitive-services
+ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 02/26/2019 
+ms.date: 02/26/2019
 ms.author: aahi
---- 
- 
+---
+
 # What is the Anomaly Detector API?
 
 The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.

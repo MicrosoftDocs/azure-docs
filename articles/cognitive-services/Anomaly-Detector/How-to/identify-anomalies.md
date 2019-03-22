@@ -1,6 +1,6 @@
 ---
-title: How to use the Anomaly Detector API on your time series data 
-description: Learn how to detect anomalies in your data either as a batch, or in real-time.
+title: How to use the Anomaly Detector API on your time series data
+description: Learn how to detect anomalies in your data either as a batch, or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme

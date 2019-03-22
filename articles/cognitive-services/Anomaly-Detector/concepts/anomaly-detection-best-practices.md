@@ -1,5 +1,5 @@
 ---
-title: Best practices when using the Anomaly Detector API 
+title: Best practices when using the Anomaly Detector API
 description: Learn about best practices when detecting anomalies with the Anomaly Detector API.
 services: cognitive-services
 author: aahill
