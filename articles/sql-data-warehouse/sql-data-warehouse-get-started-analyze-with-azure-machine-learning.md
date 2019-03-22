@@ -37,9 +37,9 @@ To step through this tutorial, you need:
 The data is in the dbo.vTargetMail view in the AdventureWorksDW database. To read this data:
 
 1. Sign into [Azure Machine Learning studio][Azure Machine Learning studio] and click on my experiments.
-2. Click **+NEW** and select **Blank Experiment**.
+2. Click **+NEW** on the bottom left of the screen and select **Blank Experiment**.
 3. Enter a name for your experiment: Targeted Marketing.
-4. Drag the **Reader** module from the modules pane into the canvas.
+4. Drag the **Import data** module under **Data Input and output** from the modules pane into the canvas.
 5. Specify the details of your SQL Data Warehouse database in the Properties pane.
 6. Specify the database **query** to read the data of interest.
 
@@ -72,7 +72,7 @@ After the experiment finishes running successfully, click the output port at the
 ## 2. Clean the data
 To clean the data, drop some columns that are not relevant for the model. To do this:
 
-1. Drag the **Project Columns** module into the canvas.
+1. Drag the **Select Columns in Dataset** module under **Data Transformation < Manipulation** into the canvas. Connect this module to the **Import Data** module.
 2. Click **Launch column selector** in the Properties pane to specify which columns you wish to drop.
    ![Project Columns][4]
 3. Exclude two columns: CustomerAlternateKey and GeographyKey.
@@ -82,22 +82,18 @@ To clean the data, drop some columns that are not relevant for the model. To do 
 We will split the data 80-20: 80% to train a machine learning model and 20% to test the model. We will make use of the “Two-Class” algorithms for this binary classification problem.
 
 1. Drag the **Split** module into the canvas.
-2. Enter 0.8 for Fraction of rows in the first output dataset in the Properties pane.
+2. In the properties pane, enter 0.8 for Fraction of rows in the first output dataset.
    ![Split data into training and test set][6]
 3. Drag the **Two-Class Boosted Decision Tree** module into the canvas.
-4. Drag the **Train Model** module into the canvas and specify the inputs. Then, click **Launch column selector** in the Properties pane.
-   * First input: ML algorithm.
-   * Second input: Data to train the algorithm on.
+4. Drag the **Train Model** module into the canvas and specify inputs by connecting it to the **Two-Class Boosted Decision Tree** (ML algorithm) and **Split** (data to train the algorithm on) modules. 
      ![Connect the Train Model module][7]
-5. Select the **BikeBuyer** column as the column to predict.
+5. Then, click **Launch column selector** in the Properties pane. Select the **BikeBuyer** column as the column to predict.
    ![Select Column to predict][8]
 
 ## 4. Score the model
 Now, we will test how the model performs on test data. We will compare the algorithm of our choice with a different algorithm to see which performs better.
 
-1. Drag **Score Model** module into the canvas.
-    First input: Trained model
-    Second input: Test data
+1. Drag **Score Model** module into the canvas and connect it to **Train Model** and **Split Data** modules.
    ![Score the model][9]
 2. Drag the **Two-Class Bayes Point Machine** into the experiment canvas. We will compare how this algorithm performs in comparison to the Two-Class Boosted Decision Tree.
 3. Copy and Paste the modules Train Model and Score Model in the canvas.
