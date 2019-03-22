@@ -1,0 +1,54 @@
+- name: ASC for IoT Preview Documentation
+  href: index.yml
+- name: Overview
+  href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Onboarding IoT Hub to ASC for IoT
+    href: quickstart-onboard-iot-hub.md
+  - name: Create a Microsoft.Security module twin
+    href: quickstart-security-twin.md
+  - name: Configure an ASC for IoT agent
+    href: quickstart-agent-configuration.md
+  - name: Install the ASC for IoT agent on a Windows Device
+    href: quickstart-windows-installation.md
+  - name: Install the ASC for IoT agent on a Linux 32bit device 
+    href: quickstart-linux-c#-installation.md
+  - name: Install the ASC for IoT agent on a Linux 64bit device 
+    href: quickstart-linux-c-installation.md
+  
+- name: Tutorials
+  items:
+  - name: Modify Microsoft.Security modules configuration objects 
+    href: tutorial-modify-module-configuration.md
+  - name: Send security messages SDK
+    href: tutorial-create-custom-agent.md 
+
+- name: Concepts
+  items:
+  - name: Microsoft.Security module twins
+    href: concept-microsoft-security-module.md
+  - name: Authentication Methods
+    href: authentication-methods.md
+  - name: ASC for IoT agent reccomendations
+    href: concepts-recommendations.md
+  - name: ASC for IoT securty alerts 
+    href: concepts-security-alerts.md     
+
+- name: How-to guides
+  items:
+  - name: Access your data
+    href: data-access.md
+
+
+- name: Resources
+  items:
+  - name: Frequently asked questions
+    href: resources-frequently-asked-questions.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Azure Security, Privacy, & Compliance blog
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/

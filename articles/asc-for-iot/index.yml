@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: ASC for IoT Preview Documentation
+metadata:
+  title: ASC for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
+  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across hybrid cloud workloads and your IoT solution.
+  services: ascforiot
+  author: mlottner
+  manager: barbkess
+  ms.service: ascforiot
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/19
+  ms.author: barbkess
+abstract:
+  description: ASC for IoT Preview is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale. Get limitless cloud speed and scale to help focus on what really matters. Easily collect data from all your cloud or on-premises assets, Office 365, Azure resources, and other clouds. Effectively detect threats with built-in machine learning from Microsoft’s security analytics experts. Automate threat response, using built-in orchestration and automation playbooks.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: Learn how to onboard your IoT Hub to ASC for IoT, install ASC for IoT agents and and get visibility into your data, and potential threats.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/deploy.svg
+      text: Onboard ASC for IoT
+      href: /azure/ascforiot/quickstart-onboard-iot-hub
+    - image: 
+        src: media/index/get-started.svg
+      text: Get started with ASC for IoT
+      href: /azure/ascforiot/quickstart-getting-started
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to define security policies, protect your devices against malicious activity, and respond to security alerts and incidents.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/ascforiot/tutorial-send-security-messages-sdk">Detect threats with ASC for IoT</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to Security in Azure
+      href: https://docs.microsoft.com/learn/azure
+      image: 
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">More interactive learning...</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=ascforiot">Service updates</a>
