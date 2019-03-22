@@ -127,7 +127,7 @@ To learn more about building predictive machine learning models, refer to [Intro
 [8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
 [9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
 [10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11e-valresults-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
 [12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
