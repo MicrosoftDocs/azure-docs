@@ -1,7 +1,7 @@
 ---
-title: Track experiments & training metrics
+title: Log metrics during training runs
 titleSuffix: Azure Machine Learning service
-description: With the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
+description: You can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the results of a run.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -15,7 +15,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ---
 
-# Track experiments and training metrics in Azure Machine Learning
+# Log metrics during training runs in Azure Machine Learning
 
 In the Azure Machine Learning service, you can track your experiments and monitor metrics to enhance the model creation process. In this article, learn how to add logging to your training script, submit an experiment run, monitor the run, and view the results of a run.
 
@@ -215,7 +215,9 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
    ```
 
 ## Cancel a run
+
 Alter a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run ID. 
+
 
 ```python
 from azureml.core import Experiment
