@@ -68,11 +68,10 @@ If you don't have a virtual network, learn how to
     > [!NOTE]
     > If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
     > which provides a private connection to Microsoft cloud services, you must 
-    > [add the following route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
-    > used by your ISE. If you use a route table with your subnets, 
-    > [add the following route to your route table](../virtual-network/manage-route-table.md):
+    > [create a route table](../virtual-network/manage-route-table.md) that has 
+    > the following route and link that table with each subnet used by your ISE:
     > 
-    > **Name**: D3655BASE-route<br>
+    > **Name**: <route-name><br>
     > **Address prefix**: 0.0.0.0/0<br>
     > **Next hop**: Internet
 
@@ -204,11 +203,10 @@ and then choose **Review + create**, for example:
      [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
-   remember to [add the following route to each subnet](../virtual-network/virtual-network-manage-subnet.md) 
-   used by your ISE. If you use a route table with your subnets, 
-   [add the following route to that route table](../virtual-network/manage-route-table.md):
+   remember to [create a route table] that has the following route and 
+   link that table with each subnet used by your ISE:
 
-     **Name**: D3655BASE-route<br>
+     **Name**: <route-name><br>
      **Address prefix**: 0.0.0.0/0<br>
      **Next hop**: Internet
 
