@@ -177,7 +177,7 @@ Follow these steps to prepare the development environment for DevKit:
 
 * **Windows**: Download and install USB driver from [STMicroelectronics website](https://www.st.com/en/development-tools/stsw-link009.html) for [direct link](https://aka.ms/stlink-v2-windows).
 * **macOS**: No driver is required for macOS.
-* **Ubuntu**: Run the following in terminal and log out and log in for the group change to take effect:
+* **Ubuntu**: Run the commands in terminal and sign out and sign in for the group change to take effect:
     ```bash
     # Copy the default rules. This grants permission to the group 'plugdev'
     sudo cp ~/.arduino15/packages/AZ3166/tools/openocd/0.10.0/linux/contrib/60-openocd.rules /etc/udev/rules.d/
@@ -212,7 +212,7 @@ Now you are all set with preparing and configuring your development environment.
 1. Select the subscription you want to use.
     ![Select sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Then select or create a new [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Then select or create a new [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
     ![Select resource group](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 
 1. In the resource group you specified, follow the guide to select or create a new Azure IoT Hub.
