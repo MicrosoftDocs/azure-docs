@@ -1,7 +1,7 @@
 ---
 title: Entity types 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Add entities (key data in your application's domain) in Language Understanding Intelligent Service (LUIS) apps.
+description: "Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances."  
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
 ---
 # Entity types and their purposes in LUIS
 
-Entities are words or phrases in utterances that are key data in your application’s domain.
+Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances. 
 
 ## Entity compared to intent
 
@@ -184,7 +184,7 @@ The entity is a good fit when:
 
 * The data matches a common use case supported by prebuilt entities for your language culture. 
 
-Prebuilt entities can be added and removed at any time. If you find a prebuilt entity is detected in an example utterance, making the marking of your custom entity impossible, remove the prebuilt entity from the app, mark your entity, then add the prebuilt entity back. 
+Prebuilt entities can be added and removed at any time.
 
 ![Number prebuilt entity](./media/luis-concept-entities/number-entity.png)
 
@@ -192,6 +192,29 @@ Prebuilt entities can be added and removed at any time. If you find a prebuilt e
 [Example JSON response for entity](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project. 
+
+### Troubleshooting prebuilt entities
+
+In the LUIS portal, if a prebuilt entity is tagged instead of your custom entity, you have a few choices of how to fix this.
+
+The prebuilt entities added to the app will _always_ be returned, even if the utterance should extract custom entities for the same text. 
+
+#### Change tagged entity in example utterance
+
+If the prebuilt entity is the same text or tokens as the custom entity, select the text in the example utterance and change the tagged utterance. 
+
+If the prebuilt entity is tagged with more text or tokens than your custom entity, you have a couple of choices of how to fix this:
+
+* [Remove example utterance](#remove-example-utterance-to-fix-tagging) method
+* [Remove prebuilt entity](#remove-prebuilt-entity-to-fix-tagging) method
+
+#### Remove example utterance to fix tagging 
+
+Your first choice is to delete the example utterance and retrain the app. Add back just the word or phrase that is the entity as an example utterance, then mark the entity and train. Now add back the prebuilt entity and the original example utterance. The custom entity should continue to be marked instead of the prebuilt entity. 
+
+#### Remove prebuilt entity to fix tagging
+
+Your second choice is to remove the prebuilt entity from the app, then tag the custom entity in the example utterance, then add the prebuilt entity back to the app. This fix assumes the prebuilt entity isn't part of a composite entity. 
 
 ## Regular expression entity 
 
