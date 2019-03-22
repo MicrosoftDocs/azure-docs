@@ -61,15 +61,15 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncrypti
 
 ## Supported scenarios for disk encryption
 * Virtual machine scale set encryption is supported only for scale sets created with managed disks, and not supported for native (or unmanaged) disk scale sets.
-* Virtual machine scale set encryption is supported for OS and Data volumes for Windows VMSS. Disable encryption is supported for OS and Data volumes for Windows scale set.
-* Virtual machine scale set VM re-image and upgrade operations are not supported in current preview.
+* Virtual machine scale set encryption is supported for OS and Data volumes for Windows virtual machine scale set. Disable encryption is supported for OS and Data volumes for Windows scale set.
+* Virtual machine scale set VM reimage and upgrade operations are not supported in current preview.
 
 
 ### Create new cluster and enable disk encryption
 
-Use the following commands to create cluster and enable disk encryption using Azure Resource Manager template & self signed certificate.
+Use the following commands to create cluster and enable disk encryption using Azure Resource Manager template & self-signed certificate.
 
-### Log in to Azure 
+### Sign in to Azure 
 
 ```Powershell
 
@@ -168,7 +168,7 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 #### Validate if disk encryption enabled for Windows virtual machine scale set.
 Get status of an entire virtual machine scale set or any instance in scale set. See commands below.
-Additionally user can log in to VM in scale set and make sure drives are encrypted
+Additionally user can sign in to VM in scale set and make sure drives are encrypted
 
 ```Powershell
 
