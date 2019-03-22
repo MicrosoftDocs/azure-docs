@@ -104,7 +104,7 @@ public static async Task Run(string input)
 }
 ```
 
-### CosmosClient code example (Node.js)
+### CosmosClient code example (JavaScript)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips.md#sdk-usage). The following example shows one pattern for doing that in a function:
 
 ```javascript
