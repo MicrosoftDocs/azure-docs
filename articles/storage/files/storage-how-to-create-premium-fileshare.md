@@ -1,6 +1,6 @@
 ---
 title: Create an Azure premium file storage account
-description: In this article, you learn how to create an Azure premium file storage account as well as a premium file share. A premium file share is geared towards enterprise and other performance sensitive scenarios.
+description: In this article, you learn how to create an Azure premium file storage account as well as a premium file share.
 services: storage
 author: roygara
 ms.service: storage
@@ -13,7 +13,7 @@ ms.subservice: files
 
 # How to create an Azure premium file storage account
 
-The FileStorage storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
+The FileStorage (preview) storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using the [Azure portal](https://portal.azure.com/).
 
