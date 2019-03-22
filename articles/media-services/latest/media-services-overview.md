@@ -74,16 +74,11 @@ Examples of this include
 
 See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
 
-## How can I get started with v3?
-
-1. Learn about [fundamental concepts](concepts-overview.md)
-2. [Start developing](developers-guide.md) with the Media Services v3 API using various tools and SDKs. 
-
 ## Next steps
 
 How can I get started with v3? 
 
 > [!div class="nextstepaction"]
-> [Learn about fundamental concepts](concepts-overview.md)
+> [Learn about fundamental concepts](concepts-overview.md)<br/>
 > [Develop with the Media Services v3 API using SDKs](developers-guide.md) 
 
