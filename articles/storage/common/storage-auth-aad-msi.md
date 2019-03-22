@@ -15,7 +15,7 @@ ms.subservice: common
 
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authenticate access to blobs and queues using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and others. By using managed identities for Azure resources and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
-To grant permissions to a managed identity to a blob container or queue, you assign a role-based access control (RBAC) role to the managed identity that encompasses permissions for that resource at the appropriate scope. For more information about RBAC roles in storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md). 
+To grant permissions to a managed identity to a blob container or queue, you assign a role-based access control (RBAC) role to the managed identity that encompasses permissions for that resource at the appropriate scope. For more information about RBAC roles in storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac-portal.md). 
 
 This article shows how to authenticate to Azure Blob or Queue storage with a managed identity from an Azure VM.  
 
@@ -33,7 +33,7 @@ Before you can use managed identities for Azure Resources to authenticate access
 
 ## Assign an RBAC role to an Azure AD managed identity
 
-To authenticate a managed identity from your Azure Storage application, first configure role-based access control (RBAC) settings for that managed identity. Azure Storage defines RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a managed identity, that managed identity is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](storage-auth-aad-rbac.md).
+To authenticate a managed identity from your Azure Storage application, first configure role-based access control (RBAC) settings for that managed identity. Azure Storage defines RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a managed identity, that managed identity is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](storage-auth-aad-rbac-portal.md).
 
 ## Get a managed identity access token
 
@@ -75,7 +75,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 
 ## Next steps
 
-- To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+- To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac-portal.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).
 - To learn how to log into Azure CLI and PowerShell with an Azure AD identity, see [Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)](storage-auth-aad-script.md).
 - For additional information about Azure AD integration for Azure Blobs and Queues, see the Azure Storage team blog post, [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

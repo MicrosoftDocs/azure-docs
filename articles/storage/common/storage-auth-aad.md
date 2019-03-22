@@ -39,7 +39,7 @@ Keep in mind the following points about the preview:
 
 ## Overview of Azure AD for Storage
 
-The first step in using Azure AD integration with Azure Storage is to assign RBAC roles for storage data to your service principal (a user, group, or application service principal) or managed identities for Azure resources. RBAC roles encompass common sets of permissions for containers and queues. To learn more about assigning RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+The first step in using Azure AD integration with Azure Storage is to assign RBAC roles for storage data to your service principal (a user, group, or application service principal) or managed identities for Azure resources. RBAC roles encompass common sets of permissions for containers and queues. To learn more about assigning RBAC roles for Azure Storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac-portal.md).
 
 To use Azure AD to authorize access to storage resources in your applications, you need to request an OAuth 2.0 access token from your code. To learn how to request an access token and use it to authorize requests to Azure Storage, see [Authenticate with Azure AD from an Azure Storage application (Preview)](storage-auth-aad-app.md). If you are using a managed identity, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md).
 
@@ -53,7 +53,7 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-To learn how to assign a built-in role in the Azure portal, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+To learn how to assign a built-in role in the Azure portal, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac-portal.md).
 
 ### Access permissions granted by RBAC roles 
 

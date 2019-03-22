@@ -13,7 +13,7 @@ ms.subservice: common
 
 # Use an Azure AD identity to access Azure Storage with CLI or PowerShell
 
-Azure Storage provides extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). You can assign permissions to access storage resources to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+Azure Storage provides extensions for Azure CLI and PowerShell that enable you to log in and run scripting commands under an Azure Active Directory (Azure AD) identity. The Azure AD identity can be a user, group, or application service principal, or it can be a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). You can assign permissions to access storage resources to the Azure AD identity via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC (Preview)](storage-auth-aad-rbac-portal.md).
 
 When you log in to Azure CLI or PowerShell with an Azure AD identity, an access token is returned for accessing Azure Storage under that identity. That token is then automatically used by CLI or PowerShell to authorize operations against Azure Storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
@@ -57,7 +57,7 @@ The following example shows how to create a container in a new storage account f
         --encryption-services blob
     ```
     
-1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
@@ -110,7 +110,7 @@ The following example shows how to create a container in a new storage account f
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac.md).
+1. Before you create the container, assign the [Storage Blob Data Contributor (preview)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure containers and queues with RBAC in the Azure portal (preview)](storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > During the preview of Azure AD support for blobs and queues, RBAC role assignments may take up to 5 minutes to propagate.
@@ -124,6 +124,6 @@ The following example shows how to create a container in a new storage account f
 
 ## Next steps
 
-- To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md).
+- To learn more about RBAC roles for Azure storage, see [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac-portal.md).
 - To learn about using managed identities for Azure resources with Azure Storage, see [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md).
 - To learn how to authorize access to containers and queues from within your storage applications, see [Use Azure AD with storage applications](storage-auth-aad-app.md).
