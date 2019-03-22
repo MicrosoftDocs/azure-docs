@@ -224,5 +224,5 @@ Industry standard benchmarks like TPC-E and TPC-H.
 ## Next steps
 
 - [vCore-based purchase model](sql-database-service-tiers-vcore.md)
-- [Single database vCore resource limits](sql-database-vcore-resource-limits-single-database.md)
+- [Single database vCore resource limits](sql-database-vcore-resource-limits-single-databases.md)
 - [Elastic pool vCore resource limits](sql-database-vcore-resource-limits-elastic-pools.md)
