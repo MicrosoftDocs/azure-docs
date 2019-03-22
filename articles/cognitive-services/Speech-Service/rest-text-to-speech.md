@@ -29,6 +29,12 @@ Before using this API, understand:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
+## Regions and endpoints
+
+These regions are supported for speech-to-text transcription using the REST API. Make sure that you select the endpoint that matches your subscription region.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
 ## Request headers
 
 This table lists required and optional headers for speech-to-text requests.

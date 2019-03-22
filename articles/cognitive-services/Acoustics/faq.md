@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
 ---
 # Project Acoustics Frequently Asked Questions
@@ -20,7 +20,7 @@ The Project Acoustics suite of plugins is an acoustics system that calculates so
 
 ## Where can I download the plugin?
 
-You can download Project Acoustics from the [Project Acoustics Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+You can download the [Project Acoustics Unity plugin](https://www.microsoft.com/download/details.aspx?id=57346) or the [Project Acoustics Unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090).
 
 ## Does Project Acoustics support <x> platform?
 

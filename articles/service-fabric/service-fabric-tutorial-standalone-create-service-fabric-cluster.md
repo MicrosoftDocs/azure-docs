@@ -124,7 +124,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### Bring up Service Fabric Explorer
 
-Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http:\//localhost:19080/Explorer/index.html or remotely with http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## Add and remove nodes
 

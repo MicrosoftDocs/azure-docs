@@ -55,7 +55,7 @@ This problem occurs because Remote Desktop Services isn't running on the VM. The
 
 - The TermService service is set to **Disabled**. 
 - The TermService service is crashing or hanging. 
-- The TermService is not starting because of to a incorrect configuration.
+- The TermService is not starting because of to an incorrect configuration.
 
 ## Solution
 
