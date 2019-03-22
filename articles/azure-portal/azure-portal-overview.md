@@ -61,9 +61,11 @@ We pre-populated your Favorites in the sidebar with links to commonly used servi
 
 > [!TIP]
 > The quickest way to find a resource, service, or documentation is to use *Search* in the global header. Use the breadcrumb links to go back to previous pages.
-> 
-> 
-Next steps:
+>
+>
+
+## Next steps
+
 * Learn more about where to run Azure portal in [Supported browsers and devices](../azure-portal/azure-portal-supported-browsers-devices.md)
 
 * Stay connected on the go with [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
