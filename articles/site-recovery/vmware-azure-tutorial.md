@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -16,7 +16,13 @@ ms.custom: MVC
 [Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
 
-In this tutorial, we show you how to set up and enable replication of a VMware VM to Azure, using Azure Site Recovery. Tutorials are designed to show you how to deploy Site Recovery with basic settings. They use the simplest path, and don't show all options. In this tutorial, you learn how to:
+This tutorial shows you how to deploy Site Recovery with basic settings, without customizaton. For more complex options, review the articles under How To.
+
+    - Set up the [replication source](vmware-azure-set-up-source.md) and [configuration server](vmware-azure-deploy-configuration-server.md).
+    - Set up the [replication target](vmware-azure-set-up-target.md).
+    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enter the replication source and target.
@@ -32,14 +38,10 @@ Before you start, it's helpful to:
 - If you want to learn about setting up disaster recovery for VMware VMs in more detail, review and use the following resources:
     - [Read common questions](vmware-azure-common-questions.md) about disaster recovery for VMware.
     - [Learn](vmware-physical-azure-support-matrix.md) what's supported and required for VMware.
--  Read our **How To guides** for detailed instructions that cover all deployment options for VMware:
-    - Set up the [replication source](vmware-azure-set-up-source.md) and [configuration server](vmware-azure-deploy-configuration-server.md).
-    - Set up the [replication target](vmware-azure-set-up-target.md).
-    - Configure a [replication policy](vmware-azure-set-up-replication.md), and [enable replication](vmware-azure-enable-replication.md).
 - In this tutorial we show you how to replicate a single VM. If you're deploying multiple VMs you should use the [Deployment Planner Tool](https://aka.ms/asr-deployment-planner) to help plan your deployment. [Learn more](site-recovery-deployment-planner.md) about this tool.
 
 And review these tips:
-- This tutorial uses an OVA template to create the configuration server VMware VM. If you can't do this, follow [these instructins](physical-manage-configuration-server.md) to set up the configuration server manually.
+- This tutorial uses an OVA template to create the configuration server VMware VM. If you can't do this, follow [these instructions](physical-manage-configuration-server.md) to set up the configuration server manually.
 - In this tutorial, Site Recovery downloads and installs MySQL to the configuration server. If you prefer, you can set it up manually instead. [Learn more](vmware-azure-deploy-configuration-server.md#configure-settings).
   >You can download the latest version of the configuration server template directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
   The license provided with OVF template is an evaluation license valid for 180 days. Windows running on the VM must be activated with the required license. 

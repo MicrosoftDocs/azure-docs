@@ -11,6 +11,12 @@
     href: create-cluster-database-portal.md
   - name: Create a cluster - Azure CLI
     href: create-cluster-database-cli.md
+  - name: Create a cluster - PowerShell
+    href: create-cluster-database-powershell.md
+  - name: Create a cluster - C#
+    href: create-cluster-database-csharp.md
+  - name: Create a cluster - Python
+    href: create-cluster-database-python.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub

@@ -522,6 +522,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > `https://` is required in *\<docker-registry-server-url>*.
 >
+> [!NOTE]
+> When using registry other than dockerhub, `docker-custom-image-name` must include fully-qualified domain name (FQDN) of your registry.  
+> For Azure Container Registry, this will look like `<azure-container-registry>.azurecr.io/mydockerimage`.
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
 
