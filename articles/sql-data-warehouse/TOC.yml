@@ -244,16 +244,16 @@
     items:
     - name: Analyze your workload
       href: analyze-your-workload.md    
-  - name: Monitor and tune
+  - name: Manage and monitor
     items:
-    - name: Monitor your workload with DMVs 
-      href: sql-data-warehouse-manage-monitor.md
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
-    - name: Monitor Gen2 cache
-      href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
+    - name: Monitor your workload - DMVs 
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Monitor Gen2 cache
+      href: sql-data-warehouse-how-to-monitor-cache.md
   - name: Integrate
     items:
     - name: Use machine learning
