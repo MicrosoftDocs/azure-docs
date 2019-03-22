@@ -66,27 +66,31 @@ An access package enables an access package manager to do a one-time setup or re
 
     On this tab, you select the resource roles to be include in the access package.
 
-1. Click the resource type you want to add and select one or more resources from the list.
+1. Click the resource type you want to add (**Groups**, **Applications**, or **SharePoint sites**) and then select one or more resources from the list.
 
-    If you are creating the access package in the default catalog or a new catalog, you will be able to pick any resource from the directory that you own.
+    ![Access package - Resource roles](./media/entitlement-management-create-access-package/access-package-resource-roles.png)
 
-    - Prerequisites User administrator, Catalog creator
+    If you are creating the access package in the Default catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a User administrator or Catalog creator.
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a User administrator, or Catalog Owner, you have the additional option of selecting resources you own that are not yet in the catalog. If added to the access package, these resources will also be added to the catalog for other catalog admins to build access packages with.
+    If you are a User administrator or Catalog Owner, you have the additional option of selecting resources you own that are not yet in the catalog. If added to the access package, these resources will also be added to the catalog for other catalog admins to build access packages with.
 
     Once you have selected the resources, you must choose which role you would like access for the resource to be assigned for.
 
+1. Click **Next** to open the **Policy** tab.
+
 1. Select if you want to allow users in your directory or users not in your directory to request the access package. You can also choose to create a policy later.
+
+    ![Access package - Policy](./media/entitlement-management-create-access-package/access-package-policy.png)
 
     To allow people to request the access package, you must create a policy. You can always create more policies to allow additional groups of users to request the access package with certain approval and expiration settings.
 
-    - For users in your directory:
+    - **For users in your directory**
 
         Select one or more users and/or groups you would like to be able to request the access package.
 
-    - For users not in your directory:
+    - **For users not in your directory**
 
         Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
 
@@ -174,11 +178,11 @@ The way you specify who can request an access package is to create a policy. You
 
 1. Select the type of users you would like to be able to request your access package. You can also choose to directly assign users to the access package with this policy.
 
-    - For users in your directory:
+    - **For users in your directory**
 
         Select one or more users and/or groups you would like to be able to request the access package.
 
-    - For users not in your directory:
+    - **For users not in your directory**
 
         Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
 
