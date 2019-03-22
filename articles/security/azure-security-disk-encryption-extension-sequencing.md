@@ -80,7 +80,8 @@ Here is an example using "CustomScriptExtension", a Powershell script that initi
   }
 }
 ```
-If you wish to have Azure Disk Encryption applied before another extention, put the `provisionAfterExtensions` property in the block of the extension to follow:
+
+If you wish to have Azure Disk Encryption applied before another extension, put the `provisionAfterExtensions` property in the block of the extension to follow.
 
 Here is an example using "AzureDiskEncryption" followed by "VMDiagnosticsSettings", an extension that provides  monitoring and diagnostics capabilities on a Windows-based Azure VM:
 
