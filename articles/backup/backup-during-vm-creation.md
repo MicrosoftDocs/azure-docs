@@ -1,24 +1,23 @@
 ---
-title: Enable Azure VM backup during creation
-description: How to enable Azure virtual machine backup during the creation process.
+title: Enable backup when you create an Azure VM with Azure Backup
+description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 author: rayne-wiselman
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
 ---
 
-# Enable backup when you create an Azure virtual machine
+# Enable backup when you create an Azure VM
 
 Use the Azure Backup service to back up Azure virtual machines (VMs). VMs are backed up according to a schedule specified in a backup policy, and recovery points are created from backups. Recovery points are stored in Recovery Services vaults.
 
-This article details how to enable backup while you're creating a virtual machine (VM) in the Azure portal.  
+This article details how to enable backup when you create a virtual machine (VM) in the Azure portal.  
 
 ## Before you start
 
-- [Check](backup-support-matrix-iaas.md#supported-backup-actions) what operating systems are supported if you want to enable backup when you create a VM.
+- [Check](backup-support-matrix-iaas.md#supported-backup-actions) which operating systems are supported if you enable backup when you create a VM.
 
 ## Sign in to Azure
 
@@ -42,7 +41,7 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 8. Accept the default backup policy, or modify the settings.
     - A backup policy specifies how frequently to take backup snapshots of the VM, and how long to keep those backup copies. 
     - The default policy backs up the VM once a day.
-    - You can customize your own backup policy for an Azure VM to take backups daily or weekly. [Learn more]()
+    - You can customize your own backup policy for an Azure VM to take backups daily or weekly.
     - [Learn more](backup-azure-vms-introduction.md#backup-and-restore-considerations) about backup considerations for Azure VMs.
     - [Learn more](backup-instant-restore-capability.md) about the instant restore functionality.
 
@@ -58,11 +57,11 @@ After the VM is created, do the following:
 1. In the VM properties, click **Backup**. The VM status is Initial Backup Pending until the initial backup runs
 2. Click **Back up now** to run an on-demand backup.
 
-    ![Run an on-demand backup]](./media/backup-during-vm-creation/run-backup.png) 
+    ![Run an on-demand backup](./media/backup-during-vm-creation/run-backup.png) 
 
 ## Use a Resource Manager template to deploy a protected VM
 
-The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more virtual machines and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 
 
