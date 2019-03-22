@@ -166,7 +166,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | France                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Georgia                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Germany                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Gibralter                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Greece                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Greenland                                           |                 |                |              |      ✓     |          ✓         |
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |

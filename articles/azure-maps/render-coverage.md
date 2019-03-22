@@ -183,7 +183,7 @@ However, Maps does not have the same level of information and accuracy for all r
 | Maldives                  |   | Ø |
 | Mongolia                  |   | Ø |
 | Myanmar                   |   | Ø |
-| Napal                     |   | Ø |
+| Nepal                     |   | Ø |
 | Oman                      | ✓ | ✓ |
 | Pakistan                  |   | Ø |
 | Philippines               | ✓ | ✓ |

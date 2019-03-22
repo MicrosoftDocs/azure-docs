@@ -158,7 +158,7 @@ The following table provides coverage information for Azure Maps routing.
 | Austria                        |        ✓       |         ✓            |     ✓       | 
 | Belarus                        |        ✓       |                      |             |
 | Belgium                        |        ✓       |         ✓            |     ✓      | 
-| Bolavia                        |        ✓       |                      |             |
+| Bolivia                        |        ✓       |                      |             |
 | Bosnia-Herzegovina             |        ✓       |                      |             |
 | Bulgaria                       |        ✓       |         ✓            |     ✓      | 
 | Croatia                        |        ✓       |         ✓            |     ✓      |

@@ -69,7 +69,6 @@ However, Maps does not have the same level of information and accuracy for all r
 |France     |✓         |✓         |
 |Monaco     |✓         |✓         |
 |Germany     |✓         |✓         |
-|Gibralter   |✓         |✓         |
 |Greece     |✓         |✓         |
 |Hungary     |✓         |✓         |
 |Iceland     |✓         |✓         |
@@ -96,12 +95,12 @@ However, Maps does not have the same level of information and accuracy for all r
 |+Andorra     |✓         |✓         |
 |+Balearic Islands     |✓         |✓         |
 |+Canary Islands     |✓         |✓         |
-|+Gibraltar     |✓         |✓         |
 |Sweden     |✓         |✓         |
 |Switzerland     |✓         |✓        |
 |Turkey     |✓         |✓         |
 |Ukraine     |✓         |✓         |
 |United Kingdom     |✓         |✓         |
+|+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
 |+Isle of Man     |✓         |✓         |
 |Vatican City   |✓         |✓         |
