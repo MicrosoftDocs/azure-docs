@@ -14,10 +14,10 @@ ms.author: sharadag
 ---
 
 # Backends and backend pools in Azure Front Door Service
-This article covers concepts about how to map your app deployment with Front Door. It also explains what the different terms in Front Door configuration around application backend.
+This article describes concepts about how to map your app deployment with Front Door. It also explains what the different terms in Front Door configuration around application backend.
 
 ## Backend pool
-A backend pool in Front Door refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with the expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active-Active deployment mode or what is defined as Active-Passive configuration.
+A backend pool in Front Door refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active-Active deployment mode or what is defined as Active-Passive configuration.
 
 A backend pool also defines the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
 
@@ -43,7 +43,7 @@ Load-balancing settings for the backend pool define how we evaluate health probe
 
 - **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
 
-- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is five, and successful sample size is three. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
+- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5 seconds, and successful sample size is 3 seconds. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
 
 - **Latency sensitivity (additional latency)**. Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
 
@@ -52,7 +52,7 @@ For more information, see [least latency based routing method](front-door-routin
 ## Backend
 A backend is equal to an app's deployment instance in a region. Front Door supports both Azure and non-Azure backends, so the region isn't only restricted to Azure regions. Also, it can be your on-premise datacenter or an app instance in another cloud.
 
-Front Door backends refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend.
+Backends, in context of Front Doors, refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend.
 
 When you add a backend in a Front Door backend pool, you must also add the following.
 
@@ -86,7 +86,7 @@ Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the
 If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name backend.
 
 #### Configuring the backend host header for the backend
-The backend host header field can be configured for a backend in the backend pool section.
+To configure the backend host header field for a backend in the backend pool section:
 
 1. Open your Front Door resource and select the backend pool with the backend to configure.
 

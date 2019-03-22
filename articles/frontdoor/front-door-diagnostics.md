@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service metrics and logging | Microsoft Docs
+title: Monitoring metrics and logs in Azure Front Door Service | Microsoft Docs
 description: This article describes the different metrics and access logs that Azure Front Door Service supports
 services: frontdoor
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.date: 09/18/2018
 ms.author: sharadag
 ---
 
-# Monitoring metrics for Azure Front Door Service
+# Monitoring metrics and logs in Azure Front Door Service
 
-#### Front Door Service monitoring resources
+## Front Door Service monitoring resources
 
 - **Metrics**. Application Gateway currently has seven metrics to view performance counters.
 - **Logs**. Activity and diagnostic logs allow performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-## Metrics
+### Metrics
 
 Metrics are a feature for certain Azure resources that allow you to view performance counters in the portal.
 
-### Available Front Door metrics
+#### Available Front Door metrics
 
 | Metric | Metric Display Name | Unit | Dimensions | Description |
 | --- | --- | --- | --- | --- |
@@ -39,21 +39,18 @@ Metrics are a feature for certain Azure resources that allow you to view perform
 
 ## <a name="activity-log"></a>Activity logs
 
-Activity logs provide insight into the operations done on your Front Door. They also determine the what, who, and when for any write operations (put, post, or delete) taken on your Front Door.
+Activity logs provide information about the operations done on your Front Door. They also determine the what, who, and when for any write operations (put, post, or delete) taken on your Front Door.
 
-> [!NOTE]
-> Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
+[!NOTE] Activity logs don't include read (get) operations. They also don't include operations that you perform by using either the Azure portal or the original Management API.
 
-Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor.
-
-To view activity logs:
+Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor. To view activity logs:
 
 1. Select your Front Door instance.
 2. Select **Activity log**.
 
     ![activity log](./media/front-door-diagnostics/activity-log.png)
 
-3. Choose a filtering scope and then select **Apply**.
+3. Choose a filtering scope, and then select **Apply**.
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
 Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostics logs differ from activity logs.

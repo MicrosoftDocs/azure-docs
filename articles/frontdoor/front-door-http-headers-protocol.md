@@ -1,5 +1,5 @@
 ---
-title: HTTP headers protocol support with Azure Front Door Service | Microsoft Docs
+title: HTTP headers protocol support in Azure Front Door Service | Microsoft Docs
 description: This article describes HTTP header protocols supported by Front Door Service
 services: frontdoor
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.date: 09/10/2018
 ms.author: sharadag
 ---
 
-# HTTP headers protocol support with Azure Front Door Service
+# HTTP headers protocol support in Azure Front Door Service
 This article outlines the protocol that Front Door Service supports with parts of the call path (see image). The following sections provide more information about HTTP headers supported by Front Door.
 
 ![Azure Front Door Service HTTP headers protocol][1]
@@ -25,22 +25,22 @@ Front Door accepts most headers from the incoming request without modifying them
 
 ## Front Door to backend
 
-Front Door includes headers from an incoming request unless removed because of restrictions. Front Door also adds the following headers.
+Front Door includes headers from an incoming request unless removed because of restrictions. Front Door also adds the following headers:
 
 | Header  | Example and description |
 | ------------- | ------------- |
-| Via |  *Via: 1.1 Azure* </br> Front Door adds the client's HTTP version followed by *Azure* as the value for Via header. This indicates the client's HTTP version and that Front Door was an intermediate recipient for the request between the client and the backend.  |
-| X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Represents the client IP address associated with the request being processed. For example, a request coming from a proxy might add the X-Forwarded-For header to indicate the IP address of the original caller. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Represents the socket IP address associated with the TCP connection that the current request originated from. A request's client IP address might not be equal to its socket IP address because it can be arbitrarily overwritten by a user.|
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> A unique reference string that identifies a request served by Front Door. It's used to search access logs and critical for troubleshooting.|
-| X-Azure-RequestChain |  *X-Azure-RequestChain: hops=1* </br> A header that Front Door uses to detect request loops and users should not take a dependency on it. |
-| X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> The X-Forwarded-For (XFF) HTTP header field often identifies the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. If there's an existing XFF header, then Front Door appends the client socket IP to it or adds the XFF header with the client socket IP. |
-| X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header, since the host name from Front Door may differ for the backend server handling the request. |
-| X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> The X-Forwarded-Proto HTTP header field is a common method for identifying the originating protocol of an HTTP request, since based on the configuration, Front Door may communicate with the backend by using HTTPS even if the request to the reverse proxy is HTTP. |
+| Via |  Via: 1.1 Azure </br> Front Door adds the client's HTTP version followed by *Azure* as the value for Via header. This indicates the client's HTTP version and that Front Door was an intermediate recipient for the request between the client and the backend.  |
+| X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Represents the client IP address associated with the request being processed. For example, a request coming from a proxy might add the X-Forwarded-For header to indicate the IP address of the original caller. |
+| X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Represents the socket IP address associated with the TCP connection that the current request originated from. A request's client IP address might not be equal to its socket IP address because it can be arbitrarily overwritten by a user.|
+| X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> A unique reference string that identifies a request served by Front Door. It's used to search access logs and critical for troubleshooting.|
+| X-Azure-RequestChain |  X-Azure-RequestChain: hops=1 </br> A header that Front Door uses to detect request loops and users should not take a dependency on it. |
+| X-Forwarded-For | X-Forwarded-For: 127.0.0.1 </br> The X-Forwarded-For (XFF) HTTP header field often identifies the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. If there's an existing XFF header, then Front Door appends the client socket IP to it or adds the XFF header with the client socket IP. |
+| X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header. This is because the host name from Front Door may differ for the backend server handling the request. |
+| X-Forwarded-Proto | X-Forwarded-Proto: http </br> The X-Forwarded-Proto HTTP header field is often used to identify the originating protocol of an HTTP request because Front Door, based on configuration, might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. |
 
 ## Front Door to client
 
-The following are headers sent from Front Door to clients. Any headers sent to Front Door from the backend are also passed through to the client.
+Any headers sent to Front Door from the backend are also passed through to the client. The following are headers sent from Front Door to clients:
 
 | Header  | Example |
 | ------------- | ------------- |
