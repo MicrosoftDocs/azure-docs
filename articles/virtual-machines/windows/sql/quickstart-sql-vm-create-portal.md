@@ -81,7 +81,7 @@ On the **Basics** tab, provide the following information:
 On the **SQL Server settings** tab, configure the following options:
 
 1. Under **Security & Networking**, select _Public (Internet_) for **SQL Connectivity** and change the port to `1401` to avoid using a well-known port number in the public scenario. 
-1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Leave **Azure Key Vault integration** and **Storage configuration** default.  
+1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Use the default settings for **Azure Key Vault integration** and **Storage configuration**.  
 
    ![SQL server security settings](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
 
