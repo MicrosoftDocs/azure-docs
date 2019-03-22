@@ -1,6 +1,16 @@
 {
     "redirections": [
       {
+        "source_path": "articles/machine-learning/service/quickstart-get-started.md",
+        "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/machine-learning/service/quickstart-create-workspace-with-python.md",
+        "redirect_url": "/azure/machine-learning/service/quickstart-run-local-notebook",
+        "redirect_document_id": false
+      },
+      {
         "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
         "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
         "redirect_document_id": false
@@ -32309,6 +32319,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-msi.md",
+      "redirect_url": "/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities",
+      "redirect_document_id": true
+    },        
+    {
       "source_path": "articles/active-directory/managed-service-identity/tutorial-windows-vm-access-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm",
       "redirect_document_id": true
@@ -33356,6 +33371,11 @@
     {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/howto-use-action-groups.md",
+      "redirect_url": "/azure/iot-central/howto-create-webhooks",
       "redirect_document_id": false
     },
     {
@@ -35384,6 +35404,11 @@
       "redirect_document_id":  false
     },
     {
+      "source_path":  "articles/azure-monitor/platform/quick-audit-notify-action-subscription.md",
+      "redirect_url":  "/azure/azure-monitor/platform/alerts-activity-log",
+      "redirect_document_id":  false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -36336,6 +36361,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/release-notes-december-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0#december-2018",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-october-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0#october-2018",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
       "redirect_document_id": false
@@ -36388,7 +36423,7 @@
     },
     {
       "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
-      "redirect_url": "https://docs.microsoft.com/previous-versions/azure/reference/mt219005(v=azure.100)",
+      "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
       "redirect_document_id": false
     },
     {

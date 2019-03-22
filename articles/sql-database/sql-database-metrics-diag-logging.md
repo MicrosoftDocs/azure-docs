@@ -102,7 +102,7 @@ To enable streaming of diagnostics telemetry for an elastic pool resource, follo
 > [!IMPORTANT]
 > In addition to configuring diagnostics telemetry for an elastic pool, you also need configure diagnostics telemetry for each database in elastic pool, as documented below. 
 
-### Configure streaming of diagnostics telemetry for single datatbase, or database in elastic pool
+### Configure streaming of diagnostics telemetry for single database, or database in elastic pool
 
    ![SQL Database icon](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
