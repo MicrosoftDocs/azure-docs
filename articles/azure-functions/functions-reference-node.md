@@ -614,7 +614,7 @@ When developing Azure Functions in the serverless hosting model, cold starts are
 
 ### Connection Limits
 
-When you are using a service-specific client in an Azure Functions application, **do not** create a new client with every function invocation. Create a single, static client in the global scope. For more information, read about [managing connections in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections).
+When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections).
 
 ## Next steps
 
