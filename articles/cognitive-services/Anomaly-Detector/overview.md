@@ -13,7 +13,7 @@ ms.author: aahi
  
 # What is the Anomaly Detector API?
 
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best fitting statistical models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
@@ -36,11 +36,11 @@ To quickly begin using the Anomaly Detector API, try an [online demo](https://no
 
 To run the demo, complete the following steps:
 
-1. Get a valid Anomaly Detector API subscription key. The section below has instructions for signing up.  
+1. Get a valid Anomaly Detector API subscription key and an API endpoint. The section below has instructions for signing up.  
 2. Sign in, and click Clone, in the upper right corner.
 3. Click **Run on free compute**
 4. Select one of the notebooks for this sample.
-5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable.
+5. Add your valid Anomaly Detector API subscription key to the `subscription_key` variable and update your endpoint to the `endpoint` variable.
 6. On the top menu bar, click **Cell**, then **Run All**.
 
 ## Workflow
