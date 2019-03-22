@@ -62,7 +62,7 @@ Multiple projects can be associated to a single resource. More detail about [Pri
     ![Project Migration window.](./media/move-your-project-to-azure/Project_Migration_Window.jpg)
 
 
-## Move your Limited Trial project to an Azure resource in another directory 
+## Move project to another Azure directory 
 
 > [!NOTE]
 > In both the Azure portal and CustomVision.ai, you can select your directory from the drop-down User menu at the top-right corner of the screen.   
@@ -90,4 +90,6 @@ Multiple projects can be associated to a single resource. More detail about [Pri
 
 5. Remember, your project is now in a different directory. To find your project, you will need to switch to the same directory on the Custom Vision web portal that your project is in. In both the Azure portal and the [Custom Vision website](https://customvision.ai), you can select your directory from the drop-down account menu at the top-right corner of the screen. 
 
+## Next steps
 
+Your project has now been moved to an Azure resource. You will need to update your Training and Prediction keys in any applications you have written.

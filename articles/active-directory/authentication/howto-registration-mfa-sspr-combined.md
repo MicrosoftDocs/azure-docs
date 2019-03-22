@@ -1,12 +1,12 @@
 ---
-title: Get started with combined registration for Azure AD SSPR and MFA (preview)
+title: Get started with combined registration for Azure AD SSPR and MFA (preview) - Azure Active Directory
 description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,8 +36,17 @@ Complete the following steps to enable combined registration:
 
 ![Enable the combined security info preview experience for All users in the Azure AD portal](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 > [!NOTE]
-> Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) will be required to perform multi-factor authentication before they can access the page.
+> Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https:/aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
+
+If you have configured the site to zone assignment list in Internet Explorer the following sites must be in the same zone:
+
+* [https://login.microsoftonline.com](https://login.microsoftonline.com)
+* [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+* [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
 ## Next steps
 

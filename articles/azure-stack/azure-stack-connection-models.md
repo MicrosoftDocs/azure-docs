@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 02/21/2019
 
 ---
 # Azure Stack integrated systems connection models
@@ -34,12 +34,14 @@ You can choose to deploy Azure Stack either connected to the internet (and to Az
 
 
 |Options|Connected to Azure|Disconnected from Azure|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![Supported](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Supported](media/azure-stack-connection-models/check.png)|![Supported](media/azure-stack-connection-models/check.png)|
 |Consumption-based billing|![Supported](media/azure-stack-connection-models/check.png)| |
 |Capacity-based billing|![Supported](media/azure-stack-connection-models/check.png)|![Supported](media/azure-stack-connection-models/check.png)|
-|Download update packages directly to Azure Stack|![Supported](media/azure-stack-connection-models/check.png)|  |
+|Licensing| Enterprise Agreement or Cloud Solution Provider | Enterprise Agreement |
+|Patch and update|Update package can be downloaded directly from the Internet to Azure Stack |  Required<br><br>Also requires removable media<br> and a separate connected device |
+| Registration | Automated | Required<br><br>Also requires removable media<br> and a separate connected device |
 
 After you've decided on the Azure connection model to be used for Azure Stack deployment, additional, connection-dependent decisions must be made for the identity store and billing method. 
 

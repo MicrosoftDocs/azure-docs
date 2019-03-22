@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 # Retrieve access review results for groups or applications in Azure AD Access Reviews
 
-Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **User Account Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global administrator**, **User administrator**, **Security administrator** or **Security reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged role administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global administrator can permanently [assign a user to the role](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

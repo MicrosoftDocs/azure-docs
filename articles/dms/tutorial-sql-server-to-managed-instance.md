@@ -1,19 +1,19 @@
 ---
-title: "Tutorial: Use DMS to migrate to Azure SQL Database managed instance | Microsoft Docs"
-description: Learn to migrate from SQL Server on-premises to Azure SQL Database managed instance by using the Azure Database Migration Service.
+title: "Tutorial: Use DMS to migrate to an Azure SQL Database managed instance | Microsoft Docs"
+description: Learn to migrate from SQL Server on-premises to an Azure SQL Database managed instance by using the Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/12/2019
 ---
 
-# Tutorial: Migrate SQL Server to Azure SQL Database managed instance offline using DMS
+# Tutorial: Migrate SQL Server to an Azure SQL Database managed instance offline using DMS
 
 You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database managed instance](../sql-database/sql-database-managed-instance.md). For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Database managed instance](../sql-database/sql-database-managed-instance-migrate.md).
 
@@ -29,14 +29,23 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an offline migration from SQL Server to Azure SQL Database managed instance. For an online migration, see [Migrate SQL Server to Azure SQL Database managed instance online using DMS](tutorial-sql-server-managed-instance-online.md).
+This article describes an offline migration from SQL Server to an Azure SQL Database managed instance. For an online migration, see [Migrate SQL Server to an Azure SQL Database managed instance online using DMS](tutorial-sql-server-managed-instance-online.md).
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-- Create a VNET for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
-- Ensure that your Azure Virtual Network (VNET) Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+
+    > [!NOTE]
+    > During VNET setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > - Storage endpoint
+    > - Service bus endpoint
+    >
+    > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
+
+- Ensure that your VNET Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure your [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
@@ -138,7 +147,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. On the **Migration target details** screen, specify the connection details for the target, which is the pre-provisioned Azure SQL Database managed instance to which you're migrating the **AdventureWorks2012** database.
 
-    If you haven't already provisioned the Azure SQL Database managed instance, select **No** for a link to help you provision the instance. You can still proceed with project creation and then, when the Azure SQL Database managed instance is ready, return to this specific project to execute the migration.
+    If you haven't already provisioned the Azure SQL Database managed instance, select **No** for a link to help you provision the instance. You can still continue with project creation and then, when the Azure SQL Database managed instance is ready, return to this specific project to execute the migration.
 
        ![Select Target](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
@@ -174,7 +183,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. The Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure storage container for restore operation. If TDE-enabled databases are selected for migration, the above windows user must be the built-in administrator account and [User Account Control](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) must be disabled for Azure Database Migration Service to upload and delete the certificates files.) |
     |**Password** | Password for the user. |
     |**Storage account settings** | The SAS URI that provides the Azure Database Migration Service with access to your storage account container to which the service uploads the back-up files and that is used for migrating databases to Azure SQL Database managed instance. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**TDE Settings** | If you are migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target Azure SQL Database managed instance.  Select the subscription in which the Azure SQL Database managed instance provisioned from the drop-down menu.  Select the target **Azure SQL Database Managed Instance** in the drop-down menu. |
+    |**TDE Settings** | If you're migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target Azure SQL Database managed instance.  Select the subscription in which the Azure SQL Database managed instance provisioned from the drop-down menu.  Select the target **Azure SQL Database Managed Instance** in the drop-down menu. |
 
     ![Configure Migration Settings](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 

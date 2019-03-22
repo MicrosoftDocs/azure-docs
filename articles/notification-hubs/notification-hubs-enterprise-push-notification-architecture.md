@@ -21,7 +21,7 @@ ms.author: jowargo
 
 Enterprises today are gradually moving towards creating mobile applications for either their end users (external) or for the employees (internal). They have existing backend systems in place be it mainframes or some LoB applications, which must be integrated into the mobile application architecture. This guide talks about how best to do this integration recommending possible solution to common scenarios.
 
-A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems. for example, a bank customer who has the bank's banking app on an iPhone wants to be notified when a debit is made above a certain amount from the account or an intranet scenario where an employee from finance department who has a budget approval app on a Windows Phone wants to be notified when the approval request is received.
+A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems. For example, a bank customer who has the bank's banking app on an iPhone wants to be notified when a debit is made above a certain amount from the account or an intranet scenario where an employee from finance department who has a budget approval app on a Windows Phone wants to be notified when the approval request is received.
 
 The bank account or approval processing is likely to be done in some backend system, which must initiate a push to the user. There may be multiple such backend systems, which must all build the same kind of logic to push when an event triggers a notification. The complexity here lies in integrating several backend systems together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications. For example,  intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems. The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component, which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.
 
@@ -261,7 +261,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 ### Running the sample
 
 1. Ensure that your WebJob is running successfully and scheduled to run continuously.
-2. Run the **EnterprisePushMobileApp, which starts the Windows Store app.
+2. Run the **EnterprisePushMobileApp**, which starts the Windows Store app.
 3. Run the **EnterprisePushBackendSystem** console application, which simulates the LoB backend and starts sending messages and you should see toast notifications appearing like the following image:
 
     ![][5]
@@ -280,9 +280,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 <!-- Links -->
 [Notification Hub Samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Service]: http://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub programming]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Mobile Service]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Service Bus Pub/Sub programming]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/webjobs-create.md
-[Notification Hubs - Windows Universal tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs - Windows Universal tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure portal]: https://portal.azure.com/

@@ -74,7 +74,7 @@ public class Program
     {
         var host = BuildWebHost(args);
         var logger = host.Services.GetRequiredService<ILogger<Program>>();
-        logger.LogInformation("From Program. Running the host now.."); // This will be picked up up by AI
+        logger.LogInformation("From Program. Running the host now.."); // This will be picked up by AI
         host.Run();
     }
 
@@ -115,7 +115,7 @@ public class Startup
     {
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 	
-	// The following be picked up up by Application Insights.
+	// The following be picked up by Application Insights.
         _logger.LogInformation("From ConfigureServices. Services.AddMVC invoked"); 
     }
 
@@ -124,13 +124,13 @@ public class Startup
     {
         if (env.IsDevelopment())
         {
-	    // The following be picked up up by Application Insights.	
+	    // The following be picked up by Application Insights.	
             _logger.LogInformation("Configuring for Development environment");
             app.UseDeveloperExceptionPage();
         }
         else
         {
-            // The following be picked up up by Application Insights.
+            // The following be picked up by Application Insights.
             _logger.LogInformation("Configuring for Production environment");
         }
 
@@ -153,7 +153,7 @@ public class ValuesController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
     {
-        // All the following logs will be picked upby Application Insights.
+        // All the following logs will be picked up by Application Insights.
 	// and all have ("MyKey", "MyValue") in Properties.
 	using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
         {			
@@ -217,6 +217,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 In this example, the configuration used by `ApplicationInsightsLoggerProvider` is the same as used by regular application monitoring. Therefore both `ILogger` traces and other telemetry (Requests, Dependencies etc.) will be running the same set of `TelemetryInitializers`, `TelemetryProcessors`, and `TelemetryChannel`. They will be correlated and sampled/not sampled in the same way.
 
 However, there is an exception to this behavior. The default `TelemetryConfiguration` is not fully set up when logging something from `Program.cs` or `Startup.cs` itself, so those logs will not have the default configuration. However, every other log (for example, logs from Controllers, Models etc.) would share the configuration.
+
+## Control logging level
+
+Apart from filtering logs on code as in the examples above, it is also possible to control the level of logging Application Insights captures, by modifying the `appsettings.json`. The [ASP.NET logging fundamentals documentation](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) shows how to achieve this. Specifically for Application Insights, the name of the provider alias is `ApplicationInsights`, as shown in the below example which configures `ApplicationInsights` to capture only logs of `Warning` and above from all categories.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## Next steps
 

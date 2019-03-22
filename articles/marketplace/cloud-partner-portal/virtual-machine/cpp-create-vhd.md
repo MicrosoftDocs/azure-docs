@@ -45,25 +45,25 @@ Alternately, Azure offers a range of approved Linux distributions.  For a curren
 In the Microsoft [Azure portal](https://ms.portal.azure.com/), create the base image using the following steps.
 
 1. Sign in to the portal with the Microsoft account for the Azure subscription you want to publish your VM offer.
-2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Create a new resource group and provide your **Resource group name**, **Subscription**, and **Resource group location**.  For more guidance, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Click on **Virtual machines** in the left menubar to display the Virtual machines details page. 
 4. In this new page, click on **+Add** to display the **Compute** blade.  If you do not see the VM type on the initial screen, you can search for the name of your base VM, for example:
 
     ![Compute blade of new VM](./media/publishvm_014.png)
 
 5. After you select the proper virtual image, provide the following values:
-  * On the **Basics** blade, enter a **Name** for the virtual machine, between 1-15 alphanumeric characters. (This example uses `DemoVm009`.)
-  * Enter a **User name** and a strong **Password**, which are used to create a local account on the VM.  (Here `adminUser` is used.)  The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [Username and password requirements](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Select the Resource group you created (here `DemoResourceGroup`).
-  * Select an Azure Datacenter **Location** (here `West US`).
-  * Click **OK** to save these values. 
+   * On the **Basics** blade, enter a **Name** for the virtual machine, between 1-15 alphanumeric characters. (This example uses `DemoVm009`.)
+   * Enter a **User name** and a strong **Password**, which are used to create a local account on the VM.  (Here `adminUser` is used.)  The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [Username and password requirements](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Select the Resource group you created (here `DemoResourceGroup`).
+   * Select an Azure Datacenter **Location** (here `West US`).
+   * Click **OK** to save these values. 
 
-6.	Select the size of the VM to deploy using the following recommendations:
-  *	If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
-  *	If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
-  *	For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will display the three recommended sizes provided by the publisher. (Here, the publisher is Microsoft.)
+6. Select the size of the VM to deploy using the following recommendations:
+   * If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
+   * If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
+   * For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will display the three recommended sizes provided by the publisher. (Here, the publisher is Microsoft.)
 
-    ![Size blade of new VM](./media/publishvm_015.png)
+   ![Size blade of new VM](./media/publishvm_015.png)
 
 7. In the **Settings** blade, set the **Use Managed Disk** option to **No**.  This enables you to manually manage the new VHD. (The **Settings** blade also enables you to change other change the storage and network options, for example, selecting **Premium (SSD)** in **Disk type**.)  Click **OK** to continue.
 

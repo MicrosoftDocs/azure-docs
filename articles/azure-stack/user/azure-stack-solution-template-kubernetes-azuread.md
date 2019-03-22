@@ -50,7 +50,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 Set up a service principal in Azure. The service principal gives your application access to Azure Stack resources.
 
-1. Sign in to the global [Azure portal](http://portal.azure.com).
+1. Sign in to the global [Azure portal](https://portal.azure.com).
 
 1. Check that you signed in using the Azure AD tenant associated with the Azure Stack instance. You can switch your sign-in by clicking the filter icon in the Azure toolbar.
 
@@ -164,3 +164,5 @@ Give the service principal access to your subscription so that the principal can
 ## Next steps
 
 [Connect to your cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Enable the Kubernetes Dashboard](azure-stack-solution-template-kubernetes-dashboard.md)

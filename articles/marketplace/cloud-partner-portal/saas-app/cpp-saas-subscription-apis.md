@@ -61,49 +61,49 @@ authenticated, the URI that identifies the app, and so on.
 
 To register a new application using the Azure portal, perform the following steps:
 
-1.  Sign in to the [Azure Portal](https://portal.azure.com/).
-2.  If your account gives you access to more than one, click your
-    account in the top right corner, and set your portal session to the
-    desired Azure AD tenant.
-3.  In the left-hand navigation pane, click the **Azure Active
-    Directory** service, click **App registrations**, and click **New application registration**.
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
+2. If your account gives you access to more than one, click your
+   account in the top right corner, and set your portal session to the
+   desired Azure AD tenant.
+3. In the left-hand navigation pane, click the **Azure Active
+   Directory** service, click **App registrations**, and click **New application registration**.
 
-    ![SaaS AD App Registrations](./media/saas-offer-app-registration.png)
+   ![SaaS AD App Registrations](./media/saas-offer-app-registration.png)
 
-4.  On the Create page, enter your application\'s registration
-    information:
-    -   **Name**: Enter a meaningful application name
-    -   **Application type**: 
-        - Select **Native** for [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
-        - Select **Web app / API** for
-        [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
-        and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
-        that are installed on a secure server. This setting is used for
-        OAuth confidential [web clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)
-        and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-        The same application can also expose both a client and resource/API.
-    -   **Sign-On URL**: For Web app/API applications, provide the base
-        URL of your app. For example, **http://localhost:31544** might
-        be the URL for a web app running on your local machine. Users
-        would then use this URL to sign in to a web client application.
-    -   **Redirect URI**: For Native applications, provide the URI used
-        by Azure AD to return token responses. Enter a value specific to
-        your application, for example **http://MyFirstAADApp**.
+4. On the Create page, enter your application\'s registration
+   information:
+   - **Name**: Enter a meaningful application name
+   - **Application type**: 
+     - Select **Native** for [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
+     - Select **Web app / API** for
+     [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
+     and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
+     that are installed on a secure server. This setting is used for
+     OAuth confidential [web clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)
+     and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+     The same application can also expose both a client and resource/API.
+   - **Sign-On URL**: For Web app/API applications, provide the base
+     URL of your app. For example, **http:\//localhost:31544** might
+     be the URL for a web app running on your local machine. Users
+     would then use this URL to sign in to a web client application.
+   - **Redirect URI**: For Native applications, provide the URI used
+     by Azure AD to return token responses. Enter a value specific to
+     your application, for example **http:\//MyFirstAADApp**.
 
-        ![SaaS AD App Registrations](./media/saas-offer-app-registration-2.png)
-        For specific examples for web applications or native
-        applications, check out the quick start guided setups that are
-        available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     ![SaaS AD App Registrations](./media/saas-offer-app-registration-2.png)
+     For specific examples for web applications or native
+     applications, check out the quick start guided setups that are
+     available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  When finished, click **Create**. Azure AD assigns a unique
-    Application ID to your application, and you\'re taken to your
-    application\'s main registration page. Depending on whether your
-    application is a web or native application, different options are
-    provided to add additional capabilities to your application.
+5. When finished, click **Create**. Azure AD assigns a unique
+   Application ID to your application, and you\'re taken to your
+   application\'s main registration page. Depending on whether your
+   application is a web or native application, different options are
+   provided to add additional capabilities to your application.
 
-    **Note:**By default, the newly registered application is configured
-    to allow only users from the same tenant to sign in to your
-    application.
+   **Note:**By default, the newly registered application is configured
+   to allow only users from the same tenant to sign in to your
+   application.
 
 API Methods and Endpoints
 -------------------------
@@ -535,6 +535,7 @@ The Get action on subscribe endpoint allows a user to retrieve a subscription wi
     "lastModified": ""
 }
 ```
+
 | **Parameter name**     | **Data type** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | ID of SaaS subscription resource in Azure.    |

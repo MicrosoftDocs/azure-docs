@@ -30,6 +30,12 @@
       href: node-tutorial.md
     - name: Object detection
       href: node-tutorial-object-detection.md
+  - name: Using the Go SDK
+    items:
+    - name: Image classification
+      href: go-tutorial.md
+    - name: Object detection
+      href: go-tutorial-object-detection.md
 - name: Tutorials
   items:
   - name: Logo detector for mobile

@@ -7,12 +7,12 @@ author: kraigb
 manager: douge
 
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
 ---
 
@@ -47,6 +47,9 @@ Although you can always view Azure Notebooks without signing in, you must sign i
 1. After successfully signing in, Azure Notebooks navigates to your public profile page, on which you can select **Edit Profile Information** to fill out the rest of your information (for more information, see [Your profile and user ID](azure-notebooks-user-profile.md)):
 
     ![Initial view of an Azure Notebooks profile page](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> If you see the message, "User ID is already in use," try a different ID. User IDs are unique across all Azure Notebooks accounts, and Azure Notebooks also reserves certain user IDs, such as Microsoft brand names.
 
 ## Sign out
 

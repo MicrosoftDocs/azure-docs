@@ -75,6 +75,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 MoveCost has four levels: Zero, Low, Medium, and High. MoveCosts are relative to each other, except for Zero. Zero move cost means that movement is free and should not count against the score of the solution. Setting your move cost to High does *not* guarantee that the replica stays in one place.
 
 <center>
+
 ![Move cost as a factor in selecting replicas for movement][Image1]
 </center>
 

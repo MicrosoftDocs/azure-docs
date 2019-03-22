@@ -12,7 +12,7 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
 
@@ -30,7 +30,7 @@ Can create and manage Hybrid Connections. A Hybrid Connection is an easy way to 
 
 **Developer**
 
-Includes Hybrid Connections, EAI and EDI message processing with an easy-to-use trading partner management portal, and support for common EDI schemas and rich EDI processing over X12 and AS2. Can create common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages.  Utilize connectivity to on-premises LOB systems with ready-to-use SAP, Oracle eBusiness, Oracle DB, Siebel, and SQL Server adapters. Use a developer centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purposes only with no Service Level Agreement (SLA).
+Includes Hybrid Connections, EAI and EDI message processing with an easy-to-use trading partner management portal, and support for common EDI schemas and rich EDI processing over X12 and AS2. Can create common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages.  Utilize connectivity to on-premises LOB systems with ready-to-use SAP, Oracle eBusiness, Oracle DB, Siebel, and SQL Server adapters. Use a developer-centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purposes only with no Service Level Agreement (SLA).
 
 **Basic**
 
@@ -158,7 +158,7 @@ For Service Level Agreement (SLA), see <a HREF="https://go.microsoft.com/fwlink/
 <td>Included</td>
 </tr>
 <tr>
-<td><strong>Backup and restore</strong></td>
+<td><strong>Back up and restore</strong></td>
 <td>Not included</td>
 <td>Included</td>
 <td>Included</td>

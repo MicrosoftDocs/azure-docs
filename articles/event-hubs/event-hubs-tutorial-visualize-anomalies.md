@@ -9,7 +9,7 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 02/26/2019
 #Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
 ---
 
@@ -321,12 +321,14 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
     ![Screenshot specifying title and subtitle for dashboard tile.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > When you run the sample application and stream data to the event hub, the number on this tile changes rapidly (every second). It's because the Stream Analytics query actually updates the value **every second**. Update the query to a 3 minute tumbling window to see the sum in the last few minutes. 
 11. Add another visualization. Repeat the first few steps again:
 
-   * Click **Add Tile**.
-   * Select **Custom Streaming Data**. 
-   * Click **Next**.
-   * Select your dataset and then click **Next**. 
+    * Click **Add Tile**.
+    * Select **Custom Streaming Data**. 
+    * Click **Next**.
+    * Select your dataset and then click **Next**. 
 
 12. Under **Visualization Type**, select **Line chart**.
 

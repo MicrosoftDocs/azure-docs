@@ -43,15 +43,15 @@ To learn more about working with the WebJobs SDK, see [How to use the Azure WebJ
 
 1. Install the latest stable 3.x versions of the following NuGet packages:
 
-    * `Microsoft.Azure.WebJobs`
-    * `Microsoft.Azure.WebJobs.Extensions`
+   * `Microsoft.Azure.WebJobs`
+   * `Microsoft.Azure.WebJobs.Extensions`
 
-    Here's the **Package Manager Console** commands for version 3.0.4:
+     Here's the **Package Manager Console** commands for version 3.0.4:
 
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-    Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
-    ```
+     ```powershell
+     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     ```
 
 ## Create the Host
 
@@ -290,7 +290,7 @@ In this section, you build and run the project locally and trigger the function 
 
    Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
 
-  The console output looks like this:
+   The console output looks like this:
 
    ```console
     info: Function.ProcessQueueMessage[0]

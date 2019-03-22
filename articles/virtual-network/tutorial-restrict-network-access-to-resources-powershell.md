@@ -193,13 +193,13 @@ The key is used to create a file share in a later step. Enter `$storageAcctKey` 
 
 ### Create a file share in the storage account
 
-Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/azure.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key:
+Create a context for your storage account and key with [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). The context encapsulates the storage account name and account key:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Create a file share with [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare):
+Create a file share with [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 

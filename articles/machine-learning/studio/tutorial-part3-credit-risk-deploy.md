@@ -66,12 +66,11 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Highlights which modules to delete to remove the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Our model should now look something like this:
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulting experiment when the Support Vector Machine model is deleted](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
@@ -229,7 +228,7 @@ The quickest and easiest way to access a Classic web service is through the [Azu
 
 These web app templates can build a custom web app that knows your web service's input data and what it will return. All you need to do is provide access to your web service and data, and the template does the rest.
 
-For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](consume-web-service-with-web-app-template.md).
+For more information on using the web app templates, see [Consume an Azure Machine Learning Web service with a web app template](/azure/machine-learning/studio/consume-web-services).
 
 
 

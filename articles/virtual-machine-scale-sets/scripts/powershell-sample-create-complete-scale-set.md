@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Create a complete virtual machine scale set with PowerShell
 
-This script creates a virtual machine scale set running Windows Server 2016. Individual resources are configured and created, rather than the using the [built-in resource creation options avaiable here in New-AzVmss](powershell-sample-create-simple-scale-set.md). After running the script, you can access the VM instances through RDP.
+This script creates a virtual machine scale set running Windows Server 2016. Individual resources are configured and created, rather than the using the [built-in resource creation options available here in New-AzVmss](powershell-sample-create-simple-scale-set.md). After running the script, you can access the VM instances through RDP.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

@@ -9,7 +9,7 @@ editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
@@ -83,7 +83,7 @@ Some available options are:
 
 1.	Go to the Azure portal, and sign in to your account.
  
-2.	[Create a new virtual network ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
+2.	[Create a new virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
  
 3.	On the **Virtual network** blade, select **Service endpoints**.
  

@@ -9,14 +9,19 @@
   - name: What happened to Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
+- name: Setup
+  items:
+  - name: Create a workspace
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Get started - Portal
-    displayName: install sdk workspace
-    href: quickstart-get-started.md
-  - name: Get started - Python
-    displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+  - name: Experiment with a cloud notebook
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: Experiment with a local notebook
+    displayName: workspace install sdk
+    href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
@@ -52,6 +57,16 @@
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
+  - name: Security
+    items:
+    - name: Enterprise security overview
+      displayName: authorization authentication encryption
+      href: concept-enterprise-security.md
+    - name: Use virtual networks
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Secure web services with SSL
+      href: how-to-secure-web-service.md
 - name: How-to guides
   items:
   - name: Manage workspaces
@@ -83,14 +98,14 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
+  - name: Get data in datastore
+    displayName: blob get fileshare access storage
+    href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
-    - name: Access data in training
-      displayName: blob
-      href: how-to-access-data.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use PyTorch
@@ -100,7 +115,7 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-    - name: Track experiments and metrics
+    - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
@@ -110,6 +125,8 @@
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Auto-train forecast models
+      href: how-to-auto-train-forecast.md
   - name: ONNX models
     href: how-to-build-deploy-onnx.md
   - name: Deploy models
@@ -136,13 +153,6 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Security
-    items: 
-    - name: Use virtual networks
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Secure web services with SSL
-      href: how-to-secure-web-service.md
   - name: Create your first pipeline
     href: how-to-create-your-first-pipeline.md
   - name: Enable logging
@@ -185,4 +195,5 @@
   - name: Get support
     href: support-for-aml-services.md
   - name: Compare our ML products
-    href: overview-more-machine-learning.md
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+    maintainContext: true

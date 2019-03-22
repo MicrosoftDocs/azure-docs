@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma

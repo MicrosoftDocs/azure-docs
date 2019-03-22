@@ -10,7 +10,7 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/26/2019
 ---
 
 # Pricing model for Azure Logic Apps
@@ -37,18 +37,20 @@ For more information, see [Logic Apps Pricing](https://azure.microsoft.com/prici
 
 For new logic apps that run inside an 
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-you pay a fixed monthly price for built-in actions and 
-standard ISE-labeled connectors. An ISE provides a way 
-for you to create and run isolated logic apps that can 
-access resources in an Azure virtual network.  
+you pay a fixed monthly price for built-in actions 
+and standard connectors. An ISE provides a way for 
+you to create and run isolated logic apps that can 
+access resources in an Azure virtual network. 
 
-Your ISE includes one free Enterprise connector, which includes 
-as many connections as you want. Usage for additional Enterprise 
-connectors are charged based on the Enterprise consumption price. 
+Your ISE base unit has fixed capacity, so if you need more throughput, 
+you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
+either during creation or afterwards. Your ISE includes one free 
+Enterprise connector, which includes as many connections as you want. 
+Usage for additional Enterprise connectors are charged based 
+on the Enterprise consumption price. 
 
 > [!NOTE]
-> The integration service environment is in *private preview*. 
-> To request access, [create your request to join here](https://aka.ms/iseprivatepreview). 
+> The ISE is in [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > For more information, see 
 > [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 

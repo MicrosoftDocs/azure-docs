@@ -158,7 +158,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
-The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
+   The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -215,8 +215,6 @@ To enable Application Insights for your function app in Azure:
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
-
-For more information about Azure Functions Tools, see the Common Questions section of the [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blog post.
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
 

@@ -35,6 +35,8 @@ Currently, you can route the logs to:
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Diagnostic settings configuration
 
 To configure monitoring settings for Azure AD activity logs, first sign-in to the [Azure portal](https://portal.azure.com), then select **Azure Active Directory**. From here, you can access the diagnostic settings configuration page in two ways:

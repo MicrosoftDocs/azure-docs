@@ -130,7 +130,7 @@
       href: deploy-container-networking.md
     - name: Virtual machines
       items:
-      - name: Create a VM with a static public IP address
+      - name: Create VM - Static public IP address
         items:
         - name: Azure portal
           href: virtual-network-deploy-static-pip-arm-portal.md
@@ -138,6 +138,8 @@
           href: virtual-network-deploy-static-pip-arm-ps.md
         - name: Azure CLI
           href: virtual-network-deploy-static-pip-arm-cli.md
+      - name: Add public IP address to existing VM
+        href: associate-public-ip-address-vm.md
       - name: Create VM - Static private IP address
         items:
         - name: Azure portal
@@ -352,7 +354,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: http://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Pricing
@@ -360,6 +362,6 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-network
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: virtual-networks-faq.md

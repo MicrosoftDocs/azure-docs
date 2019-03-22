@@ -74,7 +74,7 @@ The following elements are used to define the claim:
 
 #### DropdownSingleSelect
 
-![Screen shot of dropdown option](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Screenshot of dropdown option](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">

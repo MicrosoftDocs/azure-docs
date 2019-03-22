@@ -130,41 +130,41 @@ public ActionResult About()
 }
 ```
 
-4. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the `ViewBag.Message` line.
+1. [Set a breakpoint](https://docs.microsoft.com/visualstudio/debugger/) on the `ViewBag.Message` line.
 
-5. In **Solution Explorer**, right-click the project, and click **Publish**.
+1. In **Solution Explorer**, right-click the project, and click **Publish**.
 
-6. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md). Then, click Settings.
+1. In the **Profile** drop-down list, select the same profile that you used in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md). Then, click Settings.
 
-7. In the **Publish** dialog, click the **Settings** tab, and then change **Configuration** to **Debug**, and then click **Save**.
+1. In the **Publish** dialog, click the **Settings** tab, and then change **Configuration** to **Debug**, and then click **Save**.
 
     ![Publish in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Click **Publish**. After deployment finishes and your browser opens to the Azure URL of your app, close the browser.
+1. Click **Publish**. After deployment finishes and your browser opens to the Azure URL of your app, close the browser.
 
-9. In **Server Explorer**, right-click your app, and then click **Attach Debugger**.
+1. In **Server Explorer**, right-click your app, and then click **Attach Debugger**.
 
     ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
+    The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on an app in a 48-hour period. When you start debugging again in the same period, there isn't a delay.
 
     > [!NOTE] 
     > If you have any trouble starting the debugger, try to do it by using **Cloud Explorer** instead of **Server Explorer**.
     >
 
-10. Click **About** in the menu.
+1. Click **About** in the menu.
 
-     Visual Studio stops on the breakpoint, and the code is running in Azure, not on your local computer.
+    Visual Studio stops on the breakpoint, and the code is running in Azure, not on your local computer.
 
-11. Hover over the `currentTime` variable to see the time value.
+1. Hover over the `currentTime` variable to see the time value.
 
-     ![View variable in debug mode running in Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![View variable in debug mode running in Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     The time you see is the Azure server time, which may be in a different time zone than your local computer.
+    The time you see is the Azure server time, which may be in a different time zone than your local computer.
 
-12. Enter a new value for the `currentTime` variable, such as "Now running in Azure".
+1. Enter a new value for the `currentTime` variable, such as "Now running in Azure".
 
-13. Press F5 to continue running.
+1. Press F5 to continue running.
 
      The About page running in Azure displays the new value that you entered into the currentTime variable.
 
@@ -307,7 +307,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Add a `using System.Diagnostics;` statement to the top of the file.
+1. Add a `using System.Diagnostics;` statement to the top of the file.
 
 ### View the tracing output locally
 1. Press F5 to run the application in debug mode.
@@ -335,15 +335,15 @@ public ActionResult Contact()
 ```
 
 The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
-3. Add a <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
+1. Add a <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Press CTRL+F5 to run the application.
-5. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to http://localhost:53370/trace.axd).
-6. On the **Application Trace** page, click **View Details** on the first line (not the BrowserLink line).
+1. Press CTRL+F5 to run the application.
+1. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL is similar to `http://localhost:53370/trace.axd`).
+1. On the **Application Trace** page, click **View Details** on the first line (not the BrowserLink line).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -473,7 +473,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
    * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
    * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
-    (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
+     (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
@@ -681,7 +681,7 @@ For more information about analyzing web server logs, see the following resource
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   A tool for viewing data in web server logs (*.log* files).
-* [Troubleshooting IIS Performance Issues or Application Errors using LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Troubleshooting IIS Performance Issues or Application Errors using LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   An introduction to the Log Parser tool that you can use to analyze web server logs.
 * [Blog posts by Robert McMurray on using LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [The HTTP status code in IIS 7.0, IIS 7.5, and IIS 8.0](https://support.microsoft.com/kb/943891)

@@ -132,5 +132,5 @@ Here are the known restrictions of app cloning:
 * [Back up an app in Azure App Service](manage-backup.md)
 * [Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introduction to App Service Environment](environment/intro.md)
-* [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/manage-resources-powershell.md)
 
