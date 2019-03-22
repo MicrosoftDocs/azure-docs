@@ -68,7 +68,7 @@ class Program
             logger.LogInformation("Logger is working"); // this will be captured by Application Insights.
         }
 
-        // Explicitly flush followed by sleep is required in Console Apps.
+        // Explicitly call Flush() followed by sleep is required in Console Apps.
         // This is to ensure that even if application terminates, telemetry is sent to the back-end.
         channel.Flush();
         Thread.Sleep(1000);
@@ -215,7 +215,7 @@ The following section shows how to override the default `TelemetryConfiguration`
     ........
     ........
 
-    // Explicitly flush followed by sleep is required in Console Apps.
+    // Explicitly call Flush() followed by sleep is required in Console Apps.
     // This is to ensure that even if application terminates, telemetry is sent to the back-end.
     serverChannel.Flush();
     Thread.Sleep(1000);
