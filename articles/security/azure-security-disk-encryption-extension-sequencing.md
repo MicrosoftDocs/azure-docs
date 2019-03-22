@@ -19,11 +19,11 @@ In general, encryption should be applied to a disk:
 - After extensions or custom scripts that prepare the disks or volumes.
 - Before extensions or custom scripts that access or consume the data on the encrypted disks or volumes.
 
-In either case, the `provisionAfterExtensions` property is used to designate which extension should be added later in the sequence. 
+In either case, the `provisionAfterExtensions` property designates which extension should be added later in the sequence.
 
-## Sample Azure template deployment
+## Sample Azure templates
 
-If, for instance, you wish to have the Azure Disk Encryption extention added after an extension that prepares a disk, put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block:
+If, for instance, you wish to have Azure Disk Encryption applied after an extension called "DiskPreparationExtension", put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block:
 
 ```json
 "virtualMachineProfile": {
@@ -68,7 +68,7 @@ If, for instance, you wish to have the Azure Disk Encryption extention added aft
   }
 }
 ```
-If, on the other hand, you wish to have the Azure Disk Encryption extention added first, put the `provisionAfterExtensions` property in the blocks of the extensions that follow:
+If, on the other hand, you wish to have Azure Disk Encryption applied first, followed by an extention called "DiskDataAccessExtension", put the `provisionAfterExtensions` property in the "DiskDataAccessExtension" block:
 
 ```json
 "virtualMachineProfile": {
@@ -89,7 +89,7 @@ If, on the other hand, you wish to have the Azure Disk Encryption extention adde
             "KeyVaultURL": "[reference(variables('keyVaultResourceId'),'2018-02-14-preview').vaultUri]",
             "KeyVaultResourceId": "[variables('keyVaultResourceID')]",
             "KeyEncryptionKeyURL": "[parameters('keyEncryptionKeyURL')]",
-           "KekVaultResourceId": "[variables('keyVaultResourceID')]",
+            "KekVaultResourceId": "[variables('keyVaultResourceID')]",
             "KeyEncryptionAlgorithm": "[parameters('keyEncryptionAlgorithm')]",
             "VolumeType": "[parameters('volumeType')]",
             "ResizeOSDisk": "[parameters('resizeOSDisk')]"
